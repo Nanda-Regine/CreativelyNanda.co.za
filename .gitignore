@@ -3,4 +3,4 @@ node_modules
 "*.mov" 
 "public/assets/performance/performance-vid-3.mp4" 
 .env.local 
-.env
+.env.next 
