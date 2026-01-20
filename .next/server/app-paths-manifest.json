@@ -1,8 +1,7 @@
 {
-  "/work/page": "app/work/page.js",
-  "/education/page": "app/education/page.js",
-  "/notion/page": "app/notion/page.js",
   "/contact/page": "app/contact/page.js",
+  "/notion/page": "app/notion/page.js",
   "/mirembe/page": "app/mirembe/page.js",
+  "/education/page": "app/education/page.js",
   "/poetry/page": "app/poetry/page.js"
 }

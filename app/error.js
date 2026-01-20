@@ -1,6 +1,6 @@
-import Link from 'next/link';
+'use client';
 
-export default function NotFound() {
+export default function Error({ reset }) {
   return (
     <div style={{ 
       display: 'flex', 
@@ -10,9 +10,8 @@ export default function NotFound() {
       minHeight: '100vh',
       fontFamily: 'system-ui, sans-serif'
     }}>
-      <h1>404 - Page Not Found</h1>
-      <p>The page you're looking for doesn't exist.</p>
-      <Link href="/">Go back home</Link>
+      <h1>Something went wrong</h1>
+      <button onClick={() => reset()}>Try again</button>
     </div>
   );
 }
