@@ -29,7 +29,7 @@ export default function Navigation() {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-navy/95 backdrop-blur-md py-4' : 'bg-transparent py-6'
+        scrolled ? 'bg-navy/98 backdrop-blur-md py-4 shadow-lg' : 'bg-navy/95 backdrop-blur-sm py-6 shadow-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -94,7 +94,7 @@ export default function Navigation() {
 
       {/* Mobile Menu - Left Side Drawer */}
       <div
-        className={`lg:hidden fixed top-0 left-0 h-full w-72 bg-navy z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 left-0 h-full w-72 bg-navy/98 backdrop-blur-md z-50 transform transition-transform duration-300 ease-in-out shadow-2xl ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -126,7 +126,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Download CV Button - Not full width */}
+          {/* Download CV Button */}
           <a
             href="/assets/work/Nanda-cv.pdf"
             download="Nanda-CV.pdf"

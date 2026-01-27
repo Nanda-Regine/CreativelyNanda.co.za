@@ -494,12 +494,12 @@ export default function NandaAI() {
 
   return (
     <>
-      {/* Floating Chat Button with animated gradient */}
+      {/* Floating Chat Button - Better positioned for desktop and mobile */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center overflow-hidden group"
+        className="fixed bottom-8 right-6 md:bottom-8 md:right-8 z-50 w-16 h-16 md:w-18 md:h-18 rounded-full shadow-2xl flex items-center justify-center overflow-hidden group"
         style={{
           background: 'linear-gradient(135deg, #C1292E 0%, #D4AF37 50%, #C1292E 100%)',
           backgroundSize: '200% 200%',
@@ -540,7 +540,7 @@ export default function NandaAI() {
         </AnimatePresence>
       </motion.button>
 
-      {/* Chat Window */}
+      {/* Chat Window - Better positioned for desktop */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -548,7 +548,7 @@ export default function NandaAI() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] rounded-3xl shadow-2xl overflow-hidden"
+            className="fixed bottom-28 right-6 md:bottom-32 md:right-8 z-50 w-[380px] max-w-[calc(100vw-3rem)] rounded-3xl shadow-2xl overflow-hidden"
             style={{
               background: 'linear-gradient(180deg, #0A1128 0%, #151D33 100%)',
               border: '1px solid rgba(212, 175, 55, 0.2)'
