@@ -91,8 +91,8 @@ export default function Mirembe() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#2D5A3D]/60">
+        {/* Scroll indicator - hidden on mobile to avoid overlap with logo */}
+        <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-[#2D5A3D]/60">
           <span className="text-xs tracking-widest uppercase">Discover</span>
           <div className="w-px h-12 bg-gradient-to-b from-[#2D5A3D]/60 to-transparent animate-pulse" />
         </div>

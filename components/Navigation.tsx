@@ -94,11 +94,12 @@ export default function Navigation() {
 
       {/* Mobile Menu - Left Side Drawer */}
       <div
-        className={`lg:hidden fixed top-0 left-0 h-full w-72 bg-[#F5F0E8] z-[70] transform transition-transform duration-300 ease-in-out shadow-2xl ${
+        className={`lg:hidden fixed top-0 left-0 bottom-0 w-72 bg-[#F5F0E8] z-[70] transform transition-transform duration-300 ease-in-out shadow-2xl ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
+        style={{ height: '100vh', minHeight: '100%' }}
       >
-        <div className="px-6 py-6 h-full flex flex-col">
+        <div className="px-6 py-6 h-full flex flex-col bg-[#F5F0E8]">
           {/* Header with logo and close button */}
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#0A1128]/10">
             <span className="font-display text-2xl font-bold text-[#0A1128]">Nanda</span>
@@ -114,7 +115,7 @@ export default function Navigation() {
           </div>
 
           {/* Navigation Links */}
-          <div className="space-y-1 flex-1">
+          <div className="space-y-1 overflow-y-auto flex-1 pb-4">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -131,14 +132,16 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Download CV Button */}
-          <a
-            href="/assets/work/Nanda-cv.pdf"
-            download="Nanda-CV.pdf"
-            className="inline-block w-auto px-6 py-3 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center mt-4"
-          >
-            Download CV
-          </a>
+          {/* Download CV Button - Fixed at bottom */}
+          <div className="pt-4 border-t border-[#0A1128]/10 mt-auto">
+            <a
+              href="/assets/work/Nanda-cv.pdf"
+              download="Nanda-CV.pdf"
+              className="block w-full px-6 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center text-lg"
+            >
+              Download CV
+            </a>
+          </div>
         </div>
       </div>
     </nav>
