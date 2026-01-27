@@ -4388,6 +4388,14 @@ html {
     padding-bottom: 5rem;
   }
 
+  .lg\:pb-32 {
+    padding-bottom: 8rem;
+  }
+
+  .lg\:pt-24 {
+    padding-top: 6rem;
+  }
+
   .lg\:text-left {
     text-align: left;
   }

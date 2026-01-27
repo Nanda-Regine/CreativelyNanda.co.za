@@ -33,8 +33,8 @@ export default function Home() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-16 md:py-20 lg:py-0">
-          <div className="grid lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center min-h-[80vh]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-16 md:py-20 lg:pt-24 lg:pb-32">
+          <div className="grid lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center">
             
             {/* Left Side: Editorial Headlines */}
             <div className="lg:col-span-5 space-y-4 md:space-y-6 text-center lg:text-left order-2 lg:order-1">
