@@ -46,10 +46,11 @@ export default function Home() {
                     Introducing
                   </span>
                 </div>
-                
-                <h1 className="font-display text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-beige leading-[0.85] text-reveal" 
+
+                <h1 className="font-display font-bold text-beige leading-[0.9] text-reveal"
                     style={{ '--index': 2 }}>
-                  Nanda
+                  <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Nandawula</span>
+                  <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#D4A574] mt-1">Regine Kabali-Kagwa</span>
                 </h1>
                 
                 <div className="flex flex-wrap gap-3 justify-center lg:justify-start text-reveal" style={{ '--index': 3 }}>

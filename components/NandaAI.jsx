@@ -334,25 +334,38 @@ export default function NandaAI() {
     await new Promise(resolve => setTimeout(resolve, 600 + Math.random() * 600));
 
     const quickResponse = findResponse(messageText);
-    
+
     if (quickResponse) {
       setBotMood('happy');
       setMessages(prev => [...prev, { role: 'assistant', content: quickResponse }]);
     } else {
-      setBotMood('curious');
-      const fallbacks = [
-        "Ah, you've asked something beyond my scroll of knowledge. Perhaps the Projects page holds your answer? 🔍✨",
-        "That's a question for Nanda herself,email nandaregine@gmail.com for deeper wisdom. I'm but the gatekeeper. 📧💫",
-        "Interesting inquiry, beloved! Explore the Experience page, or reach out directly for that level of detail. 🌟",
-        "My knowledge has limits, but hers doesn't. Try the Contact page to unlock the full conversation. 💬",
-        "You've ventured beyond my programming, friend. Ask about skills, projects, or poetry or email her directly! 🎯",
-        "That's a beautiful question deserving of a human answer. She's at nandaregine@gmail.com, waiting. ✉️✨",
-        "I'm wise, but not that wise! For specifics like this, the Contact page is your sacred portal. 🚪💝"
-      ];
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: fallbacks[Math.floor(Math.random() * fallbacks.length)]
-      }]);
+      // Call the API for questions not in local knowledge base
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: [...messages, userMessage].map(m => ({
+              role: m.role,
+              content: m.content
+            }))
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setBotMood('happy');
+          setMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
+        } else {
+          throw new Error('API request failed');
+        }
+      } catch (error) {
+        setBotMood('curious');
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: "I'd love to tell you more! For detailed inquiries, please reach out to Nanda directly at nandaregine@gmail.com or visit the Contact page. 💫"
+        }]);
+      }
     }
     
     setIsTyping(false);
@@ -605,10 +618,10 @@ export default function NandaAI() {
             </div>
 
             {/* Messages Area with gradient mesh background */}
-            <div 
+            <div
               className="h-[280px] overflow-y-auto px-4 py-3 space-y-3 relative"
-              style={{ 
-                background: 'linear-gradient(135deg, rgba(10,17,40,0.95) 0%, rgba(21,29,51,0.95) 50%, rgba(10,17,40,0.95) 100%)'
+              style={{
+                background: 'linear-gradient(135deg, rgba(30,42,70,0.97) 0%, rgba(45,58,90,0.97) 50%, rgba(30,42,70,0.97) 100%)'
               }}
             >
               {/* Subtle animated mesh */}

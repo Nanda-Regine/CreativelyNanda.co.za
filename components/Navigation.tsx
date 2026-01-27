@@ -84,10 +84,34 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-navy/98 backdrop-blur-md border-t border-beige/10">
-          <div className="px-6 py-8 space-y-4">
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu - Left Side Drawer */}
+      <div
+        className={`lg:hidden fixed top-0 left-0 h-full w-72 bg-navy z-50 transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <div className="px-6 py-8 h-full flex flex-col">
+          {/* Close button */}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="self-end text-beige hover:text-cherry transition-colors mb-6"
+            aria-label="Close menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Navigation Links */}
+          <div className="space-y-4 flex-1">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -100,16 +124,18 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            
-             <a href="/assets/work/Nanda-cv.pdf"
-              download="Nanda-CV.pdf"
-              className="block w-full text-center px-5 py-3 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all mt-6"
-            >
-              Download CV
-            </a>
           </div>
+
+          {/* Download CV Button - Not full width */}
+          <a
+            href="/assets/work/Nanda-cv.pdf"
+            download="Nanda-CV.pdf"
+            className="inline-block w-auto px-6 py-3 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center"
+          >
+            Download CV
+          </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
