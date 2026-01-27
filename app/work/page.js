@@ -584,9 +584,9 @@ export default function Work() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap gap-4 mt-8"
           >
-            <a 
-              href="/cv.pdf" 
-              download
+            <a
+              href="/assets/work/Nanda-cv.pdf"
+              download="Nanda-CV.pdf"
               className="group relative px-8 py-4 bg-[#0A1128] text-[#E8DCC4] rounded-full font-medium overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105"
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -597,10 +597,10 @@ export default function Work() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#C1292E] to-[#B8860B] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
-            
-            <a 
-              href="/letter-of-recommendation.pdf" 
-              download
+
+            <a
+              href="/assets/work/Letter-of-Recommendation.pdf"
+              download="Letter-of-Recommendation.pdf"
               className="group relative px-8 py-4 border-2 border-[#0A1128] text-[#0A1128] rounded-full font-medium overflow-hidden transition-all duration-300 hover:text-[#E8DCC4] hover:shadow-lg hover:scale-105"
             >
               <span className="relative z-10 flex items-center gap-2">

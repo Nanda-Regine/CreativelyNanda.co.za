@@ -8,7 +8,7 @@ export default function Mirembe() {
     setMounted(true);
   }, []);
 
-  const logoUrl = 'https://drive.google.com/uc?export=view&id=1jgwV4_LUa9Le8yhbx2mOyRoWAH0Hou2w';
+  const logoUrl = '/assets/logos/mirembe-muse-logo.png';
 
   return (
     <div className="page-transition min-h-screen bg-[#FAF7F2] overflow-hidden">
@@ -25,29 +25,26 @@ export default function Mirembe() {
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
-            {/* Left: Logo in Organic Shape */}
+            {/* Left: Logo Display */}
             <div className="relative flex justify-center lg:justify-start order-2 lg:order-1">
               {/* Layered organic shapes behind logo */}
-              <div className="absolute -top-8 -left-8 w-[350px] h-[450px] bg-gradient-to-br from-[#2D5A3D]/10 to-[#8B9A7D]/5 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] blur-sm animate-pulse" 
+              <div className="absolute -top-6 -left-6 w-[320px] h-[320px] md:w-[380px] md:h-[380px] bg-gradient-to-br from-[#2D5A3D]/15 to-[#8B9A7D]/5 rounded-[50px] blur-sm animate-pulse"
                    style={{ animationDuration: '4s' }} />
-              <div className="absolute -bottom-4 -right-4 w-[300px] h-[400px] bg-gradient-to-tl from-[#C1292E]/10 to-[#E8DCC4]/20 rounded-[40%_60%_70%_30%/40%_70%_30%_60%]" />
+              <div className="absolute -bottom-4 -right-4 w-[280px] h-[280px] md:w-[330px] md:h-[330px] bg-gradient-to-tl from-[#C1292E]/10 to-[#E8DCC4]/20 rounded-[45px]" />
               
-              {/* Main logo container with arch top */}
-              <div 
-                className="relative z-10 w-[300px] h-[380px] bg-white shadow-2xl overflow-hidden"
+              {/* Main logo container */}
+              <div
+                className="relative z-10 w-[300px] h-[300px] md:w-[350px] md:h-[350px] shadow-2xl overflow-hidden"
                 style={{
-                  borderRadius: '150px 150px 20px 20px',
-                  boxShadow: '0 25px 80px -20px rgba(45, 90, 61, 0.3), 0 10px 30px -10px rgba(0,0,0,0.1)'
+                  borderRadius: '40px',
+                  boxShadow: '0 25px 80px -20px rgba(45, 90, 61, 0.4), 0 10px 30px -10px rgba(0,0,0,0.2)'
                 }}
               >
-                <img 
-                  src= "https://drive.google.com/file/d/1jgwV4_LUa9Le8yhbx2mOyRoWAH0Hou2w/view?usp=sharing"
+                <img
+                  src="/assets/logos/mirembe-muse-logo.png"
                   alt="Mirembe Muse Logo"
-                  className="w-full h-full object-contain p-8"
+                  className="w-full h-full object-cover"
                 />
-                
-                {/* Subtle botanical overlay pattern */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2D5A3D]/5 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating accent elements */}

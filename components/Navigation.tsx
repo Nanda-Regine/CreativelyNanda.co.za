@@ -87,38 +87,43 @@ export default function Navigation() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          className="lg:hidden fixed inset-0 bg-black/60 z-[60]"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Menu - Left Side Drawer */}
       <div
-        className={`lg:hidden fixed top-0 left-0 h-full w-72 bg-navy/98 backdrop-blur-md z-50 transform transition-transform duration-300 ease-in-out shadow-2xl ${
+        className={`lg:hidden fixed top-0 left-0 h-full w-72 bg-[#F5F0E8] z-[70] transform transition-transform duration-300 ease-in-out shadow-2xl ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="px-6 py-8 h-full flex flex-col">
-          {/* Close button */}
-          <button
-            onClick={() => setMobileMenuOpen(false)}
-            className="self-end text-beige hover:text-cherry transition-colors mb-6"
-            aria-label="Close menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+        <div className="px-6 py-6 h-full flex flex-col">
+          {/* Header with logo and close button */}
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#0A1128]/10">
+            <span className="font-display text-2xl font-bold text-[#0A1128]">Nanda</span>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[#0A1128] hover:text-cherry transition-colors p-1"
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
           {/* Navigation Links */}
-          <div className="space-y-4 flex-1">
+          <div className="space-y-1 flex-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block text-lg font-medium transition-colors ${
-                  pathname === link.href ? 'text-cherry' : 'text-beige hover:text-cherry'
+                className={`block py-3 px-3 text-lg font-medium rounded-lg transition-all ${
+                  pathname === link.href
+                    ? 'text-cherry bg-[#0A1128]/5'
+                    : 'text-[#0A1128] hover:text-cherry hover:bg-[#0A1128]/5'
                 }`}
               >
                 {link.label}
@@ -130,7 +135,7 @@ export default function Navigation() {
           <a
             href="/assets/work/Nanda-cv.pdf"
             download="Nanda-CV.pdf"
-            className="inline-block w-auto px-6 py-3 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center"
+            className="inline-block w-auto px-6 py-3 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center mt-4"
           >
             Download CV
           </a>

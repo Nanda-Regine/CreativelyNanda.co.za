@@ -98,17 +98,18 @@ export default function About() {
                 />
                 
                 {/* Main arch-shaped photo container */}
-                <div 
+                <div
                   className="relative aspect-[3/4] overflow-hidden shadow-editorial"
-                  style={{ 
+                  style={{
                     borderRadius: '160px 160px 30px 30px',
                     background: 'linear-gradient(135deg, #F9F1E8 0%, #E8DCC4 100%)'
                   }}
                 >
-                  {/* Placeholder - replace with actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cherry/5 via-transparent to-gold/10 flex items-center justify-center">
-                    <span className="font-display text-[120px] text-navy/8">N</span>
-                  </div>
+                  <img
+                    src="/assets/professional/nanda-pic-3.png"
+                    alt="Nanda Regine"
+                    className="w-full h-full object-contain object-center"
+                  />
                 </div>
                 
                 {/* Floating accent shapes */}
