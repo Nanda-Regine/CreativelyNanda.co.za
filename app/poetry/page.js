@@ -7,19 +7,53 @@ export default function Poetry() {
   const [expandedReview, setExpandedReview] = useState(null);
   const scrollRef = useRef(null);
 
-  // Animation variants
+  // Animation variants - optimized for mobile scroll
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -40 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 40 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
+  };
+
+  const scaleIn = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: 'easeOut' }
+    }
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
     }
   };
+
+  // Mobile-friendly viewport settings
+  const mobileViewport = { once: true, amount: 0.2, margin: '-50px' };
 
   // Platform links
   const platforms = [
@@ -350,7 +384,7 @@ export default function Poetry() {
       </section>
 
       {/* ===== BOOK FEATURE SECTION ===== */}
-      <section className="relative py-24 px-6 bg-beige overflow-hidden">
+      <section className="relative py-16 md:py-24 px-6 bg-beige overflow-hidden">
         {/* Decorative corner blob */}
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
@@ -362,21 +396,22 @@ export default function Poetry() {
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInLeft}
+            className="flex items-center gap-4 mb-8 md:mb-12"
           >
             <span className="text-cherry text-sm font-medium tracking-[0.2em] uppercase">The Book</span>
             <div className="flex-1 h-px bg-navy/10" />
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Book info */}
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={mobileViewport}
               variants={staggerContainer}
             >
               <motion.h2 variants={fadeInUp} className="font-display text-5xl lg:text-6xl font-bold text-navy mb-6">
@@ -429,7 +464,7 @@ export default function Poetry() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={mobileViewport}
               variants={staggerContainer}
               className="space-y-4"
             >
@@ -466,28 +501,29 @@ export default function Poetry() {
       </section>
 
       {/* ===== VIDEO PERFORMANCES (4 videos) ===== */}
-      <section id="performances" className="relative py-24 px-6 bg-navy overflow-hidden">
+      <section id="performances" className="relative py-16 md:py-24 px-6 bg-navy overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cherry to-transparent" />
 
-        {/* Floating decorations */}
+        {/* Floating decorations - hidden on mobile for performance */}
         <motion.div
           animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
           transition={{ duration: 15, repeat: Infinity }}
-          className="absolute top-20 left-[10%] w-24 h-24 border border-cherry/10 rounded-full"
+          className="hidden md:block absolute top-20 left-[10%] w-24 h-24 border border-cherry/10 rounded-full"
         />
         <motion.div
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ duration: 5, repeat: Infinity }}
-          className="absolute bottom-20 right-[15%] w-8 h-8 bg-gold/20 rounded-full blur-sm"
+          className="hidden md:block absolute bottom-20 right-[15%] w-8 h-8 bg-gold/20 rounded-full blur-sm"
         />
 
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInUp}
+            className="text-center mb-10 md:mb-16"
           >
             <div className="inline-flex items-center gap-4 mb-6">
               <div className="w-12 h-px bg-cherry" />
@@ -506,9 +542,9 @@ export default function Poetry() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={mobileViewport}
             variants={staggerContainer}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6"
           >
             {performanceVideos.map((video, index) => (
               <motion.div
@@ -519,10 +555,9 @@ export default function Poetry() {
                 onClick={() => setActiveVideo(video)}
               >
                 <div
-                  className="relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+                  className="relative overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 h-[200px] md:h-[320px]"
                   style={{
-                    borderRadius: index % 2 === 0 ? '30px 10px 30px 10px' : '10px 30px 10px 30px',
-                    height: '320px'
+                    borderRadius: index % 2 === 0 ? '20px 8px 20px 8px' : '8px 20px 8px 20px',
                   }}
                 >
                   <img
@@ -557,21 +592,22 @@ export default function Poetry() {
       </section>
 
       {/* ===== RADIO INTERVIEWS SECTION ===== */}
-      <section className="relative py-24 px-6 bg-gradient-to-b from-beige to-beige-light overflow-hidden">
-        {/* Decorative blob */}
+      <section className="relative py-16 md:py-24 px-6 bg-gradient-to-b from-beige to-beige-light overflow-hidden">
+        {/* Decorative blob - hidden on mobile */}
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 10, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
-          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cherry/10 to-transparent blur-3xl"
+          className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cherry/10 to-transparent blur-3xl"
         />
 
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInUp}
+            className="text-center mb-10 md:mb-16"
           >
             <div className="inline-flex items-center gap-4 mb-6">
               <div className="w-12 h-px bg-cherry" />
@@ -591,9 +627,10 @@ export default function Poetry() {
 
             {/* Left: Radio photos in cool shapes */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={mobileViewport}
+              variants={fadeInLeft}
               className="lg:col-span-4 relative h-[400px] hidden lg:block"
             >
               {/* Photo 1 - larger, organic shape */}
@@ -640,9 +677,9 @@ export default function Poetry() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={mobileViewport}
               variants={staggerContainer}
-              className="lg:col-span-8 grid sm:grid-cols-2 gap-6"
+              className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
             >
               {radioVideos.map((video, index) => (
                 <motion.div
@@ -778,20 +815,21 @@ export default function Poetry() {
       )}
 
       {/* ===== HORIZONTAL SCROLL REVIEWS - EXPANDABLE ===== */}
-      <section className="relative py-24 bg-navy overflow-hidden">
-        {/* Floating elements */}
+      <section className="relative py-16 md:py-24 bg-navy overflow-hidden">
+        {/* Floating elements - hidden on mobile */}
         <motion.div
           animate={{ y: [-10, 10, -10] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-20 right-[10%] w-16 h-16 border border-beige/10 rounded-full"
+          className="hidden md:block absolute top-20 right-[10%] w-16 h-16 border border-beige/10 rounded-full"
         />
 
-        <div className="max-w-7xl mx-auto px-6 mb-12">
+        <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 md:gap-6"
           >
             <div>
               <div className="flex items-center gap-4 mb-4">
@@ -936,12 +974,12 @@ export default function Poetry() {
       )}
 
       {/* ===== FIND MY WORK - PLATFORM LINKS ===== */}
-      <section className="relative py-24 px-6 bg-beige overflow-hidden">
-        {/* Background text */}
+      <section className="relative py-16 md:py-24 px-6 bg-beige overflow-hidden">
+        {/* Background text - hidden on mobile */}
         <motion.div
           animate={{ x: [-20, 20, -20] }}
           transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         >
           <span className="font-display text-[200px] font-bold text-navy/[0.02] whitespace-nowrap">
             FIND ME
@@ -950,9 +988,10 @@ export default function Poetry() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInUp}
           >
             <div className="inline-flex items-center gap-4 mb-6">
               <div className="w-12 h-px bg-cherry" />
@@ -974,9 +1013,9 @@ export default function Poetry() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={mobileViewport}
             variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6"
+            className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6"
           >
             {platforms.map((platform, index) => (
               <motion.a
@@ -1011,90 +1050,88 @@ export default function Poetry() {
       </section>
 
       {/* ===== CLOSING QUOTE ===== */}
-      <section className="relative py-24 px-6 bg-navy overflow-hidden">
+      <section className="relative py-16 md:py-24 px-6 bg-navy overflow-hidden">
         <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-0 left-0 w-64 h-64 bg-cherry/10 rounded-full blur-3xl"
+          className="absolute top-0 left-0 w-48 md:w-64 h-48 md:h-64 bg-cherry/10 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.05, 0.1, 0.05] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute bottom-0 right-0 w-48 h-48 bg-beige/5 rounded-full blur-3xl"
+          className="absolute bottom-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-beige/5 rounded-full blur-3xl"
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={mobileViewport}
+          variants={staggerContainer}
           className="max-w-4xl mx-auto text-center relative z-10"
         >
           <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="font-display text-6xl text-cherry/30 mb-4"
+            variants={fadeInUp}
+            className="font-display text-5xl md:text-6xl text-cherry/30 mb-4"
           >
             "
           </motion.div>
-          <blockquote className="font-display text-3xl lg:text-4xl font-bold text-beige leading-relaxed mb-8">
+          <motion.blockquote
+            variants={fadeInUp}
+            className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-beige leading-relaxed mb-6 md:mb-8"
+          >
             Words are code for the soul.<br/>
             <span className="text-cherry">Poetry is the algorithm of feeling.</span>
-          </blockquote>
-          <div className="text-beige/60">— Nanda Regine</div>
+          </motion.blockquote>
+          <motion.div variants={fadeInUp} className="text-beige/60">— Nanda Regine</motion.div>
         </motion.div>
       </section>
 
       {/* ===== WHAT'S NEXT ===== */}
-      <section className="relative py-20 px-6 bg-beige">
+      <section className="relative py-12 md:py-20 px-6 bg-beige">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -5 }}
-            className="p-8 lg:p-12 bg-navy relative overflow-hidden"
-            style={{ borderRadius: '40px 12px 40px 12px' }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={scaleIn}
+            className="p-6 md:p-8 lg:p-12 bg-navy relative overflow-hidden"
+            style={{ borderRadius: '30px 12px 30px 12px' }}
           >
             <motion.div
               animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.3, 0.2] }}
               transition={{ duration: 6, repeat: Infinity }}
-              className="absolute top-0 right-0 w-48 h-48 bg-cherry/20 rounded-full blur-3xl"
+              className="absolute top-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-cherry/20 rounded-full blur-3xl"
             />
 
-            <div className="relative z-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={mobileViewport}
+              variants={staggerContainer}
+              className="relative z-10"
+            >
               <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="text-cherry text-sm font-medium tracking-[0.2em] uppercase"
+                variants={fadeInUp}
+                className="text-cherry text-xs md:text-sm font-medium tracking-[0.2em] uppercase"
               >
                 Coming Soon
               </motion.span>
               <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="font-display text-4xl lg:text-5xl font-bold text-beige mt-4 mb-6"
+                variants={fadeInUp}
+                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-beige mt-3 md:mt-4 mb-4 md:mb-6"
               >
                 PoetryTube
               </motion.h3>
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-beige/70 text-lg leading-relaxed mb-6 max-w-2xl"
+                variants={fadeInUp}
+                className="text-beige/70 text-base md:text-lg leading-relaxed mb-4 md:mb-6 max-w-2xl"
               >
                 An interactive poetry and spoken word platform that merges traditional
                 writing with digital innovation. Because poetry deserves its own space
                 in the digital world.
               </motion.p>
               <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
+                variants={fadeInUp}
                 className="inline-flex items-center gap-2 text-cherry font-medium"
               >
                 <span>Stay tuned</span>
@@ -1104,7 +1141,7 @@ export default function Poetry() {
                   className="w-2 h-2 bg-cherry rounded-full"
                 />
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

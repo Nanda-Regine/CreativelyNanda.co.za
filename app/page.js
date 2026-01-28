@@ -24,38 +24,62 @@ export default function Home() {
   }, []);
 
   // Animation variants
+  // Animation variants - optimized for mobile scroll
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
   };
 
   const fadeInLeft = {
     hidden: { opacity: 0, x: -40 },
-    visible: { opacity: 1, x: 0 }
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
   };
 
   const fadeInRight = {
     hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0 }
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
   };
 
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1 }
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: 'easeOut' }
+    }
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 }
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
     }
   };
 
   const featureItem = {
     hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 }
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.4, ease: 'easeOut' }
+    }
   };
+
+  // Mobile-friendly viewport settings
+  const mobileViewport = { once: true, amount: 0.2, margin: '-50px' };
 
   return (
     <div className="page-transition">
@@ -400,46 +424,37 @@ export default function Home() {
           className="absolute bottom-0 right-0 w-40 md:w-56 lg:w-80 h-40 md:h-56 lg:h-80 bg-gradient-to-tl from-navy/10 to-transparent rounded-full blur-3xl"
         />
 
-        <div className="max-w-5xl mx-auto text-center relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={mobileViewport}
+          variants={staggerContainer}
+          className="max-w-5xl mx-auto text-center relative z-10"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
+            variants={fadeInUp}
             className="mb-4 md:mb-6 lg:mb-8"
           >
             <span className="text-[#B8860B] text-xs md:text-sm font-medium tracking-[0.3em] uppercase">The Philosophy</span>
           </motion.div>
 
           <motion.blockquote
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={fadeInUp}
             className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight mb-4 md:mb-6 lg:mb-8 px-4"
           >
             "Technology should amplify
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="text-[#B8860B]"
-            > humanity</motion.span>,
+            <span className="text-[#B8860B]"> humanity</span>,
             not replace it."
           </motion.blockquote>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            variants={fadeInUp}
             className="text-navy/60 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4"
           >
             Every line of code, every design decision, every word I write —
             it's all in service of connection, creativity, and meaningful impact.
           </motion.p>
-        </div>
+        </motion.div>
       </section>
 
       {/* ===== EXPLORE SECTION ===== */}
@@ -447,42 +462,39 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInLeft}
             className="flex items-center gap-3 md:gap-4 lg:gap-6 mb-8 md:mb-12 lg:mb-16"
           >
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: '5rem' }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="h-px bg-navy"
-            />
+            <div className="w-12 md:w-20 h-px bg-navy" />
             <span className="text-navy text-[10px] md:text-xs lg:text-sm font-medium tracking-[0.2em] uppercase whitespace-nowrap">Inside This Issue</span>
             <div className="flex-1 h-px bg-navy/10" />
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInUp}
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-8 md:mb-12 lg:mb-16 text-center"
           >
             Explore My <span className="text-[#B8860B]">World</span>
           </motion.h2>
 
           {/* Magazine Grid */}
-          <div className="grid md:grid-cols-12 gap-3 md:gap-4 lg:gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={staggerContainer}
+            className="grid md:grid-cols-12 gap-3 md:gap-4 lg:gap-6"
+          >
 
             {/* Large Feature Card - Projects */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6 }}
+              variants={fadeInUp}
               className="md:col-span-7"
             >
               <Link
@@ -515,10 +527,7 @@ export default function Home() {
             <div className="md:col-span-5 space-y-3 md:space-y-4 lg:space-y-6">
               {/* Poetry Card */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                variants={fadeInRight}
               >
                 <Link
                   href="/poetry"
@@ -540,10 +549,7 @@ export default function Home() {
 
               {/* Notion Card */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                variants={fadeInRight}
               >
                 <Link
                   href="/notion"
@@ -566,10 +572,7 @@ export default function Home() {
 
             {/* Bottom Row - Three Equal Cards */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              variants={fadeInUp}
               className="md:col-span-4"
             >
               <Link
@@ -586,10 +589,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              variants={fadeInUp}
               className="md:col-span-4"
             >
               <Link
@@ -606,10 +606,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              variants={fadeInUp}
               className="md:col-span-4"
             >
               <Link
@@ -624,7 +621,7 @@ export default function Home() {
                 <p className="text-navy/60 text-xs md:text-sm">Let's create something amazing.</p>
               </Link>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -636,12 +633,15 @@ export default function Home() {
           className="absolute inset-0 bg-gradient-to-b from-[#D4A574]/5 via-transparent to-[#D4A574]/5"
         />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={mobileViewport}
+          variants={staggerContainer}
+          className="max-w-4xl mx-auto text-center relative z-10"
+        >
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
+            variants={fadeInUp}
             className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-beige/80 leading-relaxed mb-4 md:mb-6 lg:mb-8 px-4"
           >
             I'm building at the intersection of technology, creativity, and African innovation —
@@ -650,10 +650,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            variants={fadeInUp}
             whileHover={{ scale: 1.05 }}
           >
             <Link
@@ -664,7 +661,7 @@ export default function Home() {
               <span>→</span>
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
