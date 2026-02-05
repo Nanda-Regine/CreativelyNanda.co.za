@@ -313,11 +313,13 @@ export default function Poetry() {
 
                 {/* Third image - small accent, top left */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.9 }}
-                  animate={{ y: [-5, 5, -5] }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                  initial={{ opacity: 0, scale: 0.8, y: 0 }}
+                  animate={{ opacity: 1, scale: 1, y: [-5, 5, -5] }}
+                  transition={{
+                    opacity: { delay: 0.9, duration: 0.5 },
+                    scale: { delay: 0.9, duration: 0.5 },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  }}
                   className="absolute left-[5%] top-[10%] w-[35%] h-[30%] overflow-hidden shadow-lg z-10"
                   style={{
                     borderRadius: '50% 50% 40% 60% / 60% 40% 60% 40%',
