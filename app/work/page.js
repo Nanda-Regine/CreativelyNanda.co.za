@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui';
 
 // Work Experience Data - Complete from Profile
 const workExperience = [
@@ -578,51 +579,53 @@ export default function Work() {
           </motion.p>
 
           {/* Download buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap gap-4 mt-8"
           >
-            <a
-              href="/assets/work/Nanda-cv.pdf"
-              download="Nanda-CV.pdf"
-              className="group relative px-8 py-4 bg-[#0A1128] text-[#E8DCC4] rounded-full font-medium overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105"
-            >
-              <span className="relative z-10 flex items-center gap-2">
+            <Button
+              variant="secondary"
+              size="lg"
+              className="rounded-full"
+              leftIcon={
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Download CV
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#C1292E] to-[#B8860B] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-
-            <a
-              href="/assets/work/Letter-of-Recommendation.pdf"
-              download="Letter-of-Recommendation.pdf"
-              className="group relative px-8 py-4 border-2 border-[#0A1128] text-[#0A1128] rounded-full font-medium overflow-hidden transition-all duration-300 hover:text-[#E8DCC4] hover:shadow-lg hover:scale-105"
+              }
+              onClick={() => window.open('/assets/work/Nanda-cv.pdf', '_blank')}
             >
-              <span className="relative z-10 flex items-center gap-2">
+              Download CV
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full"
+              leftIcon={
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Letter of Recommendation
-              </span>
-              <div className="absolute inset-0 bg-[#0A1128] -z-10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-            </a>
-
-            <a
-              href="#testimonials"
-              className="group relative px-8 py-4 bg-[#B8860B] text-white rounded-full font-medium overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105"
+              }
+              onClick={() => window.open('/assets/work/Letter-of-Recommendation.pdf', '_blank')}
             >
-              <span className="relative z-10 flex items-center gap-2">
+              Letter of Recommendation
+            </Button>
+
+            <Button
+              variant="primary"
+              size="lg"
+              className="rounded-full bg-[#B8860B] hover:bg-[#B8860B]/90"
+              leftIcon={
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
-                Read Testimonials
-              </span>
-            </a>
+              }
+              onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Read Testimonials
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -801,18 +804,21 @@ export default function Work() {
                 let's build something extraordinary.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="/contact"
-                  className="px-8 py-4 bg-white text-[#C1292E] rounded-full font-medium hover:bg-[#E8DCC4] transition-all hover:scale-105 hover:shadow-lg"
+                <Button
+                  size="lg"
+                  className="rounded-full bg-white text-cherry hover:bg-cream"
+                  onClick={() => window.location.href = '/contact'}
                 >
                   Get in Touch
-                </a>
-                <a 
-                  href="/projects"
-                  className="px-8 py-4 border-2 border-white text-white rounded-full font-medium hover:bg-white/10 transition-all"
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full border-white text-white hover:bg-white/10"
+                  onClick={() => window.location.href = '/projects'}
                 >
                   View Projects
-                </a>
+                </Button>
               </div>
             </div>
           </motion.div>

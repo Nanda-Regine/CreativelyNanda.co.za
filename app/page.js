@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -236,23 +237,22 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 1.2 }}
                 className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start pt-2 md:pt-4"
               >
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                  <Link
-                    href="/projects"
-                    className="group px-6 md:px-8 py-3 md:py-4 bg-[#D4A574] text-navy rounded-full font-medium hover:bg-[#C49464] transition-all hover:shadow-xl flex items-center justify-center gap-2 text-sm md:text-base"
-                  >
-                    <span>Explore My Work</span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                  <Link
-                    href="/about"
-                    className="px-6 md:px-8 py-3 md:py-4 border-2 border-beige/40 text-beige rounded-full font-medium hover:bg-beige hover:text-navy transition-all flex items-center justify-center text-sm md:text-base"
-                  >
-                    Read My Story
-                  </Link>
-                </motion.div>
+                <Button
+                  size="lg"
+                  className="rounded-full bg-[#D4A574] text-navy hover:bg-[#C49464] text-sm md:text-base"
+                  rightIcon={<span>→</span>}
+                  onClick={() => window.location.href = '/projects'}
+                >
+                  Explore My Work
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full border-beige/40 text-beige hover:bg-beige hover:text-navy text-sm md:text-base"
+                  onClick={() => window.location.href = '/about'}
+                >
+                  Read My Story
+                </Button>
               </motion.div>
             </div>
 
@@ -649,17 +649,15 @@ export default function Home() {
             <span className="text-[#D4A574] font-semibold"> JavaScript</span>.
           </motion.p>
 
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{ scale: 1.05 }}
-          >
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 text-[#D4A574] text-sm md:text-base font-medium hover:gap-4 transition-all"
+          <motion.div variants={fadeInUp}>
+            <Button
+              variant="ghost"
+              className="text-[#D4A574] hover:text-[#D4A574]/80 text-sm md:text-base"
+              rightIcon={<span>→</span>}
+              onClick={() => window.location.href = '/about'}
             >
-              <span>Read the full story</span>
-              <span>→</span>
-            </Link>
+              Read the full story
+            </Button>
           </motion.div>
         </motion.div>
       </section>

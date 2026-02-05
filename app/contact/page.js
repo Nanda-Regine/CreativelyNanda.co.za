@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Input, Button } from '@/components/ui';
 
 // Poetic farewell lines that rotate
 const poeticLines = [
@@ -239,12 +240,13 @@ export default function Contact() {
                         <p className="text-[#0A1128]/60 mb-6">
                           Thank you for reaching out. I'll be in touch soon.
                         </p>
-                        <button
+                        <Button
+                          variant="ghost"
                           onClick={() => setSubmitted(false)}
-                          className="text-[#C1292E] font-medium hover:underline"
+                          className="text-cherry hover:text-cherry/80"
                         >
                           Send another message
-                        </button>
+                        </Button>
                       </motion.div>
                     ) : (
                       <motion.form
@@ -253,28 +255,28 @@ export default function Contact() {
                         className="space-y-6"
                       >
                         <div className="grid md:grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-[#0A1128] font-medium mb-2 text-sm">Your Name</label>
-                            <input
-                              type="text"
-                              value={formData.name}
-                              onChange={(e) => setFormData({...formData, name: e.target.value})}
-                              className="w-full px-5 py-4 bg-[#F5EFE6] rounded-2xl border-2 border-transparent focus:border-[#C1292E] focus:outline-none transition-all text-[#0A1128]"
-                              placeholder="Jane Doe"
-                              required
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[#0A1128] font-medium mb-2 text-sm">Email Address</label>
-                            <input
-                              type="email"
-                              value={formData.email}
-                              onChange={(e) => setFormData({...formData, email: e.target.value})}
-                              className="w-full px-5 py-4 bg-[#F5EFE6] rounded-2xl border-2 border-transparent focus:border-[#C1292E] focus:outline-none transition-all text-[#0A1128]"
-                              placeholder="jane@example.com"
-                              required
-                            />
-                          </div>
+                          <Input
+                            label="Your Name"
+                            type="text"
+                            value={formData.name}
+                            onChange={(e) => setFormData({...formData, name: e.target.value})}
+                            placeholder="Jane Doe"
+                            required
+                            size="lg"
+                            fullWidth
+                            className="bg-[#F5EFE6] rounded-2xl border-2 border-transparent focus:border-cherry"
+                          />
+                          <Input
+                            label="Email Address"
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) => setFormData({...formData, email: e.target.value})}
+                            placeholder="jane@example.com"
+                            required
+                            size="lg"
+                            fullWidth
+                            className="bg-[#F5EFE6] rounded-2xl border-2 border-transparent focus:border-cherry"
+                          />
                         </div>
 
                         <div>
@@ -307,26 +309,16 @@ export default function Contact() {
                           />
                         </div>
 
-                        <button
+                        <Button
                           type="submit"
-                          disabled={isSubmitting}
-                          className="w-full py-4 bg-gradient-to-r from-[#C1292E] to-[#a82226] text-white rounded-2xl font-medium hover:shadow-xl transition-all hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                          loading={isSubmitting}
+                          fullWidth
+                          size="lg"
+                          rightIcon={!isSubmitting && <span>→</span>}
+                          className="rounded-2xl bg-gradient-to-r from-cherry to-[#a82226] py-4"
                         >
-                          {isSubmitting ? (
-                            <>
-                              <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
-                              </svg>
-                              Sending...
-                            </>
-                          ) : (
-                            <>
-                              Send Message
-                              <span>→</span>
-                            </>
-                          )}
-                        </button>
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </Button>
                       </motion.form>
                     )}
                   </AnimatePresence>

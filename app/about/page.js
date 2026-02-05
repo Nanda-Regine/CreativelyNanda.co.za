@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Button } from '@/components/ui';
 
 export default function About() {
   const fadeInUp = {
@@ -172,19 +173,23 @@ export default function About() {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-                <Link 
-                  href="/contact"
-                  className="group px-8 py-4 bg-cherry text-beige rounded-full font-medium shadow-lg shadow-cherry/20 hover:shadow-cherry/40 transition-all flex items-center gap-2"
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="rounded-full shadow-lg shadow-cherry/20 hover:shadow-cherry/40"
+                  rightIcon={<span>→</span>}
+                  onClick={() => window.location.href = '/contact'}
                 >
                   Let's Work Together
-                  <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
-                </Link>
-                <Link 
-                  href="/work"
-                  className="px-8 py-4 border-2 border-navy/20 text-navy rounded-full font-medium hover:bg-navy hover:text-beige transition-all"
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full"
+                  onClick={() => window.location.href = '/work'}
                 >
                   View Experience
-                </Link>
+                </Button>
               </motion.div>
             </motion.div>
           </div>
@@ -517,24 +522,27 @@ export default function About() {
             
             {/* Final CTA pills */}
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link 
-                href="/poetry"
-                className="px-6 py-3 bg-beige-cream rounded-full text-navy hover:bg-navy hover:text-beige transition-all border border-beige"
+              <Button
+                variant="outline"
+                className="rounded-full bg-cream border-cream hover:bg-navy hover:text-cream hover:border-navy"
+                onClick={() => window.location.href = '/poetry'}
               >
                 📖 Read Her Poetry
-              </Link>
-              <Link 
-                href="/work"
-                className="px-6 py-3 bg-beige-cream rounded-full text-navy hover:bg-navy hover:text-beige transition-all border border-beige"
+              </Button>
+              <Button
+                variant="outline"
+                className="rounded-full bg-cream border-cream hover:bg-navy hover:text-cream hover:border-navy"
+                onClick={() => window.location.href = '/work'}
               >
                 💼 See Her Work
-              </Link>
-              <Link 
-                href="/contact"
-                className="px-6 py-3 bg-beige-cream rounded-full text-navy hover:bg-navy hover:text-beige transition-all border border-beige"
+              </Button>
+              <Button
+                variant="outline"
+                className="rounded-full bg-cream border-cream hover:bg-navy hover:text-cream hover:border-navy"
+                onClick={() => window.location.href = '/contact'}
               >
                 ✉️ Get In Touch
-              </Link>
+              </Button>
             </div>
           </motion.div>
         </div>
@@ -573,18 +581,21 @@ export default function About() {
               to connect — I'd love to hear from you.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link 
-                href="/contact"
-                className="px-10 py-4 bg-beige text-cherry rounded-full font-bold text-lg hover:bg-white transition-colors shadow-lg"
+              <Button
+                size="lg"
+                className="rounded-full bg-cream text-cherry hover:bg-white font-bold shadow-lg"
+                onClick={() => window.location.href = '/contact'}
               >
                 Start a Conversation
-              </Link>
-              <a 
-                href="mailto:nandaregine@gmail.com"
-                className="px-10 py-4 border-2 border-beige/50 text-beige rounded-full font-medium text-lg hover:bg-beige/10 transition-colors"
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full border-cream/50 text-cream hover:bg-cream/10"
+                onClick={() => window.location.href = 'mailto:nandaregine@gmail.com'}
               >
                 nandaregine@gmail.com
-              </a>
+              </Button>
             </div>
           </motion.div>
         </div>
