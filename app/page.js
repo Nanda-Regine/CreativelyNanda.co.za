@@ -353,7 +353,7 @@ export default function Home() {
 
                   {/* Photo */}
                   <img
-                    src="/assets/professional/nanda-pic-1.png"
+                    src="/assets/professional/nanda-professional-2-transparent.png"
                     alt="Nanda - Creative Technologist"
                     className="w-full h-full object-cover object-top"
                   />
@@ -386,7 +386,7 @@ export default function Home() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-6 text-beige/50 text-[9px] md:text-[10px] lg:text-xs tracking-widest uppercase">
-              <span>Port Elizabeth, South Africa</span>
+              <span>East London, South Africa</span>
               <span className="hidden sm:inline">•</span>
               <span className="hidden sm:inline">Inside Her Roses — Published Author</span>
               <span className="hidden md:inline">•</span>
