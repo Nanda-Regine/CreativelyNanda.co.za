@@ -306,6 +306,124 @@ export default function About() {
         </div>
       </section>
 
+      {/* ============ THE CODER - Feature Image Section ============ */}
+      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-navy via-navy to-cherry/20">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-cherry/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
+        <motion.div
+          animate={{ y: [-20, 20, -20], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-20 right-[15%] w-4 h-4 bg-cherry rounded-full"
+        />
+        <motion.div
+          animate={{ y: [15, -15, 15] }}
+          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute bottom-32 left-[10%] w-6 h-6 bg-gold/40 rounded-full"
+        />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-2 lg:order-1"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="h-px w-12 bg-gradient-to-r from-cherry to-gold" />
+                <span className="text-cherry text-xs tracking-[0.4em] uppercase font-medium">The Craft</span>
+              </div>
+
+              <h2 className="font-display text-4xl sm:text-5xl font-bold text-beige mb-6 leading-tight">
+                Where Ideas Become <span className="text-cherry italic">Reality</span>
+              </h2>
+
+              <p className="text-beige/70 text-lg leading-relaxed mb-6">
+                There's something magical about the moment an idea transforms into code. Late nights illuminated by
+                monitor glow, the rhythm of keystrokes, the satisfaction of watching pixels dance into place.
+              </p>
+
+              <p className="text-beige/70 text-lg leading-relaxed mb-8">
+                This is where <span className="text-cherry font-medium">creativity meets precision</span> — where
+                artistic vision and technical execution become one. Every project is a canvas, every function
+                a brushstroke.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-beige/10 rounded-full text-beige/80 text-sm border border-beige/20">
+                  React & Next.js
+                </span>
+                <span className="px-4 py-2 bg-beige/10 rounded-full text-beige/80 text-sm border border-beige/20">
+                  TypeScript
+                </span>
+                <span className="px-4 py-2 bg-beige/10 rounded-full text-beige/80 text-sm border border-beige/20">
+                  Tailwind CSS
+                </span>
+                <span className="px-4 py-2 bg-cherry/20 rounded-full text-cherry text-sm border border-cherry/30">
+                  Passion
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Right - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2 relative"
+            >
+              <div className="relative mx-auto max-w-lg">
+                {/* Glowing backdrop */}
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.8, 0.5] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="absolute -inset-4 bg-gradient-to-br from-cherry/30 via-gold/20 to-cherry/30 rounded-[2.5rem] blur-xl"
+                />
+
+                {/* Main image container */}
+                <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-2 border-beige/10">
+                  <img
+                    src="/assets/professional/nanda-coding.jpg"
+                    alt="Nanda coding"
+                    className="w-full h-auto object-cover"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+
+                  {/* Floating badge */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="absolute bottom-4 left-4 px-4 py-2 bg-cream/95 backdrop-blur-sm rounded-full shadow-lg"
+                  >
+                    <span className="text-navy font-medium text-sm flex items-center gap-2">
+                      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                      Building the future
+                    </span>
+                  </motion.div>
+                </div>
+
+                {/* Decorative elements around image */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute -top-6 -right-6 w-20 h-20 border-2 border-dashed border-cherry/30 rounded-full"
+                />
+                <motion.div
+                  animate={{ y: [-8, 8, -8] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute -bottom-3 -left-3 w-12 h-12 bg-gold/30 rounded-full"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ============ THE JOURNEY - Timeline with Organic Flow ============ */}
       <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #FDF8F3 0%, #F5EDE3 100%)' }}>
         <motion.div 
