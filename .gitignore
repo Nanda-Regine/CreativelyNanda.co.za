@@ -14,3 +14,9 @@ tsconfig.tsbuildinfo
 *.mp4
 *.mov
 public/assets/performance/performance-vid-3.mp4
+
+# PDF extraction dev artifacts
+extract-pdf.js
+extract-pdf.mjs
+extracted-poems.txt
+inside-her-roses-full-book.pdf
