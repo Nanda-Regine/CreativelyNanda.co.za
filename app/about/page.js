@@ -103,13 +103,12 @@ export default function About() {
                   className="relative aspect-[3/4] overflow-hidden shadow-editorial"
                   style={{
                     borderRadius: '160px 160px 30px 30px',
-                    background: 'linear-gradient(135deg, #F9F1E8 0%, #E8DCC4 100%)'
                   }}
                 >
                   <img
-                    src="/assets/professional/nanda-pic-3.png"
+                    src="/assets/professional/nanda-professional.jpg"
                     alt="Nanda Regine"
-                    className="w-full h-full object-contain object-center"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 
