@@ -23,6 +23,7 @@ export default function Navigation() {
     { href: '/notion', label: 'Notion' },
     { href: '/mirembe', label: 'Mirembe' },
     { href: '/poetry', label: 'Poetry' },
+    { href: '/products', label: 'Shop' },
     { href: '/contact', label: 'Contact' },
   ];
 
