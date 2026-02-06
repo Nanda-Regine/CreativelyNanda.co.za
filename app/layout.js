@@ -4,6 +4,7 @@ import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import NandaAI from '@/components/NandaAI';
 import { NandaGirl } from '@/components/nanda-girl';
+import { CartProvider } from '@/components/cart';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -28,13 +29,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
       <body className="font-body">
-        <Navigation />
-        <main className="min-h-screen pt-20">
-          {children}
-        </main>
-        <Footer />
-        <NandaGirl />
-        <NandaAI />
+        <CartProvider>
+          <Navigation />
+          <main className="min-h-screen pt-20">
+            {children}
+          </main>
+          <Footer />
+          <NandaGirl />
+          <NandaAI />
+        </CartProvider>
       </body>
     </html>
   );

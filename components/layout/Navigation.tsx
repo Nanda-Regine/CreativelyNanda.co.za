@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { CartIcon } from '@/components/cart';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -59,6 +60,8 @@ export default function Navigation() {
             </Link>
           ))}
 
+          <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
+
           <a
             href="/assets/work/Nanda-cv.pdf"
             download="Nanda-CV.pdf"
@@ -69,19 +72,22 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-beige hover:text-cherry transition-colors"
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-beige hover:text-cherry transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}

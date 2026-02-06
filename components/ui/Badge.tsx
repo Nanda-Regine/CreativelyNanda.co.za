@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 export interface BadgeProps {
-  variant?: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'cherry' | 'navy';
+  variant?: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'cherry' | 'navy' | 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   pill?: boolean;
   pulse?: boolean;
@@ -21,6 +21,9 @@ const variants = {
   info: 'bg-blue-100 text-blue-700',
   cherry: 'bg-cherry/10 text-cherry',
   navy: 'bg-navy text-cream',
+  primary: 'bg-cherry text-white',
+  secondary: 'bg-beige text-navy',
+  outline: 'bg-transparent border border-navy/30 text-navy',
 };
 
 const sizes = {
