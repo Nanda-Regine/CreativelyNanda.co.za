@@ -22,6 +22,9 @@ import { useCartStore } from '@/components/cart';
 import { formatPrice } from '@/lib/utils';
 import type { Product } from '@/components/ui/ProductCard';
 
+// Placeholder image
+const PLACEHOLDER_IMAGE = '/assets/professional/nanda-consulting.jpg';
+
 // Sample product data - will be fetched from Supabase in production
 const PRODUCTS_DB: Record<string, {
   product: Product;
@@ -37,7 +40,7 @@ const PRODUCTS_DB: Record<string, {
       tagline: 'Stay on top of your NSFAS application with deadline reminders and status tracking',
       price: 149,
       originalPrice: 199,
-      thumbnail: '/assets/products/nsfas-tracker.jpg',
+      thumbnail: PLACEHOLDER_IMAGE,
       category: 'Student',
       badge: 'BESTSELLER',
       status: 'live',
@@ -121,7 +124,7 @@ const RELATED_PRODUCTS: Product[] = [
     name: 'Varsity Survival Kit',
     tagline: 'Everything you need to ace your first year at university',
     price: 249,
-    thumbnail: '/assets/products/varsity-kit.jpg',
+    thumbnail: PLACEHOLDER_IMAGE,
     category: 'Student',
     status: 'live',
   },
@@ -130,7 +133,7 @@ const RELATED_PRODUCTS: Product[] = [
     name: 'Freelancer Hub',
     tagline: 'Complete Notion workspace for freelancers',
     price: 349,
-    thumbnail: '/assets/products/freelancer-hub.jpg',
+    thumbnail: PLACEHOLDER_IMAGE,
     category: 'Business',
     status: 'live',
   },

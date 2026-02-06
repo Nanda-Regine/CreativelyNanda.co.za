@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShoppingBag, ArrowRight } from 'lucide-react';
+import { X, ShoppingBag, ArrowRight, Sparkles, Shield, Zap, Gift } from 'lucide-react';
 import { cn, formatPrice } from '@/lib/utils';
 import { Button } from '@/components/ui';
 import { useCartStore } from './cart-store';
@@ -54,7 +54,7 @@ export function CartDrawer({ className }: CartDrawerProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeCart}
-            className="fixed inset-0 bg-navy/50 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-navy/60 backdrop-blur-md z-50"
           />
 
           {/* Drawer */}
@@ -64,46 +64,57 @@ export function CartDrawer({ className }: CartDrawerProps) {
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className={cn(
-              'fixed right-0 top-0 h-full w-full max-w-md bg-cream shadow-2xl z-50 flex flex-col',
+              'fixed right-0 top-0 h-full w-full max-w-md bg-gradient-to-b from-cream via-cream to-beige shadow-2xl z-50 flex flex-col',
               className
             )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-navy/10">
-              <div className="flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5 text-navy" />
-                <h2 className="text-lg font-display font-semibold text-navy">Your Cart</h2>
-                <span className="text-sm text-navy/60">({items.length} items)</span>
+            <div className="flex items-center justify-between p-5 bg-gradient-to-r from-navy to-navy/90 text-beige">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-cherry/20 rounded-full">
+                  <ShoppingBag className="w-5 h-5 text-cherry" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-display font-bold">Your Cart</h2>
+                  <span className="text-sm text-beige/70">{items.length} {items.length === 1 ? 'item' : 'items'}</span>
+                </div>
               </div>
               <button
                 onClick={closeCart}
-                className="p-2 hover:bg-navy/5 rounded-full transition-colors"
+                className="p-2 hover:bg-beige/10 rounded-full transition-colors"
                 aria-label="Close cart"
               >
-                <X className="w-5 h-5 text-navy" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Cart Items */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {items.length === 0 ? (
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                  <ShoppingBag className="w-16 h-16 text-navy/20 mb-4" />
-                  <p className="text-navy/60 text-lg">Your cart is empty</p>
-                  <p className="text-navy/40 text-sm mt-1">
-                    Add some products to get started
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center justify-center h-full text-center px-6"
+                >
+                  <div className="w-24 h-24 bg-gradient-to-br from-cherry/10 to-navy/10 rounded-full flex items-center justify-center mb-6">
+                    <ShoppingBag className="w-12 h-12 text-cherry/40" />
+                  </div>
+                  <p className="text-navy font-display text-xl font-semibold">Your cart is empty</p>
+                  <p className="text-navy/50 text-sm mt-2 max-w-xs">
+                    Discover amazing templates and tools to boost your productivity
                   </p>
                   <Button
-                    variant="secondary"
-                    className="mt-6 rounded-full"
+                    variant="primary"
+                    className="mt-8 rounded-full shadow-lg shadow-cherry/25"
+                    leftIcon={<Sparkles className="w-4 h-4" />}
                     onClick={() => {
                       closeCart();
                       window.location.href = '/products';
                     }}
                   >
-                    Browse Products
+                    Explore Products
                   </Button>
-                </div>
+                </motion.div>
               ) : (
                 <AnimatePresence mode="popLayout">
                   {items.map((item) => (
@@ -115,11 +126,25 @@ export function CartDrawer({ className }: CartDrawerProps) {
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="border-t border-navy/10 p-4 space-y-4 bg-parchment/50">
+              <div className="border-t-2 border-cherry/10 p-5 space-y-4 bg-gradient-to-b from-parchment to-beige">
+                {/* Savings banner */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 p-3 bg-gradient-to-r from-cherry/10 to-cherry/5 rounded-xl border border-cherry/20"
+                >
+                  <Gift className="w-5 h-5 text-cherry" />
+                  <span className="text-sm text-navy">
+                    <span className="font-semibold">Instant delivery</span> after payment
+                  </span>
+                </motion.div>
+
                 {/* Subtotal */}
-                <div className="flex justify-between items-center">
-                  <span className="text-navy/70">Subtotal</span>
-                  <span className="text-lg font-semibold text-navy">{formatPrice(total)}</span>
+                <div className="flex justify-between items-center py-3 border-y border-navy/10">
+                  <span className="text-navy/70 font-medium">Subtotal</span>
+                  <span className="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-cherry to-cherry/70">
+                    {formatPrice(total)}
+                  </span>
                 </div>
 
                 {/* Checkout button */}
@@ -127,7 +152,7 @@ export function CartDrawer({ className }: CartDrawerProps) {
                   variant="primary"
                   size="lg"
                   fullWidth
-                  className="rounded-full"
+                  className="rounded-full shadow-xl shadow-cherry/30 hover:shadow-2xl hover:shadow-cherry/40 transition-all"
                   rightIcon={<ArrowRight className="w-5 h-5" />}
                   onClick={handleCheckout}
                 >
@@ -137,18 +162,25 @@ export function CartDrawer({ className }: CartDrawerProps) {
                 {/* Clear cart */}
                 <button
                   onClick={clearCart}
-                  className="w-full text-center text-sm text-navy/50 hover:text-cherry transition-colors"
+                  className="w-full text-center text-sm text-navy/40 hover:text-cherry transition-colors py-1"
                 >
                   Clear cart
                 </button>
 
                 {/* Trust badges */}
-                <div className="flex items-center justify-center gap-4 text-xs text-navy/40 pt-2">
-                  <span>Secure checkout</span>
-                  <span>•</span>
-                  <span>Instant delivery</span>
-                  <span>•</span>
-                  <span>30-day guarantee</span>
+                <div className="grid grid-cols-3 gap-2 pt-3">
+                  <div className="flex flex-col items-center gap-1 p-2 bg-cream rounded-lg">
+                    <Shield className="w-4 h-4 text-cherry" />
+                    <span className="text-xs text-navy/60 text-center">Secure</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 p-2 bg-cream rounded-lg">
+                    <Zap className="w-4 h-4 text-cherry" />
+                    <span className="text-xs text-navy/60 text-center">Instant</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 p-2 bg-cream rounded-lg">
+                    <Gift className="w-4 h-4 text-cherry" />
+                    <span className="text-xs text-navy/60 text-center">30-day</span>
+                  </div>
                 </div>
               </div>
             )}
