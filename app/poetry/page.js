@@ -1,6 +1,7 @@
 'use client';
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Button, Badge, Card, Modal } from '@/components/ui';
 
 export default function Poetry() {
@@ -242,7 +243,7 @@ export default function Poetry() {
               </motion.div>
 
               {/* CTA */}
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start flex-wrap">
                 <Button
                   variant="primary"
                   size="lg"
@@ -252,6 +253,15 @@ export default function Poetry() {
                 >
                   Get the Book
                 </Button>
+                <Link href="/poetry/collection">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full border-cherry text-cherry hover:bg-cherry hover:text-white"
+                  >
+                    Browse Collection
+                  </Button>
+                </Link>
                 <Button
                   variant="outline"
                   size="lg"
@@ -426,7 +436,7 @@ export default function Poetry() {
               </motion.p>
 
               {/* Main purchase button */}
-              <motion.div variants={fadeInUp} className="mb-8">
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-8">
                 <Button
                   variant="secondary"
                   size="lg"
@@ -436,6 +446,15 @@ export default function Poetry() {
                 >
                   Find Your Store
                 </Button>
+                <Link href="/poetry/collection">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full border-navy/30 text-navy hover:bg-navy hover:text-beige"
+                  >
+                    Read Poems Online
+                  </Button>
+                </Link>
               </motion.div>
 
               {/* Store availability - small logos */}
