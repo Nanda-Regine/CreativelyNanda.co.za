@@ -1,6 +1,7 @@
 'use client';
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Button, Badge, Card, Modal } from '@/components/ui';
 
 export default function Poetry() {
   const [activeVideo, setActiveVideo] = useState(null);
@@ -242,25 +243,23 @@ export default function Poetry() {
 
               {/* CTA */}
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <motion.a
-                  href="https://books2read.com/Nrkk-insideherroses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all inline-flex items-center justify-center gap-2"
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="rounded-full"
+                  rightIcon={<span>→</span>}
+                  onClick={() => window.open('https://books2read.com/Nrkk-insideherroses', '_blank')}
                 >
-                  <span>Get the Book</span>
-                  <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
-                </motion.a>
-                <motion.a
-                  href="#performances"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-beige/40 text-beige rounded-full font-medium hover:bg-beige hover:text-navy transition-all inline-flex items-center justify-center"
+                  Get the Book
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full border-beige/40 text-beige hover:bg-beige hover:text-navy"
+                  onClick={() => document.getElementById('performances')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Watch Performances
-                </motion.a>
+                </Button>
               </motion.div>
             </motion.div>
 
@@ -427,18 +426,17 @@ export default function Poetry() {
               </motion.p>
 
               {/* Main purchase button */}
-              <motion.a
-                variants={fadeInUp}
-                href="https://books2read.com/Nrkk-insideherroses"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-navy text-beige rounded-full font-medium hover:bg-navy-light transition-all mb-8"
-              >
-                <span>Find Your Store</span>
-                <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
-              </motion.a>
+              <motion.div variants={fadeInUp} className="mb-8">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="rounded-full"
+                  rightIcon={<span>→</span>}
+                  onClick={() => window.open('https://books2read.com/Nrkk-insideherroses', '_blank')}
+                >
+                  Find Your Store
+                </Button>
+              </motion.div>
 
               {/* Store availability - small logos */}
               <motion.div variants={fadeInUp}>
@@ -451,11 +449,10 @@ export default function Poetry() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
-                      whileHover={{ scale: 1.1, backgroundColor: 'white' }}
-                      className="px-3 py-1.5 bg-white/60 rounded-full text-xs font-medium text-navy/70 hover:text-navy transition-colors cursor-default"
-                      title={store.name}
                     >
-                      {store.name}
+                      <Badge variant="secondary" size="sm" pill className="cursor-default">
+                        {store.name}
+                      </Badge>
                     </motion.div>
                   ))}
                 </div>
@@ -772,31 +769,16 @@ export default function Poetry() {
       </section>
 
       {/* Video Modal */}
-      {activeVideo && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy/95 backdrop-blur-sm"
-          onClick={() => setActiveVideo(null)}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="relative w-full max-w-4xl bg-navy rounded-2xl overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              onClick={() => setActiveVideo(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-            >
-              ✕
-            </motion.button>
-
+      <Modal
+        isOpen={!!activeVideo}
+        onClose={() => setActiveVideo(null)}
+        size="full"
+        className="bg-navy max-w-4xl"
+      >
+        {activeVideo && (
+          <>
             {/* Video embed */}
-            <div className="aspect-video">
+            <div className="aspect-video -mx-6 -mt-6">
               <iframe
                 src={activeVideo.embedUrl}
                 className="w-full h-full"
@@ -806,15 +788,15 @@ export default function Poetry() {
             </div>
 
             {/* Video info */}
-            <div className="p-6">
-              <span className="text-cherry text-sm font-medium tracking-wider uppercase">
+            <div className="pt-4 -mx-6 -mb-6 px-6 pb-6 bg-navy">
+              <Badge variant="cherry" size="sm" className="mb-2">
                 {activeVideo.station ? 'Radio Interview' : 'Performance'}
-              </span>
-              <h3 className="font-display text-2xl font-bold text-beige mt-1">{activeVideo.title}</h3>
+              </Badge>
+              <h3 className="font-display text-2xl font-bold text-beige">{activeVideo.title}</h3>
             </div>
-          </motion.div>
-        </motion.div>
-      )}
+          </>
+        )}
+      </Modal>
 
       {/* ===== HORIZONTAL SCROLL REVIEWS - EXPANDABLE ===== */}
       <section className="relative py-16 md:py-24 bg-navy overflow-hidden">
@@ -942,38 +924,21 @@ export default function Poetry() {
       </section>
 
       {/* Expanded Review Modal */}
-      {expandedReview && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy/90 backdrop-blur-sm"
-          onClick={() => setExpandedReview(null)}
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="relative max-w-2xl max-h-[90vh] overflow-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              onClick={() => setExpandedReview(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-navy/80 hover:bg-navy rounded-full flex items-center justify-center text-white transition-colors shadow-lg"
-            >
-              ✕
-            </motion.button>
-
-            {/* Expanded image */}
-            <img
-              src={expandedReview.image}
-              alt={`Reader review ${expandedReview.id}`}
-              className="w-full h-auto rounded-2xl shadow-2xl"
-            />
-          </motion.div>
-        </motion.div>
-      )}
+      <Modal
+        isOpen={!!expandedReview}
+        onClose={() => setExpandedReview(null)}
+        size="full"
+        className="bg-transparent max-w-2xl shadow-none"
+        showCloseButton={true}
+      >
+        {expandedReview && (
+          <img
+            src={expandedReview.image}
+            alt={`Reader review ${expandedReview.id}`}
+            className="w-full h-auto rounded-xl -mx-6 -my-6"
+          />
+        )}
+      </Modal>
 
       {/* ===== FIND MY WORK - PLATFORM LINKS ===== */}
       <section className="relative py-16 md:py-24 px-6 bg-beige overflow-hidden">
