@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Badge, Button } from '@/components/ui';
 
 // Education Data
 const formalEducation = [
@@ -193,15 +194,12 @@ function EducationCard({ edu, index, isExpanded, onToggle }) {
             {/* Info */}
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span 
-                  className="px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ backgroundColor: `${edu.color}15`, color: edu.color }}
-                >
+                <Badge variant="navy" size="sm" pill>
                   {edu.type}
-                </span>
-                <span className="px-3 py-1 bg-[#B8860B]/15 text-[#B8860B] rounded-full text-xs font-medium">
+                </Badge>
+                <Badge variant="warning" size="sm" pill>
                   {edu.distinctions} Distinctions
-                </span>
+                </Badge>
               </div>
               
               <h3 className="font-display text-xl md:text-2xl font-bold text-[#0A1128] mb-1">
@@ -261,15 +259,16 @@ function EducationCard({ edu, index, isExpanded, onToggle }) {
                     <h4 className="font-display text-lg font-bold text-[#0A1128] mb-3">Key Subjects</h4>
                     <div className="flex flex-wrap gap-2">
                       {edu.subjects.map((subject, i) => (
-                        <motion.span
+                        <motion.div
                           key={i}
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.2 + i * 0.05 }}
-                          className="px-3 py-1.5 bg-[#0A1128]/5 text-[#0A1128]/70 rounded-lg text-sm"
                         >
-                          {subject}
-                        </motion.span>
+                          <Badge variant="default" size="sm">
+                            {subject}
+                          </Badge>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -335,22 +334,25 @@ export default function Education() {
               </p>
               
               {/* Download Certificate Button */}
-              <motion.a
-                href="/certificates.pdf"
-                download
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-[#0A1128] text-[#E8DCC4] rounded-full font-medium overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 relative"
               >
-                <span className="relative z-10 flex items-center gap-3">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="rounded-full"
+                  leftIcon={
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  }
+                  onClick={() => window.open('/certificates.pdf', '_blank')}
+                >
                   Download Certificates
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#C1292E] to-[#B8860B] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.a>
+                </Button>
+              </motion.div>
             </motion.div>
 
             {/* 15 Distinctions Feature Card */}
@@ -702,18 +704,14 @@ export default function Education() {
                   {/* Skills */}
                   <div className="flex flex-wrap gap-1.5">
                     {cert.skills.slice(0, 4).map((skill, i) => (
-                      <span 
-                        key={i}
-                        className="px-2 py-1 rounded-md text-xs"
-                        style={{ backgroundColor: `${cert.color}10`, color: cert.color }}
-                      >
+                      <Badge key={i} variant="cherry" size="sm">
                         {skill}
-                      </span>
+                      </Badge>
                     ))}
                     {cert.skills.length > 4 && (
-                      <span className="px-2 py-1 text-xs text-[#0A1128]/40">
+                      <Badge variant="default" size="sm">
                         +{cert.skills.length - 4}
-                      </span>
+                      </Badge>
                     )}
                   </div>
                 </div>
@@ -753,19 +751,21 @@ export default function Education() {
                 </p>
                 
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a 
-                    href="/certificates.pdf"
-                    download
-                    className="px-8 py-4 bg-white text-[#C1292E] rounded-full font-medium hover:bg-[#E8DCC4] transition-all hover:scale-105"
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-white text-cherry hover:bg-cream"
+                    onClick={() => window.open('/certificates.pdf', '_blank')}
                   >
                     Download Certificates
-                  </a>
-                  <a 
-                    href="/projects"
-                    className="px-8 py-4 border-2 border-white text-white rounded-full font-medium hover:bg-white/10 transition-all"
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full border-white text-white hover:bg-white/10"
+                    onClick={() => window.location.href = '/projects'}
                   >
                     See What I Build
-                  </a>
+                  </Button>
                 </div>
               </div>
             </div>

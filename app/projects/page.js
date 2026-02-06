@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui';
+import { Button, Badge } from '@/components/ui';
 
 // Projects Data
 const projects = [
@@ -394,23 +394,17 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
             {/* Project Info */}
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-3 mb-2">
-                <span 
-                  className="px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ backgroundColor: `${project.accentColor}20`, color: project.accentColor }}
-                >
+                <Badge variant="cherry" size="sm" pill>
                   {project.category}
-                </span>
-                <span className={`
-                  px-3 py-1 rounded-full text-xs font-medium
-                  ${project.status === 'Coming Soon' 
-                    ? 'bg-[#B8860B]/20 text-[#B8860B]' 
-                    : project.status === 'Live' 
-                      ? 'bg-green-100 text-green-700'
-                      : 'bg-[#0A1128]/10 text-[#0A1128]'
-                  }
-                `}>
+                </Badge>
+                <Badge
+                  variant={project.status === 'Coming Soon' ? 'warning' : project.status === 'Live' ? 'success' : 'default'}
+                  size="sm"
+                  pill
+                  pulse={project.status === 'Live'}
+                >
                   {project.status}
-                </span>
+                </Badge>
                 <span className="text-[#0A1128]/40 text-sm">{project.year}</span>
               </div>
               
@@ -424,9 +418,9 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
             <div className="flex items-center gap-4">
               <div className="hidden md:flex flex-wrap gap-2 max-w-[200px]">
                 {project.tech.slice(0, 3).map((tech, i) => (
-                  <span key={i} className="px-2 py-1 bg-[#0A1128]/5 text-[#0A1128]/60 rounded-md text-xs">
+                  <Badge key={i} variant="default" size="sm">
                     {tech}
-                  </span>
+                  </Badge>
                 ))}
               </div>
               <motion.div
@@ -578,13 +572,9 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
                         <h4 className="font-display text-lg font-bold text-[#0A1128] mb-4">Tech Stack</h4>
                         <div className="flex flex-wrap gap-3">
                           {project.tech.map((tech, i) => (
-                            <span 
-                              key={i}
-                              className="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm"
-                              style={{ color: project.accentColor }}
-                            >
+                            <Badge key={i} variant="secondary" size="md" pill className="shadow-sm">
                               {tech}
-                            </span>
+                            </Badge>
                           ))}
                         </div>
                       </div>

@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Button } from '@/components/ui';
+import { Button, Badge } from '@/components/ui';
 
 export default function About() {
   const fadeInUp = {
@@ -161,15 +161,15 @@ export default function About() {
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 mb-8">
-                {[
-                  { label: 'Creative Technologist', color: 'bg-cherry/10 text-cherry' },
-                  { label: 'Published Poet', color: 'bg-gold/20 text-gold-dark' },
-                  { label: 'Founder', color: 'bg-navy/10 text-navy' },
-                ].map((tag, i) => (
-                  <span key={i} className={`px-4 py-2 rounded-full text-sm font-medium ${tag.color}`}>
-                    {tag.label}
-                  </span>
-                ))}
+                <Badge variant="cherry" size="md" pill>
+                  Creative Technologist
+                </Badge>
+                <Badge variant="warning" size="md" pill>
+                  Published Poet
+                </Badge>
+                <Badge variant="navy" size="md" pill>
+                  Founder
+                </Badge>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
