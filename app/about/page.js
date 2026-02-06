@@ -172,7 +172,7 @@ export default function About() {
                 </Badge>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-10">
                 <Button
                   variant="primary"
                   size="lg"
@@ -190,6 +190,50 @@ export default function About() {
                 >
                   View Experience
                 </Button>
+              </motion.div>
+
+              {/* Professional image in organic shape */}
+              <motion.div
+                variants={fadeInUp}
+                className="relative hidden lg:block"
+              >
+                <div className="flex items-center gap-6">
+                  {/* Organic blob shape with image */}
+                  <motion.div
+                    whileHover={{ scale: 1.03, rotate: 2 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="relative w-28 h-28 flex-shrink-0"
+                  >
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-cherry/30 to-gold/30 rounded-[2rem_1rem_2rem_1rem] blur-lg" />
+
+                    {/* Image container with organic shape */}
+                    <div
+                      className="relative w-full h-full overflow-hidden shadow-lg border-2 border-beige/50"
+                      style={{ borderRadius: '2rem 1rem 2rem 1rem' }}
+                    >
+                      <img
+                        src="/assets/professional/nanda-professional.jpg"
+                        alt="Nanda professional"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Floating accent */}
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute -bottom-2 -right-2 w-6 h-6 bg-cherry rounded-full shadow-md"
+                    />
+                  </motion.div>
+
+                  {/* Caption text */}
+                  <div className="text-navy/60 text-sm">
+                    <span className="text-cherry font-medium">Tech meets creativity</span>
+                    <br />
+                    <span className="text-navy/40">Building beautiful things daily</span>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
