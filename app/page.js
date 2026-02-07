@@ -141,6 +141,72 @@ export default function Home() {
           </div>
         </motion.div>
 
+        {/* Magazine Stats - Left Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="hidden lg:flex absolute left-4 xl:left-8 top-1/2 -translate-y-1/2 flex-col gap-6 z-20"
+        >
+          {[
+            { value: '50+', label: 'Projects Delivered' },
+            { value: '5+', label: 'Years Experience' },
+            { value: '1000+', label: 'Templates Sold' },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1.2 + i * 0.15 }}
+              className="text-left"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="font-display text-2xl xl:text-3xl font-bold text-[#D4A574]"
+              >
+                {stat.value}
+              </motion.div>
+              <div className="text-[10px] xl:text-xs text-beige/40 tracking-wider uppercase">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Magazine Highlights - Right Side */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="hidden lg:flex absolute right-4 xl:right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-20 max-w-[180px] xl:max-w-[220px]"
+        >
+          {[
+            { title: 'EXCLUSIVE', text: 'Inside Her Roses: Poetry Collection' },
+            { title: 'FEATURED', text: 'Building Mirembe Muse Platform' },
+            { title: 'SPOTLIGHT', text: 'Notion Systems for Creators' },
+          ].map((highlight, i) => (
+            <motion.div
+              key={highlight.title}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1.2 + i * 0.15 }}
+              className="text-right"
+            >
+              <motion.div
+                whileHover={{ x: -3 }}
+                className="group cursor-default"
+              >
+                <div className="text-[10px] xl:text-xs font-bold text-[#D4A574] tracking-widest mb-1">
+                  {highlight.title}
+                </div>
+                <div className="text-xs xl:text-sm text-beige/60 leading-tight group-hover:text-beige/80 transition-colors">
+                  {highlight.text}
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+
         {/* Main Content Grid */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-16 md:py-20 lg:pt-24 lg:pb-32">
           <div className="grid lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center">
@@ -320,12 +386,13 @@ export default function Home() {
                 </motion.span>
               </motion.div>
 
-              {/* Main Photo Container */}
+              {/* Main Photo Container - 3D Magazine Pop-out Effect */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
                 className="relative"
+                style={{ perspective: '1200px' }}
               >
                 {/* Background blob layers with pulse */}
                 <motion.div
@@ -341,27 +408,83 @@ export default function Home() {
                   style={{ borderRadius: '55% 45% 60% 40% / 45% 55% 45% 55%' }}
                 />
 
-                {/* Photo Frame */}
+                {/* 3D Layered Photo Frame */}
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative w-[240px] h-[320px] sm:w-[280px] sm:h-[380px] md:w-[320px] md:h-[430px] lg:w-[380px] lg:h-[510px] xl:w-[420px] xl:h-[560px] overflow-hidden shadow-2xl"
-                  style={{ borderRadius: '47% 53% 43% 57% / 54% 46% 54% 46%' }}
+                  whileHover={{
+                    scale: 1.03,
+                    rotateY: 5,
+                    rotateX: -3,
+                  }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                  className="relative w-[240px] h-[320px] sm:w-[280px] sm:h-[380px] md:w-[320px] md:h-[430px] lg:w-[380px] lg:h-[510px] xl:w-[420px] xl:h-[560px]"
+                  style={{ transformStyle: 'preserve-3d' }}
                 >
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-[#D4A574]/10 z-10 pointer-events-none" />
-
-                  {/* Photo */}
-                  <img
-                    src="/assets/professional/nanda-professional-2-transparent.png"
-                    alt="Nanda - Creative Technologist"
-                    className="w-full h-full object-cover object-top"
+                  {/* Background Layer - Arch Frame */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-[#D4A574]/40 to-[#D4A574]/20 shadow-2xl"
+                    style={{
+                      borderRadius: '47% 53% 43% 57% / 54% 46% 54% 46%',
+                      transform: 'translateZ(-30px)',
+                      boxShadow: '0 30px 60px -15px rgba(0,0,0,0.5), 0 50px 100px -20px rgba(0,0,0,0.3)'
+                    }}
                   />
 
-                  {/* Inner glow */}
-                  <div
-                    className="absolute inset-0 shadow-[inset_0_0_60px_rgba(212,165,116,0.15)] pointer-events-none z-20"
-                    style={{ borderRadius: 'inherit' }}
+                  {/* Middle Layer - Accent Border */}
+                  <motion.div
+                    className="absolute inset-2 bg-gradient-to-tr from-beige/30 to-[#D4A574]/30"
+                    style={{
+                      borderRadius: '47% 53% 43% 57% / 54% 46% 54% 46%',
+                      transform: 'translateZ(-15px)'
+                    }}
+                  />
+
+                  {/* Photo Container - Pops OUT of frame */}
+                  <motion.div
+                    animate={{
+                      rotateY: [0, 2, 0, -2, 0],
+                      rotateX: [0, -1, 0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                    className="absolute inset-0 overflow-visible"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      transform: 'translateZ(20px)'
+                    }}
+                  >
+                    {/* Photo that breaks out of frame */}
+                    <img
+                      src="/assets/professional/nanda-professional-2-transparent.png"
+                      alt="Nanda - Creative Technologist"
+                      className="w-[110%] h-[110%] object-cover object-top absolute -top-[5%] -left-[5%] drop-shadow-2xl"
+                      style={{
+                        filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.4)) drop-shadow(0 12px 24px rgba(0,0,0,0.3))'
+                      }}
+                    />
+                  </motion.div>
+
+                  {/* Foreground Accent - Partial frame overlay */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-[#0A1128]/70 via-[#0A1128]/30 to-transparent pointer-events-none"
+                    style={{
+                      borderRadius: '0 0 43% 57% / 0 0 54% 46%',
+                      transform: 'translateZ(40px)'
+                    }}
+                  />
+
+                  {/* Glowing accent ring at front */}
+                  <motion.div
+                    animate={{ opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    className="absolute -inset-4 pointer-events-none"
+                    style={{
+                      borderRadius: '50% 50% 45% 55% / 55% 45% 55% 45%',
+                      border: '2px solid rgba(212,165,116,0.3)',
+                      transform: 'translateZ(50px)'
+                    }}
                   />
                 </motion.div>
 
@@ -371,6 +494,13 @@ export default function Home() {
                   transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
                   className="absolute -inset-6 md:-inset-8 lg:-inset-10 xl:-inset-12 border border-beige/10 pointer-events-none"
                   style={{ borderRadius: '50% 50% 45% 55% / 55% 45% 55% 45%' }}
+                />
+
+                {/* 3D Shadow on ground */}
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.4, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-8 bg-black/20 blur-xl rounded-full"
                 />
               </motion.div>
             </div>

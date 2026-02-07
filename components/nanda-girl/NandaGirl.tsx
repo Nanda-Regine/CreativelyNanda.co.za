@@ -144,20 +144,6 @@ export function NandaGirl({ className = '' }: NandaGirlProps) {
                 />
               </div>
 
-              {/* Tooltip on hover */}
-              <AnimatePresence>
-                {isHovered && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                    className="absolute -top-10 left-1/2 -translate-x-1/2 bg-navy text-beige px-3 py-1.5 rounded-lg text-xs whitespace-nowrap shadow-elevated"
-                  >
-                    <span>Click to minimize</span>
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-navy rotate-45" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </motion.div>
 
             {/* Minimize button */}

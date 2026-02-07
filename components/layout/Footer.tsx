@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { PWAInstallButton } from '@/components/ui';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -47,6 +48,11 @@ export default function Footer() {
               <li><a href="#" className="text-beige/70 hover:text-cherry transition-colors">Twitter/X</a></li>
               <li><a href="mailto:hello@creativelynanda.co.za" className="text-beige/70 hover:text-cherry transition-colors">Email</a></li>
             </ul>
+
+            {/* PWA Install Button */}
+            <div className="mt-4 pt-4 border-t border-beige/10">
+              <PWAInstallButton variant="footer" />
+            </div>
           </div>
         </div>
 

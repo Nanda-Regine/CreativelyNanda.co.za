@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { CartIcon } from '@/components/cart';
 import { LanguageSelector } from '@/components/ui/LanguageSelector';
+import { PWAInstallButton } from '@/components/ui/PWAInstallButton';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -66,6 +67,8 @@ export default function Navigation() {
           <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
 
           <LanguageSelector />
+
+          <PWAInstallButton variant="compact" />
 
           <a
             href="/assets/work/Nanda-cv.pdf"
@@ -143,8 +146,9 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Download CV Button - Fixed at bottom */}
-          <div className="pt-4 border-t border-[#0A1128]/10 mt-auto">
+          {/* Download CV and Install App - Fixed at bottom */}
+          <div className="pt-4 border-t border-[#0A1128]/10 mt-auto space-y-3">
+            <PWAInstallButton variant="default" />
             <a
               href="/assets/work/Nanda-cv.pdf"
               download="Nanda-CV.pdf"

@@ -10,6 +10,7 @@ import {
   ArticleCoverCard,
   FeaturedContributors,
   CategorySectionHeader,
+  AuthorBioCard,
 } from '@/components/blog';
 import { blogCategoryThemes } from '@/lib/blog-themes';
 
@@ -271,6 +272,22 @@ export default function BlogPage() {
                 category="business"
                 articleCount={businessArticles.length}
               />
+
+              {/* Author Bio Card */}
+              <AuthorBioCard
+                author={{
+                  name: 'Nanda Kabali-Kagwa',
+                  title: 'Creative Technologist & Entrepreneur',
+                  bio: 'I share insights on freelancing, digital products, and building sustainable businesses in South Africa. From Notion templates to passive income strategies, I write about what I\'ve learned building multiple revenue streams while pursuing creative work.',
+                  avatar: '/assets/professional/nanda-professional.png',
+                  twitter: 'https://twitter.com/creativelynanda',
+                  linkedin: 'https://linkedin.com/in/nanda-kabali-kagwa',
+                  instagram: 'https://instagram.com/creativelynanda',
+                  website: 'https://creativelynanda.co.za',
+                }}
+                category="business"
+              />
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {businessArticles.slice(0, 3).map((article, i) => (
                   <ArticleCoverCard key={article.slug} article={article} index={i} />

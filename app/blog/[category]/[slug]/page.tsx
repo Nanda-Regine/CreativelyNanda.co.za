@@ -256,6 +256,751 @@ You've got this.
       { id: 'the-long-game', title: 'The Long Game', level: 2 },
     ],
   },
+  'freelancing-in-south-africa': {
+    article: {
+      slug: 'freelancing-in-south-africa',
+      title: 'Freelancing in South Africa: The Real Talk',
+      excerpt: 'Navigating load-shedding, payments, and building a sustainable freelance career in SA.',
+      coverImage: '/assets/professional/nanda-consulting.jpg',
+      category: 'business',
+      publishedAt: '2024-01-15',
+      readingTime: 10,
+      author: { name: 'Nanda Kabali-Kagwa', avatar: '/assets/professional/nanda-professional.png' },
+    },
+    content: `
+## The Reality of Freelancing in SA
+
+Let's be honest — freelancing in South Africa comes with unique challenges that our international peers don't fully understand. Load-shedding, fluctuating exchange rates, and payment difficulties are just the beginning.
+
+But here's the thing: it's absolutely possible to build a thriving freelance career here. I've done it, and I want to share what I've learned.
+
+## Dealing with Load-Shedding
+
+### The Essentials
+
+1. **Invest in a UPS** - A basic UPS gives you 2-4 hours of laptop power
+2. **Get mobile data backup** - When WiFi goes down, LTE/5G saves the day
+3. **Use the EskomSePush app** - Plan your high-focus work around load-shedding schedules
+4. **Coffee shops and co-working spaces** - Know your backup locations
+
+### Planning Your Day
+
+I've learned to structure my work around load-shedding stages. High-focus work (coding, writing) happens during guaranteed power times. Admin tasks, emails, and planning can happen on mobile during outages.
+
+## Payment Solutions for SA Freelancers
+
+### Getting Paid from International Clients
+
+- **Payoneer** - Lower fees, works well with most platforms
+- **Wise (TransferWise)** - Great exchange rates, fast transfers
+- **PayPal** - Universal but higher fees, withdrawal limitations
+- **Direct bank transfer** - SWIFT transfers work but are slow and expensive
+
+### Local Payment Methods
+
+- **Instant EFT** - Fast for local clients
+- **SnapScan/Zapper** - Good for small projects
+- **PayFast** - Great for product sales
+
+## Building Your Client Base
+
+### Start Local, Go Global
+
+Don't underestimate local clients. South African businesses need good freelancers, and you can build lasting relationships here before expanding internationally.
+
+### Leverage the Time Zone
+
+Working with European clients? You're only 1-2 hours ahead. US East Coast? 6-7 hours ahead means you can deliver overnight while they sleep.
+
+## Pricing Your Services
+
+### The Rand Reality
+
+Price in USD or EUR for international clients. Your South African cost of living means you can be competitive while earning well.
+
+### Local Market Rates
+
+Don't undervalue yourself locally either. Quality work deserves fair compensation, even in Rands.
+
+## The Mindset Shift
+
+Freelancing in SA requires resilience. You'll face challenges that international freelancers don't. But you'll also develop problem-solving skills that make you incredibly adaptable.
+
+Every load-shedding stage survived, every payment issue navigated, makes you stronger. That's the real freelancer skill.
+
+## You've Got This
+
+South African freelancers are some of the most resourceful professionals I know. We make things work. We find solutions. We build careers despite the obstacles.
+
+Welcome to the journey.
+    `,
+    tableOfContents: [
+      { id: 'the-reality-of-freelancing-in-sa', title: 'The Reality of Freelancing in SA', level: 2 },
+      { id: 'dealing-with-load-shedding', title: 'Dealing with Load-Shedding', level: 2 },
+      { id: 'payment-solutions-for-sa-freelancers', title: 'Payment Solutions', level: 2 },
+      { id: 'building-your-client-base', title: 'Building Your Client Base', level: 2 },
+      { id: 'pricing-your-services', title: 'Pricing Your Services', level: 2 },
+      { id: 'the-mindset-shift', title: 'The Mindset Shift', level: 2 },
+    ],
+  },
+  'typescript-for-beginners': {
+    article: {
+      slug: 'typescript-for-beginners',
+      title: 'TypeScript for JavaScript Developers',
+      excerpt: 'A gentle introduction to TypeScript that will make you wonder why you waited so long.',
+      coverImage: '/assets/professional/nanda-consulting.jpg',
+      category: 'dev',
+      publishedAt: '2024-01-10',
+      readingTime: 15,
+      author: { name: 'Nanda Kabali-Kagwa', avatar: '/assets/professional/nanda-professional.png' },
+    },
+    content: `
+## Why TypeScript?
+
+I resisted TypeScript for years. "It's just JavaScript with extra steps," I told myself. I was wrong. TypeScript has made me a better developer, and it can do the same for you.
+
+## What is TypeScript?
+
+TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. In simple terms: it's JavaScript with superpowers.
+
+\`\`\`typescript
+// JavaScript
+function greet(name) {
+  return "Hello, " + name;
+}
+
+// TypeScript
+function greet(name: string): string {
+  return "Hello, " + name;
+}
+\`\`\`
+
+## Getting Started
+
+### Installation
+
+\`\`\`bash
+npm install -g typescript
+\`\`\`
+
+### Your First TypeScript File
+
+Create a file called \`hello.ts\`:
+
+\`\`\`typescript
+const message: string = "Hello, TypeScript!";
+console.log(message);
+\`\`\`
+
+Compile it: \`tsc hello.ts\`
+
+## Basic Types
+
+### Primitives
+
+\`\`\`typescript
+let name: string = "Nanda";
+let age: number = 28;
+let isAwesome: boolean = true;
+\`\`\`
+
+### Arrays
+
+\`\`\`typescript
+let numbers: number[] = [1, 2, 3];
+let names: string[] = ["Alice", "Bob"];
+\`\`\`
+
+### Objects
+
+\`\`\`typescript
+interface User {
+  name: string;
+  age: number;
+  email?: string; // optional
+}
+
+const user: User = {
+  name: "Nanda",
+  age: 28
+};
+\`\`\`
+
+## Why Types Matter
+
+### Catch Errors Early
+
+TypeScript catches errors at compile time, not runtime:
+
+\`\`\`typescript
+function multiply(a: number, b: number): number {
+  return a * b;
+}
+
+multiply("2", 3); // Error! Type 'string' is not assignable
+\`\`\`
+
+### Better IDE Support
+
+With types, your editor knows exactly what's available:
+
+- Autocomplete that actually works
+- Inline documentation
+- Refactoring confidence
+
+### Self-Documenting Code
+
+Types serve as documentation:
+
+\`\`\`typescript
+interface BlogPost {
+  title: string;
+  content: string;
+  author: User;
+  publishedAt: Date;
+  tags: string[];
+}
+\`\`\`
+
+## Common Patterns
+
+### Union Types
+
+\`\`\`typescript
+type Status = "loading" | "success" | "error";
+let currentStatus: Status = "loading";
+\`\`\`
+
+### Generics
+
+\`\`\`typescript
+function getFirst<T>(items: T[]): T | undefined {
+  return items[0];
+}
+
+const firstNumber = getFirst([1, 2, 3]); // number
+const firstString = getFirst(["a", "b"]); // string
+\`\`\`
+
+## Start Small
+
+You don't have to type everything at once. TypeScript supports gradual adoption:
+
+1. Rename \`.js\` to \`.ts\`
+2. Add types to function parameters
+3. Create interfaces for objects
+4. Enable strict mode when ready
+
+## The Payoff
+
+After two weeks with TypeScript, you'll wonder how you ever coded without it. The confidence, the tooling, the self-documenting nature — it's worth the learning curve.
+
+Welcome to typed JavaScript.
+    `,
+    tableOfContents: [
+      { id: 'why-typescript', title: 'Why TypeScript?', level: 2 },
+      { id: 'what-is-typescript', title: 'What is TypeScript?', level: 2 },
+      { id: 'getting-started', title: 'Getting Started', level: 2 },
+      { id: 'basic-types', title: 'Basic Types', level: 2 },
+      { id: 'why-types-matter', title: 'Why Types Matter', level: 2 },
+      { id: 'common-patterns', title: 'Common Patterns', level: 2 },
+      { id: 'start-small', title: 'Start Small', level: 2 },
+    ],
+  },
+  'inside-her-roses-journey': {
+    article: {
+      slug: 'inside-her-roses-journey',
+      title: 'The Journey of "Inside Her Roses"',
+      excerpt: 'From late-night scribbles to a published book — the story behind my debut poetry collection.',
+      coverImage: '/assets/poetry-book/book-cover-1.jpg',
+      category: 'writing',
+      publishedAt: '2024-01-05',
+      readingTime: 7,
+      author: { name: 'Nanda Kabali-Kagwa', avatar: '/assets/professional/nanda-professional.png' },
+    },
+    content: `
+## The First Words
+
+"Inside Her Roses" didn't start as a book. It started as survival.
+
+2019 was one of the hardest years of my life. I was navigating loss, identity questions, and the weight of existing in spaces that didn't always see me. Poetry became my refuge.
+
+## Writing in the Dark
+
+My first poems were written at 2am, tears blurring the screen, words tumbling out faster than I could type. They weren't polished. They weren't meant for anyone's eyes.
+
+> "Some roses bloom in darkness,
+> not despite the lack of light,
+> but because of it."
+
+These raw, desperate verses became the seeds of something bigger.
+
+## Finding the Theme
+
+As months passed and poems accumulated, I noticed themes emerging:
+
+- **Growth through pain** - Roses that bloom in unlikely places
+- **Black womanhood** - Celebrating identity and heritage
+- **Love in all forms** - Self-love, romantic love, community love
+- **Healing as a journey** - Not a destination
+
+The rose became my central metaphor — beauty that comes with thorns, growth that requires both sunshine and rain.
+
+## The Collection Takes Shape
+
+I spent six months organizing, editing, and sequencing the poems. Each section represents a stage of growth:
+
+1. **Soil** - The foundation, the pain, the buried parts
+2. **Roots** - Finding grounding, connecting to heritage
+3. **Stems** - Rising up, building strength
+4. **Blooms** - Celebration, beauty, arrival
+
+## Publishing the Book
+
+Self-publishing was intentional. I wanted control over every aspect — the words, the design, the message. Working with local artists for the cover art meant the book was authentically South African.
+
+The launch night at a local bookstore was surreal. Seeing people hold something that started as private pain transformed into shared healing... there are no words.
+
+## What It Taught Me
+
+Writing this book taught me that:
+
+- **Our stories matter** - Your pain is valid, and sharing it can help others
+- **Vulnerability is strength** - The poems people connected with most were my most honest ones
+- **Art is healing** - Both in the creation and the sharing
+
+## The Ongoing Journey
+
+"Inside Her Roses" isn't the end. It's a beginning. I continue to write, perform, and share. Each poem is another petal, another piece of a larger bloom.
+
+If you're holding onto words that need release, I encourage you to write them. They might become something you never expected.
+
+Your roses are waiting to bloom.
+    `,
+    tableOfContents: [
+      { id: 'the-first-words', title: 'The First Words', level: 2 },
+      { id: 'writing-in-the-dark', title: 'Writing in the Dark', level: 2 },
+      { id: 'finding-the-theme', title: 'Finding the Theme', level: 2 },
+      { id: 'the-collection-takes-shape', title: 'The Collection Takes Shape', level: 2 },
+      { id: 'publishing-the-book', title: 'Publishing the Book', level: 2 },
+      { id: 'what-it-taught-me', title: 'What It Taught Me', level: 2 },
+      { id: 'the-ongoing-journey', title: 'The Ongoing Journey', level: 2 },
+    ],
+  },
+  'react-server-components-deep-dive': {
+    article: {
+      slug: 'react-server-components-deep-dive',
+      title: 'React Server Components: A Deep Dive',
+      excerpt: 'Understanding the paradigm shift in React development and how RSC changes everything.',
+      coverImage: null,
+      category: 'dev',
+      publishedAt: '2024-01-02',
+      readingTime: 18,
+      author: { name: 'Nanda Kabali-Kagwa', avatar: '/assets/professional/nanda-professional.png' },
+    },
+    content: `
+## The Paradigm Shift
+
+React Server Components (RSC) represent the biggest change to React since hooks. They fundamentally alter how we think about rendering, data fetching, and application architecture.
+
+Let me break it down.
+
+## What Are Server Components?
+
+Server Components are React components that render exclusively on the server. They:
+
+- Never ship JavaScript to the client
+- Can directly access backend resources (databases, files)
+- Stream their output to the client
+
+\`\`\`tsx
+// This is a Server Component (default in Next.js App Router)
+async function UserList() {
+  const users = await db.query('SELECT * FROM users');
+  return (
+    <ul>
+      {users.map(user => <li key={user.id}>{user.name}</li>)}
+    </ul>
+  );
+}
+\`\`\`
+
+## Server vs Client Components
+
+### Server Components (Default)
+
+- Run only on the server
+- Can use async/await
+- Direct database access
+- No interactivity (no useState, useEffect)
+- Zero client-side JavaScript
+
+### Client Components
+
+- Run on both server and client
+- Can use hooks
+- Handle user interactions
+- Require 'use client' directive
+
+\`\`\`tsx
+'use client';
+
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+}
+\`\`\`
+
+## The Mental Model
+
+Think of it like this:
+
+- **Server Components** = Static content, data fetching, heavy lifting
+- **Client Components** = Interactivity, user events, state management
+
+The key insight: most of your app doesn't need interactivity. RSC lets you ship zero JavaScript for those parts.
+
+## Composition Patterns
+
+### Server Component as Parent
+
+\`\`\`tsx
+// Server Component
+async function Dashboard() {
+  const data = await fetchDashboardData();
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <StaticChart data={data} />      {/* Server */}
+      <InteractiveFilter />             {/* Client */}
+    </div>
+  );
+}
+\`\`\`
+
+### Passing Server Data to Client
+
+\`\`\`tsx
+// Server Component
+async function ProductPage({ id }) {
+  const product = await getProduct(id);
+
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      <AddToCartButton product={product} />  {/* Pass as props */}
+    </div>
+  );
+}
+\`\`\`
+
+## Performance Benefits
+
+### Bundle Size
+
+Server Components don't add to your JavaScript bundle. A complex data grid with 50KB of dependencies? Zero KB shipped to client.
+
+### Streaming
+
+React 18's streaming allows components to render progressively:
+
+\`\`\`tsx
+import { Suspense } from 'react';
+
+function Page() {
+  return (
+    <div>
+      <Header />                      {/* Immediate */}
+      <Suspense fallback={<Spinner />}>
+        <SlowContent />              {/* Streams when ready */}
+      </Suspense>
+    </div>
+  );
+}
+\`\`\`
+
+## Common Mistakes
+
+### 1. Over-using 'use client'
+
+Don't make everything a Client Component. Only add 'use client' when you need interactivity.
+
+### 2. Importing Server Components into Client Components
+
+This doesn't work:
+
+\`\`\`tsx
+'use client';
+import ServerComponent from './ServerComponent'; // ❌
+\`\`\`
+
+Instead, pass as children:
+
+\`\`\`tsx
+<ClientComponent>
+  <ServerComponent />  {/* ✅ */}
+</ClientComponent>
+\`\`\`
+
+### 3. Forgetting the Boundary
+
+Everything imported by a Client Component becomes a Client Component. Be mindful of your component tree.
+
+## When to Use What
+
+| Use Server Components For | Use Client Components For |
+|--------------------------|--------------------------|
+| Data fetching | User interactions |
+| Static content | Hooks (useState, useEffect) |
+| Backend access | Browser APIs |
+| Large dependencies | Animations |
+
+## The Future is Hybrid
+
+RSC isn't replacing Client Components — it's complementing them. The future of React is a hybrid model where you use the right tool for each job.
+
+Embrace the shift. Your users (and their bandwidth) will thank you.
+    `,
+    tableOfContents: [
+      { id: 'the-paradigm-shift', title: 'The Paradigm Shift', level: 2 },
+      { id: 'what-are-server-components', title: 'What Are Server Components?', level: 2 },
+      { id: 'server-vs-client-components', title: 'Server vs Client Components', level: 2 },
+      { id: 'the-mental-model', title: 'The Mental Model', level: 2 },
+      { id: 'composition-patterns', title: 'Composition Patterns', level: 2 },
+      { id: 'performance-benefits', title: 'Performance Benefits', level: 2 },
+      { id: 'common-mistakes', title: 'Common Mistakes', level: 2 },
+      { id: 'when-to-use-what', title: 'When to Use What', level: 2 },
+    ],
+  },
+  'black-girl-magic-poetry': {
+    article: {
+      slug: 'black-girl-magic-poetry',
+      title: 'Writing Black Girl Magic: Celebrating Identity',
+      excerpt: 'Exploring themes of identity, heritage, and empowerment through contemporary African poetry.',
+      coverImage: '/assets/poetry-book/book-cover-1.jpg',
+      category: 'writing',
+      publishedAt: '2023-12-28',
+      readingTime: 5,
+      author: { name: 'Nanda Kabali-Kagwa', avatar: '/assets/professional/nanda-professional.png' },
+    },
+    content: `
+## What is Black Girl Magic?
+
+Black Girl Magic isn't just a hashtag. It's a movement, a recognition, a celebration of the excellence that Black women carry in our DNA.
+
+In poetry, Black Girl Magic becomes a lens through which we explore identity, heritage, and the unique experience of being a Black woman in this world.
+
+## Finding My Voice
+
+Growing up in South Africa, I straddled multiple worlds — Ugandan heritage, African identity, global aspirations. My poetry became a space to reconcile these layers.
+
+> "I am my grandmother's prayers
+> and my mother's dreams,
+> wrapped in melanin and magic,
+> stitching seams where worlds collide."
+
+## Themes I Explore
+
+### Ancestral Connection
+
+Our grandmothers survived so we could thrive. Their stories live in our bones.
+
+### Body Politics
+
+Celebrating the Black female form in a world that hasn't always valued it.
+
+### Code-Switching
+
+The exhausting dance of adapting to different spaces while staying true to yourself.
+
+### Joy as Resistance
+
+Choosing happiness, choosing celebration, choosing ourselves.
+
+## The Power of Representation
+
+When I perform poems about Black womanhood, young Black girls come up to me afterwards. "I've never heard someone say the things I feel," they tell me.
+
+This is why representation matters. This is why we write.
+
+## Writing Your Own Magic
+
+You don't need permission to write about your identity. Some tips:
+
+1. **Write what you know** - Your experience is valid
+2. **Don't explain** - Write for those who understand
+3. **Be specific** - Universal truths hide in specific details
+4. **Celebrate** - Not every poem needs to be about struggle
+
+## A Poem for You
+
+> **Melanin**
+>
+> They called my skin too dark
+> before I knew what dark meant,
+> before I knew that darkness
+> is where stars are born,
+> where seeds become forests,
+> where rest becomes revival.
+>
+> Now I know: my darkness
+> is not absence of light.
+> It is light so concentrated,
+> so dense with brilliance,
+> that it appears to absorb
+> rather than reflect.
+>
+> I am not dark.
+> I am everything light wants to be
+> when it grows up.
+
+## Your Turn
+
+Write a poem about your identity. Don't edit, don't judge. Just let the words flow. Your magic is waiting to be named.
+    `,
+    tableOfContents: [
+      { id: 'what-is-black-girl-magic', title: 'What is Black Girl Magic?', level: 2 },
+      { id: 'finding-my-voice', title: 'Finding My Voice', level: 2 },
+      { id: 'themes-i-explore', title: 'Themes I Explore', level: 2 },
+      { id: 'the-power-of-representation', title: 'The Power of Representation', level: 2 },
+      { id: 'writing-your-own-magic', title: 'Writing Your Own Magic', level: 2 },
+      { id: 'a-poem-for-you', title: 'A Poem for You', level: 2 },
+    ],
+  },
+  'digital-products-passive-income': {
+    article: {
+      slug: 'digital-products-passive-income',
+      title: 'Digital Products: Building Passive Income Streams',
+      excerpt: 'How I built multiple revenue streams through digital products while working a full-time job.',
+      coverImage: null,
+      category: 'business',
+      publishedAt: '2023-12-20',
+      readingTime: 12,
+      author: { name: 'Nanda Kabali-Kagwa', avatar: '/assets/professional/nanda-professional.png' },
+    },
+    content: `
+## The Passive Income Promise
+
+Let's get something straight: "passive income" is a misnomer. Nothing is truly passive. But digital products come close — you create once, sell forever.
+
+I built my first digital product revenue stream while working full-time. Here's how.
+
+## My Digital Product Portfolio
+
+After three years of building, my portfolio includes:
+
+- **Notion Templates** - Productivity systems, planners, databases
+- **Code Components** - React UI kits, animation libraries
+- **Digital Art** - Downloadable prints, phone wallpapers
+- **eBooks** - Poetry collection, guides
+
+Each product generates revenue while I sleep.
+
+## Choosing Your First Product
+
+### Start with What You Know
+
+What problems do you solve daily? What do people ask you for help with? There's a product hiding in your expertise.
+
+### Validate Before Building
+
+Before spending weeks on a product:
+
+1. Post about the idea on social media
+2. Create a waitlist landing page
+3. Ask potential customers what they'd pay
+4. Research existing competition
+
+## Building in Public
+
+One of my best decisions was building in public. I shared:
+
+- Work-in-progress screenshots
+- Challenges and solutions
+- Revenue numbers (transparently)
+- Lessons learned
+
+This built an audience before the product launched.
+
+## Pricing Strategies
+
+### The Three-Tier Model
+
+I use tiered pricing for most products:
+
+- **Basic ($15-25)** - The core product
+- **Pro ($35-49)** - Core + extras (templates, tutorials)
+- **Bundle ($79-149)** - Everything, all updates
+
+### Launch Pricing
+
+I always launch at 30-40% off, then increase to full price after a week. This creates urgency and rewards early supporters.
+
+## Platforms I Use
+
+### For Notion Templates
+
+- **Gumroad** - Simple, low fees, international payments
+- **Lemonsqueezy** - Great for EU compliance
+- **Own website** - Higher margins, full control
+
+### For Code Products
+
+- **Gumroad** - Works well for code downloads
+- **GitHub Sponsors** - For open-source with premium features
+- **Direct sales** - For higher-priced items
+
+## Marketing Without Burning Out
+
+### Content Marketing
+
+I create free content that leads to paid products:
+
+- Twitter threads → Notion templates
+- Blog posts → Code tutorials → UI kits
+- Instagram posts → Digital art → Print sales
+
+### Email List
+
+Your email list is your most valuable asset. I offer a free mini-template to grow my list, then nurture subscribers with weekly value.
+
+## The Numbers
+
+After 3 years of building digital products:
+
+- **Total products**: 15
+- **Monthly revenue**: R15,000 - R25,000 (varies)
+- **Hours per week**: 5-10 (maintenance + marketing)
+
+It's not retire-early money, but it's meaningful supplemental income that grows over time.
+
+## Getting Started Today
+
+1. **Pick one product idea** - Don't overthink it
+2. **Build an MVP** - Minimum viable product
+3. **Launch to 10 people** - Friends, family, Twitter followers
+4. **Iterate based on feedback**
+5. **Repeat**
+
+Your first product won't be perfect. Mine wasn't. But it taught me more than any course could.
+
+Start building.
+    `,
+    tableOfContents: [
+      { id: 'the-passive-income-promise', title: 'The Passive Income Promise', level: 2 },
+      { id: 'my-digital-product-portfolio', title: 'My Digital Product Portfolio', level: 2 },
+      { id: 'choosing-your-first-product', title: 'Choosing Your First Product', level: 2 },
+      { id: 'building-in-public', title: 'Building in Public', level: 2 },
+      { id: 'pricing-strategies', title: 'Pricing Strategies', level: 2 },
+      { id: 'platforms-i-use', title: 'Platforms I Use', level: 2 },
+      { id: 'marketing-without-burning-out', title: 'Marketing Without Burning Out', level: 2 },
+      { id: 'the-numbers', title: 'The Numbers', level: 2 },
+      { id: 'getting-started-today', title: 'Getting Started Today', level: 2 },
+    ],
+  },
 };
 
 // Related articles by category

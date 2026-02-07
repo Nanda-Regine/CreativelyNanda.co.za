@@ -45,3 +45,6 @@ export type { PoemCardProps, Poem } from './PoemCard';
 
 // Language selector
 export { LanguageSelector } from './LanguageSelector';
+
+// PWA Install
+export { PWAInstallButton } from './PWAInstallButton';

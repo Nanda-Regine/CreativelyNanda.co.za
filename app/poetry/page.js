@@ -418,25 +418,62 @@ export default function Poetry() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Book info */}
+            {/* Book info with cover image */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={mobileViewport}
               variants={staggerContainer}
             >
-              <motion.h2 variants={fadeInUp} className="font-display text-5xl lg:text-6xl font-bold text-navy mb-6">
-                Inside Her <span className="text-cherry">Roses</span>
-              </motion.h2>
+              {/* Book cover and title row */}
+              <div className="flex flex-col sm:flex-row gap-6 mb-6">
+                {/* Book Cover Image */}
+                <motion.div
+                  variants={fadeInLeft}
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  className="shrink-0 self-center sm:self-start"
+                  style={{ perspective: '1000px' }}
+                >
+                  <div
+                    className="relative w-[160px] h-[240px] sm:w-[180px] sm:h-[270px] shadow-2xl overflow-hidden"
+                    style={{
+                      borderRadius: '4px 12px 12px 4px',
+                      boxShadow: '8px 8px 20px rgba(0,0,0,0.3), -2px 0 8px rgba(0,0,0,0.1)',
+                    }}
+                  >
+                    <img
+                      src="/assets/poetry-book/book-cover-1.jpg"
+                      alt="Inside Her Roses - Book Cover"
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Book spine effect */}
+                    <div
+                      className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/30 via-black/10 to-transparent"
+                    />
+                    {/* Page edge effect */}
+                    <div
+                      className="absolute right-0 top-1 bottom-1 w-1 bg-gradient-to-l from-gray-200 to-gray-100"
+                      style={{ borderRadius: '0 2px 2px 0' }}
+                    />
+                  </div>
+                </motion.div>
 
-              <motion.p variants={fadeInUp} className="text-xl text-navy/70 leading-relaxed mb-6">
-                A journey through love, identity, healing, and Black womanhood.
-                This collection blooms with raw honesty, capturing moments of
-                vulnerability and strength that resonate with the soul.
-              </motion.p>
+                {/* Title and description */}
+                <div className="flex-1 text-center sm:text-left">
+                  <motion.h2 variants={fadeInUp} className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-navy mb-4">
+                    Inside Her <span className="text-cherry">Roses</span>
+                  </motion.h2>
+
+                  <motion.p variants={fadeInUp} className="text-lg sm:text-xl text-navy/70 leading-relaxed">
+                    A journey through love, identity, healing, and Black womanhood.
+                    This collection blooms with raw honesty, capturing moments of
+                    vulnerability and strength that resonate with the soul.
+                  </motion.p>
+                </div>
+              </div>
 
               {/* Main purchase button */}
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-8">
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-8 justify-center sm:justify-start">
                 <Button
                   variant="secondary"
                   size="lg"
@@ -458,9 +495,9 @@ export default function Poetry() {
               </motion.div>
 
               {/* Store availability - small logos */}
-              <motion.div variants={fadeInUp}>
+              <motion.div variants={fadeInUp} className="text-center sm:text-left">
                 <p className="text-navy/50 text-sm mb-3">Available at:</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                   {bookStores.map((store, i) => (
                     <motion.div
                       key={store.name}
