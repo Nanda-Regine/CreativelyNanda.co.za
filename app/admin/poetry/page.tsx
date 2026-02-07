@@ -111,7 +111,7 @@ export default function AdminPoetryPage() {
   });
 
   const totalHearts = poems.reduce((sum, p) => sum + (p.heart_count || 0), 0);
-  const uniqueThemes = [...new Set(poems.map(p => p.theme).filter(Boolean))];
+  const uniqueThemes = Array.from(new Set(poems.map(p => p.theme).filter(Boolean)));
 
   return (
     <div className="min-h-screen bg-parchment">
