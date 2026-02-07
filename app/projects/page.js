@@ -15,7 +15,7 @@ const projects = [
     coverColor: 'from-[#C1292E] to-[#8B1E22]',
     accentColor: '#C1292E',
     description: 'My personal portfolio and digital headquarters — a magazine-inspired showcase of my work as a Creative Technologist, featuring AI chatbot integration, editorial design aesthetics, and seamless user experience.',
-    videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+    videoUrl: '/assets/project-screen-record/creativelynanda.mp4',
     githubUrl: 'https://github.com/creativelynanda/portfolio',
     liveUrl: 'https://creativelynanda.co.za',
     tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'OpenAI API', 'Vercel'],
@@ -67,7 +67,7 @@ MIT © Nanda`
     coverColor: 'from-[#0A1128] to-[#1a2744]',
     accentColor: '#B8860B',
     description: 'A full-stack location-based service platform with real-time mapping, user authentication, and geospatial visualization. Built from scratch to connect users with local services.',
-    videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+    videoUrl: null,
     githubUrl: 'https://github.com/creativelynanda/true-access',
     liveUrl: 'https://true-access.vercel.app',
     tech: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Supabase', 'Mapbox GL JS', 'Geolocation API'],
@@ -114,6 +114,58 @@ MAPBOX_TOKEN=your_token
 MIT © Nanda`
   },
   {
+    id: 'greenvault',
+    title: 'GreenVault',
+    subtitle: 'Token-Based E-Commerce Platform',
+    category: 'Full-Stack',
+    status: 'Completed',
+    year: '2025',
+    coverColor: 'from-[#10B981] to-[#059669]',
+    accentColor: '#10B981',
+    description: 'A modern token-based e-commerce platform where users earn and spend tokens for purchases. Features a gamified shopping experience with rewards, achievements, and a sleek green-themed interface.',
+    videoUrl: '/assets/project-screen-record/GreenVault.mp4',
+    githubUrl: 'https://github.com/creativelynanda/greenvault',
+    liveUrl: 'https://greenvault.vercel.app',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'JWT Authentication'],
+    caseStudy: {
+      challenge: 'Create an engaging e-commerce experience that rewards customer loyalty through a token-based system, making shopping more interactive and rewarding.',
+      approach: 'Designed a gamified shopping experience with token rewards for purchases, reviews, and referrals. Built a sleek green-themed UI that reinforces the eco-friendly brand identity.',
+      solution: 'Developed a full-stack application with user authentication, token wallet system, product catalog, and checkout flow. Implemented reward tiers and achievement badges.',
+      results: [
+        'Token-based loyalty system increases user engagement',
+        'Gamified shopping with achievements and rewards',
+        'Secure JWT authentication for user accounts',
+        'Responsive design with modern UI/UX'
+      ]
+    },
+    readme: `# GreenVault
+
+Token-based e-commerce platform with gamified shopping experience.
+
+## Features
+- 🪙 Token-based currency system
+- 🛒 Full e-commerce functionality
+- 🏆 Achievements and rewards
+- 👤 User accounts with JWT auth
+- 📱 Responsive green-themed design
+
+## Tech Stack
+- React (Frontend)
+- Node.js & Express (Backend)
+- MongoDB (Database)
+- Tailwind CSS (Styling)
+- JWT (Authentication)
+
+## Installation
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+## License
+MIT © Nanda`
+  },
+  {
     id: 'cortex-hub',
     title: 'Cortex Hub',
     subtitle: 'Booking & Management System',
@@ -123,7 +175,7 @@ MIT © Nanda`
     coverColor: 'from-[#B8860B] to-[#8B6914]',
     accentColor: '#0A1128',
     description: 'A comprehensive booking and management system designed for service-based businesses. Features appointment scheduling, client management, and analytics dashboard.',
-    videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+    videoUrl: '/assets/project-screen-record/cortexhub-booking-system.mp4',
     githubUrl: 'https://github.com/creativelynanda/cortex-hub',
     liveUrl: 'https://cortex-hub.vercel.app',
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Chart.js'],
@@ -181,7 +233,7 @@ MIT © Nanda`
     coverColor: 'from-[#E50914] to-[#831010]',
     accentColor: '#E50914',
     description: 'A pixel-perfect recreation of Netflix\'s landing page, demonstrating mastery of HTML and CSS fundamentals, responsive design principles, and attention to detail.',
-    videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+    videoUrl: '/assets/project-screen-record/netflix-clone.mp4',
     githubUrl: 'https://github.com/creativelynanda/netflix-landing',
     liveUrl: 'https://netflix-landing-nanda.vercel.app',
     tech: ['HTML5', 'CSS3', 'Flexbox', 'CSS Grid', 'Media Queries', 'CSS Animations'],
@@ -237,7 +289,7 @@ MIT © Nanda`
     coverColor: 'from-[#FF0000] to-[#CC0000]',
     accentColor: '#FF0000',
     description: 'A faithful recreation of YouTube\'s interface using HTML and CSS, showcasing layout skills, component-based thinking, and responsive design mastery.',
-    videoUrl: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+    videoUrl: '/assets/project-screen-record/youtube-clone.mp4',
     githubUrl: 'https://github.com/creativelynanda/youtube-clone',
     liveUrl: 'https://youtube-clone-nanda.vercel.app',
     tech: ['HTML5', 'CSS3', 'Flexbox', 'CSS Grid', 'BEM Methodology', 'Responsive Design'],
@@ -361,22 +413,30 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
       className="relative"
     >
       {/* Project Card */}
-      <div 
+      <div
         className={`
-          relative overflow-hidden transition-all duration-700 ease-out
-          ${isExpanded 
-            ? 'bg-white rounded-[48px] shadow-2xl' 
-            : 'bg-white/80 backdrop-blur-sm rounded-[32px] hover:shadow-xl hover:bg-white'
+          relative overflow-hidden transition-all duration-700 ease-out group
+          ${isExpanded
+            ? 'rounded-[48px] shadow-2xl'
+            : 'rounded-[32px] hover:shadow-xl'
           }
         `}
       >
+        {/* Colorful gradient background */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${project.coverColor} opacity-10 group-hover:opacity-15 transition-opacity duration-500`} />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/95 to-white/80" />
+
+        {/* Decorative accent shapes */}
+        <div className={`absolute -top-20 -right-20 w-48 h-48 bg-gradient-to-br ${project.coverColor} rounded-full blur-3xl opacity-20`} />
+        <div className={`absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-tr ${project.coverColor} rounded-full blur-3xl opacity-15`} />
+
         {/* Top gradient bar */}
         <div className={`h-2 bg-gradient-to-r ${project.coverColor}`} />
         
         {/* Card Header - Always Visible */}
-        <button 
+        <button
           onClick={onToggle}
-          className="w-full text-left p-6 md:p-8 lg:p-10"
+          className="w-full text-left p-6 md:p-8 lg:p-10 relative z-10"
         >
           <div className="flex flex-col lg:flex-row lg:items-center gap-6">
             {/* Project Icon/Number */}
@@ -449,7 +509,7 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className="px-6 md:px-8 lg:px-10 pb-8 md:pb-10">
+              <div className="px-6 md:px-8 lg:px-10 pb-8 md:pb-10 relative z-10">
                 {/* Divider with pattern */}
                 <div className="relative py-6">
                   <div className="absolute inset-0 flex items-center">
@@ -537,19 +597,20 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
                       transition={{ duration: 0.3 }}
                       className="space-y-6"
                     >
-                      {/* Video Embed */}
+                      {/* Video Player */}
                       {project.videoUrl ? (
-                        <div 
-                          className="relative overflow-hidden rounded-[24px] bg-[#0A1128]"
-                          style={{ paddingBottom: '56.25%' }}
-                        >
-                          <iframe
+                        <div className="relative overflow-hidden rounded-[24px] bg-[#0A1128]">
+                          <video
                             src={project.videoUrl}
                             title={`${project.title} Demo`}
-                            className="absolute inset-0 w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
+                            className="w-full h-auto"
+                            controls
+                            playsInline
+                            preload="metadata"
+                            poster={`/assets/project-thumbnails/${project.id}.jpg`}
+                          >
+                            Your browser does not support the video tag.
+                          </video>
                         </div>
                       ) : (
                         <div 

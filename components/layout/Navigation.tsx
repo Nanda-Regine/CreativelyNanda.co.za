@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { CartIcon } from '@/components/cart';
+import { LanguageSelector } from '@/components/ui/LanguageSelector';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -63,6 +64,8 @@ export default function Navigation() {
           ))}
 
           <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
+
+          <LanguageSelector />
 
           <a
             href="/assets/work/Nanda-cv.pdf"

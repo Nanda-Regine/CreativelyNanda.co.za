@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "work": "Work",
+    "education": "Education",
+    "notion": "Notion",
+    "mirembe": "Mirembe",
+    "poetry": "Poetry",
+    "blog": "Blog",
+    "shop": "Shop",
+    "contact": "Contact",
+    "downloadCV": "Download CV"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Nanda",
+    "tagline": "Developer, Poet, Creative",
+    "description": "Building digital experiences that inspire and empower",
+    "cta": "View My Work",
+    "ctaSecondary": "Get in Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "A creative soul with a passion for code and words"
+  },
+  "shop": {
+    "title": "Digital Products",
+    "subtitle": "Premium templates and tools for your success",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "featured": "Featured",
+    "new": "New",
+    "bestseller": "Bestseller",
+    "categories": {
+      "student": "Student",
+      "business": "Business",
+      "creative": "Creative",
+      "wellness": "Wellness"
+    },
+    "filters": {
+      "all": "All Products",
+      "sortBy": "Sort by",
+      "price": "Price",
+      "newest": "Newest",
+      "popular": "Most Popular"
+    }
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "items": "items"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "yourDetails": "Your Details",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "emailDescription": "Your purchase will be delivered to this email",
+    "name": "Full Name (Optional)",
+    "namePlaceholder": "Your full name",
+    "paySecurely": "Pay Securely",
+    "processing": "Processing...",
+    "orderSummary": "Order Summary",
+    "delivery": "Delivery",
+    "freeInstant": "Free (Instant)",
+    "securePayment": "Secure Payment",
+    "instantDelivery": "Instant Delivery",
+    "guarantee": "30-Day Guarantee"
+  },
+  "poetry": {
+    "title": "Poetry Collection",
+    "subtitle": "Verses from the soul",
+    "readMore": "Read More",
+    "allPoems": "All Poems",
+    "themes": {
+      "love": "Love",
+      "nature": "Nature",
+      "life": "Life",
+      "hope": "Hope",
+      "identity": "Identity"
+    }
+  },
+  "blog": {
+    "title": "The Blog",
+    "subtitle": "Thoughts, tutorials, and insights",
+    "readMore": "Read More",
+    "allPosts": "All Posts",
+    "categories": {
+      "dev": "Development",
+      "writing": "Writing",
+      "business": "Business"
+    },
+    "readingTime": "min read",
+    "publishedOn": "Published on"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's create something amazing together",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "madeWith": "Made with",
+    "in": "in South Africa"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "tryAgain": "Try Again",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "seeAll": "See All",
+    "learnMore": "Learn More"
+  }
+}

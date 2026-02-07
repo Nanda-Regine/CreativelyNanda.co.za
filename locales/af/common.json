@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Tuis",
+    "about": "Oor My",
+    "projects": "Projekte",
+    "work": "Werk",
+    "education": "Onderwys",
+    "notion": "Notion",
+    "mirembe": "Mirembe",
+    "poetry": "Poësie",
+    "blog": "Blog",
+    "shop": "Winkel",
+    "contact": "Kontak",
+    "downloadCV": "Laai CV Af"
+  },
+  "hero": {
+    "greeting": "Hallo, ek is",
+    "name": "Nanda",
+    "tagline": "Ontwikkelaar, Digter, Kreatief",
+    "description": "Ek bou digitale ervarings wat inspireer en bemagtig",
+    "cta": "Bekyk My Werk",
+    "ctaSecondary": "Kontak My"
+  },
+  "about": {
+    "title": "Oor My",
+    "subtitle": "'n Kreatiewe siel met 'n passie vir kode en woorde"
+  },
+  "shop": {
+    "title": "Digitale Produkte",
+    "subtitle": "Premium sjablone en hulpmiddels vir jou sukses",
+    "addToCart": "Voeg by Mandjie",
+    "buyNow": "Koop Nou",
+    "featured": "Uitgelig",
+    "new": "Nuut",
+    "bestseller": "Topverkoper",
+    "categories": {
+      "student": "Student",
+      "business": "Besigheid",
+      "creative": "Kreatief",
+      "wellness": "Welstand"
+    },
+    "filters": {
+      "all": "Alle Produkte",
+      "sortBy": "Sorteer volgens",
+      "price": "Prys",
+      "newest": "Nuutste",
+      "popular": "Gewildste"
+    }
+  },
+  "cart": {
+    "title": "Jou Mandjie",
+    "empty": "Jou mandjie is leeg",
+    "continueShopping": "Gaan Voort met Koop",
+    "checkout": "Betaal",
+    "remove": "Verwyder",
+    "total": "Totaal",
+    "subtotal": "Subtotaal",
+    "items": "items"
+  },
+  "checkout": {
+    "title": "Betaling",
+    "yourDetails": "Jou Besonderhede",
+    "email": "E-posadres",
+    "emailPlaceholder": "jou@epos.com",
+    "emailDescription": "Jou aankoop word na hierdie e-pos gestuur",
+    "name": "Volle Naam (Opsioneel)",
+    "namePlaceholder": "Jou volle naam",
+    "paySecurely": "Betaal Veilig",
+    "processing": "Verwerk...",
+    "orderSummary": "Bestelling Opsomming",
+    "delivery": "Aflewering",
+    "freeInstant": "Gratis (Onmiddellik)",
+    "securePayment": "Veilige Betaling",
+    "instantDelivery": "Onmiddellike Aflewering",
+    "guarantee": "30-Dae Waarborg"
+  },
+  "poetry": {
+    "title": "Poësie Versameling",
+    "subtitle": "Verse van die siel",
+    "readMore": "Lees Meer",
+    "allPoems": "Alle Gedigte",
+    "themes": {
+      "love": "Liefde",
+      "nature": "Natuur",
+      "life": "Lewe",
+      "hope": "Hoop",
+      "identity": "Identiteit"
+    }
+  },
+  "blog": {
+    "title": "Die Blog",
+    "subtitle": "Gedagtes, tutoriale en insigte",
+    "readMore": "Lees Meer",
+    "allPosts": "Alle Artikels",
+    "categories": {
+      "dev": "Ontwikkeling",
+      "writing": "Skryfwerk",
+      "business": "Besigheid"
+    },
+    "readingTime": "min lees",
+    "publishedOn": "Gepubliseer op"
+  },
+  "contact": {
+    "title": "Kontak My",
+    "subtitle": "Kom ons skep saam iets wonderliks",
+    "name": "Naam",
+    "email": "E-pos",
+    "message": "Boodskap",
+    "send": "Stuur Boodskap",
+    "sending": "Stuur...",
+    "success": "Boodskap suksesvol gestuur!",
+    "error": "Kon nie boodskap stuur nie. Probeer asseblief weer."
+  },
+  "footer": {
+    "copyright": "Alle regte voorbehou",
+    "madeWith": "Gemaak met",
+    "in": "in Suid-Afrika"
+  },
+  "common": {
+    "loading": "Laai...",
+    "error": "Iets het fout gegaan",
+    "tryAgain": "Probeer Weer",
+    "back": "Terug",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "seeAll": "Sien Alles",
+    "learnMore": "Leer Meer"
+  }
+}

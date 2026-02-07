@@ -42,3 +42,6 @@ export type { ArticleCardProps, Article } from './ArticleCard';
 
 export { PoemCard } from './PoemCard';
 export type { PoemCardProps, Poem } from './PoemCard';
+
+// Language selector
+export { LanguageSelector } from './LanguageSelector';
