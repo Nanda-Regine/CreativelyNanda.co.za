@@ -85,7 +85,7 @@ const NAV_ITEMS = [
 
 export default function AdminDashboard() {
   return (
-    <div className="min-h-screen bg-beige/30">
+    <div className="min-h-screen bg-parchment">
       {/* Top Bar */}
       <header className="bg-navy text-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -108,7 +108,7 @@ export default function AdminDashboard() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-cream border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
+        <aside className="w-64 bg-white border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
           <nav className="space-y-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -148,7 +148,7 @@ export default function AdminDashboard() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10"
+                  className="bg-white rounded-xl p-6 shadow-sm border border-navy/10"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center`}>
@@ -184,7 +184,7 @@ export default function AdminDashboard() {
                   <Link
                     key={action.label}
                     href={action.href}
-                    className="bg-cream rounded-xl p-4 shadow-sm border border-navy/10 hover:shadow-md transition-shadow group"
+                    className="bg-white rounded-xl p-4 shadow-sm border border-navy/10 hover:shadow-md transition-shadow group"
                   >
                     <div
                       className={`w-10 h-10 rounded-lg ${action.color} flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform`}
@@ -201,7 +201,7 @@ export default function AdminDashboard() {
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Recent Orders */}
-            <div className="bg-cream rounded-xl shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10">
               <div className="px-6 py-4 border-b border-navy/10 flex items-center justify-between">
                 <h2 className="font-semibold text-navy">Recent Orders</h2>
                 <Link href="/admin/orders" className="text-sm text-cherry hover:underline">
@@ -239,7 +239,7 @@ export default function AdminDashboard() {
             </div>
 
             {/* Recent Blog Posts */}
-            <div className="bg-cream rounded-xl shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10">
               <div className="px-6 py-4 border-b border-navy/10 flex items-center justify-between">
                 <h2 className="font-semibold text-navy">Recent Posts</h2>
                 <Link href="/admin/blog" className="text-sm text-cherry hover:underline">

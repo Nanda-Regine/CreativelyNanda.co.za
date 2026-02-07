@@ -113,7 +113,7 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-beige/30">
+    <div className="min-h-screen bg-parchment">
       {/* Top Bar */}
       <header className="bg-navy text-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -136,7 +136,7 @@ export default function AdminOrdersPage() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-cream border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
+        <aside className="w-64 bg-white border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
           <nav className="space-y-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -177,26 +177,26 @@ export default function AdminOrdersPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <p className="text-sm text-navy/60 mb-1">Total Orders</p>
               <p className="text-2xl font-bold text-navy">{stats.total}</p>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <p className="text-sm text-navy/60 mb-1">Completed</p>
               <p className="text-2xl font-bold text-emerald-600">{stats.completed}</p>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <p className="text-sm text-navy/60 mb-1">Pending</p>
               <p className="text-2xl font-bold text-amber-600">{stats.pending}</p>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <p className="text-sm text-navy/60 mb-1">Revenue</p>
               <p className="text-2xl font-bold text-cherry">R {stats.revenue.toLocaleString()}</p>
             </div>
           </div>
 
           {/* Filters */}
-          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
+          <div className="bg-white rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
@@ -225,9 +225,9 @@ export default function AdminOrdersPage() {
           </div>
 
           {/* Orders Table */}
-          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden">
             <table className="w-full">
-              <thead className="bg-beige/30 border-b border-navy/10">
+              <thead className="bg-parchment border-b border-navy/10">
                 <tr>
                   <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Order ID</th>
                   <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Customer</th>
@@ -247,7 +247,7 @@ export default function AdminOrdersPage() {
                       key={order.id}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="hover:bg-beige/30"
+                      className="hover:bg-parchment"
                     >
                       <td className="px-6 py-4">
                         <span className="font-mono text-sm font-medium text-navy">{order.id}</span>

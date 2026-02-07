@@ -93,7 +93,7 @@ export default function AdminBlogPage() {
   });
 
   return (
-    <div className="min-h-screen bg-beige/30">
+    <div className="min-h-screen bg-parchment">
       {/* Top Bar */}
       <header className="bg-navy text-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -116,7 +116,7 @@ export default function AdminBlogPage() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-cream border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
+        <aside className="w-64 bg-white border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
           <nav className="space-y-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -154,7 +154,7 @@ export default function AdminBlogPage() {
           </div>
 
           {/* Filters */}
-          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
+          <div className="bg-white rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
             <div className="flex flex-col md:flex-row gap-4">
               {/* Search */}
               <div className="relative flex-1">
@@ -186,9 +186,9 @@ export default function AdminBlogPage() {
           </div>
 
           {/* Posts Table */}
-          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden">
             <table className="w-full">
-              <thead className="bg-beige/30 border-b border-navy/10">
+              <thead className="bg-parchment border-b border-navy/10">
                 <tr>
                   <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Title</th>
                   <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Category</th>
@@ -204,7 +204,7 @@ export default function AdminBlogPage() {
                     key={post.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="hover:bg-beige/30"
+                    className="hover:bg-parchment"
                   >
                     <td className="px-6 py-4">
                       <p className="font-medium text-navy">{post.title}</p>

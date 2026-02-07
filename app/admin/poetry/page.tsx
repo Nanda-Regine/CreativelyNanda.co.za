@@ -62,7 +62,7 @@ export default function AdminPoetryPage() {
   const totalViews = SAMPLE_POEMS.reduce((sum, p) => sum + p.views, 0);
 
   return (
-    <div className="min-h-screen bg-beige/30">
+    <div className="min-h-screen bg-parchment">
       {/* Top Bar */}
       <header className="bg-navy text-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -85,7 +85,7 @@ export default function AdminPoetryPage() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-cream border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
+        <aside className="w-64 bg-white border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
           <nav className="space-y-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -124,7 +124,7 @@ export default function AdminPoetryPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
                   <Feather className="w-6 h-6 text-purple-600" />
@@ -135,7 +135,7 @@ export default function AdminPoetryPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-pink-100 flex items-center justify-center">
                   <Heart className="w-6 h-6 text-pink-600" />
@@ -146,7 +146,7 @@ export default function AdminPoetryPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
                   <Eye className="w-6 h-6 text-blue-600" />
@@ -157,7 +157,7 @@ export default function AdminPoetryPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
                   <Filter className="w-6 h-6 text-amber-600" />
@@ -171,7 +171,7 @@ export default function AdminPoetryPage() {
           </div>
 
           {/* Filters */}
-          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
+          <div className="bg-white rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
@@ -203,9 +203,9 @@ export default function AdminPoetryPage() {
           </div>
 
           {/* Poems Table */}
-          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden">
             <table className="w-full">
-              <thead className="bg-beige/30 border-b border-navy/10">
+              <thead className="bg-parchment border-b border-navy/10">
                 <tr>
                   <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Title</th>
                   <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Category</th>
@@ -220,7 +220,7 @@ export default function AdminPoetryPage() {
                     key={poem.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="hover:bg-beige/30"
+                    className="hover:bg-parchment"
                   >
                     <td className="px-6 py-4">
                       <p className="font-medium text-navy">{poem.title}</p>

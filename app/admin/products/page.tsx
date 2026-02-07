@@ -101,7 +101,7 @@ export default function AdminProductsPage() {
   const totalRevenue = PRODUCTS.reduce((sum, p) => sum + p.price * p.sales, 0);
 
   return (
-    <div className="min-h-screen bg-beige/30">
+    <div className="min-h-screen bg-parchment">
       {/* Top Bar */}
       <header className="bg-navy text-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -124,7 +124,7 @@ export default function AdminProductsPage() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-cream border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
+        <aside className="w-64 bg-white border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
           <nav className="space-y-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -163,7 +163,7 @@ export default function AdminProductsPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center">
                   <DollarSign className="w-6 h-6 text-emerald-600" />
@@ -174,7 +174,7 @@ export default function AdminProductsPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
                   <Package className="w-6 h-6 text-blue-600" />
@@ -185,7 +185,7 @@ export default function AdminProductsPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
                   <ShoppingCart className="w-6 h-6 text-purple-600" />
@@ -201,7 +201,7 @@ export default function AdminProductsPage() {
           </div>
 
           {/* Filters */}
-          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
+          <div className="bg-white rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
@@ -237,7 +237,7 @@ export default function AdminProductsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="bg-cream rounded-xl shadow-sm border border-navy/10 overflow-hidden hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="relative h-40 bg-navy/5">
                   <Image
@@ -291,7 +291,7 @@ export default function AdminProductsPage() {
           </div>
 
           {filteredProducts.length === 0 && (
-            <div className="bg-cream rounded-xl shadow-sm border border-navy/10 text-center py-12">
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 text-center py-12">
               <Package className="w-12 h-12 text-gray-300 mx-auto mb-4" />
               <p className="text-navy/60">No products found</p>
             </div>
