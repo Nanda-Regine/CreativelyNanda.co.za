@@ -101,7 +101,7 @@ export default function AdminProductsPage() {
   const totalRevenue = PRODUCTS.reduce((sum, p) => sum + p.price * p.sales, 0);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-beige/30">
       {/* Top Bar */}
       <header className="bg-navy text-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -124,7 +124,7 @@ export default function AdminProductsPage() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-gray-200 min-h-[calc(100vh-64px)] p-4">
+        <aside className="w-64 bg-cream border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
           <nav className="space-y-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -135,7 +135,7 @@ export default function AdminProductsPage() {
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                     item.active
                       ? 'bg-cherry/10 text-cherry font-medium'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      : 'text-navy/70 hover:bg-navy/5'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -152,7 +152,7 @@ export default function AdminProductsPage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-3xl font-display font-bold text-navy mb-2">Products</h1>
-              <p className="text-gray-500">Manage your digital products</p>
+              <p className="text-navy/60">Manage your digital products</p>
             </div>
             <Link href="/admin/products/new">
               <Button variant="primary" className="rounded-lg" leftIcon={<Plus className="w-4 h-4" />}>
@@ -163,29 +163,29 @@ export default function AdminProductsPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center">
                   <DollarSign className="w-6 h-6 text-emerald-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-navy">R {totalRevenue.toLocaleString()}</p>
-                  <p className="text-sm text-gray-500">Total Revenue</p>
+                  <p className="text-sm text-navy/60">Total Revenue</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
                   <Package className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-navy">{PRODUCTS.length}</p>
-                  <p className="text-sm text-gray-500">Total Products</p>
+                  <p className="text-sm text-navy/60">Total Products</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div className="bg-cream rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
                   <ShoppingCart className="w-6 h-6 text-purple-600" />
@@ -194,31 +194,31 @@ export default function AdminProductsPage() {
                   <p className="text-2xl font-bold text-navy">
                     {PRODUCTS.reduce((sum, p) => sum + p.sales, 0)}
                   </p>
-                  <p className="text-sm text-gray-500">Total Sales</p>
+                  <p className="text-sm text-navy/60">Total Sales</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Filters */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
+          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
                 <input
                   type="text"
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry"
+                  className="w-full pl-10 pr-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry"
                 />
               </div>
               <div className="flex items-center gap-2">
-                <Filter className="w-5 h-5 text-gray-400" />
+                <Filter className="w-5 h-5 text-navy/40" />
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry bg-white"
+                  className="px-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry bg-white"
                 >
                   <option value="all">All Categories</option>
                   <option value="Student">Student</option>
@@ -237,9 +237,9 @@ export default function AdminProductsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+                className="bg-cream rounded-xl shadow-sm border border-navy/10 overflow-hidden hover:shadow-md transition-shadow"
               >
-                <div className="relative h-40 bg-gray-100">
+                <div className="relative h-40 bg-navy/5">
                   <Image
                     src={product.thumbnail}
                     alt={product.name}
@@ -251,7 +251,7 @@ export default function AdminProductsPage() {
                       className={`text-xs px-2 py-1 rounded-full ${
                         product.status === 'live'
                           ? 'bg-emerald-100 text-emerald-700'
-                          : 'bg-gray-100 text-gray-600'
+                          : 'bg-navy/5 text-navy/70'
                       }`}
                     >
                       {product.status}
@@ -266,7 +266,7 @@ export default function AdminProductsPage() {
                     </span>
                   </div>
                   <p className="text-xl font-bold text-cherry mb-3">R {product.price}</p>
-                  <div className="flex items-center justify-between text-sm text-gray-500">
+                  <div className="flex items-center justify-between text-sm text-navy/60">
                     <span>{product.sales} sales</span>
                     {product.rating && (
                       <span className="flex items-center gap-1">
@@ -275,8 +275,8 @@ export default function AdminProductsPage() {
                       </span>
                     )}
                   </div>
-                  <div className="flex gap-2 mt-4 pt-4 border-t border-gray-100">
-                    <button className="flex-1 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center gap-1">
+                  <div className="flex gap-2 mt-4 pt-4 border-t border-navy/10">
+                    <button className="flex-1 py-2 text-sm font-medium text-navy/70 hover:bg-navy/5 rounded-lg transition-colors flex items-center justify-center gap-1">
                       <Edit className="w-4 h-4" />
                       Edit
                     </button>
@@ -291,9 +291,9 @@ export default function AdminProductsPage() {
           </div>
 
           {filteredProducts.length === 0 && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 text-center py-12">
+            <div className="bg-cream rounded-xl shadow-sm border border-navy/10 text-center py-12">
               <Package className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-500">No products found</p>
+              <p className="text-navy/60">No products found</p>
             </div>
           )}
         </main>

@@ -93,7 +93,7 @@ export default function AdminBlogPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-beige/30">
       {/* Top Bar */}
       <header className="bg-navy text-white px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -116,7 +116,7 @@ export default function AdminBlogPage() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-gray-200 min-h-[calc(100vh-64px)] p-4">
+        <aside className="w-64 bg-cream border-r border-navy/10 min-h-[calc(100vh-64px)] p-4">
           <nav className="space-y-1">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -127,7 +127,7 @@ export default function AdminBlogPage() {
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                     item.active
                       ? 'bg-cherry/10 text-cherry font-medium'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      : 'text-navy/70 hover:bg-navy/5'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -144,7 +144,7 @@ export default function AdminBlogPage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-3xl font-display font-bold text-navy mb-2">Blog Posts</h1>
-              <p className="text-gray-500">Manage your blog content</p>
+              <p className="text-navy/60">Manage your blog content</p>
             </div>
             <Link href="/admin/blog/new">
               <Button variant="primary" className="rounded-lg" leftIcon={<Plus className="w-4 h-4" />}>
@@ -154,27 +154,27 @@ export default function AdminBlogPage() {
           </div>
 
           {/* Filters */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
+          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 p-4 mb-6">
             <div className="flex flex-col md:flex-row gap-4">
               {/* Search */}
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
                 <input
                   type="text"
                   placeholder="Search posts..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry"
+                  className="w-full pl-10 pr-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry"
                 />
               </div>
 
               {/* Category Filter */}
               <div className="flex items-center gap-2">
-                <Filter className="w-5 h-5 text-gray-400" />
+                <Filter className="w-5 h-5 text-navy/40" />
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry bg-white"
+                  className="px-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry bg-white"
                 >
                   <option value="all">All Categories</option>
                   <option value="dev">Development</option>
@@ -186,16 +186,16 @@ export default function AdminBlogPage() {
           </div>
 
           {/* Posts Table */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="bg-cream rounded-xl shadow-sm border border-navy/10 overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-100">
+              <thead className="bg-beige/30 border-b border-navy/10">
                 <tr>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Title</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Category</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Status</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Views</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-gray-500">Date</th>
-                  <th className="text-right px-6 py-4 text-sm font-medium text-gray-500">Actions</th>
+                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Title</th>
+                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Category</th>
+                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Status</th>
+                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Views</th>
+                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Date</th>
+                  <th className="text-right px-6 py-4 text-sm font-medium text-navy/60">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -204,11 +204,11 @@ export default function AdminBlogPage() {
                     key={post.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="hover:bg-gray-50"
+                    className="hover:bg-beige/30"
                   >
                     <td className="px-6 py-4">
                       <p className="font-medium text-navy">{post.title}</p>
-                      <p className="text-sm text-gray-500 truncate max-w-xs">{post.excerpt}</p>
+                      <p className="text-sm text-navy/60 truncate max-w-xs">{post.excerpt}</p>
                     </td>
                     <td className="px-6 py-4">
                       <span className={`text-xs px-2 py-1 rounded-full capitalize ${categoryColors[post.category]}`}>
@@ -220,25 +220,25 @@ export default function AdminBlogPage() {
                         className={`text-xs px-2 py-1 rounded-full ${
                           post.status === 'published'
                             ? 'bg-emerald-100 text-emerald-700'
-                            : 'bg-gray-100 text-gray-600'
+                            : 'bg-navy/5 text-navy/70'
                         }`}
                       >
                         {post.status}
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="text-gray-600 flex items-center gap-1">
+                      <span className="text-navy/70 flex items-center gap-1">
                         <Eye className="w-4 h-4" />
                         {post.views.toLocaleString()}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-500 text-sm">
+                    <td className="px-6 py-4 text-navy/60 text-sm">
                       {post.publishedAt || 'Not published'}
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center justify-end gap-2">
-                        <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                          <Edit className="w-4 h-4 text-gray-500" />
+                        <button className="p-2 hover:bg-navy/5 rounded-lg transition-colors">
+                          <Edit className="w-4 h-4 text-navy/60" />
                         </button>
                         <button className="p-2 hover:bg-red-50 rounded-lg transition-colors">
                           <Trash2 className="w-4 h-4 text-red-500" />
@@ -253,7 +253,7 @@ export default function AdminBlogPage() {
             {filteredPosts.length === 0 && (
               <div className="text-center py-12">
                 <FileText className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">No posts found</p>
+                <p className="text-navy/60">No posts found</p>
               </div>
             )}
           </div>
