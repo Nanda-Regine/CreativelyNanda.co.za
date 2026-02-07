@@ -2,11 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-// TODO: Re-enable cart when marketplace is ready
-// import { CartIcon } from '@/components/cart';
-
-// Set to true when marketplace products are ready
-const MARKETPLACE_ENABLED = false;
+import { CartIcon } from '@/components/cart';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -66,11 +62,7 @@ export default function Navigation() {
             </Link>
           ))}
 
-          {/* TODO: Re-enable when marketplace is ready
-          {MARKETPLACE_ENABLED && (
-            <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
-          )}
-          */}
+          <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
 
           <a
             href="/assets/work/Nanda-cv.pdf"
@@ -83,11 +75,7 @@ export default function Navigation() {
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center gap-2">
-          {/* TODO: Re-enable when marketplace is ready
-          {MARKETPLACE_ENABLED && (
-            <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
-          )}
-          */}
+          <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-beige hover:text-cherry transition-colors"
