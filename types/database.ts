@@ -118,6 +118,55 @@ export interface BlogPost {
   published_at: string | null;
   created_at: string;
   updated_at: string;
+  // Contributor relationship
+  author_id: string | null;
+  contributor?: Contributor | null;
+  mentions?: ArticleMention[];
+}
+
+// Blog Contributor (Guest Writers)
+export interface Contributor {
+  id: string;
+  slug: string;
+  name: string;
+  title: string | null;
+  bio: string | null;
+  avatar: string | null;
+  website: string | null;
+  twitter: string | null;
+  linkedin: string | null;
+  instagram: string | null;
+  specialties: ('dev' | 'writing' | 'business')[];
+  is_featured: boolean;
+  article_count: number;
+  created_at: string;
+}
+
+// Featured People (Mentioned in Articles)
+export interface FeaturedPerson {
+  id: string;
+  slug: string;
+  name: string;
+  title: string | null;
+  company: string | null;
+  avatar: string | null;
+  website: string | null;
+  twitter: string | null;
+  linkedin: string | null;
+  instagram: string | null;
+  category: 'dev' | 'writing' | 'business' | null;
+  is_featured: boolean;
+  created_at: string;
+}
+
+// Article Mentions (Junction table)
+export interface ArticleMention {
+  id: string;
+  article_id: string;
+  person_id: string;
+  mention_context: string | null; // e.g., "Interview", "Quote", "Case Study"
+  created_at: string;
+  person?: FeaturedPerson;
 }
 
 // Cart Types (client-side only, not in database)
@@ -178,8 +227,23 @@ export interface Database {
       };
       blog_posts: {
         Row: BlogPost;
-        Insert: Omit<BlogPost, 'id' | 'created_at' | 'updated_at'>;
-        Update: Partial<Omit<BlogPost, 'id' | 'created_at' | 'updated_at'>>;
+        Insert: Omit<BlogPost, 'id' | 'created_at' | 'updated_at' | 'contributor' | 'mentions'>;
+        Update: Partial<Omit<BlogPost, 'id' | 'created_at' | 'updated_at' | 'contributor' | 'mentions'>>;
+      };
+      contributors: {
+        Row: Contributor;
+        Insert: Omit<Contributor, 'id' | 'created_at' | 'article_count'>;
+        Update: Partial<Omit<Contributor, 'id' | 'created_at'>>;
+      };
+      featured_people: {
+        Row: FeaturedPerson;
+        Insert: Omit<FeaturedPerson, 'id' | 'created_at'>;
+        Update: Partial<Omit<FeaturedPerson, 'id' | 'created_at'>>;
+      };
+      article_mentions: {
+        Row: ArticleMention;
+        Insert: Omit<ArticleMention, 'id' | 'created_at' | 'person'>;
+        Update: Partial<Omit<ArticleMention, 'id' | 'created_at' | 'person'>>;
       };
     };
   };

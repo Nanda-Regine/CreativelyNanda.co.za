@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -16,20 +16,14 @@ import {
   Filter,
   Eye,
   Plus,
+  Loader2,
+  AlertCircle,
+  CheckCircle,
+  XCircle,
 } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
-
-// Import poems data
-const SAMPLE_POEMS = [
-  { id: '1', title: 'Love Letters', category: 'Romance', likes: 234, views: 1456 },
-  { id: '2', title: 'Inside Her Roses', category: 'Sensual', likes: 189, views: 1234 },
-  { id: '3', title: 'Black Girl Magic', category: 'Empowering', likes: 312, views: 2345 },
-  { id: '4', title: 'Healing Waters', category: 'Life', likes: 156, views: 987 },
-  { id: '5', title: 'Mother Tongue', category: 'Personal', likes: 278, views: 1567 },
-  { id: '6', title: 'Midnight Confessions', category: 'Depth', likes: 145, views: 876 },
-  { id: '7', title: 'Ubuntu', category: 'Life', likes: 198, views: 1123 },
-  { id: '8', title: 'Warrior Queen', category: 'Empowering', likes: 267, views: 1890 },
-];
+import { getPoems, deletePoem, updatePoem } from '../actions/poems';
+import type { Poem } from '@/types/database';
 
 const NAV_ITEMS = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -39,27 +33,85 @@ const NAV_ITEMS = [
   { label: 'Poetry', href: '/admin/poetry', icon: Feather, active: true },
 ];
 
-const categoryColors: Record<string, string> = {
-  Romance: 'bg-pink-100 text-pink-700',
-  Sensual: 'bg-red-100 text-red-700',
-  Life: 'bg-blue-100 text-blue-700',
-  Personal: 'bg-purple-100 text-purple-700',
-  Depth: 'bg-indigo-100 text-indigo-700',
-  Empowering: 'bg-amber-100 text-amber-700',
+const themeColors: Record<string, string> = {
+  love: 'bg-pink-100 text-pink-700',
+  sensual: 'bg-red-100 text-red-700',
+  life: 'bg-blue-100 text-blue-700',
+  personal: 'bg-purple-100 text-purple-700',
+  healing: 'bg-teal-100 text-teal-700',
+  empowerment: 'bg-amber-100 text-amber-700',
+  nature: 'bg-green-100 text-green-700',
+  spirituality: 'bg-indigo-100 text-indigo-700',
 };
 
 export default function AdminPoetryPage() {
+  const [poems, setPoems] = useState<Poem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filterCategory, setFilterCategory] = useState('all');
+  const [filterTheme, setFilterTheme] = useState('all');
+  const [deleting, setDeleting] = useState<string | null>(null);
+  const [toggling, setToggling] = useState<string | null>(null);
 
-  const filteredPoems = SAMPLE_POEMS.filter((poem) => {
+  useEffect(() => {
+    loadPoems();
+  }, []);
+
+  async function loadPoems() {
+    setLoading(true);
+    const { data, error } = await getPoems();
+    if (error) {
+      setError(error);
+    } else {
+      setPoems(data || []);
+    }
+    setLoading(false);
+  }
+
+  async function handleDelete(id: string, title: string) {
+    if (!confirm(`Are you sure you want to delete "${title}"?`)) return;
+
+    setDeleting(id);
+    const { success, error } = await deletePoem(id);
+
+    if (success) {
+      setPoems(poems.filter(p => p.id !== id));
+    } else {
+      alert(`Error deleting poem: ${error}`);
+    }
+    setDeleting(null);
+  }
+
+  async function handleTogglePublish(id: string, isPublished: boolean) {
+    setToggling(id);
+    const { data, error } = await updatePoem(id, { is_published: !isPublished });
+
+    if (data) {
+      setPoems(poems.map(p => p.id === id ? data : p));
+    } else {
+      alert(`Error updating poem: ${error}`);
+    }
+    setToggling(null);
+  }
+
+  async function handleToggleFeatured(id: string, isFeatured: boolean) {
+    const { data, error } = await updatePoem(id, { is_featured: !isFeatured });
+
+    if (data) {
+      setPoems(poems.map(p => p.id === id ? data : p));
+    } else {
+      alert(`Error updating poem: ${error}`);
+    }
+  }
+
+  const filteredPoems = poems.filter((poem) => {
     const matchesSearch = poem.title.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = filterCategory === 'all' || poem.category === filterCategory;
-    return matchesSearch && matchesCategory;
+    const matchesTheme = filterTheme === 'all' || poem.theme === filterTheme;
+    return matchesSearch && matchesTheme;
   });
 
-  const totalLikes = SAMPLE_POEMS.reduce((sum, p) => sum + p.likes, 0);
-  const totalViews = SAMPLE_POEMS.reduce((sum, p) => sum + p.views, 0);
+  const totalHearts = poems.reduce((sum, p) => sum + (p.heart_count || 0), 0);
+  const uniqueThemes = [...new Set(poems.map(p => p.theme).filter(Boolean))];
 
   return (
     <div className="min-h-screen bg-parchment">
@@ -130,7 +182,7 @@ export default function AdminPoetryPage() {
                   <Feather className="w-6 h-6 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-navy">{SAMPLE_POEMS.length}</p>
+                  <p className="text-2xl font-bold text-navy">{poems.length}</p>
                   <p className="text-sm text-navy/60">Total Poems</p>
                 </div>
               </div>
@@ -141,19 +193,21 @@ export default function AdminPoetryPage() {
                   <Heart className="w-6 h-6 text-pink-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-navy">{totalLikes.toLocaleString()}</p>
-                  <p className="text-sm text-navy/60">Total Likes</p>
+                  <p className="text-2xl font-bold text-navy">{totalHearts.toLocaleString()}</p>
+                  <p className="text-sm text-navy/60">Total Hearts</p>
                 </div>
               </div>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-                  <Eye className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6 text-emerald-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-navy">{totalViews.toLocaleString()}</p>
-                  <p className="text-sm text-navy/60">Total Views</p>
+                  <p className="text-2xl font-bold text-navy">
+                    {poems.filter(p => p.is_published).length}
+                  </p>
+                  <p className="text-sm text-navy/60">Published</p>
                 </div>
               </div>
             </div>
@@ -163,8 +217,8 @@ export default function AdminPoetryPage() {
                   <Filter className="w-6 h-6 text-amber-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-navy">6</p>
-                  <p className="text-sm text-navy/60">Categories</p>
+                  <p className="text-2xl font-bold text-navy">{uniqueThemes.length}</p>
+                  <p className="text-sm text-navy/60">Themes</p>
                 </div>
               </div>
             </div>
@@ -186,90 +240,163 @@ export default function AdminPoetryPage() {
               <div className="flex items-center gap-2">
                 <Filter className="w-5 h-5 text-navy/40" />
                 <select
-                  value={filterCategory}
-                  onChange={(e) => setFilterCategory(e.target.value)}
+                  value={filterTheme}
+                  onChange={(e) => setFilterTheme(e.target.value)}
                   className="px-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry bg-white"
                 >
-                  <option value="all">All Categories</option>
-                  <option value="Romance">Romance</option>
-                  <option value="Sensual">Sensual</option>
-                  <option value="Life">Life</option>
-                  <option value="Personal">Personal</option>
-                  <option value="Depth">Depth</option>
-                  <option value="Empowering">Empowering</option>
+                  <option value="all">All Themes</option>
+                  {uniqueThemes.map(theme => (
+                    <option key={theme} value={theme}>{theme}</option>
+                  ))}
                 </select>
               </div>
             </div>
           </div>
 
-          {/* Poems Table */}
-          <div className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden">
-            <table className="w-full">
-              <thead className="bg-parchment border-b border-navy/10">
-                <tr>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Title</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Category</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Likes</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Views</th>
-                  <th className="text-right px-6 py-4 text-sm font-medium text-navy/60">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {filteredPoems.map((poem) => (
-                  <motion.tr
-                    key={poem.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="hover:bg-parchment"
-                  >
-                    <td className="px-6 py-4">
-                      <p className="font-medium text-navy">{poem.title}</p>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className={`text-xs px-2 py-1 rounded-full ${categoryColors[poem.category]}`}>
-                        {poem.category}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className="flex items-center gap-1 text-navy/70">
-                        <Heart className="w-4 h-4 text-pink-500" />
-                        {poem.likes.toLocaleString()}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className="flex items-center gap-1 text-navy/70">
-                        <Eye className="w-4 h-4" />
-                        {poem.views.toLocaleString()}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link
-                          href={`/poetry/collection/${poem.title.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="p-2 hover:bg-navy/5 rounded-lg transition-colors"
-                        >
-                          <Eye className="w-4 h-4 text-navy/60" />
-                        </Link>
-                        <button className="p-2 hover:bg-navy/5 rounded-lg transition-colors">
-                          <Edit className="w-4 h-4 text-navy/60" />
-                        </button>
-                        <button className="p-2 hover:bg-red-50 rounded-lg transition-colors">
-                          <Trash2 className="w-4 h-4 text-red-500" />
-                        </button>
-                      </div>
-                    </td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
+          {/* Loading State */}
+          {loading && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 p-12 text-center">
+              <Loader2 className="w-8 h-8 text-cherry animate-spin mx-auto mb-4" />
+              <p className="text-navy/60">Loading poems...</p>
+            </div>
+          )}
 
-            {filteredPoems.length === 0 && (
-              <div className="text-center py-12">
-                <Feather className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                <p className="text-navy/60">No poems found</p>
+          {/* Error State */}
+          {error && (
+            <div className="bg-red-50 rounded-xl p-6 border border-red-200 mb-6">
+              <div className="flex items-center gap-3 text-red-700">
+                <AlertCircle className="w-5 h-5" />
+                <p>{error}</p>
               </div>
-            )}
-          </div>
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!loading && !error && poems.length === 0 && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 text-center py-12">
+              <Feather className="w-12 h-12 text-navy/30 mx-auto mb-4" />
+              <p className="text-navy/60 mb-4">No poems yet</p>
+              <Link href="/admin/poetry/new">
+                <Button variant="primary" className="rounded-lg">
+                  Add Your First Poem
+                </Button>
+              </Link>
+            </div>
+          )}
+
+          {/* Poems Table */}
+          {!loading && filteredPoems.length > 0 && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-parchment border-b border-navy/10">
+                  <tr>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Title</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Theme</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Collection</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Hearts</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Status</th>
+                    <th className="text-right px-6 py-4 text-sm font-medium text-navy/60">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {filteredPoems.map((poem) => (
+                    <motion.tr
+                      key={poem.id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="hover:bg-parchment"
+                    >
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-2">
+                          <p className="font-medium text-navy">{poem.title}</p>
+                          {poem.is_featured && (
+                            <span className="text-xs bg-cherry/10 text-cherry px-1.5 py-0.5 rounded">
+                              Featured
+                            </span>
+                          )}
+                        </div>
+                        {poem.excerpt && (
+                          <p className="text-sm text-navy/60 truncate max-w-xs">{poem.excerpt}</p>
+                        )}
+                      </td>
+                      <td className="px-6 py-4">
+                        {poem.theme && (
+                          <span className={`text-xs px-2 py-1 rounded-full capitalize ${themeColors[poem.theme.toLowerCase()] || 'bg-gray-100 text-gray-700'}`}>
+                            {poem.theme}
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-6 py-4 text-navy/70 text-sm">
+                        {poem.collection || 'Uncategorized'}
+                      </td>
+                      <td className="px-6 py-4">
+                        <span className="flex items-center gap-1 text-navy/70">
+                          <Heart className="w-4 h-4 text-pink-500" />
+                          {(poem.heart_count || 0).toLocaleString()}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4">
+                        <button
+                          onClick={() => handleTogglePublish(poem.id, poem.is_published)}
+                          disabled={toggling === poem.id}
+                          className={`text-xs px-2 py-1 rounded-full cursor-pointer transition-colors ${
+                            poem.is_published
+                              ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+                              : 'bg-navy/5 text-navy/70 hover:bg-navy/10'
+                          }`}
+                        >
+                          {toggling === poem.id ? (
+                            <Loader2 className="w-3 h-3 animate-spin inline" />
+                          ) : poem.is_published ? (
+                            'published'
+                          ) : (
+                            'draft'
+                          )}
+                        </button>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center justify-end gap-2">
+                          <Link
+                            href={`/poetry/collection/${poem.slug}`}
+                            className="p-2 hover:bg-navy/5 rounded-lg transition-colors"
+                            title="View"
+                          >
+                            <Eye className="w-4 h-4 text-navy/60" />
+                          </Link>
+                          <Link
+                            href={`/admin/poetry/${poem.id}/edit`}
+                            className="p-2 hover:bg-navy/5 rounded-lg transition-colors"
+                            title="Edit"
+                          >
+                            <Edit className="w-4 h-4 text-navy/60" />
+                          </Link>
+                          <button
+                            onClick={() => handleDelete(poem.id, poem.title)}
+                            disabled={deleting === poem.id}
+                            className="p-2 hover:bg-red-50 rounded-lg transition-colors disabled:opacity-50"
+                            title="Delete"
+                          >
+                            {deleting === poem.id ? (
+                              <Loader2 className="w-4 h-4 animate-spin text-red-500" />
+                            ) : (
+                              <Trash2 className="w-4 h-4 text-red-500" />
+                            )}
+                          </button>
+                        </div>
+                      </td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {!loading && poems.length > 0 && filteredPoems.length === 0 && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 text-center py-12">
+              <Search className="w-12 h-12 text-navy/30 mx-auto mb-4" />
+              <p className="text-navy/60">No poems match your search</p>
+            </div>
+          )}
         </main>
       </div>
     </div>

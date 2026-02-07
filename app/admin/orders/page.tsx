@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
@@ -17,67 +17,12 @@ import {
   Clock,
   CheckCircle,
   XCircle,
+  Loader2,
   AlertCircle,
 } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
-
-// Mock orders - will come from Supabase in production
-const ORDERS = [
-  {
-    id: 'ORD-001',
-    customer: { name: 'Thabo Molefe', email: 'thabo@email.com' },
-    product: 'NSFAS Tracker',
-    amount: 149,
-    status: 'completed',
-    paymentMethod: 'PayFast',
-    createdAt: '2024-02-07 14:32',
-  },
-  {
-    id: 'ORD-002',
-    customer: { name: 'Lindiwe Khumalo', email: 'lindiwe@email.com' },
-    product: 'Freelancer Hub',
-    amount: 349,
-    status: 'completed',
-    paymentMethod: 'PayFast',
-    createdAt: '2024-02-07 09:15',
-  },
-  {
-    id: 'ORD-003',
-    customer: { name: 'Sipho Ndaba', email: 'sipho@email.com' },
-    product: 'SME Hub',
-    amount: 499,
-    status: 'pending',
-    paymentMethod: 'PayFast',
-    createdAt: '2024-02-06 18:45',
-  },
-  {
-    id: 'ORD-004',
-    customer: { name: 'Naledi Pule', email: 'naledi@email.com' },
-    product: 'Inside Her Roses (eBook)',
-    amount: 99,
-    status: 'completed',
-    paymentMethod: 'Stripe',
-    createdAt: '2024-02-05 11:20',
-  },
-  {
-    id: 'ORD-005',
-    customer: { name: 'Bongani Zulu', email: 'bongani@email.com' },
-    product: 'Varsity Survival Kit',
-    amount: 249,
-    status: 'failed',
-    paymentMethod: 'PayFast',
-    createdAt: '2024-02-05 08:00',
-  },
-  {
-    id: 'ORD-006',
-    customer: { name: 'Zanele Dlamini', email: 'zanele@email.com' },
-    product: 'NSFAS Tracker',
-    amount: 149,
-    status: 'completed',
-    paymentMethod: 'PayFast',
-    createdAt: '2024-02-04 16:30',
-  },
-];
+import { getOrders, updateOrderStatus } from '../actions/orders';
+import type { Order } from '@/types/database';
 
 const NAV_ITEMS = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -93,23 +38,59 @@ const statusConfig: Record<string, { icon: any; color: string; bg: string }> = {
   failed: { icon: XCircle, color: 'text-red-600', bg: 'bg-red-100' },
 };
 
+type OrderWithProduct = Order & {
+  products?: { name: string; slug: string } | null;
+};
+
 export default function AdminOrdersPage() {
+  const [orders, setOrders] = useState<OrderWithProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
+  const [updating, setUpdating] = useState<string | null>(null);
 
-  const filteredOrders = ORDERS.filter((order) => {
+  useEffect(() => {
+    loadOrders();
+  }, []);
+
+  async function loadOrders() {
+    setLoading(true);
+    const { data, error } = await getOrders();
+    if (error) {
+      setError(error);
+    } else {
+      setOrders(data || []);
+    }
+    setLoading(false);
+  }
+
+  async function handleStatusChange(id: string, newStatus: Order['status']) {
+    setUpdating(id);
+    const { data, error } = await updateOrderStatus(id, newStatus);
+
+    if (data) {
+      setOrders(orders.map(o => o.id === id ? { ...o, status: newStatus } : o));
+    } else {
+      alert(`Error updating order: ${error}`);
+    }
+    setUpdating(null);
+  }
+
+  const filteredOrders = orders.filter((order) => {
     const matchesSearch =
-      order.customer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (order.user_name?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+      order.user_email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       order.id.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = filterStatus === 'all' || order.status === filterStatus;
     return matchesSearch && matchesStatus;
   });
 
   const stats = {
-    total: ORDERS.length,
-    completed: ORDERS.filter((o) => o.status === 'completed').length,
-    pending: ORDERS.filter((o) => o.status === 'pending').length,
-    revenue: ORDERS.filter((o) => o.status === 'completed').reduce((sum, o) => sum + o.amount, 0),
+    total: orders.length,
+    completed: orders.filter((o) => o.status === 'completed').length,
+    pending: orders.filter((o) => o.status === 'pending').length,
+    revenue: orders.filter((o) => o.status === 'completed').reduce((sum, o) => sum + o.amount, 0),
   };
 
   return (
@@ -191,7 +172,7 @@ export default function AdminOrdersPage() {
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
               <p className="text-sm text-navy/60 mb-1">Revenue</p>
-              <p className="text-2xl font-bold text-cherry">R {stats.revenue.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-cherry">R {(stats.revenue / 100).toLocaleString()}</p>
             </div>
           </div>
 
@@ -224,72 +205,123 @@ export default function AdminOrdersPage() {
             </div>
           </div>
 
-          {/* Orders Table */}
-          <div className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden">
-            <table className="w-full">
-              <thead className="bg-parchment border-b border-navy/10">
-                <tr>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Order ID</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Customer</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Product</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Amount</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Status</th>
-                  <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Date</th>
-                  <th className="text-right px-6 py-4 text-sm font-medium text-navy/60">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {filteredOrders.map((order) => {
-                  const status = statusConfig[order.status];
-                  const StatusIcon = status.icon;
-                  return (
-                    <motion.tr
-                      key={order.id}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="hover:bg-parchment"
-                    >
-                      <td className="px-6 py-4">
-                        <span className="font-mono text-sm font-medium text-navy">{order.id}</span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <p className="font-medium text-navy">{order.customer.name}</p>
-                        <p className="text-sm text-navy/60">{order.customer.email}</p>
-                      </td>
-                      <td className="px-6 py-4 text-navy/70">{order.product}</td>
-                      <td className="px-6 py-4 font-medium text-navy">R {order.amount}</td>
-                      <td className="px-6 py-4">
-                        <span
-                          className={`inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full ${status.bg} ${status.color}`}
-                        >
-                          <StatusIcon className="w-3 h-3" />
-                          {order.status}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-navy/60 text-sm">{order.createdAt}</td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center justify-end gap-2">
-                          <button className="p-2 hover:bg-navy/5 rounded-lg transition-colors" title="View">
-                            <Eye className="w-4 h-4 text-navy/60" />
-                          </button>
-                          <button className="p-2 hover:bg-navy/5 rounded-lg transition-colors" title="Email">
-                            <Mail className="w-4 h-4 text-navy/60" />
-                          </button>
-                        </div>
-                      </td>
-                    </motion.tr>
-                  );
-                })}
-              </tbody>
-            </table>
+          {/* Loading State */}
+          {loading && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 p-12 text-center">
+              <Loader2 className="w-8 h-8 text-cherry animate-spin mx-auto mb-4" />
+              <p className="text-navy/60">Loading orders...</p>
+            </div>
+          )}
 
-            {filteredOrders.length === 0 && (
-              <div className="text-center py-12">
-                <ShoppingCart className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                <p className="text-navy/60">No orders found</p>
+          {/* Error State */}
+          {error && (
+            <div className="bg-red-50 rounded-xl p-6 border border-red-200 mb-6">
+              <div className="flex items-center gap-3 text-red-700">
+                <AlertCircle className="w-5 h-5" />
+                <p>{error}</p>
               </div>
-            )}
-          </div>
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!loading && !error && orders.length === 0 && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 text-center py-12">
+              <ShoppingCart className="w-12 h-12 text-navy/30 mx-auto mb-4" />
+              <p className="text-navy/60">No orders yet</p>
+              <p className="text-sm text-navy/40 mt-2">Orders will appear here when customers make purchases</p>
+            </div>
+          )}
+
+          {/* Orders Table */}
+          {!loading && filteredOrders.length > 0 && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-parchment border-b border-navy/10">
+                  <tr>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Order ID</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Customer</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Product</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Amount</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Status</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Date</th>
+                    <th className="text-right px-6 py-4 text-sm font-medium text-navy/60">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {filteredOrders.map((order) => {
+                    const status = statusConfig[order.status] || statusConfig.pending;
+                    const StatusIcon = status.icon;
+                    return (
+                      <motion.tr
+                        key={order.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="hover:bg-parchment"
+                      >
+                        <td className="px-6 py-4">
+                          <span className="font-mono text-sm font-medium text-navy">
+                            {order.id.slice(0, 8)}...
+                          </span>
+                        </td>
+                        <td className="px-6 py-4">
+                          <p className="font-medium text-navy">{order.user_name || 'Unknown'}</p>
+                          <p className="text-sm text-navy/60">{order.user_email}</p>
+                        </td>
+                        <td className="px-6 py-4 text-navy/70">
+                          {order.products?.name || 'Product Deleted'}
+                        </td>
+                        <td className="px-6 py-4 font-medium text-navy">
+                          R {(order.amount / 100).toFixed(0)}
+                        </td>
+                        <td className="px-6 py-4">
+                          {updating === order.id ? (
+                            <Loader2 className="w-4 h-4 animate-spin text-navy/60" />
+                          ) : (
+                            <select
+                              value={order.status}
+                              onChange={(e) => handleStatusChange(order.id, e.target.value as Order['status'])}
+                              className={`text-xs px-2 py-1 rounded-full border-0 cursor-pointer ${status.bg} ${status.color}`}
+                            >
+                              <option value="pending">Pending</option>
+                              <option value="completed">Completed</option>
+                              <option value="failed">Failed</option>
+                            </select>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 text-navy/60 text-sm">
+                          {new Date(order.created_at).toLocaleDateString()}
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center justify-end gap-2">
+                            <button
+                              className="p-2 hover:bg-navy/5 rounded-lg transition-colors"
+                              title="View Details"
+                            >
+                              <Eye className="w-4 h-4 text-navy/60" />
+                            </button>
+                            <a
+                              href={`mailto:${order.user_email}`}
+                              className="p-2 hover:bg-navy/5 rounded-lg transition-colors"
+                              title="Email Customer"
+                            >
+                              <Mail className="w-4 h-4 text-navy/60" />
+                            </a>
+                          </div>
+                        </td>
+                      </motion.tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {!loading && orders.length > 0 && filteredOrders.length === 0 && (
+            <div className="bg-white rounded-xl shadow-sm border border-navy/10 text-center py-12">
+              <Search className="w-12 h-12 text-navy/30 mx-auto mb-4" />
+              <p className="text-navy/60">No orders match your search</p>
+            </div>
+          )}
         </main>
       </div>
     </div>
