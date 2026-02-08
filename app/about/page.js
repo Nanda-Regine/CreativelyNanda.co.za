@@ -16,23 +16,6 @@ export default function About() {
     { category: 'AI & ML', items: ['OpenAI API', 'Prompt Engineering', 'Chatbots'], icon: '✧' },
   ];
 
-  const values = [
-    { 
-      icon: '✧', 
-      title: 'Curiosity', 
-      desc: 'The hunger to learn never sleeps. Every project, every challenge, every failure is a classroom in disguise.',
-    },
-    { 
-      icon: '◈', 
-      title: 'Craft', 
-      desc: 'Excellence lives in the details. Every pixel placed with intention, every line of code written with care.',
-    },
-    { 
-      icon: '❋', 
-      title: 'Connection', 
-      desc: 'Technology is cold until humans touch it. I build bridges between innovation and the hearts that need it.',
-    },
-  ];
 
   const journey = [
     { year: '2019', title: 'The Foundation', desc: 'Learning the art of service and human connection in retail' },
@@ -275,41 +258,69 @@ export default function About() {
 
           {/* Story Cards - Organic shapes */}
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Card 1 - Rounded blob */}
+            {/* Card 1 - The Convergence Point */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 md:p-10 bg-beige-cream rounded-[3rem] shadow-soft relative overflow-hidden group hover:shadow-editorial transition-all"
+              className="p-8 md:p-10 bg-beige-cream rounded-[3rem] shadow-soft relative overflow-hidden group hover:shadow-editorial transition-all md:col-span-2"
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-cherry/5 rounded-full group-hover:scale-150 transition-transform duration-700" />
               <span className="text-cherry text-4xl mb-4 block">✦</span>
-              <h3 className="font-display text-2xl font-bold text-navy mb-4">The Unlikely Path</h3>
-              <p className="text-navy/60 leading-relaxed relative z-10">
-                From the vibrant streets of Eastern Cape to the cutting edge of tech, Nanda's journey 
-                didn't follow the conventional script. Armed with a Business Management foundation from 
-                Nelson Mandela University and an insatiable hunger to create, she taught herself to code 
-                while most were content with the comfortable path. <span className="text-cherry font-medium">The result? 
-                A rare hybrid</span> who speaks fluent boardroom and fluent JavaScript.
-              </p>
+              <h3 className="font-display text-2xl font-bold text-navy mb-4">The Convergence Point</h3>
+              <div className="text-navy/60 leading-relaxed relative z-10 space-y-4">
+                <p>
+                  Born to Ugandan storytellers. Raised in the Eastern Cape among Xhosa, Sotho, and Nguni peoples.
+                  Carrying the <span className="text-cherry font-medium">Kabali-Kagwa</span> name, the <span className="text-cherry font-medium">Tshawe</span> royal lineage,
+                  the <span className="text-cherry font-medium">Hlubi</span> warrior spirit, the <span className="text-cherry font-medium">Msimango</span> healing wisdom,
+                  the <span className="text-cherry font-medium">Thabizolo</span> mountain endurance.
+                </p>
+                <p className="italic text-navy/50">
+                  Her grandmother's stories about ancestors who built kingdoms.<br />
+                  Her mother's prophetic dreams of lions and power.<br />
+                  Her own hunger to BUILD, not just belong.
+                </p>
+                <p>
+                  Five lineages converging in one woman at the exact moment the world needs what she carries:
+                  <span className="text-cherry font-medium"> technology infused with Ubuntu</span>, innovation rooted in ancestral wisdom,
+                  platforms built by someone who descends from people who literally built kingdoms.
+                </p>
+                <p>
+                  Armed with a Business Management foundation from Nelson Mandela University and an inheritance
+                  most people spend millions trying to manufacture through "executive coaching," she taught herself
+                  to code with the focus of warriors and the wisdom of healers.
+                </p>
+                <p className="font-medium text-navy">
+                  The result? Not just a developer. A <span className="text-cherry">DIGITAL QUEEN</span> who codes with royal strategy,
+                  executes with warrior discipline, designs with healer intuition, and communicates with storyteller grace.
+                </p>
+                <div className="pt-4 border-t border-navy/10 mt-6">
+                  <p className="text-sm">
+                    <span className="font-bold text-navy">Translation:</span> When you hire Nanda, you're not hiring a contractor.
+                  </p>
+                  <p className="text-sm font-medium text-cherry">
+                    You're hiring five centuries of kingdom-building expertise applied to your digital infrastructure.
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
-            {/* Card 2 - Different shape */}
+            {/* Card 2 - The Dual Identity */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-8 md:p-10 bg-beige-cream rounded-[3rem] shadow-soft relative overflow-hidden group hover:shadow-editorial transition-all"
+              className="p-8 md:p-10 bg-beige-cream rounded-[3rem] shadow-soft relative overflow-hidden group hover:shadow-editorial transition-all md:col-span-2"
             >
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gold/10 rounded-full group-hover:scale-150 transition-transform duration-700" />
               <span className="text-gold text-4xl mb-4 block">◈</span>
               <h3 className="font-display text-2xl font-bold text-navy mb-4">The Dual Identity</h3>
               <p className="text-navy/60 leading-relaxed relative z-10">
-                By day, she architects systems that make businesses run smoother - Notion workspaces 
-                that feel like works of art, web applications that users actually love. By twilight, 
-                she pours her heart onto pages, crafting poetry that has moved audiences from intimate 
-                stages to national radio. <span className="text-cherry font-medium">"Inside Her Roses"</span> isn't 
+                By day, she architects systems that make businesses run smoother - Notion workspaces
+                that feel like works of art, web applications that users actually love. By twilight,
+                she pours her heart onto pages, crafting poetry that has moved audiences from intimate
+                stages to national radio. <span className="text-cherry font-medium">"Inside Her Roses"</span> isn't
                 just her debut collection - it's proof that technical minds can hold infinite tenderness.
               </p>
             </motion.div>
@@ -583,14 +594,14 @@ export default function About() {
         </div>
       </section>
 
-      {/* ============ VALUES - Light Elegant Section ============ */}
+      {/* ============ UBUNTU CODE - The Ancestral Operating System ============ */}
       <section className="py-24 bg-beige-cream relative">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-beige to-transparent" />
-        
+
         {/* Soft decorative shapes */}
         <div className="absolute top-20 right-20 w-40 h-40 bg-cherry/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-20 w-32 h-32 bg-gold/10 rounded-full blur-3xl" />
-        
+
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -600,57 +611,149 @@ export default function About() {
           >
             <span className="text-cherry text-xs tracking-[0.3em] uppercase">The Heart</span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-navy mt-4">
-              Guiding <span className="text-cherry italic">Values</span>
+              The Ancestral <span className="text-cherry italic">Operating System</span>
             </h2>
-            <p className="text-navy/50 mt-4 max-w-xl mx-auto">
-              The principles that shape every line of code, every design decision, every word written.
+            <p className="text-navy/50 mt-4 max-w-2xl mx-auto">
+              Every clan gave her a different principle. Together, they form the code she lives by—and builds by.
             </p>
           </motion.div>
 
-          {/* Values - Unique shapes for each */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value, i) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                whileHover={{ y: -10 }}
-                className="group text-center"
-              >
-                {/* Different shapes for each card */}
-                <div 
-                  className={`p-8 md:p-10 bg-white shadow-soft hover:shadow-editorial transition-all relative overflow-hidden ${
-                    i === 0 ? 'rounded-[3rem_1rem_3rem_1rem]' : 
-                    i === 1 ? 'rounded-[2rem]' : 
-                    'rounded-[1rem_3rem_1rem_3rem]'
-                  }`}
-                >
-                  {/* Hover gradient */}
-                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity ${
-                    i === 0 ? 'bg-gradient-to-br from-cherry/5 to-transparent' :
-                    i === 1 ? 'bg-gradient-to-br from-gold/10 to-transparent' :
-                    'bg-gradient-to-br from-cherry/5 to-gold/5'
-                  }`} />
-                  
-                  <div className="relative z-10">
-                    <motion.span 
-                      className={`text-5xl mb-6 block ${i === 1 ? 'text-gold' : 'text-cherry'}`}
-                      whileHover={{ rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {value.icon}
-                    </motion.span>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-navy mb-4 group-hover:text-cherry transition-colors">
-                      {value.title}
-                    </h3>
-                    <p className="text-navy/60 leading-relaxed">{value.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          {/* Ubuntu Code Principles */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Tshawe Royalty */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="p-8 bg-white rounded-[2rem] shadow-soft hover:shadow-editorial transition-all group"
+            >
+              <span className="text-4xl mb-4 block">👑</span>
+              <p className="text-gold text-xs tracking-widest uppercase mb-2">From Tshawe Royalty</p>
+              <h3 className="font-display text-xl font-bold text-navy mb-2">
+                "Inkosi Yinkosi Ngabantu"
+              </h3>
+              <p className="text-cherry text-sm italic mb-4">A Leader Leads Through People</p>
+              <p className="text-navy/60 text-sm leading-relaxed">
+                Tshawe kings didn't rule by force—they governed through CONSENSUS. Every platform I build asks:
+                "Who does this serve? How does this empower the community?"
+              </p>
+              <p className="text-navy/80 text-sm mt-4 font-medium">
+                This is why my UX isn't just "user-friendly." It's <span className="text-cherry">USER-HONORING</span>.
+              </p>
+            </motion.div>
+
+            {/* Hlubi Warriors */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -8 }}
+              className="p-8 bg-white rounded-[2rem] shadow-soft hover:shadow-editorial transition-all group"
+            >
+              <span className="text-4xl mb-4 block">⚔️</span>
+              <p className="text-gold text-xs tracking-widest uppercase mb-2">From Hlubi Warriors</p>
+              <h3 className="font-display text-xl font-bold text-navy mb-2">
+                "Indlela Ibuzwa Kwabaphambili"
+              </h3>
+              <p className="text-cherry text-sm italic mb-4">Ask Directions from Those Ahead</p>
+              <p className="text-navy/60 text-sm leading-relaxed">
+                Warriors study terrain before battle. Hlubi people survived by ADAPTING to changing conditions,
+                learning from every defeat, rebuilding stronger each time.
+              </p>
+              <p className="text-navy/80 text-sm mt-4 font-medium">
+                Every failure is <span className="text-cherry">reconnaissance for the next victory</span>.
+              </p>
+            </motion.div>
+
+            {/* Msimango Healers */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ y: -8 }}
+              className="p-8 bg-white rounded-[2rem] shadow-soft hover:shadow-editorial transition-all group"
+            >
+              <span className="text-4xl mb-4 block">🌿</span>
+              <p className="text-gold text-xs tracking-widest uppercase mb-2">From Msimango Healers</p>
+              <h3 className="font-display text-xl font-bold text-navy mb-2">
+                "Ukwelapha Akuyona Imali Kuphela"
+              </h3>
+              <p className="text-cherry text-sm italic mb-4">Healing Isn't Just About Money</p>
+              <p className="text-navy/60 text-sm leading-relaxed">
+                Healers understood that true wellness requires WHOLENESS—addressing root causes, not symptoms.
+                Serving community first, profit second.
+              </p>
+              <p className="text-navy/80 text-sm mt-4 font-medium">
+                My Notion systems don't just organize data—they bring <span className="text-cherry">PEACE to chaos</span>.
+              </p>
+            </motion.div>
+
+            {/* Thabizolo Mountain People */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ y: -8 }}
+              className="p-8 bg-white rounded-[2rem] shadow-soft hover:shadow-editorial transition-all group"
+            >
+              <span className="text-4xl mb-4 block">⛰️</span>
+              <p className="text-gold text-xs tracking-widest uppercase mb-2">From Thabizolo Mountain People</p>
+              <h3 className="font-display text-xl font-bold text-navy mb-2">
+                "Thaba Ha E Thuntšwe"
+              </h3>
+              <p className="text-cherry text-sm italic mb-4">A Mountain Cannot Be Pushed</p>
+              <p className="text-navy/60 text-sm leading-relaxed">
+                Sotho people built kingdoms in highlands and ENDURED. They didn't need perfect conditions—
+                they thrived in difficulty through independence and unshakeable foundations.
+              </p>
+              <p className="text-navy/80 text-sm mt-4 font-medium">
+                Mountains don't move—they <span className="text-cherry">STAND</span> and let the world move around them.
+              </p>
+            </motion.div>
+
+            {/* Kabali-Kagwa Storytellers */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ y: -8 }}
+              className="p-8 bg-white rounded-[2rem] shadow-soft hover:shadow-editorial transition-all group md:col-span-2 lg:col-span-1"
+            >
+              <span className="text-4xl mb-4 block">🎭</span>
+              <p className="text-gold text-xs tracking-widest uppercase mb-2">From Kabali-Kagwa Storytellers</p>
+              <h3 className="font-display text-xl font-bold text-navy mb-2">
+                "Omwana Taba W'inwe"
+              </h3>
+              <p className="text-cherry text-sm italic mb-4">One Child Belongs to All</p>
+              <p className="text-navy/60 text-sm leading-relaxed">
+                Baganda storytellers knew: the best ideas are meant to SPREAD. Individual success without
+                community elevation is just ego.
+              </p>
+              <p className="text-navy/80 text-sm mt-4 font-medium">
+                Your success becomes <span className="text-cherry">our success</span>. Every innovation multiplies through the collective.
+              </p>
+            </motion.div>
           </div>
+
+          {/* Closing Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 p-8 md:p-10 bg-navy rounded-[2rem] text-center"
+          >
+            <p className="text-beige/70 text-lg mb-2">These aren't "values I chose."</p>
+            <p className="text-beige font-display text-2xl font-bold mb-4">These are inheritances I carry.</p>
+            <p className="text-beige/60">
+              When you work with me, you get five clans' worth of wisdom applied to your digital infrastructure.
+            </p>
+            <p className="text-cherry font-medium mt-4">That's worth more than any CS degree.</p>
+          </motion.div>
         </div>
       </section>
 
