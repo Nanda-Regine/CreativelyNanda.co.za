@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "your-post-slug",
+    "title": "Your Post Title Here",
+    "excerpt": "A compelling 1-2 sentence description that appears in previews",
+    "category": "dev",
+    "coverImage": "/assets/professional/nanda-consulting.jpg",
+    "publishDate": "2024-03-15",
+    "readingTime": 1,
+    "author": {
+      "name": "Nanda Kabali-Kagwa",
+      "avatar": "/assets/professional/nanda-professional.png"
+    },
+    "content": "## Introduction\n\nStart your post with a hook. What problem are you solving? Why should readers care?\n\n## Main Section\n\nYour main content goes here. Use markdown formatting:\n\n- **Bold text** for emphasis\n- *Italic* for subtle emphasis\n- `code` for inline code\n\n### Subsection\n\nBreak up long sections with subheadings.\n\n```javascript\n// Code blocks work too\nconst greeting = \"Hello, World!\";\nconsole.log(greeting);\n```\n\n## Key Takeaways\n\n1. First important point\n2. Second important point\n3. Third important point\n\n## Conclusion\n\nWrap up with a call-to-action or final thought.\n\n---\n\n**Categories:** dev, writing, business\n\n**Tips:**\n- slug should be lowercase with hyphens (e.g., my-awesome-post)\n- publishDate format: YYYY-MM-DD\n- coverImage is optional (themed fallback will be used if not set)",
+    "tableOfContents": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "level": 2
+      },
+      {
+        "id": "main-section",
+        "title": "Main Section",
+        "level": 2
+      },
+      {
+        "id": "subsection",
+        "title": "Subsection",
+        "level": 3
+      },
+      {
+        "id": "key-takeaways",
+        "title": "Key Takeaways",
+        "level": 2
+      },
+      {
+        "id": "conclusion",
+        "title": "Conclusion",
+        "level": 2
+      }
+    ],
+    "sourceFile": "TEMPLATE.md",
+    "processedAt": "2026-02-08T07:13:54.184Z"
+  },
+  {
+    "slug": "productivity-during-loadshedding",
+    "title": "How I Stay Productive During Load-Shedding",
+    "excerpt": "Practical strategies for South African freelancers to maintain productivity when the power goes out.",
+    "category": "business",
+    "coverImage": "/assets/professional/nanda-consulting.jpg",
+    "publishDate": "2024-03-18",
+    "readingTime": 1,
+    "author": {
+      "name": "Nanda Kabali-Kagwa",
+      "avatar": "/assets/professional/nanda-professional.png"
+    },
+    "content": "## The Reality We Face\n\nAs a South African freelancer, load-shedding isn't just an inconvenience—it's a daily puzzle we have to solve. After years of adapting, I've developed strategies that keep me productive even during Stage 6.\n\n## My Essential Toolkit\n\n### Hardware\n\n- **UPS (Uninterruptible Power Supply)**: My lifeline. A good UPS gives me 3-4 hours of laptop power.\n- **Power bank**: For phones and tablets\n- **LTE router with battery**: WiFi doesn't stop when Eskom does\n\n### Apps & Services\n\n- **EskomSePush**: Know your schedule before it happens\n- **Offline-capable tools**: Notion, VS Code, Figma all work offline\n- **Cloud sync**: Everything syncs when power returns\n\n## Structuring Your Day\n\nI've learned to work WITH the load-shedding schedule, not against it:\n\n1. **High-focus work** during guaranteed power times\n2. **Calls and meetings** scheduled around slots\n3. **Admin and planning** can happen on mobile during outages\n\n## The Mindset Shift\n\nThe biggest change wasn't technical—it was mental. I stopped seeing load-shedding as an obstacle and started seeing it as forced focus time.\n\nNo Netflix. No endless scrolling. Just work or rest.\n\n## Your Turn\n\nWhat's your load-shedding survival strategy? Share your tips with fellow South African creators.",
+    "tableOfContents": [
+      {
+        "id": "the-reality-we-face",
+        "title": "The Reality We Face",
+        "level": 2
+      },
+      {
+        "id": "my-essential-toolkit",
+        "title": "My Essential Toolkit",
+        "level": 2
+      },
+      {
+        "id": "hardware",
+        "title": "Hardware",
+        "level": 3
+      },
+      {
+        "id": "apps-services",
+        "title": "Apps & Services",
+        "level": 3
+      },
+      {
+        "id": "structuring-your-day",
+        "title": "Structuring Your Day",
+        "level": 2
+      },
+      {
+        "id": "the-mindset-shift",
+        "title": "The Mindset Shift",
+        "level": 2
+      },
+      {
+        "id": "your-turn",
+        "title": "Your Turn",
+        "level": 2
+      }
+    ],
+    "sourceFile": "example-first-post.md",
+    "processedAt": "2026-02-08T07:13:54.146Z"
+  }
+]

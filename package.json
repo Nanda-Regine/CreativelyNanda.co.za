@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare-posts": "node scripts/prepare-posts.js",
+    "publish-posts": "node scripts/publish-posts.js"
   },
   "dependencies": {
     "@react-email/components": "^1.0.7",
