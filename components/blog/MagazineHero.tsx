@@ -123,7 +123,7 @@ export function MagazineHero({
               animate={{ backgroundPosition: ['0%', '200%'] }}
               transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
             >
-              THE BLOG
+              THE CURRENT
             </motion.span>
           </h1>
 
@@ -134,7 +134,7 @@ export function MagazineHero({
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Where <span className="text-blue-400">code</span>,{' '}
+            A digital magazine where <span className="text-blue-400">code</span>,{' '}
             <span className="text-purple-400">creativity</span>, and{' '}
             <span className="text-emerald-400">commerce</span> converge
           </motion.p>
