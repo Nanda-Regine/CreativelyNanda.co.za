@@ -663,7 +663,7 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
                             className="w-full h-auto"
                             controls
                             playsInline
-                            preload="auto"
+                            preload="metadata"
                           >
                             <source src={project.videoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
