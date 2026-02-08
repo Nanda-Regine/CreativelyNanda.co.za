@@ -11,9 +11,7 @@ tsconfig.tsbuildinfo
 .clauderc
 
 # Large media files
-*.mp4
 *.mov
-public/assets/performance/performance-vid-3.mp4
 
 # PDF extraction dev artifacts
 extract-pdf.js
