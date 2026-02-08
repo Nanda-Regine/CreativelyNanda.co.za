@@ -27,6 +27,7 @@ import {
 } from '@/components/blog';
 import { blogCategoryThemes } from '@/lib/blog-themes';
 import type { BlogPost } from '@/types/database';
+import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
 
 interface ArticleData {
   post: BlogPost;
@@ -146,14 +147,71 @@ export default function BlogPostPage() {
     async function fetchArticle() {
       try {
         const res = await fetch(`/api/blog/posts/${slug}`);
-        if (!res.ok) throw new Error('Article not found');
+        if (res.ok) {
+          const post = await res.json();
+          if (post && post.content) {
+            const tableOfContents = generateTOC(post.content);
+            setArticleData({ post, tableOfContents });
+            setLoading(false);
+            return;
+          }
+        }
 
-        const post = await res.json();
-        const tableOfContents = generateTOC(post.content);
-
-        setArticleData({ post, tableOfContents });
+        // Fallback to seed data
+        const seedPost = seedPosts.find(p => p.slug === slug);
+        if (seedPost) {
+          const post: BlogPost = {
+            id: seedPost.slug,
+            slug: seedPost.slug,
+            title: seedPost.title,
+            excerpt: seedPost.excerpt,
+            content: seedPost.content,
+            cover_image: seedPost.cover_image,
+            category: seedPost.category as 'dev' | 'writing' | 'business',
+            tags: seedPost.tags,
+            reading_time: seedPost.reading_time,
+            is_published: seedPost.is_published,
+            is_featured: seedPost.is_featured,
+            published_at: seedPost.published_at,
+            created_at: seedPost.published_at || new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            view_count: 0,
+            like_count: 0,
+            author_id: null,
+          };
+          const tableOfContents = generateTOC(post.content);
+          setArticleData({ post, tableOfContents });
+        } else {
+          setError('Article not found');
+        }
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load article');
+        // Fallback to seed data on error
+        const seedPost = seedPosts.find(p => p.slug === slug);
+        if (seedPost) {
+          const post: BlogPost = {
+            id: seedPost.slug,
+            slug: seedPost.slug,
+            title: seedPost.title,
+            excerpt: seedPost.excerpt,
+            content: seedPost.content,
+            cover_image: seedPost.cover_image,
+            category: seedPost.category as 'dev' | 'writing' | 'business',
+            tags: seedPost.tags,
+            reading_time: seedPost.reading_time,
+            is_published: seedPost.is_published,
+            is_featured: seedPost.is_featured,
+            published_at: seedPost.published_at,
+            created_at: seedPost.published_at || new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            view_count: 0,
+            like_count: 0,
+            author_id: null,
+          };
+          const tableOfContents = generateTOC(post.content);
+          setArticleData({ post, tableOfContents });
+        } else {
+          setError(err instanceof Error ? err.message : 'Failed to load article');
+        }
       } finally {
         setLoading(false);
       }

@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Search, Mail, Sparkles, ArrowRight, BookOpen } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { Search, Mail, Sparkles, ArrowRight } from 'lucide-react';
 import {
   MagazineHero,
   ArticleCoverCard,
@@ -13,6 +11,7 @@ import {
   AuthorBioCard,
 } from '@/components/blog';
 import type { BlogPost, Contributor } from '@/types/database';
+import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
 
 // Transform database post to article card format
 function transformPost(post: BlogPost) {
@@ -46,19 +45,54 @@ export default function BlogPage() {
         const res = await fetch('/api/blog/posts');
         if (res.ok) {
           const posts = await res.json();
-          setArticles(posts.map(transformPost));
+          if (posts && posts.length > 0) {
+            setArticles(posts.map(transformPost));
 
-          // Extract unique contributors
-          const uniqueContributors = posts
-            .filter((p: BlogPost) => p.contributor)
-            .map((p: BlogPost) => p.contributor)
-            .filter((c: Contributor, i: number, arr: Contributor[]) =>
-              arr.findIndex((a) => a?.id === c?.id) === i
-            );
-          setContributors(uniqueContributors);
+            // Extract unique contributors
+            const uniqueContributors = posts
+              .filter((p: BlogPost) => p.contributor)
+              .map((p: BlogPost) => p.contributor)
+              .filter((c: Contributor, i: number, arr: Contributor[]) =>
+                arr.findIndex((a) => a?.id === c?.id) === i
+              );
+            setContributors(uniqueContributors);
+          } else {
+            // Use seed data as fallback
+            setArticles(seedPosts.map((post) => ({
+              slug: post.slug,
+              title: post.title,
+              excerpt: post.excerpt || '',
+              coverImage: post.cover_image || '',
+              category: post.category as 'dev' | 'writing' | 'business',
+              publishedAt: post.published_at || new Date().toISOString(),
+              readingTime: post.reading_time || 5,
+              author: {
+                name: 'Nanda Kabali-Kagwa',
+                avatar: '/assets/professional/nanda-professional.png',
+              },
+              viewCount: 0,
+              likeCount: 0,
+            })));
+          }
         }
       } catch (error) {
         console.error('Error fetching posts:', error);
+        // Use seed data as fallback on error
+        setArticles(seedPosts.map((post) => ({
+          slug: post.slug,
+          title: post.title,
+          excerpt: post.excerpt || '',
+          coverImage: post.cover_image || '',
+          category: post.category as 'dev' | 'writing' | 'business',
+          publishedAt: post.published_at || new Date().toISOString(),
+          readingTime: post.reading_time || 5,
+          author: {
+            name: 'Nanda Kabali-Kagwa',
+            avatar: '/assets/professional/nanda-professional.png',
+          },
+          viewCount: 0,
+          likeCount: 0,
+        })));
       } finally {
         setLoading(false);
       }
@@ -114,50 +148,6 @@ export default function BlogPage() {
     );
   }
 
-  // Empty state when no posts
-  if (articles.length === 0 && !loading) {
-    return (
-      <div className="min-h-screen bg-parchment">
-        <MagazineHero
-          searchQuery=""
-          onSearchChange={() => {}}
-          featuredArticle={{
-            title: 'Welcome to the Magazine',
-            excerpt: 'Fresh content coming soon. Subscribe to be notified when new articles are published.',
-            category: 'writing',
-            slug: '',
-          }}
-          issueNumber={1}
-        />
-
-        <section className="py-24 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="w-20 h-20 bg-cherry/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <BookOpen className="w-10 h-10 text-cherry" />
-            </div>
-            <h2 className="text-3xl font-display font-bold text-navy mb-4">
-              Coming Soon
-            </h2>
-            <p className="text-navy/60 mb-8">
-              We're working on amazing content for you. Check back soon or subscribe to be the first to know when new articles are published.
-            </p>
-
-            {/* Newsletter signup */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 px-5 py-3 rounded-full bg-white border border-navy/10 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/10"
-              />
-              <Button variant="primary" className="rounded-full">
-                Notify Me
-              </Button>
-            </div>
-          </div>
-        </section>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-parchment">

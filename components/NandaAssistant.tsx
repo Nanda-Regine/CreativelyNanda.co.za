@@ -472,9 +472,25 @@ export function NandaAssistant() {
   }, [messages]);
 
   const findResponse = (userInput: string) => {
-    const input = userInput.toLowerCase();
+    const input = userInput.toLowerCase().trim();
 
-    for (const [, data] of Object.entries(knowledgeBase)) {
+    // Skip greetings check if the input has more than just a greeting
+    const isJustGreeting = input.split(' ').length <= 3;
+
+    // Priority order for matching (most specific first)
+    const categoryOrder = [
+      'education', 'experience', 'skills', 'poetry', 'projects',
+      'mirembe', 'services', 'contact', 'testimonials', 'location',
+      'philosophy', 'fun', 'pricing', 'chatbot', 'notion', 'media',
+      'achievements', 'identity', 'thanks',
+      // Greetings last (only if short input)
+      ...(isJustGreeting ? ['greetings'] : [])
+    ];
+
+    for (const category of categoryOrder) {
+      const data = knowledgeBase[category as keyof typeof knowledgeBase];
+      if (!data) continue;
+
       for (const trigger of data.triggers) {
         if (input.includes(trigger)) {
           const responses = data.responses;
