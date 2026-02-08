@@ -141,51 +141,6 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Magazine Stats - Left Side (Desktop only, hidden on smaller screens) */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="hidden xl:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col gap-6 z-20"
-        >
-          {[
-            { value: '50+', label: 'Projects' },
-            { value: '5+', label: 'Years' },
-            { value: '1000+', label: 'Templates' },
-          ].map((stat, i) => (
-            <div key={stat.label} className="text-left">
-              <div className="font-display text-2xl font-bold text-[#D4A574]">
-                {stat.value}
-              </div>
-              <div className="text-[10px] text-beige/40 tracking-wider uppercase">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Magazine Highlights - Right Side (Desktop only) */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="hidden xl:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-20 max-w-[200px]"
-        >
-          {[
-            { title: 'EXCLUSIVE', text: 'Poetry Collection' },
-            { title: 'FEATURED', text: 'Mirembe Muse' },
-            { title: 'SPOTLIGHT', text: 'Notion Systems' },
-          ].map((highlight, i) => (
-            <div key={highlight.title} className="text-right">
-              <div className="text-[10px] font-bold text-[#D4A574] tracking-widest mb-1">
-                {highlight.title}
-              </div>
-              <div className="text-xs text-beige/60 leading-tight">
-                {highlight.text}
-              </div>
-            </div>
-          ))}
-        </motion.div>
 
         {/* Main Content Grid */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-16 md:py-20 lg:pt-24 lg:pb-32">
@@ -304,67 +259,6 @@ export default function Home() {
 
             {/* Right Side: Photo in Organic Frame */}
             <div className="lg:col-span-7 relative flex justify-center order-1 lg:order-2">
-
-              {/* Floating Highlight Words - Desktop Only */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="hidden xl:block absolute -top-4 right-12 2xl:right-24 z-20"
-              >
-                <motion.span
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="font-display text-3xl 2xl:text-4xl font-bold text-[#D4A574]/70 italic"
-                >
-                  Visionary
-                </motion.span>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="hidden xl:block absolute top-1/3 -left-4 2xl:left-4 z-20"
-              >
-                <motion.span
-                  animate={{ y: [0, 8, 0], rotate: [-12, -10, -12] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="font-display text-2xl 2xl:text-3xl font-bold text-beige/50 -rotate-12"
-                >
-                  Poet
-                </motion.span>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                className="hidden xl:block absolute bottom-1/3 -right-2 2xl:right-4 z-20"
-              >
-                <motion.span
-                  animate={{ y: [0, -6, 0], rotate: [6, 8, 6] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                  className="font-display text-2xl 2xl:text-3xl font-bold text-[#D4A574]/60 rotate-6"
-                >
-                  Builder
-                </motion.span>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="hidden 2xl:block absolute bottom-16 left-16 z-20"
-              >
-                <motion.span
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                  className="font-display text-2xl font-bold text-beige/40 -rotate-6"
-                >
-                  Dreamer
-                </motion.span>
-              </motion.div>
 
               {/* Main Photo Container */}
               <motion.div
