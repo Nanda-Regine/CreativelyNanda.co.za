@@ -47,22 +47,15 @@ When the local knowledge base doesn't have an answer, the system falls back to O
 
 ## The Tech Stack
 
-- **React** for the frontend interface
-- **Framer Motion** for smooth animations
-- **OpenAI API** for fallback responses
-- **Local knowledge base** for accurate, personalized answers
+The frontend is built with **React**, bringing the interface to life. **Framer Motion** handles all the smooth animations that make interactions feel polished. For questions outside my knowledge base, the **OpenAI API** provides intelligent fallback responses. And at the core, a **local knowledge base** ensures accurate, personalized answers about my work and journey.
 
 ## Key Learnings
 
-1. **Personality > Perfection**: Users forgive small errors if the interaction feels genuine
-2. **Speed matters**: Local responses are instant; API calls feel slower
-3. **Context is king**: The same question on different pages should feel different
+First, **personality beats perfection**. Users forgive small errors if the interaction feels genuine. Second, **speed matters**. Local responses are instant while API calls feel slower, so prioritizing local knowledge improves experience. Third, **context is king**. The same question on different pages should feel different based on what the user is exploring.
 
 ## The Result
 
 An AI assistant that knows my story—from my poetry collection "Inside Her Roses" to my 15+ Notion templates—and shares it with warmth. Technology with soul.
-
----
 
 *What would you build if you approached AI with poetry in mind?*
     `.trim(),
@@ -104,34 +97,19 @@ Master Database (Projects)
 
 ### 2. Progressive Disclosure
 
-Don't show everything at once. Start simple, reveal complexity only when needed. My templates have:
-- **Dashboard view**: Quick status at a glance
-- **Working view**: Daily driver for actual work
-- **Deep view**: All the details when you need them
+Don't show everything at once. Start simple, reveal complexity only when needed. My templates have three layers: a **Dashboard view** for quick status at a glance, a **Working view** as your daily driver for actual work, and a **Deep view** with all the details when you need them.
 
 ### 3. Automated Maintenance
 
-If you have to remember to update something, you won't. I build systems that:
-- Auto-calculate totals and statuses
-- Send reminders before they're needed
-- Archive completed items automatically
+If you have to remember to update something, you won't. I build systems that auto-calculate totals and statuses, send reminders before they're needed, and archive completed items automatically.
 
 ## Template Categories
 
-### For Students (R150-R250)
-- Assignment trackers with deadline warnings
-- Study schedule generators
-- GPA calculators
+**For Students (R150-R250):** Assignment trackers with deadline warnings, study schedule generators, and GPA calculators.
 
-### For Businesses (R299-R499)
-- CRM with pipeline tracking
-- Financial dashboards with Chart of Accounts
-- Project management hubs
+**For Businesses (R299-R499):** CRM with pipeline tracking, financial dashboards with Chart of Accounts, and project management hubs.
 
-### For Creatives (R199-R349)
-- Content calendars
-- Client collaboration spaces
-- Portfolio builders
+**For Creatives (R199-R349):** Content calendars, client collaboration spaces, and portfolio builders.
 
 ## The Results
 
@@ -140,8 +118,6 @@ One client went from spending 4 hours weekly on admin to under 2 hours. Another 
 ## Want to Get Started?
 
 Check out my templates in the marketplace, or reach out for custom system design. Remember: the goal isn't a beautiful Notion setup. The goal is getting your life back.
-
----
 
 *What system would give you the most time back?*
     `.trim(),
@@ -174,9 +150,7 @@ In October 2021, I published my collection: 82 poems exploring love, identity, h
 
 ### Themes I Explore
 
-- **Romance & Sensuality**: Love in all its forms—tender, fierce, complicated
-- **Identity & Healing**: What it means to become yourself, again and again
-- **Empowerment**: Poetry as resistance, beauty as rebellion
+**Romance & Sensuality** captures love in all its forms—tender, fierce, complicated. **Identity & Healing** explores what it means to become yourself, again and again. **Empowerment** treats poetry as resistance, beauty as rebellion.
 
 ## From Page to Screen
 
@@ -202,17 +176,11 @@ When I built the AI chatbot for this site, I approached it like poetry—what fe
 
 If you've ever wanted to write but felt you "weren't a writer," hear this:
 
-1. **Everyone has a poem inside them**—it might be about your grandmother's hands or the way your city smells after rain
-2. **Bad poems come before good ones**—write them anyway
-3. **Your voice matters**—no one else can tell your specific truth
+Everyone has a poem inside them—it might be about your grandmother's hands or the way your city smells after rain. Bad poems come before good ones, so write them anyway. Your voice matters because no one else can tell your specific truth.
 
 ## Where to Find My Work
 
-- **Book**: "Inside Her Roses" on Amazon, Apple Books, Kobo, and major retailers
-- **Online**: Wattpad (@NandaRegine), AllPoetry (@Nanda_Regine), Instagram (@nanda.regine)
-- **Live**: Speaking engagements and poetry workshops
-
----
+The **book** "Inside Her Roses" is available on Amazon, Apple Books, Kobo, and major retailers. **Online**, you can find me on Wattpad (@NandaRegine), AllPoetry (@Nanda_Regine), and Instagram (@nanda.regine). For **live** experiences, I'm available for speaking engagements and poetry workshops.
 
 *What would you write if you weren't afraid?*
     `.trim(),
@@ -279,10 +247,7 @@ There's the knowledge that every line of code I write, every verse I publish, is
 
 My advice to anyone at an intersection:
 
-1. **Stop choosing**—you contain multitudes
-2. **Build your own**—don't wait for invitations
-3. **Rest is resistance**—burnout serves no one
-4. **Document everything**—your journey helps others
+**Stop choosing**—you contain multitudes. **Build your own**—don't wait for invitations. **Rest is resistance**—burnout serves no one. **Document everything**—your journey helps others.
 
 ## The Vision
 
@@ -291,8 +256,6 @@ Mirembe Muse launches in 2026 as more than a business. It's a proof of concept: 
 That you can be African and global. Technical and artistic. Successful and soulful.
 
 That you can resist by creating.
-
----
 
 *What are you creating with your resistance?*
     `.trim(),
@@ -322,31 +285,26 @@ But here's the thing: every single role prepared me for what I'm building now.
 At Balkan Burger, I didn't just serve food—I got a masterclass in business operations.
 
 ### As a Waitress (2023)
-- **Customer psychology**: Reading body language, anticipating needs
-- **Time management**: Juggling 10 tables means triaging in real-time
-- **Upselling**: This is just product marketing with breadsticks
+
+I learned **customer psychology** through reading body language and anticipating needs. **Time management** came from juggling 10 tables, which means triaging in real-time. And **upselling**? That's just product marketing with breadsticks.
 
 I authored the entire operations manual, improving service speed by 30% and reducing onboarding time by 50%.
 
 ### As Team Leader
-- Managed 10+ staff
-- Increased upsell conversions by 30%
-- Achieved 4.8/5 customer satisfaction rating
+
+I managed 10+ staff, increased upsell conversions by 30%, and achieved a 4.8/5 customer satisfaction rating.
 
 The skills transfer directly: managing a dev team isn't that different from managing a restaurant floor. Both require clear communication, quick problem-solving, and keeping morale high under pressure.
 
 ### As Event Coordinator
-- Executed events for 100-500+ guests
-- Boosted attendance by 40% through digital marketing
-- Generated 20% increase in ticket revenue
+
+I executed events for 100-500+ guests, boosted attendance by 40% through digital marketing, and generated a 20% increase in ticket revenue.
 
 This is exactly what I did for my book launch—just with poetry instead of burgers.
 
 ### As Manager
-- Directed daily operations for 15+ staff
-- Digitized paper processes, reducing overhead by 35%
-- Reduced inventory waste by 22%
-- Improved profitability by 18%
+
+I directed daily operations for 15+ staff, digitized paper processes reducing overhead by 35%, reduced inventory waste by 22%, and improved profitability by 18%.
 
 Now I do this for clients through Notion systems and workflow automation.
 
@@ -354,16 +312,11 @@ Now I do this for clients through Notion systems and workflow automation.
 
 Before restaurants, I spent 4 years in retail. Key lessons:
 
-- **Receiving Clerk**: 99% accuracy taught me attention to detail (critical for debugging)
-- **Cashier**: Handling money and trust (foundations for business finances)
-- **Sales Assistant**: Understanding customer needs (now called "user research")
+As **Receiving Clerk**, 99% accuracy taught me attention to detail (critical for debugging). As **Cashier**, handling money and trust built foundations for business finances. As **Sales Assistant**, understanding customer needs is now called "user research."
 
 ## What University Taught Me
 
-Nelson Mandela University gave me three degrees with 15 distinctions:
-- **Higher Certificate in Business Management** (NQF 5)
-- **Diploma in Management** (NQF 6)
-- **Advanced Diploma in Business Management** (NQF 7)
+Nelson Mandela University gave me three degrees with 15 distinctions: a **Higher Certificate in Business Management** (NQF 5), a **Diploma in Management** (NQF 6), and an **Advanced Diploma in Business Management** (NQF 7).
 
 But honestly? The theory made sense because I'd already lived it.
 
@@ -375,32 +328,17 @@ The same work ethic that got me from Junior Waitress to Manager in 18 months got
 
 ## The Mirembe Muse Vision
 
-When I launch Mirembe Muse (Pty) Ltd in 2026, I'll bring:
-
-- **Restaurant efficiency** → streamlined client processes
-- **Retail customer care** → client experience focus
-- **Event execution** → launch and project management
-- **Academic foundations** → strategic thinking
-- **Self-taught coding** → technical delivery
+When I launch Mirembe Muse (Pty) Ltd in 2026, I'll bring **restaurant efficiency** as streamlined client processes, **retail customer care** as client experience focus, **event execution** as launch and project management, **academic foundations** as strategic thinking, and **self-taught coding** as technical delivery.
 
 ## Advice for Non-Linear Journeys
 
-1. **Nothing is wasted**—every job teaches something
-2. **Document your skills**—you have more than you think
-3. **Connect the dots forward**—the story will make sense later
-4. **Start before you're ready**—I was coding while still managing restaurants
+**Nothing is wasted**—every job teaches something. **Document your skills**—you have more than you think. **Connect the dots forward**—the story will make sense later. **Start before you're ready**—I was coding while still managing restaurants.
 
 ## The Truth About Entrepreneurship
 
-You don't need a perfect path. You need:
-- Willingness to learn
-- Ability to adapt
-- Courage to start
-- Resilience to continue
+You don't need a perfect path. You need willingness to learn, ability to adapt, courage to start, and resilience to continue.
 
 I'm proof that waitresses become founders. That restaurant managers become tech entrepreneurs. That the non-linear path might be the only path that truly prepares you.
-
----
 
 *What unexpected experience is preparing you for what's next?*
     `.trim(),
@@ -447,21 +385,15 @@ My AI chatbot greets people with "Sawubona"—a Zulu word meaning "I see you." N
 
 ## The Three Pillars of Mirembe Muse
 
-### Technology
-Full-stack development, AI integration, Notion architecture—but always asking: "Does this make someone's life easier or just more complicated?"
+**Technology** encompasses full-stack development, AI integration, and Notion architecture—but always asking: "Does this make someone's life easier or just more complicated?"
 
-### Creativity
-Poetry, content, design—because beauty matters. Functional but ugly is still a failure.
+**Creativity** includes poetry, content, and design—because beauty matters. Functional but ugly is still a failure.
 
-### Purpose
-Every service, product, and decision runs through the filter: "Does this align with building peace?"
+**Purpose** means every service, product, and decision runs through the filter: "Does this align with building peace?"
 
 ## What This Looks Like Practically
 
-- **Pricing**: Value-based, not hours-logged. Because your worth isn't measured in time
-- **Communication**: Honest, even when it costs me a sale. I've told people when they don't need what I offer
-- **Process**: Milestone-based, with transparency throughout. No black boxes
-- **Relationships**: Long-term thinking. I'd rather have 10 clients for 5 years than 50 clients for 3 months
+**Pricing** is value-based, not hours-logged, because your worth isn't measured in time. **Communication** is honest, even when it costs me a sale—I've told people when they don't need what I offer. **Process** is milestone-based with transparency throughout, no black boxes. **Relationships** focus on long-term thinking—I'd rather have 10 clients for 5 years than 50 clients for 3 months.
 
 ## Lessons from Ancestors
 
@@ -472,31 +404,20 @@ Modern business wisdom often repackages ancient African wisdom with jargon. I pr
 ## The Commercial Case for Ubuntu
 
 Some think purpose-driven business is less profitable. The data disagrees:
-- Clients referred by existing clients have higher lifetime value
-- Trust reduces sales cycles
-- Meaning increases resilience (I didn't quit during the hard years)
-- Reputation compounds (my testimonials came from relationships, not transactions)
+
+Clients referred by existing clients have higher lifetime value. Trust reduces sales cycles. Meaning increases resilience (I didn't quit during the hard years). Reputation compounds (my testimonials came from relationships, not transactions).
 
 ## Building Peace
 
 "Mirembe" means peace. Peace isn't passive—it's actively created. Every business decision is a choice between building peace or extracting value.
 
-I choose peace:
-- In how I price (fair exchange, not exploitation)
-- In how I communicate (honest, not manipulative)
-- In what I build (solutions, not dependencies)
-- In how I grow (sustainable, not extractive)
+I choose peace in how I price (fair exchange, not exploitation), in how I communicate (honest, not manipulative), in what I build (solutions, not dependencies), and in how I grow (sustainable, not extractive).
 
 ## Join the Movement
 
-Whether you ever work with Mirembe Muse or not, consider:
-- How might Ubuntu philosophy change your work?
-- What would you build if legacy mattered more than likes?
-- Where is there tension between your values and your business practices?
+Whether you ever work with Mirembe Muse or not, consider: How might Ubuntu philosophy change your work? What would you build if legacy mattered more than likes? Where is there tension between your values and your business practices?
 
 I'm not claiming to have it figured out. I'm learning daily. But the direction is set: business that builds peace.
-
----
 
 *What does Ubuntu mean for your work?*
     `.trim(),
