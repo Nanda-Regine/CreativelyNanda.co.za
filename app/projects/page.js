@@ -658,12 +658,15 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
                     >
                       {/* Video Player */}
                       {project.videoUrl ? (
-                        <div className="relative overflow-hidden rounded-[24px] bg-[#0A1128]">
+                        <div className="relative overflow-hidden rounded-[24px] bg-[#0A1128] aspect-video">
                           <video
-                            className="w-full h-auto"
+                            key={project.videoUrl}
+                            className="w-full h-full object-cover"
                             controls
                             playsInline
+                            muted
                             preload="metadata"
+                            controlsList="nodownload"
                           >
                             <source src={project.videoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
