@@ -369,7 +369,7 @@ export default function BlogPostPage() {
               <div className="flex items-center gap-3">
                 <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white/30 ring-2 ring-white/10 ring-offset-2 ring-offset-transparent">
                   <Image
-                    src={post.contributor?.avatar || '/assets/professional/nanda-professional.png'}
+                    src={post.contributor?.avatar || '/assets/professional/nanda-professional.jpg'}
                     alt={post.contributor?.name || 'Author'}
                     fill
                     className="object-cover"
@@ -445,7 +445,7 @@ export default function BlogPostPage() {
                 <div className="flex items-start gap-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
                     <Image
-                      src={post.contributor?.avatar || '/assets/professional/nanda-professional.png'}
+                      src={post.contributor?.avatar || '/assets/professional/nanda-professional.jpg'}
                       alt={post.contributor?.name || 'Author'}
                       fill
                       className="object-cover"

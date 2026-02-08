@@ -340,6 +340,65 @@ Open index.html in any modern browser.
 MIT © Nanda`
   },
   {
+    id: 'notion-systems',
+    title: 'Notion Systems',
+    subtitle: 'Business Operating Systems',
+    category: 'Full-Stack',
+    status: 'Live',
+    year: '2025',
+    coverColor: 'from-[#191919] to-[#2D2D2D]',
+    accentColor: '#0A1128',
+    description: 'Custom Notion operating systems designed for businesses and creatives — from CRM pipelines to financial dashboards and project management. Each system is tailored to streamline workflows and reduce administrative overhead.',
+    videoUrl: '/assets/project-screen-record/Notion-building.mp4',
+    githubUrl: null,
+    liveUrl: 'https://creativelynanda.co.za/services',
+    tech: ['Notion', 'Database Architecture', 'Workflow Automation', 'AI Integration', 'Template Design', 'Systems Thinking'],
+    caseStudy: {
+      challenge: 'Businesses struggle with scattered tools, manual processes, and inefficient workflows. They need unified systems that grow with them without requiring technical expertise to maintain.',
+      approach: 'Design comprehensive Notion workspaces using relational databases, automated workflows, and intuitive interfaces. Focus on reducing friction and making information accessible.',
+      solution: 'Delivered custom operating systems including CRM with pipeline tracking, financial management with dashboards, project trackers, and knowledge bases — all interconnected and automated.',
+      results: [
+        'Reduced client administrative time by 40–60%',
+        'Created 15+ productized templates for various use cases',
+        'Scalable systems adaptable to growing teams',
+        'Integrated AI-powered automation for repetitive tasks'
+      ]
+    },
+    readme: `# Notion Systems
+
+Custom business operating systems built in Notion.
+
+## Services
+- 🏢 CRM Systems with pipeline tracking
+- 💰 Financial Management dashboards
+- 📊 Project Management systems
+- 📚 Knowledge Base architecture
+- 🤖 AI-powered automation integration
+
+## Featured Systems
+- Student Life OS
+- Freelancer Hub
+- SME Operating System
+- Creative Project Tracker
+- Content Calendar
+
+## Process
+1. Discovery call to understand needs
+2. System architecture design
+3. Database and workflow setup
+4. Training and documentation
+5. Ongoing support
+
+## Contact
+Book a consultation at creativelynanda.co.za/contact
+
+## Templates Available
+15+ ready-to-use templates for students,
+freelancers, and small businesses.
+
+© Nanda Kabali-Kagwa`
+  },
+  {
     id: 'mirembe-muse',
     title: 'Mirembe Muse',
     subtitle: 'African Botanical Wellness',
@@ -601,14 +660,12 @@ function ProjectCard({ project, isExpanded, onToggle, index }) {
                       {project.videoUrl ? (
                         <div className="relative overflow-hidden rounded-[24px] bg-[#0A1128]">
                           <video
-                            src={project.videoUrl}
-                            title={`${project.title} Demo`}
                             className="w-full h-auto"
                             controls
                             playsInline
-                            preload="metadata"
-                            poster={`/assets/project-thumbnails/${project.id}.jpg`}
+                            preload="auto"
                           >
+                            <source src={project.videoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
                           </video>
                         </div>
