@@ -39,22 +39,28 @@ const categoryMeta = {
     label: 'Development',
     color: 'bg-blue-100 text-blue-700',
     gradient: 'from-blue-900 via-blue-800 to-cyan-900',
+    gradientStyle: 'linear-gradient(to bottom right, #1e3a8a, #1e40af, #0e7490)',
     accent: 'blue',
     bgPattern: 'from-blue-50/50 via-parchment to-cyan-50/30',
+    textColor: 'text-white',
   },
   writing: {
     label: 'Writing',
     color: 'bg-purple-100 text-purple-700',
     gradient: 'from-purple-900 via-purple-800 to-pink-900',
+    gradientStyle: 'linear-gradient(to bottom right, #581c87, #6b21a8, #831843)',
     accent: 'purple',
     bgPattern: 'from-purple-50/50 via-parchment to-pink-50/30',
+    textColor: 'text-white',
   },
   business: {
     label: 'Business',
     color: 'bg-emerald-100 text-emerald-700',
     gradient: 'from-emerald-900 via-emerald-800 to-teal-900',
+    gradientStyle: 'linear-gradient(to bottom right, #064e3b, #065f46, #115e59)',
     accent: 'emerald',
     bgPattern: 'from-emerald-50/50 via-parchment to-teal-50/30',
+    textColor: 'text-white',
   },
 };
 
@@ -302,7 +308,10 @@ export default function BlogPostPage() {
       />
 
       {/* Magazine Header */}
-      <header className={`relative py-20 px-4 bg-gradient-to-br ${meta.gradient} overflow-hidden`}>
+      <header
+        className="relative py-20 px-4 overflow-hidden"
+        style={{ background: meta.gradientStyle }}
+      >
         {/* Decorative pattern */}
         <div className="absolute inset-0 opacity-10">
           <PatternComponent className="w-full h-full" />
