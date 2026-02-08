@@ -8,6 +8,8 @@ export type NandaGirlContext =
   | 'mirembe'
   | 'notion'
   | 'contact'
+  | 'blog'
+  | 'marketplace'
   | 'default';
 
 export interface NandaGirlImage {
@@ -52,6 +54,14 @@ export const contextImages: Record<NandaGirlContext, NandaGirlImage> = {
     src: '/assets/nanda-girl/speaking-mic-transparent.png',
     alt: 'Nanda with microphone',
   },
+  blog: {
+    src: '/assets/nanda-girl/smart-casual-transparent.png',
+    alt: 'Nanda reading',
+  },
+  marketplace: {
+    src: '/assets/nanda-girl/beige-suit-transparent.png',
+    alt: 'Nanda shopping',
+  },
   default: {
     src: '/assets/nanda-girl/navy-suit-transparent.png',
     alt: 'Nanda',
@@ -68,5 +78,7 @@ export function getContextFromPath(pathname: string): NandaGirlContext {
   if (pathname.startsWith('/mirembe')) return 'mirembe';
   if (pathname.startsWith('/notion')) return 'notion';
   if (pathname.startsWith('/contact')) return 'contact';
+  if (pathname.startsWith('/blog')) return 'blog';
+  if (pathname.startsWith('/marketplace')) return 'marketplace';
   return 'default';
 }

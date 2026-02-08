@@ -11,6 +11,7 @@ module.exports = {
         // Core Brand
         navy: '#1a1a2e',
         cherry: '#c21e56',
+        'cherry-dark': '#8B0A35',
         beige: '#f5f1e8',
 
         // Extended Palette

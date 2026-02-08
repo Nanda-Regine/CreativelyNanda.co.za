@@ -12,3 +12,8 @@ export {
   DecorativeBlob,
   getCategoryPattern,
 } from './DecorativePatterns';
+
+// Engagement Components
+export { LikeButton } from './LikeButton';
+export { ViewCounter } from './ViewCounter';
+export { ReaderReviews } from './ReaderReviews';

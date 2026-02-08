@@ -2,8 +2,7 @@ import './globals.css';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
-import NandaAI from '@/components/NandaAI';
-import { NandaGirl } from '@/components/nanda-girl';
+import NandaAssistant from '@/components/NandaAssistant';
 import { CartProvider } from '@/components/cart';
 import { I18nProvider } from '@/lib/i18n';
 
@@ -99,8 +98,7 @@ export default function RootLayout({ children }) {
               {children}
             </main>
             <Footer />
-            <NandaGirl />
-            <NandaAI />
+            <NandaAssistant />
           </CartProvider>
         </I18nProvider>
       </body>

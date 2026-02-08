@@ -118,10 +118,43 @@ export interface BlogPost {
   published_at: string | null;
   created_at: string;
   updated_at: string;
+  // Engagement metrics
+  view_count: number;
+  like_count: number;
   // Contributor relationship
   author_id: string | null;
   contributor?: Contributor | null;
   mentions?: ArticleMention[];
+  reviews?: BlogReview[];
+}
+
+// Blog Review (Reader insights/reviews)
+export interface BlogReview {
+  id: string;
+  post_id: string;
+  author_name: string;
+  author_email: string | null;
+  content: string;
+  rating: number | null; // 1-5 stars, optional
+  is_approved: boolean;
+  is_featured: boolean;
+  created_at: string;
+}
+
+// Blog Like (Unique likes per session)
+export interface BlogLike {
+  id: string;
+  post_id: string;
+  session_id: string;
+  created_at: string;
+}
+
+// Blog View (Track views)
+export interface BlogView {
+  id: string;
+  post_id: string;
+  session_id: string;
+  created_at: string;
 }
 
 // Blog Contributor (Guest Writers)
@@ -227,8 +260,23 @@ export interface Database {
       };
       blog_posts: {
         Row: BlogPost;
-        Insert: Omit<BlogPost, 'id' | 'created_at' | 'updated_at' | 'contributor' | 'mentions'>;
-        Update: Partial<Omit<BlogPost, 'id' | 'created_at' | 'updated_at' | 'contributor' | 'mentions'>>;
+        Insert: Omit<BlogPost, 'id' | 'created_at' | 'updated_at' | 'view_count' | 'like_count' | 'contributor' | 'mentions' | 'reviews'>;
+        Update: Partial<Omit<BlogPost, 'id' | 'created_at' | 'updated_at' | 'contributor' | 'mentions' | 'reviews'>>;
+      };
+      blog_reviews: {
+        Row: BlogReview;
+        Insert: Omit<BlogReview, 'id' | 'created_at' | 'is_approved' | 'is_featured'>;
+        Update: Partial<Omit<BlogReview, 'id' | 'created_at'>>;
+      };
+      blog_likes: {
+        Row: BlogLike;
+        Insert: Omit<BlogLike, 'id' | 'created_at'>;
+        Update: never;
+      };
+      blog_views: {
+        Row: BlogView;
+        Insert: Omit<BlogView, 'id' | 'created_at'>;
+        Update: never;
       };
       contributors: {
         Row: Contributor;

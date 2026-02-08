@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Search, Mail, Sparkles, ArrowRight } from 'lucide-react';
+import { Search, Mail, Sparkles, ArrowRight, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui';
 import {
   MagazineHero,
@@ -12,105 +12,80 @@ import {
   CategorySectionHeader,
   AuthorBioCard,
 } from '@/components/blog';
-import { blogCategoryThemes } from '@/lib/blog-themes';
+import type { BlogPost, Contributor } from '@/types/database';
 
-// Sample articles - will be fetched from Supabase in production
-const ARTICLES = [
-  {
-    slug: 'building-notion-templates-that-sell',
-    title: 'Building Notion Templates That Actually Sell',
-    excerpt: 'A deep dive into creating Notion templates that solve real problems and generate passive income for creators.',
-    coverImage: '/assets/professional/nanda-consulting.jpg',
-    category: 'business',
-    publishedAt: '2024-02-01',
-    readingTime: 8,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'nextjs-14-app-router-guide',
-    title: 'Next.js 14 App Router: A Practical Guide',
-    excerpt: 'Everything you need to know about the App Router, Server Components, and building modern React applications.',
-    coverImage: null, // Will show themed fallback
-    category: 'dev',
-    publishedAt: '2024-01-28',
-    readingTime: 12,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'poetry-as-therapy',
-    title: 'Poetry as Therapy: Writing Through Pain',
-    excerpt: 'How writing poetry helped me process grief, trauma, and find healing through the power of words.',
-    coverImage: '/assets/poetry-book/book-cover-1.jpg',
-    category: 'writing',
-    publishedAt: '2024-01-20',
-    readingTime: 6,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'freelancing-in-south-africa',
-    title: 'Freelancing in South Africa: The Real Talk',
-    excerpt: 'Navigating load-shedding, payments, and building a sustainable freelance career in SA.',
-    coverImage: null,
-    category: 'business',
-    publishedAt: '2024-01-15',
-    readingTime: 10,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'typescript-for-beginners',
-    title: 'TypeScript for JavaScript Developers',
-    excerpt: 'A gentle introduction to TypeScript that will make you wonder why you waited so long to make the switch.',
-    coverImage: '/assets/professional/nanda-consulting.jpg',
-    category: 'dev',
-    publishedAt: '2024-01-10',
-    readingTime: 15,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'inside-her-roses-journey',
-    title: 'The Journey of "Inside Her Roses"',
-    excerpt: 'From late-night scribbles to a published book - the story behind my debut poetry collection.',
-    coverImage: null,
-    category: 'writing',
-    publishedAt: '2024-01-05',
-    readingTime: 7,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'react-server-components-deep-dive',
-    title: 'React Server Components: A Deep Dive',
-    excerpt: 'Understanding the paradigm shift in React development and how RSC changes everything we know.',
-    coverImage: null,
-    category: 'dev',
-    publishedAt: '2024-01-02',
-    readingTime: 18,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'black-girl-magic-poetry',
-    title: 'Writing Black Girl Magic: Celebrating Identity',
-    excerpt: 'Exploring themes of identity, heritage, and empowerment through contemporary African poetry.',
-    coverImage: '/assets/poetry-book/book-cover-1.jpg',
-    category: 'writing',
-    publishedAt: '2023-12-28',
-    readingTime: 5,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-  {
-    slug: 'digital-products-passive-income',
-    title: 'Digital Products: Building Passive Income Streams',
-    excerpt: 'How I built multiple revenue streams through digital products while working a full-time job.',
-    coverImage: null,
-    category: 'business',
-    publishedAt: '2023-12-20',
-    readingTime: 12,
-    author: { name: 'Nanda Kabali-Kagwa', avatar: null },
-  },
-];
+// Transform database post to article card format
+function transformPost(post: BlogPost) {
+  return {
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt || '',
+    coverImage: post.cover_image,
+    category: post.category,
+    publishedAt: post.published_at || post.created_at,
+    readingTime: post.reading_time || 5,
+    author: {
+      name: post.contributor?.name || 'Nanda Kabali-Kagwa',
+      avatar: post.contributor?.avatar || '/assets/professional/nanda-professional.png',
+    },
+    viewCount: post.view_count,
+    likeCount: post.like_count,
+  };
+}
 
-// Sample contributors - will be fetched from Supabase in production
-const CONTRIBUTORS = [
-  {
+export default function BlogPage() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [articles, setArticles] = useState<ReturnType<typeof transformPost>[]>([]);
+  const [contributors, setContributors] = useState<Contributor[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch articles and contributors
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch('/api/blog/posts');
+        if (res.ok) {
+          const posts = await res.json();
+          setArticles(posts.map(transformPost));
+
+          // Extract unique contributors
+          const uniqueContributors = posts
+            .filter((p: BlogPost) => p.contributor)
+            .map((p: BlogPost) => p.contributor)
+            .filter((c: Contributor, i: number, arr: Contributor[]) =>
+              arr.findIndex((a) => a?.id === c?.id) === i
+            );
+          setContributors(uniqueContributors);
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  // Get featured article (first one with cover image, or first one)
+  const featuredArticle = articles.find(a => a.coverImage) || articles[0];
+
+  // Filter articles if searching
+  const filteredArticles = searchQuery
+    ? articles.filter(
+        (a) =>
+          a.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          a.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : null;
+
+  // Group articles by category
+  const devArticles = articles.filter(a => a.category === 'dev');
+  const writingArticles = articles.filter(a => a.category === 'writing');
+  const businessArticles = articles.filter(a => a.category === 'business');
+
+  // Default contributor if no posts yet
+  const defaultContributor = {
     slug: 'nanda-kabali-kagwa',
     name: 'Nanda Kabali-Kagwa',
     title: 'Creative Technologist & Poet',
@@ -120,31 +95,69 @@ const CONTRIBUTORS = [
     linkedin: 'https://linkedin.com/in/nanda-kabali-kagwa',
     instagram: 'https://instagram.com/creativelynanda',
     website: 'https://creativelynanda.co.za',
-    specialties: ['dev', 'writing', 'business'],
-    articleCount: 9,
-  },
-  // More contributors will be added as the community grows
-];
+    specialties: ['dev', 'writing', 'business'] as ('dev' | 'writing' | 'business')[],
+    articleCount: articles.length,
+  };
 
-export default function BlogPage() {
-  const [searchQuery, setSearchQuery] = useState('');
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-parchment flex items-center justify-center">
+        <motion.div
+          className="flex flex-col items-center gap-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="w-12 h-12 border-4 border-cherry/20 border-t-cherry rounded-full animate-spin" />
+          <p className="text-navy/60">Loading magazine...</p>
+        </motion.div>
+      </div>
+    );
+  }
 
-  // Get featured article (first one with cover image, or first one)
-  const featuredArticle = ARTICLES.find(a => a.coverImage) || ARTICLES[0];
+  // Empty state when no posts
+  if (articles.length === 0 && !loading) {
+    return (
+      <div className="min-h-screen bg-parchment">
+        <MagazineHero
+          searchQuery=""
+          onSearchChange={() => {}}
+          featuredArticle={{
+            title: 'Welcome to the Magazine',
+            excerpt: 'Fresh content coming soon. Subscribe to be notified when new articles are published.',
+            category: 'writing',
+            slug: '',
+          }}
+          issueNumber={1}
+        />
 
-  // Filter articles if searching
-  const filteredArticles = searchQuery
-    ? ARTICLES.filter(
-        (a) =>
-          a.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          a.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : null;
+        <section className="py-24 px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="w-20 h-20 bg-cherry/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <BookOpen className="w-10 h-10 text-cherry" />
+            </div>
+            <h2 className="text-3xl font-display font-bold text-navy mb-4">
+              Coming Soon
+            </h2>
+            <p className="text-navy/60 mb-8">
+              We're working on amazing content for you. Check back soon or subscribe to be the first to know when new articles are published.
+            </p>
 
-  // Group articles by category
-  const devArticles = ARTICLES.filter(a => a.category === 'dev');
-  const writingArticles = ARTICLES.filter(a => a.category === 'writing');
-  const businessArticles = ARTICLES.filter(a => a.category === 'business');
+            {/* Newsletter signup */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="flex-1 px-5 py-3 rounded-full bg-white border border-navy/10 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/10"
+              />
+              <Button variant="primary" className="rounded-full">
+                Notify Me
+              </Button>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-parchment">
@@ -152,12 +165,12 @@ export default function BlogPage() {
       <MagazineHero
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
-        featuredArticle={{
+        featuredArticle={featuredArticle ? {
           title: featuredArticle.title,
           excerpt: featuredArticle.excerpt,
           category: featuredArticle.category,
           slug: featuredArticle.slug,
-        }}
+        } : undefined}
         issueNumber={1}
       />
 
@@ -207,94 +220,104 @@ export default function BlogPage() {
       {!filteredArticles && (
         <>
           {/* Featured Contributors */}
-          <FeaturedContributors contributors={CONTRIBUTORS} />
+          <FeaturedContributors
+            contributors={contributors.length > 0 ? contributors : [defaultContributor as unknown as Contributor]}
+          />
 
           {/* Featured Article Spotlight */}
-          <section className="py-16 px-6">
-            <div className="max-w-7xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-center mb-8"
-              >
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-cherry/10 text-cherry rounded-full text-sm font-medium mb-4">
-                  <Sparkles className="w-4 h-4" />
-                  Editor's Pick
-                </span>
-                <h2 className="text-2xl font-display font-bold text-navy">
-                  Featured This Issue
-                </h2>
-              </motion.div>
+          {featuredArticle && (
+            <section className="py-16 px-6">
+              <div className="max-w-7xl mx-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-center mb-8"
+                >
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-cherry/10 text-cherry rounded-full text-sm font-medium mb-4">
+                    <Sparkles className="w-4 h-4" />
+                    Editor's Pick
+                  </span>
+                  <h2 className="text-2xl font-display font-bold text-navy">
+                    Featured This Issue
+                  </h2>
+                </motion.div>
 
-              <ArticleCoverCard
-                article={featuredArticle}
-                index={0}
-                variant="featured"
-              />
-            </div>
-          </section>
+                <ArticleCoverCard
+                  article={featuredArticle}
+                  index={0}
+                  variant="featured"
+                />
+              </div>
+            </section>
+          )}
 
           {/* Development Articles */}
-          <section className="py-16 px-6 bg-gradient-to-b from-parchment to-blue-50/30">
-            <div className="max-w-7xl mx-auto">
-              <CategorySectionHeader
-                category="dev"
-                articleCount={devArticles.length}
-              />
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {devArticles.slice(0, 3).map((article, i) => (
-                  <ArticleCoverCard key={article.slug} article={article} index={i} />
-                ))}
+          {devArticles.length > 0 && (
+            <section className="py-16 px-6 bg-gradient-to-b from-parchment to-blue-50/30">
+              <div className="max-w-7xl mx-auto">
+                <CategorySectionHeader
+                  category="dev"
+                  articleCount={devArticles.length}
+                />
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {devArticles.slice(0, 3).map((article, i) => (
+                    <ArticleCoverCard key={article.slug} article={article} index={i} />
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Writing Articles */}
-          <section className="py-16 px-6 bg-gradient-to-b from-blue-50/30 via-parchment to-purple-50/30">
-            <div className="max-w-7xl mx-auto">
-              <CategorySectionHeader
-                category="writing"
-                articleCount={writingArticles.length}
-              />
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {writingArticles.slice(0, 3).map((article, i) => (
-                  <ArticleCoverCard key={article.slug} article={article} index={i} />
-                ))}
+          {writingArticles.length > 0 && (
+            <section className="py-16 px-6 bg-gradient-to-b from-blue-50/30 via-parchment to-purple-50/30">
+              <div className="max-w-7xl mx-auto">
+                <CategorySectionHeader
+                  category="writing"
+                  articleCount={writingArticles.length}
+                />
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {writingArticles.slice(0, 3).map((article, i) => (
+                    <ArticleCoverCard key={article.slug} article={article} index={i} />
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Business Articles */}
-          <section className="py-16 px-6 bg-gradient-to-b from-purple-50/30 to-emerald-50/30">
-            <div className="max-w-7xl mx-auto">
-              <CategorySectionHeader
-                category="business"
-                articleCount={businessArticles.length}
-              />
+          {businessArticles.length > 0 && (
+            <section className="py-16 px-6 bg-gradient-to-b from-purple-50/30 to-emerald-50/30">
+              <div className="max-w-7xl mx-auto">
+                <CategorySectionHeader
+                  category="business"
+                  articleCount={businessArticles.length}
+                />
 
-              {/* Author Bio Card */}
-              <AuthorBioCard
-                author={{
-                  name: 'Nanda Kabali-Kagwa',
-                  title: 'Creative Technologist & Entrepreneur',
-                  bio: 'I share insights on freelancing, digital products, and building sustainable businesses in South Africa. From Notion templates to passive income strategies, I write about what I\'ve learned building multiple revenue streams while pursuing creative work.',
-                  avatar: '/assets/professional/nanda-professional.png',
-                  twitter: 'https://twitter.com/creativelynanda',
-                  linkedin: 'https://linkedin.com/in/nanda-kabali-kagwa',
-                  instagram: 'https://instagram.com/creativelynanda',
-                  website: 'https://creativelynanda.co.za',
-                }}
-                category="business"
-              />
+                {/* Author Bio Card */}
+                <AuthorBioCard
+                  author={{
+                    name: 'Nanda Kabali-Kagwa',
+                    title: 'Creative Technologist & Entrepreneur',
+                    bio: 'I share insights on freelancing, digital products, and building sustainable businesses in South Africa. From Notion templates to passive income strategies, I write about what I\'ve learned building multiple revenue streams while pursuing creative work.',
+                    avatar: '/assets/professional/nanda-professional.png',
+                    twitter: 'https://twitter.com/creativelynanda',
+                    linkedin: 'https://linkedin.com/in/nanda-kabali-kagwa',
+                    instagram: 'https://instagram.com/creativelynanda',
+                    website: 'https://creativelynanda.co.za',
+                  }}
+                  category="business"
+                />
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {businessArticles.slice(0, 3).map((article, i) => (
-                  <ArticleCoverCard key={article.slug} article={article} index={i} />
-                ))}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {businessArticles.slice(0, 3).map((article, i) => (
+                    <ArticleCoverCard key={article.slug} article={article} index={i} />
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Newsletter CTA */}
           <section className="relative py-24 px-6 bg-navy overflow-hidden">
