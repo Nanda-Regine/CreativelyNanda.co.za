@@ -270,38 +270,26 @@ export default function About() {
               <h3 className="font-display text-2xl font-bold text-navy mb-4">The Convergence Point</h3>
               <div className="text-navy/60 leading-relaxed relative z-10 space-y-4">
                 <p>
-                  Born to Ugandan storytellers. Raised in the Eastern Cape among Xhosa, Sotho, and Nguni peoples.
-                  Carrying the <span className="text-cherry font-medium">Kabali-Kagwa</span> name, the <span className="text-cherry font-medium">Tshawe</span> royal lineage,
-                  the <span className="text-cherry font-medium">Hlubi</span> warrior spirit, the <span className="text-cherry font-medium">Msimango</span> healing wisdom,
-                  the <span className="text-cherry font-medium">Thabizolo</span> mountain endurance.
-                </p>
-                <p className="italic text-navy/50">
-                  Her grandmother's stories about ancestors who built kingdoms.<br />
-                  Her mother's prophetic dreams of lions and power.<br />
-                  Her own hunger to BUILD, not just belong.
+                  Born to Ugandan storytellers, raised in the Eastern Cape among Xhosa, Sotho, and Nguni peoples.
+                  Five lineages, each carrying a different principle: lead through people, adapt and endure,
+                  heal at the root, build on unshakeable foundations, share what you create.
                 </p>
                 <p>
-                  Five lineages converging in one woman at the exact moment the world needs what she carries:
-                  <span className="text-cherry font-medium"> technology infused with Ubuntu</span>, innovation rooted in ancestral wisdom,
-                  platforms built by someone who descends from people who literally built kingdoms.
+                  Those aren't abstract values. They're the framework she builds with.
                 </p>
                 <p>
-                  Armed with a Business Management foundation from Nelson Mandela University and an inheritance
-                  most people spend millions trying to manufacture through "executive coaching," she taught herself
-                  to code with the focus of warriors and the wisdom of healers.
+                  Armed with a Business Management degree from Nelson Mandela University and the discipline
+                  of someone who taught herself to code from scratch, Nanda works at the intersection most
+                  people have to choose between: <span className="text-cherry font-medium">technical precision</span> and{' '}
+                  <span className="text-cherry font-medium">human-centered thinking</span>.
+                </p>
+                <p>
+                  The result is a developer who doesn't just ship features. She builds things that feel
+                  considered. Systems that make sense. Interfaces that respect the people using them.
                 </p>
                 <p className="font-medium text-navy">
-                  The result? Not just a developer. A <span className="text-cherry">DIGITAL QUEEN</span> who codes with royal strategy,
-                  executes with warrior discipline, designs with healer intuition, and communicates with storyteller grace.
+                  That's what Ubuntu looks like in code.
                 </p>
-                <div className="pt-4 border-t border-navy/10 mt-6">
-                  <p className="text-sm">
-                    <span className="font-bold text-navy">Translation:</span> When you hire Nanda, you're not hiring a contractor.
-                  </p>
-                  <p className="text-sm font-medium text-cherry">
-                    You're hiring five centuries of kingdom-building expertise applied to your digital infrastructure.
-                  </p>
-                </div>
               </div>
             </motion.div>
 
