@@ -1,6 +1,6 @@
 import './globals.css';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from 'next/script';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import NandaAssistant from '@/components/NandaAssistant';
@@ -69,7 +69,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: '7rJEg1oSdQCjC8KlEE28mTq7fuGPOW08kSOKvHJKBB8',
   },
 };
 
@@ -102,7 +102,18 @@ export default function RootLayout({ children }) {
             <NandaAssistant />
           </CartProvider>
         </I18nProvider>
-        <GoogleAnalytics gaId="G-D6T4LD5XDE" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-D6T4LD5XDE"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D6T4LD5XDE');
+          `}
+        </Script>
       </body>
     </html>
   );

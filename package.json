@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "prepare-posts": "node scripts/prepare-posts.js",
@@ -19,6 +20,7 @@
     "framer-motion": "^12.27.1",
     "lucide-react": "^0.562.0",
     "next": "^14.0.4",
+    "next-sitemap": "^4.2.3",
     "openai": "^6.16.0",
     "pdfjs-dist": "^5.4.624",
     "react": "^18.3.1",
