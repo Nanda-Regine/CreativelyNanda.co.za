@@ -42,9 +42,10 @@ export default function Footer() {
           <div>
             <h4 className="font-display text-xl font-bold mb-4">Connect</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-beige/70 hover:text-cherry transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="text-beige/70 hover:text-cherry transition-colors">GitHub</a></li>
-              <li><a href="#" className="text-beige/70 hover:text-cherry transition-colors">Twitter/X</a></li>
+              <li><a href="https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/" target="_blank" rel="noopener noreferrer" className="text-beige/70 hover:text-cherry transition-colors">LinkedIn</a></li>
+              <li><a href="https://github.com/Nanda-Regine" target="_blank" rel="noopener noreferrer" className="text-beige/70 hover:text-cherry transition-colors">GitHub</a></li>
+              <li><a href="https://x.com/CreativelyNanda" target="_blank" rel="noopener noreferrer" className="text-beige/70 hover:text-cherry transition-colors">Twitter/X</a></li>
+              <li><a href="https://www.instagram.com/nanda.regine/" target="_blank" rel="noopener noreferrer" className="text-beige/70 hover:text-cherry transition-colors">Instagram</a></li>
               <li><a href="mailto:hello@creativelynanda.co.za" className="text-beige/70 hover:text-cherry transition-colors">Email</a></li>
             </ul>
           </div>

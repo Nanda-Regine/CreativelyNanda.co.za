@@ -32,13 +32,34 @@ function transformPost(post: BlogPost) {
   };
 }
 
+// Transform seed posts into the article card format
+function transformSeedPost(post: typeof seedPosts[number]) {
+  return {
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt || '',
+    coverImage: post.cover_image || '',
+    category: post.category as 'dev' | 'writing' | 'business',
+    publishedAt: post.published_at || new Date().toISOString(),
+    readingTime: post.reading_time || 5,
+    author: {
+      name: 'Nanda Kabali-Kagwa',
+      avatar: '/assets/professional/nanda-professional.jpg',
+    },
+    viewCount: 0,
+    likeCount: 0,
+  };
+}
+
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [articles, setArticles] = useState<ReturnType<typeof transformPost>[]>([]);
+  const [articles, setArticles] = useState<ReturnType<typeof transformPost>[]>(
+    () => seedPosts.map(transformSeedPost)
+  );
   const [contributors, setContributors] = useState<Contributor[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  // Fetch articles and contributors
+  // Try to fetch live articles from Supabase (seed data is already loaded)
   useEffect(() => {
     async function fetchData() {
       try {
@@ -56,45 +77,11 @@ export default function BlogPage() {
                 arr.findIndex((a) => a?.id === c?.id) === i
               );
             setContributors(uniqueContributors);
-          } else {
-            // Use seed data as fallback
-            setArticles(seedPosts.map((post) => ({
-              slug: post.slug,
-              title: post.title,
-              excerpt: post.excerpt || '',
-              coverImage: post.cover_image || '',
-              category: post.category as 'dev' | 'writing' | 'business',
-              publishedAt: post.published_at || new Date().toISOString(),
-              readingTime: post.reading_time || 5,
-              author: {
-                name: 'Nanda Kabali-Kagwa',
-                avatar: '/assets/professional/nanda-professional.jpg',
-              },
-              viewCount: 0,
-              likeCount: 0,
-            })));
           }
         }
       } catch (error) {
+        // Seed data is already loaded, so no action needed
         console.error('Error fetching posts:', error);
-        // Use seed data as fallback on error
-        setArticles(seedPosts.map((post) => ({
-          slug: post.slug,
-          title: post.title,
-          excerpt: post.excerpt || '',
-          coverImage: post.cover_image || '',
-          category: post.category as 'dev' | 'writing' | 'business',
-          publishedAt: post.published_at || new Date().toISOString(),
-          readingTime: post.reading_time || 5,
-          author: {
-            name: 'Nanda Kabali-Kagwa',
-            avatar: '/assets/professional/nanda-professional.jpg',
-          },
-          viewCount: 0,
-          likeCount: 0,
-        })));
-      } finally {
-        setLoading(false);
       }
     }
 
