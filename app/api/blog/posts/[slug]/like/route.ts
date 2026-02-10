@@ -1,10 +1,44 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase/server';
+import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
+
+function isSupabaseConfigured() {
+  return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
+/** Look up a post by slug, auto-seeding from seed data if necessary */
+async function resolvePost(supabase: ReturnType<typeof createServerClient>, slug: string) {
+  let { data: post } = await supabase
+    .from('blog_posts')
+    .select('id, like_count')
+    .eq('slug', slug)
+    .single();
+
+  if (!post) {
+    const seedPost = seedPosts.find((p) => p.slug === slug);
+    if (!seedPost) return null;
+
+    const { data: inserted } = await supabase
+      .from('blog_posts')
+      .upsert(seedPost, { onConflict: 'slug' })
+      .select('id, like_count')
+      .single();
+
+    if (!inserted) return null;
+    post = inserted;
+  }
+
+  return post;
+}
 
 export async function POST(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
+  if (!isSupabaseConfigured()) {
+    return NextResponse.json({ success: false, likeCount: 0 });
+  }
+
   const supabase = createServerClient();
 
   const body = await request.json().catch(() => ({}));
@@ -14,12 +48,7 @@ export async function POST(
     return NextResponse.json({ error: 'Session ID required' }, { status: 400 });
   }
 
-  // Get the post
-  const { data: post } = await supabase
-    .from('blog_posts')
-    .select('id, like_count')
-    .eq('slug', params.slug)
-    .single();
+  const post = await resolvePost(supabase, params.slug);
 
   if (!post) {
     return NextResponse.json({ error: 'Post not found' }, { status: 404 });
@@ -38,7 +67,7 @@ export async function POST(
     return NextResponse.json({
       success: false,
       alreadyLiked: true,
-      likeCount: post.like_count,
+      likeCount: post.like_count || 0,
     });
   }
 
@@ -51,7 +80,7 @@ export async function POST(
 
   return NextResponse.json({
     success: true,
-    likeCount: updatedPost?.like_count || post.like_count + 1,
+    likeCount: updatedPost?.like_count || (post.like_count || 0) + 1,
   });
 }
 
@@ -59,6 +88,10 @@ export async function DELETE(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
+  if (!isSupabaseConfigured()) {
+    return NextResponse.json({ success: false, likeCount: 0 });
+  }
+
   const supabase = createServerClient();
 
   const body = await request.json().catch(() => ({}));
@@ -68,19 +101,14 @@ export async function DELETE(
     return NextResponse.json({ error: 'Session ID required' }, { status: 400 });
   }
 
-  // Get the post
-  const { data: post } = await supabase
-    .from('blog_posts')
-    .select('id, like_count')
-    .eq('slug', params.slug)
-    .single();
+  const post = await resolvePost(supabase, params.slug);
 
   if (!post) {
     return NextResponse.json({ error: 'Post not found' }, { status: 404 });
   }
 
   // Delete the like
-  const { error } = await supabase
+  await supabase
     .from('blog_likes')
     .delete()
     .eq('post_id', post.id)
@@ -94,8 +122,8 @@ export async function DELETE(
     .single();
 
   return NextResponse.json({
-    success: !error,
-    likeCount: updatedPost?.like_count || Math.max(0, post.like_count - 1),
+    success: true,
+    likeCount: updatedPost?.like_count || Math.max(0, (post.like_count || 0) - 1),
   });
 }
 
@@ -107,21 +135,16 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const sessionId = searchParams.get('sessionId');
 
-  if (!sessionId) {
-    return NextResponse.json({ hasLiked: false });
+  if (!sessionId || !isSupabaseConfigured()) {
+    return NextResponse.json({ hasLiked: false, likeCount: 0 });
   }
 
   const supabase = createServerClient();
 
-  // Get the post
-  const { data: post } = await supabase
-    .from('blog_posts')
-    .select('id, like_count')
-    .eq('slug', params.slug)
-    .single();
+  const post = await resolvePost(supabase, params.slug);
 
   if (!post) {
-    return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+    return NextResponse.json({ hasLiked: false, likeCount: 0 });
   }
 
   // Check if liked
@@ -134,6 +157,6 @@ export async function GET(
 
   return NextResponse.json({
     hasLiked: !!like,
-    likeCount: post.like_count,
+    likeCount: post.like_count || 0,
   });
 }

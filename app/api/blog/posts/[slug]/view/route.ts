@@ -1,37 +1,58 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase/server';
+import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
+
+function isSupabaseConfigured() {
+  return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
 
 export async function POST(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
+  if (!isSupabaseConfigured()) {
+    return NextResponse.json({ success: false, viewCount: 0, sessionId: '' });
+  }
+
   const supabase = createServerClient();
 
-  // Get session ID from request body or generate one
   const body = await request.json().catch(() => ({}));
   const sessionId = body.sessionId || crypto.randomUUID();
 
   // First get the post ID
-  const { data: post } = await supabase
+  let { data: post } = await supabase
     .from('blog_posts')
     .select('id, view_count')
     .eq('slug', params.slug)
     .single();
 
+  // If post not found in Supabase, auto-seed it from seed data
   if (!post) {
-    return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+    const seedPost = seedPosts.find((p) => p.slug === params.slug);
+    if (!seedPost) {
+      return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+    }
+
+    const { data: inserted } = await supabase
+      .from('blog_posts')
+      .upsert(seedPost, { onConflict: 'slug' })
+      .select('id, view_count')
+      .single();
+
+    if (!inserted) {
+      // Table might not exist yet — return gracefully
+      return NextResponse.json({ success: false, viewCount: 0, sessionId });
+    }
+    post = inserted;
   }
 
   // Try to insert a view (will fail silently if already exists due to unique constraint)
-  const { error } = await supabase
+  await supabase
     .from('blog_views')
     .insert({
       post_id: post.id,
       session_id: sessionId,
     });
-
-  // If successful, the trigger will increment view_count
-  // If duplicate, no error is thrown but nothing happens
 
   // Get updated view count
   const { data: updatedPost } = await supabase
@@ -41,8 +62,8 @@ export async function POST(
     .single();
 
   return NextResponse.json({
-    success: !error,
-    viewCount: updatedPost?.view_count || post.view_count,
+    success: true,
+    viewCount: updatedPost?.view_count || post.view_count || 0,
     sessionId,
   });
 }

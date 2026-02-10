@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CheckCircle, Mail, ArrowRight, Download } from 'lucide-react';
@@ -8,7 +9,44 @@ import { Button } from '@/components/ui';
 import confetti from 'canvas-confetti';
 
 export default function CheckoutSuccessPage() {
-  // Trigger confetti on mount
+  const searchParams = useSearchParams();
+  const orderId = searchParams.get('order_id');
+  const trackedRef = useRef(false);
+
+  // GA4: fetch order from Supabase and fire purchase event
+  useEffect(() => {
+    if (!orderId || trackedRef.current) return;
+    trackedRef.current = true;
+
+    async function trackPurchase() {
+      try {
+        const res = await fetch(`/api/orders?id=${orderId}`);
+        if (!res.ok) return;
+        const order = await res.json();
+
+        if (typeof window.gtag === 'function') {
+          const items = order.metadata?.items || [];
+          window.gtag('event', 'purchase', {
+            transaction_id: order.id,
+            value: order.amount / 100,
+            currency: order.currency || 'ZAR',
+            items: items.map((item: { product_id: string; name: string; price: number; quantity: number }) => ({
+              item_id: item.product_id,
+              item_name: item.name,
+              price: item.price / 100,
+              quantity: item.quantity,
+            })),
+          });
+        }
+      } catch (e) {
+        // Silently fail — analytics should never break the UX
+      }
+    }
+
+    trackPurchase();
+  }, [orderId]);
+
+  // Confetti animation
   useEffect(() => {
     const duration = 3 * 1000;
     const animationEnd = Date.now() + duration;
@@ -27,7 +65,6 @@ export default function CheckoutSuccessPage() {
 
       const particleCount = 50 * (timeLeft / duration);
 
-      // since particles fall down, start a bit higher than random
       confetti({
         ...defaults,
         particleCount,

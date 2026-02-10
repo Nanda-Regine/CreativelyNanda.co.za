@@ -31,6 +31,22 @@ export default function CheckoutPage() {
 
   const total = getTotal();
 
+  // GA4: track begin_checkout when page loads with items
+  useEffect(() => {
+    if (items.length > 0 && typeof window.gtag === 'function') {
+      window.gtag('event', 'begin_checkout', {
+        currency: 'ZAR',
+        value: getTotal() / 100,
+        items: items.map((item) => ({
+          item_id: item.product_id,
+          item_name: item.name,
+          price: item.price / 100,
+          quantity: item.quantity,
+        })),
+      });
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Submit form when payment data is ready
   useEffect(() => {
     if (paymentData && checkoutUrl && formRef.current) {
@@ -58,6 +74,21 @@ export default function CheckoutPage() {
 
       if (!response.ok) {
         throw new Error(data.error || 'Checkout failed');
+      }
+
+      // GA4: track add_payment_info event
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'add_payment_info', {
+          currency: 'ZAR',
+          value: total / 100,
+          payment_type: 'PayFast',
+          items: items.map((item) => ({
+            item_id: item.product_id,
+            item_name: item.name,
+            price: item.price / 100,
+            quantity: item.quantity,
+          })),
+        });
       }
 
       // Set payment data to trigger form submission

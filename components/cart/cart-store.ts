@@ -27,26 +27,39 @@ export const useCartStore = create<CartState>()(
       items: [],
       isOpen: false,
 
-      addItem: (item) =>
+      addItem: (item) => {
+        // GA4: track add_to_cart
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+          window.gtag('event', 'add_to_cart', {
+            currency: 'ZAR',
+            value: item.price / 100,
+            items: [{
+              item_id: item.product_id,
+              item_name: item.name,
+              price: item.price / 100,
+              quantity: 1,
+            }],
+          });
+        }
+
         set((state) => {
           const existingItem = state.items.find((i) => i.product_id === item.product_id);
 
           if (existingItem) {
-            // Increase quantity if item already exists
             return {
               items: state.items.map((i) =>
                 i.product_id === item.product_id ? { ...i, quantity: i.quantity + 1 } : i
               ),
-              isOpen: true, // Open cart when adding item
+              isOpen: true,
             };
           }
 
-          // Add new item with quantity 1
           return {
             items: [...state.items, { ...item, quantity: 1 }],
             isOpen: true,
           };
-        }),
+        });
+      },
 
       removeItem: (productId) =>
         set((state) => ({

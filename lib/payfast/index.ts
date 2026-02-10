@@ -77,7 +77,7 @@ export function createPaymentData({
   const data: PayfastPaymentData = {
     merchant_id: PAYFAST_CONFIG.merchantId,
     merchant_key: PAYFAST_CONFIG.merchantKey,
-    return_url: PAYFAST_RETURN_URL,
+    return_url: `${PAYFAST_RETURN_URL}?order_id=${orderId}`,
     cancel_url: PAYFAST_CANCEL_URL,
     notify_url: PAYFAST_NOTIFY_URL,
     email_address: buyerEmail,

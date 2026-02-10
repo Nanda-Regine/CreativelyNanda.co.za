@@ -1,5 +1,6 @@
 import './globals.css';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import NandaAssistant from '@/components/NandaAssistant';
@@ -101,6 +102,7 @@ export default function RootLayout({ children }) {
             <NandaAssistant />
           </CartProvider>
         </I18nProvider>
+        <GoogleAnalytics gaId="G-D6T4LD5XDE" />
       </body>
     </html>
   );

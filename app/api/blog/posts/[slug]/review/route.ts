@@ -1,10 +1,43 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase/server';
+import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
+
+function isSupabaseConfigured() {
+  return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
+/** Look up a post by slug, auto-seeding from seed data if necessary */
+async function resolvePost(supabase: ReturnType<typeof createServerClient>, slug: string) {
+  let { data: post } = await supabase
+    .from('blog_posts')
+    .select('id')
+    .eq('slug', slug)
+    .single();
+
+  if (!post) {
+    const seedPost = seedPosts.find((p) => p.slug === slug);
+    if (!seedPost) return null;
+
+    const { data: inserted } = await supabase
+      .from('blog_posts')
+      .upsert(seedPost, { onConflict: 'slug' })
+      .select('id')
+      .single();
+
+    post = inserted;
+  }
+
+  return post;
+}
 
 export async function POST(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
+  if (!isSupabaseConfigured()) {
+    return NextResponse.json({ error: 'Database not configured' }, { status: 503 });
+  }
+
   const supabase = createServerClient();
 
   const body = await request.json();
@@ -31,12 +64,7 @@ export async function POST(
     );
   }
 
-  // Get the post
-  const { data: post } = await supabase
-    .from('blog_posts')
-    .select('id')
-    .eq('slug', params.slug)
-    .single();
+  const post = await resolvePost(supabase, params.slug);
 
   if (!post) {
     return NextResponse.json({ error: 'Post not found' }, { status: 404 });
@@ -75,17 +103,16 @@ export async function GET(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
+  if (!isSupabaseConfigured()) {
+    return NextResponse.json([]);
+  }
+
   const supabase = createServerClient();
 
-  // Get the post
-  const { data: post } = await supabase
-    .from('blog_posts')
-    .select('id')
-    .eq('slug', params.slug)
-    .single();
+  const post = await resolvePost(supabase, params.slug);
 
   if (!post) {
-    return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+    return NextResponse.json([]);
   }
 
   // Get approved reviews
@@ -98,10 +125,7 @@ export async function GET(
 
   if (error) {
     console.error('Error fetching reviews:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch reviews' },
-      { status: 500 }
-    );
+    return NextResponse.json([]);
   }
 
   return NextResponse.json(reviews);
