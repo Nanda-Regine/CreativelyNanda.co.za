@@ -197,19 +197,22 @@ export function ProductCoverCard({
         )}
         style={{ borderRadius }}
       >
-        {/* Gradient Background with themed cover */}
-        <div className={`relative aspect-[3/4] bg-gradient-to-br ${theme.bgDark} overflow-hidden`}>
-          {/* Animated gradient */}
+        {/* Gradient Background with themed cover - More vibrant */}
+        <div className={`relative aspect-[3/4] bg-gradient-to-br ${theme.bgMagazine} overflow-hidden`}>
+          {/* Dark gradient overlay for depth */}
+          <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20`} />
+
+          {/* Animated shimmer effect */}
           <motion.div
-            className={`absolute inset-0 bg-gradient-to-br ${theme.bgMagazine} opacity-50`}
+            className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent`}
             animate={{
-              scale: [1, 1.05, 1],
+              x: ['-100%', '100%'],
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'linear', repeatDelay: 5 }}
           />
 
           {/* Pattern overlay */}
-          <Pattern className={`${theme.textLight} opacity-40`} />
+          <Pattern className="text-white opacity-30" />
 
           {/* Decorative organic shape at bottom */}
           <svg
@@ -221,11 +224,16 @@ export function ProductCoverCard({
             <path d={shapePath} fill="white" opacity="0.08" />
           </svg>
 
-          {/* Floating accent */}
+          {/* Floating accents - more prominent */}
           <motion.div
-            className={`absolute top-8 right-8 w-20 h-20 bg-gradient-to-br ${theme.gradient} rounded-full opacity-30 blur-xl`}
-            animate={{ scale: [1, 1.3, 1] }}
+            className={`absolute top-8 right-8 w-24 h-24 bg-white rounded-full opacity-20 blur-2xl`}
+            animate={{ scale: [1, 1.4, 1] }}
             transition={{ duration: 6, repeat: Infinity }}
+          />
+          <motion.div
+            className={`absolute bottom-20 left-4 w-16 h-16 bg-white rounded-full opacity-15 blur-xl`}
+            animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.25, 0.15] }}
+            transition={{ duration: 4, repeat: Infinity, delay: 1 }}
           />
 
           {/* Content */}

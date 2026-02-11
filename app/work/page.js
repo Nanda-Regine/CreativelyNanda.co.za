@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui';
+import { Button, TestimonialCard, Badge } from '@/components/ui';
 
 // Work Experience Data - Complete from Profile
 const workExperience = [

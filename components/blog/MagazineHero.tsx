@@ -123,7 +123,7 @@ export function MagazineHero({
               animate={{ backgroundPosition: ['0%', '200%'] }}
               transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
             >
-              THE CURRENT
+              SANKOFA SESSIONS
             </motion.span>
           </h1>
 
