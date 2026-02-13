@@ -846,7 +846,7 @@ export default function Projects() {
                 Projects
               </h1>
               <p className="text-lg md:text-xl text-[#0A1128]/70 leading-relaxed max-w-xl">
-                A curated collection of digital experiences — from full-stack applications 
+                A curated collection of digital experiences from full-stack applications 
                 to pixel-perfect frontends. Each project tells a story of problem-solving, 
                 creativity, and technical excellence.
               </p>

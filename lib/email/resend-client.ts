@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 export const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Default sender - update to your verified domain
-export const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@creativelynanda.co.za';
+export const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'hello@creativelynanda.co.za';
 export const FROM_NAME = 'Creatively Nanda';
 
 // Email configuration

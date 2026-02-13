@@ -3,6 +3,8 @@ import { createAdminClient } from '@/lib/supabase/server';
 import { verifyWebhookSignature, validatePayfastIP } from '@/lib/payfast';
 import { sendPurchaseConfirmation } from '@/lib/email';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://creativelynanda.co.za';
+
 /**
  * PayFast Webhook Handler (ITN - Instant Transaction Notification)
  *
@@ -20,7 +22,6 @@ export async function POST(request: NextRequest) {
       data[key] = value;
     });
 
-    // Log for debugging (remove in production)
     console.log('PayFast webhook received:', data);
 
     // Validate source IP
@@ -52,7 +53,7 @@ export async function POST(request: NextRequest) {
     // Use admin client to bypass RLS
     const supabase = createAdminClient();
 
-    // Get the order
+    // Get the order with its download token
     const { data: order, error: fetchError } = await supabase
       .from('orders')
       .select('*')
@@ -113,21 +114,23 @@ export async function POST(request: NextRequest) {
     console.log(`Order ${orderId} updated to status: ${status}`);
 
     // Send confirmation email for completed orders
-    if (status === 'completed' && order.customer_email) {
+    if (status === 'completed' && order.user_email) {
       try {
-        // Parse items from order metadata or items field
+        // Parse items from order items field
         const orderItems = (order.items as Array<{ name: string; price: number; quantity: number }>) || [];
 
-        // Generate download links for digital products
-        // In production, these would be signed URLs with expiration
-        const downloadLinks = orderItems.map(item => ({
+        // Build download links using the order's unique download token
+        // Each link points to /api/downloads/[token]?item=N
+        // The download API validates the token and serves a signed Storage URL
+        const downloadToken = order.download_token;
+        const downloadLinks = orderItems.map((item, index) => ({
           name: item.name,
-          url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://creativelynanda.co.za'}/downloads/${orderId}/${encodeURIComponent(item.name)}`,
+          url: `${SITE_URL}/api/downloads/${downloadToken}${orderItems.length > 1 ? `?item=${index}` : ''}`,
         }));
 
         await sendPurchaseConfirmation({
-          to: order.customer_email,
-          customerName: order.customer_name || undefined,
+          to: order.user_email,
+          customerName: order.user_name || undefined,
           orderNumber: orderId.substring(0, 8).toUpperCase(),
           orderDate: new Date().toLocaleDateString('en-ZA', {
             year: 'numeric',
@@ -135,12 +138,12 @@ export async function POST(request: NextRequest) {
             day: 'numeric',
           }),
           items: orderItems,
-          total: order.amount / 100, // Convert from cents to Rands
+          total: order.amount / 100,
           downloadLinks,
-          locale: 'en', // Could be stored in order metadata for i18n
+          locale: 'en',
         });
 
-        console.log(`Confirmation email sent to ${order.customer_email}`);
+        console.log(`Confirmation email sent to ${order.user_email}`);
       } catch (emailError) {
         // Log but don't fail the webhook - email can be retried
         console.error('Failed to send confirmation email:', emailError);

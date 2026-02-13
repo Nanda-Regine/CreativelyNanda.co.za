@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/server';
 import { createPaymentData, getCheckoutUrl } from '@/lib/payfast';
 import type { CartItem } from '@/types/database';
 
@@ -26,32 +26,47 @@ export async function POST(request: NextRequest) {
     // Calculate total in cents
     const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    // Create order in database
-    const supabase = createServerClient();
+    // Use admin client to look up product file paths from Storage
+    const supabase = createAdminClient();
+
+    // Look up file_path for each product from the database
+    const productSlugs = items.map((item) => item.slug);
+    const { data: products } = await supabase
+      .from('products')
+      .select('slug, file_path')
+      .in('slug', productSlugs);
+
+    const filePathMap = new Map(
+      (products || []).map((p) => [p.slug, p.file_path]),
+    );
 
     // For multiple items, we'll create a combined order
-    const itemNames = items.map((item) => item.name).join(', ');
     const itemDescription = items
       .map((item) => `${item.name} x${item.quantity}`)
       .join('; ');
+
+    // Build order items with file_path for download
+    const orderItems = items.map((item) => ({
+      product_id: item.product_id,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      file_path: filePathMap.get(item.slug) || null,
+    }));
 
     // Create order record
     const { data: order, error: orderError } = await supabase
       .from('orders')
       .insert({
-        product_id: items[0].product_id, // Primary product
+        product_id: items[0].product_id,
         user_email: customerEmail,
         user_name: customerName || null,
         amount: total,
         currency: 'ZAR',
         status: 'pending',
+        items: orderItems,
         metadata: {
-          items: items.map((item) => ({
-            product_id: item.product_id,
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity,
-          })),
+          items: orderItems,
         },
       })
       .select()

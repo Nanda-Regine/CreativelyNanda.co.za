@@ -1,17 +1,27 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CheckCircle, Mail, ArrowRight, Download } from 'lucide-react';
+import { CheckCircle, Mail, ArrowRight, Download, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui';
 import confetti from 'canvas-confetti';
+
+interface OrderData {
+  id: string;
+  status: string;
+  amount: number;
+  currency: string;
+  download_token?: string;
+  items?: Array<{ name: string; file_path?: string }>;
+}
 
 export default function CheckoutSuccessPage() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('order_id');
   const trackedRef = useRef(false);
+  const [order, setOrder] = useState<OrderData | null>(null);
 
   // GA4: fetch order from Supabase and fire purchase event
   useEffect(() => {
@@ -22,14 +32,15 @@ export default function CheckoutSuccessPage() {
       try {
         const res = await fetch(`/api/orders?id=${orderId}`);
         if (!res.ok) return;
-        const order = await res.json();
+        const data = await res.json();
+        setOrder(data);
 
         if (typeof window.gtag === 'function') {
-          const items = order.metadata?.items || [];
+          const items = data.metadata?.items || data.items || [];
           window.gtag('event', 'purchase', {
-            transaction_id: order.id,
-            value: order.amount / 100,
-            currency: order.currency || 'ZAR',
+            transaction_id: data.id,
+            value: data.amount / 100,
+            currency: data.currency || 'ZAR',
             items: items.map((item: { product_id: string; name: string; price: number; quantity: number }) => ({
               item_id: item.product_id,
               item_name: item.name,
@@ -82,6 +93,10 @@ export default function CheckoutSuccessPage() {
     return () => clearInterval(interval);
   }, []);
 
+  // Build download links from order data
+  const downloadItems = order?.items?.filter((item) => item.file_path) || [];
+  const hasDownloads = order?.status === 'completed' && order?.download_token && downloadItems.length > 0;
+
   return (
     <div className="min-h-screen bg-parchment flex items-center justify-center px-4 py-12">
       <motion.div
@@ -107,6 +122,31 @@ export default function CheckoutSuccessPage() {
         <p className="text-navy/70 mb-8">
           Thank you for your purchase. Your order is being processed and you&apos;ll receive a confirmation email shortly.
         </p>
+
+        {/* Download Section */}
+        {hasDownloads && (
+          <div className="bg-parchment/50 rounded-xl p-6 mb-6 text-left">
+            <h2 className="font-semibold text-navy mb-4 flex items-center gap-2">
+              <Download className="w-5 h-5 text-cherry" />
+              Your Downloads
+            </h2>
+            <div className="space-y-3">
+              {downloadItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={`/api/downloads/${order!.download_token}${downloadItems.length > 1 ? `?item=${index}` : ''}`}
+                  className="flex items-center justify-between bg-white rounded-lg px-4 py-3 border border-navy/10 hover:border-cherry/30 hover:shadow-sm transition-all group"
+                >
+                  <span className="text-navy font-medium text-sm">{item.name}</span>
+                  <Download className="w-4 h-4 text-cherry group-hover:scale-110 transition-transform" />
+                </a>
+              ))}
+            </div>
+            <p className="text-xs text-navy/50 mt-3">
+              Download links expire in 7 days. They are also sent to your email.
+            </p>
+          </div>
+        )}
 
         {/* What happens next */}
         <div className="bg-parchment/50 rounded-xl p-6 mb-8 text-left">

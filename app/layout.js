@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import NandaAssistant from '@/components/NandaAssistant';
 import { CartProvider } from '@/components/cart';
 import { I18nProvider } from '@/lib/i18n';
+import { generateWebSiteJsonLd, generatePersonJsonLd, JsonLd } from '@/lib/seo';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -68,6 +69,9 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: 'https://creativelynanda.co.za',
+  },
   verification: {
     google: '7rJEg1oSdQCjC8KlEE28mTq7fuGPOW08kSOKvHJKBB8',
   },
@@ -85,6 +89,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
       <head>
+        <JsonLd data={generateWebSiteJsonLd()} />
+        <JsonLd data={generatePersonJsonLd()} />
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

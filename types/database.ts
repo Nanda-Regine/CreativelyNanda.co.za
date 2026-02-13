@@ -19,6 +19,9 @@ export interface Product {
   status: 'draft' | 'live' | 'coming-soon' | 'archived';
   is_featured: boolean;
   payfast_item_id: string | null;
+  file_path: string | null; // Supabase Storage path for downloadable file
+  rating: number;
+  review_count: number;
   created_at: string;
   updated_at: string;
 }
@@ -39,8 +42,20 @@ export interface Order {
   status: 'pending' | 'completed' | 'failed' | 'refunded';
   payfast_payment_id: string | null;
   payfast_transaction_id: string | null;
+  download_token: string;
+  download_expires_at: string;
+  download_count: number;
+  items: OrderItem[] | null;
   metadata: Record<string, unknown> | null;
   created_at: string;
+}
+
+export interface OrderItem {
+  product_id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  file_path?: string | null;
 }
 
 export interface Subscriber {
@@ -238,7 +253,7 @@ export interface Database {
       };
       orders: {
         Row: Order;
-        Insert: Omit<Order, 'id' | 'created_at'>;
+        Insert: Omit<Order, 'id' | 'created_at' | 'download_token' | 'download_expires_at' | 'download_count'>;
         Update: Partial<Omit<Order, 'id' | 'created_at'>>;
       };
       subscribers: {

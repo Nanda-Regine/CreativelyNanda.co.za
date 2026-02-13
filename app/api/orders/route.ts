@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/server';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -10,11 +10,11 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const supabase = createServerClient();
+    const supabase = createAdminClient();
 
     const { data: order, error } = await supabase
       .from('orders')
-      .select('id, amount, currency, status, metadata')
+      .select('id, amount, currency, status, items, metadata, download_token')
       .eq('id', orderId)
       .single();
 
