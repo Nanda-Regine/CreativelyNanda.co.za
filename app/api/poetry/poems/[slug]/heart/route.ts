@@ -25,7 +25,7 @@ export async function POST(
     return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
   }
 
-  // Try to insert a heart
+  // Try to insert a heart (trigger auto-increments heart_count)
   const { error } = await supabase
     .from('poem_hearts')
     .insert({
@@ -34,7 +34,6 @@ export async function POST(
     });
 
   if (error && error.code === '23505') {
-    // Already hearted
     return NextResponse.json({
       success: false,
       alreadyHearted: true,
@@ -42,12 +41,11 @@ export async function POST(
     });
   }
 
-  // Increment heart count on poem
+  // Read back the updated count (trigger already incremented it)
   const { data: updatedPoem } = await supabase
     .from('poems')
-    .update({ heart_count: poem.heart_count + 1 })
-    .eq('id', poem.id)
     .select('heart_count')
+    .eq('id', poem.id)
     .single();
 
   return NextResponse.json({
@@ -80,24 +78,23 @@ export async function DELETE(
     return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
   }
 
-  // Delete the heart
-  const { error } = await supabase
+  // Delete the heart (trigger auto-decrements heart_count)
+  await supabase
     .from('poem_hearts')
     .delete()
     .eq('poem_id', poem.id)
     .eq('session_id', sessionId);
 
-  if (!error) {
-    // Decrement heart count
-    await supabase
-      .from('poems')
-      .update({ heart_count: Math.max(0, poem.heart_count - 1) })
-      .eq('id', poem.id);
-  }
+  // Read back the updated count
+  const { data: updatedPoem } = await supabase
+    .from('poems')
+    .select('heart_count')
+    .eq('id', poem.id)
+    .single();
 
   return NextResponse.json({
-    success: !error,
-    heartCount: Math.max(0, poem.heart_count - 1),
+    success: true,
+    heartCount: updatedPoem?.heart_count || Math.max(0, poem.heart_count - 1),
   });
 }
 

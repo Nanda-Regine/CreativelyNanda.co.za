@@ -80,8 +80,16 @@ export interface Poem {
   is_published: boolean;
   is_featured: boolean;
   heart_count: number;
+  view_count: number;
   created_at: string;
   published_at: string | null;
+}
+
+export interface PoemView {
+  id: string;
+  poem_id: string;
+  session_id: string;
+  created_at: string;
 }
 
 export interface PoemHeart {
@@ -245,7 +253,7 @@ export interface Database {
       };
       poems: {
         Row: Poem;
-        Insert: Omit<Poem, 'id' | 'created_at' | 'heart_count'>;
+        Insert: Omit<Poem, 'id' | 'created_at' | 'heart_count' | 'view_count'>;
         Update: Partial<Omit<Poem, 'id' | 'created_at'>>;
       };
       poem_hearts: {
@@ -257,6 +265,11 @@ export interface Database {
         Row: PoemRose;
         Insert: Omit<PoemRose, 'id' | 'created_at'>;
         Update: Partial<Omit<PoemRose, 'id' | 'created_at'>>;
+      };
+      poem_views: {
+        Row: PoemView;
+        Insert: Omit<PoemView, 'id' | 'created_at'>;
+        Update: never;
       };
       blog_posts: {
         Row: BlogPost;

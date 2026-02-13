@@ -134,9 +134,9 @@ export function MagazineHero({
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            A digital magazine where <span className="text-blue-400">code</span>,{' '}
-            <span className="text-purple-400">creativity</span>, and{' '}
-            <span className="text-emerald-400">commerce</span> converge
+            Where Black excellence in <span className="text-blue-400">tech</span>,{' '}
+            <span className="text-emerald-400">business</span>, and{' '}
+            <span className="text-purple-400">creativity</span> is documented, celebrated, and monetized
           </motion.p>
         </motion.div>
 

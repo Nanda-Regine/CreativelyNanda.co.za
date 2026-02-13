@@ -7,22 +7,27 @@ import { Button } from '@/components/ui';
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const narrow = window.innerWidth < 768;
+    setIsMobile(touch || narrow);
   }, []);
 
-  // Parallax effect for background orbs
+  // Parallax effect for background orbs - desktop only
   useEffect(() => {
+    if (isMobile) return;
     const handleMouseMove = (e) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth - 0.5) * 30,
         y: (e.clientY / window.innerHeight - 0.5) * 30
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [isMobile]);
 
   // Animation variants
   // Animation variants - optimized for mobile scroll
@@ -83,7 +88,7 @@ export default function Home() {
   const mobileViewport = { once: true, amount: 0.2, margin: '-50px' };
 
   return (
-    <div className="page-transition">
+    <div className="page-transition overflow-x-hidden">
       {/* ===== HERO: VOGUE COVER SECTION ===== */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1128]">
 
@@ -93,41 +98,43 @@ export default function Home() {
                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
              }} />
 
-        {/* Animated Background Shapes with Parallax */}
+        {/* Animated Background Shapes with Parallax (desktop) / static (mobile) */}
         <motion.div
-          className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-bl from-[#D4A574]/20 via-[#D4A574]/5 to-transparent rounded-full blur-3xl"
-          animate={{
+          className="absolute top-0 right-0 w-[250px] md:w-[600px] h-[250px] md:h-[600px] bg-gradient-to-bl from-[#D4A574]/20 via-[#D4A574]/5 to-transparent rounded-full blur-3xl"
+          animate={isMobile ? {} : {
             x: mousePosition.x,
             y: mousePosition.y,
             scale: [1, 1.05, 1],
           }}
-          transition={{
+          transition={isMobile ? {} : {
             x: { type: 'spring', stiffness: 50, damping: 30 },
             y: { type: 'spring', stiffness: 50, damping: 30 },
             scale: { duration: 8, repeat: Infinity, ease: 'easeInOut' }
           }}
         />
         <motion.div
-          className="absolute bottom-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-gradient-to-tr from-beige/15 via-beige/5 to-transparent rounded-full blur-3xl"
-          animate={{
+          className="absolute bottom-0 left-0 w-[200px] md:w-[500px] h-[200px] md:h-[500px] bg-gradient-to-tr from-beige/15 via-beige/5 to-transparent rounded-full blur-3xl"
+          animate={isMobile ? {} : {
             x: -mousePosition.x,
             y: -mousePosition.y,
             scale: [1, 1.08, 1],
           }}
-          transition={{
+          transition={isMobile ? {} : {
             x: { type: 'spring', stiffness: 50, damping: 30 },
             y: { type: 'spring', stiffness: 50, damping: 30 },
             scale: { duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }
           }}
         />
-        <motion.div
-          className="absolute top-1/2 left-1/3 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-gradient-to-r from-[#D4A574]/10 to-transparent rounded-full blur-2xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0.8, 0.5],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        {!isMobile && (
+          <motion.div
+            className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-gradient-to-r from-[#D4A574]/10 to-transparent rounded-full blur-2xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.5, 0.8, 0.5],
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        )}
 
         {/* Magazine Masthead */}
         <motion.div
@@ -258,7 +265,7 @@ export default function Home() {
             </div>
 
             {/* Right Side: Photo in Organic Frame */}
-            <div className="lg:col-span-7 relative flex justify-center order-1 lg:order-2">
+            <div className="lg:col-span-7 relative flex justify-center order-1 lg:order-2 overflow-hidden">
 
               {/* Main Photo Container */}
               <motion.div
@@ -267,25 +274,25 @@ export default function Home() {
                 transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
                 className="relative"
               >
-                {/* Background blob layers with pulse */}
+                {/* Background blob layers with pulse - static on mobile */}
                 <motion.div
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -inset-4 md:-inset-6 lg:-inset-8 bg-gradient-to-br from-[#D4A574]/30 via-[#D4A574]/10 to-transparent blur-sm"
+                  animate={isMobile ? {} : { scale: [1, 1.05, 1] }}
+                  transition={isMobile ? {} : { duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute -inset-3 md:-inset-6 lg:-inset-8 bg-gradient-to-br from-[#D4A574]/30 via-[#D4A574]/10 to-transparent blur-sm"
                   style={{ borderRadius: '60% 40% 55% 45% / 55% 60% 40% 45%' }}
                 />
                 <motion.div
-                  animate={{ scale: [1, 1.08, 1] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                  className="absolute -inset-2 md:-inset-3 lg:-inset-4 bg-gradient-to-tr from-beige/20 via-beige/5 to-transparent"
+                  animate={isMobile ? {} : { scale: [1, 1.08, 1] }}
+                  transition={isMobile ? {} : { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                  className="absolute -inset-1 md:-inset-3 lg:-inset-4 bg-gradient-to-tr from-beige/20 via-beige/5 to-transparent"
                   style={{ borderRadius: '55% 45% 60% 40% / 45% 55% 45% 55%' }}
                 />
 
                 {/* Photo Frame */}
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={isMobile ? {} : { scale: 1.02 }}
                   transition={{ duration: 0.4 }}
-                  className="relative w-[240px] h-[320px] sm:w-[280px] sm:h-[380px] md:w-[320px] md:h-[430px] lg:w-[380px] lg:h-[510px] xl:w-[420px] xl:h-[560px] overflow-hidden shadow-2xl"
+                  className="relative w-[220px] h-[300px] sm:w-[280px] sm:h-[380px] md:w-[320px] md:h-[430px] lg:w-[380px] lg:h-[510px] xl:w-[420px] xl:h-[560px] overflow-hidden shadow-2xl"
                   style={{ borderRadius: '47% 53% 43% 57% / 54% 46% 54% 46%' }}
                 >
                   {/* Gradient Overlay */}
@@ -305,13 +312,15 @@ export default function Home() {
                   />
                 </motion.div>
 
-                {/* Decorative Ring with rotation */}
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
-                  className="absolute -inset-6 md:-inset-8 lg:-inset-10 xl:-inset-12 border border-beige/10 pointer-events-none"
-                  style={{ borderRadius: '50% 50% 45% 55% / 55% 45% 55% 45%' }}
-                />
+                {/* Decorative Ring with rotation - hidden on mobile to prevent overflow */}
+                {!isMobile && (
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
+                    className="absolute -inset-8 lg:-inset-10 xl:-inset-12 border border-beige/10 pointer-events-none"
+                    style={{ borderRadius: '50% 50% 45% 55% / 55% 45% 55% 45%' }}
+                  />
+                )}
               </motion.div>
             </div>
           </div>
@@ -352,16 +361,12 @@ export default function Home() {
 
       {/* ===== FEATURED QUOTE SECTION ===== */}
       <section className="relative py-12 md:py-16 lg:py-24 px-4 sm:px-6 bg-beige overflow-hidden scroll-mt-20">
-        {/* Animated Decorative elements */}
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-0 left-0 w-48 md:w-64 lg:w-96 h-48 md:h-64 lg:h-96 bg-gradient-to-br from-[#D4A574]/15 to-transparent rounded-full blur-3xl"
+        {/* Decorative elements - static on mobile */}
+        <div
+          className="absolute top-0 left-0 w-48 md:w-64 lg:w-96 h-48 md:h-64 lg:h-96 bg-gradient-to-br from-[#D4A574]/15 to-transparent rounded-full blur-3xl opacity-20"
         />
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          className="absolute bottom-0 right-0 w-40 md:w-56 lg:w-80 h-40 md:h-56 lg:h-80 bg-gradient-to-tl from-navy/10 to-transparent rounded-full blur-3xl"
+        <div
+          className="absolute bottom-0 right-0 w-40 md:w-56 lg:w-80 h-40 md:h-56 lg:h-80 bg-gradient-to-tl from-navy/10 to-transparent rounded-full blur-3xl opacity-15"
         />
 
         <motion.div
@@ -442,9 +447,7 @@ export default function Home() {
                 className="group block relative overflow-hidden bg-navy p-6 md:p-8 lg:p-10 xl:p-14 hover:scale-[1.02] transition-all duration-500"
                 style={{ borderRadius: '40px 16px 40px 16px' }}
               >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+                <div
                   className="absolute top-0 right-0 w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 bg-gradient-to-bl from-[#D4A574]/30 to-transparent rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500"
                 />
 
@@ -474,10 +477,8 @@ export default function Home() {
                   className="group block relative overflow-hidden bg-gradient-to-br from-[#8B4513] to-[#654321] p-5 md:p-6 lg:p-8 hover:scale-[1.02] transition-all duration-500"
                   style={{ borderRadius: '16px 40px 16px 40px' }}
                 >
-                  <motion.div
-                    animate={{ opacity: [0.1, 0.2, 0.1] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute bottom-0 left-0 w-20 md:w-24 lg:w-32 h-20 md:h-24 lg:h-32 bg-white/10 rounded-full blur-xl"
+                  <div
+                    className="absolute bottom-0 left-0 w-20 md:w-24 lg:w-32 h-20 md:h-24 lg:h-32 bg-white/15 rounded-full blur-xl"
                   />
                   <span className="text-white/70 text-[10px] md:text-xs tracking-[0.2em] uppercase">Published Author</span>
                   <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-white mt-2 mb-2 lg:mb-3 group-hover:translate-x-1 transition-transform">
@@ -496,9 +497,7 @@ export default function Home() {
                   className="group block relative overflow-hidden bg-beige p-5 md:p-6 lg:p-8 hover:scale-[1.02] transition-all duration-500"
                   style={{ borderRadius: '40px 16px 16px 40px' }}
                 >
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 5, repeat: Infinity }}
+                  <div
                     className="absolute top-0 right-0 w-16 md:w-20 lg:w-24 h-16 md:h-20 lg:h-24 bg-navy/10 rounded-full blur-xl"
                   />
                   <span className="text-[#B8860B] text-[10px] md:text-xs tracking-[0.2em] uppercase">Systems Architecture</span>
@@ -567,10 +566,8 @@ export default function Home() {
 
       {/* ===== CLOSING STATEMENT ===== */}
       <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-navy overflow-hidden scroll-mt-20">
-        <motion.div
-          animate={{ opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 6, repeat: Infinity }}
-          className="absolute inset-0 bg-gradient-to-b from-[#D4A574]/5 via-transparent to-[#D4A574]/5"
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#D4A574]/5 via-transparent to-[#D4A574]/5 opacity-[0.07]"
         />
 
         <motion.div
