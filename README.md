@@ -1,204 +1,164 @@
 # CreativelyNanda.co.za
 
-A portfolio and digital platform for Nanda — creative technologist, developer, and writer — built at the intersection of technology, creativity, and business.
+[![Live Site](https://img.shields.io/badge/live-creativelynanda.co.za-C1292E?style=flat-square)](https://creativelynanda.co.za)
+[![Next.js](https://img.shields.io/badge/Next.js-14-000?style=flat-square&logo=nextdotjs)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3FCF8E?style=flat-square&logo=supabase&logoColor=white)](https://supabase.com)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?style=flat-square&logo=vercel)](https://vercel.com)
 
----
+Full-stack digital platform for Nanda Regine — creative technologist, software developer, and published author. Features a digital product marketplace with PayFast payments, a multi-language blog engine, poetry collection with community engagement, and a Supabase-powered admin dashboard.
 
-## Design Philosophy
+## Architecture
 
-**"Editorial Technologist"** — Magazine-quality layouts meet tech sophistication.
+```
+Next.js 14 App Router
+├── Server Components        → SEO metadata, JSON-LD structured data
+├── Client Components        → Framer Motion animations, interactive UI
+├── API Routes               → PayFast webhooks, engagement tracking, downloads
+├── Server Actions           → Admin CRUD operations
+└── Supabase (PostgreSQL)    → Products, orders, blog, poetry, analytics
+```
 
-### Color Palette
+### Key Technical Decisions
 
-| Role | Color | Hex |
-|------|-------|-----|
-| Base | Navy | `#0A1128` |
-| Neutral | Beige | `#E8DCC4` |
-| Accent | Cherry | `#C1292E` |
-| Clean | White | `#FEFEFE` |
-
-### Typography
-
-- **Display**: Cormorant Garamond (elegant serif for headers)
-- **Body**: Manrope (clean sans-serif for readability)
-
----
+- **Per-route `layout.tsx` files** for SEO — all pages use `'use client'`, so metadata is exported from server-side layouts
+- **Session-based engagement** — likes, views, and hearts tracked via `localStorage` session IDs (no auth required)
+- **Database triggers** — `like_count`, `view_count`, `heart_count` auto-synced via PostgreSQL triggers on INSERT/DELETE
+- **Token-based downloads** — purchase confirmation emails contain unique download tokens that resolve to signed Supabase Storage URLs
 
 ## Tech Stack
 
-| Category | Technology |
-|----------|-----------|
-| **Framework** | Next.js 14 (App Router) |
-| **Language** | TypeScript |
-| **Styling** | Tailwind CSS |
-| **Animations** | Framer Motion |
-| **State Management** | Zustand |
-| **Database** | Supabase |
-| **AI Integration** | OpenAI API |
-| **Email** | Resend |
-| **Icons** | Lucide React |
-| **PWA** | next-pwa |
-| **Hosting** | Vercel |
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Database | Supabase (PostgreSQL + Storage + RLS) |
+| Payments | PayFast (ZAR) |
+| Email | Resend + React Email |
+| Styling | Tailwind CSS |
+| Animations | Framer Motion |
+| State | Zustand |
+| Analytics | Google Analytics 4 + GTM |
+| SEO | JSON-LD (Product, BlogPosting, BreadcrumbList, WebSite, Person) |
+| Hosting | Vercel |
 
----
+## Features
 
-## Pages
+### Digital Marketplace
+- 8 digital products (Notion templates, eBooks) with PayFast checkout
+- Supabase Storage for secure file delivery via signed URLs
+- Token-based download links with 7-day expiry
+- Purchase confirmation emails in English, Afrikaans, and Zulu
+- Google Shopping-compatible Product schema with `Offer` and `AggregateRating`
 
-| Page | Route | Description |
-|------|-------|-------------|
-| **Home** | `/` | Hero section, featured work, quick links |
-| **About** | `/about` | Bio, heritage, skills, values, philosophy |
-| **Projects** | `/projects` | Filterable project showcase with case studies |
-| **Work** | `/work` | Career timeline with highlights and demo videos |
-| **Education** | `/education` | Nelson Mandela University degrees and technical certifications |
-| **Blog (The Current)** | `/blog` | Digital magazine with long-form articles |
-| **Poetry** | `/poetry` | "Inside Her Roses" book, performances, and community work |
-| **Mirembe Muse** | `/mirembe` | Multi-vertical business showcase |
-| **Notion Systems** | `/notion` | Template products and custom system design |
-| **Products** | `/products` | Digital marketplace |
-| **Contact** | `/contact` | Contact form and social links |
+### Blog — The Current
+- Supabase-backed articles with seed data fallback
+- Category-based routing (`/blog/dev`, `/blog/writing`, `/blog/business`)
+- Like, view, and review tracking with auto-synced counters
+- Guest contributor system with featured people mentions
+- `BlogPosting` JSON-LD for Google article indexing
 
----
+### Poetry — Inside Her Roses
+- 100+ poems with collection browsing and search
+- Heart and view engagement tracking
+- Community roses (moderated reviews)
+- `CreativeWork` JSON-LD per poem
+
+### Admin Dashboard
+- Revenue, orders, products, and poetry metrics
+- Order management with status updates
+- Blog post CRUD with publish/unpublish
+- Product and poetry management
+- All data served from Supabase with RLS + service role
 
 ## Project Structure
 
 ```
-CreativelyNanda.co.za/
-├── app/                        # Pages (Next.js App Router)
-│   ├── layout.js               # Root layout with nav & footer
-│   ├── globals.css             # Global styles & animations
-│   ├── page.js                 # Home
-│   ├── about/                  # About
-│   ├── projects/               # Projects showcase
-│   ├── work/                   # Work experience
-│   ├── education/              # Education & certifications
-│   ├── blog/                   # The Current digital magazine
-│   ├── poetry/                 # Poetry & performances
-│   ├── mirembe/                # Mirembe Muse business
-│   ├── notion/                 # Notion systems
-│   ├── products/               # Digital marketplace
-│   ├── contact/                # Contact
-│   ├── checkout/               # Checkout flow
-│   ├── admin/                  # Admin dashboard
-│   ├── api/                    # API routes (chat, blog, payfast, poetry)
-│   └── data/                   # Data modules
-│
-├── components/                 # Reusable components
-│   ├── animations/             # Animation wrappers (Framer Motion)
-│   ├── effects/                # Visual effects (grain, particles)
-│   ├── ui/                     # Base UI components
-│   ├── layout/                 # Layout components
-│   ├── blog/                   # Blog components
-│   ├── marketplace/            # Product marketplace components
-│   ├── cart/                   # Shopping cart
-│   ├── gallery/                # Gallery components
-│   ├── poetry/                 # Poetry components
-│   ├── nanda-ai/               # AI assistant components
-│   ├── Navigation.tsx          # Site navigation
-│   └── Footer.tsx              # Site footer
-│
-├── public/                     # Static assets
-│   ├── assets/                 # Images, videos, media
-│   ├── cv.pdf                  # Downloadable CV
-│   └── sw.js                   # Service worker (PWA)
-│
-├── tailwind.config.js          # Tailwind customization
-├── next.config.js              # Next.js configuration
-└── tsconfig.json               # TypeScript configuration
+app/
+├── (pages)/          # 12 public routes with per-route SEO layouts
+├── admin/            # Dashboard, orders, blog, products, poetry management
+├── api/
+│   ├── payfast/      # create-checkout, webhook (ITN handler)
+│   ├── downloads/    # Token-based signed URL downloads
+│   ├── blog/         # Like, view, review endpoints
+│   ├── poetry/       # Heart, view endpoints
+│   └── orders/       # Order lookup for success page
+├── checkout/         # Success + cancelled pages
+lib/
+├── payfast/          # Signature generation, IP validation, config
+├── email/            # Resend client, purchase confirmation, welcome
+├── supabase/         # Server + admin clients
+├── seo.tsx           # createMetadata(), JSON-LD generators
+├── storage.ts        # Signed URL generation, download token validation
+├── products-data.ts  # Product catalog (shared across pages + layouts)
+├── poems-data.ts     # Poetry collection data
+components/
+├── animations/       # ScrollTrigger, ParallaxScroll, Card3DTilt, MagneticButton
+├── ui/               # Button, Badge, Input, Modal, etc.
+├── blog/             # LikeButton, ViewCounter, ReaderReviews
+├── marketplace/      # ProductCard, CartDrawer, CheckoutForm
+├── poetry/           # PoemCard, HeartButton, RoseForm
+emails/
+├── purchase-confirmation.tsx   # Multi-language order confirmation
+├── welcome.tsx                 # Welcome email
+supabase/migrations/
+├── 001_blog_and_poetry_engagement.sql
+├── 002_products_orders_storage.sql
 ```
 
----
-
-## Quick Start
-
-### Install dependencies
+## Getting Started
 
 ```bash
+git clone https://github.com/Nanda-Regine/CreativelyNanda.co.za.git
+cd CreativelyNanda.co.za
 npm install
+cp .env.local.example .env.local   # Fill in your keys
+npm run dev                         # http://localhost:3000
 ```
 
-### Run the development server
+### Environment Variables
 
 ```bash
-npm run dev
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# PayFast
+PAYFAST_MERCHANT_ID=
+PAYFAST_MERCHANT_KEY=
+PAYFAST_PASSPHRASE=
+NEXT_PUBLIC_PAYFAST_SANDBOX=true
+
+# Email
+RESEND_API_KEY=
+RESEND_FROM_EMAIL=hello@creativelynanda.co.za
+
+# Site
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Database Setup
 
-### Build for production
+Run the SQL migrations in order via Supabase Dashboard > SQL Editor:
 
-```bash
-npm run build
-npm start
-```
-
----
-
-## Environment Variables
-
-Create a `.env.local` file in the project root:
-
-```
-OPENAI_API_KEY=your_openai_key
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-RESEND_API_KEY=your_resend_key
-```
-
----
+1. `supabase/migrations/001_blog_and_poetry_engagement.sql`
+2. `supabase/migrations/002_products_orders_storage.sql`
 
 ## Deployment
 
-### Vercel (Recommended)
-
-1. Push code to GitHub
-2. Import the repository at [vercel.com](https://vercel.com)
-3. Add environment variables in the Vercel dashboard
-4. Deploy
-
-Vercel auto-deploys on every push to the `main` branch.
-
-### Alternative Platforms
-
-- **Netlify** — Works with Next.js via the Next.js plugin
-- **Railway** — Good for full-stack deployments
-- **Self-hosted** — Run `npm run build` followed by `npm start`
-
----
-
-## Troubleshooting
-
-**Port already in use?**
+Deployed on [Vercel](https://vercel.com) with automatic deploys on push to `main`. Environment variables are configured in the Vercel dashboard.
 
 ```bash
-npx kill-port 3000
+npm run build    # Builds Next.js + generates sitemap
 ```
 
-**Styles not loading?**
+## Author
 
-```bash
-rm -rf .next
-npm run dev
-```
-
-**Module not found?**
-
-```bash
-rm -rf node_modules package-lock.json
-npm install
-```
-
----
-
-## Contact
-
-**Nanda**
-Creative Technologist
-Port Elizabeth, South Africa
-hello@creativelynanda.co.za
-
----
+**Nanda Regine**
+Creative Technologist — Port Elizabeth, South Africa
+[creativelynanda.co.za](https://creativelynanda.co.za) | [hello@creativelynanda.co.za](mailto:hello@creativelynanda.co.za)
 
 ## License
 
-Copyright 2025 Nanda. All rights reserved.
+Copyright 2025-2026 Nanda Regine. All rights reserved.
