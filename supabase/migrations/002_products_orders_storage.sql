@@ -1,6 +1,7 @@
 -- ============================================================
 -- CreativelyNanda.co.za - Products, Orders & Storage
 -- Run this in Supabase SQL Editor (Dashboard > SQL Editor)
+-- Safe to re-run: uses IF NOT EXISTS and DROP IF EXISTS
 -- ============================================================
 
 -- ============================================================
@@ -13,24 +14,32 @@ CREATE TABLE IF NOT EXISTS products (
   name            text NOT NULL,
   tagline         text,
   description     text,
-  price           integer NOT NULL,              -- In cents (R149 = 14900)
-  original_price  integer,                       -- For showing discounts
+  price           integer NOT NULL,
+  original_price  integer,
   category        text NOT NULL CHECK (category IN ('student', 'business', 'creative', 'wellness')),
   type            text NOT NULL DEFAULT 'template' CHECK (type IN ('template', 'saas', 'ebook', 'service')),
   thumbnail       text,
   images          text[] DEFAULT '{}',
-  features        jsonb,                         -- Array of {title, description, icon}
+  features        jsonb,
   status          text DEFAULT 'draft' CHECK (status IN ('draft', 'live', 'coming-soon', 'archived')),
   is_featured     boolean DEFAULT false,
   payfast_item_id text,
-  -- Storage: path to the downloadable file in Supabase Storage
-  file_path       text,                          -- e.g. 'products/nsfas-tracker/nsfas-tracker-v1.zip'
-  -- Ratings (synced from testimonials or manual)
-  rating          numeric(2,1) DEFAULT 0,        -- e.g. 4.9
+  file_path       text,
+  rating          numeric(2,1) DEFAULT 0,
   review_count    integer DEFAULT 0,
   created_at      timestamptz DEFAULT now(),
   updated_at      timestamptz DEFAULT now()
 );
+
+-- If products table already existed, add missing columns
+ALTER TABLE products ADD COLUMN IF NOT EXISTS file_path text;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS rating numeric(2,1) DEFAULT 0;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS review_count integer DEFAULT 0;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS payfast_item_id text;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS features jsonb;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS images text[] DEFAULT '{}';
+ALTER TABLE products ADD COLUMN IF NOT EXISTS original_price integer;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS updated_at timestamptz DEFAULT now();
 
 CREATE INDEX IF NOT EXISTS idx_products_slug ON products(slug);
 CREATE INDEX IF NOT EXISTS idx_products_category ON products(category);
@@ -61,20 +70,26 @@ CREATE TABLE IF NOT EXISTS orders (
   product_id              uuid REFERENCES products(id) ON DELETE SET NULL,
   user_email              text NOT NULL,
   user_name               text,
-  amount                  integer NOT NULL,        -- In cents
+  amount                  integer NOT NULL,
   currency                text DEFAULT 'ZAR',
   status                  text DEFAULT 'pending' CHECK (status IN ('pending', 'completed', 'failed', 'refunded')),
   payfast_payment_id      text,
   payfast_transaction_id  text,
-  -- Download token: unique token sent in email for secure downloads
   download_token          uuid DEFAULT gen_random_uuid(),
   download_expires_at     timestamptz DEFAULT (now() + interval '7 days'),
   download_count          integer DEFAULT 0,
-  -- Order items (for multi-item orders)
-  items                   jsonb,                   -- Array of {product_id, name, price, quantity, file_path}
+  items                   jsonb,
   metadata                jsonb,
   created_at              timestamptz DEFAULT now()
 );
+
+-- If orders table already existed, add missing columns
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS download_token uuid DEFAULT gen_random_uuid();
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS download_expires_at timestamptz DEFAULT (now() + interval '7 days');
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS download_count integer DEFAULT 0;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS items jsonb;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS payfast_payment_id text;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS payfast_transaction_id text;
 
 CREATE INDEX IF NOT EXISTS idx_orders_email ON orders(user_email);
 CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status);
@@ -130,35 +145,43 @@ ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE subscribers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE testimonials ENABLE ROW LEVEL SECURITY;
 
--- Products: public read for live products
+-- Products
+DROP POLICY IF EXISTS "products_public_read" ON products;
 CREATE POLICY "products_public_read" ON products
   FOR SELECT USING (status = 'live');
 
+DROP POLICY IF EXISTS "products_service_write" ON products;
 CREATE POLICY "products_service_write" ON products
   FOR ALL USING (true) WITH CHECK (true);
 
--- Orders: users can only read their own orders (by email match via RLS)
--- Service role bypasses this for admin operations
+-- Orders
+DROP POLICY IF EXISTS "orders_public_insert" ON orders;
 CREATE POLICY "orders_public_insert" ON orders
   FOR INSERT WITH CHECK (true);
 
+DROP POLICY IF EXISTS "orders_service_manage" ON orders;
 CREATE POLICY "orders_service_manage" ON orders
   FOR ALL USING (true) WITH CHECK (true);
 
--- Subscribers: public insert, service manage
+-- Subscribers
+DROP POLICY IF EXISTS "subscribers_public_insert" ON subscribers;
 CREATE POLICY "subscribers_public_insert" ON subscribers
   FOR INSERT WITH CHECK (true);
 
+DROP POLICY IF EXISTS "subscribers_service_manage" ON subscribers;
 CREATE POLICY "subscribers_service_manage" ON subscribers
   FOR ALL USING (true) WITH CHECK (true);
 
--- Testimonials: public read for approved, public insert
+-- Testimonials
+DROP POLICY IF EXISTS "testimonials_public_read" ON testimonials;
 CREATE POLICY "testimonials_public_read" ON testimonials
   FOR SELECT USING (is_approved = true);
 
+DROP POLICY IF EXISTS "testimonials_public_insert" ON testimonials;
 CREATE POLICY "testimonials_public_insert" ON testimonials
   FOR INSERT WITH CHECK (true);
 
+DROP POLICY IF EXISTS "testimonials_service_manage" ON testimonials;
 CREATE POLICY "testimonials_service_manage" ON testimonials
   FOR ALL USING (true) WITH CHECK (true);
 
@@ -166,33 +189,33 @@ CREATE POLICY "testimonials_service_manage" ON testimonials
 -- ============================================================
 -- 6. STORAGE BUCKET SETUP
 -- ============================================================
--- Run these commands separately in the SQL editor:
 
 -- Create the 'products' storage bucket (private - requires signed URLs)
 INSERT INTO storage.buckets (id, name, public)
 VALUES ('products', 'products', false)
 ON CONFLICT (id) DO NOTHING;
 
--- Allow service role to upload files to the products bucket
+-- Storage policies (drop first to avoid conflicts)
+DROP POLICY IF EXISTS "products_bucket_service_upload" ON storage.objects;
 CREATE POLICY "products_bucket_service_upload" ON storage.objects
   FOR INSERT
   TO service_role
   WITH CHECK (bucket_id = 'products');
 
--- Allow service role to read files (for generating signed URLs)
+DROP POLICY IF EXISTS "products_bucket_service_read" ON storage.objects;
 CREATE POLICY "products_bucket_service_read" ON storage.objects
   FOR SELECT
   TO service_role
   USING (bucket_id = 'products');
 
--- Allow service role to update/delete files
+DROP POLICY IF EXISTS "products_bucket_service_manage" ON storage.objects;
 CREATE POLICY "products_bucket_service_manage" ON storage.objects
   FOR ALL
   TO service_role
   USING (bucket_id = 'products')
   WITH CHECK (bucket_id = 'products');
 
--- Allow authenticated users to read (for admin dashboard uploads)
+DROP POLICY IF EXISTS "products_bucket_auth_read" ON storage.objects;
 CREATE POLICY "products_bucket_auth_read" ON storage.objects
   FOR SELECT
   TO authenticated
@@ -202,7 +225,6 @@ CREATE POLICY "products_bucket_auth_read" ON storage.objects
 -- ============================================================
 -- 7. SEED PRODUCTS DATA
 -- ============================================================
--- Insert your existing products so they're in Supabase
 
 INSERT INTO products (slug, name, tagline, price, original_price, category, type, status, is_featured, rating, review_count, file_path) VALUES
   ('nsfas-tracker', 'NSFAS Tracker', 'Track your NSFAS application, funding status, and disbursements', 14900, NULL, 'student', 'template', 'live', true, 4.9, 127, 'products/nsfas-tracker/nsfas-tracker.zip'),
