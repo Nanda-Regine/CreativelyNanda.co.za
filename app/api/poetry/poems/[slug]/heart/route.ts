@@ -1,11 +1,42 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createAdminClient, createServerClient } from '@/lib/supabase/server';
+
+function getSupabase() {
+  try {
+    return createAdminClient();
+  } catch {
+    return createServerClient();
+  }
+}
+
+/** Count actual hearts from the poem_hearts table */
+async function getActualHeartCount(supabase: ReturnType<typeof createServerClient>, poemId: string): Promise<number> {
+  const { count, error } = await supabase
+    .from('poem_hearts')
+    .select('*', { count: 'exact', head: true })
+    .eq('poem_id', poemId);
+
+  if (error) {
+    console.error('Error counting hearts:', error);
+    return 0;
+  }
+
+  return count || 0;
+}
+
+/** Sync the cached heart_count on poems with the actual count */
+async function syncHeartCount(supabase: ReturnType<typeof createServerClient>, poemId: string, count: number) {
+  await supabase
+    .from('poems')
+    .update({ heart_count: count })
+    .eq('id', poemId);
+}
 
 export async function POST(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const body = await request.json().catch(() => ({}));
   const sessionId = body.sessionId;
@@ -25,7 +56,7 @@ export async function POST(
     return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
   }
 
-  // Try to insert a heart (trigger auto-increments heart_count)
+  // Try to insert a heart
   const { error } = await supabase
     .from('poem_hearts')
     .insert({
@@ -34,23 +65,26 @@ export async function POST(
     });
 
   if (error && error.code === '23505') {
+    const heartCount = await getActualHeartCount(supabase, poem.id);
     return NextResponse.json({
       success: false,
       alreadyHearted: true,
-      heartCount: poem.heart_count,
+      heartCount,
     });
   }
 
-  // Read back the updated count (trigger already incremented it)
-  const { data: updatedPoem } = await supabase
-    .from('poems')
-    .select('heart_count')
-    .eq('id', poem.id)
-    .single();
+  if (error) {
+    console.error('Error inserting heart:', error);
+    return NextResponse.json({ error: 'Failed to heart poem' }, { status: 500 });
+  }
+
+  // Get the real count and sync it
+  const heartCount = await getActualHeartCount(supabase, poem.id);
+  await syncHeartCount(supabase, poem.id, heartCount);
 
   return NextResponse.json({
     success: true,
-    heartCount: updatedPoem?.heart_count || poem.heart_count + 1,
+    heartCount,
   });
 }
 
@@ -58,7 +92,7 @@ export async function DELETE(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const body = await request.json().catch(() => ({}));
   const sessionId = body.sessionId;
@@ -78,23 +112,24 @@ export async function DELETE(
     return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
   }
 
-  // Delete the heart (trigger auto-decrements heart_count)
-  await supabase
+  // Delete the heart
+  const { error } = await supabase
     .from('poem_hearts')
     .delete()
     .eq('poem_id', poem.id)
     .eq('session_id', sessionId);
 
-  // Read back the updated count
-  const { data: updatedPoem } = await supabase
-    .from('poems')
-    .select('heart_count')
-    .eq('id', poem.id)
-    .single();
+  if (error) {
+    console.error('Error deleting heart:', error);
+  }
+
+  // Get the real count and sync it
+  const heartCount = await getActualHeartCount(supabase, poem.id);
+  await syncHeartCount(supabase, poem.id, heartCount);
 
   return NextResponse.json({
     success: true,
-    heartCount: updatedPoem?.heart_count || Math.max(0, poem.heart_count - 1),
+    heartCount,
   });
 }
 
@@ -107,15 +142,15 @@ export async function GET(
   const sessionId = searchParams.get('sessionId');
 
   if (!sessionId) {
-    return NextResponse.json({ hasHearted: false });
+    return NextResponse.json({ hasHearted: false, heartCount: 0 });
   }
 
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   // Get the poem
   const { data: poem } = await supabase
     .from('poems')
-    .select('id, heart_count')
+    .select('id')
     .eq('slug', params.slug)
     .single();
 
@@ -131,8 +166,11 @@ export async function GET(
     .eq('session_id', sessionId)
     .single();
 
+  // Get real count
+  const heartCount = await getActualHeartCount(supabase, poem.id);
+
   return NextResponse.json({
     hasHearted: !!heart,
-    heartCount: poem.heart_count,
+    heartCount,
   });
 }

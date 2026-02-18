@@ -1,11 +1,19 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createAdminClient, createServerClient } from '@/lib/supabase/server';
+
+function getSupabase() {
+  try {
+    return createAdminClient();
+  } catch {
+    return createServerClient();
+  }
+}
 
 export async function POST(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const body = await request.json();
   const { content, authorName, authorEmail, isAnonymous } = body;
@@ -76,7 +84,7 @@ export async function GET(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   // Get the poem
   const { data: poem } = await supabase
@@ -89,7 +97,7 @@ export async function GET(
     return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
   }
 
-  // Get approved roses
+  // Get approved/featured roses (admin client bypasses RLS, so filter explicitly)
   const { data: roses, error } = await supabase
     .from('poem_roses')
     .select('*')

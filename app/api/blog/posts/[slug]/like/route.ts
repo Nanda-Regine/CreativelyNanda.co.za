@@ -1,9 +1,18 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createAdminClient, createServerClient } from '@/lib/supabase/server';
 import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
 
 function isSupabaseConfigured() {
   return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
+function getSupabase() {
+  try {
+    return createAdminClient();
+  } catch {
+    // Fall back to anon client if service role key not set
+    return createServerClient();
+  }
 }
 
 /** Look up a post by slug, auto-seeding from seed data if necessary */
@@ -31,6 +40,29 @@ async function resolvePost(supabase: ReturnType<typeof createServerClient>, slug
   return post;
 }
 
+/** Count actual likes from the blog_likes table */
+async function getActualLikeCount(supabase: ReturnType<typeof createServerClient>, postId: string): Promise<number> {
+  const { count, error } = await supabase
+    .from('blog_likes')
+    .select('*', { count: 'exact', head: true })
+    .eq('post_id', postId);
+
+  if (error) {
+    console.error('Error counting likes:', error);
+    return 0;
+  }
+
+  return count || 0;
+}
+
+/** Sync the cached like_count on blog_posts with the actual count */
+async function syncLikeCount(supabase: ReturnType<typeof createServerClient>, postId: string, count: number) {
+  await supabase
+    .from('blog_posts')
+    .update({ like_count: count })
+    .eq('id', postId);
+}
+
 export async function POST(
   request: Request,
   { params }: { params: { slug: string } }
@@ -39,7 +71,7 @@ export async function POST(
     return NextResponse.json({ success: false, likeCount: 0 });
   }
 
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const body = await request.json().catch(() => ({}));
   const sessionId = body.sessionId;
@@ -64,23 +96,26 @@ export async function POST(
 
   if (error && error.code === '23505') {
     // Unique constraint violation - already liked
+    const likeCount = await getActualLikeCount(supabase, post.id);
     return NextResponse.json({
       success: false,
       alreadyLiked: true,
-      likeCount: post.like_count || 0,
+      likeCount,
     });
   }
 
-  // Get updated like count
-  const { data: updatedPost } = await supabase
-    .from('blog_posts')
-    .select('like_count')
-    .eq('id', post.id)
-    .single();
+  if (error) {
+    console.error('Error inserting like:', error);
+    return NextResponse.json({ error: 'Failed to like post' }, { status: 500 });
+  }
+
+  // Get the real count from the likes table and sync it
+  const likeCount = await getActualLikeCount(supabase, post.id);
+  await syncLikeCount(supabase, post.id, likeCount);
 
   return NextResponse.json({
     success: true,
-    likeCount: updatedPost?.like_count || (post.like_count || 0) + 1,
+    likeCount,
   });
 }
 
@@ -92,7 +127,7 @@ export async function DELETE(
     return NextResponse.json({ success: false, likeCount: 0 });
   }
 
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const body = await request.json().catch(() => ({}));
   const sessionId = body.sessionId;
@@ -108,22 +143,23 @@ export async function DELETE(
   }
 
   // Delete the like
-  await supabase
+  const { error } = await supabase
     .from('blog_likes')
     .delete()
     .eq('post_id', post.id)
     .eq('session_id', sessionId);
 
-  // Get updated like count
-  const { data: updatedPost } = await supabase
-    .from('blog_posts')
-    .select('like_count')
-    .eq('id', post.id)
-    .single();
+  if (error) {
+    console.error('Error deleting like:', error);
+  }
+
+  // Get the real count from the likes table and sync it
+  const likeCount = await getActualLikeCount(supabase, post.id);
+  await syncLikeCount(supabase, post.id, likeCount);
 
   return NextResponse.json({
     success: true,
-    likeCount: updatedPost?.like_count || Math.max(0, (post.like_count || 0) - 1),
+    likeCount,
   });
 }
 
@@ -139,7 +175,7 @@ export async function GET(
     return NextResponse.json({ hasLiked: false, likeCount: 0 });
   }
 
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const post = await resolvePost(supabase, params.slug);
 
@@ -155,8 +191,11 @@ export async function GET(
     .eq('session_id', sessionId)
     .single();
 
+  // Get real count from likes table
+  const likeCount = await getActualLikeCount(supabase, post.id);
+
   return NextResponse.json({
     hasLiked: !!like,
-    likeCount: post.like_count || 0,
+    likeCount,
   });
 }

@@ -1,9 +1,17 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createAdminClient, createServerClient } from '@/lib/supabase/server';
 import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
 
 function isSupabaseConfigured() {
   return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
+function getSupabase() {
+  try {
+    return createAdminClient();
+  } catch {
+    return createServerClient();
+  }
 }
 
 /** Look up a post by slug, auto-seeding from seed data if necessary */
@@ -38,7 +46,7 @@ export async function POST(
     return NextResponse.json({ error: 'Database not configured' }, { status: 503 });
   }
 
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const body = await request.json();
   const { authorName, authorEmail, content, rating } = body;
@@ -107,7 +115,7 @@ export async function GET(
     return NextResponse.json([]);
   }
 
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const post = await resolvePost(supabase, params.slug);
 
@@ -115,7 +123,7 @@ export async function GET(
     return NextResponse.json([]);
   }
 
-  // Get approved reviews
+  // Get approved reviews (admin client bypasses RLS, so filter explicitly)
   const { data: reviews, error } = await supabase
     .from('blog_reviews')
     .select('*')

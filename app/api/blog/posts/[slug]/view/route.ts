@@ -1,9 +1,17 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createAdminClient, createServerClient } from '@/lib/supabase/server';
 import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
 
 function isSupabaseConfigured() {
   return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
+function getSupabase() {
+  try {
+    return createAdminClient();
+  } catch {
+    return createServerClient();
+  }
 }
 
 export async function POST(
@@ -14,7 +22,7 @@ export async function POST(
     return NextResponse.json({ success: false, viewCount: 0, sessionId: '' });
   }
 
-  const supabase = createServerClient();
+  const supabase = getSupabase();
 
   const body = await request.json().catch(() => ({}));
   const sessionId = body.sessionId || crypto.randomUUID();
@@ -40,30 +48,40 @@ export async function POST(
       .single();
 
     if (!inserted) {
-      // Table might not exist yet — return gracefully
       return NextResponse.json({ success: false, viewCount: 0, sessionId });
     }
     post = inserted;
   }
 
   // Try to insert a view (will fail silently if already exists due to unique constraint)
-  await supabase
+  const { error } = await supabase
     .from('blog_views')
     .insert({
       post_id: post.id,
       session_id: sessionId,
     });
 
-  // Get updated view count
-  const { data: updatedPost } = await supabase
+  if (error && error.code !== '23505') {
+    console.error('Error inserting view:', error);
+  }
+
+  // Count actual views from blog_views table for accuracy
+  const { count } = await supabase
+    .from('blog_views')
+    .select('*', { count: 'exact', head: true })
+    .eq('post_id', post.id);
+
+  const viewCount = count || 0;
+
+  // Sync the cached view_count on blog_posts
+  await supabase
     .from('blog_posts')
-    .select('view_count')
-    .eq('id', post.id)
-    .single();
+    .update({ view_count: viewCount })
+    .eq('id', post.id);
 
   return NextResponse.json({
     success: true,
-    viewCount: updatedPost?.view_count || post.view_count || 0,
+    viewCount,
     sessionId,
   });
 }
