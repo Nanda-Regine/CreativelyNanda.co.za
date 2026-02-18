@@ -16,6 +16,8 @@ export interface Product {
   thumbnail: string | null;
   images: string[];
   features: ProductFeature[] | null;
+  faqs: ProductFAQ[] | null;
+  badge: string | null;
   status: 'draft' | 'live' | 'coming-soon' | 'archived';
   is_featured: boolean;
   payfast_item_id: string | null;
@@ -47,6 +49,11 @@ export interface ProductFeature {
   title: string;
   description?: string;
   icon?: string;
+}
+
+export interface ProductFAQ {
+  question: string;
+  answer: string;
 }
 
 export interface Order {

@@ -5,7 +5,7 @@ import {
   generateBreadcrumbJsonLd,
   JsonLd,
 } from '@/lib/seo';
-import { getProductBySlug } from '@/lib/products-data';
+import { getProductBySlug } from '@/lib/products';
 import { createServerClient } from '@/lib/supabase/server';
 
 async function getProductReviews(slug: string) {
@@ -46,7 +46,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const productData = getProductBySlug(params.slug);
+  const productData = await getProductBySlug(params.slug);
 
   if (!productData) {
     return createMetadata({
@@ -75,7 +75,7 @@ export default async function ProductDetailLayout({
   children: React.ReactNode;
   params: { slug: string };
 }) {
-  const productData = getProductBySlug(params.slug);
+  const productData = await getProductBySlug(params.slug);
 
   if (!productData) return <>{children}</>;
 
