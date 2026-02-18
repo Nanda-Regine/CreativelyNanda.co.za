@@ -113,6 +113,29 @@ export async function POST(request: NextRequest) {
 
     console.log(`Order ${orderId} updated to status: ${status}`);
 
+    // Sync purchase_count for each product in the order
+    if (status === 'completed') {
+      try {
+        const orderItems = (order.items as Array<{ product_id: string }>) || [];
+        const productIds = [...new Set(orderItems.map((item) => item.product_id).filter(Boolean))];
+
+        for (const productId of productIds) {
+          const { count } = await supabase
+            .from('orders')
+            .select('*', { count: 'exact', head: true })
+            .eq('status', 'completed')
+            .contains('items', JSON.stringify([{ product_id: productId }]));
+
+          await supabase
+            .from('products')
+            .update({ purchase_count: count || 0 })
+            .eq('id', productId);
+        }
+      } catch (syncError) {
+        console.error('Error syncing purchase counts:', syncError);
+      }
+    }
+
     // Send confirmation email for completed orders
     if (status === 'completed' && order.user_email) {
       try {

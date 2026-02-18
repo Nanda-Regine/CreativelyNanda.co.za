@@ -6,6 +6,40 @@ import {
   JsonLd,
 } from '@/lib/seo';
 import { getProductBySlug } from '@/lib/products-data';
+import { createServerClient } from '@/lib/supabase/server';
+
+async function getProductReviews(slug: string) {
+  try {
+    const supabase = createServerClient();
+
+    // Get product ID
+    const { data: product } = await supabase
+      .from('products')
+      .select('id, rating, review_count, purchase_count')
+      .eq('slug', slug)
+      .single();
+
+    if (!product) return { reviews: [], rating: 0, reviewCount: 0, purchaseCount: 0 };
+
+    // Get approved reviews
+    const { data: reviews } = await supabase
+      .from('testimonials')
+      .select('author_name, rating, content, created_at')
+      .eq('product_id', product.id)
+      .eq('is_approved', true)
+      .order('created_at', { ascending: false })
+      .limit(50);
+
+    return {
+      reviews: reviews || [],
+      rating: product.rating || 0,
+      reviewCount: product.review_count || 0,
+      purchaseCount: product.purchase_count || 0,
+    };
+  } catch {
+    return { reviews: [], rating: 0, reviewCount: 0, purchaseCount: 0 };
+  }
+}
 
 export async function generateMetadata({
   params,
@@ -34,7 +68,7 @@ export async function generateMetadata({
   });
 }
 
-export default function ProductDetailLayout({
+export default async function ProductDetailLayout({
   children,
   params,
 }: {
@@ -51,6 +85,9 @@ export default function ProductDetailLayout({
     ? 'Mirembe Muse'
     : 'CreativelyNanda';
 
+  // Fetch real reviews from Supabase for structured data
+  const { reviews, rating, reviewCount, purchaseCount } = await getProductReviews(params.slug);
+
   const productJsonLd = generateProductJsonLd({
     name: product.name,
     description: description || product.tagline,
@@ -60,9 +97,16 @@ export default function ProductDetailLayout({
     currency: 'ZAR',
     category: product.category,
     status: product.status || 'live',
-    rating: product.rating,
-    reviewCount: product.reviewCount,
+    rating: rating || product.rating,
+    reviewCount: reviewCount || product.reviewCount,
     brand,
+    purchaseCount,
+    reviews: reviews.map((r) => ({
+      authorName: r.author_name,
+      rating: r.rating || 5,
+      content: r.content,
+      datePublished: r.created_at,
+    })),
   });
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([

@@ -15,18 +15,20 @@ import {
   ChevronDown,
   ChevronUp,
   Sparkles,
-  Heart,
   Share2,
   ArrowRight,
 } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
 import { ProductCoverCard } from '@/components/marketplace';
-import { getShopPattern, FloatingShapes } from '@/components/marketplace';
+import { getShopPattern } from '@/components/marketplace';
 import { useCartStore } from '@/components/cart';
 import { formatPrice } from '@/lib/utils';
 import { getShopTheme, getProductShape } from '@/lib/shop-themes';
 import type { ProductCoverData } from '@/components/marketplace';
 import { PRODUCTS_DB, RELATED_PRODUCTS } from '@/lib/products-data';
+import { ProductLikeButton } from '@/components/shop/ProductLikeButton';
+import { ProductViewCounter } from '@/components/shop/ProductViewCounter';
+import { ProductReviews } from '@/components/shop/ProductReviews';
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -53,7 +55,7 @@ export default function ProductDetailPage() {
     );
   }
 
-  const { product, description, features, faqs, testimonials } = productData;
+  const { product, description, features, faqs } = productData;
   const theme = getShopTheme(product.category);
   const Pattern = getShopPattern(product.category);
   const shapePath = getProductShape(0);
@@ -168,24 +170,27 @@ export default function ProductDetailPage() {
                 {product.tagline}
               </p>
 
-              {/* Rating */}
-              {product.rating && (
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-5 h-5 ${
-                          i < Math.floor(product.rating!) ? 'text-amber-400 fill-amber-400' : 'text-white/30'
-                        }`}
-                      />
-                    ))}
+              {/* Rating & Views */}
+              <div className="flex flex-wrap items-center gap-4 mb-8">
+                {product.rating && (
+                  <div className="flex items-center gap-2">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-5 h-5 ${
+                            i < Math.floor(product.rating!) ? 'text-amber-400 fill-amber-400' : 'text-white/30'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-white/70">
+                      {product.rating} ({product.reviewCount} reviews)
+                    </span>
                   </div>
-                  <span className="text-white/70">
-                    {product.rating} ({product.reviewCount} reviews)
-                  </span>
-                </div>
-              )}
+                )}
+                <ProductViewCounter slug={slug} variant="badge" />
+              </div>
 
               {/* Price */}
               <div className="flex items-baseline gap-4 mb-10">
@@ -226,12 +231,7 @@ export default function ProductDetailPage() {
                     {isInCart ? 'Added to Cart' : 'Add to Cart'}
                   </motion.button>
                 )}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  className="p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
-                >
-                  <Heart className="w-5 h-5" />
-                </motion.button>
+                <ProductLikeButton slug={slug} variant="floating" />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   className="p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
@@ -352,53 +352,8 @@ export default function ProductDetailPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      {testimonials.length > 0 && (
-        <section className="py-20 px-6 bg-navy relative overflow-hidden">
-          <FloatingShapes theme={product.category.toLowerCase()} />
-
-          <div className="max-w-4xl mx-auto relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-14"
-            >
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-cherry/20 text-cherry-light rounded-full text-sm font-medium mb-4">
-                <Heart className="w-4 h-4" />
-                Customer Love
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-beige">
-                What People Say
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {testimonials.map((testimonial, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10"
-                >
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, j) => (
-                      <Star key={j} className="w-5 h-5 text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-lg text-beige/90 mb-6 italic">"{testimonial.content}"</p>
-                  <div>
-                    <p className="font-bold text-white">{testimonial.author}</p>
-                    <p className="text-sm text-beige/60">{testimonial.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Customer Reviews */}
+      <ProductReviews slug={slug} productName={product.name} />
 
       {/* FAQs */}
       <section className={`py-20 px-6 bg-gradient-to-b from-cream to-parchment`}>

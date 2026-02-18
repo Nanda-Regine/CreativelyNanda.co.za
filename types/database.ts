@@ -22,8 +22,25 @@ export interface Product {
   file_path: string | null; // Supabase Storage path for downloadable file
   rating: number;
   review_count: number;
+  like_count: number;
+  view_count: number;
+  purchase_count: number;
   created_at: string;
   updated_at: string;
+}
+
+export interface ProductLike {
+  id: string;
+  product_id: string;
+  session_id: string;
+  created_at: string;
+}
+
+export interface ProductView {
+  id: string;
+  product_id: string;
+  session_id: string;
+  created_at: string;
 }
 
 export interface ProductFeature {

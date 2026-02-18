@@ -166,6 +166,13 @@ export function generateBlogPostingJsonLd(post: BlogPostSEO) {
   };
 }
 
+interface ProductReviewSEO {
+  authorName: string;
+  rating: number;
+  content: string;
+  datePublished: string;
+}
+
 interface ProductSEO {
   name: string;
   description: string;
@@ -179,6 +186,8 @@ interface ProductSEO {
   reviewCount?: number;
   brand?: string;
   image?: string;
+  reviews?: ProductReviewSEO[];
+  purchaseCount?: number;
 }
 
 export function generateProductJsonLd(product: ProductSEO) {
@@ -219,6 +228,22 @@ export function generateProductJsonLd(product: ProductSEO) {
       worstRating: '1',
       reviewCount: product.reviewCount,
     };
+  }
+
+  // Individual reviews for Google rich results
+  if (product.reviews && product.reviews.length > 0) {
+    jsonLd.review = product.reviews.map((review) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: review.authorName },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating.toString(),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      reviewBody: review.content,
+      datePublished: review.datePublished,
+    }));
   }
 
   return jsonLd;
