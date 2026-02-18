@@ -1,6 +1,15 @@
 'use client';
 import Link from 'next/link';
+import { Linkedin, Github, Twitter, Instagram, Mail } from 'lucide-react';
 import { PWAInstallButton } from '@/components/ui';
+
+const SOCIALS = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/', icon: Linkedin },
+  { name: 'GitHub', href: 'https://github.com/Nanda-Regine', icon: Github },
+  { name: 'Twitter/X', href: 'https://x.com/CreativelyNanda', icon: Twitter },
+  { name: 'Instagram', href: 'https://www.instagram.com/nanda.regine/', icon: Instagram },
+  { name: 'Email', href: 'mailto:hello@creativelynanda.co.za', icon: Mail },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -42,11 +51,20 @@ export default function Footer() {
           {/* Connect */}
           <div>
             <h4 className="font-display text-xl font-bold mb-4">Connect</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-beige/70 hover:text-cherry transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="text-beige/70 hover:text-cherry transition-colors">GitHub</a></li>
-              <li><a href="#" className="text-beige/70 hover:text-cherry transition-colors">Twitter/X</a></li>
-              <li><a href="mailto:hello@creativelynanda.co.za" className="text-beige/70 hover:text-cherry transition-colors">Email</a></li>
+            <ul className="space-y-3 text-sm">
+              {SOCIALS.map(({ name, href, icon: Icon }) => (
+                <li key={name}>
+                  <a
+                    href={href}
+                    target={name === 'Email' ? undefined : '_blank'}
+                    rel={name === 'Email' ? undefined : 'noopener noreferrer'}
+                    className="inline-flex items-center gap-2 text-beige/70 hover:text-cherry transition-colors"
+                  >
+                    <Icon className="w-4 h-4" />
+                    {name}
+                  </a>
+                </li>
+              ))}
             </ul>
 
             {/* PWA Install Button */}
@@ -61,13 +79,34 @@ export default function Footer() {
           <p className="text-beige/60 text-sm">
             © {currentYear} Nanda. Built with React, Next.js & creativity.
           </p>
-          <div className="flex gap-6 text-sm">
-            <Link href="/contact" className="text-beige/60 hover:text-cherry transition-colors">
-              Privacy
-            </Link>
-            <Link href="/contact" className="text-beige/60 hover:text-cherry transition-colors">
-              Terms
-            </Link>
+
+          <div className="flex items-center gap-4">
+            {/* Social icons row */}
+            <div className="flex gap-3">
+              {SOCIALS.map(({ name, href, icon: Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target={name === 'Email' ? undefined : '_blank'}
+                  rel={name === 'Email' ? undefined : 'noopener noreferrer'}
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-beige/10 text-beige/60 hover:bg-cherry hover:text-white transition-all"
+                  aria-label={name}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+
+            <span className="text-beige/20">|</span>
+
+            <div className="flex gap-6 text-sm">
+              <Link href="/contact" className="text-beige/60 hover:text-cherry transition-colors">
+                Privacy
+              </Link>
+              <Link href="/contact" className="text-beige/60 hover:text-cherry transition-colors">
+                Terms
+              </Link>
+            </div>
           </div>
         </div>
       </div>

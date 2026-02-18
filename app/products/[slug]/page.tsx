@@ -36,6 +36,28 @@ export default function ProductDetailPage() {
   const { addItem, getItem } = useCartStore();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isAdding, setIsAdding] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
+
+  const handleShare = async () => {
+    const url = `${window.location.origin}/products/${slug}`;
+    const shareData = {
+      title: PRODUCTS_DB[slug]?.product.name || 'Check this out',
+      text: PRODUCTS_DB[slug]?.product.tagline || '',
+      url,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch {
+        // User cancelled or share failed — ignore
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      setShowCopied(true);
+      setTimeout(() => setShowCopied(false), 2000);
+    }
+  };
 
   // Get product data
   const productData = PRODUCTS_DB[slug];
@@ -233,10 +255,21 @@ export default function ProductDetailPage() {
                 )}
                 <ProductLikeButton slug={slug} variant="floating" />
                 <motion.button
+                  onClick={handleShare}
                   whileHover={{ scale: 1.05 }}
-                  className="p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
+                  className="relative p-4 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-colors"
                 >
                   <Share2 className="w-5 h-5" />
+                  {showCopied && (
+                    <motion.span
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-white bg-navy/80 px-2 py-1 rounded whitespace-nowrap"
+                    >
+                      Link copied!
+                    </motion.span>
+                  )}
                 </motion.button>
               </div>
             </motion.div>
