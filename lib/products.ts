@@ -11,9 +11,9 @@ function toProductCoverData(p: Product): ProductCoverData {
     slug: p.slug,
     name: p.name,
     tagline: p.tagline || '',
-    price: Math.round(p.price / 100), // DB stores cents, UI expects rands
-    originalPrice: p.original_price ? Math.round(p.original_price / 100) : undefined,
-    category: p.category.charAt(0).toUpperCase() + p.category.slice(1), // capitalize
+    price: p.price,
+    originalPrice: p.original_price ?? undefined,
+    category: p.category.charAt(0).toUpperCase() + p.category.slice(1),
     rating: p.rating || undefined,
     reviewCount: p.review_count || undefined,
     badge: (p.badge as ProductCoverData['badge']) || undefined,
@@ -28,9 +28,9 @@ function toProductDetail(p: Product): ProductDetail {
   return {
     product: toProductCoverData(p),
     description: p.description || p.tagline || '',
-    features: (p.features as ProductFeature[]) || [],
+    features: (p.features as unknown as { title: string; description: string; icon: string }[]) || [],
     faqs: (p.faqs as ProductFAQ[]) || [],
-    testimonials: [], // Reviews come from testimonials table separately
+    testimonials: [],
   };
 }
 
@@ -73,7 +73,6 @@ export async function getProductBySlug(slug: string): Promise<ProductDetail | un
       .single();
 
     if (error || !data) {
-      // Fallback to hardcoded
       return getHardcodedProduct(slug);
     }
 
@@ -98,7 +97,6 @@ export async function getRelatedProducts(slug: string, category: string): Promis
       .limit(3);
 
     if (error || !data || data.length === 0) {
-      // If no same-category results, try any category
       const { data: fallbackData } = await supabase
         .from('products')
         .select('*')
