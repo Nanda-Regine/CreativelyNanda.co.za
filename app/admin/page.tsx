@@ -9,6 +9,8 @@ import {
   Package,
   ShoppingCart,
   Feather,
+  MessageSquare,
+  Mail,
   TrendingUp,
   Eye,
   DollarSign,
@@ -27,6 +29,8 @@ const QUICK_ACTIONS = [
   { label: 'Add Product', href: '/admin/products/new', icon: Package, color: 'bg-purple-500' },
   { label: 'View Orders', href: '/admin/orders', icon: ShoppingCart, color: 'bg-emerald-500' },
   { label: 'Manage Poetry', href: '/admin/poetry', icon: Feather, color: 'bg-pink-500' },
+  { label: 'Email Preview', href: '/admin/email-preview', icon: Mail, color: 'bg-amber-500' },
+  { label: 'Reviews', href: '/admin/reviews', icon: MessageSquare, color: 'bg-rose-500' },
 ];
 
 const NAV_ITEMS = [
@@ -35,6 +39,7 @@ const NAV_ITEMS = [
   { label: 'Products', href: '/admin/products', icon: Package },
   { label: 'Orders', href: '/admin/orders', icon: ShoppingCart },
   { label: 'Poetry', href: '/admin/poetry', icon: Feather },
+  { label: 'Reviews', href: '/admin/reviews', icon: MessageSquare },
 ];
 
 type DashboardStats = {

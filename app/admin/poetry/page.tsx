@@ -9,6 +9,7 @@ import {
   Package,
   ShoppingCart,
   Feather,
+  MessageSquare,
   Search,
   Edit,
   Trash2,
@@ -31,6 +32,7 @@ const NAV_ITEMS = [
   { label: 'Products', href: '/admin/products', icon: Package },
   { label: 'Orders', href: '/admin/orders', icon: ShoppingCart },
   { label: 'Poetry', href: '/admin/poetry', icon: Feather, active: true },
+  { label: 'Reviews', href: '/admin/reviews', icon: MessageSquare },
 ];
 
 const themeColors: Record<string, string> = {

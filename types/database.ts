@@ -22,6 +22,7 @@ export interface Product {
   is_featured: boolean;
   payfast_item_id: string | null;
   file_path: string | null; // Supabase Storage path for downloadable file
+  guide_url: string | null; // Optional quick-start guide PDF URL
   rating: number;
   review_count: number;
   like_count: number;

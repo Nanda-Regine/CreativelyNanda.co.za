@@ -6,6 +6,7 @@ export interface ProductDetail {
   features: { title: string; description: string; icon: string }[];
   faqs: { question: string; answer: string }[];
   testimonials: { author: string; role: string; content: string; rating: number }[];
+  images?: string[];
 }
 
 // Full product data for detail pages - will be fetched from Supabase in production

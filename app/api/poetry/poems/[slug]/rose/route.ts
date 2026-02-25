@@ -50,7 +50,7 @@ export async function POST(
     return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
   }
 
-  // Insert rose (pending approval)
+  // Insert rose (auto-approved)
   const { data: rose, error } = await supabase
     .from('poem_roses')
     .insert({
@@ -59,7 +59,7 @@ export async function POST(
       author_name: isAnonymous ? null : authorName || null,
       author_email: authorEmail || null,
       is_anonymous: isAnonymous || false,
-      status: 'pending',
+      status: 'approved',
     })
     .select()
     .single();
@@ -74,7 +74,7 @@ export async function POST(
 
   return NextResponse.json({
     success: true,
-    message: 'Thank you for your rose! It will be visible once approved.',
+    message: 'Thank you for your rose!',
     rose,
   });
 }

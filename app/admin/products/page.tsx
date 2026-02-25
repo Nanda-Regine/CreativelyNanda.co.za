@@ -10,6 +10,7 @@ import {
   Package,
   ShoppingCart,
   Feather,
+  MessageSquare,
   Plus,
   Search,
   Edit,
@@ -30,6 +31,7 @@ const NAV_ITEMS = [
   { label: 'Products', href: '/admin/products', icon: Package, active: true },
   { label: 'Orders', href: '/admin/orders', icon: ShoppingCart },
   { label: 'Poetry', href: '/admin/poetry', icon: Feather },
+  { label: 'Reviews', href: '/admin/reviews', icon: MessageSquare },
 ];
 
 const categoryColors: Record<string, string> = {

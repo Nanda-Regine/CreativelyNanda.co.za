@@ -1,6 +1,7 @@
 import './globals.css';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import NandaAssistant from '@/components/NandaAssistant';
@@ -135,6 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gtag('config', 'G-D6T4LD5XDE');
           `}
         </Script>
+        <Analytics />
       </body>
     </html>
   );

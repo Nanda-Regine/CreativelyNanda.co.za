@@ -19,6 +19,7 @@ export interface ProductCoverData {
   reviewCount?: number;
   badge?: 'NEW' | 'BESTSELLER' | 'POPULAR' | 'LAUNCHING';
   status?: 'live' | 'beta' | 'coming-soon';
+  thumbnail?: string;
 }
 
 interface ProductCoverCardProps {

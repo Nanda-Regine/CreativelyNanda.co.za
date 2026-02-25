@@ -82,6 +82,7 @@ export default function PoemReader() {
   const [likes, setLikes] = useState(0);
   const [isReading, setIsReading] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
   const [roses, setRoses] = useState<Rose[]>([]);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -189,10 +190,16 @@ export default function PoemReader() {
           text: `Read "${poem.title}" from Inside Her Roses by Nanda Regine`,
           url: window.location.href,
         });
+        return;
       } catch {
-        setShowShareMenu(!showShareMenu);
+        // Fallback to copy if share fails or user cancels
       }
-    } else {
+    }
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2500);
+    } catch {
       setShowShareMenu(!showShareMenu);
     }
   };
@@ -231,10 +238,15 @@ export default function PoemReader() {
       if (res.ok) {
         setSubmitted(true);
         setNewRose({ name: '', content: '', isAnonymous: false });
+        // Reload roses so the new one appears immediately
+        fetch(`/api/poetry/poems/${slug}/rose`)
+          .then(r => r.json())
+          .then(data => { if (Array.isArray(data)) setRoses(data); })
+          .catch(() => {});
         setTimeout(() => {
           setSubmitted(false);
           setShowReviewForm(false);
-        }, 3000);
+        }, 2000);
       }
     } catch (error) {
       console.error('Error submitting rose:', error);
@@ -365,17 +377,29 @@ export default function PoemReader() {
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={handleShare}
-                className="p-2 rounded-full hover:bg-navy/5 text-navy/60 transition-colors"
+                className={`p-2 rounded-full transition-colors ${shareCopied ? 'bg-emerald-100 text-emerald-600' : 'hover:bg-navy/5 text-navy/60'}`}
                 title="Share"
               >
                 <Share2 className="w-5 h-5" />
               </motion.button>
+              {shareCopied && (
+                <motion.div
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-navy text-white text-xs rounded-lg whitespace-nowrap shadow-lg"
+                >
+                  Link copied!
+                </motion.div>
+              )}
               {showShareMenu && (
                 <div className="absolute top-full left-0 mt-2 py-2 px-3 bg-white rounded-xl shadow-lg border border-navy/10 text-sm z-50">
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(window.location.href);
+                      setShareCopied(true);
                       setShowShareMenu(false);
+                      setTimeout(() => setShareCopied(false), 2500);
                     }}
                     className="block w-full text-left py-1 text-navy hover:text-cherry whitespace-nowrap"
                   >
@@ -475,7 +499,7 @@ export default function PoemReader() {
                       Thank you for your rose!
                     </h4>
                     <p className="text-navy/60 text-sm">
-                      It will appear once approved.
+                      Your rose has been added below.
                     </p>
                   </motion.div>
                 ) : (

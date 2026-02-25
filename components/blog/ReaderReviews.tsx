@@ -56,10 +56,15 @@ export function ReaderReviews({ slug, initialReviews = [] }: ReaderReviewsProps)
 
       setSubmitted(true);
       setFormData({ authorName: '', authorEmail: '', content: '', rating: 0 });
+      // Reload reviews immediately so the new one appears
+      fetch(`/api/blog/posts/${slug}/review`)
+        .then(r => r.json())
+        .then(d => { if (Array.isArray(d)) setReviews(d); })
+        .catch(() => {});
       setTimeout(() => {
         setSubmitted(false);
         setIsFormOpen(false);
-      }, 3000);
+      }, 2000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
@@ -131,7 +136,7 @@ export function ReaderReviews({ slug, initialReviews = [] }: ReaderReviewsProps)
                     Thank You!
                   </h4>
                   <p className="text-navy/60 text-sm">
-                    Your insight will be visible once approved.
+                    Your insight is now live below!
                   </p>
                 </motion.div>
               ) : (

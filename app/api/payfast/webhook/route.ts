@@ -140,7 +140,7 @@ export async function POST(request: NextRequest) {
     if (status === 'completed' && order.user_email) {
       try {
         // Parse items from order items field
-        const orderItems = (order.items as Array<{ name: string; price: number; quantity: number }>) || [];
+        const orderItems = (order.items as Array<{ name: string; price: number; quantity: number; guide_url?: string | null }>) || [];
 
         // Build download links using the order's unique download token
         // Each link points to /api/downloads/[token]?item=N
@@ -150,6 +150,11 @@ export async function POST(request: NextRequest) {
           name: item.name,
           url: `${SITE_URL}/api/downloads/${downloadToken}${orderItems.length > 1 ? `?item=${index}` : ''}`,
         }));
+
+        // Build guide links for items that have a quick-start guide URL
+        const guideLinks = orderItems
+          .filter((item) => item.guide_url)
+          .map((item) => ({ name: item.name, url: item.guide_url as string }));
 
         await sendPurchaseConfirmation({
           to: order.user_email,
@@ -163,6 +168,7 @@ export async function POST(request: NextRequest) {
           items: orderItems,
           total: order.amount / 100,
           downloadLinks,
+          guideLinks,
           locale: 'en',
         });
 

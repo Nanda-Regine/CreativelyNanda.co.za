@@ -18,6 +18,7 @@ function toProductCoverData(p: Product): ProductCoverData {
     reviewCount: p.review_count || undefined,
     badge: (p.badge as ProductCoverData['badge']) || undefined,
     status: p.status === 'coming-soon' ? 'coming-soon' : p.status === 'live' ? 'live' : undefined,
+    thumbnail: p.thumbnail || undefined,
   };
 }
 
@@ -31,6 +32,7 @@ function toProductDetail(p: Product): ProductDetail {
     features: (p.features as unknown as { title: string; description: string; icon: string }[]) || [],
     faqs: (p.faqs as ProductFAQ[]) || [],
     testimonials: [],
+    images: p.images || [],
   };
 }
 

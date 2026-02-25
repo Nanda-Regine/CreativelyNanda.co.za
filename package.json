@@ -15,6 +15,7 @@
     "@next/third-parties": "^16.1.6",
     "@react-email/components": "^1.0.7",
     "@supabase/supabase-js": "^2.95.2",
+    "@vercel/analytics": "^1.6.1",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
     "framer-motion": "^12.27.1",

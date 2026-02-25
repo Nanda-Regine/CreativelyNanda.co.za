@@ -78,7 +78,7 @@ export async function POST(
     return NextResponse.json({ error: 'Post not found' }, { status: 404 });
   }
 
-  // Insert review (pending approval)
+  // Insert review — auto-approved so it shows immediately
   const { data: review, error } = await supabase
     .from('blog_reviews')
     .insert({
@@ -87,6 +87,7 @@ export async function POST(
       author_email: authorEmail || null,
       content: content.trim(),
       rating: rating || null,
+      is_approved: true,
     })
     .select()
     .single();
@@ -101,7 +102,7 @@ export async function POST(
 
   return NextResponse.json({
     success: true,
-    message: 'Thank you! Your review will be visible once approved.',
+    message: 'Thank you! Your review is now live.',
     review,
   });
 }
@@ -123,7 +124,6 @@ export async function GET(
     return NextResponse.json([]);
   }
 
-  // Get approved reviews (admin client bypasses RLS, so filter explicitly)
   const { data: reviews, error } = await supabase
     .from('blog_reviews')
     .select('*')
@@ -137,4 +137,25 @@ export async function GET(
   }
 
   return NextResponse.json(reviews);
+}
+
+// Admin delete a review
+export async function DELETE(request: Request) {
+  const supabase = getSupabase();
+  const { reviewId } = await request.json();
+
+  if (!reviewId) {
+    return NextResponse.json({ error: 'Review ID required' }, { status: 400 });
+  }
+
+  const { error } = await supabase
+    .from('blog_reviews')
+    .delete()
+    .eq('id', reviewId);
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json({ success: true });
 }

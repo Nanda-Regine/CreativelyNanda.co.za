@@ -45,15 +45,32 @@ export async function POST(
     return NextResponse.json({ error: 'Session ID required' }, { status: 400 });
   }
 
-  // Get the poem
-  const { data: poem } = await supabase
+  // Get or auto-create the poem record
+  let poem: { id: string; heart_count: number } | null = null;
+  const { data: existingPoem } = await supabase
     .from('poems')
     .select('id, heart_count')
     .eq('slug', params.slug)
     .single();
 
+  if (existingPoem) {
+    poem = existingPoem;
+  } else {
+    // Auto-create a minimal poem record so hearts can be stored
+    const title = params.slug
+      .split('-')
+      .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
+    const { data: newPoem } = await supabase
+      .from('poems')
+      .insert({ slug: params.slug, title, content: title, heart_count: 0 })
+      .select('id, heart_count')
+      .single();
+    poem = newPoem;
+  }
+
   if (!poem) {
-    return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
+    return NextResponse.json({ error: 'Failed to process poem' }, { status: 500 });
   }
 
   // Try to insert a heart
@@ -109,7 +126,7 @@ export async function DELETE(
     .single();
 
   if (!poem) {
-    return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
+    return NextResponse.json({ success: true, heartCount: 0 });
   }
 
   // Delete the heart
@@ -141,21 +158,24 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const sessionId = searchParams.get('sessionId');
 
-  if (!sessionId) {
-    return NextResponse.json({ hasHearted: false, heartCount: 0 });
-  }
-
   const supabase = getSupabase();
 
-  // Get the poem
+  // Get the poem (no sessionId needed to get the count)
   const { data: poem } = await supabase
     .from('poems')
-    .select('id')
+    .select('id, heart_count')
     .eq('slug', params.slug)
     .single();
 
   if (!poem) {
-    return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
+    // Poem not in Supabase yet - return zeros gracefully
+    return NextResponse.json({ hasHearted: false, heartCount: 0 });
+  }
+
+  if (!sessionId) {
+    // No session - just return current count without personal state
+    const heartCount = await getActualHeartCount(supabase, poem.id);
+    return NextResponse.json({ hasHearted: false, heartCount });
   }
 
   // Check if hearted

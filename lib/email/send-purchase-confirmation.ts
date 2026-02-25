@@ -15,6 +15,7 @@ interface SendPurchaseConfirmationOptions {
   items: OrderItem[];
   total: number;
   downloadLinks?: { name: string; url: string }[];
+  guideLinks?: { name: string; url: string }[];
   locale?: 'en' | 'af' | 'zu';
 }
 
@@ -26,6 +27,7 @@ export async function sendPurchaseConfirmation({
   items,
   total,
   downloadLinks = [],
+  guideLinks = [],
   locale = 'en',
 }: SendPurchaseConfirmationOptions) {
   try {
@@ -45,6 +47,7 @@ export async function sendPurchaseConfirmation({
         items,
         total,
         downloadLinks,
+        guideLinks,
         locale,
       }),
     });

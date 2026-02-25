@@ -33,11 +33,14 @@ export async function POST(request: NextRequest) {
     const productSlugs = items.map((item) => item.slug);
     const { data: products } = await supabase
       .from('products')
-      .select('slug, file_path')
+      .select('slug, file_path, guide_url')
       .in('slug', productSlugs);
 
     const filePathMap = new Map(
       (products || []).map((p) => [p.slug, p.file_path]),
+    );
+    const guideUrlMap = new Map(
+      (products || []).map((p) => [p.slug, (p as { guide_url?: string | null }).guide_url ?? null]),
     );
 
     // For multiple items, we'll create a combined order
@@ -52,6 +55,7 @@ export async function POST(request: NextRequest) {
       price: item.price,
       quantity: item.quantity,
       file_path: filePathMap.get(item.slug) || null,
+      guide_url: guideUrlMap.get(item.slug) || null,
     }));
 
     // Create order record

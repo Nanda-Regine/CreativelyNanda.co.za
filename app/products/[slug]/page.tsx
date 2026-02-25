@@ -26,6 +26,7 @@ export default async function ProductDetailPage({
       features={productData.features}
       faqs={productData.faqs}
       relatedProducts={relatedProducts}
+      images={productData.images || []}
     />
   );
 }

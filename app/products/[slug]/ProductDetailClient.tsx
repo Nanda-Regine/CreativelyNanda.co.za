@@ -27,6 +27,7 @@ import type { ProductCoverData } from '@/components/marketplace';
 import { ProductLikeButton } from '@/components/shop/ProductLikeButton';
 import { ProductViewCounter } from '@/components/shop/ProductViewCounter';
 import { ProductReviews } from '@/components/shop/ProductReviews';
+import { ProductGallery } from '@/components/shop/ProductGallery';
 
 interface ProductDetailClientProps {
   slug: string;
@@ -35,6 +36,7 @@ interface ProductDetailClientProps {
   features: { title: string; description?: string; icon?: string }[];
   faqs: { question: string; answer: string }[];
   relatedProducts: ProductCoverData[];
+  images?: string[];
 }
 
 export default function ProductDetailClient({
@@ -44,6 +46,7 @@ export default function ProductDetailClient({
   features,
   faqs,
   relatedProducts,
+  images = [],
 }: ProductDetailClientProps) {
   const { addItem, getItem } = useCartStore();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -88,7 +91,7 @@ export default function ProductDetailClient({
       name: product.name,
       price: product.price,
       original_price: product.originalPrice,
-      thumbnail: '',
+      thumbnail: product.thumbnail || (images.length > 0 ? images[0] : ''),
     });
     setTimeout(() => setIsAdding(false), 500);
   };
@@ -337,6 +340,15 @@ export default function ProductDetailClient({
           </motion.div>
         </div>
       </section>
+
+      {/* Gallery Section */}
+      {images.length >= 1 && (
+        <section className="py-20 px-6 bg-parchment">
+          <div className="max-w-5xl mx-auto">
+            <ProductGallery images={images} productName={product.name} />
+          </div>
+        </section>
+      )}
 
       {/* Features Section */}
       {features.length > 0 && (

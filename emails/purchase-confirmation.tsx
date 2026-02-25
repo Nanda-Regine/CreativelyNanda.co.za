@@ -29,6 +29,7 @@ interface PurchaseConfirmationEmailProps {
   items: OrderItem[];
   total: number;
   downloadLinks?: { name: string; url: string }[];
+  guideLinks?: { name: string; url: string }[];
   locale?: 'en' | 'af' | 'zu';
 }
 
@@ -49,6 +50,9 @@ const translations = {
     downloadTitle: 'Your Downloads',
     downloadDescription: 'Click the links below to download your products. These links expire in 7 days.',
     downloadButton: 'Download Now',
+    guideTitle: '📖 Quick Start Guide',
+    guideDescription: "Get up and running fast with your product's quick start guide.",
+    guideButton: 'Open Quick Start Guide',
     needHelp: 'Need Help?',
     helpText: "If you have any questions about your purchase, we're here to help.",
     contactUs: 'Contact Support',
@@ -70,6 +74,9 @@ const translations = {
     downloadTitle: 'Jou Aflaaie',
     downloadDescription: 'Klik op die skakels hieronder om jou produkte af te laai. Hierdie skakels verval oor 7 dae.',
     downloadButton: 'Laai Nou Af',
+    guideTitle: '📖 Vinnige Aanvangs Gids',
+    guideDescription: 'Begin vinnig met jou produk se vinnige aanvangs gids.',
+    guideButton: 'Open Vinnige Aanvangs Gids',
     needHelp: 'Hulp Nodig?',
     helpText: 'As jy enige vrae het oor jou aankoop, is ons hier om te help.',
     contactUs: 'Kontak Ondersteuning',
@@ -91,6 +98,9 @@ const translations = {
     downloadTitle: 'Ukudawuniloda Kwakho',
     downloadDescription: 'Chofoza izixhumanisi ezingezansi ukudawuniloda imikhiqizo yakho. Lezi zixhumanisi ziphelelwa isikhathi ezinsukwini eziyi-7.',
     downloadButton: 'Dawuniloda Manje',
+    guideTitle: '📖 Isiqondiso Sokuqala Ngokushesha',
+    guideDescription: 'Qala ngokushesha ngesiqondiso sokuqala ngokushesha somkhiqizo wakho.',
+    guideButton: 'Vula Isiqondiso',
     needHelp: 'Udinga Usizo?',
     helpText: 'Uma unemibuzo ngokuthenga kwakho, silapha ukusiza.',
     contactUs: 'Xhumana Nosizo',
@@ -110,6 +120,7 @@ export const PurchaseConfirmationEmail = ({
   items,
   total,
   downloadLinks = [],
+  guideLinks = [],
   locale = 'en',
 }: PurchaseConfirmationEmailProps) => {
   const t = translations[locale];
@@ -187,7 +198,20 @@ export const PurchaseConfirmationEmail = ({
 
                 {downloadLinks.map((link, index) => (
                   <Button key={index} style={downloadButton} href={link.url}>
-                    {link.name} - {t.downloadButton}
+                    {link.name} — {t.downloadButton}
+                  </Button>
+                ))}
+              </Section>
+            )}
+
+            {/* Quick Start Guide Section */}
+            {guideLinks.length > 0 && (
+              <Section style={guideSection}>
+                <Heading as="h2" style={guideSectionHeading}>{t.guideTitle}</Heading>
+                <Text style={guideSectionText}>{t.guideDescription}</Text>
+                {guideLinks.map((link, index) => (
+                  <Button key={index} style={guideButton} href={link.url}>
+                    {link.name} — {t.guideButton}
                   </Button>
                 ))}
               </Section>
@@ -370,6 +394,40 @@ const downloadButton = {
   textAlign: 'center' as const,
   textDecoration: 'none',
   margin: '12px 0',
+};
+
+const guideSection = {
+  backgroundColor: '#fff8e7',
+  border: '2px solid #f59e0b',
+  borderRadius: '10px',
+  padding: '24px',
+  margin: '24px 0',
+};
+
+const guideSectionHeading = {
+  color: '#92400e',
+  fontSize: '18px',
+  fontWeight: '700',
+  margin: '0 0 8px',
+};
+
+const guideSectionText = {
+  color: '#78350f',
+  fontSize: '14px',
+  margin: '0 0 16px',
+};
+
+const guideButton = {
+  backgroundColor: '#f59e0b',
+  borderRadius: '8px',
+  color: '#1c1917',
+  display: 'block',
+  fontSize: '14px',
+  fontWeight: '700',
+  padding: '14px 24px',
+  textAlign: 'center' as const,
+  textDecoration: 'none',
+  margin: '8px 0',
 };
 
 const helpSection = {
