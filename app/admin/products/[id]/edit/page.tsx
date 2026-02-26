@@ -17,6 +17,8 @@ import {
   CheckCircle,
   Plus,
   Trash2,
+  FileUp,
+  X,
 } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
 import { ImageUploader } from '@/components/admin/ImageUploader';
@@ -70,6 +72,9 @@ export default function EditProductPage() {
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [notionUrl, setNotionUrl] = useState('');
   const [guideUrl, setGuideUrl] = useState('');
+  const [pdfUploading, setPdfUploading] = useState(false);
+  const [pdfPath, setPdfPath] = useState(''); // Supabase Storage path (if PDF uploaded)
+  const [pdfFileName, setPdfFileName] = useState('');
 
   // Features & FAQs
   const [features, setFeatures] = useState<Feature[]>([{ title: '', description: '', icon: '' }]);
@@ -97,7 +102,14 @@ export default function EditProductPage() {
       setIsFeatured(data.is_featured || false);
       setThumbnail(data.thumbnail || '');
       setGalleryImages(data.images || []);
-      setNotionUrl(data.file_path || '');
+      // If file_path looks like a storage path (no http), it's a PDF in Supabase Storage
+      const fp = data.file_path || '';
+      if (fp && !fp.startsWith('http')) {
+        setPdfPath(fp);
+        setPdfFileName(fp.split('/').pop() || fp);
+      } else {
+        setNotionUrl(fp);
+      }
       setGuideUrl(data.guide_url || '');
       if (Array.isArray(data.features) && data.features.length > 0) {
         setFeatures(data.features as Feature[]);
@@ -129,7 +141,7 @@ export default function EditProductPage() {
       is_featured: isFeatured,
       thumbnail: thumbnail || null,
       images: galleryImages,
-      file_path: notionUrl || null,
+      file_path: pdfPath || notionUrl || null,
       guide_url: guideUrl || null,
       features: features.filter(f => f.title),
       faqs: faqs.filter(f => f.question && f.answer),
@@ -143,6 +155,42 @@ export default function EditProductPage() {
       setTimeout(() => setSuccess(false), 3000);
     }
     setSaving(false);
+  };
+
+  const handlePdfUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setPdfUploading(true);
+    const form = new FormData();
+    form.append('file', file);
+    form.append('folder', 'pdfs');
+    try {
+      const res = await fetch('/api/admin/upload-pdf', { method: 'POST', body: form });
+      const json = await res.json();
+      if (json.path) {
+        setPdfPath(json.path);
+        setPdfFileName(file.name);
+        setNotionUrl('');
+      } else {
+        alert(json.error || 'PDF upload failed');
+      }
+    } catch {
+      alert('PDF upload failed');
+    }
+    setPdfUploading(false);
+    e.target.value = '';
+  };
+
+  const removePdf = async () => {
+    if (pdfPath) {
+      await fetch('/api/admin/upload-pdf', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: pdfPath }),
+      });
+    }
+    setPdfPath('');
+    setPdfFileName('');
   };
 
   const addFeature = () => setFeatures([...features, { title: '', description: '', icon: '' }]);
@@ -342,19 +390,50 @@ export default function EditProductPage() {
                       maxImages={12}
                       label="Gallery Screenshots"
                     />
+                    {/* PDF Upload */}
                     <div>
-                      <label className="block text-sm font-medium text-navy mb-1.5">Notion Template URL / Download Link</label>
-                      <input value={notionUrl} onChange={e => setNotionUrl(e.target.value)}
-                        className="w-full px-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry font-mono text-sm"
-                        placeholder="https://www.notion.so/templates/..." />
-                      <p className="text-xs text-navy/40 mt-1">Customers receive this URL after purchase via email</p>
+                      <label className="block text-sm font-medium text-navy mb-1.5">Product PDF File</label>
+                      {pdfPath ? (
+                        <div className="flex items-center gap-3 p-3 bg-emerald-50 border border-emerald-200 rounded-lg">
+                          <FileUp className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                          <span className="text-sm text-emerald-700 flex-1 truncate">{pdfFileName}</span>
+                          <button type="button" onClick={removePdf} className="p-1 hover:bg-emerald-100 rounded text-emerald-600">
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ) : (
+                        <label className={`flex items-center gap-3 p-4 border-2 border-dashed border-navy/20 rounded-lg cursor-pointer hover:border-cherry/40 hover:bg-cherry/5 transition-colors ${pdfUploading ? 'opacity-60 pointer-events-none' : ''}`}>
+                          {pdfUploading ? (
+                            <Loader2 className="w-5 h-5 text-cherry animate-spin" />
+                          ) : (
+                            <FileUp className="w-5 h-5 text-navy/40" />
+                          )}
+                          <span className="text-sm text-navy/60">
+                            {pdfUploading ? 'Uploading PDF...' : 'Click to upload PDF file (max 50MB)'}
+                          </span>
+                          <input type="file" accept=".pdf,application/pdf" onChange={handlePdfUpload} className="hidden" />
+                        </label>
+                      )}
+                      <p className="text-xs text-navy/40 mt-1">Customers receive a secure download link after purchase. PDF stored privately.</p>
                     </div>
+
+                    {/* OR Notion URL fallback */}
+                    {!pdfPath && (
+                      <div>
+                        <label className="block text-sm font-medium text-navy mb-1.5">— or — Notion Template / External URL</label>
+                        <input value={notionUrl} onChange={e => setNotionUrl(e.target.value)}
+                          className="w-full px-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry font-mono text-sm"
+                          placeholder="https://www.notion.so/templates/..." />
+                        <p className="text-xs text-navy/40 mt-1">Use this if your product is a Notion template or hosted externally</p>
+                      </div>
+                    )}
+
                     <div>
-                      <label className="block text-sm font-medium text-navy mb-1.5">Quick Start Guide URL</label>
+                      <label className="block text-sm font-medium text-navy mb-1.5">Quick Start Guide URL (optional)</label>
                       <input value={guideUrl} onChange={e => setGuideUrl(e.target.value)}
                         className="w-full px-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry font-mono text-sm"
                         placeholder="https://..." />
-                      <p className="text-xs text-navy/40 mt-1">Optional PDF guide included in the confirmation email</p>
+                      <p className="text-xs text-navy/40 mt-1">Extra guide link included in the confirmation email</p>
                     </div>
                   </div>
                 </div>

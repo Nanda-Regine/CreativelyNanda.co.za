@@ -20,7 +20,7 @@ import {
   Loader2,
   AlertCircle,
   CheckCircle,
-  XCircle,
+  BarChart2,
 } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
 import { getPoems, deletePoem, updatePoem } from '../actions/poems';
@@ -113,6 +113,7 @@ export default function AdminPoetryPage() {
   });
 
   const totalHearts = poems.reduce((sum, p) => sum + (p.heart_count || 0), 0);
+  const totalViews = poems.reduce((sum, p) => sum + (p.view_count || 0), 0);
   const uniqueThemes = Array.from(new Set(poems.map(p => p.theme).filter(Boolean)));
 
   return (
@@ -177,50 +178,59 @@ export default function AdminPoetryPage() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
-                  <Feather className="w-6 h-6 text-purple-600" />
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+            <div className="bg-white rounded-xl p-5 shadow-sm border border-navy/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0">
+                  <Feather className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-navy">{poems.length}</p>
-                  <p className="text-sm text-navy/60">Total Poems</p>
+                  <p className="text-xs text-navy/60">Total Poems</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-pink-100 flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-pink-600" />
+            <div className="bg-white rounded-xl p-5 shadow-sm border border-navy/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0">
+                  <Heart className="w-5 h-5 text-pink-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-navy">{totalHearts.toLocaleString()}</p>
-                  <p className="text-sm text-navy/60">Total Hearts</p>
+                  <p className="text-xs text-navy/60">Total Hearts</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-emerald-600" />
+            <div className="bg-white rounded-xl p-5 shadow-sm border border-navy/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <BarChart2 className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-navy">
-                    {poems.filter(p => p.is_published).length}
-                  </p>
-                  <p className="text-sm text-navy/60">Published</p>
+                  <p className="text-2xl font-bold text-navy">{totalViews.toLocaleString()}</p>
+                  <p className="text-xs text-navy/60">Total Views</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-navy/10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
-                  <Filter className="w-6 h-6 text-amber-600" />
+            <div className="bg-white rounded-xl p-5 shadow-sm border border-navy/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="w-5 h-5 text-emerald-600" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-navy">{poems.filter(p => p.is_published).length}</p>
+                  <p className="text-xs text-navy/60">Published</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-5 shadow-sm border border-navy/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                  <Filter className="w-5 h-5 text-amber-600" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-navy">{uniqueThemes.length}</p>
-                  <p className="text-sm text-navy/60">Themes</p>
+                  <p className="text-xs text-navy/60">Themes</p>
                 </div>
               </div>
             </div>
@@ -296,6 +306,7 @@ export default function AdminPoetryPage() {
                     <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Theme</th>
                     <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Collection</th>
                     <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Hearts</th>
+                    <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Views</th>
                     <th className="text-left px-6 py-4 text-sm font-medium text-navy/60">Status</th>
                     <th className="text-right px-6 py-4 text-sm font-medium text-navy/60">Actions</th>
                   </tr>
@@ -335,6 +346,12 @@ export default function AdminPoetryPage() {
                         <span className="flex items-center gap-1 text-navy/70">
                           <Heart className="w-4 h-4 text-pink-500" />
                           {(poem.heart_count || 0).toLocaleString()}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4">
+                        <span className="flex items-center gap-1 text-navy/70">
+                          <Eye className="w-4 h-4 text-blue-400" />
+                          {(poem.view_count || 0).toLocaleString()}
                         </span>
                       </td>
                       <td className="px-6 py-4">
