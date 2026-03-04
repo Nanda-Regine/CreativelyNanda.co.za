@@ -12,19 +12,17 @@ interface ProductGalleryProps {
 
 export function ProductGallery({ images, productName }: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [failedSrcs, setFailedSrcs] = useState<Set<string>>(new Set());
+  const [failedIndices, setFailedIndices] = useState<Set<number>>(new Set());
 
-  const validImages = images
-    .filter(Boolean)
-    .filter(src => !failedSrcs.has(src))
-    .slice(0, 12);
+  const validImages = images.filter(Boolean).slice(0, 12);
 
-  const handleError = (src: string) => {
-    setFailedSrcs(prev => new Set(prev).add(src));
-    setSelectedIndex(null);
+  const handleError = (index: number) => {
+    setFailedIndices(prev => new Set(prev).add(index));
   };
 
-  const open = (index: number) => setSelectedIndex(index);
+  const open = (index: number) => {
+    if (!failedIndices.has(index)) setSelectedIndex(index);
+  };
   const close = () => setSelectedIndex(null);
 
   const prev = useCallback(() => {
@@ -65,27 +63,35 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
         {validImages.map((src, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={!failedIndices.has(i) ? { scale: 1.02 } : {}}
+            whileTap={!failedIndices.has(i) ? { scale: 0.98 } : {}}
             onClick={() => open(i)}
-            className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group shadow-sm border border-navy/5 bg-navy/5"
+            className={`relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm border border-navy/5 bg-navy/5 ${!failedIndices.has(i) ? 'cursor-pointer group' : 'cursor-default'}`}
           >
-            <Image
-              src={src}
-              alt={`${productName} screenshot ${i + 1}`}
-              fill
-              unoptimized
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 768px) 50vw, 33vw"
-              onError={() => handleError(src)}
-            />
-            <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-all duration-200 flex items-center justify-center">
-              <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
-            </div>
-            {/* Index badge */}
-            <div className="absolute top-2 left-2 w-6 h-6 rounded-full bg-navy/60 backdrop-blur-sm text-white text-xs flex items-center justify-center font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-              {i + 1}
-            </div>
+            {failedIndices.has(i) ? (
+              <div className="absolute inset-0 bg-gradient-to-br from-navy/10 to-navy/20 flex items-center justify-center">
+                <Images className="w-8 h-8 text-navy/20" />
+              </div>
+            ) : (
+              <>
+                <Image
+                  src={src}
+                  alt={`${productName} screenshot ${i + 1}`}
+                  fill
+                  unoptimized
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  onError={() => handleError(i)}
+                />
+                <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-all duration-200 flex items-center justify-center">
+                  <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+                </div>
+                {/* Index badge */}
+                <div className="absolute top-2 left-2 w-6 h-6 rounded-full bg-navy/60 backdrop-blur-sm text-white text-xs flex items-center justify-center font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  {i + 1}
+                </div>
+              </>
+            )}
           </motion.div>
         ))}
       </div>
@@ -136,7 +142,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                 unoptimized
                 className="object-contain w-full h-full max-h-[75vh] bg-navy/20"
                 priority
-                onError={() => handleError(validImages[selectedIndex])}
+                onError={() => handleError(selectedIndex)}
               />
             </motion.div>
 
@@ -173,21 +179,29 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                 {validImages.map((src, i) => (
                   <button
                     key={i}
-                    onClick={() => setSelectedIndex(i)}
+                    onClick={() => open(i)}
+                    disabled={failedIndices.has(i)}
                     className={`relative w-14 h-10 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
                       i === selectedIndex
                         ? 'border-white scale-110 shadow-lg'
+                        : failedIndices.has(i)
+                        ? 'border-white/10 opacity-30 cursor-default'
                         : 'border-white/30 hover:border-white/70 opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <Image
-                      src={src}
-                      alt={`Thumbnail ${i + 1}`}
-                      fill
-                      unoptimized
-                      className="object-cover"
-                      sizes="56px"
-                    />
+                    {failedIndices.has(i) ? (
+                      <div className="absolute inset-0 bg-white/10" />
+                    ) : (
+                      <Image
+                        src={src}
+                        alt={`Thumbnail ${i + 1}`}
+                        fill
+                        unoptimized
+                        className="object-cover"
+                        sizes="56px"
+                        onError={() => handleError(i)}
+                      />
+                    )}
                   </button>
                 ))}
               </div>
