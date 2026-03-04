@@ -50,14 +50,11 @@ export async function POST(request: NextRequest) {
     const productSlugs = items.map((item) => item.slug);
     const { data: products } = await supabase
       .from('products')
-      .select('id, slug, file_path, guide_url')
+      .select('id, slug, guide_url')
       .in('slug', productSlugs);
 
     const productIdMap = new Map(
       (products || []).map((p) => [p.slug, p.id as string]),
-    );
-    const filePathMap = new Map(
-      (products || []).map((p) => [p.slug, p.file_path]),
     );
     const guideUrlMap = new Map(
       (products || []).map((p) => [p.slug, (p as { guide_url?: string | null }).guide_url ?? null]),
@@ -68,13 +65,13 @@ export async function POST(request: NextRequest) {
       .map((item) => `${item.name} x${item.quantity}`)
       .join('; ');
 
-    // Build order items with file_path for download
+    // Build order items with slug for PDF URL construction in webhook
     const orderItems = items.map((item) => ({
       product_id: item.product_id,
+      slug: item.slug,
       name: item.name,
       price: item.price,
       quantity: item.quantity,
-      file_path: filePathMap.get(item.slug) || null,
       guide_url: guideUrlMap.get(item.slug) || null,
     }));
 

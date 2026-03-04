@@ -140,21 +140,22 @@ export async function POST(request: NextRequest) {
     if (status === 'completed' && order.user_email) {
       try {
         // Parse items from order items field
-        const orderItems = (order.items as Array<{ name: string; price: number; quantity: number; guide_url?: string | null }>) || [];
+        const orderItems = (order.items as Array<{ name: string; price: number; quantity: number; slug?: string; guide_url?: string | null }>) || [];
 
-        // Build download links using the order's unique download token
-        // Each link points to /api/downloads/[token]?item=N
-        // The download API validates the token and serves a signed Storage URL
-        const downloadToken = order.download_token;
-        const downloadLinks = orderItems.map((item, index) => ({
-          name: item.name,
-          url: `${SITE_URL}/api/downloads/${downloadToken}${orderItems.length > 1 ? `?item=${index}` : ''}`,
-        }));
+        // PDF quick-start guides are served directly from public/assets/products/guides/{slug}.pdf
+        // Notion template links come from guide_url stored at order time
+        const downloadLinks = orderItems.map((item) => {
+          const slug = (item as { slug?: string }).slug;
+          const pdfUrl = slug
+            ? `${SITE_URL}/assets/products/guides/${slug}.pdf`
+            : null;
+          return pdfUrl ? { name: `${item.name} — Quick-Start Guide (PDF)`, url: pdfUrl } : null;
+        }).filter(Boolean) as { name: string; url: string }[];
 
-        // Build guide links for items that have a quick-start guide URL
+        // Notion template links (the actual product)
         const guideLinks = orderItems
           .filter((item) => item.guide_url)
-          .map((item) => ({ name: item.name, url: item.guide_url as string }));
+          .map((item) => ({ name: `${item.name} — Notion Template`, url: item.guide_url as string }));
 
         await sendPurchaseConfirmation({
           to: order.user_email,

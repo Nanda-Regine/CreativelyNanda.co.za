@@ -98,7 +98,6 @@ export function createPaymentData({
     m_payment_id: orderId,
     amount: amountInRands,
     item_name: itemName.substring(0, 100), // Max 100 chars
-    email_confirmation: '1',
   };
 
   if (buyerFirstName) data.name_first = buyerFirstName.substring(0, 100);
