@@ -335,7 +335,7 @@ export default function CheckoutPage() {
                 <div className="flex justify-between text-xl font-bold text-navy pt-3 border-t border-navy/10">
                   <span>Total</span>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-cherry to-pink-500">
-                    {formatPrice(total)}
+                    {formatPrice(total / 100)}
                   </span>
                 </div>
               </div>
