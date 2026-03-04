@@ -24,13 +24,7 @@ VALUES
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-3.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-4.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-5.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-6.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-7.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-8.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-9.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-10.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-11.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-12.png'
+      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/writers-sanctuary/screenshot-6.png'
     ]
   ),
   (
@@ -55,11 +49,7 @@ VALUES
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-5.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-6.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-7.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-8.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-9.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-10.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-11.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-12.png'
+      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/creators-studio/screenshot-8.png'
     ]
   ),
   (
@@ -87,8 +77,7 @@ VALUES
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/music-artist/screenshot-8.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/music-artist/screenshot-9.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/music-artist/screenshot-10.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/music-artist/screenshot-11.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/music-artist/screenshot-12.png'
+      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/music-artist/screenshot-11.png'
     ]
   ),
   (
@@ -145,8 +134,7 @@ VALUES
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/varsity/screenshot-8.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/varsity/screenshot-9.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/varsity/screenshot-10.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/varsity/screenshot-11.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/varsity/screenshot-12.png'
+      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/varsity/screenshot-11.png'
     ]
   ),
   (
@@ -169,13 +157,7 @@ VALUES
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-3.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-4.png',
       'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-5.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-6.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-7.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-8.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-9.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-10.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-11.png',
-      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-12.png'
+      'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images/sme/screenshot-6.png'
     ]
   )
 ON CONFLICT (slug) DO UPDATE SET
