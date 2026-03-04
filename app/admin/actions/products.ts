@@ -10,6 +10,7 @@ export async function getProducts() {
   const { data, error } = await supabase
     .from('products')
     .select('*')
+    .neq('status', 'archived')
     .order('created_at', { ascending: false });
 
   if (error) {

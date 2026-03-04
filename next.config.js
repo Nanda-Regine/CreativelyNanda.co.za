@@ -56,7 +56,7 @@ const withPWA = require('next-pwa')({
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'creativelynanda.co.za'],
+    domains: ['localhost', 'creativelynanda.co.za', 'bemgnttmaqpmsaosdisc.supabase.co'],
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
