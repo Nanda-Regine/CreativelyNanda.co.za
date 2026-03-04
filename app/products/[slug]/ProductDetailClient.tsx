@@ -213,12 +213,12 @@ export default function ProductDetailClient({
               {/* Price */}
               <div className="flex items-baseline gap-4 mb-10">
                 <span className="text-5xl font-bold text-white">
-                  {formatPrice(product.price)}
+                  {formatPrice(product.price / 100)}
                 </span>
                 {product.originalPrice && (
                   <>
                     <span className="text-2xl text-white/50 line-through">
-                      {formatPrice(product.originalPrice)}
+                      {formatPrice(product.originalPrice / 100)}
                     </span>
                     <span className="px-3 py-1 text-sm font-bold uppercase rounded-full bg-emerald-500 text-white">
                       Save {discount}%
@@ -493,7 +493,7 @@ export default function ProductDetailClient({
         <div className="flex items-center gap-4">
           <div className="flex-1">
             <p className="text-sm text-beige/70">{product.name}</p>
-            <p className="text-xl font-bold text-white">{formatPrice(product.price)}</p>
+            <p className="text-xl font-bold text-white">{formatPrice(product.price / 100)}</p>
           </div>
           <motion.button
             onClick={handleAddToCart}

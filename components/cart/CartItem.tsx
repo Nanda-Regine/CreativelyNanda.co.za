@@ -28,14 +28,22 @@ export function CartItem({ item, className }: CartItemProps) {
       )}
     >
       {/* Thumbnail */}
-      <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 shadow-md">
-        <Image
-          src={item.thumbnail || '/assets/professional/nanda-consulting.jpg'}
-          alt={item.name}
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
+      <div className="relative w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-md bg-navy/10">
+        {item.thumbnail ? (
+          <>
+            <Image
+              src={item.thumbnail}
+              alt={item.name}
+              fill
+              className="object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
+          </>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-navy to-cherry/60">
+            <span className="text-white text-xs font-bold tracking-widest opacity-80">MM</span>
+          </div>
+        )}
       </div>
 
       {/* Details */}
@@ -44,10 +52,10 @@ export function CartItem({ item, className }: CartItemProps) {
 
         {/* Price */}
         <div className="flex items-baseline gap-2 mt-1">
-          <span className="text-cherry font-bold">{formatPrice(item.price)}</span>
+          <span className="text-cherry font-bold">{formatPrice(item.price / 100)}</span>
           {item.original_price && (
             <span className="text-xs text-navy/40 line-through">
-              {formatPrice(item.original_price)}
+              {formatPrice(item.original_price / 100)}
             </span>
           )}
         </div>
@@ -91,7 +99,7 @@ export function CartItem({ item, className }: CartItemProps) {
       {/* Line total */}
       <div className="text-right flex flex-col justify-between">
         <span className="text-lg font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-navy to-navy/70">
-          {formatPrice(item.price * item.quantity)}
+          {formatPrice((item.price * item.quantity) / 100)}
         </span>
       </div>
     </motion.div>

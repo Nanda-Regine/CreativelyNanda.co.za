@@ -1,32 +1,28 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Search,
-  Filter,
   Sparkles,
   GraduationCap,
   Briefcase,
   Palette,
   Heart,
-  ArrowRight,
-  ShoppingBag,
-  Star,
   Zap,
   Shield,
-  Mail,
+  Download,
+  Globe,
 } from 'lucide-react';
-import { ProductCoverCard, FloatingShapes } from '@/components/marketplace';
+import { ProductCoverCard } from '@/components/marketplace';
 import type { ProductCoverData } from '@/components/marketplace';
-import { Button, Badge } from '@/components/ui';
-import { shopCategoryThemes, getShopTheme } from '@/lib/shop-themes';
+import { getShopTheme } from '@/lib/shop-themes';
 
 const CATEGORIES = [
-  { name: 'All', icon: Sparkles, color: 'from-cherry to-pink-500' },
-  { name: 'Student', icon: GraduationCap, color: 'from-amber-500 to-orange-500' },
-  { name: 'Business', icon: Briefcase, color: 'from-emerald-500 to-teal-500' },
-  { name: 'Creative', icon: Palette, color: 'from-pink-500 to-purple-500' },
+  { name: 'All', icon: Sparkles },
+  { name: 'Creative', icon: Palette },
+  { name: 'Student', icon: GraduationCap },
+  { name: 'Business', icon: Briefcase },
 ];
 
 interface ProductsClientProps {
@@ -36,18 +32,6 @@ interface ProductsClientProps {
 export default function ProductsClient({ products }: ProductsClientProps) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
@@ -57,324 +41,206 @@ export default function ProductsClient({ products }: ProductsClientProps) {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredProduct = products.find((p) => p.badge === 'BESTSELLER') || products[0];
+  const creativeProducts = products.filter((p) => p.category === 'Creative');
   const studentProducts = products.filter((p) => p.category === 'Student');
   const businessProducts = products.filter((p) => p.category === 'Business');
-  const creativeProducts = products.filter((p) => p.category === 'Creative');
 
   return (
     <div className="min-h-screen bg-navy">
-      {/* Magazine Hero */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-cherry/30" />
 
-        {/* Floating orbs with parallax */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-cherry/20 rounded-full blur-3xl"
-          style={{
-            x: mousePosition.x * 2,
-            y: mousePosition.y * 2,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl"
-          style={{
-            x: -mousePosition.x * 1.5,
-            y: -mousePosition.y * 1.5,
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-1/3 w-64 h-64 bg-amber-500/15 rounded-full blur-3xl"
-          style={{
-            x: mousePosition.x,
-            y: mousePosition.y,
-          }}
-        />
-
-        {/* Grain texture */}
+      {/* Hero */}
+      <section className="relative overflow-hidden pt-24 pb-16">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy to-navy/95" />
         <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
+          className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
-          {/* Masthead */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          {/* Brand */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center justify-center gap-4 mb-12"
+            className="inline-flex items-center gap-3 mb-6"
           >
-            <div className="h-px flex-1 max-w-24 bg-gradient-to-r from-transparent to-beige/30" />
-            <span className="text-beige/60 text-sm tracking-[0.3em] uppercase font-medium">
-              The Nanda Marketplace
+            <div className="h-px w-12 bg-cherry/60" />
+            <span className="text-cherry text-sm tracking-[0.3em] uppercase font-semibold">
+              Mirembe Muse
             </span>
-            <div className="h-px flex-1 max-w-24 bg-gradient-to-l from-transparent to-beige/30" />
+            <div className="h-px w-12 bg-cherry/60" />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-center"
+            className="text-4xl md:text-6xl font-display font-bold text-beige mb-4 leading-tight"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-beige mb-6">
-              Premium{' '}
-              <motion.span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-cherry via-pink-400 to-cherry bg-[length:200%_auto]"
-                animate={{ backgroundPosition: ['0%', '200%'] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-              >
-                Digital
-              </motion.span>
-              <br />
-              Products
-            </h1>
-            <p className="text-xl md:text-2xl text-beige/70 max-w-2xl mx-auto leading-relaxed mb-12">
-              Handcrafted templates, tools, and resources designed to help you thrive
-            </p>
-          </motion.div>
+            Where Transformation
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cherry via-pink-400 to-cherry">
+              Has a Template
+            </span>
+          </motion.h1>
 
-          {/* Category badges */}
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+            className="text-beige/60 text-lg max-w-xl mx-auto mb-10"
+          >
+            Notion systems built for African creatives, students, and entrepreneurs. Pre-populated, ready to use, designed for real life.
+          </motion.p>
+
+          {/* Trust row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap items-center justify-center gap-6 mb-10 text-beige/50 text-sm"
           >
-            {CATEGORIES.map((cat) => {
-              const Icon = cat.icon;
-              return (
-                <motion.button
-                  key={cat.name}
-                  onClick={() => setSelectedCategory(cat.name)}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                    selectedCategory === cat.name
-                      ? `bg-gradient-to-r ${cat.color} text-white shadow-lg shadow-cherry/25`
-                      : 'bg-white/10 backdrop-blur-sm text-beige/80 hover:bg-white/20'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {cat.name}
-                </motion.button>
-              );
-            })}
+            {[
+              { icon: Zap, text: 'Instant delivery' },
+              { icon: Download, text: 'Quick-Start PDF included' },
+              { icon: Globe, text: 'Notion template link emailed' },
+              { icon: Shield, text: '30-day guarantee' },
+            ].map(({ icon: Icon, text }) => (
+              <span key={text} className="flex items-center gap-1.5">
+                <Icon className="w-4 h-4 text-cherry" />
+                {text}
+              </span>
+            ))}
           </motion.div>
 
-          {/* Search */}
+          {/* Filter + Search */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="max-w-md mx-auto mt-10"
+            transition={{ delay: 0.25 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto"
           >
-            <div className="relative">
-              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-beige/50" />
+            {/* Category pills */}
+            <div className="flex gap-2">
+              {CATEGORIES.map((cat) => {
+                const Icon = cat.icon;
+                return (
+                  <button
+                    key={cat.name}
+                    onClick={() => { setSelectedCategory(cat.name); setSearchQuery(''); }}
+                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      selectedCategory === cat.name
+                        ? 'bg-cherry text-white shadow-lg'
+                        : 'bg-white/10 text-beige/70 hover:bg-white/20'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {cat.name}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Search */}
+            <div className="relative flex-1 min-w-0 max-w-xs">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-beige/40" />
               <input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Search templates..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-14 pr-6 py-4 bg-white/10 backdrop-blur-sm border border-beige/20 rounded-full text-beige placeholder:text-beige/40 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/20 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/10 border border-beige/20 text-beige text-sm placeholder:text-beige/35 focus:outline-none focus:border-cherry/50 transition-colors"
               />
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom wave */}
+        {/* Wave into content */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" className="w-full h-24">
+          <svg viewBox="0 0 1440 60" fill="none" className="w-full h-12">
             <path
-              d="M0,80 C360,120 720,40 1080,80 C1260,100 1380,60 1440,80 L1440,120 L0,120 Z"
-              className="fill-parchment"
+              d="M0,40 C360,60 720,20 1080,40 C1260,50 1380,30 1440,40 L1440,60 L0,60 Z"
+              fill="#faf7f2"
             />
           </svg>
         </div>
       </section>
 
-      {/* Search Results or Category View */}
-      {searchQuery ? (
-        <section className="py-16 px-6 bg-parchment">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-display font-bold text-navy">
-                Search Results
-                <span className="ml-2 text-navy/40">({filteredProducts.length})</span>
-              </h2>
-              <button
-                onClick={() => setSearchQuery('')}
-                className="text-sm text-cherry hover:underline"
-              >
-                Clear search
-              </button>
-            </div>
+      {/* Products — parchment texture */}
+      <section
+        className="py-16 px-6"
+        style={{
+          backgroundColor: '#faf7f2',
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`,
+        }}
+      >
+        <div className="max-w-7xl mx-auto">
 
-            {filteredProducts.length === 0 ? (
-              <div className="text-center py-20">
-                <Search className="w-16 h-16 text-navy/20 mx-auto mb-4" />
-                <p className="text-navy/60 text-lg">No products found matching &quot;{searchQuery}&quot;</p>
-              </div>
-            ) : (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {filteredProducts.map((product, i) => (
-                  <ProductCoverCard key={product.slug} product={product} index={i} />
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
-      ) : selectedCategory !== 'All' ? (
-        <section className="py-16 px-6 bg-parchment">
-          <div className="max-w-7xl mx-auto">
-            <CategorySection
-              category={selectedCategory}
-              products={filteredProducts}
-            />
-          </div>
-        </section>
-      ) : (
-        <>
-          {/* Featured Product Spotlight */}
-          {featuredProduct && (
-            <section className="py-16 px-6 bg-parchment">
-              <div className="max-w-7xl mx-auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="text-center mb-10"
-                >
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-cherry/10 text-cherry rounded-full text-sm font-medium mb-4">
-                    <Sparkles className="w-4 h-4" />
-                    Editor&apos;s Choice
-                  </span>
-                  <h2 className="text-3xl font-display font-bold text-navy">
-                    Featured This Season
-                  </h2>
-                </motion.div>
-
-                <ProductCoverCard product={featuredProduct} variant="featured" />
-              </div>
-            </section>
-          )}
-
-          {/* Student Products */}
-          {studentProducts.length > 0 && (
-            <section className="py-16 px-6 bg-gradient-to-b from-parchment via-amber-50/30 to-parchment">
-              <div className="max-w-7xl mx-auto">
-                <CategorySection category="Student" products={studentProducts} />
-              </div>
-            </section>
-          )}
-
-          {/* Business Products */}
-          {businessProducts.length > 0 && (
-            <section className="py-16 px-6 bg-gradient-to-b from-parchment via-emerald-50/30 to-parchment">
-              <div className="max-w-7xl mx-auto">
-                <CategorySection category="Business" products={businessProducts} />
-              </div>
-            </section>
-          )}
-
-          {/* Creative Products */}
-          {creativeProducts.length > 0 && (
-            <section className="py-16 px-6 bg-gradient-to-b from-parchment via-pink-50/30 to-parchment">
-              <div className="max-w-7xl mx-auto">
-                <CategorySection category="Creative" products={creativeProducts} />
-              </div>
-            </section>
-          )}
-
-          {/* Trust Badges */}
-          <section className="py-16 px-6 bg-cream">
-            <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { icon: ShoppingBag, label: 'Happy Customers', value: '500+' },
-                  { icon: Zap, label: 'Instant Delivery', value: '24/7' },
-                  { icon: Shield, label: 'Money-Back', value: '30 Days' },
-                  { icon: Star, label: 'Average Rating', value: '4.9/5' },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="text-center p-6 bg-parchment rounded-2xl shadow-sm"
-                  >
-                    <stat.icon className="w-8 h-8 text-cherry mx-auto mb-3" />
-                    <p className="text-2xl font-display font-bold text-navy">{stat.value}</p>
-                    <p className="text-sm text-navy/60 mt-1">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Newsletter CTA */}
-          <section className="relative py-24 px-6 bg-navy overflow-hidden">
-            <FloatingShapes theme="business" />
-
-            <div
-              className="absolute inset-0 opacity-20 pointer-events-none"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-              }}
-            />
-
-            <div className="max-w-3xl mx-auto text-center relative z-10">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-cherry to-pink-500 mb-8"
-                  whileHover={{ scale: 1.1, rotate: 10 }}
-                >
-                  <Mail className="w-8 h-8 text-white" />
-                </motion.div>
-
-                <h2 className="text-3xl md:text-5xl font-display font-bold text-beige mb-6">
-                  Get{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cherry to-pink-400">
-                    Early Access
-                  </span>
+          {/* Search results */}
+          {searchQuery ? (
+            <>
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-lg font-display font-bold text-navy">
+                  Results for &ldquo;{searchQuery}&rdquo;
+                  <span className="ml-2 text-navy/40 font-normal text-base">({filteredProducts.length})</span>
                 </h2>
-                <p className="text-lg text-beige/70 mb-10 max-w-xl mx-auto">
-                  Join the waitlist for exclusive discounts and early access to new product launches.
-                </p>
+                <button onClick={() => setSearchQuery('')} className="text-sm text-cherry hover:underline">
+                  Clear
+                </button>
+              </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="flex-1 px-6 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-beige/20 text-beige placeholder:text-beige/40 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/20 transition-all"
-                  />
-                  <motion.button
-                    className="px-8 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-colors flex items-center justify-center gap-2"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Join Waitlist
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
+              {filteredProducts.length === 0 ? (
+                <div className="text-center py-20 text-navy/40">
+                  <Search className="w-12 h-12 mx-auto mb-3 opacity-40" />
+                  <p>No templates found matching &ldquo;{searchQuery}&rdquo;</p>
                 </div>
-              </motion.div>
+              ) : (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredProducts.map((p, i) => (
+                    <ProductCoverCard key={p.slug} product={p} index={i} />
+                  ))}
+                </div>
+              )}
+            </>
+          ) : selectedCategory !== 'All' ? (
+            <CategorySection category={selectedCategory} products={filteredProducts} />
+          ) : (
+            <div className="space-y-16">
+              {creativeProducts.length > 0 && (
+                <CategorySection category="Creative" products={creativeProducts} />
+              )}
+              {studentProducts.length > 0 && (
+                <CategorySection category="Student" products={studentProducts} />
+              )}
+              {businessProducts.length > 0 && (
+                <CategorySection category="Business" products={businessProducts} />
+              )}
             </div>
-          </section>
-        </>
-      )}
+          )}
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-16 px-6 bg-navy text-center">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-beige/50 text-sm tracking-widest uppercase mb-3">Mirembe Muse</p>
+          <h2 className="text-3xl font-display font-bold text-beige mb-4">
+            Productivity systems that serve communities
+          </h2>
+          <p className="text-beige/60 mb-6">
+            Every template is built for a real problem affecting real people across Africa. Instant delivery. Lifetime access. 30-day guarantee.
+          </p>
+          <p className="text-cherry text-sm">
+            Questions? <a href="mailto:hello@creativelynanda.co.za" className="underline">hello@creativelynanda.co.za</a>
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
 
-// Category Section Component
 function CategorySection({ category, products }: { category: string; products: ProductCoverData[] }) {
   const theme = getShopTheme(category);
   const icons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -386,38 +252,23 @@ function CategorySection({ category, products }: { category: string; products: P
   const Icon = icons[category] || Sparkles;
 
   return (
-    <>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="flex items-center justify-between mb-10"
-      >
-        <div className="flex items-center gap-4">
-          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${theme.gradient} flex items-center justify-center shadow-lg`}>
-            <Icon className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h2 className="text-2xl font-display font-bold text-navy">{theme.name}</h2>
-            <p className="text-sm text-navy/60">{theme.description}</p>
-          </div>
+    <div>
+      <div className="flex items-center gap-3 mb-6">
+        <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${theme.gradient} flex items-center justify-center shadow`}>
+          <Icon className="w-4.5 h-4.5 text-white" />
         </div>
-        <span className="text-sm text-navy/40">{products.length} products</span>
-      </motion.div>
+        <div>
+          <h2 className="text-xl font-display font-bold text-navy">{theme.name}</h2>
+          <p className="text-xs text-navy/50">{theme.description}</p>
+        </div>
+        <span className="ml-auto text-xs text-navy/35">{products.length} template{products.length !== 1 ? 's' : ''}</span>
+      </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {products.map((product, i) => (
-          <motion.div
-            key={product.slug}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <ProductCoverCard product={product} index={i} />
-          </motion.div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {products.map((p, i) => (
+          <ProductCoverCard key={p.slug} product={p} index={i} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

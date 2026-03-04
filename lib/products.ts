@@ -7,6 +7,9 @@ import { ALL_PRODUCTS, PRODUCTS_DB, RELATED_PRODUCTS, type ProductDetail } from 
  * Convert a Supabase Product row to ProductCoverData for listing cards
  */
 function toProductCoverData(p: Product): ProductCoverData {
+  const features = (p.features as unknown as { title: string }[]) || [];
+  const topFeatures = features.slice(0, 3).map((f) => f.title);
+
   return {
     slug: p.slug,
     name: p.name,
@@ -19,6 +22,8 @@ function toProductCoverData(p: Product): ProductCoverData {
     badge: (p.badge as ProductCoverData['badge']) || undefined,
     status: p.status === 'coming-soon' ? 'coming-soon' : p.status === 'live' ? 'live' : undefined,
     thumbnail: p.thumbnail || undefined,
+    impact: (p as unknown as { impact?: string }).impact || undefined,
+    topFeatures: topFeatures.length > 0 ? topFeatures : undefined,
   };
 }
 

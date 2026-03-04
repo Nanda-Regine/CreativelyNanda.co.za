@@ -236,7 +236,7 @@ export default function CheckoutPage() {
                     ) : (
                       <>
                         <Lock className="w-5 h-5" />
-                        Pay {formatPrice(total)} Securely
+                        Pay {formatPrice(total / 100)} Securely
                       </>
                     )}
                   </motion.button>
@@ -316,7 +316,7 @@ export default function CheckoutPage() {
                       <h3 className="font-semibold text-navy truncate">{item.name}</h3>
                       <p className="text-sm text-navy/50">Digital Product</p>
                       <p className="text-cherry font-bold mt-1">
-                        {formatPrice(item.price * item.quantity)}
+                        {formatPrice((item.price * item.quantity) / 100)}
                       </p>
                     </div>
                   </motion.div>
@@ -326,7 +326,7 @@ export default function CheckoutPage() {
               <div className="border-t-2 border-navy/10 pt-4 space-y-3">
                 <div className="flex justify-between text-navy/70">
                   <span>Subtotal</span>
-                  <span>{formatPrice(total)}</span>
+                  <span>{formatPrice(total / 100)}</span>
                 </div>
                 <div className="flex justify-between text-navy/70">
                   <span>Delivery</span>

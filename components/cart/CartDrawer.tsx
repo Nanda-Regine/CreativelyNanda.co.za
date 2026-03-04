@@ -143,7 +143,7 @@ export function CartDrawer({ className }: CartDrawerProps) {
                 <div className="flex justify-between items-center py-3 border-y border-navy/10">
                   <span className="text-navy/70 font-medium">Subtotal</span>
                   <span className="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-cherry to-cherry/70">
-                    {formatPrice(total)}
+                    {formatPrice(total / 100)}
                   </span>
                 </div>
 
