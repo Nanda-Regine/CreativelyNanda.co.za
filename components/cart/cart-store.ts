@@ -103,6 +103,7 @@ export const useCartStore = create<CartState>()(
       name: 'nanda-cart',
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({ items: state.items }), // Only persist items, not isOpen
+      skipHydration: true, // Prevent SSR/client mismatch — CartProvider rehydrates after mount
     }
   )
 );

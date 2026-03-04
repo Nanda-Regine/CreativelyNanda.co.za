@@ -1,7 +1,8 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { useEffect, ReactNode } from 'react';
 import { CartDrawer } from './CartDrawer';
+import { useCartStore } from './cart-store';
 
 interface CartProviderProps {
   children: ReactNode;
@@ -9,10 +10,14 @@ interface CartProviderProps {
 
 /**
  * CartProvider wraps the app to provide the cart drawer globally.
- * The Zustand store is automatically available via the useCartStore hook.
- * This component just renders the CartDrawer overlay.
+ * Manually rehydrates the Zustand store from localStorage after mount
+ * to avoid SSR/client hydration mismatches (React errors #418/#423).
  */
 export function CartProvider({ children }: CartProviderProps) {
+  useEffect(() => {
+    useCartStore.persist.rehydrate();
+  }, []);
+
   return (
     <>
       {children}
