@@ -74,6 +74,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
               src={src}
               alt={`${productName} screenshot ${i + 1}`}
               fill
+              unoptimized
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, 33vw"
               onError={() => handleError(src)}
@@ -132,6 +133,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                 alt={`${productName} screenshot ${selectedIndex + 1}`}
                 width={1280}
                 height={960}
+                unoptimized
                 className="object-contain w-full h-full max-h-[75vh] bg-navy/20"
                 priority
                 onError={() => handleError(validImages[selectedIndex])}
@@ -182,6 +184,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                       src={src}
                       alt={`Thumbnail ${i + 1}`}
                       fill
+                      unoptimized
                       className="object-cover"
                       sizes="56px"
                     />

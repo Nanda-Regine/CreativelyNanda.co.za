@@ -63,6 +63,7 @@ export function ProductCoverCard({
                 src={product.thumbnail}
                 alt={product.name}
                 fill
+                unoptimized
                 className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 1200px"
                 priority
@@ -156,6 +157,7 @@ export function ProductCoverCard({
               src={product.thumbnail}
               alt={product.name}
               fill
+              unoptimized
               className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
