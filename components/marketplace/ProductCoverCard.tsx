@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -44,6 +45,7 @@ export function ProductCoverCard({
   className,
 }: ProductCoverCardProps) {
   const theme = getShopTheme(product.category);
+  const [imgFailed, setImgFailed] = useState(false);
 
   if (variant === 'featured') {
     return (
@@ -58,7 +60,7 @@ export function ProductCoverCard({
         >
           {/* Landscape image */}
           <div className="relative aspect-[16/7] overflow-hidden bg-navy/5">
-            {product.thumbnail ? (
+            {product.thumbnail && !imgFailed ? (
               <Image
                 src={product.thumbnail}
                 alt={product.name}
@@ -67,6 +69,7 @@ export function ProductCoverCard({
                 className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 1200px"
                 priority
+                onError={() => setImgFailed(true)}
               />
             ) : (
               <div className={`absolute inset-0 bg-gradient-to-br ${theme.bgDark}`} />
@@ -152,7 +155,7 @@ export function ProductCoverCard({
       >
         {/* Landscape image */}
         <div className="relative aspect-video overflow-hidden bg-navy/5 flex-shrink-0">
-          {product.thumbnail ? (
+          {product.thumbnail && !imgFailed ? (
             <Image
               src={product.thumbnail}
               alt={product.name}
@@ -160,6 +163,7 @@ export function ProductCoverCard({
               unoptimized
               className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              onError={() => setImgFailed(true)}
             />
           ) : (
             <div className={`absolute inset-0 bg-gradient-to-br ${theme.bgDark} flex items-center justify-center`}>

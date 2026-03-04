@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import { cn, formatPrice } from '@/lib/utils';
@@ -27,23 +26,11 @@ export function CartItem({ item, className }: CartItemProps) {
         className
       )}
     >
-      {/* Thumbnail */}
-      <div className="relative w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-md bg-navy/10">
-        {item.thumbnail ? (
-          <>
-            <Image
-              src={item.thumbnail}
-              alt={item.name}
-              fill
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-          </>
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-navy to-cherry/60">
-            <span className="text-white text-xs font-bold tracking-widest opacity-80">MM</span>
-          </div>
-        )}
+      {/* Thumbnail — styled title block */}
+      <div className="relative w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-md bg-gradient-to-br from-navy to-cherry/70 flex items-center justify-center p-2">
+        <span className="text-white text-[10px] font-bold text-center leading-tight line-clamp-3 opacity-90">
+          {item.name}
+        </span>
       </div>
 
       {/* Details */}
