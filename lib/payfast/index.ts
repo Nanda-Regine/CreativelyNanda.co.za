@@ -34,6 +34,20 @@ export interface PayfastPaymentData {
 }
 
 /**
+ * PHP urlencode-compatible encoding to match PayFast's signature verification.
+ * encodeURIComponent leaves !'()* unencoded; PHP urlencode encodes them.
+ */
+function phpUrlencode(str: string): string {
+  return encodeURIComponent(str)
+    .replace(/%20/g, '+')
+    .replace(/!/g, '%21')
+    .replace(/'/g, '%27')
+    .replace(/\(/g, '%28')
+    .replace(/\)/g, '%29')
+    .replace(/\*/g, '%2A');
+}
+
+/**
  * Generate MD5 signature for PayFast
  */
 export function generateSignature(data: Record<string, string>, passphrase?: string): string {
@@ -41,11 +55,11 @@ export function generateSignature(data: Record<string, string>, passphrase?: str
   const params = Object.keys(data)
     .filter((key) => key !== 'signature' && data[key] !== '')
     .sort()
-    .map((key) => `${key}=${encodeURIComponent(data[key]).replace(/%20/g, '+')}`)
+    .map((key) => `${key}=${phpUrlencode(data[key])}`)
     .join('&');
 
   // Add passphrase if provided
-  const signatureString = passphrase ? `${params}&passphrase=${encodeURIComponent(passphrase)}` : params;
+  const signatureString = passphrase ? `${params}&passphrase=${phpUrlencode(passphrase)}` : params;
 
   // Generate MD5 hash
   return crypto.createHash('md5').update(signatureString).digest('hex');
