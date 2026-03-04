@@ -29,13 +29,16 @@ export async function POST(request: NextRequest) {
     // Use admin client to look up product file paths from Storage
     const supabase = createAdminClient();
 
-    // Look up file_path for each product from the database
+    // Look up id, file_path, guide_url for each product from the database
     const productSlugs = items.map((item) => item.slug);
     const { data: products } = await supabase
       .from('products')
-      .select('slug, file_path, guide_url')
+      .select('id, slug, file_path, guide_url')
       .in('slug', productSlugs);
 
+    const productIdMap = new Map(
+      (products || []).map((p) => [p.slug, p.id as string]),
+    );
     const filePathMap = new Map(
       (products || []).map((p) => [p.slug, p.file_path]),
     );
@@ -62,7 +65,7 @@ export async function POST(request: NextRequest) {
     const { data: order, error: orderError } = await supabase
       .from('orders')
       .insert({
-        product_id: items[0].product_id,
+        product_id: productIdMap.get(items[0].slug) ?? null,
         user_email: customerEmail,
         user_name: customerName || null,
         amount: total,
