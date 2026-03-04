@@ -68,9 +68,11 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Performance optimizations
+  // Only remove console.log in production — keep console.error/warn for Vercel logs
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production'
+      ? { exclude: ['error', 'warn'] }
+      : false,
   },
   // Compression
   compress: true,

@@ -54,14 +54,19 @@ export async function getAllProducts(): Promise<ProductCoverData[]> {
       .order('is_featured', { ascending: false })
       .order('created_at', { ascending: false });
 
-    if (error || !data || data.length === 0) {
-      console.warn('Supabase products fetch failed or empty, using hardcoded fallback');
+    if (error) {
+      console.error('[products] Supabase error:', error.message, error.details, error.hint);
+      return ALL_PRODUCTS;
+    }
+
+    if (!data || data.length === 0) {
+      console.error('[products] Supabase returned empty — check that migration 007 was run and products have status=live');
       return ALL_PRODUCTS;
     }
 
     return data.map(toProductCoverData);
-  } catch {
-    console.warn('Supabase connection failed, using hardcoded fallback');
+  } catch (err) {
+    console.error('[products] Supabase connection failed:', err);
     return ALL_PRODUCTS;
   }
 }
@@ -80,11 +85,13 @@ export async function getProductBySlug(slug: string): Promise<ProductDetail | un
       .single();
 
     if (error || !data) {
+      console.error('[products] getProductBySlug failed for', slug, error?.message);
       return getHardcodedProduct(slug);
     }
 
     return toProductDetail(data);
-  } catch {
+  } catch (err) {
+    console.error('[products] getProductBySlug exception for', slug, err);
     return getHardcodedProduct(slug);
   }
 }

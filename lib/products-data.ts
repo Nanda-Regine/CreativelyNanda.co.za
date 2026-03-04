@@ -177,6 +177,8 @@ Built for the realities of running a business in Africa — where you're often t
   },
 };
 
+const SUPABASE_IMG = 'https://bemgnttmaqpmsaosdisc.supabase.co/storage/v1/object/public/product-images';
+
 export const ALL_PRODUCTS: ProductCoverData[] = [
   {
     slug: 'writers-sanctuary',
@@ -186,6 +188,7 @@ export const ALL_PRODUCTS: ProductCoverData[] = [
     category: 'Creative',
     badge: 'BESTSELLER',
     status: 'live',
+    thumbnail: `${SUPABASE_IMG}/writers-sanctuary/cover-page.png`,
     impact: 'Built for 500K+ aspiring African writers',
     topFeatures: ['Writing Projects', 'Submission Tracker', 'Idea Vault'],
   },
@@ -197,6 +200,7 @@ export const ALL_PRODUCTS: ProductCoverData[] = [
     category: 'Creative',
     badge: 'NEW',
     status: 'live',
+    thumbnail: `${SUPABASE_IMG}/creators-studio/cover-page.png`,
     impact: "Designed for Africa's 2M+ content creators",
     topFeatures: ['Content Projects', 'Brand Partnerships', 'Analytics Tracker'],
   },
@@ -207,6 +211,7 @@ export const ALL_PRODUCTS: ProductCoverData[] = [
     price: 49900,
     category: 'Creative',
     status: 'live',
+    thumbnail: `${SUPABASE_IMG}/music-artist/cover-page.png`,
     impact: 'Built for 50K+ independent South African artists',
     topFeatures: ['SA Radio Stations', 'Grants & Funding', 'Music Industry Calendar'],
   },
@@ -217,6 +222,7 @@ export const ALL_PRODUCTS: ProductCoverData[] = [
     price: 24900,
     category: 'Student',
     status: 'live',
+    thumbnail: `${SUPABASE_IMG}/high-school/cover-photo.png`,
     impact: 'Serving 500K+ matric students nationwide',
     topFeatures: ['Assignments & Tasks', 'Exam Prep Tracker', 'Wellness Check-ins'],
   },
@@ -227,6 +233,7 @@ export const ALL_PRODUCTS: ProductCoverData[] = [
     price: 27900,
     category: 'Student',
     status: 'live',
+    thumbnail: `${SUPABASE_IMG}/varsity/cover-page.png`,
     impact: 'Built for 1M+ South African university students',
     topFeatures: ['Assignments & Tasks', 'Exam Prep Tracker', 'Wellness Check-ins'],
   },
@@ -238,6 +245,7 @@ export const ALL_PRODUCTS: ProductCoverData[] = [
     category: 'Business',
     badge: 'POPULAR',
     status: 'live',
+    thumbnail: `${SUPABASE_IMG}/sme/cover-page.png`,
     impact: 'Designed for 2M+ African entrepreneurs and SMEs',
     topFeatures: ['Clients Hub', 'Revenue Tracker', 'Projects Tracker'],
   },
