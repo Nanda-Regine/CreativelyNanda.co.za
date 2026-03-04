@@ -68,7 +68,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
           >
             <div className="h-px w-12 bg-cherry/60" />
             <span className="text-cherry text-sm tracking-[0.3em] uppercase font-semibold">
-              Mirembe Muse
+              Nanda Marketplace
             </span>
             <div className="h-px w-12 bg-cherry/60" />
           </motion.div>
@@ -225,7 +225,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
       {/* Bottom CTA */}
       <section className="py-16 px-6 bg-navy text-center">
         <div className="max-w-2xl mx-auto">
-          <p className="text-beige/50 text-sm tracking-widest uppercase mb-3">Mirembe Muse</p>
+          <p className="text-beige/50 text-sm tracking-widest uppercase mb-3">Nanda Marketplace</p>
           <h2 className="text-3xl font-display font-bold text-beige mb-4">
             Productivity systems that serve communities
           </h2>
