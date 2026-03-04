@@ -27,7 +27,6 @@ export const metadata = {
   title: 'Nanda | Creative Technologist',
   description: 'Portfolio of Nanda - Creative Technologist, Full-Stack Developer, Notion Systems Architect, and Published Poet',
   manifest: '/manifest.json',
-  themeColor: '#C41E3A',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
