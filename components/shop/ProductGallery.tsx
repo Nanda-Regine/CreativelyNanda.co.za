@@ -12,8 +12,17 @@ interface ProductGalleryProps {
 
 export function ProductGallery({ images, productName }: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [failedSrcs, setFailedSrcs] = useState<Set<string>>(new Set());
 
-  const validImages = images.filter(Boolean).slice(0, 12);
+  const validImages = images
+    .filter(Boolean)
+    .filter(src => !failedSrcs.has(src))
+    .slice(0, 12);
+
+  const handleError = (src: string) => {
+    setFailedSrcs(prev => new Set(prev).add(src));
+    setSelectedIndex(null);
+  };
 
   const open = (index: number) => setSelectedIndex(index);
   const close = () => setSelectedIndex(null);
@@ -67,6 +76,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, 33vw"
+              onError={() => handleError(src)}
             />
             <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/30 transition-all duration-200 flex items-center justify-center">
               <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
@@ -124,6 +134,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                 height={960}
                 className="object-contain w-full h-full max-h-[75vh] bg-navy/20"
                 priority
+                onError={() => handleError(validImages[selectedIndex])}
               />
             </motion.div>
 
