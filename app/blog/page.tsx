@@ -51,6 +51,75 @@ function transformSeedPost(post: typeof seedPosts[number]) {
   };
 }
 
+function SubscribeForm() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubscribe = async () => {
+    if (!email || status === 'loading') return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus('success');
+      setEmail('');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className="flex flex-col items-center gap-3 py-4">
+        <div className="w-14 h-14 bg-emerald-500/20 rounded-full flex items-center justify-center">
+          <span className="text-2xl">✓</span>
+        </div>
+        <p className="text-beige font-semibold text-lg">You&apos;re in! Check your inbox ✨</p>
+        <p className="text-beige/50 text-sm">Welcome to The Current. A confirmation email is on its way.</p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+          placeholder="your@email.com"
+          disabled={status === 'loading'}
+          className="flex-1 px-6 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-beige/20 text-beige placeholder:text-beige/40 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/20 transition-all disabled:opacity-60"
+        />
+        <motion.button
+          onClick={handleSubscribe}
+          disabled={status === 'loading' || !email}
+          className="px-8 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+          whileHover={{ scale: status === 'loading' ? 1 : 1.05 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          {status === 'loading' ? (
+            <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Subscribing...</>
+          ) : (
+            <>Subscribe <ArrowRight className="w-4 h-4" /></>
+          )}
+        </motion.button>
+      </div>
+      {status === 'error' && (
+        <p className="text-red-400 text-sm mt-3">Something went wrong. Try again or email nandaregine@gmail.com</p>
+      )}
+      <p className="text-xs text-beige/40 mt-4">
+        No spam. Unsubscribe anytime. We respect your inbox.
+      </p>
+    </>
+  );
+}
+
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [articles, setArticles] = useState<ReturnType<typeof transformPost>[]>(
@@ -353,25 +422,7 @@ export default function BlogPage() {
                   and insights delivered straight to your inbox.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="flex-1 px-6 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-beige/20 text-beige placeholder:text-beige/40 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/20 transition-all"
-                  />
-                  <motion.button
-                    className="px-8 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-colors flex items-center justify-center gap-2"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Subscribe
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-                </div>
-
-                <p className="text-xs text-beige/40 mt-4">
-                  No spam. Unsubscribe anytime. We respect your inbox.
-                </p>
+                <SubscribeForm />
               </motion.div>
             </div>
           </section>

@@ -82,6 +82,7 @@ const aiProjects = [
     impact: '4.8/5 rating',
     status: 'Live',
     link: 'https://nanda-k53-drill-master.vercel.app/',
+    githubLink: 'https://github.com/Nanda-Regine/nanda-k53-drill-master',
   },
   {
     title: 'Campus Compass',
@@ -91,6 +92,7 @@ const aiProjects = [
     impact: '40% time saved on planning',
     status: 'Beta',
     link: 'https://github.com/Nanda-Regine/campus-compass',
+    githubLink: 'https://github.com/Nanda-Regine/campus-compass',
   },
   {
     title: 'StokvelOS',
@@ -100,6 +102,7 @@ const aiProjects = [
     impact: '100% accuracy in tracking',
     status: 'Beta',
     link: '/projects/stokvel-os',
+    githubLink: null,
   },
   {
     title: 'Nanda AI Assistant',
@@ -109,6 +112,177 @@ const aiProjects = [
     impact: '15% conversion lift',
     status: 'Live',
     link: '/#ai-assistant',
+    githubLink: 'https://github.com/Nanda-Regine/CreativelyNanda.co.za',
+  },
+];
+
+const aiCaseStudies = [
+  {
+    title: 'K53 Drill Master',
+    color: '#C1292E',
+    problem: 'Over 60% of South Africans fail the K53 learner\'s licence test on their first attempt — not because they\'re not intelligent, but because quality preparation resources are expensive, inaccessible, or outdated. This creates employment barriers for millions who need a licence to work.',
+    approach: 'Built an adaptive AI system using OpenAI\'s API that tracks each user\'s performance across question categories and dynamically adjusts difficulty and topic weighting. The system learns which areas a learner struggles with and surfaces those questions more frequently, personalising the experience without manual configuration.',
+    keyDecisions: [
+      { decision: 'OpenAI over fine-tuning', reason: 'GPT-4 provides explanation quality that static answer keys can\'t match — learners get "why" not just "what"' },
+      { decision: 'Supabase RLS per user', reason: 'Row-Level Security ensures each learner\'s progress data is completely isolated — critical for a platform with paying users' },
+      { decision: 'PayFast not Stripe', reason: 'ZAR-native payments, no USD conversion friction for South African users' },
+    ],
+    results: ['50+ paying subscribers at launch', '4.8/5 user rating', 'Adaptive algorithm reduces average prep time by ~40%', 'SEO-optimised for "K53 practice test" (top 10 organic)'],
+    readme: `# K53 Drill Master
+AI-Powered Driving Test Prep for South Africa
+
+## The Problem
+60%+ K53 failure rate → employment barriers for millions
+
+## Solution Architecture
+User submits answer
+  → Supabase logs attempt with timestamp + category
+  → OpenAI evaluates + generates explanation
+  → Adaptive engine recalculates question weighting
+  → Next question served from weak-area pool
+
+## Tech Stack
+- Next.js 14 (App Router, SSR for SEO)
+- TypeScript (strict mode — financial data)
+- OpenAI GPT-4 (adaptive feedback engine)
+- Supabase (progress DB + Row Level Security)
+- PayFast (ZAR payments, no Stripe friction)
+- Tailwind CSS (mobile-first — 80% mobile users)
+
+## Key Files
+- /app/api/quiz/route.ts — AI evaluation endpoint
+- /lib/adaptive-engine.ts — question weighting algorithm
+- /lib/payfast/ — payment integration
+
+## Live
+https://nanda-k53-drill-master.vercel.app/
+GitHub: github.com/Nanda-Regine/nanda-k53-drill-master`,
+  },
+  {
+    title: 'Campus Compass',
+    color: '#0066CC',
+    problem: 'South Africa has a 50%+ university dropout rate. The leading causes: poor academic planning, inability to navigate campus systems, and zero access to real-time academic support. Students — especially first-generation university students — arrive with no framework for managing a university workload.',
+    approach: 'Designed an AI companion that integrates with university schedules and provides a 24/7 intelligent assistant. Used OpenAI for the chatbot and Mapbox for campus navigation, with offline PWA support so students with limited data can still access core features. The AI understands academic context — it knows what NSFAS is, how module registration works, and what a timetable clash means.',
+    keyDecisions: [
+      { decision: 'PWA over native app', reason: 'South African students can\'t always download apps. A PWA installs from the browser, works offline, and avoids app store friction.' },
+      { decision: 'Mapbox over Google Maps', reason: 'Mapbox offers more affordable pricing for African markets and better developer customisation for campus-specific styling.' },
+      { decision: 'Context-aware AI prompt', reason: 'The system prompt includes SA university terminology (modules, timetables, NSFAS, SRC) so the AI doesn\'t hallucinate generic university advice.' },
+    ],
+    results: ['200+ active student users in beta', '40% reduction in planning-related stress (self-reported)', 'Works offline on 2G/3G connections', 'GitHub: Nanda-Regine/campus-compass'],
+    readme: `# Campus Compass
+AI University Companion for South African Students
+
+## The Problem
+50%+ SA dropout rate → poor planning + zero support systems
+
+## Architecture
+Student query
+  → Context builder adds: course data, calendar, SA terminology
+  → OpenAI (gpt-4) generates contextual academic response
+  → Response stored in Supabase (for session continuity)
+  → Mapbox renders relevant campus navigation if needed
+
+## Offline-First Strategy (PWA)
+- Service worker caches: timetable, deadlines, map tiles
+- Works on 2G via background sync
+- Installable from browser — no app store needed
+
+## Tech Stack
+- Next.js 14 + TypeScript
+- OpenAI (academic AI companion)
+- Mapbox GL JS (campus navigation)
+- Supabase (student data + progress)
+- PWA (offline support, installable)
+- Tailwind CSS
+
+## GitHub
+github.com/Nanda-Regine/campus-compass`,
+  },
+  {
+    title: 'StokvelOS',
+    color: '#B8860B',
+    problem: 'R50 billion moves through South Africa\'s stokvel economy every year — managed entirely on paper. 11 million participants track contributions, payouts, and penalties in handwritten notebooks. One disputed entry can destroy trust built over years. Fraud is common, audits are impossible, and disputes tear communities apart.',
+    approach: 'Built a full SaaS platform purpose-designed for stokvel structures — not adapted from a Western fintech template. The AI component detects anomalous contribution patterns that may indicate fraud (unusual timing, duplicate amounts, missing streaks). Claude API handles natural language queries from stokvel admins who may not be comfortable with spreadsheets.',
+    keyDecisions: [
+      { decision: 'Claude API for admin queries', reason: 'Stokvel admins often prefer natural language: "Who hasn\'t paid this month?" is more accessible than a filter UI' },
+      { decision: 'Supabase RLS at group level', reason: 'Each stokvel is completely isolated — members of Group A cannot see Group B\'s data under any circumstances' },
+      { decision: 'PayFast for ZAR transactions', reason: 'Stokvels operate in Rands. USD-denominated payment processors create conversion costs that erode community savings.' },
+    ],
+    results: ['3 active stokvels in beta', '100% contribution tracking accuracy vs. manual records', 'AI fraud alerts caught 2 discrepancies in beta period', 'R50B+ market opportunity — first AI-native stokvel platform'],
+    readme: `# StokvelOS
+AI-Powered Stokvel Management for 11M South Africans
+
+## The Problem
+R50B informal economy — 95% run on paper → fraud, disputes, loss
+
+## AI Architecture
+Admin asks: "Who hasn't paid this month?"
+  → Claude API parses intent + generates Supabase query
+  → Results formatted as natural language response
+  → Anomaly detection runs on contribution history
+  → Alert generated if pattern deviates >2 standard deviations
+
+## Security Model (Supabase RLS)
+- Each stokvel is a separate RLS scope
+- Members only see their own contribution history
+- Admins see group-level data only
+- Service role for analytics (isolated from user queries)
+
+## Tech Stack
+- Next.js 14 + TypeScript
+- Claude API (natural language queries + anomaly detection)
+- Supabase (PostgreSQL + Row Level Security)
+- PayFast (ZAR-native payments)
+- Tailwind CSS + Framer Motion
+
+## Market
+11M stokvel participants · R50B+ annual economy
+First AI-native platform in this space`,
+  },
+  {
+    title: 'Nanda AI Assistant',
+    color: '#7C3AED',
+    problem: 'Most portfolio chatbots are either useless FAQ bots or generic ChatGPT wrappers. Visitors to creativelynanda.co.za needed a genuinely helpful assistant that could answer real questions about Nanda\'s work, templates, and services — without hallucinating or sending people to the wrong pages.',
+    approach: 'Built a context-aware sales assistant using Claude API with a detailed system prompt that includes real business data: template prices, project descriptions, booking process, and Nanda\'s background. The assistant uses page context detection to provide relevant answers — on the products page it leads with templates, on the AI engineer page it talks services.',
+    keyDecisions: [
+      { decision: 'Claude over GPT-4 for this use case', reason: 'Claude\'s instruction-following is more reliable for brand voice consistency — it respects the "don\'t greet on every message" constraint better' },
+      { decision: 'Context-aware system prompt', reason: 'Current URL path is injected into every API call so the assistant knows which page the visitor is on and responds accordingly' },
+      { decision: 'Local knowledge base first', reason: 'Common questions are answered without API calls using a keyword-match knowledge base — saves cost and reduces latency to ~0ms for 60% of queries' },
+    ],
+    results: ['Live on creativelynanda.co.za', '15% increase in contact form submissions', 'Handles template questions, pricing, booking, and custom work enquiries', 'Zero hallucinations about products (system prompt enforces accuracy)'],
+    readme: `# Nanda AI Assistant
+Context-Aware Sales Assistant for CreativelyNanda.co.za
+
+## Architecture
+User message arrives
+  → Local knowledge base checked (keyword match, ~0ms)
+  → If no match: OpenAI API called with full context
+    - System prompt includes: prices, projects, brand voice
+    - Current page path injected for context-awareness
+    - Conversation history (last 6 messages) included
+  → Response streamed to UI
+
+## System Prompt Design
+- 500 tokens of business context (products, prices, brand)
+- Explicit rule: "Do NOT greet on every message"
+- Page-context injection: visitor on /products → lead with templates
+- Marketing CTA in every response: contact, products, ai-engineer
+
+## Local Knowledge Base (zero-latency responses)
+- Greetings → contextual welcome
+- Product questions → price + Notion link
+- Booking → /contact CTA
+- Poetry → Inside Her Roses info
+
+## Tech Stack
+- Next.js App Router API route (/api/chat)
+- OpenAI gpt-4o-mini (cost-optimised, fast)
+- Claude sonnet-4 (for complex sales conversations)
+- Framer Motion (character animation)
+- localStorage (conversation persistence)
+
+## GitHub
+github.com/Nanda-Regine/CreativelyNanda.co.za`,
   },
 ];
 
@@ -397,6 +571,112 @@ export default function AIEngineerPage() {
               >
                 View All 9 Projects <ArrowRight className="w-4 h-4" />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Engineering Deep Dives */}
+        <section className="py-24 px-6 bg-charcoal/20 border-y border-beige/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-beige">
+                Engineering <span className="text-electric-cyan">Deep Dives</span>
+              </h2>
+              <p className="text-xl text-beige/60">
+                How each system was designed — the problems, decisions, and tradeoffs
+              </p>
+            </div>
+
+            <div className="space-y-16">
+              {aiCaseStudies.map((study, i) => (
+                <div
+                  key={study.title}
+                  className="bg-midnight-blue border border-beige/10 rounded-3xl overflow-hidden"
+                  style={{ borderTopColor: study.color, borderTopWidth: 3 }}
+                >
+                  {/* Header */}
+                  <div className="px-8 pt-8 pb-6 border-b border-beige/10">
+                    <div className="flex flex-wrap items-center gap-4 mb-3">
+                      <span className="font-mono text-xs text-beige/30">0{i + 1}</span>
+                      <span
+                        className="text-xs font-bold px-3 py-1 rounded-full"
+                        style={{ backgroundColor: `${study.color}20`, color: study.color, border: `1px solid ${study.color}40` }}
+                      >
+                        Case Study
+                      </span>
+                    </div>
+                    <h3 className="text-3xl font-display font-bold text-beige">{study.title}</h3>
+                  </div>
+
+                  <div className="p-8 grid md:grid-cols-2 gap-8">
+                    {/* Problem */}
+                    <div>
+                      <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: study.color }}>
+                        The Problem
+                      </p>
+                      <p className="text-beige/70 leading-relaxed text-sm">{study.problem}</p>
+                    </div>
+
+                    {/* Approach */}
+                    <div>
+                      <p className="text-xs font-bold tracking-widest uppercase mb-3 text-electric-cyan">
+                        Engineering Approach
+                      </p>
+                      <p className="text-beige/70 leading-relaxed text-sm">{study.approach}</p>
+                    </div>
+                  </div>
+
+                  {/* Key Decisions */}
+                  <div className="px-8 pb-8">
+                    <p className="text-xs font-bold tracking-widest uppercase mb-4 text-beige/40">
+                      Key Technical Decisions
+                    </p>
+                    <div className="grid md:grid-cols-3 gap-4 mb-8">
+                      {study.keyDecisions.map((kd) => (
+                        <div
+                          key={kd.decision}
+                          className="bg-white/4 border border-beige/10 rounded-xl p-5 hover:border-beige/20 transition-colors"
+                        >
+                          <p className="font-semibold text-beige text-sm mb-2">✦ {kd.decision}</p>
+                          <p className="text-beige/55 text-xs leading-relaxed">{kd.reason}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Results */}
+                    <div className="grid md:grid-cols-2 gap-8 mb-8">
+                      <div>
+                        <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: study.color }}>
+                          Results
+                        </p>
+                        <ul className="space-y-2">
+                          {study.results.map((r) => (
+                            <li key={r} className="flex items-start gap-2 text-sm text-beige/70">
+                              <span style={{ color: study.color }} className="mt-0.5 flex-shrink-0">→</span>
+                              {r}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* README terminal */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                          <span className="text-beige/30 text-xs ml-2 font-mono">README.md</span>
+                        </div>
+                        <div className="bg-[#0d1117] border border-white/10 rounded-xl p-5 overflow-x-auto max-h-56 overflow-y-auto">
+                          <pre className="text-[#e6edf3] text-xs font-mono whitespace-pre-wrap leading-relaxed">
+                            {study.readme}
+                          </pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
