@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Code, Brain, Sparkles, Zap, Users, TrendingUp, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
+import { Code, Brain, Sparkles, Zap, Users, TrendingUp, ArrowRight, CheckCircle, ExternalLink, Github } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'AI Engineer | Nandawula Regine — Building Intelligent Systems for African Businesses',
@@ -190,6 +190,63 @@ const statusColors: Record<string, string> = {
   Beta: 'bg-amber/20 text-amber border border-amber/30',
   'In Development': 'bg-electric-cyan/20 text-electric-cyan border border-electric-cyan/30',
 };
+
+// ── GitHub Contributions ──────────────────────────────────────────────────────
+const githubContribs: Record<string, { level: number; count: number }> = {
+  '2026-01-14': { level: 1, count: 7 },
+  '2026-01-15': { level: 1, count: 3 },
+  '2026-01-20': { level: 1, count: 3 },
+  '2026-01-21': { level: 1, count: 1 },
+  '2026-01-27': { level: 1, count: 6 },
+  '2026-01-28': { level: 1, count: 2 },
+  '2026-02-05': { level: 3, count: 20 },
+  '2026-02-06': { level: 2, count: 9 },
+  '2026-02-07': { level: 3, count: 18 },
+  '2026-02-08': { level: 2, count: 13 },
+  '2026-02-10': { level: 1, count: 6 },
+  '2026-02-11': { level: 1, count: 3 },
+  '2026-02-13': { level: 1, count: 4 },
+  '2026-02-18': { level: 1, count: 5 },
+  '2026-02-24': { level: 1, count: 1 },
+  '2026-02-25': { level: 1, count: 7 },
+  '2026-02-26': { level: 4, count: 28 },
+  '2026-02-27': { level: 1, count: 5 },
+  '2026-03-01': { level: 4, count: 25 },
+  '2026-03-02': { level: 1, count: 3 },
+  '2026-03-04': { level: 4, count: 25 },
+};
+
+const levelColors = ['bg-white/5', 'bg-cherry/25', 'bg-cherry/50', 'bg-cherry/75', 'bg-cherry'] as const;
+
+const monthDays2026 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+type ContribCell = { date: string; level: number; count: number } | null;
+
+function buildContribGrid(): ContribCell[][] {
+  const days: ContribCell[] = [];
+  // Jan 1, 2026 is Thursday — pad Sun, Mon, Tue, Wed (4 empty slots)
+  for (let i = 0; i < 4; i++) days.push(null);
+  for (let m = 0; m < 12; m++) {
+    for (let d = 1; d <= monthDays2026[m]; d++) {
+      const dateStr = `2026-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      const c = githubContribs[dateStr] || { level: 0, count: 0 };
+      days.push({ date: dateStr, ...c });
+    }
+  }
+  while (days.length % 7 !== 0) days.push(null);
+  const weeks: ContribCell[][] = [];
+  for (let i = 0; i < days.length; i += 7) weeks.push(days.slice(i, i + 7));
+  return weeks;
+}
+
+const contribGrid = buildContribGrid();
+
+function getMonthLabel(week: ContribCell[]): string {
+  const first = week.find(d => d?.date.slice(-2) === '01');
+  if (!first) return '';
+  return monthLabels[parseInt(first.date.slice(5, 7)) - 1];
+}
 
 export default function AIEngineerPage() {
   return (
@@ -422,6 +479,106 @@ export default function AIEngineerPage() {
                   <p className="text-xs text-electric-cyan">{tech.level}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* GitHub Contributions */}
+        <section className="py-24 px-6 bg-charcoal/30 border-y border-beige/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-beige">
+                Writing <span className="text-electric-cyan">Code</span> Daily
+              </h2>
+              <p className="text-lg text-beige/60">
+                194 contributions in 2026 — every commit is a step closer to impact
+              </p>
+            </div>
+
+            <div className="bg-midnight-blue/80 border border-beige/10 rounded-2xl p-6 md:p-8">
+              {/* Summary stats */}
+              <div className="flex flex-wrap gap-8 mb-8 pb-6 border-b border-beige/10">
+                <div>
+                  <p className="text-3xl font-display font-bold text-cherry">194</p>
+                  <p className="text-sm text-beige/50 mt-1">contributions in 2026</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-display font-bold text-electric-cyan">28</p>
+                  <p className="text-sm text-beige/50 mt-1">peak day (Feb 26)</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-display font-bold text-gold">9+</p>
+                  <p className="text-sm text-beige/50 mt-1">active repositories</p>
+                </div>
+              </div>
+
+              {/* Heatmap */}
+              <div className="overflow-x-auto pb-2">
+                <div className="min-w-max">
+                  {/* Month labels */}
+                  <div className="flex gap-0.5 mb-1.5 ml-8">
+                    {contribGrid.map((week, wi) => {
+                      const label = getMonthLabel(week);
+                      return (
+                        <div key={wi} className="w-3 relative">
+                          {label && (
+                            <span className="absolute text-[10px] text-beige/40 whitespace-nowrap leading-none">
+                              {label}
+                            </span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Day labels + grid */}
+                  <div className="flex gap-2">
+                    {/* Day labels */}
+                    <div className="flex flex-col gap-0.5 w-6">
+                      {['', 'Mon', '', 'Wed', '', 'Fri', ''].map((label, i) => (
+                        <div key={i} className="h-3 flex items-center justify-end">
+                          <span className="text-[10px] text-beige/40 leading-none">{label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Contribution cells */}
+                    <div className="flex gap-0.5">
+                      {contribGrid.map((week, wi) => (
+                        <div key={wi} className="flex flex-col gap-0.5">
+                          {week.map((day, di) => (
+                            <div
+                              key={di}
+                              className={`w-3 h-3 rounded-sm ${day ? levelColors[day.level] : 'opacity-0'}`}
+                              title={day?.count ? `${day.date}: ${day.count} contribution${day.count !== 1 ? 's' : ''}` : (day?.date || '')}
+                            />
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Legend + GitHub link */}
+              <div className="flex flex-wrap items-center justify-between gap-4 mt-6 pt-6 border-t border-beige/10">
+                <div className="flex items-center gap-2 text-xs text-beige/40">
+                  <span>Less</span>
+                  {levelColors.map((cls, i) => (
+                    <div key={i} className={`w-3 h-3 rounded-sm ${cls}`} />
+                  ))}
+                  <span>More</span>
+                </div>
+                <a
+                  href="https://github.com/Nanda-Regine"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-electric-cyan hover:text-cherry transition-colors"
+                >
+                  <Github className="w-4 h-4" />
+                  github.com/Nanda-Regine
+                </a>
+              </div>
             </div>
           </div>
         </section>
