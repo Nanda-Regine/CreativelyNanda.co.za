@@ -84,28 +84,31 @@ export function createPaymentData({
   buyerEmail: string;
   buyerFirstName?: string;
   buyerLastName?: string;
-}): PayfastPaymentData & { signature: string } {
+}): Record<string, string> {
   // Convert cents to Rands with 2 decimal places
   const amountInRands = (amount / 100).toFixed(2);
 
-  const data: PayfastPaymentData = {
-    merchant_id: PAYFAST_CONFIG.merchantId,
-    merchant_key: PAYFAST_CONFIG.merchantKey,
-    return_url: `${PAYFAST_RETURN_URL}?order_id=${orderId}`,
-    cancel_url: PAYFAST_CANCEL_URL,
-    notify_url: PAYFAST_NOTIFY_URL,
-    email_address: buyerEmail,
-    m_payment_id: orderId,
-    amount: amountInRands,
-    item_name: itemName.substring(0, 100), // Max 100 chars
-  };
-
-  if (buyerFirstName) data.name_first = buyerFirstName.substring(0, 100);
-  if (buyerLastName) data.name_last = buyerLastName.substring(0, 100);
-  if (itemDescription) data.item_description = itemDescription.substring(0, 255);
+  // Build in PayFast's EXACT canonical field order.
+  // PayFast verifies the signature using this order — any deviation causes a 400.
+  // Order: merchant_id, merchant_key, return_url, cancel_url, notify_url,
+  //        name_first*, name_last*, email_address, m_payment_id, amount,
+  //        item_name, item_description*   (* = optional, omit when empty)
+  const data: Record<string, string> = {};
+  data.merchant_id  = PAYFAST_CONFIG.merchantId;
+  data.merchant_key = PAYFAST_CONFIG.merchantKey;
+  data.return_url   = `${PAYFAST_RETURN_URL}?order_id=${orderId}`;
+  data.cancel_url   = PAYFAST_CANCEL_URL;
+  data.notify_url   = PAYFAST_NOTIFY_URL;
+  if (buyerFirstName)   data.name_first        = buyerFirstName.substring(0, 100);
+  if (buyerLastName)    data.name_last         = buyerLastName.substring(0, 100);
+  data.email_address  = buyerEmail;
+  data.m_payment_id   = orderId;
+  data.amount         = amountInRands;
+  data.item_name      = itemName.substring(0, 100);
+  if (itemDescription) data.item_description  = itemDescription.substring(0, 255);
 
   // Generate signature
-  const signature = generateSignature(data as unknown as Record<string, string>, PAYFAST_CONFIG.passphrase);
+  const signature = generateSignature(data, PAYFAST_CONFIG.passphrase);
 
   return { ...data, signature };
 }
