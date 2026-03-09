@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { Search, Code, Feather, TrendingUp, Sparkles, ArrowDown } from 'lucide-react';
+import { Search, Code, Feather, TrendingUp, Layout, Sparkles, ArrowDown } from 'lucide-react';
 import { blogCategoryThemes } from '@/lib/blog-themes';
 
 interface MagazineHeroProps {
@@ -22,6 +22,7 @@ const categoryIcons = {
   dev: Code,
   writing: Feather,
   business: TrendingUp,
+  notion: Layout,
 };
 
 export function MagazineHero({

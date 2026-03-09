@@ -125,7 +125,7 @@ MIT © Nanda`
     description: 'A modern token-based e-commerce platform where users earn and spend tokens for purchases. Features a gamified shopping experience with rewards, achievements, and a sleek green-themed interface.',
     videoUrl: '/assets/project-screen-record/GreenVault.mp4',
     githubUrl: 'https://github.com/creativelynanda/greenvault',
-    liveUrl: 'https://greenvault.vercel.app',
+    liveUrl: 'https://green-valut-e-commerce-store-demo.vercel.app/',
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'JWT Authentication'],
     caseStudy: {
       challenge: 'Create an engaging e-commerce experience that rewards customer loyalty through a token-based system, making shopping more interactive and rewarding.',
@@ -177,7 +177,7 @@ MIT © Nanda`
     description: 'A comprehensive booking and management system designed for service-based businesses. Features appointment scheduling, client management, and analytics dashboard.',
     videoUrl: '/assets/project-screen-record/cortexhub-booking-system.mp4',
     githubUrl: 'https://github.com/creativelynanda/cortex-hub',
-    liveUrl: 'https://cortex-hub.vercel.app',
+    liveUrl: 'https://cortex-hub-booking-5e35.vercel.app/',
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Chart.js'],
     caseStudy: {
       challenge: 'Service businesses needed a modern, intuitive booking system that could handle scheduling, client management, and provide business insights — all in one platform.',

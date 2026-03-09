@@ -209,6 +209,7 @@ const projects: Record<string, ProjectData> = {
     },
     liveUrl: 'https://cortex-hub-booking-5e35.vercel.app/',
     githubUrl: null,
+    videoUrl: '/assets/project-screen-record/cortexhub-booking-system.mp4',
     images: [],
     metaTitle: 'Cortex Hub — Multi-Industry SaaS Booking Platform for SA SMEs | Nandawula Regine',
     metaDescription:
@@ -290,6 +291,7 @@ const projects: Record<string, ProjectData> = {
     },
     liveUrl: 'https://green-valut-e-commerce-store-demo.vercel.app/',
     githubUrl: 'https://github.com/Nanda-Regine/GreenValut-eCommerce-store-demo',
+    videoUrl: '/assets/project-screen-record/GreenVault.mp4',
     images: [],
     metaTitle: 'Green Vault eCommerce — PayFast Integrated Store Template | Nandawula Regine',
     metaDescription:
@@ -370,6 +372,7 @@ const projects: Record<string, ProjectData> = {
     },
     liveUrl: 'https://creativelynanda.co.za',
     githubUrl: 'https://github.com/Nanda-Regine/CreativelyNanda.co.za',
+    videoUrl: '/assets/project-screen-record/creativelynanda.mp4',
     images: [],
     metaTitle: 'CreativelyNanda.co.za — Portfolio & Digital HQ | Nandawula Regine',
     metaDescription:
@@ -398,6 +401,7 @@ interface ProjectData {
   impact: { potential: string; economy: string; problem: string; metric: string };
   liveUrl: string | null;
   githubUrl: string | null;
+  videoUrl?: string | null;
   images: string[];
   metaTitle: string;
   metaDescription: string;
@@ -534,6 +538,30 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
         </section>
+
+        {/* Video Demo */}
+        {project.videoUrl && (
+          <section className="py-12 px-6 bg-[#0d1117]">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-xs font-bold text-[#D4A574] tracking-[0.3em] uppercase">Demo Recording</span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                <video
+                  src={project.videoUrl}
+                  controls
+                  autoPlay={false}
+                  muted
+                  playsInline
+                  className="w-full aspect-video object-cover"
+                  preload="metadata"
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Impact Bar */}
         <section className="py-0 px-6 bg-[#0A1128]">
