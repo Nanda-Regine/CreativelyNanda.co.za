@@ -463,6 +463,56 @@ https://creativelynanda.co.za/products
 © Mirembe Muse (Pty) Ltd`
   },
   {
+    id: 'weather-app',
+    title: 'Weather App',
+    subtitle: 'Real-Time Weather · SheCodes Certified',
+    category: 'Frontend',
+    status: 'Live',
+    year: '2024',
+    coverColor: 'from-[#0EA5E9] to-[#0284C7]',
+    accentColor: '#0EA5E9',
+    description: 'Clean, responsive real-time weather application using OpenWeather API. A SheCodes Plus project demonstrating API integration mastery, dynamic UI updates, and mobile-first design.',
+    videoUrl: null,
+    githubUrl: 'https://github.com/Nanda-Regine/my-weather-app',
+    liveUrl: 'https://my-weather-app-rho-lyart.vercel.app/',
+    tech: ['JavaScript', 'HTML5', 'CSS3', 'OpenWeather API', 'Axios'],
+    caseStudy: {
+      challenge: 'Build a clean, functional real-time weather app that demonstrates API integration, asynchronous JavaScript, and responsive UI design — as part of the SheCodes Plus certification.',
+      approach: 'Integrated OpenWeather API to fetch real-time weather by city. Designed a minimal, readable UI with dynamic background changes based on weather conditions.',
+      solution: 'A fully functional weather app with geolocation support, city search, real-time temperature, humidity, wind speed, and a 5-day forecast.',
+      results: [
+        'SheCodes Plus certified project',
+        'Real-time API integration with OpenWeather',
+        'Live on Vercel — fully functional',
+        'Foundation project demonstrating API mastery'
+      ]
+    },
+    readme: `# Weather App
+
+Real-time weather app — SheCodes Plus certification project.
+
+## Live
+https://my-weather-app-rho-lyart.vercel.app/
+
+## GitHub
+https://github.com/Nanda-Regine/my-weather-app
+
+## Features
+- 🌤️ Real-time weather by city
+- 📍 Geolocation support
+- 🌡️ Temperature, humidity, wind speed
+- 📅 5-day forecast
+- 📱 Responsive design
+
+## Tech Stack
+- Vanilla JavaScript (ES6+)
+- OpenWeather API
+- Axios for HTTP requests
+- HTML5 & CSS3
+
+© Nandawula Regine Kabali-Kagwa`
+  },
+  {
     id: 'poetry-tube',
     title: 'PoetryTube',
     subtitle: 'African Spoken Word Video Platform',
@@ -527,6 +577,8 @@ const slugMap = {
   'greenvault': 'green-vault',
   'cortex-hub': 'cortex-hub',
   'poetry-tube': 'poetry-tube',
+  'weather-app': 'weather-app',
+  'mirembe-muse': 'stokvel-os', // closest detailed case study
 };
 
 // Projects that use AI — badge links to /ai-engineer

@@ -360,20 +360,26 @@ export default function Home() {
       </section>
 
       {/* ===== TRUST INDICATORS BAR ===== */}
-      <section className="py-6 px-4 sm:px-6 bg-navy/95 border-y border-beige/10 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-center">
+      <section className="py-5 px-4 sm:px-6 bg-cherry overflow-hidden relative">
+        {/* Subtle noise texture */}
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
+          }}
+        />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-center">
             {[
               { value: '11M+', label: 'Potential Users' },
               { value: '9', label: 'Live Applications' },
-              { value: '6', label: 'Published Systems' },
+              { value: '6', label: 'Templates Live' },
               { value: '300+', label: 'Active Users' },
-              { value: '15', label: 'Academic Distinctions' },
-              { value: '1', label: 'Published Poet' },
+              { value: '15', label: 'Distinctions' },
+              { value: '5IR', label: 'Building Africa\'s Future' },
             ].map((stat) => (
-              <div key={stat.label} className="flex items-center gap-3">
-                <span className="text-[#D4A574] font-display font-bold text-xl md:text-2xl">{stat.value}</span>
-                <span className="text-beige/50 text-xs md:text-sm tracking-wide">{stat.label}</span>
+              <div key={stat.label} className="flex items-center gap-2">
+                <span className="text-white font-display font-bold text-xl md:text-2xl">{stat.value}</span>
+                <span className="text-white/70 text-xs md:text-sm tracking-wide">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -381,16 +387,19 @@ export default function Home() {
       </section>
 
       {/* ===== 5IR PHILOSOPHY SECTION ===== */}
-      <section className="relative py-16 md:py-24 px-4 sm:px-6 bg-[#0A1128] overflow-hidden">
-        {/* Subtle grid background */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
+      <section className="relative py-16 md:py-24 px-4 sm:px-6 bg-parchment overflow-hidden">
+        {/* Halftone dot pattern for texture */}
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{
-            backgroundImage: 'linear-gradient(to right, #D4A574 1px, transparent 1px), linear-gradient(to bottom, #D4A574 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
+            backgroundImage: 'radial-gradient(circle, #0A1128 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
           }}
         />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-[#D4A574]/40 to-transparent" />
+        {/* Asymmetric shapes */}
+        <div className="absolute top-8 right-8 w-24 h-24 border-2 border-cherry/15 rotate-12"
+          style={{ borderRadius: '50% 30% 60% 40% / 40% 60% 30% 70%' }}
+        />
+        <div className="absolute bottom-12 left-6 w-16 h-16 bg-[#D4A574]/10 -rotate-6 rounded-full" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
@@ -401,84 +410,95 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center mb-12 md:mb-16"
           >
-            <span className="text-[#D4A574] text-xs font-medium tracking-[0.4em] uppercase">
+            <span className="text-cherry text-xs font-bold tracking-[0.4em] uppercase">
               5th Industrial Revolution
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-beige mt-3">
-              Human <span className="text-[#D4A574]">×</span> AI <span className="text-[#D4A574]">×</span> Ubuntu
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-navy mt-3">
+              Human <span className="text-cherry">×</span> AI <span className="text-cherry">×</span> Ubuntu
             </h2>
-            <p className="text-beige/50 text-sm md:text-base mt-4 max-w-xl mx-auto">
+            <p className="text-navy/55 text-sm md:text-base mt-4 max-w-xl mx-auto">
               The 4IR automated tasks. The 5IR restores purpose — where technology serves humanity, not the other way around.
             </p>
           </motion.div>
 
-          {/* 3 Pillars */}
+          {/* 3 Pillars — colorful cards */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={mobileViewport}
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-6 md:gap-8"
+            className="grid md:grid-cols-3 gap-5 md:gap-6"
           >
             {[
               {
                 number: '01',
                 title: 'AI–Human Collaboration',
                 body: 'I build AI that amplifies human creativity and judgment — not systems that replace people. Every automation I design frees someone to do more meaningful work.',
-                accent: '#D4A574',
+                bg: 'bg-cherry',
+                text: 'text-white',
+                sub: 'text-white/70',
                 icon: '🤝',
               },
               {
                 number: '02',
                 title: 'African-First Innovation',
                 body: 'The 5IR isn\'t happening to Africa — it\'s being built here. Stokvels, K53 pass rates, township entrepreneurs: real African problems deserve purpose-built AI solutions.',
-                accent: '#4ADE80',
+                bg: 'bg-[#0A1128]',
+                text: 'text-beige',
+                sub: 'text-beige/60',
                 icon: '🌍',
               },
               {
                 number: '03',
                 title: 'Ubuntu × Technology',
-                body: '"I am because we are." Technology built with Ubuntu philosophy puts community at its centre. My systems are designed for collective flourishing, not just individual gain.',
-                accent: '#60A5FA',
+                body: '"I am because we are." Technology built with Ubuntu philosophy puts community at its centre. My systems are designed for collective flourishing, not individual gain.',
+                bg: 'bg-[#D4A574]',
+                text: 'text-navy',
+                sub: 'text-navy/65',
                 icon: '✦',
               },
             ].map((pillar, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="relative group"
+                className={`relative ${pillar.bg} rounded-2xl p-7 md:p-8 overflow-hidden`}
               >
-                <div className="h-px w-full mb-6" style={{ backgroundColor: pillar.accent, opacity: 0.4 }} />
-                <div className="absolute -top-3 right-0 font-display text-[5rem] font-bold leading-none select-none pointer-events-none"
-                  style={{ color: `${pillar.accent}0d` }} aria-hidden="true">
+                {/* Watermark number */}
+                <span className="absolute -bottom-4 -right-2 font-display text-[6rem] font-bold leading-none select-none pointer-events-none opacity-10"
+                  aria-hidden="true">
                   {pillar.number}
-                </div>
-                <span className="text-2xl mb-4 block">{pillar.icon}</span>
-                <h3 className="font-display text-lg md:text-xl font-bold text-beige mb-3 group-hover:text-[#D4A574] transition-colors">
+                </span>
+                <span className="text-3xl mb-4 block">{pillar.icon}</span>
+                <h3 className={`font-display text-lg md:text-xl font-bold mb-3 ${pillar.text}`}>
                   {pillar.title}
                 </h3>
-                <p className="text-beige/50 text-sm md:text-base leading-relaxed">
+                <p className={`text-sm md:text-base leading-relaxed ${pillar.sub}`}>
                   {pillar.body}
                 </p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Bottom callout */}
+          {/* Bottom callout — navy on parchment for contrast */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={mobileViewport}
             variants={fadeInUp}
-            className="mt-14 md:mt-20 border border-[#D4A574]/20 p-6 md:p-8 text-center"
-            style={{ borderRadius: '2px' }}
+            className="mt-12 md:mt-16 bg-navy rounded-2xl p-6 md:p-8 text-center relative overflow-hidden"
           >
-            <p className="font-display text-xl md:text-2xl lg:text-3xl text-beige font-semibold">
+            <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+              style={{
+                backgroundImage: 'radial-gradient(circle, #D4A574 1px, transparent 1px)',
+                backgroundSize: '20px 20px',
+              }}
+            />
+            <p className="font-display text-xl md:text-2xl lg:text-3xl text-beige font-semibold relative z-10">
               "The future belongs to those who can speak both{' '}
               <span className="text-[#D4A574]">machine</span> and{' '}
-              <span className="text-[#4ADE80]">human</span>."
+              <span className="text-cherry">human</span>."
             </p>
-            <p className="text-beige/40 text-xs tracking-[0.3em] uppercase mt-4">
+            <p className="text-beige/40 text-xs tracking-[0.3em] uppercase mt-4 relative z-10">
               The 5IR Mandate — Nandawula Regine Kabali-Kagwa
             </p>
           </motion.div>
@@ -691,9 +711,19 @@ export default function Home() {
       </section>
 
       {/* ===== CLOSING STATEMENT ===== */}
-      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-navy overflow-hidden scroll-mt-20">
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-[#D4A574]/5 via-transparent to-[#D4A574]/5 opacity-[0.07]"
+      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-[#0A1128] overflow-hidden scroll-mt-20">
+        {/* Noise texture */}
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
+          }}
+        />
+        {/* Cherry accent blob */}
+        <div className="absolute bottom-0 right-0 w-64 h-64 opacity-10 pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #C1292E 0%, transparent 70%)', transform: 'translate(30%, 30%)' }}
+        />
+        <div className="absolute top-0 left-0 w-48 h-48 opacity-10 pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #D4A574 0%, transparent 70%)', transform: 'translate(-30%, -30%)' }}
         />
 
         <motion.div
