@@ -39,7 +39,7 @@ function transformSeedPost(post: typeof seedPosts[number]) {
     title: post.title,
     excerpt: post.excerpt || '',
     coverImage: post.cover_image || '',
-    category: post.category as 'dev' | 'writing' | 'business',
+    category: post.category as 'dev' | 'writing' | 'business' | 'notion',
     publishedAt: post.published_at || new Date().toISOString(),
     readingTime: post.reading_time || 5,
     author: {
@@ -173,6 +173,7 @@ export default function BlogPage() {
   const devArticles = articles.filter(a => a.category === 'dev');
   const writingArticles = articles.filter(a => a.category === 'writing');
   const businessArticles = articles.filter(a => a.category === 'business');
+  const notionArticles = articles.filter(a => a.category === 'notion');
 
   // Default contributor if no posts yet
   const defaultContributor = {
@@ -325,6 +326,28 @@ export default function BlogPage() {
                 />
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {writingArticles.slice(0, 3).map((article, i) => (
+                    <ArticleCoverCard key={article.slug} article={article} index={i} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Notion Template Articles */}
+          {notionArticles.length > 0 && (
+            <section className="py-16 px-6 bg-gradient-to-b from-parchment to-amber-50/30">
+              <div className="max-w-7xl mx-auto">
+                <CategorySectionHeader
+                  category={'business' as 'dev' | 'writing' | 'business'}
+                  articleCount={notionArticles.length}
+                />
+                <div className="mb-4 -mt-4">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-semibold">
+                    🗂️ Notion Templates — Mirembe Muse
+                  </span>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {notionArticles.slice(0, 6).map((article, i) => (
                     <ArticleCoverCard key={article.slug} article={article} index={i} />
                   ))}
                 </div>
