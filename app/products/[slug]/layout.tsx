@@ -60,11 +60,21 @@ export async function generateMetadata({
   const { product, description } = productData;
 
   return createMetadata({
-    title: product.name,
+    title: `${product.name} — Notion Template | Mirembe Muse`,
     description: description ? description.slice(0, 160) : product.tagline,
     path: `/products/${product.slug}`,
     ogType: 'website',
-    keywords: [product.category, 'Notion template', 'digital product', product.name, 'South Africa'],
+    ogImage: product.thumbnail || product.images?.[0] || undefined,
+    keywords: [
+      product.name,
+      'Notion template South Africa',
+      `${product.category} Notion template`,
+      'digital product South Africa',
+      'Mirembe Muse',
+      'buy Notion template ZAR',
+      'South African productivity tools',
+      'CreativelyNanda',
+    ],
   });
 }
 

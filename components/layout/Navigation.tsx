@@ -21,13 +21,14 @@ export default function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/projects', label: 'Projects' },
+    { href: '/ai-engineer', label: 'AI Engineer' },
     { href: '/work', label: 'Work' },
     { href: '/education', label: 'Education' },
-    { href: '/notion', label: 'Notion' },
     { href: '/mirembe', label: 'Mirembe' },
     { href: '/poetry', label: 'Poetry' },
     { href: '/blog', label: 'Blog' },
     { href: '/products', label: 'Shop' },
+    { href: '/press', label: 'Press' },
     { href: '/contact', label: 'Contact' },
   ];
 

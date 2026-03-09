@@ -10,18 +10,18 @@ export default function About() {
   };
 
   const skills = [
-    { category: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'], icon: '✦' },
-    { category: 'Backend', items: ['Supabase', 'Node.js', 'Python', 'REST APIs'], icon: '◇' },
-    { category: 'Tools', items: ['Notion', 'Git', 'VS Code', 'Figma'], icon: '❖' },
-    { category: 'AI & ML', items: ['OpenAI API', 'Prompt Engineering', 'Chatbots'], icon: '✧' },
+    { category: 'AI & ML', items: ['Claude API', 'OpenAI GPT-4', 'LangChain', 'RAG Systems', 'Embeddings', 'AI Agents'], icon: '✧' },
+    { category: 'Full-Stack', items: ['Next.js 14', 'TypeScript', 'React', 'Tailwind CSS', 'Framer Motion'], icon: '✦' },
+    { category: 'Backend & DB', items: ['Supabase', 'PostgreSQL', 'RLS Security', 'REST APIs', 'Python'], icon: '◇' },
+    { category: 'Integrations', items: ['PayFast', 'Mapbox API', 'Resend', 'Cal.com', 'Vercel'], icon: '❖' },
   ];
 
 
   const journey = [
-    { year: '2019', title: 'The Foundation', desc: 'Learning the art of service and human connection in retail' },
-    { year: '2023', title: 'Leadership Awakens', desc: 'Managing teams, systems, and dreams at Balkan Burger' },
-    { year: '2025', title: 'The Pivot', desc: 'Diving into code through SheCodes and never looking back' },
-    { year: '2026', title: 'The Emergence', desc: 'Building Mirembe Muse, shipping products, writing the future' },
+    { year: '2019', title: 'The Foundation', desc: 'BCom Business Management begins at Nelson Mandela University — 15 distinctions, zero compromises' },
+    { year: '2023', title: 'Leadership Awakens', desc: 'Managing teams and systems at Balkan Burger. Published "Inside Her Roses" — featured on SABC national TV & radio' },
+    { year: '2025', title: 'The Pivot', desc: 'Self-taught full-stack development through SheCodes. 250+ GitHub commits in 6 months. 9 live apps built solo' },
+    { year: '2026', title: 'The Emergence', desc: 'Master Gen AI Professional certified. Mirembe Muse launches. Sanyu Botanicals in production. AI Engineer for hire' },
   ];
 
   return (

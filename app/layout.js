@@ -24,8 +24,35 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: 'Nanda | Creative Technologist',
-  description: 'Portfolio of Nanda - Creative Technologist, Full-Stack Developer, Notion Systems Architect, and Published Poet',
+  title: 'Nandawula Regine Kabali-Kagwa | AI Engineer & Creative Technologist — South Africa',
+  description:
+    'Nandawula Regine Kabali-Kagwa is Africa\'s Creative Technologist & AI Engineer — building AI-powered applications, Notion productivity systems, and digital products. Full-Stack Developer, Published Poet, and Founder of Mirembe Muse. Based in South Africa.',
+  keywords: [
+    'Nandawula Regine Kabali-Kagwa',
+    'African AI engineer',
+    'creative technologist South Africa',
+    'full-stack developer Africa',
+    'AI developer South Africa',
+    'Nanda portfolio',
+    'CreativelyNanda',
+    'Mirembe Muse',
+    'Notion templates South Africa',
+    'published poet South Africa',
+    'Inside Her Roses',
+    'AI consulting Africa',
+    'Next.js developer Africa',
+    'Supabase developer',
+    'PayFast developer',
+    'Mapbox developer Africa',
+    'OpenAI developer South Africa',
+    'StokvelOS',
+    'K53 Drill Master',
+    'True Access App',
+    'women in tech South Africa',
+    'black woman developer South Africa',
+    'African tech entrepreneur',
+    'systems architect Africa',
+  ],
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -40,21 +67,23 @@ export const metadata = {
     locale: 'en_ZA',
     url: 'https://creativelynanda.co.za',
     siteName: 'Creatively Nanda',
-    title: 'Nanda | Creative Technologist',
-    description: 'Portfolio of Nanda - Creative Technologist, Full-Stack Developer, Notion Systems Architect, and Published Poet',
+    title: 'Nandawula Regine Kabali-Kagwa | AI Engineer & Creative Technologist',
+    description:
+      'Africa\'s Creative Technologist & AI Engineer — building intelligent systems, AI apps, and digital products. 9 live apps, 300+ users, published poet. Based in South Africa.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Creatively Nanda',
+        alt: 'Nandawula Regine Kabali-Kagwa — Creative Technologist & AI Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nanda | Creative Technologist',
-    description: 'Portfolio of Nanda - Creative Technologist, Full-Stack Developer, Notion Systems Architect, and Published Poet',
+    title: 'Nandawula Regine | AI Engineer & Creative Technologist — South Africa',
+    description:
+      'Building AI-powered apps for African communities. 9 live apps, published poet, Notion templates. Follow the journey.',
     images: ['/og-image.png'],
     creator: '@creativelynanda',
   },

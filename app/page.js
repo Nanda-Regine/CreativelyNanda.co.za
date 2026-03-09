@@ -188,13 +188,13 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     className="px-3 md:px-4 py-1.5 md:py-2 border border-[#D4A574] text-[#D4A574] text-xs md:text-sm font-medium tracking-wider"
                   >
-                    CREATIVE
+                    CREATIVE TECHNOLOGIST
                   </motion.span>
                   <motion.span
                     whileHover={{ scale: 1.05 }}
                     className="px-3 md:px-4 py-1.5 md:py-2 bg-[#D4A574] text-navy text-xs md:text-sm font-medium tracking-wider"
                   >
-                    TECHNOLOGIST
+                    AI ENGINEER
                   </motion.span>
                 </motion.div>
               </div>
@@ -206,10 +206,10 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="font-display text-base md:text-lg lg:text-xl text-beige/70 leading-relaxed max-w-md mx-auto lg:mx-0 px-4 lg:px-0"
               >
-                Bridging imagination and innovation through
-                <span className="text-[#D4A574] font-semibold"> code</span>,
-                <span className="text-beige font-semibold"> design</span>, and
-                <span className="text-[#D4A574] font-semibold"> storytelling</span>.
+                Building AI-powered systems that transform African communities —
+                <span className="text-[#D4A574] font-semibold"> developer</span>,
+                <span className="text-beige font-semibold"> poet</span>, and
+                <span className="text-[#D4A574] font-semibold"> founder</span>.
               </motion.p>
 
               {/* Magazine-style Feature List */}
@@ -220,7 +220,7 @@ export default function Home() {
                 transition={{ delay: 0.8 }}
                 className="space-y-2"
               >
-                {['PUBLISHED POET', 'FULL-STACK DEVELOPER', 'NOTION ARCHITECT', 'FOUNDER, MIREMBE MUSE'].map((item, i) => (
+                {['AI ENGINEER', 'FULL-STACK DEVELOPER', 'PUBLISHED POET', 'FOUNDER, MIREMBE MUSE'].map((item, i) => (
                   <motion.div
                     key={i}
                     variants={featureItem}
@@ -357,6 +357,27 @@ export default function Home() {
             className="w-px h-8 md:h-10 lg:h-12 bg-gradient-to-b from-beige/50 to-transparent"
           />
         </motion.div>
+      </section>
+
+      {/* ===== TRUST INDICATORS BAR ===== */}
+      <section className="py-6 px-4 sm:px-6 bg-navy/95 border-y border-beige/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-center">
+            {[
+              { value: '11M+', label: 'Potential Users' },
+              { value: '9', label: 'Live Applications' },
+              { value: '6', label: 'Published Systems' },
+              { value: '300+', label: 'Active Users' },
+              { value: '15', label: 'Academic Distinctions' },
+              { value: '1', label: 'Published Poet' },
+            ].map((stat) => (
+              <div key={stat.label} className="flex items-center gap-3">
+                <span className="text-[#D4A574] font-display font-bold text-xl md:text-2xl">{stat.value}</span>
+                <span className="text-beige/50 text-xs md:text-sm tracking-wide">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ===== FEATURED QUOTE SECTION ===== */}

@@ -51,10 +51,10 @@ function phpUrlencode(str: string): string {
  * Generate MD5 signature for PayFast
  */
 export function generateSignature(data: Record<string, string>, passphrase?: string): string {
-  // Create parameter string
+  // Create parameter string — preserve insertion order to match what the browser POSTs to PayFast.
+  // PayFast verifies using the field order it receives, so we must NOT sort alphabetically here.
   const params = Object.keys(data)
     .filter((key) => key !== 'signature' && data[key] !== '')
-    .sort()
     .map((key) => `${key}=${phpUrlencode(data[key])}`)
     .join('&');
 
