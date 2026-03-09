@@ -554,62 +554,59 @@ function ProjectCard({ project, index }) {
       className="group h-full"
     >
       <div
-        className="h-full rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col border border-white/40"
-        style={{
-          background: `linear-gradient(145deg, white 0%, white 55%, ${project.accentColor}18 100%)`,
-        }}
+        className="h-full rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white border border-[#0A1128]/8"
       >
-        {/* Full-width gradient header strip */}
-        <div className={`h-20 bg-gradient-to-r ${project.coverColor} flex-shrink-0 relative overflow-hidden`}>
-          {/* Subtle texture in header */}
-          <div className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `radial-gradient(circle at 80% 50%, rgba(255,255,255,0.4) 0%, transparent 60%)`
-            }}
-          />
-          {/* Project number in header */}
-          <span className="absolute bottom-2 left-5 font-display text-4xl font-bold text-white/25 leading-none select-none">
+        {/* Top accent line — 3px, solid accent color */}
+        <div className="h-[3px] flex-shrink-0" style={{ backgroundColor: project.accentColor }} />
+
+        <div className="p-5 flex flex-col flex-1 relative overflow-hidden">
+          {/* Watermark number — huge, faded, behind content */}
+          <span
+            className="absolute -top-4 -right-2 font-display text-[7rem] font-bold leading-none select-none pointer-events-none"
+            style={{ color: `${project.accentColor}0d` }}
+            aria-hidden="true"
+          >
             {String(index + 1).padStart(2, '0')}
           </span>
-          {/* AI badge in header */}
-          {isAI && (
-            <Link
-              href="/ai-engineer"
-              className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold rounded-full hover:bg-white/35 transition-colors border border-white/30"
-              onClick={(e) => e.stopPropagation()}
-            >
-              🤖 AI Project ↗
-            </Link>
-          )}
-        </div>
 
-        <div className="p-5 flex flex-col flex-1">
-          {/* Status + year row */}
-          <div className="flex items-center justify-between mb-3">
-            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${statusStyle[project.status] || 'bg-[#0A1128]/10 text-[#0A1128]/70'}`}>
-              {project.status}
-            </span>
-            <span className="text-xs text-[#0A1128]/40">{project.year}</span>
+          {/* Status + year + AI badge row */}
+          <div className="flex items-center justify-between mb-3 relative z-10">
+            <div className="flex items-center gap-2">
+              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${statusStyle[project.status] || 'bg-[#0A1128]/10 text-[#0A1128]/70'}`}>
+                {project.status}
+              </span>
+              {isAI && (
+                <Link
+                  href="/ai-engineer"
+                  className="flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold rounded-full border transition-colors"
+                  style={{ borderColor: `${project.accentColor}50`, color: project.accentColor, backgroundColor: `${project.accentColor}08` }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  🤖 AI ↗
+                </Link>
+              )}
+            </div>
+            <span className="text-xs text-[#0A1128]/35 font-mono">{project.year}</span>
           </div>
 
           {/* Title & subtitle */}
-          <h3 className="font-display text-xl font-bold text-[#0A1128] mb-0.5 group-hover:text-[#C1292E] transition-colors duration-200">
+          <h3 className="font-display text-xl font-bold text-[#0A1128] mb-0.5 group-hover:text-[#C1292E] transition-colors duration-200 relative z-10">
             {project.title}
           </h3>
-          <p className="text-[#0A1128]/50 text-xs mb-3 font-medium tracking-wide uppercase">{project.subtitle}</p>
+          <p className="text-[#0A1128]/45 text-xs mb-3 font-medium tracking-widest uppercase relative z-10">{project.subtitle}</p>
 
           {/* Description — 3 lines max */}
-          <p className="text-[#0A1128]/70 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
+          <p className="text-[#0A1128]/70 text-sm leading-relaxed mb-4 line-clamp-3 flex-1 relative z-10">
             {project.description}
           </p>
 
           {/* Tech pills — tinted with accent color */}
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-4 relative z-10">
             {project.tech.slice(0, 4).map((t) => (
               <span
                 key={t}
                 className="px-2.5 py-1 text-xs rounded-full font-mono font-medium"
-                style={{ backgroundColor: `${project.accentColor}15`, color: project.accentColor }}
+                style={{ backgroundColor: `${project.accentColor}12`, color: project.accentColor }}
               >
                 {t}
               </span>
@@ -622,7 +619,7 @@ function ProjectCard({ project, index }) {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-2 pt-3 border-t border-[#0A1128]/8">
+          <div className="flex gap-2 pt-3 border-t border-[#0A1128]/8 relative z-10">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

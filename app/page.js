@@ -206,10 +206,10 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="font-display text-base md:text-lg lg:text-xl text-beige/70 leading-relaxed max-w-md mx-auto lg:mx-0 px-4 lg:px-0"
               >
-                Building AI-powered systems that transform African communities —
-                <span className="text-[#D4A574] font-semibold"> developer</span>,
-                <span className="text-beige font-semibold"> poet</span>, and
-                <span className="text-[#D4A574] font-semibold"> founder</span>.
+                Building where <span className="text-[#D4A574] font-semibold">Ubuntu philosophy</span> meets{' '}
+                <span className="text-beige font-semibold">artificial intelligence</span> —
+                designing the 5th Industrial Revolution{' '}
+                <span className="text-[#D4A574] font-semibold">from Africa, for the world</span>.
               </motion.p>
 
               {/* Magazine-style Feature List */}
@@ -220,7 +220,7 @@ export default function Home() {
                 transition={{ delay: 0.8 }}
                 className="space-y-2"
               >
-                {['AI ENGINEER', 'FULL-STACK DEVELOPER', 'PUBLISHED POET', 'FOUNDER, MIREMBE MUSE'].map((item, i) => (
+                {['AI ENGINEER · 5TH INDUSTRIAL REVOLUTION', 'FULL-STACK DEVELOPER · NEXT.JS & SUPABASE', 'PUBLISHED POET · INSIDE HER ROSES', 'FOUNDER, MIREMBE MUSE (PTY) LTD'].map((item, i) => (
                   <motion.div
                     key={i}
                     variants={featureItem}
@@ -339,7 +339,7 @@ export default function Home() {
               <span className="hidden sm:inline">•</span>
               <span className="hidden sm:inline">Inside Her Roses — Published Author</span>
               <span className="hidden md:inline">•</span>
-              <span className="hidden md:inline">Building Africa's Tech Future</span>
+              <span className="hidden md:inline">5th Industrial Revolution — Built from the African Continent</span>
             </div>
           </div>
         </motion.div>
@@ -377,6 +377,111 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== 5IR PHILOSOPHY SECTION ===== */}
+      <section className="relative py-16 md:py-24 px-4 sm:px-6 bg-[#0A1128] overflow-hidden">
+        {/* Subtle grid background */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: 'linear-gradient(to right, #D4A574 1px, transparent 1px), linear-gradient(to bottom, #D4A574 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+          }}
+        />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-[#D4A574]/40 to-transparent" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInUp}
+            className="text-center mb-12 md:mb-16"
+          >
+            <span className="text-[#D4A574] text-xs font-medium tracking-[0.4em] uppercase">
+              5th Industrial Revolution
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-beige mt-3">
+              Human <span className="text-[#D4A574]">×</span> AI <span className="text-[#D4A574]">×</span> Ubuntu
+            </h2>
+            <p className="text-beige/50 text-sm md:text-base mt-4 max-w-xl mx-auto">
+              The 4IR automated tasks. The 5IR restores purpose — where technology serves humanity, not the other way around.
+            </p>
+          </motion.div>
+
+          {/* 3 Pillars */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6 md:gap-8"
+          >
+            {[
+              {
+                number: '01',
+                title: 'AI–Human Collaboration',
+                body: 'I build AI that amplifies human creativity and judgment — not systems that replace people. Every automation I design frees someone to do more meaningful work.',
+                accent: '#D4A574',
+                icon: '🤝',
+              },
+              {
+                number: '02',
+                title: 'African-First Innovation',
+                body: 'The 5IR isn\'t happening to Africa — it\'s being built here. Stokvels, K53 pass rates, township entrepreneurs: real African problems deserve purpose-built AI solutions.',
+                accent: '#4ADE80',
+                icon: '🌍',
+              },
+              {
+                number: '03',
+                title: 'Ubuntu × Technology',
+                body: '"I am because we are." Technology built with Ubuntu philosophy puts community at its centre. My systems are designed for collective flourishing, not just individual gain.',
+                accent: '#60A5FA',
+                icon: '✦',
+              },
+            ].map((pillar, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="relative group"
+              >
+                <div className="h-px w-full mb-6" style={{ backgroundColor: pillar.accent, opacity: 0.4 }} />
+                <div className="absolute -top-3 right-0 font-display text-[5rem] font-bold leading-none select-none pointer-events-none"
+                  style={{ color: `${pillar.accent}0d` }} aria-hidden="true">
+                  {pillar.number}
+                </div>
+                <span className="text-2xl mb-4 block">{pillar.icon}</span>
+                <h3 className="font-display text-lg md:text-xl font-bold text-beige mb-3 group-hover:text-[#D4A574] transition-colors">
+                  {pillar.title}
+                </h3>
+                <p className="text-beige/50 text-sm md:text-base leading-relaxed">
+                  {pillar.body}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Bottom callout */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={mobileViewport}
+            variants={fadeInUp}
+            className="mt-14 md:mt-20 border border-[#D4A574]/20 p-6 md:p-8 text-center"
+            style={{ borderRadius: '2px' }}
+          >
+            <p className="font-display text-xl md:text-2xl lg:text-3xl text-beige font-semibold">
+              "The future belongs to those who can speak both{' '}
+              <span className="text-[#D4A574]">machine</span> and{' '}
+              <span className="text-[#4ADE80]">human</span>."
+            </p>
+            <p className="text-beige/40 text-xs tracking-[0.3em] uppercase mt-4">
+              The 5IR Mandate — Nandawula Regine Kabali-Kagwa
+            </p>
+          </motion.div>
         </div>
       </section>
 

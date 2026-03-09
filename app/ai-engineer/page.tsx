@@ -448,9 +448,14 @@ export default function AIEngineerPage() {
           <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-electric-cyan/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '1.5s' }} />
 
           <div className="relative z-10 max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-electric-cyan/10 border border-electric-cyan/20 rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-electric-cyan" />
-              <span className="text-sm text-electric-cyan font-semibold tracking-wide">Master Gen AI Professional Certified</span>
+            <div className="inline-flex items-center gap-3 mb-6 flex-wrap justify-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-electric-cyan/10 border border-electric-cyan/20 rounded-full">
+                <Sparkles className="w-4 h-4 text-electric-cyan" />
+                <span className="text-sm text-electric-cyan font-semibold tracking-wide">Master Gen AI Professional Certified</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#4ADE80]/10 border border-[#4ADE80]/20 rounded-full">
+                <span className="text-sm text-[#4ADE80] font-semibold tracking-wide">🌍 5th Industrial Revolution</span>
+              </div>
             </div>
 
             <h1 className="text-6xl md:text-8xl font-display font-bold mb-6">
@@ -459,16 +464,17 @@ export default function AIEngineerPage() {
             </h1>
 
             <p className="text-2xl md:text-3xl text-beige/80 mb-6 font-light leading-relaxed">
-              Building intelligent systems that{' '}
-              <span className="text-electric-cyan font-semibold">save time</span>,{' '}
-              <span className="text-cherry font-semibold">reduce costs</span>, and{' '}
-              <span className="text-gold font-semibold">drive revenue</span>
+              Building intelligent systems where{' '}
+              <span className="text-electric-cyan font-semibold">Ubuntu philosophy</span> meets{' '}
+              <span className="text-cherry font-semibold">artificial intelligence</span> —{' '}
+              <span className="text-gold font-semibold">from Africa, for the world</span>
             </p>
 
             <p className="text-lg text-beige/60 max-w-3xl mx-auto mb-12 leading-relaxed">
-              From chatbots that convert to AI agents that automate — I build custom AI solutions
-              for African businesses ready to compete globally. Nandawula Regine Kabali-Kagwa,
-              Africa&apos;s Creative Technologist.
+              The 5IR demands human–AI collaboration. I build AI agents, chatbots, and automation
+              systems that amplify human creativity and solve real African problems —
+              K53 pass rates, stokvel fraud, township entrepreneurs scaling globally.
+              Nandawula Regine Kabali-Kagwa, Africa&apos;s Creative Technologist.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
