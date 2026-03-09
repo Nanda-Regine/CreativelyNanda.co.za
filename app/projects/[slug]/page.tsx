@@ -535,55 +535,74 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
-        {/* Impact Metrics */}
-        <section className="py-12 px-6 bg-white border-b border-navy/10">
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { label: 'Built For', value: project.impact.potential },
-              { label: 'Economy', value: project.impact.economy },
-              { label: 'Problem', value: project.impact.problem },
-              { label: 'Result', value: project.impact.metric },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center p-4">
-                <p className="text-xs font-semibold text-cherry tracking-widest uppercase mb-2">{stat.label}</p>
-                <p className="font-display font-bold text-navy text-sm leading-tight">{stat.value}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Problem & Solution */}
-        <section className="py-16 px-6">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
-            <div>
-              <h2 className="text-3xl font-display font-bold text-navy mb-4">The Problem</h2>
-              <p className="text-navy/70 leading-relaxed">{project.problem}</p>
-            </div>
-            <div>
-              <h2 className="text-3xl font-display font-bold text-cherry mb-4">The Solution</h2>
-              <p className="text-navy/70 leading-relaxed">{project.solution}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Tech Stack */}
-        <section className="py-16 px-6 bg-parchment">
+        {/* Impact Bar */}
+        <section className="py-0 px-6 bg-[#0A1128]">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-display font-bold text-navy mb-10">
-              Tech Stack & <span className="text-cherry">Why</span>
-            </h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {project.techStack.map((tech) => (
-                <div
-                  key={tech.name}
-                  className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-navy/10 hover:border-cherry/30 transition-colors"
-                >
-                  <div className="w-10 h-10 bg-cherry/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-5 h-5 text-cherry" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-navy mb-1">{tech.name}</h3>
-                    <p className="text-sm text-navy/60">{tech.reason}</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-beige/10">
+              {[
+                { label: 'Serving', value: project.impact.potential, color: 'text-[#D4A574]' },
+                { label: 'Market', value: project.impact.economy, color: 'text-emerald-400' },
+                { label: 'Problem', value: project.impact.problem, color: 'text-cherry' },
+                { label: 'Result', value: project.impact.metric, color: 'text-electric-cyan' },
+              ].map((stat) => (
+                <div key={stat.label} className="py-8 px-6 text-center">
+                  <p className="text-xs font-semibold text-beige/40 tracking-widest uppercase mb-2">{stat.label}</p>
+                  <p className={`font-display font-bold text-sm leading-tight ${stat.color}`}>{stat.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Problem & Solution — full narrative, shown once */}
+        <section className="py-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+              <div className="relative">
+                <div className="absolute -left-4 top-0 bottom-0 w-px bg-gradient-to-b from-cherry via-cherry/40 to-transparent" />
+                <span className="text-xs font-bold text-cherry tracking-[0.3em] uppercase mb-4 block">The Problem</span>
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-navy mb-5 leading-tight">
+                  What needed solving
+                </h2>
+                <p className="text-navy/70 leading-relaxed text-[15px]">{project.problem}</p>
+              </div>
+              <div className="relative">
+                <div className="absolute -left-4 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500 via-emerald-400/40 to-transparent" />
+                <span className="text-xs font-bold text-emerald-600 tracking-[0.3em] uppercase mb-4 block">The Solution</span>
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-navy mb-5 leading-tight">
+                  How I built it
+                </h2>
+                <p className="text-navy/70 leading-relaxed text-[15px]">{project.solution}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tech Stack — once, visually rich */}
+        <section className="py-16 px-6 bg-[#0A1128] relative overflow-hidden">
+          {/* Subtle grid */}
+          <div className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: 'linear-gradient(to right, #D4A574 1px, transparent 1px), linear-gradient(to bottom, #D4A574 1px, transparent 1px)',
+              backgroundSize: '60px 60px',
+            }}
+          />
+          <div className="max-w-5xl mx-auto relative z-10">
+            <div className="flex items-center gap-4 mb-10">
+              <span className="text-xs font-bold text-[#D4A574] tracking-[0.3em] uppercase">Tech Stack & Decision Rationale</span>
+              <div className="flex-1 h-px bg-beige/10" />
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {project.techStack.map((tech, i) => (
+                <div key={tech.name} className="group relative bg-white/[0.03] border border-white/10 p-4 hover:border-[#D4A574]/40 hover:bg-white/[0.06] transition-all duration-200">
+                  <div className="flex items-start gap-3">
+                    <span className="text-[#D4A574]/40 font-mono text-xs mt-0.5 flex-shrink-0">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <h3 className="font-bold text-beige text-sm mb-1 group-hover:text-[#D4A574] transition-colors">{tech.name}</h3>
+                      <p className="text-beige/50 text-xs leading-relaxed">{tech.reason}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -591,94 +610,59 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
-        {/* Engineering Depth — Architecture & README */}
-        <section className="py-16 px-6 bg-navy">
+        {/* README — developer artifact with unique content */}
+        <section className="py-16 px-6 bg-[#0d1117]">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-10">
-              <div className="h-px flex-1 bg-beige/10" />
-              <h2 className="text-3xl font-display font-bold text-beige whitespace-nowrap">
-                Engineering <span className="text-cherry">Depth</span>
-              </h2>
-              <div className="h-px flex-1 bg-beige/10" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-3 h-3 rounded-full bg-red-500" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500" />
+              <div className="w-3 h-3 rounded-full bg-green-500" />
+              <span className="text-[#8b949e] text-xs ml-2 font-mono">README.md — {project.slug}</span>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
-              {/* Key Engineering Decisions */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <h3 className="text-sm font-semibold text-cherry tracking-widest uppercase mb-4">Why This Stack?</h3>
-                <ul className="space-y-3">
-                  {project.techStack.slice(0, 4).map((tech) => (
-                    <li key={tech.name} className="flex items-start gap-3">
-                      <span className="text-cherry mt-0.5 flex-shrink-0">→</span>
-                      <span className="text-beige/70 text-sm leading-relaxed">
-                        <strong className="text-beige">{tech.name}</strong> — {tech.reason}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="border border-[#30363d] rounded-lg overflow-hidden">
+              <div className="bg-[#161b22] border-b border-[#30363d] px-4 py-2 flex items-center gap-2">
+                <span className="text-[#8b949e] text-xs font-mono">📄 README.md</span>
               </div>
-
-              {/* Impact at Scale */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <h3 className="text-sm font-semibold text-cherry tracking-widest uppercase mb-4">Impact at Scale</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✦</span>
-                    <span className="text-beige/70 text-sm"><strong className="text-beige">Target:</strong> {project.impact.potential}</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✦</span>
-                    <span className="text-beige/70 text-sm"><strong className="text-beige">Market:</strong> {project.impact.economy}</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✦</span>
-                    <span className="text-beige/70 text-sm"><strong className="text-beige">Problem:</strong> {project.impact.problem}</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-gold mt-0.5 flex-shrink-0">★</span>
-                    <span className="text-beige/90 text-sm font-semibold"><strong className="text-gold">Result:</strong> {project.impact.metric}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* README */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="text-beige/40 text-xs ml-2 font-mono">README.md</span>
-              </div>
-              <div className="bg-[#0d1117] border border-white/10 rounded-2xl p-6 md:p-8 overflow-x-auto">
+              <div className="p-6 md:p-8 overflow-x-auto">
                 <pre className="text-[#e6edf3] text-sm font-mono whitespace-pre-wrap leading-relaxed">
 {`# ${project.title}
+> ${project.tagline}
 
-${project.tagline}
+## Project Context
+**Category:** ${project.category}
+**Status:** ${project.status} · ${project.year}
+**Author:** Nandawula Regine Kabali-Kagwa — East London, South Africa
 
-## The Problem
-${project.problem}
+## Stack
+\`\`\`
+${project.techStack.map(t => `${t.name.padEnd(30)} # ${t.reason}`).join('\n')}
+\`\`\`
 
-## The Solution
-${project.solution}
+## Architecture Notes
+- All data mutations validated server-side via Next.js API routes
+- Row-Level Security enforced at database level (Supabase)
+- Mobile-first, PWA-ready, offline-tolerant where connectivity is unreliable
+- PayFast integration for ZAR-native payments (no USD conversion)
+- SEO-optimised: metadata, JSON-LD, canonical URLs, sitemap
 
-## Tech Stack
-${project.techStack.map(t => `- **${t.name}** — ${t.reason}`).join('\n')}
-
-## Impact
-- Built for: ${project.impact.potential}
-- Market: ${project.impact.economy}
-- Problem: ${project.impact.problem}
-- Result: ${project.impact.metric}
+## Environment Variables
+\`\`\`env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+OPENAI_API_KEY=
+NEXT_PUBLIC_PAYFAST_MERCHANT_ID=
+NEXT_PUBLIC_PAYFAST_MERCHANT_KEY=
+RESEND_API_KEY=
+\`\`\`
 
 ## Links
-${project.liveUrl ? `- Live: ${project.liveUrl}` : ''}
-${project.githubUrl ? `- GitHub: ${project.githubUrl}` : ''}
+${project.liveUrl ? `- 🌐 Live:   ${project.liveUrl}` : '- 🌐 Live:   Coming soon'}
+${project.githubUrl ? `- 🐙 GitHub: ${project.githubUrl}` : '- 🐙 GitHub: Private repository'}
+- 🏗️ Portfolio: https://creativelynanda.co.za/projects/${project.slug}
 
-## Built by
-Nandawula Regine Kabali-Kagwa
-Creative Technologist · East London, South Africa
-https://creativelynanda.co.za`}
+---
+Built from East London, South Africa · 5th Industrial Revolution`}
                 </pre>
               </div>
             </div>

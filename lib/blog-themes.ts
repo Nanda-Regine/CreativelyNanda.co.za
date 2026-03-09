@@ -50,6 +50,22 @@ export const blogCategoryThemes = {
     emoji: '📈',
     description: 'Entrepreneurship, digital products, and career wisdom',
   },
+  notion: {
+    name: 'Notion Templates',
+    bg: 'from-amber-50 to-orange-100',
+    bgDark: 'from-amber-900 via-amber-800 to-orange-900',
+    text: 'text-amber-700',
+    textLight: 'text-amber-400',
+    accent: 'bg-amber-500',
+    accentHover: 'hover:bg-amber-600',
+    gradient: 'from-amber-500 to-orange-500',
+    gradientText: 'from-amber-400 to-orange-400',
+    border: 'border-amber-200',
+    ring: 'ring-amber-500/20',
+    icon: 'Layout',
+    emoji: '🗂️',
+    description: 'Notion systems for creators, students, artists, and entrepreneurs',
+  },
 } as const;
 
 export type BlogCategory = keyof typeof blogCategoryThemes;
