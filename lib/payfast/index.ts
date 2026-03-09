@@ -141,6 +141,7 @@ export function verifyWebhookSignature(data: Record<string, string>): boolean {
  */
 export function validatePayfastIP(ip: string): boolean {
   const validIPs = [
+    // PayFast production IP ranges (updated 2026)
     '197.97.145.144',
     '197.97.145.145',
     '197.97.145.146',
@@ -149,6 +150,11 @@ export function validatePayfastIP(ip: string): boolean {
     '41.74.179.195',
     '41.74.179.196',
     '41.74.179.197',
+    // Additional PayFast IPs observed in production
+    '102.216.36.3',
+    '102.216.36.4',
+    '102.216.36.5',
+    '102.216.36.6',
   ];
 
   // In sandbox mode, allow all IPs
