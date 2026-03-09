@@ -74,17 +74,20 @@ export default function Mirembe() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <div className="px-8 py-4 bg-[#2D5A3D] text-white rounded-full font-medium inline-flex items-center justify-center gap-2 hover:bg-[#1E3F2A] transition-all hover:scale-105 cursor-pointer">
-                  <span>Coming February 2026</span>
-                  <span className="w-2 h-2 bg-white/60 rounded-full animate-pulse" />
-                </div>
-                <a 
-                  href="https://mirembemuse.co.za" 
+                <a
+                  href="https://mirembemuse.co.za"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 border-2 border-[#2D5A3D] text-[#2D5A3D] rounded-full font-medium hover:bg-[#2D5A3D] hover:text-white transition-all inline-flex items-center justify-center"
+                  className="px-8 py-4 bg-[#2D5A3D] text-white rounded-full font-medium hover:bg-[#1E3F2A] transition-all hover:scale-105 inline-flex items-center justify-center gap-2"
                 >
-                  MirembeMuse.co.za
+                  <span>Visit MirembeMuse.co.za</span>
+                  <span>↗</span>
+                </a>
+                <a
+                  href="/sanyu"
+                  className="px-8 py-4 border-2 border-[#2D5A3D] text-[#2D5A3D] rounded-full font-medium hover:bg-[#2D5A3D] hover:text-white transition-all inline-flex items-center justify-center gap-2"
+                >
+                  🌿 Sanyu Botanicals
                 </a>
               </div>
             </div>
@@ -343,47 +346,95 @@ export default function Mirembe() {
         </div>
       </section>
 
-      {/* Coming Soon / CTA Section */}
+      {/* Sanyu Botanicals Section */}
       <section className="relative py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Decorative frame */}
-          <div className="relative inline-block">
-            <div className="absolute -inset-8 border border-[#2D5A3D]/20 rounded-[60px]" />
-            <div className="absolute -inset-4 border border-[#2D5A3D]/10 rounded-[50px]" />
-            
-            <div className="relative bg-white p-12 md:p-16 rounded-[40px] shadow-2xl">
-              <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-[#D4E7D4] to-[#A8C5A8] rounded-full flex items-center justify-center">
-                <span className="text-5xl">🌿</span>
-              </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-6 mb-12">
+            <div className="w-20 h-px bg-[#2D5A3D]" />
+            <span className="text-[#2D5A3D] text-sm font-medium tracking-[0.2em] uppercase">Our Newest Brand</span>
+          </div>
 
-              <h3 className="font-display text-4xl md:text-5xl font-bold text-[#0A1128] mb-6">
-                Launching <span className="text-[#2D5A3D]">February 2026</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#2D5A3D]/10 rounded-full mb-6">
+                <span className="text-[#2D5A3D] text-xs font-semibold tracking-widest uppercase">A Mirembe Muse Brand</span>
+              </div>
+              <h3 className="font-display text-5xl md:text-6xl font-bold text-[#0A1128] mb-4">
+                Sanyu
+                <span className="block text-[#2D5A3D]">Botanicals</span>
               </h3>
-
-              <p className="text-xl text-[#0A1128]/70 mb-10 max-w-xl mx-auto">
-                Be the first to experience African botanical wellness, reimagined. 
-                Join the waitlist for early access and founder's pricing.
+              <p className="text-xl text-[#0A1128]/70 leading-relaxed mb-6">
+                African botanical haircare rooted in five ancestral clan lineages —
+                Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Where ancient wisdom
+                meets modern formulation.
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="https://mirembemuse.co.za"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-10 py-4 bg-[#2D5A3D] text-white rounded-full font-medium hover:bg-[#1E3F2A] transition-all hover:scale-105 hover:shadow-xl inline-flex items-center justify-center gap-2"
+              <p className="text-[#0A1128]/60 leading-relaxed mb-8">
+                <em>Sanyu</em> means joy in Luganda. Built for the modern African woman
+                who knows her roots and demands products that honour them.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="/sanyu"
+                  className="px-8 py-4 bg-[#2D5A3D] text-white rounded-full font-medium hover:bg-[#1E3F2A] transition-all hover:scale-105 hover:shadow-xl inline-flex items-center justify-center gap-2"
                 >
-                  Visit MirembeMuse.co.za
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  🌿 Explore Sanyu Botanicals
                 </a>
-                <a 
+                <a
                   href="/contact"
-                  className="px-10 py-4 border-2 border-[#0A1128] text-[#0A1128] rounded-full font-medium hover:bg-[#0A1128] hover:text-white transition-all inline-flex items-center justify-center"
+                  className="px-8 py-4 border-2 border-[#2D5A3D] text-[#2D5A3D] rounded-full font-medium hover:bg-[#2D5A3D] hover:text-white transition-all inline-flex items-center justify-center"
                 >
-                  Get in Touch
+                  Join the Waitlist
                 </a>
               </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: '🌿', title: 'Ancestral Wisdom', desc: 'Centuries of botanical knowledge from five lineages' },
+                { icon: '⚗️', title: 'Modern Formulation', desc: 'Ancient ingredients, contemporary science' },
+                { icon: '💚', title: 'Ubuntu Philosophy', desc: 'Wellness is communal — for every African woman' },
+                { icon: '🌍', title: 'African-First', desc: 'Built from the continent, for the continent' },
+              ].map((item) => (
+                <div key={item.title} className="bg-white p-6 rounded-3xl shadow-sm border border-[#2D5A3D]/10 hover:border-[#2D5A3D]/30 transition-colors">
+                  <span className="text-3xl mb-3 block">{item.icon}</span>
+                  <h4 className="font-bold text-[#0A1128] text-sm mb-1">{item.title}</h4>
+                  <p className="text-[#0A1128]/55 text-xs leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-16 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-white rounded-[40px] shadow-2xl p-12 md:p-16 border border-[#2D5A3D]/10">
+            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#D4E7D4] to-[#A8C5A8] rounded-full flex items-center justify-center">
+              <span className="text-4xl">🌿</span>
+            </div>
+            <h3 className="font-display text-3xl md:text-4xl font-bold text-[#0A1128] mb-4">
+              Ready to collaborate?
+            </h3>
+            <p className="text-lg text-[#0A1128]/70 mb-8 max-w-xl mx-auto">
+              Whether it's digital services, wellness products, or creative education —
+              Mirembe Muse is building something beautiful. Let's connect.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://mirembemuse.co.za"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-4 bg-[#2D5A3D] text-white rounded-full font-medium hover:bg-[#1E3F2A] transition-all hover:scale-105 hover:shadow-xl inline-flex items-center justify-center gap-2"
+              >
+                MirembeMuse.co.za ↗
+              </a>
+              <a
+                href="/contact"
+                className="px-10 py-4 border-2 border-[#0A1128] text-[#0A1128] rounded-full font-medium hover:bg-[#0A1128] hover:text-white transition-all inline-flex items-center justify-center"
+              >
+                Get in Touch
+              </a>
             </div>
           </div>
         </div>

@@ -401,63 +401,124 @@ freelancers, and small businesses.
   {
     id: 'mirembe-muse',
     title: 'Mirembe Muse',
-    subtitle: 'African Botanical Wellness',
+    subtitle: 'Notion Template Marketplace',
     category: 'E-Commerce',
-    status: 'Coming Soon',
+    status: 'Live',
     year: '2026',
     coverColor: 'from-[#2D5A27] to-[#1a3a17]',
     accentColor: '#2D5A27',
-    description: 'An e-commerce platform for African botanical wellness products — combining traditional African ingredients with modern wellness practices. Launching February 2026.',
+    description: 'Full-stack Notion template marketplace with PayFast payment integration, Supabase backend, Resend transactional email, PDF delivery, and 6 live templates generating real monthly revenue.',
     videoUrl: null,
-    githubUrl: 'https://github.com/creativelynanda/mirembe-muse',
-    liveUrl: 'https://mirembemuse.co.za',
-    tech: ['Next.js', 'React', 'Stripe', 'Supabase', 'Tailwind CSS', 'Framer Motion'],
+    githubUrl: null,
+    liveUrl: 'https://creativelynanda.co.za/products',
+    tech: ['Next.js', 'Supabase', 'PayFast', 'Resend', 'Tailwind CSS', 'Framer Motion'],
     caseStudy: {
-      challenge: 'Build a premium e-commerce platform that authentically represents African botanical wellness while providing seamless shopping experience and business scalability.',
-      approach: 'Designing with African aesthetic influences while maintaining modern e-commerce best practices. Implementing Stripe for payments and Supabase for inventory management.',
-      solution: 'Creating a full-featured e-commerce platform with product catalog, shopping cart, secure checkout, order management, and customer accounts.',
+      challenge: 'Build a full digital product marketplace for the South African market — including payment processing, secure PDF delivery, transactional email, and a beautiful product experience.',
+      approach: 'PayFast integration (the only native ZAR payment gateway) required careful signature-based authentication. Supabase handled products, orders, and RLS policies. Resend delivered branded purchase confirmation emails with PDF and Notion template links.',
+      solution: 'A complete end-to-end marketplace: 6 Notion templates from R249–R499, SEO-optimised product pages, cart with Zustand, PayFast live checkout, PDF quick-start guides, and Notion template link delivery on purchase.',
       results: [
-        'Premium brand experience design',
-        'Secure Stripe payment integration',
-        'Inventory management system',
-        'Customer account portal'
+        '6 live Notion templates: Writers, Creators, Music, High School, Varsity, SME',
+        'Full PayFast live payment flow — real ZAR transactions',
+        'Automated email delivery of PDF guide + Notion template link on purchase',
+        'R15K+ revenue generated since launch'
       ]
     },
-    readme: `# Mirembe Muse
+    readme: `# Mirembe Muse Marketplace
 
-African botanical wellness e-commerce platform.
+Full-stack Notion template marketplace built on Next.js + Supabase.
 
-## Coming February 2026
-
-### Planned Features
-- 🌿 African botanical product catalog
-- 🛒 Shopping cart & secure checkout
-- 💳 Stripe payment integration
-- 👤 Customer accounts & order history
-- 📦 Inventory management
-- 📊 Business analytics dashboard
+## Live
+https://creativelynanda.co.za/products
 
 ## Tech Stack
-- Next.js 14
-- React 18
-- Supabase
-- Stripe
-- Tailwind CSS
-- Framer Motion
+- Next.js 14 App Router + TypeScript
+- Supabase (PostgreSQL, RLS, Storage)
+- PayFast (live ZAR payments)
+- Resend (transactional email)
+- Zustand (cart state)
+- Framer Motion (animations)
+
+## Architecture
+- Products stored in Supabase \`products\` table
+- Orders in \`orders\` table with \`download_token\`
+- PayFast webhook (ITN) at /api/payfast/webhook
+  - Verifies signature using canonical field order + passphrase
+  - Updates order status to 'completed'
+  - Sends Resend email with PDF + Notion link
+- PDFs served from /public/assets/products/guides/{slug}.pdf
+
+## Products (R249–R499 ZAR)
+- Writers' Sanctuary (R299)
+- Creators' Studio (R399)
+- Music Artist Career Command Center (R499)
+- High School Academic Excellence (R249)
+- Varsity Academic Excellence (R279)
+- SME Command Center (R449)
+
+## Key Files
+- lib/payfast/index.ts — signature generation (canonical field order)
+- app/api/payfast/webhook/route.ts — ITN handler
+- lib/email/send-purchase-confirmation.ts — Resend email
+
+© Mirembe Muse (Pty) Ltd`
+  },
+  {
+    id: 'poetry-tube',
+    title: 'PoetryTube',
+    subtitle: 'African Spoken Word Video Platform',
+    category: 'Creative Tech',
+    status: 'Live',
+    year: '2025',
+    coverColor: 'from-[#7C3AED] to-[#4C1D95]',
+    accentColor: '#7C3AED',
+    description: 'A dedicated video platform celebrating African and diaspora poets — bringing spoken word poetry to the digital stage. Built to amplify African voices in a space designed for literary art, not algorithm-chasing.',
+    videoUrl: null,
+    githubUrl: 'https://github.com/Nanda-Regine/PoetryTube',
+    liveUrl: null,
+    tech: ['Next.js', 'TypeScript', 'Cloudflare Stream', 'Supabase', 'Tailwind CSS'],
+    caseStudy: {
+      challenge: 'African poets lack dedicated digital platforms for their work. Mainstream video platforms deprioritize literary content and spoken word, leaving thousands of African voices without proper digital homes.',
+      approach: 'Built a purpose-designed platform with Cloudflare Stream for smooth, affordable video hosting, poet profile pages, and an African-first aesthetic. The design celebrates spoken word as high art, not content.',
+      solution: 'A video poetry platform with Cloudflare Stream delivery, Supabase poet profiles & content database, and an editorial UI that honours the craft. Community-first approach ensures poets control their presence.',
+      results: [
+        'Purpose-built for African & diaspora spoken word poets',
+        'Cloudflare Stream for CDN-backed video delivery at scale',
+        'Community growing — serving 1,000+ African poets',
+        'GitHub: github.com/Nanda-Regine/PoetryTube'
+      ]
+    },
+    readme: `# PoetryTube
+
+Video poetry platform for African and diaspora poets.
+
+## Mission
+Amplify African spoken word voices in a dedicated digital home.
+
+## Tech Stack
+- Next.js 14 (App Router)
+- TypeScript
+- Cloudflare Stream (video hosting & delivery)
+- Supabase (poet profiles, content database)
+- Tailwind CSS (artistic editorial UI)
+
+## Features
+- Poet profile pages
+- Video upload + Cloudflare Stream delivery
+- Community browsing & discovery
+- African-first design aesthetic
+
+## GitHub
+https://github.com/Nanda-Regine/PoetryTube
 
 ## Status
-🚧 Currently in development
+🔴 Live — community growing
 
-## Contact
-For inquiries: hello@mirembemuse.co.za
-
-## License
-© Mirembe Muse (Pty) Ltd`
+© Nandawula Regine Kabali-Kagwa`
   }
 ];
 
 // Category filter options
-const categories = ['All', 'Full-Stack', 'Frontend', 'E-Commerce'];
+const categories = ['All', 'Full-Stack', 'Frontend', 'E-Commerce', 'Creative Tech'];
 
 // Slug map → links to /projects/[slug] case study pages
 const slugMap = {
@@ -465,7 +526,11 @@ const slugMap = {
   'true-access': 'true-access-app',
   'greenvault': 'green-vault',
   'cortex-hub': 'cortex-hub',
+  'poetry-tube': 'poetry-tube',
 };
+
+// Projects that use AI — badge links to /ai-engineer
+const aiProjectIds = new Set(['creativelynanda', 'notion-systems']);
 
 const statusStyle = {
   Live: 'bg-emerald-100 text-emerald-700',
@@ -474,11 +539,12 @@ const statusStyle = {
   'Coming Soon': 'bg-purple-100 text-purple-700',
 };
 
-// Clean grid card
+// Colorful grid card
 function ProjectCard({ project, index }) {
   const slug = slugMap[project.id];
   const caseStudyUrl = slug ? `/projects/${slug}` : null;
-  
+  const isAI = aiProjectIds.has(project.id);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 32 }}
@@ -487,47 +553,64 @@ function ProjectCard({ project, index }) {
       transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
       className="group h-full"
     >
-      {/* Clean link card */}
-      <div className="h-full bg-white rounded-3xl overflow-hidden border border-[#0A1128]/8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-        {/* Gradient top bar */}
-        <div className={`h-1.5 bg-gradient-to-r ${project.coverColor} flex-shrink-0`} />
-
-        <div className="p-6 flex flex-col flex-1">
-          {/* Number + status + year */}
-          <div className="flex items-start justify-between mb-5">
-            <span
-              className="font-display text-5xl font-bold leading-none"
-              style={{
-                background: `linear-gradient(135deg, ${project.accentColor}, ${project.accentColor}88)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
+      <div
+        className="h-full rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col border border-white/40"
+        style={{
+          background: `linear-gradient(145deg, white 0%, white 55%, ${project.accentColor}18 100%)`,
+        }}
+      >
+        {/* Full-width gradient header strip */}
+        <div className={`h-20 bg-gradient-to-r ${project.coverColor} flex-shrink-0 relative overflow-hidden`}>
+          {/* Subtle texture in header */}
+          <div className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `radial-gradient(circle at 80% 50%, rgba(255,255,255,0.4) 0%, transparent 60%)`
+            }}
+          />
+          {/* Project number in header */}
+          <span className="absolute bottom-2 left-5 font-display text-4xl font-bold text-white/25 leading-none select-none">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          {/* AI badge in header */}
+          {isAI && (
+            <Link
+              href="/ai-engineer"
+              className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold rounded-full hover:bg-white/35 transition-colors border border-white/30"
+              onClick={(e) => e.stopPropagation()}
             >
-              {String(index + 1).padStart(2, '0')}
+              🤖 AI Project ↗
+            </Link>
+          )}
+        </div>
+
+        <div className="p-5 flex flex-col flex-1">
+          {/* Status + year row */}
+          <div className="flex items-center justify-between mb-3">
+            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${statusStyle[project.status] || 'bg-[#0A1128]/10 text-[#0A1128]/70'}`}>
+              {project.status}
             </span>
-            <div className="flex flex-col items-end gap-1.5">
-              <span className={`text-xs font-semibold px-3 py-1 rounded-full ${statusStyle[project.status] || 'bg-[#0A1128]/10 text-[#0A1128]/70'}`}>
-                {project.status}
-              </span>
-              <span className="text-xs text-[#0A1128]/40">{project.year}</span>
-            </div>
+            <span className="text-xs text-[#0A1128]/40">{project.year}</span>
           </div>
 
           {/* Title & subtitle */}
-          <h3 className="font-display text-xl font-bold text-[#0A1128] mb-1 group-hover:text-[#C1292E] transition-colors duration-200">
+          <h3 className="font-display text-xl font-bold text-[#0A1128] mb-0.5 group-hover:text-[#C1292E] transition-colors duration-200">
             {project.title}
           </h3>
-          <p className="text-[#0A1128]/55 text-sm mb-3">{project.subtitle}</p>
+          <p className="text-[#0A1128]/50 text-xs mb-3 font-medium tracking-wide uppercase">{project.subtitle}</p>
 
           {/* Description — 3 lines max */}
           <p className="text-[#0A1128]/70 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
             {project.description}
           </p>
 
-          {/* Tech pills */}
-          <div className="flex flex-wrap gap-1.5 mb-5">
+          {/* Tech pills — tinted with accent color */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {project.tech.slice(0, 4).map((t) => (
-              <span key={t} className="px-2.5 py-1 bg-[#0A1128]/5 text-[#0A1128]/65 text-xs rounded-full font-mono">
+              <span
+                key={t}
+                className="px-2.5 py-1 text-xs rounded-full font-mono font-medium"
+                style={{ backgroundColor: `${project.accentColor}15`, color: project.accentColor }}
+              >
                 {t}
               </span>
             ))}
@@ -539,15 +622,15 @@ function ProjectCard({ project, index }) {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-2 pt-4 border-t border-[#0A1128]/8">
-            {project.liveUrl && project.status !== 'Coming Soon' && (
+          <div className="flex gap-2 pt-3 border-t border-[#0A1128]/8">
+            {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 text-center py-2.5 px-3 text-xs font-semibold text-[#0A1128] bg-[#0A1128]/6 rounded-full hover:bg-[#0A1128] hover:text-white transition-all duration-200"
+                className="flex-1 text-center py-2.5 px-3 text-xs font-semibold text-[#0A1128]/70 bg-[#0A1128]/6 rounded-full hover:bg-[#0A1128] hover:text-white transition-all duration-200"
               >
-                Live Demo ↗
+                Live ↗
               </a>
             )}
             {caseStudyUrl && (
@@ -559,17 +642,13 @@ function ProjectCard({ project, index }) {
                 Case Study →
               </Link>
             )}
-            {project.status === 'Coming Soon' && (
-              <span className="flex-1 text-center py-2.5 px-3 text-xs font-medium text-[#0A1128]/40 bg-[#0A1128]/5 rounded-full">
-                Coming April 2026
-              </span>
-            )}
-            {project.githubUrl && !caseStudyUrl && project.status !== 'Coming Soon' && (
+            {project.githubUrl && !caseStudyUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 text-center py-2.5 px-3 text-xs font-semibold text-[#0A1128]/70 bg-[#0A1128]/5 rounded-full hover:bg-[#0A1128]/10 transition-all duration-200"
+                className="flex-1 text-center py-2.5 px-3 text-xs font-semibold rounded-full hover:opacity-90 transition-all duration-200 text-white"
+                style={{ backgroundColor: `${project.accentColor}cc` }}
               >
                 GitHub →
               </a>

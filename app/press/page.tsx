@@ -8,17 +8,19 @@ import { Download, Mail, Award, Mic, Copy, Check, ExternalLink, BookOpen, Code, 
 // Note: Copy buttons require client component — metadata exported from layout.tsx
 
 const achievements = [
-  { icon: Award, text: 'Master Gen AI Professional Certified' },
-  { icon: BookOpen, text: 'Published Poet — "Inside Her Roses" (2024), SABC National TV & Radio' },
-  { icon: Award, text: 'BCom Business Management — 15 Academic Distinctions, Nelson Mandela University' },
-  { icon: Code, text: '9 Live Applications Built — 300+ Users Served' },
-  { icon: Sparkles, text: 'Founder of Mirembe Muse (Pty) Ltd & Sanyu Botanicals (launching 2026)' },
-  { icon: Users, text: '250+ GitHub Commits in 6 months — Solo Developer' },
+  { icon: Award, text: 'Master Gen AI Professional Certified — Generative AI, Prompt Engineering & AI Product Development' },
+  { icon: BookOpen, text: 'Published Poet — "Inside Her Roses" (2021), featured on Showmax & Gqeberha: The Empire · 5 live poetry performances' },
+  { icon: Award, text: 'Advanced Diploma in Business Management (NQF 7) — 15 Academic Distinctions, Nelson Mandela University' },
+  { icon: Code, text: '9 Live Applications Built — 300+ Users Served · Graphic Design & Digital Marketing Certified' },
+  { icon: Sparkles, text: 'Founder of Mirembe Muse (Pty) Ltd — Notion templates, AI services & Sanyu Botanicals wellness brand' },
+  { icon: Users, text: '250+ GitHub Commits in 6 months — Solo Developer · SheCodes Certified Full-Stack Developer' },
 ];
 
 const mediaMentions = [
-  { outlet: 'SABC National TV', topic: 'Inside Her Roses — Poetry Book Launch', type: 'Television' },
-  { outlet: 'SABC Radio', topic: 'Published Poet Feature', type: 'Radio' },
+  { outlet: 'Showmax / Gqeberha: The Empire', topic: 'Inside Her Roses — Poetry Book Launch & Feature', type: 'Television (Showmax)' },
+  { outlet: 'Madiba FM', topic: 'Published Poet & Entrepreneur Feature', type: 'Radio' },
+  { outlet: 'TRU FM', topic: 'Creative Technologist & Poetry Interview', type: 'Radio' },
+  { outlet: 'Live Poetry Performances', topic: '5 spoken word performances — East London & Port Elizabeth', type: 'Live Performance' },
 ];
 
 const speakingTopics = [
@@ -54,19 +56,19 @@ const bios = {
 
   medium: `Nandawula Regine Kabali-Kagwa is a South African Creative Technologist building at the intersection of code, culture, and creativity. Born to Ugandan and Xhosa-Sotho heritage, she carries five clan lineages that inform her Ubuntu-centered approach to technology.
 
-A Master Gen AI Professional with a BCom in Business Management (15 distinctions) from Nelson Mandela University, Nanda has built 9 live applications serving 300+ users, including AI-powered tools and Notion productivity systems. Her published poetry collection "Inside Her Roses" was featured on national television and radio.
+A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda has built 9 live applications serving 300+ users, including AI-powered tools and Notion productivity systems. Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire — she has performed at 5 live spoken word events across the Eastern Cape.
 
-As Founder of Mirembe Muse, she's launching Sanyu Botanicals — an African botanical wellness brand — while providing AI consulting and digital product creation services to businesses across Africa.`,
+As Founder of Mirembe Muse, she offers AI consulting, digital product creation, and is building Sanyu Botanicals — an African botanical wellness brand — for businesses across Africa.`,
 
   long: `Nandawula Regine Kabali-Kagwa doesn't fit in boxes — and that's exactly the point.
 
 Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Each lineage gifted her a principle — lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
 
-After earning a BCom in Business Management from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in East London. In six months, she shipped 9 live applications, accumulated 250+ GitHub commits, and built a digital products business generating monthly revenue — all while publishing a poetry collection that made national headlines.
+After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in East London. In six months, she shipped 9 live applications, accumulated 250+ GitHub commits, and built a digital products business generating monthly revenue — all while performing her poetry at 5 live events across the Eastern Cape.
 
-As a Master Gen AI Professional, she specializes in building AI-powered solutions for African SMEs, from chatbots and automation systems to custom AI agents. Her flagship apps include K53 Drill Master (50+ paying subscribers), Campus Compass (200+ students), and StokvelOS — proving that world-class technology can, and should, be built from the African continent.
+Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in building AI-powered solutions for African SMEs, from chatbots and automation systems to custom AI agents. Her flagship apps include K53 Drill Master (50+ paying subscribers), Campus Compass (200+ students), and StokvelOS — proving that world-class technology can, and should, be built from the African continent.
 
-Through her company Mirembe Muse (Pty) Ltd, she's launching Sanyu Botanicals, an African botanical wellness brand that honors ancestral hair care wisdom with modern formulation. She's also building a portfolio of Notion templates, AI tools, and educational resources designed specifically for African entrepreneurs and students.
+Her poetry collection "Inside Her Roses" was featured on Showmax's hit series Gqeberha: The Empire, and she has been interviewed on Madiba FM and TRU FM. Through her company Mirembe Muse (Pty) Ltd, she is building Sanyu Botanicals, an African botanical wellness brand honouring ancestral hair care wisdom with modern formulation, alongside a portfolio of Notion templates, AI tools, and educational resources designed specifically for African entrepreneurs and students.
 
 Nanda represents a new generation of African creators: technically excellent, culturally rooted, commercially viable, and unapologetically multidimensional. She codes. She writes poetry. She builds businesses. She refuses to choose.`,
 };
@@ -194,10 +196,10 @@ export default function PressPage() {
               { label: 'Full Name', value: 'Nandawula Regine Kabali-Kagwa' },
               { label: 'Based In', value: 'East London, South Africa' },
               { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimango, Tshawe, Thabizolo)' },
-              { label: 'Education', value: 'BCom Business Management — Nelson Mandela University (15 Distinctions)' },
-              { label: 'Certification', value: 'Master Gen AI Professional Certified' },
+              { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)' },
+              { label: 'Certifications', value: 'Master Gen AI Professional · Prompt Engineering · Graphic Design · Digital Marketing · SheCodes Full-Stack' },
               { label: 'Applications Built', value: '9 live apps, 300+ users, R15K+ revenue generated' },
-              { label: 'Published Work', value: '"Inside Her Roses" poetry collection — SABC featured' },
+              { label: 'Published Work', value: '"Inside Her Roses" poetry collection — featured on Showmax / Gqeberha: The Empire · 5 live performances' },
               { label: 'Company', value: 'Mirembe Muse (Pty) Ltd' },
               { label: 'Tech Stack', value: 'Next.js, TypeScript, Supabase, OpenAI, Claude API, Mapbox, PayFast' },
               { label: 'Languages', value: 'English, isiXhosa (conversational), Luganda (heritage)' },

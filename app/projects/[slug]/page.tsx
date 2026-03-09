@@ -402,6 +402,9 @@ interface ProjectData {
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
+  readme?: string;
+  architecture?: string[];
+  challenges?: string[];
 }
 
 // ============================================================
@@ -584,6 +587,100 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Engineering Depth — Architecture & README */}
+        <section className="py-16 px-6 bg-navy">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="h-px flex-1 bg-beige/10" />
+              <h2 className="text-3xl font-display font-bold text-beige whitespace-nowrap">
+                Engineering <span className="text-cherry">Depth</span>
+              </h2>
+              <div className="h-px flex-1 bg-beige/10" />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              {/* Key Engineering Decisions */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="text-sm font-semibold text-cherry tracking-widest uppercase mb-4">Why This Stack?</h3>
+                <ul className="space-y-3">
+                  {project.techStack.slice(0, 4).map((tech) => (
+                    <li key={tech.name} className="flex items-start gap-3">
+                      <span className="text-cherry mt-0.5 flex-shrink-0">→</span>
+                      <span className="text-beige/70 text-sm leading-relaxed">
+                        <strong className="text-beige">{tech.name}</strong> — {tech.reason}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Impact at Scale */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="text-sm font-semibold text-cherry tracking-widest uppercase mb-4">Impact at Scale</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✦</span>
+                    <span className="text-beige/70 text-sm"><strong className="text-beige">Target:</strong> {project.impact.potential}</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✦</span>
+                    <span className="text-beige/70 text-sm"><strong className="text-beige">Market:</strong> {project.impact.economy}</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✦</span>
+                    <span className="text-beige/70 text-sm"><strong className="text-beige">Problem:</strong> {project.impact.problem}</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-gold mt-0.5 flex-shrink-0">★</span>
+                    <span className="text-beige/90 text-sm font-semibold"><strong className="text-gold">Result:</strong> {project.impact.metric}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* README */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-3 h-3 rounded-full bg-red-500" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                <div className="w-3 h-3 rounded-full bg-green-500" />
+                <span className="text-beige/40 text-xs ml-2 font-mono">README.md</span>
+              </div>
+              <div className="bg-[#0d1117] border border-white/10 rounded-2xl p-6 md:p-8 overflow-x-auto">
+                <pre className="text-[#e6edf3] text-sm font-mono whitespace-pre-wrap leading-relaxed">
+{`# ${project.title}
+
+${project.tagline}
+
+## The Problem
+${project.problem}
+
+## The Solution
+${project.solution}
+
+## Tech Stack
+${project.techStack.map(t => `- **${t.name}** — ${t.reason}`).join('\n')}
+
+## Impact
+- Built for: ${project.impact.potential}
+- Market: ${project.impact.economy}
+- Problem: ${project.impact.problem}
+- Result: ${project.impact.metric}
+
+## Links
+${project.liveUrl ? `- Live: ${project.liveUrl}` : ''}
+${project.githubUrl ? `- GitHub: ${project.githubUrl}` : ''}
+
+## Built by
+Nandawula Regine Kabali-Kagwa
+Creative Technologist · East London, South Africa
+https://creativelynanda.co.za`}
+                </pre>
+              </div>
             </div>
           </div>
         </section>

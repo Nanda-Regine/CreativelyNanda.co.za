@@ -135,10 +135,10 @@ export default function CheckoutPage() {
     <div className="min-h-screen bg-navy">
       {/* Header */}
       <div className="bg-gradient-to-b from-navy to-navy/95 border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 md:py-8">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-beige/60 hover:text-beige transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-beige/60 hover:text-beige transition-colors mb-4 md:mb-6 text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             Continue shopping
@@ -147,29 +147,29 @@ export default function CheckoutPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-4"
+            className="flex items-center gap-3 md:gap-4"
           >
-            <div className="w-14 h-14 bg-gradient-to-br from-cherry to-pink-500 rounded-2xl flex items-center justify-center">
-              <CreditCard className="w-7 h-7 text-white" />
+            <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-cherry to-pink-500 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0">
+              <CreditCard className="w-5 h-5 md:w-7 md:h-7 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-display font-bold text-beige">Checkout</h1>
-              <p className="text-beige/60">{items.length} {items.length === 1 ? 'item' : 'items'} in your cart</p>
+              <h1 className="text-2xl md:text-3xl font-display font-bold text-beige">Checkout</h1>
+              <p className="text-beige/60 text-sm">{items.length} {items.length === 1 ? 'item' : 'items'} in your cart</p>
             </div>
           </motion.div>
         </div>
       </div>
 
       {/* Main content */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid lg:grid-cols-5 gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-12">
+        <div className="grid lg:grid-cols-5 gap-6 md:gap-10">
           {/* Checkout Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:col-span-3"
+            className="lg:col-span-3 order-2 lg:order-1"
           >
-            <div className="bg-gradient-to-b from-parchment to-cream rounded-3xl p-8 shadow-2xl">
+            <div className="bg-gradient-to-b from-parchment to-cream rounded-3xl p-5 sm:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-8 h-8 bg-cherry rounded-full flex items-center justify-center text-white font-bold text-sm">
                   1
@@ -243,13 +243,13 @@ export default function CheckoutPage() {
                 </div>
 
                 {/* Security badges */}
-                <div className="flex items-center justify-center gap-6 pt-4 text-sm text-navy/50">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4" />
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 pt-4 text-sm text-navy/50">
+                  <div className="flex items-center gap-1.5">
+                    <Shield className="w-4 h-4 flex-shrink-0" />
                     <span>256-bit SSL</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Lock className="w-4 h-4" />
+                  <div className="flex items-center gap-1.5">
+                    <Lock className="w-4 h-4 flex-shrink-0" />
                     <span>PayFast Secured</span>
                   </div>
                 </div>
@@ -273,14 +273,14 @@ export default function CheckoutPage() {
             </div>
           </motion.div>
 
-          {/* Order Summary */}
+          {/* Order Summary — shows FIRST on mobile, right side on desktop */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 order-1 lg:order-2"
           >
-            <div className="bg-gradient-to-b from-parchment to-cream rounded-3xl p-6 shadow-2xl sticky top-24">
+            <div className="bg-gradient-to-b from-parchment to-cream rounded-3xl p-4 sm:p-6 shadow-2xl lg:sticky lg:top-24">
               <h2 className="text-lg font-display font-bold text-navy mb-6 flex items-center gap-2">
                 <ShoppingBag className="w-5 h-5 text-cherry" />
                 Order Summary
