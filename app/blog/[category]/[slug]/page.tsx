@@ -62,6 +62,15 @@ const categoryMeta = {
     bgPattern: 'from-emerald-50/50 via-parchment to-teal-50/30',
     textColor: 'text-white',
   },
+  notion: {
+    label: 'Notion Templates',
+    color: 'bg-amber-100 text-amber-700',
+    gradient: 'from-amber-900 via-amber-800 to-orange-900',
+    gradientStyle: 'linear-gradient(to bottom right, #78350f, #92400e, #7c2d12)',
+    accent: 'amber',
+    bgPattern: 'from-amber-50/50 via-parchment to-orange-50/30',
+    textColor: 'text-white',
+  },
 };
 
 function formatDate(dateString: string) {

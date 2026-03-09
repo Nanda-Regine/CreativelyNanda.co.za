@@ -295,6 +295,8 @@ export function getCategoryPattern(category: string) {
       return QuillPattern;
     case 'business':
       return GrowthPattern;
+    case 'notion':
+      return GrowthPattern;
     default:
       return CircuitPattern;
   }
