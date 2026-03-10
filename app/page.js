@@ -583,30 +583,30 @@ export default function Home() {
             className="grid md:grid-cols-12 gap-3 md:gap-4 lg:gap-6"
           >
 
-            {/* Large Feature Card - Projects */}
+            {/* Large Feature Card - AI Engineer */}
             <motion.div
               variants={fadeInUp}
               className="md:col-span-7"
             >
               <Link
-                href="/projects"
+                href="/ai-engineer"
                 className="group block relative overflow-hidden bg-navy p-6 md:p-8 lg:p-10 xl:p-14 hover:scale-[1.02] transition-all duration-500"
                 style={{ borderRadius: '40px 16px 40px 16px' }}
               >
                 <div
-                  className="absolute top-0 right-0 w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 bg-gradient-to-bl from-[#D4A574]/30 to-transparent rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500"
+                  className="absolute top-0 right-0 w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 bg-gradient-to-bl from-[#00d4ff]/20 to-transparent rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500"
                 />
 
                 <div className="relative z-10">
-                  <span className="text-[#D4A574] text-[10px] md:text-xs lg:text-sm font-medium tracking-[0.2em] uppercase">Featured</span>
-                  <h3 className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-beige mt-2 md:mt-3 lg:mt-4 mb-3 md:mb-4 lg:mb-6 group-hover:text-[#D4A574] transition-colors">
-                    Projects
+                  <span className="text-[#00d4ff] text-[10px] md:text-xs lg:text-sm font-medium tracking-[0.2em] uppercase">Featured</span>
+                  <h3 className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-beige mt-2 md:mt-3 lg:mt-4 mb-3 md:mb-4 lg:mb-6 group-hover:text-[#00d4ff] transition-colors">
+                    AI Engineer
                   </h3>
                   <p className="text-beige/70 text-sm md:text-base lg:text-lg max-w-md mb-4 md:mb-6 lg:mb-8">
-                    Full-stack applications, AI integrations, and digital experiences built with intention.
+                    Building AI-powered solutions for African businesses — agents, automation, and intelligent systems.
                   </p>
-                  <span className="text-[#D4A574] text-sm md:text-base font-medium group-hover:translate-x-2 inline-block transition-transform">
-                    View Collection →
+                  <span className="text-[#00d4ff] text-sm md:text-base font-medium group-hover:translate-x-2 inline-block transition-transform">
+                    View Capabilities →
                   </span>
                 </div>
               </Link>
@@ -614,43 +614,43 @@ export default function Home() {
 
             {/* Stacked Cards - Right Column */}
             <div className="md:col-span-5 space-y-3 md:space-y-4 lg:space-y-6">
-              {/* Poetry Card */}
+              {/* Digital Products Card */}
               <motion.div
                 variants={fadeInRight}
               >
                 <Link
-                  href="/poetry"
+                  href="/notion"
                   className="group block relative overflow-hidden bg-gradient-to-br from-[#8B4513] to-[#654321] p-5 md:p-6 lg:p-8 hover:scale-[1.02] transition-all duration-500"
                   style={{ borderRadius: '16px 40px 16px 40px' }}
                 >
                   <div
                     className="absolute bottom-0 left-0 w-20 md:w-24 lg:w-32 h-20 md:h-24 lg:h-32 bg-white/15 rounded-full blur-xl"
                   />
-                  <span className="text-white/70 text-[10px] md:text-xs tracking-[0.2em] uppercase">Published Author</span>
+                  <span className="text-white/70 text-[10px] md:text-xs tracking-[0.2em] uppercase">Mirembe Muse</span>
                   <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-white mt-2 mb-2 lg:mb-3 group-hover:translate-x-1 transition-transform">
-                    Poetry & Performance
+                    Digital Products
                   </h3>
-                  <p className="text-white/70 text-xs md:text-sm">Words that move. Stories that heal.</p>
+                  <p className="text-white/70 text-xs md:text-sm">Notion systems built for African creatives.</p>
                 </Link>
               </motion.div>
 
-              {/* Notion Card */}
+              {/* Projects Card */}
               <motion.div
                 variants={fadeInRight}
               >
                 <Link
-                  href="/notion"
+                  href="/projects"
                   className="group block relative overflow-hidden bg-beige p-5 md:p-6 lg:p-8 hover:scale-[1.02] transition-all duration-500"
                   style={{ borderRadius: '40px 16px 16px 40px' }}
                 >
                   <div
                     className="absolute top-0 right-0 w-16 md:w-20 lg:w-24 h-16 md:h-20 lg:h-24 bg-navy/10 rounded-full blur-xl"
                   />
-                  <span className="text-[#B8860B] text-[10px] md:text-xs tracking-[0.2em] uppercase">Systems Architecture</span>
+                  <span className="text-[#B8860B] text-[10px] md:text-xs tracking-[0.2em] uppercase">Selected Works</span>
                   <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-navy mt-2 mb-2 lg:mb-3 group-hover:translate-x-1 transition-transform">
-                    Notion Systems
+                    Projects
                   </h3>
-                  <p className="text-navy/60 text-xs md:text-sm">Transforming chaos into clarity.</p>
+                  <p className="text-navy/60 text-xs md:text-sm">Full-stack apps, AI tools & more.</p>
                 </Link>
               </motion.div>
             </div>
@@ -661,15 +661,15 @@ export default function Home() {
               className="md:col-span-4"
             >
               <Link
-                href="/mirembe"
+                href="/blog"
                 className="group block relative overflow-hidden bg-gradient-to-br from-[#2D5A3D] to-[#1E3F2A] p-5 md:p-6 lg:p-8 hover:scale-[1.02] transition-all duration-500 h-full"
                 style={{ borderRadius: '16px 16px 40px 16px' }}
               >
-                <span className="text-white/70 text-[10px] md:text-xs tracking-[0.2em] uppercase">Coming 2026</span>
+                <span className="text-white/70 text-[10px] md:text-xs tracking-[0.2em] uppercase">Writing</span>
                 <h3 className="font-display text-lg md:text-xl lg:text-2xl font-bold text-white mt-2 mb-2 group-hover:translate-x-1 transition-transform">
-                  Mirembe Muse
+                  Blog
                 </h3>
-                <p className="text-white/60 text-xs md:text-sm">African botanical wellness.</p>
+                <p className="text-white/60 text-xs md:text-sm">Tech, creativity & African innovation.</p>
               </Link>
             </motion.div>
 
@@ -678,15 +678,15 @@ export default function Home() {
               className="md:col-span-4"
             >
               <Link
-                href="/work"
+                href="/press"
                 className="group block relative overflow-hidden bg-navy/5 p-5 md:p-6 lg:p-8 hover:scale-[1.02] transition-all duration-500 border border-navy/10 h-full"
                 style={{ borderRadius: '16px 16px 16px 40px' }}
               >
-                <span className="text-[#B8860B] text-[10px] md:text-xs tracking-[0.2em] uppercase">Experience</span>
+                <span className="text-[#B8860B] text-[10px] md:text-xs tracking-[0.2em] uppercase">Media</span>
                 <h3 className="font-display text-lg md:text-xl lg:text-2xl font-bold text-navy mt-2 mb-2 group-hover:translate-x-1 transition-transform">
-                  Work Journey
+                  Press
                 </h3>
-                <p className="text-navy/60 text-xs md:text-sm">From hospitality to full-stack.</p>
+                <p className="text-navy/60 text-xs md:text-sm">Features, bios & media kit.</p>
               </Link>
             </motion.div>
 

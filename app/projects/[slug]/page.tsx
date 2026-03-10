@@ -342,6 +342,111 @@ const projects: Record<string, ProjectData> = {
       'JavaScript weather application',
     ],
   },
+  'netflix-clone': {
+    slug: 'netflix-clone',
+    title: 'Netflix Landing',
+    tagline: 'Pixel-Perfect Recreation of Netflix\'s Landing Page',
+    description:
+      'A pixel-perfect recreation of Netflix\'s landing page, demonstrating mastery of HTML and CSS fundamentals, responsive design principles, and attention to detail.',
+    category: 'Frontend · CSS',
+    status: 'Completed',
+    year: '2024',
+    problem:
+      'Prove foundational front-end skills by replicating a world-class product landing page using only HTML and CSS — no JavaScript, no frameworks.',
+    solution:
+      'Built a fully responsive landing page matching Netflix\'s design language, complete with hover effects, smooth CSS-only animations, and mobile optimisation.',
+    techStack: [
+      { name: 'HTML5', reason: 'Semantic, accessible markup' },
+      { name: 'CSS3', reason: 'All layout and animation' },
+      { name: 'Flexbox', reason: 'Component alignment' },
+      { name: 'CSS Grid', reason: 'Section layouts' },
+      { name: 'Media Queries', reason: 'Fully responsive design' },
+    ],
+    impact: {
+      potential: 'Learner developers',
+      economy: 'SheCodes certification',
+      problem: 'CSS layout mastery',
+      metric: '100% responsive, pixel-perfect recreation',
+    },
+    liveUrl: 'https://netflix-landing-nanda.vercel.app',
+    githubUrl: 'https://github.com/creativelynanda/netflix-landing',
+    videoUrl: '/assets/project-screen-record/netflix-clone.mp4',
+    images: [],
+    metaTitle: 'Netflix Landing Clone — HTML & CSS Mastery | Nandawula Regine',
+    metaDescription:
+      'Pixel-perfect Netflix landing page clone built with HTML5 and CSS3. Demonstrates responsive design, Flexbox, Grid, and CSS animations by Nandawula Regine.',
+    keywords: ['Netflix landing page clone', 'HTML CSS project', 'responsive design', 'CSS Grid Flexbox'],
+  },
+  'youtube-clone': {
+    slug: 'youtube-clone',
+    title: 'YouTube Clone',
+    tagline: 'Faithful Recreation of YouTube\'s Interface',
+    description:
+      'A faithful recreation of YouTube\'s interface using HTML and CSS, showcasing layout skills, component-based thinking, and responsive design mastery.',
+    category: 'Frontend · CSS',
+    status: 'Completed',
+    year: '2024',
+    problem:
+      'Recreate YouTube\'s complex interface — sidebar, video grid, header navigation — using only HTML and CSS to demonstrate advanced layout capability.',
+    solution:
+      'Delivered a responsive YouTube interface clone with functional sidebar, video grid, search bar, and navigation. Used CSS Grid for the video card layout and BEM methodology for clean CSS organisation.',
+    techStack: [
+      { name: 'HTML5', reason: 'Semantic component structure' },
+      { name: 'CSS3', reason: 'All layout and styling' },
+      { name: 'CSS Grid', reason: 'Video card grid layout' },
+      { name: 'Flexbox', reason: 'Component alignment' },
+      { name: 'BEM Methodology', reason: 'Scalable CSS naming' },
+    ],
+    impact: {
+      potential: 'Learner developers',
+      economy: 'SheCodes certification',
+      problem: 'Complex CSS layout challenge',
+      metric: 'Full YouTube interface recreated without JavaScript',
+    },
+    liveUrl: 'https://youtube-clone-nanda.vercel.app',
+    githubUrl: 'https://github.com/creativelynanda/youtube-clone',
+    videoUrl: '/assets/project-screen-record/youtube-clone.mp4',
+    images: [],
+    metaTitle: 'YouTube Clone — CSS Interface Recreation | Nandawula Regine',
+    metaDescription:
+      'YouTube interface clone built with HTML5 and CSS3. Demonstrates CSS Grid, Flexbox, and BEM methodology by Nandawula Regine.',
+    keywords: ['YouTube clone HTML CSS', 'CSS Grid project', 'BEM methodology', 'interface recreation'],
+  },
+  'notion-systems': {
+    slug: 'notion-systems',
+    title: 'Notion Systems',
+    tagline: 'Custom Business Operating Systems Built in Notion',
+    description:
+      'Custom Notion operating systems for businesses and creatives — from CRM pipelines to financial dashboards and project management. Each system is tailored to streamline workflows and reduce administrative overhead.',
+    category: 'Full-Stack · Systems Design',
+    status: 'Live',
+    year: '2025',
+    problem:
+      'Businesses struggle with scattered tools, manual processes, and inefficient workflows. They need unified systems that grow with them without requiring technical expertise to maintain.',
+    solution:
+      'Comprehensive Notion workspaces using relational databases, automated workflows, and intuitive interfaces. Delivered CRM with pipeline tracking, financial management dashboards, project trackers, and knowledge bases — all interconnected and automated.',
+    techStack: [
+      { name: 'Notion', reason: 'Core workspace platform' },
+      { name: 'Database Architecture', reason: 'Relational data modelling' },
+      { name: 'Workflow Automation', reason: 'Reduce manual overhead' },
+      { name: 'AI Integration', reason: 'Automate repetitive tasks' },
+      { name: 'Systems Thinking', reason: 'Scalable, interconnected design' },
+    ],
+    impact: {
+      potential: 'SMEs and creative businesses',
+      economy: 'R15K+ in template revenue',
+      problem: 'Scattered, manual business workflows',
+      metric: '40–60% reduction in admin time',
+    },
+    liveUrl: 'https://creativelynanda.co.za/services',
+    githubUrl: null,
+    videoUrl: '/assets/project-screen-record/Notion-building.mp4',
+    images: [],
+    metaTitle: 'Notion Systems — Custom Business Operating Systems | Nandawula Regine',
+    metaDescription:
+      'Custom Notion operating systems for African businesses — CRM, financial dashboards, project trackers, and knowledge bases built by Nandawula Regine.',
+    keywords: ['Notion business system', 'custom Notion template', 'Notion CRM', 'African business tools'],
+  },
   creativelynanda: {
     slug: 'creativelynanda',
     title: 'CreativelyNanda.co.za',

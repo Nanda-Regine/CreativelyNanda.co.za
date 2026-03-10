@@ -162,7 +162,7 @@ function CopyBio({ text, label, accent }: { text: string; label: string; accent:
   return (
     <div className="mb-6 rounded-2xl overflow-hidden border border-navy/10 shadow-sm">
       <div className="flex items-center justify-between px-5 py-3 border-b border-navy/8" style={{ backgroundColor: `${accent}10` }}>
-        <h3 className="font-display font-bold text-navy text-sm">{label}</h3>
+        <h3 className="font-display font-bold text-beige text-sm">{label}</h3>
         <button
           onClick={handleCopy}
           className="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all"

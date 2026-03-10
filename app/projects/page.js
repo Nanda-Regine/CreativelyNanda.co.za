@@ -579,6 +579,9 @@ const slugMap = {
   'poetry-tube': 'poetry-tube',
   'weather-app': 'weather-app',
   'mirembe-muse': 'stokvel-os', // closest detailed case study
+  'netflix-clone': 'netflix-clone',
+  'youtube-clone': 'youtube-clone',
+  'notion-systems': 'notion-systems',
 };
 
 // Projects that use AI — badge links to /ai-engineer
