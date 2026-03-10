@@ -100,11 +100,14 @@ export default function Footer() {
             <span className="text-beige/20">|</span>
 
             <div className="flex gap-6 text-sm">
-              <Link href="/contact" className="text-beige/60 hover:text-cherry transition-colors">
+              <Link href="/legal/privacy" className="text-beige/60 hover:text-cherry transition-colors">
                 Privacy
               </Link>
-              <Link href="/contact" className="text-beige/60 hover:text-cherry transition-colors">
+              <Link href="/legal/terms" className="text-beige/60 hover:text-cherry transition-colors">
                 Terms
+              </Link>
+              <Link href="/legal/returns" className="text-beige/60 hover:text-cherry transition-colors">
+                Refunds
               </Link>
             </div>
           </div>
