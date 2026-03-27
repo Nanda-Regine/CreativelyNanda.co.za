@@ -3,6 +3,7 @@ import Script from 'next/script';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/layout/Footer';
 import NandaAI from '@/components/NandaAI';
+import { I18nProvider } from '@/lib/i18n/context';
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
@@ -156,11 +157,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </noscript>
         )}
 
-        <Navigation />
-        <main className="min-h-screen pt-20">
-          {children}
-        </main>
-        <Footer />
+        <I18nProvider>
+          <Navigation />
+          <main className="min-h-screen pt-20">
+            {children}
+          </main>
+          <Footer />
+        </I18nProvider>
         <NandaAI />
         <Analytics />
       </body>
