@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Ekhaya",
+    "about": "Mayelana Nami",
+    "projects": "Amaphrojekthi",
+    "work": "Umsebenzi",
+    "education": "Imfundo",
+    "notion": "Notion",
+    "mirembe": "Mirembe",
+    "poetry": "Izinkondlo",
+    "blog": "Ibhulogi",
+    "shop": "Isitolo",
+    "contact": "Xhumana Nathi",
+    "downloadCV": "Landa i-CV"
+  },
+  "hero": {
+    "greeting": "Sawubona, ngingu",
+    "name": "Nanda",
+    "tagline": "Umsunguli, Imbongi, Umqambi",
+    "description": "Ngakha izinto zedijithali ezigqugquzela futhi zinikeze amandla",
+    "cta": "Buka Umsebenzi Wami",
+    "ctaSecondary": "Xhumana Nami"
+  },
+  "about": {
+    "title": "Mayelana Nami",
+    "subtitle": "Umphefumulo wokuqamba onothando lwamakhodi namagama"
+  },
+  "shop": {
+    "title": "Imikhiqizo Yedijithali",
+    "subtitle": "Izinhlobo eziphezulu namathuluzi empumelelo yakho",
+    "addToCart": "Faka Ekaleni",
+    "buyNow": "Thenga Manje",
+    "featured": "Okugqamile",
+    "new": "Okusha",
+    "bestseller": "Okuthengwa Kakhulu",
+    "categories": {
+      "student": "Umfundi",
+      "business": "Ibhizinisi",
+      "creative": "Ukuqamba",
+      "wellness": "Impilo"
+    },
+    "filters": {
+      "all": "Yonke Imikhiqizo",
+      "sortBy": "Hlukanisa nge",
+      "price": "Intengo",
+      "newest": "Okusha Kakhulu",
+      "popular": "Okuthandwa Kakhulu"
+    }
+  },
+  "cart": {
+    "title": "Ikaleli Lakho",
+    "empty": "Ikaleli lakho alinanto",
+    "continueShopping": "Qhubeka Nokuthengwa",
+    "checkout": "Khokha",
+    "remove": "Susa",
+    "total": "Isamba",
+    "subtotal": "Isamba esincane",
+    "items": "izinto"
+  },
+  "checkout": {
+    "title": "Ukukhokha",
+    "yourDetails": "Imininingwane Yakho",
+    "email": "Ikheli Le-imeyili",
+    "emailPlaceholder": "yakho@imeyili.com",
+    "emailDescription": "Okuthengile kuzothunyelwa kule imeyili",
+    "name": "Igama Eligcwele (Ayiphoqelekile)",
+    "namePlaceholder": "Igama lakho eligcwele",
+    "paySecurely": "Khokha Ngokuphepha",
+    "processing": "Iyasebenza...",
+    "orderSummary": "Isifinyezo Se-oda",
+    "delivery": "Ukuhanjiswa",
+    "freeInstant": "Mahhala (Ngokushesha)",
+    "securePayment": "Ukukhokha Okuphephile",
+    "instantDelivery": "Ukuhanjiswa Okusheshayo",
+    "guarantee": "Isiqinisekiso Sezinsuku eziyi-30"
+  },
+  "poetry": {
+    "title": "Iqoqo Lezinkondlo",
+    "subtitle": "Izinkondlo ezivela emphefumulweni",
+    "readMore": "Funda Okwengeziwe",
+    "allPoems": "Zonke Izinkondlo",
+    "themes": {
+      "love": "Uthando",
+      "nature": "Imvelo",
+      "life": "Impilo",
+      "hope": "Ithemba",
+      "identity": "Ubunikazi"
+    }
+  },
+  "blog": {
+    "title": "Ibhulogi",
+    "subtitle": "Imicabango, izifundo, nemibono",
+    "readMore": "Funda Okwengeziwe",
+    "allPosts": "Zonke Izindatshana",
+    "categories": {
+      "dev": "Ukuthuthukiswa",
+      "writing": "Ukubhala",
+      "business": "Ibhizinisi"
+    },
+    "readingTime": "imizuzu yokufunda",
+    "publishedOn": "Kushicilelwe ngo"
+  },
+  "contact": {
+    "title": "Xhumana Nami",
+    "subtitle": "Masiqambe okuthile okumangalisayo ndawonye",
+    "name": "Igama",
+    "email": "I-imeyili",
+    "message": "Umlayezo",
+    "send": "Thumela Umlayezo",
+    "sending": "Iyathumela...",
+    "success": "Umlayezo uthunyelwe ngempumelelo!",
+    "error": "Yehlulekile ukuthumela umlayezo. Sicela uzame futhi."
+  },
+  "footer": {
+    "copyright": "Amalungelo onke agodliwe",
+    "madeWith": "Yenziwe nge",
+    "in": "e-South Africa"
+  },
+  "common": {
+    "loading": "Iyalayisha...",
+    "error": "Kukhona okungahambanga kahle",
+    "tryAgain": "Zama Futhi",
+    "back": "Emuva",
+    "next": "Okulandelayo",
+    "previous": "Okwangaphambili",
+    "seeAll": "Bona Konke",
+    "learnMore": "Funda Okwengeziwe"
+  }
+}
