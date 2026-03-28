@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export const metadata = undefined; // metadata lives in layout.tsx
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
