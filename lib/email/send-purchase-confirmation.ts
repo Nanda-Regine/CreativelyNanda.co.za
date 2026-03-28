@@ -34,7 +34,7 @@ export async function sendPurchaseConfirmation({
     const { data, error } = await resend.emails.send({
       from: emailConfig.from,
       to,
-      replyTo: emailConfig.replyTo,
+      reply_to: emailConfig.replyTo,
       subject: locale === 'af'
         ? `Jou bestelling #${orderNumber} is bevestig!`
         : locale === 'zu'

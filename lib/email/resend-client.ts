@@ -10,5 +10,5 @@ export const FROM_NAME = 'Creatively Nanda';
 // Email configuration
 export const emailConfig = {
   from: `${FROM_NAME} <${FROM_EMAIL}>`,
-  replyTo: 'hello@creativelynanda.co.za',
+  reply_to: 'hello@creativelynanda.co.za',
 };

@@ -22,7 +22,7 @@ export async function sendWelcomeEmail({
     const { data, error } = await resend.emails.send({
       from: emailConfig.from,
       to,
-      replyTo: emailConfig.replyTo,
+      reply_to: emailConfig.replyTo,
       subject: subjects[locale],
       react: WelcomeEmail({
         customerName,
