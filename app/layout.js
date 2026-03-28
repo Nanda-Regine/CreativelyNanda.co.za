@@ -2,7 +2,7 @@ import './globals.css';
 import Script from 'next/script';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/layout/Footer';
-import NandaAI from '@/components/NandaAI';
+import NandaCompanion from '@/components/NandaCompanion';
 import { I18nProvider } from '@/lib/i18n/context';
 import { Analytics } from '@vercel/analytics/next';
 
@@ -172,7 +172,7 @@ posthog.init('${process.env.NEXT_PUBLIC_POSTHOG_KEY}',{api_host:'${process.env.N
           </main>
           <Footer />
         </I18nProvider>
-        <NandaAI />
+        <NandaCompanion />
         <Analytics />
       </body>
     </html>
