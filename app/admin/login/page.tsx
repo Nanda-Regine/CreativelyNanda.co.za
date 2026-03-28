@@ -1,9 +1,10 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function AdminLogin() {
+function AdminLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const next = searchParams.get('next') || '/admin';
@@ -31,27 +32,35 @@ export default function AdminLogin() {
   }
 
   return (
+    <form onSubmit={handleSubmit} style={{ background: '#f5f1e8', padding: '2.5rem', borderRadius: '8px', minWidth: '320px' }}>
+      <h1 style={{ fontFamily: 'serif', color: '#1a1a2e', marginBottom: '1.5rem', fontSize: '1.5rem' }}>Admin Access</h1>
+      <input
+        type="password"
+        placeholder="Security token"
+        value={token}
+        onChange={e => setToken(e.target.value)}
+        required
+        autoComplete="current-password"
+        style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px', marginBottom: '1rem', fontSize: '1rem', boxSizing: 'border-box' }}
+      />
+      {error && <p style={{ color: '#c21e56', marginBottom: '1rem', fontSize: '0.875rem' }}>{error}</p>}
+      <button
+        type="submit"
+        disabled={loading}
+        style={{ width: '100%', padding: '0.75rem', background: '#c21e56', color: '#fff', border: 'none', borderRadius: '4px', fontSize: '1rem', cursor: loading ? 'not-allowed' : 'pointer' }}
+      >
+        {loading ? 'Verifying…' : 'Enter'}
+      </button>
+    </form>
+  );
+}
+
+export default function AdminLogin() {
+  return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#1a1a2e' }}>
-      <form onSubmit={handleSubmit} style={{ background: '#f5f1e8', padding: '2.5rem', borderRadius: '8px', minWidth: '320px' }}>
-        <h1 style={{ fontFamily: 'serif', color: '#1a1a2e', marginBottom: '1.5rem', fontSize: '1.5rem' }}>Admin Access</h1>
-        <input
-          type="password"
-          placeholder="Security token"
-          value={token}
-          onChange={e => setToken(e.target.value)}
-          required
-          autoComplete="current-password"
-          style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px', marginBottom: '1rem', fontSize: '1rem', boxSizing: 'border-box' }}
-        />
-        {error && <p style={{ color: '#c21e56', marginBottom: '1rem', fontSize: '0.875rem' }}>{error}</p>}
-        <button
-          type="submit"
-          disabled={loading}
-          style={{ width: '100%', padding: '0.75rem', background: '#c21e56', color: '#fff', border: 'none', borderRadius: '4px', fontSize: '1rem', cursor: loading ? 'not-allowed' : 'pointer' }}
-        >
-          {loading ? 'Verifying…' : 'Enter'}
-        </button>
-      </form>
+      <Suspense fallback={<div style={{ color: '#f5f1e8' }}>Loading…</div>}>
+        <AdminLoginForm />
+      </Suspense>
     </div>
   );
 }
