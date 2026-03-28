@@ -1,0 +1,450 @@
+# CreativelyNanda.co.za — Transformation Build Journey
+
+**Author:** Nandawula Regine Kabali-Kagwa
+**Project:** CreativelyNanda.co.za
+**Company:** Mirembe Muse (Pty) Ltd
+**Build Period:** Mid-2025 to present (2026)
+**Deployed at:** https://creativelynanda.co.za
+
+---
+
+## The Vision
+
+The project began with a simple insight: a personal website should not be a static brochure. The goal was to transform CreativelyNanda.co.za into what the master build document calls "a cultural destination" — combining the professional credibility of LinkedIn, the seamless commerce of Amazon, the artisan storytelling of Etsy, the literary community of AllPoetry, the editorial luxury of Vogue, and the long-form authority of Medium. That ambition shaped every technical decision that followed.
+
+Nanda's starting point was a basic Next.js portfolio deployed on Vercel. It had no e-commerce, no blog system, no animations, and no community features. The build journey from that starting point to a full-stack revenue-generating platform is documented here.
+
+---
+
+## 1. Project Foundation and Stack Choices
+
+### Next.js 14 App Router
+
+The project was built on Next.js 14 using the App Router (not Pages Router). This was a deliberate choice over the Pages Router for several reasons. The App Router enables nested layouts, which allows each section of the site — blog, poetry, products, admin — to have its own shell without re-rendering the root. Server Components reduce JavaScript shipped to the client, which matters for a content-heavy site where SEO and first-load performance are critical. The App Router's built-in metadata API also allows per-page OpenGraph and Twitter card generation without third-party libraries.
+
+The alternative, sticking with Pages Router, would have been faster to start but would have required retrofitting as the site grew. Given the ambition of the project from day one, App Router was the right foundation.
+
+### TypeScript
+
+TypeScript was chosen for the entire codebase. This became especially important during the payment integration, where a type error in the PayFast signature function would have caused silent revenue loss. The `PayfastPaymentData` interface in `lib/payfast/index.ts` ensures every field passed to the signature generator is accounted for. TypeScript also caught the price formatting bug early (see the Bugs section).
+
+### Tailwind CSS
+
+Tailwind was chosen over CSS Modules or styled-components for its utility-first approach. The design system uses CSS custom properties for the brand palette (navy `#1a1a2e`, beige `#E8DCC4`, cherry `#C1292E`, parchment `#F5F0E8`) but Tailwind for all layout and spacing. This separation means brand tokens live in globals.css while structural code lives inline in JSX — a pattern that makes rapid iteration on layouts faster without touching style files.
+
+### Framer Motion
+
+Every page was designed to "come alive". Framer Motion was chosen over CSS animations or GSAP because it integrates natively with React's component model, supports server-component-safe exports, and has first-class support for `useReducedMotion`. This last point was important: the animation system needed to be accessible from the start, not patched later.
+
+### Supabase over Firebase
+
+The database choice came down to Supabase versus Firebase. Supabase was chosen for three reasons. First, it provides a full PostgreSQL database, meaning complex queries (filtering products by status, joining orders to products) are straightforward SQL without custom NoSQL workarounds. Second, Row Level Security (RLS) allows fine-grained access control at the database layer rather than in application code — critical for an e-commerce site where orders must be readable by the buyer but not by other users. Third, Supabase Storage handles both private (product download files) and public (product images) buckets with signed URLs for the former, solving the digital delivery problem natively.
+
+Firebase was considered but rejected primarily because Firestore's document model would have required denormalising the product-order relationship that Postgres handles naturally with foreign keys and indexes.
+
+### PayFast over Stripe
+
+Stripe is the global default but it is not optimised for the South African market. PayFast is the dominant SA gateway, supports EFT and instant EFT (common payment methods in ZA), and processes in ZAR natively without conversion fees. For a site targeting South African students and entrepreneurs (NSFAS context, varsity templates, SME templates), using Stripe would have added friction and currency confusion. PayFast was always the correct choice for this market.
+
+### Resend for Transactional Email
+
+Resend was chosen over SendGrid or Mailchimp transactional for its clean Next.js integration and React Email template support. The `lib/email.ts` module uses Resend's API with React Email components for the purchase confirmation email, allowing the email template to be built and previewed as a React component rather than raw HTML strings. The environment variable is `RESEND_API_KEY` (a rename from the original `RESEND_KEY` that caused failures early on).
+
+### Zustand for Cart State
+
+The cart needed to persist across page navigations (App Router does not persist React state between full navigations) and survive browser refreshes. Zustand with the `persist` middleware and `createJSONStorage(() => localStorage)` was the right choice. Redux would have been over-engineered; React Context would have caused re-render cascades across the layout. The cart store (`components/cart/cart-store.ts`) uses `skipHydration: true` to prevent SSR/client mismatch and calls `rehydrate()` after mount — a pattern that prevents the "cart flicker" problem common with SSR applications.
+
+### Arcjet for Security
+
+Rather than writing custom rate-limiting middleware, Arcjet was integrated at `@arcjet/next@1.3.0`. Arcjet runs as a Next.js middleware and provides bot detection, shield protection, and sliding window rate limiting from a single composable API. The middleware defines two Arcjet instances: a standard one (60 requests/minute) for all routes, and a stricter one (10 requests/minute) for AI/chat API routes at `/api/chat` and `/api/ai`.
+
+---
+
+## 2. Architecture Decisions
+
+### App Router Layout Nesting
+
+The site uses nested layouts extensively. `app/layout.js` is the root (Navigation, Footer, Analytics, Crisp, Hotjar, GTM). Sub-sections have their own layouts:
+
+- `app/blog/layout.tsx` — Blog shell with category navigation
+- `app/poetry/layout.tsx` — Poetry sanctuary shell
+- `app/products/layout.tsx` — Marketplace shell with cart drawer
+- `app/admin/layout.tsx` — Admin shell (separate from public navigation)
+- `app/about/layout.tsx`, `app/work/layout.tsx`, `app/projects/layout.tsx` — Section shells with their own SEO metadata
+
+Each layout file also exports a `metadata` object, meaning every section has its own canonical URL, OG title, and description without any global configuration to manage.
+
+### Two Supabase Clients
+
+The codebase distinguishes between two Supabase client types:
+
+- `lib/supabase/client.ts` — Browser client using `NEXT_PUBLIC_SUPABASE_ANON_KEY`, subject to RLS
+- `lib/supabase/server.ts` — Server-side admin client using `SUPABASE_SERVICE_ROLE_KEY`, bypasses RLS for webhook handlers and admin operations
+
+This separation is critical. The webhook handler (`app/api/payfast/webhook/route.ts`) uses `createAdminClient()` to update order status, because the RLS policy on orders would otherwise block the write. The public `GET /api/orders` route uses the same admin client but explicitly selects only safe fields, intentionally excluding `download_token`.
+
+### Server Components vs Client Components
+
+The pattern throughout is: fetch data in Server Components, pass to Client Components for interactivity. Product listing pages (`app/products/page.tsx`) are Server Components that fetch from Supabase at request time. The cart drawer, animations, and interactive elements are Client Components (`'use client'`). This keeps the JavaScript bundle small while enabling full interactivity where needed.
+
+---
+
+## 3. Every Major Page Built
+
+### Homepage — Magazine Cover Experience
+
+The homepage was rebuilt from a basic portfolio into what the commit history describes as a "magazine cover experience". The design is editorial: full-viewport hero with Cormorant Garamond display typography, Framer Motion entrance animations sequenced with `PageLoadSequence`, and a grain texture overlay that gives the page an analogue editorial quality. The NandaGirl character appears in the bottom corner with context-aware speech bubbles. The homepage hero communicates identity in a single frame: poet, developer, founder.
+
+### /products — Marketplace
+
+The products page was rebuilt as a "premium ecosystem layout". It fetches all live products from Supabase and renders them through `ProductCoverCard` components. The page includes filtering by category (student, business, creative) and a featured products section at the top. Product images are served from the `product-images` Supabase Storage bucket.
+
+### /products/[slug] — Product Detail Page
+
+The product detail page is a conversion-focused layout. It includes the product name and tagline, price (formatted from cents using `/ 100`), features list (rendered from the `features` JSONB column), FAQ accordion (from the `faqs` JSONB column), and an "Add to Cart" button that fires a Zustand cart action. The page also renders `generateProductJsonLd()` structured data for Google rich results, including `AggregateRating` when review data is present.
+
+### /checkout — PayFast Integration
+
+The checkout page reads from the Zustand cart, creates an order record in Supabase, then renders a PayFast form with hidden inputs. The form POSTs directly to PayFast's hosted payment page. On successful payment, PayFast redirects to `/checkout/success` and fires a webhook to `/api/payfast/webhook`.
+
+### /checkout/success — Order Confirmation
+
+Reads the `order_id` query parameter passed back by PayFast, fetches the order from `/api/orders?id=`, and displays the order summary. Crucially, `download_token` is never exposed here — download links are sent by email only.
+
+### /blog — Triple Blog
+
+The blog system supports three categories: `dev` (dark midnight-blue theme, code-green accents), `writing` (soft lavender and rose palette), and `business` (professional navy and emerald). Each category has its own listing page and individual article pages. Blog posts are stored in Supabase with `is_published`, `published_at`, `cover_image`, `tags`, and `reading_time` fields. The blog article route renders `generateBlogPostingJsonLd()` for Schema.org `BlogPosting` structured data.
+
+### /poetry — Poetry Sanctuary
+
+The Poetry Sanctuary houses Nanda's published work from "Inside Her Roses" (2021). The collection page lists all published poems. Individual poem pages (`/poetry/collection/[slug]`) display the poem with a heart system (`poem_hearts` table, unique per `session_id`) and a roses/reviews system (`poem_roses` table, moderated before display). The poetry section was important personally and commercially — it builds brand identity and connects directly to the published book available on Amazon.
+
+### /admin — Admin CMS
+
+The admin section covers: products (create/edit/publish), blog posts (create/edit/publish), poetry (create/edit poems, moderate roses), and orders (view status). All admin routes are protected by the middleware auth check (`isAdminAuthorized`) using a `SECURITY_TOKEN` environment variable, checked via Bearer token (for API routes) or an `admin_token` httpOnly cookie (for UI routes). The admin login page at `/admin/login` posts to `/api/admin/auth` to set the cookie.
+
+### /projects/[slug] — Case Studies
+
+9 portfolio projects were seeded in migration 018 with full structured data: title, tagline, tech stack (JSONB array with reasons), impact metrics, GitHub/live URLs, and SEO metadata fields. Each project has its own SEO-optimised page with `generateBreadcrumbJsonLd()` and keywords targeting "African AI engineer", "South African developer", and the specific domain (stokvel finance, K53 driving test, accessibility mapping, etc.).
+
+### /ai-engineer — AI Engineer Showcase
+
+A dedicated dark-theme page (midnight-blue, charcoal, electric-cyan `#00d4ff`) showcasing the AI engineering work. Uses a different visual vocabulary from the main brand — more technical, code-aesthetic — to speak to a different audience (hiring managers, collaborators) while remaining within the overall Nanda brand.
+
+### /press — Media Press Kit
+
+A press kit page with copy-to-clipboard buttons (a `'use client'` component using the Clipboard API). Includes bio variants, headshots, media mentions, and contact details. The page has `layout.tsx` for its own metadata.
+
+### /sanyu — Sanyu Botanicals Coming Soon
+
+A coming-soon page for the Sanyu Botanicals brand. Notably, this page is not in the navigation — it is only accessible from `/mirembe`. This was a deliberate decision to avoid diluting the main brand while the sub-brand is still in development.
+
+---
+
+## 4. Payment Integration Journey
+
+### Initial Setup
+
+PayFast integration began with the `lib/payfast/` module. The `config.ts` file reads `PAYFAST_MERCHANT_ID`, `PAYFAST_MERCHANT_KEY`, `PAYFAST_PASSPHRASE`, and `NEXT_PUBLIC_PAYFAST_SANDBOX` from environment variables. The `sandbox` flag controls which PayFast URL is used — `sandbox.payfast.co.za` vs `www.payfast.co.za`. As of live launch, `NEXT_PUBLIC_PAYFAST_SANDBOX=false` with live merchant ID `17030173`.
+
+### Signature Generation and the Sort Bug
+
+PayFast authentication relies on an MD5 signature of all form fields. The original implementation of `generateSignature()` in `lib/payfast/index.ts` sorted the keys alphabetically before building the parameter string:
+
+```typescript
+// BROKEN — sorted alphabetically
+const params = Object.keys(data)
+  .sort()
+  .filter(key => key !== 'signature' && data[key] !== '')
+  .map(key => `${key}=${phpUrlencode(data[key])}`)
+  .join('&');
+```
+
+PayFast verifies the signature using the POST field order it receives from the browser, which matches insertion order in the JavaScript object, not alphabetical order. The `.sort()` call caused a field order mismatch, generating an incorrect signature and resulting in payment failures.
+
+The fix was to remove `.sort()` entirely. The current `createPaymentData()` function builds the data object in PayFast's canonical field order (merchant details, URLs, buyer details, transaction details) and `generateSignature()` preserves that insertion order. This was the single most critical bug fix in the entire project.
+
+### PHP URL Encoding
+
+A second subtlety in the signature was URL encoding. JavaScript's `encodeURIComponent()` does not encode `!'()*`, but PHP's `urlencode()` does. PayFast's reference implementation uses PHP. The `phpUrlencode()` helper in `lib/payfast/index.ts` wraps `encodeURIComponent()` and adds the missing replacements, ensuring the signature string matches exactly.
+
+### Webhook Handler
+
+The webhook handler at `app/api/payfast/webhook/route.ts` implements a full verification chain:
+
+1. Parse the raw POST body as `application/x-www-form-urlencoded`
+2. Validate the source IP against PayFast's known IP ranges (two subnet blocks: `197.97.145.144-147` and `41.74.179.194-197`, plus `102.216.36.3-6`)
+3. Verify the signature using `verifyWebhookSignature()`
+4. Fetch the order from Supabase and verify the amount matches within 1 cent
+5. Idempotency check: if the order already has this `pf_payment_id` with this status, skip processing
+6. Update order status in Supabase
+7. On `COMPLETE`: sync `purchase_count` on the product record
+8. On `COMPLETE`: send a purchase confirmation email via Resend
+
+The webhook returns `200 null` (no body) on success, which is what PayFast expects. Email failures are logged but do not fail the webhook — email can always be retried.
+
+### Email Delivery Chain
+
+The purchase confirmation email sends two types of links: the Notion template URL (stored in `guide_url` on the product record at order time) and a PDF quick-start guide URL pointing to `/assets/products/guides/{slug}.pdf` in the public folder. The download token is never included in any public-facing URL or API response.
+
+---
+
+## 5. Security Hardening
+
+Several security issues were identified and fixed during an audit sprint:
+
+### Admin Authentication Middleware
+
+Before the audit, admin routes had no authentication. The middleware was updated to gate all `/admin` and `/api/admin` routes behind `isAdminAuthorized()`, which checks either a `Bearer` token in the `Authorization` header (for API clients) or an `admin_token` httpOnly cookie (for browser sessions). The `SECURITY_TOKEN` environment variable holds the secret. Login is handled by `POST /api/admin/auth`, which sets the httpOnly cookie on success. The login and auth endpoints themselves are exempt from the gate to prevent a redirect loop.
+
+### Debug Endpoint Disabled
+
+A `/api/debug/products` endpoint existed that returned raw product data without authentication. This was replaced with a stub that permanently returns `{ error: 'Not found' }` with a 404 status. The comment in the file notes how to restore it locally for debugging.
+
+### Blog POST Authentication
+
+The blog API route's `POST` handler for creating posts was audited to ensure it checks for admin credentials before writing to the database.
+
+### Download Token Removed from Public API
+
+The `GET /api/orders` route originally selected `*` from the orders table, which included `download_token`. This was corrected to an explicit column list: `id, amount, currency, status, items, created_at`. The download token is a UUID used as a bearer credential for file access — exposing it publicly would allow anyone with an order ID to download any product file.
+
+### Rate Limiting on Order Lookup
+
+The orders lookup endpoint was reviewed for abuse potential (enumeration of order IDs). Combined with the Arcjet sliding window middleware (60 requests/minute globally), this prevents bulk scraping of order data.
+
+### Security Headers
+
+The middleware applies a standard set of security headers to every response:
+
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+- `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+
+These headers are applied in the Arcjet middleware at `middleware.ts` before returning any response, including denied requests.
+
+### .gitignore
+
+The `.gitignore` was audited to ensure `.env.local` and the Firebase Admin SDK JSON file (`mirembe-muse-firebase-adminsdk-fbsvc-b6c9010502.json`) are excluded from version control. These files contain live service credentials.
+
+---
+
+## 6. Database Evolution — All Migrations
+
+The Supabase migration history tells the story of the product's growth:
+
+| Migration | What it did |
+|-----------|-------------|
+| `001_initial_schema.sql` | Created `products`, `orders`, `blog_posts`, `poems`, `poem_hearts`, `subscribers` with basic RLS |
+| `001_blog_and_poetry_engagement.sql` | Added engagement fields to blog and poetry tables |
+| `002_products_orders_storage.sql` | Rebuilt products and orders with full schema (price in cents, download_token, items JSONB, RLS policies), seeded 8 initial placeholder products |
+| `002_blog_and_poetry_engagement.sql` | Blog post likes/views, poem engagement fields |
+| `003_poem_roses.sql` | Created `poem_roses` table for moderated reader reviews (status: pending/approved/featured/rejected) |
+| `003_shop_engagement.sql` | Shop analytics fields |
+| `004_orders_metadata.sql` | Added `metadata` JSONB column to orders for PayFast response fields |
+| `005_products_full_data.sql` | Extended product schema with full description, features JSONB |
+| `006_product_guide_url.sql` | Added `guide_url` column for Notion template duplication links |
+| `fix-stats-tracking.sql` | Fixed view/engagement tracking triggers |
+| `007_mirembe_muse_templates.sql` | Archived placeholder products; inserted 6 real Mirembe Muse Notion templates with full descriptions, features, FAQs, pricing (R249-R499 in cents), and Notion duplication URLs |
+| `008_product_images.sql` | Created `product-images` Supabase Storage bucket (public, 10MB limit) with upload policy |
+| `009_product_impact.sql` | Added `impact` text column to products; populated positioning lines for all 6 templates |
+| `010_delete_archived_products.sql` | Deleted archived placeholder products |
+| `011_reset_products_clean.sql` | Clean reset of products table state |
+| `012_upsert_products.sql` | Upsert pattern for safe re-running of product data migrations |
+| `013_product_images_public_policy.sql` | Made product-images bucket publicly readable without auth |
+| `014_make_product_images_bucket_public.sql` | Confirmed public bucket setting in storage.buckets |
+| `015_update_product_images_local.sql` | Updated image URLs for local development |
+| `016_product_guides_and_files.sql` | Updated file_path references for PDF quick-start guides in `products` storage bucket |
+| `017_elite_product_copy.sql` | Upgraded product copy/descriptions for conversion |
+| `018_projects_table.sql` | Created `projects` table with tech_stack and impact_metrics JSONB; seeded all 9 portfolio projects |
+| `019_case_study_blog_posts.sql` | Added case study blog posts linked to projects |
+| `020_subscribers.sql` | Rebuilt subscribers table with proper RLS (service role only) |
+| `021_mirembe_muse_blog_posts.sql` | Seeded Mirembe Muse branded blog posts |
+| `022_add_notion_category.sql` | Added `notion` as a valid blog category |
+| `023_test_price_r5.sql` | Temporarily set a product price to R5 for PayFast live testing |
+| `023b_revert_test_price.sql` | Reverted test price back to production value |
+
+### Storage Buckets
+
+Two Supabase Storage buckets were created:
+
+- `products` — Private bucket for digital product files (PDFs, ZIPs). Accessible only via signed URLs generated server-side. RLS allows only `service_role` to read/write.
+- `product-images` — Public bucket for product thumbnails and gallery images. Publicly readable, write restricted to service role. Organised into folders by product slug.
+
+---
+
+## 7. Animation System
+
+The animation system in `components/animations/` was built as a reusable library with mobile and PWA optimisations baked in from the start. All components respect `prefers-reduced-motion` via Framer Motion's `useReducedMotion()` hook.
+
+### Component Inventory
+
+- `FadeIn`, `SlideUp`, `ScaleIn` — Basic entrance animations
+- `TextReveal` — Masked text reveal for editorial headings
+- `Counter` — Animated number counter for impact stats
+- `Parallax` — Simple CSS parallax wrapper
+- `PageTransition` — Route transition wrapper
+- `ScrollReveal` — Scroll-triggered entrance with configurable threshold
+- `StaggerContainer` / `StaggerItem` — Staggered list animations
+- `PageLoadSequence` — Orchestrated page-load animation with Provider/Consumer pattern; `SequenceNavigation`, `SequenceHero`, `SequenceContent` sub-components for staged reveals
+- `ScrollTrigger` — Full-featured scroll-triggered animation with `once`, `trackProgress`, `mobileAnimation` props; supports `fade`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`, `scale`, and `custom` variants
+- `ParallaxScroll` / `ParallaxLayer` / `ParallaxHero` / `ParallaxImage` — Layered parallax using passive scroll listeners
+- `StaggerChildren` / `StaggerGrid` / `StaggerList` / `AnimatedList` — Grid and list stagger patterns
+- `MagneticButton` / `MagneticIcon` / `MagneticText` / `MagneticCard` — Magnetic cursor effect, auto-disabled on touch devices
+- `Card3DTilt` / `ProductCard3D` / `ImageCard3D` / `TextCard3D` / `Button3D` — 3D perspective tilt on hover; falls back to gyroscope on mobile
+
+### Device Detection Hooks
+
+`components/animations/hooks/useDeviceDetect.ts` exports four hooks:
+
+- `useDeviceDetect()` — Full device info object (touch, PWA, reduced motion, mobile)
+- `usePrefersReducedMotion()` — Boolean
+- `useIsTouchDevice()` — Boolean
+- `useIsPWA()` — Boolean (detects `display-mode: standalone`)
+
+These hooks allow any component to adapt its behaviour based on the runtime environment without prop drilling.
+
+### Mobile/PWA Considerations
+
+All heavy effects (`MagneticButton`, `Card3DTilt`) default to `disableOnMobile={true}`. `ParallaxScroll` uses `mobileSpeed={0.15}` by default. All scroll animations use passive event listeners. `willChange` is set to `'auto'` when animations are disabled to free GPU memory. The iOS 13+ gyroscope permission flow was documented as a known issue — it requires a user gesture to call `DeviceOrientationEvent.requestPermission()`.
+
+---
+
+## 8. SEO Infrastructure
+
+The SEO system is centralised in `lib/seo.tsx`:
+
+### createMetadata()
+
+A typed helper that generates Next.js `Metadata` objects with canonical URLs, OpenGraph (locale `en_ZA`, type, title, description, image 1200x630), and Twitter Card (summary_large_image). The root title for the homepage is `"Nanda | Creative Technologist"`; all other pages append `| Creatively Nanda`.
+
+### JSON-LD Generators
+
+Five structured data generators were built:
+
+- `generateWebSiteJsonLd()` — Schema.org `WebSite` with `SearchAction` pointing to the blog search
+- `generatePersonJsonLd()` — Schema.org `Person` for Nanda with `knowsAbout` array covering AI, ML, Claude API, OpenAI, LangChain, RAG, Next.js, TypeScript, Supabase, PayFast, Mapbox, Notion, PWA, Poetry, African Entrepreneurship
+- `generateBlogPostingJsonLd()` — Schema.org `BlogPosting` with `datePublished`, `dateModified`, `author`, `publisher`, `timeRequired`
+- `generateProductJsonLd()` — Schema.org `Product` with `Offer`, `AggregateRating`, and `Review` arrays for Google Shopping rich results
+- `generatePoemJsonLd()` — Schema.org `CreativeWork` linked to the "Inside Her Roses" book
+
+The root `app/layout.js` renders a `@graph` array containing `WebSite` and `Person` JSON-LD in a single script tag. Product pages add `Product` JSON-LD. Blog pages add `BlogPosting` JSON-LD.
+
+### Sitemap and robots.txt
+
+`next-sitemap.config.js` generates the sitemap at build time, excluding `/admin` and `/admin/*` from both the sitemap and robots.txt allowlist. All other public routes are included automatically.
+
+---
+
+## 9. Multi-Language Support
+
+Three translation files were created under `locales/`:
+
+- `locales/en/common.json` — English
+- `locales/af/common.json` — Afrikaans
+- `locales/zu/common.json` — Zulu (isiZulu)
+
+The language selector component reads the current locale and allows switching between the three. The original master build document also listed Xhosa as a target language. The decision to prioritise Afrikaans and Zulu reflects the demographic reality of the Eastern Cape (isiXhosa is actually the most widely spoken language in East London, but the initial implementation covered EN/AF/ZU).
+
+---
+
+## 10. NandaAI Chat — Claude Haiku SSE Streaming
+
+The chat assistant uses the Anthropic Claude API with the Haiku model (fast, cost-effective for interactive chat). The implementation uses Server-Sent Events (SSE) for streaming, meaning responses appear token by token rather than waiting for the full response.
+
+The API route (`app/api/chat/route.ts` or equivalent) sends a `ReadableStream` response with `Content-Type: text/event-stream`. On the client, `NandaAssistant.tsx` connects to this stream and appends tokens to the displayed message in real time.
+
+Stricter rate limiting is applied to AI routes: the `ajAI` Arcjet instance in `middleware.ts` allows only 10 requests per minute per IP (versus 60 for general routes) and blocks all bots except preview crawlers. This prevents API cost abuse.
+
+The `NandaAssistant` component also embodies the "Nanda Girl" character — a visual AI avatar with context-aware speech bubbles that change based on the current page path. The speech bubbles are defined per-context (home, poetry, work, about, blog, contact, marketplace, education) and cycle automatically.
+
+---
+
+## 11. Key Bugs Fixed
+
+### PayFast Signature Sort Bug (Critical — Revenue Impact)
+
+As described in the Payment section: `generateSignature()` originally called `.sort()` on the keys array. PayFast verifies using insertion order, not alphabetical order. Removing `.sort()` fixed payment failures. File: `lib/payfast/index.ts`.
+
+### Price Formatting /100 Bug
+
+Product prices are stored in the database in cents (integer). Early implementations in several components called `price.toFixed(2)` directly on the cents value, displaying R29900 instead of R299. The fix was to divide by 100 before formatting: `(price / 100).toFixed(2)`. Files fixed: `components/marketplace/ProductCoverCard.tsx`, `components/marketplace/ProductDetailClient.tsx`, `components/cart/CartItem.tsx`, `components/cart/CartDrawer.tsx`, `app/checkout/page.tsx`.
+
+### Brand Inconsistency — Mirembe Muse vs CreativelyNanda
+
+Early product copy and metadata mixed the Mirembe Muse brand (the company behind the Notion templates) with the CreativelyNanda personal brand. The resolution was clear branding separation: Mirembe Muse is the product/company brand shown on templates and the `/mirembe` landing page; CreativelyNanda is the personal brand for the portfolio, blog, and poetry. The site domain remains `creativelynanda.co.za`.
+
+### Resend API Key Rename
+
+The original environment variable `RESEND_KEY` was renamed to `RESEND_API_KEY` to match Resend's official documentation and their SDK's default lookup. All email sending was silently failing before this fix.
+
+### OrderItem Missing Fields Bug
+
+The cart store's `CartItem` type was missing `slug` and `guide_url` fields that the webhook handler needed to construct download links and Notion template URLs in the confirmation email. These fields were added to the type definition and populated at checkout time.
+
+### PAYFAST_SANDBOX Config Key
+
+The config read `PAYFAST_SANDBOX_MODE` but the `.env.local` set `NEXT_PUBLIC_PAYFAST_SANDBOX`. The config was corrected to read `NEXT_PUBLIC_PAYFAST_SANDBOX`, ensuring sandbox/live mode switching works correctly.
+
+---
+
+## 12. Infrastructure and Integrations
+
+### Arcjet Security Middleware
+
+`middleware.ts` at the project root integrates `@arcjet/next@1.3.0` with three rule types:
+
+- `shield({ mode: "LIVE" })` — Blocks common attack patterns
+- `detectBot({ mode: "LIVE", allow: ["CATEGORY:SEARCH_ENGINE", ...] })` — Blocks malicious bots while allowing Googlebot, Bingbot, and preview bots
+- `slidingWindow({ interval: "1m", max: 60 })` — 60 req/min rate limit globally, 10 req/min for AI routes
+
+The middleware matches all routes except `_next/static`, `_next/image`, and `favicon.ico`.
+
+### Firebase Push Notifications
+
+`lib/firebase-messaging.ts` implements lazy-loading Firebase Cloud Messaging. The module only imports Firebase in the browser (`typeof window !== 'undefined'` guard). Three exported functions: `subscribeToNotifications()` (requests permission, returns FCM token), `onForegroundMessage()` (registers a callback for foreground push payloads), and `getMessaging()` (internal lazy initialiser). The service worker at `public/firebase-messaging-sw.js` handles background push. All Firebase config values use `NEXT_PUBLIC_FIREBASE_*` environment variables.
+
+### Vercel Analytics
+
+`<Analytics />` from `@vercel/analytics/next` is included in `app/layout.js`. This provides automatic page view tracking and Web Vitals reporting without any configuration.
+
+### Google Tag Manager
+
+GTM (`NEXT_PUBLIC_GTM_ID=GTM-5ZMQ7H4M`) is loaded conditionally in the root layout. GTM allows adding additional tags (GA4, Hotjar, custom events) without code deployments.
+
+### PostHog
+
+`NEXT_PUBLIC_POSTHOG_KEY` (previously incorrectly named `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN`) provides product analytics. PostHog's session recording and funnel analysis helps understand where users drop off in the checkout flow.
+
+### Hotjar and Crisp
+
+Hotjar (`NEXT_PUBLIC_HOTJAR_ID`) provides heatmaps and session recordings. Crisp (`NEXT_PUBLIC_CRISP_WEBSITE_ID`) provides live chat. Both are loaded conditionally in the root layout — they only initialise when the environment variable is present, making local development cleaner.
+
+### Schema.org @graph in Root Layout
+
+The root layout renders a single `application/ld+json` script containing a `@graph` array with `WebSite` and `Person` structured data. This is the recommended pattern for personal brand sites — Google can understand the site's identity from a single structured data block on every page.
+
+---
+
+## 13. What Was Learned
+
+Building this project from a basic portfolio to a full-stack commerce platform in under a year produced several lessons:
+
+**PayFast is specific.** The signature algorithm is well-documented but has subtle PHP-ism details (field order, URL encoding) that only become apparent when payments start failing in production. Always test with real amounts before announcing live.
+
+**Store prices in cents.** Integer arithmetic never has floating-point errors. Every display layer divides by 100. Never store prices as decimals in a database.
+
+**RLS is a feature, not overhead.** Supabase RLS caught several cases where a route would have accidentally exposed data. Designing the RLS policies at migration time (not patched in later) meant the security model was correct from the start.
+
+**Middleware is the right place for security headers.** Setting headers in `next.config.js` works for static responses, but middleware runs on every request including API routes and redirects. Putting security headers in middleware ensures nothing is missed.
+
+**Animation systems need mobile budgets from day one.** The `disableOnMobile`, `mobileSpeed`, and `respectReducedMotion` props on every animation component were designed in before they were needed. Retrofitting animation performance on mobile is much harder than designing for it upfront.
+
+**Idempotency in webhooks is non-negotiable.** PayFast can send duplicate webhook notifications. The idempotency check (`order.payfast_payment_id === pfPaymentId && order.status === status`) prevents double-processing and double-emailing customers.
+
+---
+
+*This document was generated on 2026-03-28 and reflects the state of the codebase at that point. It should be updated as major new features are added.*
