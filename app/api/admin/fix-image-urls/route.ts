@@ -68,7 +68,7 @@ export async function GET() {
         return numA - numB;
       });
 
-    report[slug] = { folderFound, files, coverPhoto, screenshots, currentDbUrls: [] };
+    report[slug] = { folderFound: foundFolder, files, coverPhoto, screenshots, currentDbUrls: [] };
   }
 
   // Fetch current DB image URLs for comparison
