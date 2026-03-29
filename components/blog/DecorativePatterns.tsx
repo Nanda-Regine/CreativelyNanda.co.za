@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 interface PatternProps {
   className?: string;
+  variant?: number;
 }
 
 // Circuit pattern for Dev category - tech nodes and connections
