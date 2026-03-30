@@ -91,24 +91,16 @@ export default function MirembePage() {
 
         <div className="max-w-5xl mx-auto relative z-10">
           {/* Logo with text fallback */}
-          <div className="mb-10 h-14 flex items-center">
+          <div className="mb-10 h-20 flex items-center">
             <Image
               src="/assets/logos/mirembe-muse-logo.png"
               alt="Mirembe Muse"
-              width={180}
-              height={52}
+              width={220}
+              height={72}
               priority
               className="object-contain"
-              style={{ filter: 'brightness(0) invert(1)', maxHeight: '52px', width: 'auto' }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              style={{ mixBlendMode: 'screen', maxHeight: '72px', width: 'auto' }}
             />
-            <span
-              className="font-display text-2xl font-bold text-white hidden"
-              style={{ display: 'none' }}
-              aria-hidden
-            >
-              Mirembe Muse
-            </span>
           </div>
 
           <FadeUp>
@@ -291,16 +283,10 @@ export default function MirembePage() {
             <Image
               src="/assets/logos/mirembe-muse-logo.png"
               alt="Mirembe Muse"
-              width={140}
-              height={48}
+              width={160}
+              height={56}
               className="object-contain"
-              style={{ filter: 'brightness(0) invert(1)', maxHeight: '48px', width: 'auto' }}
-              onError={(e) => {
-                const parent = (e.target as HTMLImageElement).parentElement;
-                if (parent) {
-                  parent.innerHTML = '<span style="font-family:Georgia,serif;font-size:20px;font-weight:bold;color:white">Mirembe Muse</span>';
-                }
-              }}
+              style={{ mixBlendMode: 'screen', maxHeight: '56px', width: 'auto' }}
             />
           </div>
           <p className="text-white/50 text-sm mb-2">

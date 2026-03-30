@@ -142,17 +142,17 @@ export default function Home() {
         className="relative h-screen min-h-[700px] overflow-hidden z-10"
         style={{ backgroundColor: '#0A1128' }}
       >
-        {/* Photo — centered on mobile, right-aligned on desktop */}
+        {/* Photo — centered on mobile (pulled up), right-aligned on desktop */}
         <div
-          className="absolute bottom-0 left-0 right-0 md:left-auto md:right-0 h-[68%] md:h-[92%] w-full md:w-[48%] flex justify-center md:block"
+          className="absolute top-[28%] bottom-[8%] md:top-auto md:bottom-0 left-0 right-0 md:left-auto md:right-0 md:h-[92%] md:w-[48%] flex justify-center md:block"
           style={{ transform: `translateY(${scrollY * 0.08}px)` }}
         >
-          <div className="relative h-full w-[80%] md:w-full">
+          <div className="relative h-full w-[72%] md:w-full">
             <Image
               src="/assets/professional/nanda-professional-2-transparent.png"
               alt="Nandawula Regine — AI Engineer & Creative Technologist"
               fill
-              className="object-contain object-bottom"
+              className="object-contain object-top md:object-bottom"
               priority
             />
           </div>
