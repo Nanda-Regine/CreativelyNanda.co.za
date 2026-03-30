@@ -144,10 +144,10 @@ export default function Home() {
       >
         {/* Photo — centered on mobile (pulled up), right-aligned on desktop */}
         <div
-          className="absolute top-[28%] bottom-[8%] md:top-auto md:bottom-0 left-0 right-0 md:left-auto md:right-0 md:h-[92%] md:w-[48%] flex justify-center md:block"
+          className="absolute top-[22%] bottom-0 md:top-auto md:bottom-0 left-0 right-0 md:left-auto md:right-0 md:h-[92%] md:w-[48%] flex justify-center md:block"
           style={{ transform: `translateY(${scrollY * 0.08}px)` }}
         >
-          <div className="relative h-full w-[72%] md:w-full">
+          <div className="relative h-full w-[85%] md:w-full">
             <Image
               src="/assets/professional/nanda-professional-2-transparent.png"
               alt="Nandawula Regine — AI Engineer & Creative Technologist"

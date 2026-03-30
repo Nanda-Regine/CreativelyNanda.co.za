@@ -91,15 +91,15 @@ export default function MirembePage() {
 
         <div className="max-w-5xl mx-auto relative z-10">
           {/* Logo with text fallback */}
-          <div className="mb-10 h-20 flex items-center">
+          <div className="mb-10 h-32 flex items-center">
             <Image
               src="/assets/logos/mirembe-muse-logo.png"
               alt="Mirembe Muse"
-              width={220}
-              height={72}
+              width={360}
+              height={120}
               priority
               className="object-contain"
-              style={{ mixBlendMode: 'screen', maxHeight: '72px', width: 'auto' }}
+              style={{ mixBlendMode: 'screen', maxHeight: '120px', width: 'auto' }}
             />
           </div>
 
