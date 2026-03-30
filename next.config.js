@@ -59,9 +59,6 @@ const nextConfig = {
     domains: ['localhost', 'creativelynanda.co.za', 'bemgnttmaqpmsaosdisc.supabase.co'],
     formats: ['image/avif', 'image/webp'],
   },
-  experimental: {
-    optimizeCss: true,
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
