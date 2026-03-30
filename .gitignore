@@ -1,76 +1,51 @@
 # Dependencies
-node_modules
-.pnp
-.pnp.js
+node_modules/
 
-# Build output
+# Next.js build output
 .next/
 out/
 build/
-dist/
 
-# Environment variables — NEVER commit these
+# Environment variables
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env.production
-.env*.local
-
-# Secrets & service account keys
-*.json.key
-*-firebase-adminsdk-*.json
-*service-account*.json
-*credentials*.json
-mirembe-muse-firebase-adminsdk-fbsvc-b6c9010502.json
-
-# TypeScript build info
-tsconfig.tsbuildinfo
-next-env.d.ts
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# IDE / Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Large binary/media files
-*.pdf
-*.mp4
-*.mov
-*.avi
-inside-her-roses-full-book.pdf
-extracted-poems.txt
-
-# Claude AI workspace files (local only)
-.claude/
-.clauderc
-CLAUDERC_MASTER_BUILD_DOCUMENT.md
-
-# npm config (contains auth tokens potentially)
-.npmrc
-app/.nmprc
+.env.*.local
 
 # Vercel
 .vercel
 
-# Null file (Windows artifact)
-nul
+# Turbo
+.turbo
 
-# Extracted/temp files
+# Supabase
+supabase/.temp/
+.supabase/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Certificates
+*.pem
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# Claude Code config
+.claude/
+.clauderc
+CLAUDE.md
+CLAUDERC_MASTER_BUILD_DOCUMENT.md
+
+# Large media files
+*.mov
+
+# PDF extraction dev artifacts
 extract-pdf.js
 extract-pdf.mjs
-new/
+extracted-poems.txt
+inside-her-roses-full-book.pdf

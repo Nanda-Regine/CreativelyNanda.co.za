@@ -2,23 +2,10 @@ import type { Metadata } from 'next';
 import { createMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Mirembe Muse | Africa-First AI Products — South Africa',
-  description:
-    'Mirembe Muse (Pty) Ltd — seven Africa-first AI SaaS products, six Notion templates, and digital tools for African students, entrepreneurs, and creators. East London, South Africa.',
+  title: 'Mirembe Muse',
+  description: 'Mirembe Muse (Pty) Ltd - a creative technology and African botanical wellness company. Digital products, custom systems, and purpose-driven business.',
   path: '/mirembe',
-  keywords: [
-    'Mirembe Muse',
-    'Africa-first SaaS',
-    'African AI company South Africa',
-    'Notion templates Africa',
-    'StokvelOS',
-    'AdminOS',
-    'WatchSankofa',
-    'VarsityOS Campus Compass',
-    'African technology company',
-    'East London South Africa startup',
-    'Ubuntu technology',
-  ],
+  keywords: ['Mirembe Muse', 'creative technology', 'African wellness', 'digital products', 'South Africa'],
 });
 
 export default function MirembeLayout({ children }: { children: React.ReactNode }) {

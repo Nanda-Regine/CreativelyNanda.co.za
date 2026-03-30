@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       data[key] = value;
     });
 
-    console.log('PayFast webhook received — order:', data.m_payment_id, '| status:', data.payment_status);
+    console.log('PayFast webhook received:', data);
 
     // Validate source IP
     const forwardedFor = request.headers.get('x-forwarded-for');
@@ -92,13 +92,7 @@ export async function POST(request: NextRequest) {
         console.warn('Unknown PayFast status:', paymentStatus);
     }
 
-    // Idempotency: skip if already processed with this PayFast payment ID
-    if (order.payfast_payment_id && order.payfast_payment_id === pfPaymentId && order.status === status) {
-      console.log(`Order ${orderId} already processed with pf_payment_id ${pfPaymentId} — skipping`);
-      return new NextResponse(null, { status: 200 });
-    }
-
-    // Update order status — store only non-sensitive PayFast fields
+    // Update order status
     const { error: updateError } = await supabase
       .from('orders')
       .update({
@@ -107,9 +101,7 @@ export async function POST(request: NextRequest) {
         payfast_transaction_id: data.pf_payment_id,
         metadata: {
           ...((order.metadata as object) || {}),
-          payfast_status: data.payment_status,
-          payfast_amount_gross: data.amount_gross,
-          payfast_item_name: data.item_name,
+          payfast_data: data,
         },
       })
       .eq('id', orderId);

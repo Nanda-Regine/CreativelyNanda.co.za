@@ -64,7 +64,7 @@ export async function generateMetadata({
     description: description ? description.slice(0, 160) : product.tagline,
     path: `/products/${product.slug}`,
     ogType: 'website',
-    ogImage: product.thumbnail || undefined,
+    ogImage: product.thumbnail || product.images?.[0] || undefined,
     keywords: [
       product.name,
       'Notion template South Africa',
@@ -91,8 +91,9 @@ export default async function ProductDetailLayout({
 
   const { product, description } = productData;
 
-  // All products sold on this site are Mirembe Muse branded (Notion templates + creative work)
-  const brand = 'Mirembe Muse';
+  const brand = product.slug.includes('inside-her-roses')
+    ? 'Mirembe Muse'
+    : 'CreativelyNanda';
 
   // Fetch real reviews from Supabase for structured data
   const { reviews, rating, reviewCount, purchaseCount } = await getProductReviews(params.slug);

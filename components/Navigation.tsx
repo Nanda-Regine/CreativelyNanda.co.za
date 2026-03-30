@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { LanguageSelector } from '@/components/ui';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -19,7 +18,6 @@ export default function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/projects', label: 'Projects' },
-    { href: '/consulting', label: 'Consulting' },
     { href: '/work', label: 'Work' },
     { href: '/education', label: 'Education' },
     { href: '/notion', label: 'Notion' },
@@ -63,12 +61,10 @@ export default function Navigation() {
             </Link>
           ))}
           
-          <LanguageSelector variant="dropdown" />
-
-          <a
+          <a 
             href="/assets/work/Nanda-cv.pdf"
             download="Nanda-CV.pdf"
-            className="px-5 py-2.5 bg-cherry text-white rounded-full text-sm font-medium hover:bg-cherry-dark transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry"
+            className="px-5 py-2.5 bg-cherry text-white rounded-full text-sm font-medium hover:bg-cherry-dark transition-all hover:scale-105"
           >
             Download CV
           </a>
@@ -138,13 +134,12 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Language selector + Download CV — fixed at bottom */}
-          <div className="pt-4 border-t border-[#0A1128]/10 mt-auto space-y-3">
-            <LanguageSelector variant="pills" />
+          {/* Download CV Button - Fixed at bottom */}
+          <div className="pt-4 border-t border-[#0A1128]/10 mt-auto">
             <a
               href="/assets/work/Nanda-cv.pdf"
               download="Nanda-CV.pdf"
-              className="block w-full px-6 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry"
+              className="block w-full px-6 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center text-lg"
             >
               Download CV
             </a>

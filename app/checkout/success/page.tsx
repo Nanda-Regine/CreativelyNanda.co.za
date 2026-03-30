@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -24,7 +24,7 @@ interface OrderData {
   items?: OrderItem[];
 }
 
-function CheckoutSuccessContent() {
+export default function CheckoutSuccessPage() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('order_id');
   const trackedRef = useRef(false);
@@ -251,13 +251,5 @@ function CheckoutSuccessContent() {
         </p>
       </motion.div>
     </div>
-  );
-}
-
-export default function CheckoutSuccessPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-parchment flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-cherry" /></div>}>
-      <CheckoutSuccessContent />
-    </Suspense>
   );
 }

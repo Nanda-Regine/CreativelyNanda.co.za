@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useState, ReactNode, CSSProperties, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface Card3DTiltProps {
@@ -338,7 +337,7 @@ export function ImageCard3D({
       disableOnMobile={disableOnMobile}
       useGyroscope={!disableOnMobile}
     >
-      <Image src={src} alt={alt} fill className="object-cover" />
+      <img src={src} alt={alt} className="w-full h-full object-cover" />
     </Card3DTilt>
   );
 }

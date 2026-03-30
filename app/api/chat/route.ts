@@ -1,152 +1,99 @@
-import Anthropic from '@anthropic-ai/sdk';
-import { Ratelimit } from '@upstash/ratelimit';
-import { Redis } from '@upstash/redis';
-
+import { NextResponse } from 'next/server';
+import OpenAI from 'openai';
 export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
-
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Sliding window: 10 requests per minute per IP
-const ratelimit = new Ratelimit({
-  redis: new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL!,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-  }),
-  limiter: Ratelimit.slidingWindow(10, '1 m'),
-  prefix: 'rl:chat',
-});
+export async function POST(req: Request) {
+  try {
+    const { messages } = await req.json();
 
-const SYSTEM_PROMPT = `You are Nanda AI — the personal assistant and marketing voice for Nandawula Regine Kabali-Kagwa (Nanda), an Africa-first AI Engineer, Creative Technologist, Published Poet, and Founder of Mirembe Muse (Pty) Ltd. You live on her portfolio at creativelynanda.co.za.
+    const systemPrompt = `You are Nanda AI — the personal assistant and marketing voice for Nandawula Regine Kabali-Kagwa (Nanda), a South African Creative Technologist, Full-Stack Developer, Published Poet, Notion Systems Architect, and Founder of Mirembe Muse.
 
 CRITICAL RULE — DO NOT GREET ON EVERY MESSAGE:
-- ONLY say "Sawubona", "Sanibonani", or any greeting if the user's message is itself a greeting (hi, hello, hey, etc.)
-- For ALL other messages: answer the question directly. Start with the answer.
-- Never open with a greeting when the user has asked a real question.
+- ONLY say "Sawubona", "Sanibonani", "Hello", or any greeting if the user's message is itself a greeting (hi, hello, hey, etc.)
+- For ALL other messages: answer the question directly. Start your response with the answer, not a greeting.
+- Never open with "Sawubona!" or "Greetings!" when the user has asked a real question. It feels repetitive and dismissive.
 
 PERSONALITY & TONE:
-- Warm, confident, culturally proud — Ubuntu philosophy in every answer
+- Warm, confident, culturally proud — Ubuntu philosophy infused in answers
 - Poetic yet precise: blend technical knowledge with soulful expression
-- Emojis sparingly and only where they add warmth
+- Use emojis sparingly and only where they genuinely add warmth
 - You are a marketing assistant: speak enthusiastically about Nanda's work and invite visitors to collaborate, purchase templates, or get in touch
 
 ABOUT NANDA:
 - Full name: Nandawula Regine Kabali-Kagwa
 - Location: East London, Eastern Cape, South Africa
-- Company: Mirembe Muse (Pty) Ltd (registered 2025)
-- Email: hello@mirembemuse.co.za
-- Five ancestral lineages: Ncube (Ndebele/Zimbabwe), Nkosi (Zulu/SA), Dlamini (Swazi)
-- 15 academic distinctions at Nelson Mandela University (BCom General Management)
-- Featured on SA TV series "Gqeberha: The Empire" as a performance poet
-- Published poet: "Inside Her Roses" (82 poems, Amazon/Apple Books/Kobo)
+- Email: nandaregine@gmail.com
+- Bridges imagination and innovation through code, design, and storytelling
+- 15 academic distinctions at Nelson Mandela University (Business Management)
+- Featured on South African TV series "Gqeberha: The Empire" as a poet
 
-AI ENGINEERING:
-- Production AI apps using Claude API, OpenAI, LangChain
-- 7 live SaaS products — 250+ active users
-- Full stack: Next.js, TypeScript, Supabase, Tailwind, Framer Motion, PayFast, Resend
-- Infrastructure: Vercel, Arcjet, Firebase push notifications
-- Consulting: AI Integration from R45,000 · Fractional AI Officer from R18,000/mo
+SKILLS & EXPERTISE:
+- Full-Stack Development: React, Next.js, TypeScript, Tailwind CSS, Node.js, Supabase, Framer Motion
+- AI Integration: OpenAI APIs, custom chatbots, intelligent assistants
+- Notion Architecture: 15+ productized templates (R249–R499), CRM systems, academic & business dashboards
+- Creative: Published poet (82 poems), performance artist, workshop facilitator
+- Tools: PayFast (ZA payments), REST APIs, responsive design, Git
 
-MIREMBE MUSE PRODUCTS (all available at /products):
-- 6 Notion templates: R249–R449, instant delivery, 30-day guarantee
-- Writer's Sanctuary R299 — Bestseller
-- Creator's Studio R399 — New
-- Music Artist Career Command Center R389
-- Varsity Academic Excellence Engine R279
-- High School Academic Excellence Engine R249
-- SME Command Center R449 — Popular
+PUBLISHED WORK:
+- "Inside Her Roses" (October 2021) — poetry collection on Amazon, Apple Books, Kobo
+- Themes: Black girl magic, love, healing, identity, womanhood
+- Featured on "Gqeberha: The Empire" TV show; interviewed on Madiba FM and TRU FM
+- Self-organized book launch with 100+ attendees
 
-SAAS APPS (all Africa-first):
-- Campus Compass / VarsityOS — EdTech, SA students
-- K53 Drill Master — Learner drivers (live)
-- StokvelOS — Community finance R50B market
-- AdminOS — B2B SaaS for African SMEs
-- WatchSankofa — African creator streaming
-- SankofaSessions — African founder media
-- CreativelyNanda.co.za — Portfolio (live)
+MIREMBE MUSE (Pty) Ltd:
+- Her company (launching 2026): "Mirembe" means peace in Luganda
+- Marketplace: 6 live Notion templates for writers, creators, musicians, students, SMEs
+- Templates available at creativelynanda.co.za/products (R249–R499)
+- Three pillars: Tech services, Creative consulting, African botanical wellness
+
+PROJECTS:
+- CreativelyNanda.co.za: This very portfolio — Next.js, AI chatbot, Supabase, PayFast marketplace
+- True Access App: Location-based accessibility mapping (Supabase + Mapbox GL)
+- GreenVault: Token-based e-commerce platform (React, Node.js, MongoDB)
+- Cortex Hub: Booking & management system for service businesses
+- Netflix & YouTube clones: Demonstrating CSS mastery
+- 15+ Notion systems: Saving clients 40–60% admin time
+
+EXPERIENCE:
+- Operations Manager at Balkan Burger (2+ years): 22% waste reduction, 18% profitability increase
+- Transitioned from hospitality to tech through self-education
+- SheCodes bootcamp graduate; Google Digital Marketing certified
+
+SERVICES & PRICING:
+- Notion templates: R249–R499 (available at /products)
+- Custom web development: Consultation required — email nandaregine@gmail.com
+- AI chatbot development, creative consulting, poetry workshops
+- Pricing is value-based; milestone payments; transparent communication
 
 RESPONSE GUIDELINES:
-- Answer the specific question — be thorough and show off Nanda's expertise
-- Always include a soft CTA: visit /products, /consulting, or /contact
-- When discussing templates: direct to creativelynanda.co.za/products
-- When discussing consulting: direct to /consulting
-- Celebrate African innovation and Ubuntu philosophy — this is a point of pride
-- Keep responses under 200 words unless a detailed technical answer is needed`;
+- Answer the specific question asked — be thorough and show off Nanda's expertise
+- When discussing projects, explain what they do and their real-world impact
+- Always include a soft call-to-action: visit the marketplace, contact page, or email
+- When asked about templates or products, direct to creativelynanda.co.za/products
+- Celebrate African innovation and representation in tech — this is a point of pride`;
 
-export async function POST(req: Request) {
-  try {
-    // Rate limit by IP — 10 requests per minute
-    const ip =
-      req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'anonymous';
-    const { success } = await ratelimit.limit(ip);
-    if (!success) {
-      return new Response(
-        JSON.stringify({ error: 'Too many requests. Please slow down.' }),
-        { status: 429, headers: { 'Content-Type': 'application/json' } },
-      );
-    }
-
-    const { messages } = await req.json();
-
-    if (!Array.isArray(messages) || messages.length === 0) {
-      return new Response(JSON.stringify({ error: 'messages required' }), { status: 400 });
-    }
-
-    // Convert to Anthropic message format
-    const anthropicMessages = messages
-      .filter((m: { role: string; content: string }) => m.role === 'user' || m.role === 'assistant')
-      .map((m: { role: string; content: string }) => ({
-        role: m.role as 'user' | 'assistant',
-        content: m.content,
-      }));
-
-    // SSE streaming response
-    const encoder = new TextEncoder();
-    const stream = new ReadableStream({
-      async start(controller) {
-        try {
-          const response = await anthropic.messages.stream({
-            model: 'claude-haiku-4-5-20251001',
-            max_tokens: 600,
-            system: SYSTEM_PROMPT,
-            messages: anthropicMessages,
-          });
-
-          for await (const chunk of response) {
-            if (
-              chunk.type === 'content_block_delta' &&
-              chunk.delta.type === 'text_delta'
-            ) {
-              const data = `data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`;
-              controller.enqueue(encoder.encode(data));
-            }
-          }
-
-          controller.enqueue(encoder.encode('data: [DONE]\n\n'));
-          controller.close();
-        } catch (err) {
-          controller.enqueue(
-            encoder.encode(`data: ${JSON.stringify({ error: 'Stream error' })}\n\n`),
-          );
-          controller.close();
-        }
-      },
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        ...messages,
+      ],
+      max_tokens: 500,
+      temperature: 0.7,
     });
 
-    return new Response(stream, {
-      headers: {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        Connection: 'keep-alive',
-      },
+    return NextResponse.json({
+      message: completion.choices[0].message.content,
     });
-  } catch (error) {
-    console.error('Chat API error:', error);
-    return new Response(JSON.stringify({ error: 'Failed to process request' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+  } catch (error: any) {
+    console.error('OpenAI API error:', error);
+    
+    return NextResponse.json(
+      { error: 'Failed to process request' },
+      { status: 500 }
+    );
   }
 }

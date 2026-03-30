@@ -12,10 +12,9 @@ export async function GET(request: NextRequest) {
   try {
     const supabase = createAdminClient();
 
-    // Intentionally excludes download_token — never expose it publicly
     const { data: order, error } = await supabase
       .from('orders')
-      .select('id, amount, currency, status, items, created_at')
+      .select('id, amount, currency, status, items, metadata, download_token')
       .eq('id', orderId)
       .single();
 

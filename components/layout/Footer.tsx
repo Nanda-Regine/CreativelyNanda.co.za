@@ -1,11 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { Linkedin, Github, Twitter, Instagram, Mail, Star } from 'lucide-react';
+import { Linkedin, Github, Twitter, Instagram, Mail } from 'lucide-react';
 import { PWAInstallButton } from '@/components/ui';
-
-// Replace with actual Mirembe Muse Google Business review URL
-const GOOGLE_REVIEW_URL =
-  'https://g.page/r/REPLACE_WITH_YOUR_GOOGLE_BUSINESS_PLACE_ID/review';
 
 const SOCIALS = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/', icon: Linkedin },
@@ -62,7 +58,7 @@ export default function Footer() {
                     href={href}
                     target={name === 'Email' ? undefined : '_blank'}
                     rel={name === 'Email' ? undefined : 'noopener noreferrer'}
-                    className="inline-flex items-center gap-2 text-beige/70 hover:text-cherry transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry/50 rounded"
+                    className="inline-flex items-center gap-2 text-beige/70 hover:text-cherry transition-colors"
                   >
                     <Icon className="w-4 h-4" />
                     {name}
@@ -71,44 +67,17 @@ export default function Footer() {
               ))}
             </ul>
 
-            {/* Google Review CTA */}
-            <div className="mt-4 pt-4 border-t border-beige/10">
-              <a
-                href={GOOGLE_REVIEW_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-beige/60 hover:text-cherry transition-colors text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry/50 rounded"
-              >
-                <Star className="w-4 h-4" />
-                Leave a Google Review
-              </a>
-            </div>
-
             {/* PWA Install Button */}
-            <div className="mt-3">
+            <div className="mt-4 pt-4 border-t border-beige/10">
               <PWAInstallButton variant="footer" />
             </div>
-          </div>
-        </div>
-
-        {/* Payment Methods Row */}
-        <div className="border-t border-beige/10 pt-8 mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <p className="text-beige/40 text-xs uppercase tracking-wider shrink-0">We accept</p>
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="px-3 py-1.5 bg-[#0079C1]/15 text-[#6ec6f5] text-xs font-semibold rounded-full border border-[#0079C1]/20">
-              PayFast · ZAR
-            </span>
-            <span className="px-3 py-1.5 bg-[#00B9FF]/15 text-[#7de8ff] text-xs font-semibold rounded-full border border-[#00B9FF]/20">
-              Wise · USD · EUR · GBP · KES
-            </span>
-            <span className="text-beige/30 text-xs">EFT · Credit Card · SnapScan</span>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-beige/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-beige/60 text-sm">
-            © {currentYear} Nanda. Built with React, Next.js &amp; creativity.
+            © {currentYear} Nanda. Built with React, Next.js & creativity.
           </p>
 
           <div className="flex items-center gap-4">

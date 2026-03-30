@@ -1,10 +1,7 @@
 'use client';
 
 import { useRef, ReactNode, CSSProperties, useState, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, MotionValue, useReducedMotion } from 'framer-motion';
-
-const MotionImage = motion(Image);
 
 interface ParallaxScrollProps {
   children: ReactNode;
@@ -226,20 +223,19 @@ export function ParallaxImage({
 
   if (shouldDisable) {
     return (
-      <div ref={ref} className={`relative overflow-hidden ${className}`}>
-        <Image src={src} alt={alt} fill className="object-cover" />
+      <div ref={ref} className={`overflow-hidden ${className}`}>
+        <img src={src} alt={alt} className="w-full h-full object-cover" />
       </div>
     );
   }
 
   return (
-    <div ref={ref} className={`relative overflow-hidden ${className}`}>
-      <MotionImage
+    <div ref={ref} className={`overflow-hidden ${className}`}>
+      <motion.img
         src={src}
         alt={alt}
-        fill
         style={{ y, scale }}
-        className="object-cover"
+        className="w-full h-full object-cover"
       />
     </div>
   );

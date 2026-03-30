@@ -80,8 +80,6 @@ export interface OrderItem {
   name: string;
   price: number;
   quantity: number;
-  slug?: string;
-  guide_url?: string | null;
   file_path?: string | null;
 }
 
@@ -160,7 +158,7 @@ export interface BlogPost {
   excerpt: string | null;
   content: string;
   cover_image: string | null;
-  category: 'dev' | 'writing' | 'business' | 'notion';
+  category: 'dev' | 'writing' | 'business';
   tags: string[];
   reading_time: number | null;
   is_published: boolean;
