@@ -37,7 +37,7 @@ const COVERLINES_LEFT = [
 
 const COVERLINES_RIGHT = [
   { label: 'Consulting', sub: 'From R8,000/month' },
-  { label: '7 SaaS Apps', sub: '250+ active users' },
+  { label: '7 SaaS Apps', sub: '300+ active users' },
   { label: 'Ubuntu × Code', sub: 'Africa-first infrastructure' },
 ];
 
@@ -120,47 +120,44 @@ export default function Home() {
   return (
     <main className="min-h-screen">
 
+      {/* ── Grain texture overlay ─────────────────────────────────────────── */}
+      <div
+        className="fixed inset-0 pointer-events-none opacity-30 z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
       {/* ── COVER ──────────────────────────────────────────────────────────────
-          100vh magazine cover: dark terracotta gradient, Nanda's photo,
+          100vh magazine cover: dark navy, Nanda's photo,
           masthead, coverlines left + right, name + tagline, price bar
       ─────────────────────────────────────────────────────────────────────── */}
       <section
-        className="relative h-screen min-h-[700px] overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #2A1A0A 0%, #3D1F0D 40%, #1A0A05 100%)',
-        }}
+        className="relative h-screen min-h-[700px] overflow-hidden z-10"
+        style={{ backgroundColor: '#0A1128' }}
       >
         {/* Photo — right-aligned, transparent bg preferred */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-          className="absolute right-0 bottom-0 h-[95%] w-auto max-w-[55%]"
+        <div
+          className="absolute right-0 bottom-0 h-[92%] w-[48%]"
           style={{ transform: `translateY(${scrollY * 0.08}px)` }}
         >
-          <div className="relative h-full w-[500px]">
+          <div className="relative h-full w-full">
             <Image
-              src="/assets/professional/nanda-cover.png"
+              src="/assets/professional/nanda-professional-2-transparent.png"
               alt="Nandawula Regine — AI Engineer & Creative Technologist"
               fill
               className="object-contain object-bottom"
               priority
-              onError={() => {}} // graceful — photo is optional
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Gradient overlay — vignette edges */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2A1A0A]/90 via-[#2A1A0A]/30 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#2A1A0A]/80 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/80 via-transparent to-transparent pointer-events-none" />
 
         {/* MASTHEAD */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="absolute top-0 left-0 right-0 flex items-center justify-between px-8 pt-28 md:pt-32"
-        >
+        <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-8 pt-28 md:pt-32">
           <div className="flex items-center gap-6">
             <span className="text-[#C9A84C] font-sans text-[10px] tracking-[0.3em] uppercase">
               Est. 2024
@@ -170,15 +167,10 @@ export default function Home() {
           <span className="text-[#C9A84C] font-sans text-[10px] tracking-[0.3em] uppercase">
             East London, South Africa
           </span>
-        </motion.div>
+        </div>
 
         {/* NAME + ISSUE line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="absolute top-24 md:top-28 left-0 right-0 text-center px-6 pt-12"
-        >
+        <div className="absolute top-24 md:top-28 left-0 right-0 text-center px-6 pt-12">
           <h1
             className="font-display font-bold text-white leading-none select-none"
             style={{ fontSize: 'clamp(52px, 10vw, 120px)' }}
@@ -187,7 +179,7 @@ export default function Home() {
             <br />
             <span className="text-[#C9A84C]">NANDA</span>
           </h1>
-        </motion.div>
+        </div>
 
         {/* COVERLINES LEFT */}
         <div className="absolute left-6 md:left-10 top-[45%] -translate-y-1/2 space-y-5 hidden sm:block">
@@ -262,18 +254,36 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* ── POETRY INTERLUDE ──────────────────────────────────────────────────── */}
+      <section className="relative bg-[#0A1128] py-20 px-6 z-10">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase mb-8">
+            Inside Her Roses · Published October 2021
+          </p>
+          <blockquote className="font-display text-3xl md:text-4xl italic text-white/90 leading-relaxed mb-6">
+            &ldquo;she learned to speak in two tongues —<br />
+            the language of systems<br />
+            and the language of longing.&rdquo;
+          </blockquote>
+          <p className="text-white/30 text-sm mb-8">— Nandawula Regine Kabali-Kagwa</p>
+          <a href="/poetry" className="text-[#C1292E] text-sm font-medium hover:underline">
+            Read the collection →
+          </a>
+        </div>
+      </section>
+
       {/* ── EDITORIAL INTRO ────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#FAFAF8]">
+      <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <FadeUp>
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
               The Story
             </p>
-            <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#1A1A1A] leading-[0.95] mb-6">
+            <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#0A1128] leading-[0.95] mb-6">
               Business degree.
               <br />Self-taught engineer.
               <br />Seven apps.
-              <br /><span className="text-[#C4613A]">Two years.</span>
+              <br /><span className="text-[#C1292E]">Two years.</span>
             </h2>
             <p className="text-[#6B6B6B] text-lg leading-[1.8] mb-8">
               I started at Nelson Mandela University studying business. While my classmates
@@ -284,13 +294,13 @@ export default function Home() {
             <div className="flex gap-4 flex-wrap">
               <Link
                 href="/about"
-                className="px-6 py-3 bg-[#1A1A1A] text-white rounded-full font-semibold text-sm hover:bg-[#C4613A] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A]"
+                className="px-6 py-3 bg-[#0A1128] text-white rounded-full font-semibold text-sm hover:bg-[#C1292E] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A1128]"
               >
                 Read the full story →
               </Link>
               <Link
                 href="/consulting"
-                className="px-6 py-3 border border-[#1A1A1A]/20 text-[#1A1A1A] rounded-full font-semibold text-sm hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
+                className="px-6 py-3 border border-[#0A1128]/20 text-[#0A1128] rounded-full font-semibold text-sm hover:border-[#C1292E] hover:text-[#C1292E] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
               >
                 Hire me
               </Link>
@@ -300,14 +310,14 @@ export default function Home() {
           <FadeUp delay={0.15}>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '7', label: 'Production Apps', color: 'text-[#C9A84C]' },
-                { value: '250+', label: 'Active Users', color: 'text-[#C4613A]' },
-                { value: '2 yrs', label: 'Self-Taught', color: 'text-[#C9A84C]' },
-                { value: 'R300k', label: 'MRR Target', color: 'text-[#C4613A]' },
+                { value: '7', label: 'Production Apps', color: 'text-[#C1292E]' },
+                { value: '300+', label: 'Active Users', color: 'text-[#C1292E]' },
+                { value: '2 yrs', label: 'Self-Taught', color: 'text-[#C1292E]' },
+                { value: 'R300k', label: 'MRR Target', color: 'text-[#C1292E]' },
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="bg-[#F2F0EB] rounded-2xl p-6 text-center border border-[#1A1A1A]/5"
+                  className="bg-white/60 backdrop-blur-sm rounded-[24px] p-6 text-center border border-[#0A1128]/5"
                 >
                   <div className={`font-display text-4xl font-bold ${s.color} mb-1`}>
                     {s.value}
@@ -321,20 +331,20 @@ export default function Home() {
       </section>
 
       {/* ── PRODUCTS GRID ──────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#F2F0EB]">
+      <section className="relative py-24 px-6 bg-white z-10">
         <div className="max-w-5xl mx-auto">
           <FadeUp className="mb-12 flex items-end justify-between flex-wrap gap-4">
             <div>
-              <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-3">
+              <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-3">
                 Digital Products
               </p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold italic text-[#1A1A1A]">
+              <h2 className="font-display text-4xl md:text-5xl font-bold italic text-[#0A1128]">
                 Six systems for African life.
               </h2>
             </div>
             <Link
               href="/products"
-              className="text-sm text-[#C9A84C] font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C] rounded"
+              className="text-sm text-[#C1292E] font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
             >
               View all 6 + bundles →
             </Link>
@@ -345,9 +355,9 @@ export default function Home() {
               <FadeUp key={p.slug} delay={i * 0.06}>
                 <Link
                   href={`/products/${p.slug}`}
-                  className="group block bg-white border border-[#1A1A1A]/10 rounded-xl overflow-hidden hover:border-[#C9A84C]/40 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
+                  className="group block bg-white/60 backdrop-blur-sm border border-[#0A1128]/10 rounded-[24px] overflow-hidden hover:border-[#C1292E]/40 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
                 >
-                  <div className="relative aspect-video bg-[#F2F0EB]">
+                  <div className="relative aspect-video bg-gradient-to-br from-[#E8DCC4] to-[#F5EFE6]">
                     <Image
                       src={`/assets/products/${p.slug}/cover.png`}
                       alt={p.name}
@@ -356,19 +366,19 @@ export default function Home() {
                       onError={() => {}}
                     />
                     {p.badge && (
-                      <span className="absolute top-2 right-2 bg-[#C4613A] text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
+                      <span className="absolute top-2 right-2 bg-[#C1292E] text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
                         {p.badge}
                       </span>
                     )}
                   </div>
                   <div className="p-4">
-                    <p className="font-sans text-[10px] tracking-widest uppercase text-[#C9A84C] mb-1">
+                    <p className="font-sans text-[10px] tracking-widest uppercase text-[#B8860B] mb-1">
                       {p.category}
                     </p>
-                    <h3 className="font-display font-bold text-[#1A1A1A] text-base leading-snug mb-1 group-hover:text-[#C4613A] transition-colors">
+                    <h3 className="font-display font-bold text-[#0A1128] text-base leading-snug mb-1 group-hover:text-[#C1292E] transition-colors">
                       {p.name}
                     </h3>
-                    <p className="font-display text-lg font-bold text-[#C4613A]">{p.price}</p>
+                    <p className="font-display text-lg font-bold text-[#C1292E]">{p.price}</p>
                   </div>
                 </Link>
               </FadeUp>
@@ -378,10 +388,10 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES — dark section ──────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#0A0A0A]">
+      <section className="relative py-24 px-6 bg-[#0A1128] z-10">
         <div className="max-w-5xl mx-auto">
           <FadeUp className="text-center mb-14">
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
               AI Consulting
             </p>
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-white leading-[0.95]">
@@ -394,7 +404,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-5 mb-12">
             {SERVICES.map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.1}>
-                <div className="bg-[#1A1A1A] border border-white/10 rounded-xl p-7 hover:border-[#C9A84C]/30 transition-colors h-full flex flex-col">
+                <div className="bg-gradient-to-r from-[#0A1128] to-[#1a2744] border border-white/10 rounded-xl p-7 hover:border-[#C1292E]/30 transition-colors h-full flex flex-col" style={{ borderRadius: '32px 12px 32px 12px' }}>
                   <h3 className="font-display text-xl font-bold text-white mb-3">{s.title}</h3>
                   <p className="text-white/50 text-sm leading-relaxed flex-1 mb-4">{s.body}</p>
                   <p className="text-[#C9A84C] font-medium text-sm">{s.price}</p>
@@ -406,7 +416,7 @@ export default function Home() {
           <FadeUp delay={0.3} className="text-center">
             <Link
               href="/consulting"
-              className="inline-block px-8 py-4 bg-[#C9A84C] text-[#1A1A1A] rounded-full font-semibold hover:bg-[#C9A84C]/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
+              className="inline-block px-8 py-4 bg-[#C1292E] text-white rounded-full font-semibold hover:bg-[#C1292E]/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
             >
               View all consulting offers →
             </Link>
@@ -415,23 +425,23 @@ export default function Home() {
       </section>
 
       {/* ── EDITORIAL QUOTE ───────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#FAFAF8]">
+      <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
         <div className="max-w-3xl mx-auto text-center">
           <FadeUp>
-            <p className="font-display text-5xl md:text-6xl italic text-[#1A1A1A] leading-[1.1] mb-8">
+            <p className="font-display text-5xl md:text-6xl italic text-[#0A1128] leading-[1.1] mb-8">
               &ldquo;Technology should amplify humanity,
               not replace it. Every line of code —
               in service of connection.&rdquo;
             </p>
-            <p className="text-[#C9A84C] font-sans text-sm tracking-widest uppercase font-medium">
+            <p className="text-[#B8860B] font-sans text-sm tracking-widest uppercase font-medium">
               — Nanda · AI Engineer & Creative Technologist
             </p>
           </FadeUp>
         </div>
       </section>
 
-      {/* ── BOTTOM CTA — terracotta ───────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#C4613A]">
+      {/* ── BOTTOM CTA — cherry ───────────────────────────────────────────── */}
+      <section className="relative py-24 px-6 bg-[#C1292E] z-10">
         <div className="max-w-3xl mx-auto text-center">
           <FadeUp>
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-white leading-tight mb-6">
@@ -444,7 +454,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="/consulting"
-                className="px-8 py-4 bg-white text-[#C4613A] rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="px-8 py-4 bg-white text-[#C1292E] rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Work with Nanda
               </Link>

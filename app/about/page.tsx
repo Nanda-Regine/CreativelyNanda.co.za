@@ -1,8 +1,8 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
+import Image from 'next/image';
 
 // ─── Fade-up helper ────────────────────────────────────────────────────────────
 function FadeUp({
@@ -37,21 +37,21 @@ const STATS = [
 
 const ANCESTRAL_CLANS = [
   {
-    clan: 'Ncube',
-    origin: 'Ndebele / Zimbabwe',
-    meaning: 'The innovators — those who build what has never been built before.',
+    clan: 'Kabali-Kagwa',
+    origin: 'Ugandan',
+    meaning: 'The healers and wealth-holders. Nandawula was a doctor of great means. I carry her name, her lineage, and her mandate to build.',
     symbol: '◈',
   },
   {
-    clan: 'Nkosi',
-    origin: 'Zulu / South Africa',
-    meaning: 'The leaders — those who speak truth before it is comfortable.',
+    clan: 'Tshawe · Hlubi · Msimango',
+    origin: 'Xhosa, Eastern Cape',
+    meaning: 'The earth-keepers. The clans who held this land, told its stories, and taught that a place becomes yours only when you pour yourself into it.',
     symbol: '◆',
   },
   {
-    clan: 'Dlamini',
-    origin: 'Swazi / eSwatini',
-    meaning: 'The protectors — those who hold space for others to grow.',
+    clan: 'Thabizolo',
+    origin: 'Sotho',
+    meaning: 'The peacekeepers. Those who build bridges between worlds — and between the person you were and the person you are becoming.',
     symbol: '◇',
   },
 ];
@@ -59,119 +59,168 @@ const ANCESTRAL_CLANS = [
 const BADGE_GROUPS = [
   {
     category: 'AI & Engineering',
-    color: 'bg-[#C9A84C]/10 text-[#C9A84C] border border-[#C9A84C]/20',
+    color: 'bg-[#C1292E]/10 text-[#C1292E] border border-[#C1292E]/20',
     badges: ['Claude API', 'OpenAI', 'LangChain', 'Next.js', 'TypeScript', 'Supabase', 'Python'],
   },
   {
     category: 'Design & Creative',
-    color: 'bg-[#C4613A]/10 text-[#C4613A] border border-[#C4613A]/20',
+    color: 'bg-[#0A1128]/10 text-[#0A1128] border border-[#0A1128]/20',
     badges: ['Figma', 'Framer Motion', 'Tailwind CSS', 'Brand Identity', 'Editorial Design'],
   },
   {
     category: 'Business & Strategy',
-    color: 'bg-navy/10 text-navy border border-navy/20',
+    color: 'bg-[#B8860B]/10 text-[#6B5B10] border border-[#B8860B]/20',
     badges: ['Product Strategy', 'Go-to-Market', 'Pricing Models', 'Financial Analysis', 'SWOT / PESTLE'],
   },
   {
     category: 'Craft & Expression',
-    color: 'bg-cherry/10 text-cherry border border-cherry/10',
+    color: 'bg-[#C1292E]/10 text-[#C1292E] border border-[#C1292E]/20',
     badges: ['Spoken Word Poetry', 'Luthier Arts', 'Public Speaking', 'Content Creation', 'Notion Systems'],
   },
 ];
 
 const TIMELINE = [
   {
-    year: '2022',
-    title: 'Business degree begins',
-    body: 'Enrolled at Nelson Mandela University — BCom General Management. Learned the language of markets, strategy, and people.',
-    dot: 'bg-[#C9A84C]',
+    year: '2019',
+    title: 'The working world begins',
+    body: 'Sales Assistant at Sportsmans Warehouse, East London. First job at 17. Four years across the entire store — sales floor, cashier, receiving. Learning how real retail operations run from the inside.',
+    dot: 'bg-[#B8860B]',
+  },
+  {
+    year: '2020',
+    title: 'The degree begins',
+    body: 'Higher Certificate in Business Management at Nelson Mandela University. Studying and working simultaneously. Learning the language of commerce while living it.',
+    dot: 'bg-[#B8860B]',
+  },
+  {
+    year: 'October 2021',
+    title: 'The book. The promotion.',
+    body: 'Inside Her Roses published — a poetry collection. In the same year: promoted to Receiving Clerk at Sportsmans Warehouse. Building across every dimension at once.',
+    dot: 'bg-[#C1292E]',
+  },
+  {
+    year: '2021–2023',
+    title: 'The diploma years',
+    body: 'Diploma in Business Management at NMU. Three years of systems thinking, strategy, and operational discipline — while still at Sportsmans Warehouse.',
+    dot: 'bg-[#B8860B]',
   },
   {
     year: '2023',
-    title: 'First line of code',
-    body: 'Picked up Python and JavaScript alongside the degree. Realized software was just structured thinking — something business school had been training me for all along.',
-    dot: 'bg-[#C9A84C]',
+    title: 'Into hospitality',
+    body: 'Joined Balkan Burger, Port Elizabeth. Junior Waitress → Senior Waitress → Marketing Assistant → Team Leader → Event Coordinator. An entirely new world of operations, people, and pressure.',
+    dot: 'bg-[#B8860B]',
   },
   {
-    year: 'Early 2024',
-    title: 'First production app shipped',
-    body: 'Launched the CreativelyNanda portfolio — deployed on Vercel, live to the world. The moment that changed everything.',
-    dot: 'bg-[#C4613A]',
+    year: '2024',
+    title: 'Advanced Diploma. Manager title.',
+    body: 'Advanced Diploma in Business Management — 15 distinctions across three consecutive qualifications. Simultaneously: promoted to Manager at Balkan Burger. Running a restaurant. Training staff. Earning the kind of recommendations that speak for themselves.',
+    dot: 'bg-[#C1292E]',
   },
   {
-    year: 'Mid 2024',
-    title: 'Mirembe Muse is born',
-    body: 'Built a full e-commerce platform for Mirembe Muse with Supabase, PayFast, and Resend. First paying customers within 30 days.',
-    dot: 'bg-[#C4613A]',
+    year: 'June 2025',
+    title: 'The pivot begins',
+    body: 'First line of code. SheCodes Plus. Python. JavaScript. The degree had been teaching systems thinking the whole time — the code was just a different syntax for the same logic.',
+    dot: 'bg-[#C1292E]',
   },
   {
-    year: 'Late 2024',
-    title: 'AI pivot',
-    body: 'Completed AWS ML Foundations and Google AI certifications. Integrated Claude and OpenAI APIs into production. Started calling myself an AI engineer.',
-    dot: 'bg-[#C4613A]',
+    year: 'September 2025',
+    title: 'First app. Company born.',
+    body: 'Cortex Hub Booking System deployed — first production application. Same month: Mirembe Muse (Pty) Ltd incorporated in South Africa. The founder identity becomes legal.',
+    dot: 'bg-[#C1292E]',
   },
   {
-    year: '2025',
-    title: '7 apps. Real users.',
-    body: 'Shipped True Access, VisionBoard Pro, PoetryTube, and the Notion Template Suite. 250+ active users across products. All self-funded.',
-    dot: 'bg-[#C4613A]',
+    year: 'October–November 2025',
+    title: 'The accessibility work',
+    body: 'True Access App — full-stack location-based accessibility platform built with Supabase and Mapbox. First complex architecture. First real users.',
+    dot: 'bg-[#C1292E]',
   },
   {
-    year: 'March 2026',
-    title: 'Consulting opens',
-    body: 'Opened AI consulting engagements for African businesses. First enterprise client signed. The degree, the code, the clans — all converging.',
-    dot: 'bg-cherry',
+    year: 'December 2025',
+    title: 'Systems, productised',
+    body: 'Six Notion templates built and listed across Payhip, Gumroad, Etsy, LemonSqueezy, Notion Marketplace, Creative Market. The consulting brain becomes digital product.',
+    dot: 'bg-[#C1292E]',
+  },
+  {
+    year: 'January 2026',
+    title: 'The portfolio as a product',
+    body: 'CreativelyNanda.co.za — 72 commits. Multilingual. AI chatbot. Template sales. Poetry. Blog. This is not a resume. It is a deployed, revenue-generating application.',
+    dot: 'bg-[#C1292E]',
+  },
+  {
+    year: 'February–March 2026',
+    title: 'Six apps in six weeks',
+    body: 'Campus Compass · K53 Drill Master · StokvelOS · AdminOS · WatchSankofa · SankofaSessions — all shipped solo under Mirembe Muse (Pty) Ltd. Seven AI SaaS products. 300+ users. East London, South Africa.',
+    dot: 'bg-[#C1292E]',
     current: true,
   },
 ];
 
 // ─── Page ───────────────────────────────────────────────────────────────────────
 export default function About() {
-  const [ancestralExpanded, setAncestralExpanded] = useState(false);
-
   return (
-    <main className="min-h-screen bg-[#FAFAF8] text-[#1A1A1A]">
+    <main className="min-h-screen bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] text-[#0A1128]">
+
+      {/* Grain texture */}
+      <div
+        className="fixed inset-0 pointer-events-none opacity-30 z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
 
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
-        {/* Brand tagline — replaces old quote attribution */}
-        <FadeUp>
-          <p className="font-display text-sm tracking-[0.25em] uppercase text-[#C9A84C] mb-6">
-            Creative Technologist · AI Engineer · Poet
-          </p>
-        </FadeUp>
+      <section className="relative z-10 bg-[#0A1128] pt-32 pb-20 px-6">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <FadeUp>
+              <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C1292E] mb-6">
+                Creative Technologist · AI Engineer · Poet
+              </p>
+            </FadeUp>
 
-        <FadeUp delay={0.1}>
-          <h1 className="font-display text-6xl md:text-8xl font-bold text-[#1A1A1A] leading-[0.9] mb-6">
-            Built from<br />
-            <span className="text-cherry">ancestry</span>.<br />
-            Powered by<br />
-            <span className="text-[#C9A84C]">code.</span>
-          </h1>
-        </FadeUp>
+            <FadeUp delay={0.1}>
+              <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-[0.9] mb-6">
+                Retail floor to<br />
+                restaurant manager<br />
+                to published poet<br />
+                to <span className="text-[#C1292E]">AI engineer.</span>
+              </h1>
+            </FadeUp>
 
-        <FadeUp delay={0.2} className="mt-8">
-          <p className="font-display text-2xl md:text-3xl text-[#6B6B6B] leading-relaxed max-w-2xl italic">
-            "Technology should amplify humanity, not replace it. Every line of
-            code, every design decision, every word — in service of connection."
-          </p>
-          <p className="mt-3 text-sm text-[#C9A84C] tracking-widest uppercase font-medium">
-            — Nanda · CreativelyNanda.co.za
-          </p>
-        </FadeUp>
+            <FadeUp delay={0.2}>
+              <p className="font-display text-xl italic text-[#C1292E] leading-relaxed max-w-xl">
+                Six months of code. Seven production apps. The arc was never accidental.
+              </p>
+            </FadeUp>
+          </div>
+
+          {/* Professional photo */}
+          <FadeUp delay={0.3} className="hidden md:flex justify-center">
+            <div className="relative w-80 h-96">
+              <Image
+                src="/assets/professional/nanda-professional.jpg"
+                alt="Nandawula Regine Kabali-Kagwa"
+                fill
+                className="object-cover ring-2 ring-[#C1292E]/20"
+                style={{ borderRadius: '32px 8px 32px 8px' }}
+                priority
+              />
+            </div>
+          </FadeUp>
+        </div>
 
         {/* Stats bar */}
-        <FadeUp delay={0.3} className="mt-14">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1A1A1A]/10 rounded-2xl overflow-hidden border border-[#1A1A1A]/10">
+        <FadeUp delay={0.4} className="max-w-5xl mx-auto mt-14">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
             {STATS.map((s) => (
               <div
                 key={s.label}
-                className="bg-[#FAFAF8] px-6 py-6 text-center hover:bg-[#F5F0E8] transition-colors"
+                className="bg-[#0A1128] px-6 py-6 text-center hover:bg-[#1a2744] transition-colors"
               >
-                <div className="font-display text-4xl md:text-5xl font-bold text-[#C9A84C]">
+                <div className="font-display text-4xl md:text-5xl font-bold text-[#C1292E]">
                   {s.value}
                 </div>
-                <div className="text-xs text-[#6B6B6B] tracking-widest uppercase mt-1 font-medium">
+                <div className="text-xs text-white/50 tracking-widest uppercase mt-1 font-medium">
                   {s.label}
                 </div>
               </div>
@@ -180,11 +229,11 @@ export default function About() {
         </FadeUp>
       </section>
 
-      {/* ── ANCESTRAL OPERATING SYSTEM (position 2, right after hero) ─────────── */}
-      <section className="py-20 px-6 bg-[#1A1A1A] text-[#F5F0E8]">
+      {/* ── ANCESTRAL OPERATING SYSTEM ───────────────────────────────────────── */}
+      <section className="relative z-10 py-20 px-6 bg-[#0A1128] text-[#F5F0E8]">
         <div className="max-w-5xl mx-auto">
           <FadeUp>
-            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
               Ancestral Operating System
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-[#F5F0E8] mb-6 leading-tight">
@@ -193,21 +242,21 @@ export default function About() {
             </h2>
             <p className="text-[#F5F0E8]/70 text-lg leading-relaxed max-w-2xl mb-12">
               Before the code, before the certifications, before the apps — there were
-              the clans. Each one an operating system I run in parallel: the innovator,
-              the leader, the protector. Understanding where you come from changes how
-              you build.
+              the clans. Each one an operating system I run in parallel. Understanding
+              where you come from changes how you build.
             </p>
           </FadeUp>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {ANCESTRAL_CLANS.map((clan, i) => (
               <FadeUp key={clan.clan} delay={i * 0.1}>
-                <div className="border border-[#C9A84C]/30 rounded-2xl p-8 hover:border-[#C9A84C] transition-colors group">
-                  <div className="text-4xl text-[#C9A84C] mb-4 font-display">{clan.symbol}</div>
-                  <h3 className="font-display text-2xl font-bold text-[#F5F0E8] mb-1">
+                <div className="bg-gradient-to-r from-[#0A1128] to-[#1a2744] border border-[#B8860B]/30 rounded-2xl p-8 hover:border-[#C1292E]/50 transition-colors group relative overflow-hidden" style={{ borderRadius: '32px 12px 32px 12px' }}>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/10 group-hover:bg-[#C1292E]/15 transition-colors" style={{ borderRadius: '0 12px 0 100%' }} />
+                  <div className="text-4xl text-[#B8860B] mb-4 font-display">{clan.symbol}</div>
+                  <h3 className="font-display text-xl font-bold text-[#F5F0E8] mb-1">
                     {clan.clan}
                   </h3>
-                  <p className="text-[#C9A84C] text-xs tracking-widest uppercase mb-4">
+                  <p className="text-[#B8860B] text-xs tracking-widest uppercase mb-4">
                     {clan.origin}
                   </p>
                   <p className="text-[#F5F0E8]/70 leading-relaxed text-sm">{clan.meaning}</p>
@@ -216,19 +265,17 @@ export default function About() {
             ))}
           </div>
 
-          {/* CTA for ancestral section */}
           <FadeUp delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/poetry"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A84C] text-[#1A1A1A] rounded-full font-semibold hover:bg-[#C9A84C]/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C1292E] text-white rounded-full font-semibold hover:bg-[#C1292E]/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
               >
-                Read the poetry this lineage produced
-                <span className="text-lg">→</span>
+                Read the poetry this lineage produced →
               </Link>
               <Link
                 href="/mirembe"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-[#C9A84C]/40 text-[#C9A84C] rounded-full font-semibold hover:border-[#C9A84C] hover:bg-[#C9A84C]/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-[#B8860B]/40 text-[#B8860B] rounded-full font-semibold hover:border-[#B8860B] hover:bg-[#B8860B]/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]"
               >
                 See Mirembe Muse
               </Link>
@@ -238,81 +285,92 @@ export default function About() {
       </section>
 
       {/* ── BIO / STORY ──────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 max-w-5xl mx-auto">
+      <section className="relative z-10 py-20 px-6 max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <FadeUp>
-            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
               The Story
             </p>
-            <h2 className="font-display text-4xl font-bold text-[#1A1A1A] mb-6">
+            <h2 className="font-display text-4xl font-bold text-[#0A1128] mb-6">
               Business degree.<br />Self-taught engineer.<br />Seven apps. Two years.
             </h2>
-            <div className="space-y-5 text-[#6B6B6B] leading-relaxed">
+            <div className="space-y-5 text-[#4A3728] leading-relaxed">
               <p>
-                I started at Nelson Mandela University studying Business Management — learning
-                the language of markets, strategy, and capital. While my classmates were writing
-                case studies, I was writing code. Not because I had to, but because I saw the
-                gap between what business needed and what tech could deliver in Africa.
+                I started on the retail floor of Sportsmans Warehouse at 17, learning how
+                real operations work — inventory, people, service, systems. I studied
+                Business Management at Nelson Mandela University while working, graduating
+                with 15 distinctions across three consecutive qualifications. I managed
+                a restaurant. I published a book of poetry. Then in June 2025, I wrote
+                my first line of code.
               </p>
               <p>
-                I taught myself JavaScript, TypeScript, React, and eventually AI integration —
-                not in a bootcamp, but by shipping real products to real users. Every error
-                message was a lesson. Every deployment was a milestone.
+                Six months later: 7 production AI SaaS apps, a registered South African
+                company, and 300+ real users. Not demos. Production with payments,
+                infrastructure, and people&apos;s actual data depending on it working.
               </p>
               <p>
-                Today I sit at the intersection of business strategy and AI engineering. I build
-                tools that make African entrepreneurs more powerful, more efficient, and more
-                connected to global markets.
+                The degree taught systems thinking. The hospitality work taught operations
+                under pressure. The poetry taught how to speak to humans. The code was
+                always going to be the third language.
               </p>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.15}>
             <div className="space-y-6">
-              <div className="p-8 bg-[#F5F0E8] rounded-2xl">
-                <p className="font-display text-xs tracking-[0.25em] uppercase text-[#C9A84C] mb-3">
+              {/* Photo — coding */}
+              <div className="relative w-full h-56 rounded-[24px] overflow-hidden mb-2">
+                <Image
+                  src="/assets/professional/nanda-coding.jpg"
+                  alt="Nanda coding"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="p-8 bg-white/60 backdrop-blur-sm rounded-[24px] border border-[#0A1128]/10">
+                <p className="font-display text-xs tracking-[0.25em] uppercase text-[#B8860B] mb-3">
                   Currently
                 </p>
-                <ul className="space-y-3 text-[#1A1A1A]">
+                <ul className="space-y-3 text-[#0A1128]">
                   {[
-                    'AI consultant for African businesses',
-                    'Founder of Mirembe Muse',
-                    'Building 3 new SaaS products',
-                    'Writing poetry that sells books',
+                    'Running 7 live AI SaaS apps under Mirembe Muse (Pty) Ltd',
+                    'Open for select AI consulting engagements',
+                    'Publishing poetry. Building infrastructure. Doing both.',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="text-[#C9A84C] mt-0.5 shrink-0">◆</span>
+                      <span className="text-[#C1292E] mt-0.5 shrink-0">◆</span>
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="p-8 bg-navy text-beige rounded-2xl">
-                <p className="font-display text-xs tracking-[0.25em] uppercase text-[#C9A84C] mb-3">
+              <div className="p-8 bg-[#0A1128] text-white rounded-[24px]">
+                <p className="font-display text-xs tracking-[0.25em] uppercase text-[#B8860B] mb-3">
                   Contact
                 </p>
                 <a
-                  href="mailto:hello@mirembemuse.co.za"
-                  className="text-beige hover:text-[#C9A84C] transition-colors font-medium"
+                  href="mailto:hello@creativelynanda.co.za"
+                  className="text-white hover:text-[#C1292E] transition-colors font-medium"
                 >
-                  hello@mirembemuse.co.za
+                  hello@creativelynanda.co.za
                 </a>
-                <p className="text-beige/50 text-xs mt-2">Port Elizabeth, South Africa</p>
+                <p className="text-white/50 text-xs mt-2">East London, Eastern Cape, South Africa</p>
               </div>
             </div>
           </FadeUp>
         </div>
       </section>
 
-      {/* ── SKILLS — BADGE CLUSTER (replaces old skills list) ─────────────────── */}
-      <section className="py-20 px-6 bg-[#F5F0E8]">
+      {/* ── SKILLS — BADGE CLUSTER ─────────────────────────────────────────────── */}
+      <section className="relative z-10 py-20 px-6 bg-white/40">
         <div className="max-w-5xl mx-auto">
           <FadeUp>
-            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
               Skills & Tools
             </p>
-            <h2 className="font-display text-4xl font-bold text-[#1A1A1A] mb-12">
+            <h2 className="font-display text-4xl font-bold text-[#0A1128] mb-12">
               What I bring to the table.
             </h2>
           </FadeUp>
@@ -341,45 +399,45 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── TIMELINE ─────────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 max-w-5xl mx-auto">
+      {/* ── TIMELINE — "How It Unfolded" ────────────────────────────────────── */}
+      <section className="relative z-10 py-20 px-6 max-w-5xl mx-auto">
         <FadeUp>
-          <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+          <p className="font-display text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
             The Journey
           </p>
-          <h2 className="font-display text-4xl font-bold text-[#1A1A1A] mb-16">
-            How it unfolded.
+          <h2 className="font-display text-4xl font-bold text-[#0A1128] mb-16">
+            How It Unfolded.
           </h2>
         </FadeUp>
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-[#1A1A1A]/10" />
+          <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-[#0A1128]/10" />
 
           <div className="space-y-10">
             {TIMELINE.map((item, i) => (
-              <FadeUp key={item.year} delay={i * 0.07}>
+              <FadeUp key={`${item.year}-${i}`} delay={i * 0.05}>
                 <div className="flex gap-8">
                   {/* Dot */}
                   <div className="shrink-0 mt-1.5">
-                    <div className={`w-6 h-6 rounded-full ${item.dot} ring-4 ring-[#FAFAF8] relative z-10`} />
+                    <div className={`w-6 h-6 rounded-full ${item.dot} ring-4 ring-[#F5EFE6] relative z-10`} />
                   </div>
 
-                  <div className="pb-2">
+                  <div className="pb-2 bg-white/60 backdrop-blur-sm rounded-[24px] p-6 flex-1 border border-[#0A1128]/5">
                     <div className="flex items-center gap-3 mb-1">
-                      <span className="font-display text-sm font-bold text-[#C9A84C] tracking-widest uppercase">
+                      <span className="font-display text-sm font-bold text-[#B8860B] tracking-widest uppercase">
                         {item.year}
                       </span>
                       {item.current && (
-                        <span className="px-2 py-0.5 bg-cherry/10 text-cherry text-xs rounded-full font-medium">
+                        <span className="px-2 py-0.5 bg-[#C1292E]/10 text-[#C1292E] text-xs rounded-full font-medium">
                           Now
                         </span>
                       )}
                     </div>
-                    <h3 className="font-display text-xl font-bold text-[#1A1A1A] mb-2">
+                    <h3 className="font-display text-xl font-bold text-[#0A1128] mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-[#6B6B6B] leading-relaxed text-sm max-w-xl">{item.body}</p>
+                    <p className="text-[#4A3728] leading-relaxed text-sm max-w-xl">{item.body}</p>
                   </div>
                 </div>
               </FadeUp>
@@ -389,15 +447,15 @@ export default function About() {
       </section>
 
       {/* ── BOTTOM CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#1A1A1A] text-[#F5F0E8]">
+      <section className="relative z-10 py-24 px-6 bg-[#0A1128] text-[#F5F0E8]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeUp>
-            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
               Work with Nanda
             </p>
             <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Let&apos;s build something<br />
-              <span className="text-[#C9A84C]">worth remembering.</span>
+              <span className="text-[#C1292E]">worth remembering.</span>
             </h2>
             <p className="text-[#F5F0E8]/60 text-lg mb-10 leading-relaxed">
               Whether you need AI engineering, strategic consulting, or a creative
@@ -406,13 +464,13 @@ export default function About() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="/consulting"
-                className="px-8 py-4 bg-[#C9A84C] text-[#1A1A1A] rounded-full font-semibold hover:bg-[#C9A84C]/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
+                className="px-8 py-4 bg-[#C1292E] text-white rounded-full font-semibold hover:bg-[#C1292E]/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
               >
                 View Consulting Offers
               </Link>
               <Link
                 href="/contact"
-                className="px-8 py-4 border border-[#F5F0E8]/20 text-[#F5F0E8] rounded-full font-semibold hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
+                className="px-8 py-4 border border-[#F5F0E8]/20 text-[#F5F0E8] rounded-full font-semibold hover:border-[#C1292E] hover:text-[#C1292E] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
               >
                 Get in Touch
               </Link>

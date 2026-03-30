@@ -77,7 +77,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-beige/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-beige/60 text-sm">
-            © {currentYear} Nanda. Built with React, Next.js & creativity.
+            © {currentYear} Mirembe Muse (Pty) Ltd · East London, South Africa
           </p>
 
           <div className="flex items-center gap-4">

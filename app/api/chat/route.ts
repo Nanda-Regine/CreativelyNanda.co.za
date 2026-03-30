@@ -1,12 +1,27 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
 export const dynamic = 'force-dynamic';
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(10, '1 m'),
+  prefix: 'creativelynanda:chat',
+});
+
 export async function POST(req: Request) {
   try {
+    const ip = req.headers.get('x-forwarded-for') ?? 'anonymous';
+    const { success } = await ratelimit.limit(ip);
+    if (!success) {
+      return NextResponse.json({ error: 'Too many requests. Please wait a moment.' }, { status: 429 });
+    }
+
     const { messages } = await req.json();
 
     const systemPrompt = `You are Nanda AI — the personal assistant and marketing voice for Nandawula Regine Kabali-Kagwa (Nanda), a South African Creative Technologist, Full-Stack Developer, Published Poet, Notion Systems Architect, and Founder of Mirembe Muse.

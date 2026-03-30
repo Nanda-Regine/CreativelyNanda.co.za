@@ -32,7 +32,7 @@ const SAAS_APPS = [
     status: 'Beta',
     problem: '50%+ SA university dropout rate — and zero AI support for it.',
     impact: [
-      '200+ student users in beta',
+      '300+ active users',
       '6 AI agents covering study, budget, meals, wellness',
       'Crisis detection auto-surfaces SADAG + Lifeline SA helplines',
     ],
@@ -89,7 +89,7 @@ const SAAS_APPS = [
     caseStudy: '/projects/adminos',
     bg: '#0A0A0A',
     featured: true,
-    rate: 'From R18,000/month',
+    rate: 'From R2,500/month',
   },
   {
     slug: 'watchsankofa',
@@ -141,35 +141,7 @@ const SAAS_APPS = [
   },
 ];
 
-const CLIENT_WORK = [
-  {
-    slug: 'chanty-shuttle',
-    type: 'Growth & Digital Strategy',
-    name: 'Chanty Shuttle Service',
-    problem: 'Growing a transport business with no digital presence or conversion infrastructure.',
-    impact: [
-      'R34,000 Tier 2 package delivered',
-      'R88,000 Year 1 revenue potential mapped',
-      'Full growth strategy, affiliate marketing system, brand positioning',
-    ],
-    deliverable: 'Strategy package + implementation roadmap',
-    caseStudy: '/projects/chanty-shuttle',
-  },
-  {
-    slug: 'notion-systems',
-    type: 'Business Operating Systems',
-    name: 'Notion Systems',
-    problem: 'SME owners drowning in admin without systems to manage it.',
-    impact: [
-      'Custom Notion workspaces for service businesses',
-      'CRM pipelines, financial dashboards, project management',
-      'Clients report 60%+ reduction in admin time',
-    ],
-    deliverable: 'Custom Notion OS per client',
-    caseStudy: '/consulting',
-    caseStudyLabel: 'View Services →',
-  },
-];
+const CLIENT_WORK: { slug: string; type: string; name: string; problem: string; impact: string[]; deliverable: string; caseStudy: string; caseStudyLabel?: string }[] = [];
 
 const LEARNING = [
   { name: 'True Access', desc: 'Full-stack location-based service platform — first complex app.', stack: ['Supabase', 'Mapbox GL', 'JavaScript'], liveUrl: null },
@@ -184,7 +156,7 @@ const STATS = [
   { n: '7', label: 'Live AI SaaS Products' },
   { n: 'R300k+', label: 'MRR Target' },
   { n: '36+', label: 'Technologies Used' },
-  { n: '194', label: 'GitHub Commits in 2026' },
+  { n: '400+', label: 'GitHub Commits' },
 ];
 
 type Filter = 'all' | 'saas' | 'client' | 'learning';

@@ -69,7 +69,7 @@ export const metadata = {
     siteName: 'Creatively Nanda',
     title: 'Nandawula Regine Kabali-Kagwa | AI Engineer & Creative Technologist',
     description:
-      'Africa\'s Creative Technologist & AI Engineer — building intelligent systems, AI apps, and digital products. 9 live apps, 300+ users, published poet. Based in South Africa.',
+      'Africa\'s Creative Technologist & AI Engineer — building intelligent systems, AI apps, and digital products. 7 live SaaS apps, 300+ users, published poet. Based in East London, South Africa.',
     images: [
       {
         url: '/og-image.png',
@@ -83,7 +83,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Nandawula Regine | AI Engineer & Creative Technologist — South Africa',
     description:
-      'Building AI-powered apps for African communities. 9 live apps, published poet, Notion templates. Follow the journey.',
+      'Building AI-powered apps for African communities. 7 live SaaS apps, published poet, Notion templates. Follow the journey.',
     images: ['/og-image.png'],
     creator: '@creativelynanda',
   },

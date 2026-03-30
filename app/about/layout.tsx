@@ -4,7 +4,7 @@ import { createMetadata } from '@/lib/seo';
 export const metadata: Metadata = createMetadata({
   title: 'About Nandawula Regine Kabali-Kagwa — AI Engineer & Creative Technologist',
   description:
-    'The story of Nandawula Regine Kabali-Kagwa — AI Engineer, Full-Stack Developer, Published Poet, and Founder of Mirembe Muse. Royal Ugandan-Xhosa heritage, 15 academic distinctions, 9 live applications. Based in East London, South Africa.',
+    'The story of Nandawula Regine Kabali-Kagwa — AI Engineer, Full-Stack Developer, Published Poet, and Founder of Mirembe Muse. From retail floor to 7 live AI SaaS apps. East London, South Africa.',
   path: '/about',
   keywords: [
     'Nandawula Regine Kabali-Kagwa biography',
