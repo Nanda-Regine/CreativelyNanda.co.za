@@ -160,7 +160,7 @@ export interface BlogPost {
   excerpt: string | null;
   content: string;
   cover_image: string | null;
-  category: 'dev' | 'writing' | 'business';
+  category: 'dev' | 'writing' | 'business' | 'notion';
   tags: string[];
   reading_time: number | null;
   is_published: boolean;
