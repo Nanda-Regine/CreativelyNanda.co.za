@@ -145,20 +145,27 @@ const STEPS = [
 export default function ConsultingPage() {
   return (
     <div
-      className="min-h-screen"
-      style={{ backgroundColor: '#FAFAF8', color: '#1A1A1A' }}
+      className="min-h-screen bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4]"
+      style={{ color: '#1A1A1A' }}
     >
+      {/* Grain texture */}
+      <div
+        className="fixed inset-0 pointer-events-none opacity-30 z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="max-w-5xl mx-auto px-6 pt-32 pb-24">
+      <section className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-24">
         <FadeUp>
           <h1
             className="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-8"
-            style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
+            style={{ fontFamily: 'var(--font-display, Georgia, serif)', color: '#0A1128' }}
           >
             You don&apos;t need to hire a team.{' '}
             <br className="hidden md:block" />
             You need{' '}
-            <span style={{ color: '#C9A84C' }}>the right person.</span>
+            <span style={{ color: '#C1292E' }}>the right person.</span>
           </h1>
         </FadeUp>
 
@@ -178,7 +185,7 @@ export default function ConsultingPage() {
             <a
               href="#book"
               className="inline-flex items-center justify-center px-7 py-4 rounded-lg font-medium text-white transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-              style={{ backgroundColor: '#1A1A1A', fontFamily: 'var(--font-body, sans-serif)' }}
+              style={{ backgroundColor: '#C1292E', fontFamily: 'var(--font-body, sans-serif)' }}
             >
               Book a Consultation
             </a>
@@ -242,7 +249,7 @@ export default function ConsultingPage() {
                 backgroundColor: '#FFFFFF',
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = '#C9A84C';
+                (e.currentTarget as HTMLElement).style.borderColor = '#C1292E';
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor = '#E5E2DA';
@@ -252,7 +259,7 @@ export default function ConsultingPage() {
               <span
                 className="text-sm font-semibold mb-4 block"
                 style={{
-                  color: '#C9A84C',
+                  color: '#C1292E',
                   fontFamily: 'var(--font-body, sans-serif)',
                   letterSpacing: '0.1em',
                 }}
@@ -281,7 +288,7 @@ export default function ConsultingPage() {
                     className="text-sm flex items-start gap-2"
                     style={{ color: '#4A4A4A' }}
                   >
-                    <span style={{ color: '#C9A84C', marginTop: 2, flexShrink: 0 }}>
+                    <span style={{ color: '#C1292E', marginTop: 2, flexShrink: 0 }}>
                       ·
                     </span>
                     {item}
@@ -305,7 +312,7 @@ export default function ConsultingPage() {
               {/* CTA */}
               <Link
                 href={offer.href}
-                className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C] rounded"
+                className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
                 style={{ color: '#1A1A1A', fontFamily: 'var(--font-body, sans-serif)' }}
               >
                 {offer.cta}
@@ -329,7 +336,7 @@ export default function ConsultingPage() {
               style={{
                 fontFamily: 'var(--font-display, Georgia, serif)',
                 color: '#1A1A1A',
-                borderLeft: '3px solid #C9A84C',
+                borderLeft: '3px solid #C1292E',
                 paddingLeft: '1.5rem',
               }}
             >
@@ -380,7 +387,7 @@ export default function ConsultingPage() {
                     <div key={group.label}>
                       <p
                         className="text-xs font-semibold mb-2"
-                        style={{ color: '#C9A84C', fontFamily: 'var(--font-body, sans-serif)' }}
+                        style={{ color: '#C1292E', fontFamily: 'var(--font-body, sans-serif)' }}
                       >
                         {group.label}
                       </p>
@@ -431,7 +438,7 @@ export default function ConsultingPage() {
           <div
             className="hidden md:block absolute top-7 left-8 right-8 h-px"
             style={{
-              backgroundImage: `repeating-linear-gradient(to right, #C9A84C 0, #C9A84C 8px, transparent 8px, transparent 18px)`,
+              backgroundImage: `repeating-linear-gradient(to right, #C1292E 0, #C1292E 8px, transparent 8px, transparent 18px)`,
               zIndex: 0,
             }}
           />
@@ -443,8 +450,8 @@ export default function ConsultingPage() {
                   className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-semibold text-sm"
                   style={{
                     backgroundColor: '#FAFAF8',
-                    border: '1px solid #C9A84C',
-                    color: '#C9A84C',
+                    border: '1px solid #C1292E',
+                    color: '#C1292E',
                     fontFamily: 'var(--font-body, sans-serif)',
                   }}
                 >
@@ -557,7 +564,7 @@ export default function ConsultingPage() {
               </p>
               <a
                 href="mailto:hello@mirembemuse.co.za"
-                className="font-medium text-lg hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C] rounded"
+                className="font-medium text-lg hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
                 style={{ color: '#1A1A1A', fontFamily: 'var(--font-body, sans-serif)' }}
               >
                 hello@mirembemuse.co.za
@@ -571,7 +578,7 @@ export default function ConsultingPage() {
           <FadeUp delay={0.1}>
             <Link
               href="/contact"
-              className="flex flex-col justify-between p-8 rounded-lg transition-all hover:border-[#C9A84C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C] group h-full"
+              className="flex flex-col justify-between p-8 rounded-lg transition-all hover:border-[#C1292E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] group h-full"
               style={{ border: '1px solid #E5E2DA', backgroundColor: '#FFFFFF' }}
             >
               <div>

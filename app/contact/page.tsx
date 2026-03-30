@@ -107,7 +107,14 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FAFAF8] text-[#1A1A1A]">
+    <main className="min-h-screen bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] text-[#1A1A1A]">
+      {/* Grain texture */}
+      <div
+        className="fixed inset-0 pointer-events-none opacity-30 z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
       {/* ── Toast notifications ───────────────────────────────────────────────── */}
       {status === 'success' && (
         <div
@@ -151,7 +158,7 @@ export default function Contact() {
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center">
         <FadeUp>
-          <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
+          <p className="font-display text-xs tracking-[0.3em] uppercase text-[#C1292E] mb-4">
             Let&apos;s Create Together
           </p>
         </FadeUp>
@@ -165,7 +172,7 @@ export default function Contact() {
             Whether you have a project brief, a consulting enquiry, a speaking invitation,
             or a press request — this is where it starts.
           </p>
-          <p className="text-[13px] text-[#C9A84C] font-medium">
+          <p className="text-[13px] text-[#C1292E] font-medium">
             Looking to hire Nanda?{' '}
             <Link href="/consulting" className="underline underline-offset-2 hover:opacity-80 transition-opacity">
               View consulting offers and pricing →
@@ -192,7 +199,7 @@ export default function Contact() {
                     <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-1">Email</h3>
                     <a
                       href="mailto:hello@mirembemuse.co.za"
-                      className="text-[#6B6B6B] hover:text-cherry transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry rounded"
+                      className="text-[#6B6B6B] hover:text-[#C1292E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry rounded"
                     >
                       hello@mirembemuse.co.za
                     </a>
@@ -230,7 +237,7 @@ export default function Contact() {
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block text-[#6B6B6B] hover:text-cherry transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry rounded text-sm"
+                          className="block text-[#6B6B6B] hover:text-[#C1292E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cherry rounded text-sm"
                         >
                           {name}
                         </a>
@@ -276,12 +283,12 @@ export default function Contact() {
                   <span className="text-base">★</span>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#1A1A1A] text-sm group-hover:text-cherry transition-colors">
+                  <p className="font-semibold text-[#1A1A1A] text-sm group-hover:text-[#C1292E] transition-colors">
                     Leave us a Google Review
                   </p>
                   <p className="text-[#9B9B9B] text-xs">Mirembe Muse (Pty) Ltd</p>
                 </div>
-                <span className="ml-auto text-[#9B9B9B] group-hover:text-cherry transition-colors text-sm">→</span>
+                <span className="ml-auto text-[#9B9B9B] group-hover:text-[#C1292E] transition-colors text-sm">→</span>
               </a>
             </FadeUp>
           </div>

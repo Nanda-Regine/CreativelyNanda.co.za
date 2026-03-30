@@ -49,3 +49,12 @@ extract-pdf.js
 extract-pdf.mjs
 extracted-poems.txt
 inside-her-roses-full-book.pdf
+
+# Firebase Admin SDK credentials
+mirembe-muse-firebase-adminsdk-*.json
+
+# Windows NUL device artifact
+nul
+
+# march_update prompt (local only)
+march_update.md

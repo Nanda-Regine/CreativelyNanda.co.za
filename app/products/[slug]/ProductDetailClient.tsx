@@ -174,7 +174,7 @@ export default function ProductDetailClient({
                   {product.category}
                 </span>
                 {product.badge && (
-                  <span className="px-4 py-1.5 text-sm font-bold uppercase rounded-full bg-amber-500 text-white">
+                  <span className="px-4 py-1.5 text-sm font-bold uppercase rounded-full bg-[#C1292E] text-white">
                     {product.badge}
                   </span>
                 )}
@@ -197,7 +197,7 @@ export default function ProductDetailClient({
                         <Star
                           key={i}
                           className={`w-5 h-5 ${
-                            i < Math.floor(product.rating!) ? 'text-amber-400 fill-amber-400' : 'text-white/30'
+                            i < Math.floor(product.rating!) ? 'text-[#C1292E] fill-[#C1292E]' : 'text-white/30'
                           }`}
                         />
                       ))}

@@ -9,7 +9,7 @@ const achievements = [
   {
     icon: Sparkles,
     text: 'Master Gen AI Professional Certified — Generative AI, Prompt Engineering & AI Product Development',
-    color: 'from-cherry to-pink-600',
+    color: 'from-[#C1292E] to-[#a01020]',
     bg: 'bg-cherry/8',
     accent: '#C1292E',
     number: '01',
@@ -17,17 +17,17 @@ const achievements = [
   {
     icon: BookOpen,
     text: 'Published Poet — "Inside Her Roses" (2021), featured on Showmax & Gqeberha: The Empire · 5 live poetry performances',
-    color: 'from-purple-500 to-violet-600',
+    color: 'from-[#C1292E] to-[#a01020]',
     bg: 'bg-purple-500/8',
-    accent: '#7C3AED',
+    accent: '#C1292E',
     number: '02',
   },
   {
     icon: Award,
     text: 'Advanced Diploma in Business Management (NQF 7) — 15 Academic Distinctions, Nelson Mandela University',
-    color: 'from-amber-500 to-orange-500',
+    color: 'from-[#C1292E] to-[#a01020]',
     bg: 'bg-amber-500/8',
-    accent: '#F59E0B',
+    accent: '#C1292E',
     number: '03',
   },
   {
@@ -48,7 +48,7 @@ const achievements = [
   },
   {
     icon: Zap,
-    text: '250+ GitHub Commits in 6 months — Solo Developer · SheCodes Certified Full-Stack Developer',
+    text: '400+ GitHub Commits · Solo Developer · SheCodes Certified Full-Stack Developer',
     color: 'from-gold to-amber-400',
     bg: 'bg-yellow-500/8',
     accent: '#B8860B',
@@ -70,7 +70,7 @@ const mediaMentions = [
     outlet: 'Madiba FM',
     topic: 'Published Poet & Entrepreneur Feature',
     type: 'Radio',
-    color: '#7C3AED',
+    color: '#C1292E',
     bg: 'bg-purple-500/10',
     border: 'border-purple-400/30',
     emoji: '📻',
@@ -106,7 +106,7 @@ const speakingTopics = [
     title: 'From Zero to Revenue: Digital Entrepreneurship',
     description: 'The real, unfiltered story of starting a digital business from scratch in South Africa as a self-taught developer.',
     audiences: ['Business schools', 'Entrepreneurship programs', 'Youth conferences'],
-    color: '#7C3AED',
+    color: '#C1292E',
   },
   {
     title: 'Women in Tech: Breaking Barriers',
@@ -133,7 +133,7 @@ const bios = {
 
   medium: `Nandawula Regine Kabali-Kagwa is a South African Creative Technologist building at the intersection of code, culture, and creativity. Born to Ugandan and Xhosa-Sotho heritage, she carries five clan lineages that inform her Ubuntu-centered approach to technology.
 
-A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda has built 9 live applications serving 300+ users, including AI-powered tools and Notion productivity systems. Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire — she has performed at 5 live spoken word events across the Eastern Cape.
+A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda has built 7 live AI SaaS products serving 300+ users, including AI-powered tools and Notion productivity systems. Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire — she has performed at 5 live spoken word events across the Eastern Cape.
 
 As Founder of Mirembe Muse, she offers AI consulting, digital product creation, and is building Sanyu Botanicals — an African botanical wellness brand — for businesses across Africa.`,
 
@@ -141,7 +141,7 @@ As Founder of Mirembe Muse, she offers AI consulting, digital product creation, 
 
 Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Each lineage gifted her a principle — lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
 
-After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in East London. In six months, she shipped 9 live applications, accumulated 250+ GitHub commits, and built a digital products business generating monthly revenue — all while performing her poetry at 5 live events across the Eastern Cape.
+After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in East London. In six months, she shipped 7 live AI SaaS products, accumulated 250+ GitHub commits, and built a digital products business generating monthly revenue — all while performing her poetry at 5 live events across the Eastern Cape.
 
 Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in building AI-powered solutions for African SMEs, from chatbots and automation systems to custom AI agents. Her flagship apps include K53 Drill Master (50+ paying subscribers), Campus Compass (200+ students), and StokvelOS — proving that world-class technology can, and should, be built from the African continent.
 
@@ -367,11 +367,11 @@ export default function PressPage() {
             {[
               { label: 'Full Name', value: 'Nandawula Regine Kabali-Kagwa', accent: '#C1292E' },
               { label: 'Based In', value: 'East London, South Africa', accent: '#10B981' },
-              { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimango, Tshawe, Thabizolo)', accent: '#7C3AED' },
-              { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)', accent: '#F59E0B' },
+              { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimango, Tshawe, Thabizolo)', accent: '#C1292E' },
+              { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)', accent: '#C1292E' },
               { label: 'Certifications', value: 'Master Gen AI Professional · Prompt Engineering · Graphic Design · Digital Marketing · SheCodes Full-Stack', accent: '#00D4FF' },
-              { label: 'Applications Built', value: '9 live apps, 300+ users, R15K+ revenue generated', accent: '#C1292E' },
-              { label: 'Published Work', value: '"Inside Her Roses" poetry collection — featured on Showmax / Gqeberha: The Empire · 5 live performances', accent: '#7C3AED' },
+              { label: 'Applications Built', value: '7 live AI SaaS apps, 300+ users, R15K+ revenue generated', accent: '#C1292E' },
+              { label: 'Published Work', value: '"Inside Her Roses" poetry collection — featured on Showmax / Gqeberha: The Empire · 5 live performances', accent: '#C1292E' },
               { label: 'Company', value: 'Mirembe Muse (Pty) Ltd', accent: '#10B981' },
               { label: 'Tech Stack', value: 'Next.js, TypeScript, Supabase, OpenAI, Claude API, Mapbox, PayFast', accent: '#00D4FF' },
               { label: 'Languages', value: 'English, isiXhosa (conversational), Luganda (heritage)', accent: '#D4A574' },
@@ -493,7 +493,7 @@ export default function PressPage() {
             {[
               { label: 'Portfolio', href: '/', desc: 'CreativelyNanda.co.za', color: '#C1292E' },
               { label: 'AI Engineer', href: '/ai-engineer', desc: 'Services & AI projects', color: '#00D4FF' },
-              { label: 'Projects', href: '/projects', desc: '9 live applications', color: '#7C3AED' },
+              { label: 'Projects', href: '/projects', desc: '7 live AI SaaS products', color: '#C1292E' },
               { label: 'Poetry', href: '/poetry', desc: '"Inside Her Roses" collection', color: '#D4A574' },
               { label: 'Shop', href: '/products', desc: 'Mirembe Muse Notion templates', color: '#10B981' },
               { label: 'GitHub', href: 'https://github.com/Nanda-Regine', desc: '250+ commits', color: '#F59E0B' },

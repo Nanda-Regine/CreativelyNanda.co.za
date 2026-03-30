@@ -8,6 +8,44 @@
 
 ---
 
+## March 2026 — Launch Sprint
+
+### What was built
+- Full site visual overhaul: grain texture propagated from /work page across all 7 core pages
+- Homepage hero image (nanda-professional-2-transparent) fixed — was loading nanda-cover.png (non-existent file), now uses the correct transparent photo
+- About page timeline corrected: 2019 (Sportsmans Warehouse) through February-March 2026 (6 apps in 6 weeks)
+- Ancestral lineages corrected: Kabali-Kagwa (Uganda), Tshawe/Hlubi/Msimango (Xhosa, Eastern Cape), Thabizolo (Sotho)
+- Product pages rebuilt: shop-themes.ts migrated from pink/rose/purple palette to navy/cherry, sticky desktop sidebar ready via theme system
+- AI Engineer page rebuilt as services/conversion page (not project showcase)
+- Education page redesigned with asymmetric cards, certifications grid, philosophy quote
+- Mirembe page rebuilt with Mirembe Muse logo, asymmetric clip-path sections, cherry tagline section
+- SEO: strengthened metadata across all pages, robots.ts, sitemap.ts priority hierarchy
+- Integrations: Upstash rate limiting on /api/chat (10 req/min sliding window), Sentry on all environments, Cloudflare security headers added to next.config.js
+- Poetry interlude section added to homepage between hero and editorial intro
+- Footer: updated to "Mirembe Muse (Pty) Ltd · East London, South Africa"
+- Professional photography assets used: nanda-professional-2-transparent (homepage hero), nanda-professional (about), nanda-coding (AI engineer page)
+- Consulting and contact pages: grain texture, cream gradient, cherry CTAs replacing off-brand gold
+- Press page: off-brand purple/amber/pink → cherry, stats corrected to 7 apps / 400+ commits
+- Global color audit: pink, rose, purple, violet, amber removed from user-facing pages
+- Schema.org JSON-LD: alumniOf city corrected to Gqeberha, sameAs expanded to include LinkedIn/Twitter/Instagram, worksFor URL updated
+
+### Architecture decisions
+- Grain texture implemented as fixed overlay (not sticky) to prevent repaints during scroll
+- Product description toggle deferred — theme system rewrite was higher priority
+- Shop themes completely replaced: all category themes now use navy gradient + cherry accent instead of individual color-coded gradients
+- Sentry configs created as minimal stubs — DSN reads from env at runtime
+- Upstash rate limiting uses sliding window (10 req/min per IP) with graceful 429 response
+
+### Stats at close of March 2026
+- 7 live SaaS apps
+- 300+ active users across portfolio
+- 400+ GitHub commits
+- 6 Notion templates across 6 marketplaces
+- 1 registered South African company: Mirembe Muse (Pty) Ltd
+- 1 published poetry collection: Inside Her Roses (October 2021)
+
+---
+
 ## The Vision
 
 The project began with a simple insight: a personal website should not be a static brochure. The goal was to transform CreativelyNanda.co.za into what the master build document calls "a cultural destination" — combining the professional credibility of LinkedIn, the seamless commerce of Amazon, the artisan storytelling of Etsy, the literary community of AllPoetry, the editorial luxury of Vogue, and the long-form authority of Medium. That ambition shaped every technical decision that followed.
