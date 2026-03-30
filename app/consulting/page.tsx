@@ -145,8 +145,8 @@ const STEPS = [
 export default function ConsultingPage() {
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4]"
-      style={{ color: '#1A1A1A' }}
+      className="min-h-screen"
+      style={{ color: '#1A1A1A', backgroundColor: '#0A1128' }}
     >
       {/* Grain texture */}
       <div
@@ -155,79 +155,94 @@ export default function ConsultingPage() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-24">
-        <FadeUp>
-          <h1
-            className="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-8"
-            style={{ fontFamily: 'var(--font-display, Georgia, serif)', color: '#0A1128' }}
-          >
-            You don&apos;t need to hire a team.{' '}
-            <br className="hidden md:block" />
-            You need{' '}
-            <span style={{ color: '#C1292E' }}>the right person.</span>
-          </h1>
-        </FadeUp>
+      {/* ── HERO — full navy ─────────────────────────────────────────────── */}
+      <section className="relative z-10 px-6 pt-32 pb-28 overflow-hidden" style={{ backgroundColor: '#0A1128' }}>
+        {/* Cherry blob */}
+        <div className="absolute top-0 right-0 w-80 h-80 pointer-events-none" style={{ backgroundColor: '#C1292E15', borderRadius: '0 0 0 100%' }} />
+        {/* Gold stripe */}
+        <div className="absolute left-0 top-40 w-1 h-24 bg-[#B8860B]/60 pointer-events-none" style={{ borderRadius: '0 4px 4px 0' }} />
 
-        <FadeUp delay={0.1}>
-          <p
-            className="text-lg md:text-xl max-w-2xl leading-relaxed mb-10"
-            style={{ color: '#6B6B6B' }}
-          >
-            AI engineering, product strategy, and technical architecture — from
-            the founder who built seven Africa-first AI products in twelve
-            months. Available for select engagements.
-          </p>
-        </FadeUp>
-
-        <FadeUp delay={0.2}>
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <a
-              href="#book"
-              className="inline-flex items-center justify-center px-7 py-4 rounded-lg font-medium text-white transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-              style={{ backgroundColor: '#C1292E', fontFamily: 'var(--font-body, sans-serif)' }}
+        <div className="max-w-5xl mx-auto relative z-10">
+          <FadeUp>
+            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C1292E] mb-5">
+              AI Engineering · Systems Architecture · Africa-first
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.05}>
+            <h1
+              className="font-display text-5xl md:text-7xl font-bold leading-[1.0] mb-8 text-white"
+              style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
             >
-              Book a Consultation
-            </a>
-            <Link
-              href="/projects"
-              className="inline-flex items-center justify-center px-7 py-4 rounded-lg font-medium transition-all hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-              style={{
-                border: '1px solid #D4D0C8',
-                color: '#1A1A1A',
-                fontFamily: 'var(--font-body, sans-serif)',
-              }}
+              You don&apos;t need to hire a team.{' '}
+              <br className="hidden md:block" />
+              You need{' '}
+              <span style={{ color: '#C1292E' }}>the right person.</span>
+            </h1>
+          </FadeUp>
+
+          <FadeUp delay={0.1}>
+            <p
+              className="text-lg md:text-xl max-w-2xl leading-relaxed mb-10 text-white/60"
+              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
             >
-              View Projects
-            </Link>
-          </div>
-        </FadeUp>
+              AI engineering, product strategy, and technical architecture — from
+              the founder who built seven Africa-first AI products in twelve
+              months. Available for select engagements.
+            </p>
+          </FadeUp>
 
-        <FadeUp delay={0.3}>
-          <p
-            className="text-xs tracking-[0.2em] uppercase"
-            style={{ color: '#9B9588', fontFamily: 'var(--font-body, sans-serif)' }}
-          >
-            7 live products&nbsp;&nbsp;·&nbsp;&nbsp;Claude + Supabase +
-            Next.js&nbsp;&nbsp;·&nbsp;&nbsp;Africa-first AI&nbsp;&nbsp;·&nbsp;&nbsp;Available
-            globally
-          </p>
-        </FadeUp>
+          <FadeUp delay={0.2}>
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <a
+                href="#book"
+                className="inline-flex items-center justify-center px-7 py-4 rounded-full font-medium text-white transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
+                style={{ backgroundColor: '#C1292E', fontFamily: 'var(--font-body, sans-serif)' }}
+              >
+                Book a Consultation
+              </a>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center px-7 py-4 rounded-full font-medium transition-all hover:border-[#B8860B] hover:text-[#B8860B] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] text-white"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  fontFamily: 'var(--font-body, sans-serif)',
+                }}
+              >
+                View Projects
+              </Link>
+            </div>
+          </FadeUp>
 
-        {/* Rule */}
-        <div className="mt-16 h-px" style={{ backgroundColor: '#E5E2DA' }} />
+          <FadeUp delay={0.3}>
+            <p
+              className="text-xs tracking-[0.2em] uppercase text-white/40"
+              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
+            >
+              7 live products&nbsp;&nbsp;·&nbsp;&nbsp;Claude + Supabase +
+              Next.js&nbsp;&nbsp;·&nbsp;&nbsp;Africa-first AI&nbsp;&nbsp;·&nbsp;&nbsp;Available
+              globally
+            </p>
+          </FadeUp>
+        </div>
+
+        {/* Diagonal divider */}
+        <div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none" style={{ background: 'linear-gradient(135deg, #0A1128 49%, #E8DCC4 50%)' }} />
       </section>
 
       {/* ── OFFER CARDS ──────────────────────────────────────────────────── */}
-      <section className="max-w-5xl mx-auto px-6 pb-24">
+      <section className="relative px-6 pb-24 pt-4" style={{ backgroundColor: '#E8DCC4' }}>
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        {/* Cherry asymmetric blob */}
+        <div className="absolute top-8 right-8 w-28 h-28 pointer-events-none" style={{ backgroundColor: '#C1292E10', borderRadius: '50% 0 50% 50%', transform: 'rotate(20deg)' }} />
+      <div className="max-w-5xl mx-auto relative z-10">
         <FadeUp>
           <h2
-            className="font-display text-3xl md:text-4xl font-bold mb-3"
+            className="font-display text-3xl md:text-4xl font-bold mb-3 text-[#0A1128]"
             style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
           >
             What I Do
           </h2>
-          <p className="mb-12 text-base" style={{ color: '#6B6B6B' }}>
+          <p className="mb-12 text-base text-[#6B6B6B]" style={{ fontFamily: 'var(--font-body, sans-serif)' }}>
             Three ways to engage, from a single session to ongoing partnership.
           </p>
         </FadeUp>
@@ -243,16 +258,19 @@ export default function ConsultingPage() {
             <motion.div
               key={offer.number}
               variants={fadeUp}
-              className="group flex flex-col rounded-lg p-7 transition-all duration-300"
+              className="group flex flex-col p-7 transition-all duration-300"
               style={{
-                border: '1px solid #E5E2DA',
-                backgroundColor: '#FFFFFF',
+                border: '1px solid #C1292E20',
+                backgroundColor: '#0A1128',
+                borderRadius: '32px 8px 32px 8px',
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = '#C1292E';
+                (e.currentTarget as HTMLElement).style.borderColor = '#C1292E80';
+                (e.currentTarget as HTMLElement).style.backgroundColor = '#1a2744';
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = '#E5E2DA';
+                (e.currentTarget as HTMLElement).style.borderColor = '#C1292E20';
+                (e.currentTarget as HTMLElement).style.backgroundColor = '#0A1128';
               }}
             >
               {/* Number */}
@@ -269,14 +287,14 @@ export default function ConsultingPage() {
 
               {/* Name */}
               <h3
-                className="font-display text-2xl font-bold mb-2"
+                className="font-display text-2xl font-bold mb-2 text-white"
                 style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
               >
                 {offer.name}
               </h3>
 
               {/* Position */}
-              <p className="text-sm mb-5" style={{ color: '#6B6B6B' }}>
+              <p className="text-sm mb-5 text-white/50">
                 {offer.position}
               </p>
 
@@ -285,8 +303,7 @@ export default function ConsultingPage() {
                 {offer.includes.map((item) => (
                   <li
                     key={item}
-                    className="text-sm flex items-start gap-2"
-                    style={{ color: '#4A4A4A' }}
+                    className="text-sm flex items-start gap-2 text-white/70"
                   >
                     <span style={{ color: '#C1292E', marginTop: 2, flexShrink: 0 }}>
                       ·
@@ -297,14 +314,14 @@ export default function ConsultingPage() {
               </ul>
 
               {/* Rate */}
-              <div className="mb-5 pb-5" style={{ borderBottom: '1px solid #F0EDE8' }}>
+              <div className="mb-5 pb-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
                 <p
-                  className="font-semibold text-base"
+                  className="font-semibold text-base text-white"
                   style={{ fontFamily: 'var(--font-body, sans-serif)' }}
                 >
                   {offer.rate}
                 </p>
-                <p className="text-xs mt-0.5" style={{ color: '#9B9588' }}>
+                <p className="text-xs mt-0.5 text-white/40" style={{ fontFamily: 'var(--font-body, sans-serif)' }}>
                   {offer.rateNote}
                 </p>
               </div>
@@ -312,8 +329,8 @@ export default function ConsultingPage() {
               {/* CTA */}
               <Link
                 href={offer.href}
-                className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
-                style={{ color: '#1A1A1A', fontFamily: 'var(--font-body, sans-serif)' }}
+                className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded text-[#C1292E]"
+                style={{ fontFamily: 'var(--font-body, sans-serif)' }}
               >
                 {offer.cta}
                 <span aria-hidden>→</span>
@@ -321,21 +338,22 @@ export default function ConsultingPage() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
       </section>
 
       {/* ── WHY ME ───────────────────────────────────────────────────────── */}
       <section
-        className="py-20 px-6"
-        style={{ backgroundColor: '#F2F0EB' }}
+        className="relative py-20 px-6"
+        style={{ backgroundColor: '#0A1128' }}
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="absolute inset-0 pointer-events-none opacity-35" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        <div className="max-w-5xl mx-auto relative z-10">
           {/* Pull quote */}
           <FadeUp>
             <blockquote
-              className="font-display text-2xl md:text-3xl italic leading-relaxed mb-16 max-w-3xl"
+              className="font-display text-2xl md:text-3xl italic leading-relaxed mb-16 max-w-3xl text-white"
               style={{
                 fontFamily: 'var(--font-display, Georgia, serif)',
-                color: '#1A1A1A',
                 borderLeft: '3px solid #C1292E',
                 paddingLeft: '1.5rem',
               }}
@@ -350,19 +368,23 @@ export default function ConsultingPage() {
           <div className="grid md:grid-cols-5 gap-12">
             {/* Credentials */}
             <div className="md:col-span-3 space-y-5">
-              {CREDENTIALS.map((c) => (
+              {CREDENTIALS.map((c, i) => (
                 <FadeUp key={c.heading}>
                   <div
-                    className="p-6 rounded-lg"
-                    style={{ backgroundColor: '#FFFFFF', border: '1px solid #E5E2DA' }}
+                    className="p-6 relative overflow-hidden"
+                    style={{
+                      backgroundColor: '#1a2744',
+                      border: '1px solid #C1292E20',
+                      borderRadius: i % 2 === 0 ? '24px 8px 24px 8px' : '8px 24px 8px 24px',
+                    }}
                   >
                     <h4
-                      className="font-semibold mb-2"
+                      className="font-semibold mb-2 text-white"
                       style={{ fontFamily: 'var(--font-body, sans-serif)' }}
                     >
                       {c.heading}
                     </h4>
-                    <p className="text-sm leading-relaxed" style={{ color: '#6B6B6B' }}>
+                    <p className="text-sm leading-relaxed text-white/60">
                       {c.proof}
                     </p>
                   </div>
@@ -374,11 +396,8 @@ export default function ConsultingPage() {
             <div className="md:col-span-2">
               <FadeUp>
                 <p
-                  className="text-xs uppercase tracking-[0.2em] font-semibold mb-5"
-                  style={{
-                    color: '#9B9588',
-                    fontFamily: 'var(--font-body, sans-serif)',
-                  }}
+                  className="text-xs uppercase tracking-[0.2em] font-semibold mb-5 text-[#C1292E]"
+                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
                 >
                   What I build with
                 </p>
@@ -386,8 +405,8 @@ export default function ConsultingPage() {
                   {STACK_GROUPS.map((group) => (
                     <div key={group.label}>
                       <p
-                        className="text-xs font-semibold mb-2"
-                        style={{ color: '#C1292E', fontFamily: 'var(--font-body, sans-serif)' }}
+                        className="text-xs font-semibold mb-2 text-[#B8860B]"
+                        style={{ fontFamily: 'var(--font-body, sans-serif)' }}
                       >
                         {group.label}
                       </p>
@@ -395,11 +414,10 @@ export default function ConsultingPage() {
                         {group.items.map((item) => (
                           <span
                             key={item}
-                            className="text-xs px-3 py-1.5 rounded-full"
+                            className="text-xs px-3 py-1.5 rounded-full text-white/70"
                             style={{
-                              backgroundColor: '#FAFAF8',
-                              border: '1px solid #D4D0C8',
-                              color: '#4A4A4A',
+                              backgroundColor: '#FFFFFF10',
+                              border: '1px solid #FFFFFF20',
                               fontFamily: 'var(--font-body, sans-serif)',
                             }}
                           >
@@ -417,10 +435,12 @@ export default function ConsultingPage() {
       </section>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
-      <section className="max-w-5xl mx-auto px-6 py-24">
+      <section className="relative px-6 py-24" style={{ backgroundColor: '#E8DCC4' }}>
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+      <div className="max-w-5xl mx-auto relative z-10">
         <FadeUp>
           <h2
-            className="font-display text-3xl md:text-4xl font-bold mb-14"
+            className="font-display text-3xl md:text-4xl font-bold mb-14 text-[#0A1128]"
             style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
           >
             From first message to shipped product
@@ -467,18 +487,20 @@ export default function ConsultingPage() {
             ))}
           </div>
         </motion.div>
+      </div>
       </section>
 
       {/* ── PAYMENT METHODS ──────────────────────────────────────────────── */}
       <section
-        className="py-16 px-6"
-        style={{ borderTop: '1px solid #E5E2DA', borderBottom: '1px solid #E5E2DA' }}
+        className="relative py-16 px-6"
+        style={{ backgroundColor: '#0A1128', borderTop: '1px solid #C1292E20' }}
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        <div className="max-w-5xl mx-auto relative z-10">
           <FadeUp>
             <p
-              className="text-xs uppercase tracking-[0.2em] font-semibold mb-8"
-              style={{ color: '#9B9588', fontFamily: 'var(--font-body, sans-serif)' }}
+              className="text-xs uppercase tracking-[0.2em] font-semibold mb-8 text-[#C1292E]"
+              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
             >
               Payment
             </p>
@@ -487,21 +509,21 @@ export default function ConsultingPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <FadeUp>
               <h4
-                className="font-semibold mb-2"
+                className="font-semibold mb-2 text-white"
                 style={{ fontFamily: 'var(--font-body, sans-serif)' }}
               >
                 South African clients
               </h4>
-              <p className="text-sm leading-relaxed" style={{ color: '#6B6B6B' }}>
+              <p className="text-sm leading-relaxed text-white/60">
                 Invoiced in ZAR via PayFast. Bank transfer accepted for project
                 engagements over R20,000.
               </p>
               <span
                 className="inline-block mt-4 px-3 py-1.5 text-xs rounded-full"
                 style={{
-                  backgroundColor: '#EBF4FB',
-                  border: '1px solid #B8D8EE',
-                  color: '#2A6FAA',
+                  backgroundColor: '#FFFFFF10',
+                  border: '1px solid #B8860B40',
+                  color: '#B8860B',
                   fontFamily: 'var(--font-body, sans-serif)',
                 }}
               >
@@ -511,21 +533,21 @@ export default function ConsultingPage() {
 
             <FadeUp delay={0.1}>
               <h4
-                className="font-semibold mb-2"
+                className="font-semibold mb-2 text-white"
                 style={{ fontFamily: 'var(--font-body, sans-serif)' }}
               >
                 International clients
               </h4>
-              <p className="text-sm leading-relaxed" style={{ color: '#6B6B6B' }}>
+              <p className="text-sm leading-relaxed text-white/60">
                 Invoiced in USD, EUR, GBP, or KES via Wise. No conversion fees.
                 Same-day setup.
               </p>
               <span
                 className="inline-block mt-4 px-3 py-1.5 text-xs rounded-full"
                 style={{
-                  backgroundColor: '#E8F9F0',
-                  border: '1px solid #A8DCBE',
-                  color: '#1A7D4A',
+                  backgroundColor: '#FFFFFF10',
+                  border: '1px solid #FFFFFF20',
+                  color: 'rgba(255,255,255,0.7)',
                   fontFamily: 'var(--font-body, sans-serif)',
                 }}
               >
@@ -539,78 +561,86 @@ export default function ConsultingPage() {
       {/* ── BOOK ─────────────────────────────────────────────────────────── */}
       <section
         id="book"
-        className="max-w-5xl mx-auto px-6 py-28"
+        className="relative px-6 py-28 overflow-hidden"
+        style={{ backgroundColor: '#C1292E' }}
       >
-        <FadeUp>
-          <h2
-            className="font-display text-4xl md:text-5xl font-bold mb-12"
-            style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
-          >
-            Start the conversation
-          </h2>
-        </FadeUp>
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        {/* Asymmetric navy blob */}
+        <div className="absolute top-0 left-0 w-48 h-48 pointer-events-none" style={{ backgroundColor: '#0A112830', borderRadius: '0 0 100% 0' }} />
+        <div className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none" style={{ backgroundColor: '#0A112825', borderRadius: '100% 0 0 0' }} />
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="max-w-5xl mx-auto relative z-10">
           <FadeUp>
-            <div
-              className="p-8 rounded-lg flex flex-col gap-3"
-              style={{ border: '1px solid #E5E2DA', backgroundColor: '#FFFFFF' }}
+            <h2
+              className="font-display text-4xl md:text-5xl font-bold mb-12 text-white"
+              style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
             >
-              <p
-                className="text-xs uppercase tracking-[0.15em] font-semibold"
-                style={{ color: '#9B9588', fontFamily: 'var(--font-body, sans-serif)' }}
-              >
-                Email me directly
-              </p>
-              <a
-                href="mailto:hello@mirembemuse.co.za"
-                className="font-medium text-lg hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
-                style={{ color: '#1A1A1A', fontFamily: 'var(--font-body, sans-serif)' }}
-              >
-                hello@mirembemuse.co.za
-              </a>
-              <p className="text-sm" style={{ color: '#9B9588' }}>
-                I respond within 24 hours.
-              </p>
-            </div>
+              Start the conversation
+            </h2>
           </FadeUp>
 
-          <FadeUp delay={0.1}>
-            <Link
-              href="/contact"
-              className="flex flex-col justify-between p-8 rounded-lg transition-all hover:border-[#C1292E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] group h-full"
-              style={{ border: '1px solid #E5E2DA', backgroundColor: '#FFFFFF' }}
-            >
-              <div>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <FadeUp>
+              <div
+                className="p-8 flex flex-col gap-3"
+                style={{ backgroundColor: '#0A1128', borderRadius: '24px 8px 24px 8px', border: '1px solid rgba(255,255,255,0.1)' }}
+              >
                 <p
-                  className="text-xs uppercase tracking-[0.15em] font-semibold mb-3"
-                  style={{ color: '#9B9588', fontFamily: 'var(--font-body, sans-serif)' }}
+                  className="text-xs uppercase tracking-[0.15em] font-semibold text-[#B8860B]"
+                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
                 >
-                  Use the contact form
+                  Email me directly
                 </p>
-                <p className="text-sm" style={{ color: '#6B6B6B' }}>
-                  Preferred for project briefs — gives me the context I need to respond meaningfully.
+                <a
+                  href="mailto:hello@creativelynanda.co.za"
+                  className="font-medium text-lg text-white hover:text-[#C1292E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
+                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
+                >
+                  hello@creativelynanda.co.za
+                </a>
+                <p className="text-sm text-white/50">
+                  I respond within 24 hours.
                 </p>
               </div>
-              <span
-                className="mt-6 inline-flex items-center gap-2 font-medium text-sm group-hover:opacity-70 transition-opacity"
-                style={{ color: '#1A1A1A', fontFamily: 'var(--font-body, sans-serif)' }}
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <Link
+                href="/contact"
+                className="flex flex-col justify-between p-8 transition-all group h-full hover:border-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                style={{ backgroundColor: '#0A1128', borderRadius: '8px 24px 8px 24px', border: '1px solid rgba(255,255,255,0.1)' }}
               >
-                Go to contact form <span aria-hidden>→</span>
-              </span>
-            </Link>
+                <div>
+                  <p
+                    className="text-xs uppercase tracking-[0.15em] font-semibold mb-3 text-[#B8860B]"
+                    style={{ fontFamily: 'var(--font-body, sans-serif)' }}
+                  >
+                    Use the contact form
+                  </p>
+                  <p className="text-sm text-white/60">
+                    Preferred for project briefs — gives me the context I need to respond meaningfully.
+                  </p>
+                </div>
+                <span
+                  className="mt-6 inline-flex items-center gap-2 font-medium text-sm text-white group-hover:text-[#C1292E] transition-colors"
+                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
+                >
+                  Go to contact form <span aria-hidden>→</span>
+                </span>
+              </Link>
+            </FadeUp>
+          </div>
+
+          <FadeUp delay={0.2}>
+            <p
+              className="text-sm text-center text-white/60"
+              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
+            >
+              No discovery calls unless you want one. A clear brief is enough to
+              get started.
+            </p>
           </FadeUp>
         </div>
-
-        <FadeUp delay={0.2}>
-          <p
-            className="text-sm text-center"
-            style={{ color: '#9B9588', fontFamily: 'var(--font-body, sans-serif)' }}
-          >
-            No discovery calls unless you want one. A clear brief is enough to
-            get started.
-          </p>
-        </FadeUp>
       </section>
     </div>
   );

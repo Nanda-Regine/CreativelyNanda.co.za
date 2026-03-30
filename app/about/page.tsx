@@ -83,74 +83,99 @@ const TIMELINE = [
   {
     year: '2019',
     title: 'The working world begins',
-    body: 'Sales Assistant at Sportsmans Warehouse, East London. First job at 17. Four years across the entire store — sales floor, cashier, receiving. Learning how real retail operations run from the inside.',
+    body: 'Sales Assistant at Sportsmans Warehouse, East London. First job at 19. Four years across the entire store — sales floor, cashier, receiving. Learning how real retail operations run from the inside.',
     dot: 'bg-[#B8860B]',
+    cardBg: '#FDF8EE',
+    borderColor: '#B8860B20',
   },
   {
     year: '2020',
     title: 'The degree begins',
     body: 'Higher Certificate in Business Management at Nelson Mandela University. Studying and working simultaneously. Learning the language of commerce while living it.',
     dot: 'bg-[#B8860B]',
+    cardBg: '#EEF2F8',
+    borderColor: '#3B5EA620',
   },
   {
     year: 'October 2021',
     title: 'The book. The promotion.',
     body: 'Inside Her Roses published — a poetry collection. In the same year: promoted to Receiving Clerk at Sportsmans Warehouse. Building across every dimension at once.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#FDF0F0',
+    borderColor: '#C1292E25',
   },
   {
     year: '2021–2023',
     title: 'The diploma years',
     body: 'Diploma in Business Management at NMU. Three years of systems thinking, strategy, and operational discipline — while still at Sportsmans Warehouse.',
     dot: 'bg-[#B8860B]',
+    cardBg: '#F4F0E6',
+    borderColor: '#B8860B20',
   },
   {
     year: '2023',
     title: 'Into hospitality',
     body: 'Joined Balkan Burger, Port Elizabeth. Junior Waitress → Senior Waitress → Marketing Assistant → Team Leader → Event Coordinator. An entirely new world of operations, people, and pressure.',
     dot: 'bg-[#B8860B]',
+    cardBg: '#EEF6EE',
+    borderColor: '#3A803A20',
   },
   {
     year: '2024',
     title: 'Advanced Diploma. Manager title.',
     body: 'Advanced Diploma in Business Management — 15 distinctions across three consecutive qualifications. Simultaneously: promoted to Manager at Balkan Burger. Running a restaurant. Training staff. Earning the kind of recommendations that speak for themselves.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#FDE9E9',
+    borderColor: '#C1292E30',
   },
   {
     year: 'June 2025',
     title: 'The pivot begins',
     body: 'First line of code. SheCodes Plus. Python. JavaScript. The degree had been teaching systems thinking the whole time — the code was just a different syntax for the same logic.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#EEF0FD',
+    borderColor: '#4B5CC420',
   },
   {
     year: 'September 2025',
     title: 'First app. Company born.',
     body: 'Cortex Hub Booking System deployed — first production application. Same month: Mirembe Muse (Pty) Ltd incorporated in South Africa. The founder identity becomes legal.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#FFF8E8',
+    borderColor: '#C9A84C30',
   },
   {
     year: 'October–November 2025',
     title: 'The accessibility work',
     body: 'True Access App — full-stack location-based accessibility platform built with Supabase and Mapbox. First complex architecture. First real users.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#EEF8F4',
+    borderColor: '#2A8A6020',
   },
   {
     year: 'December 2025',
     title: 'Systems, productised',
     body: 'Six Notion templates built and listed across Payhip, Gumroad, Etsy, LemonSqueezy, Notion Marketplace, Creative Market. The consulting brain becomes digital product.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#F6EEF8',
+    borderColor: '#9B3DB820',
   },
   {
     year: 'January 2026',
     title: 'The portfolio as a product',
     body: 'CreativelyNanda.co.za — 72 commits. Multilingual. AI chatbot. Template sales. Poetry. Blog. This is not a resume. It is a deployed, revenue-generating application.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#E8F4FD',
+    borderColor: '#1A7AB820',
   },
   {
     year: 'February–March 2026',
     title: 'Six apps in six weeks',
     body: 'Campus Compass · K53 Drill Master · StokvelOS · AdminOS · WatchSankofa · SankofaSessions — all shipped solo under Mirembe Muse (Pty) Ltd. Seven AI SaaS products. 300+ users. East London, South Africa.',
     dot: 'bg-[#C1292E]',
+    cardBg: '#0A1128',
+    borderColor: '#C1292E40',
+    dark: true,
     current: true,
   },
 ];
@@ -296,7 +321,7 @@ export default function About() {
             </h2>
             <div className="space-y-5 text-[#4A3728] leading-relaxed">
               <p>
-                I started on the retail floor of Sportsmans Warehouse at 17, learning how
+                I started on the retail floor of Sportsmans Warehouse at 19, learning how
                 real operations work — inventory, people, service, systems. I studied
                 Business Management at Nelson Mandela University while working, graduating
                 with 15 distinctions across three consecutive qualifications. I managed
@@ -423,21 +448,47 @@ export default function About() {
                     <div className={`w-6 h-6 rounded-full ${item.dot} ring-4 ring-[#F5EFE6] relative z-10`} />
                   </div>
 
-                  <div className="pb-2 bg-white/60 backdrop-blur-sm rounded-[24px] p-6 flex-1 border border-[#0A1128]/5">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="font-display text-sm font-bold text-[#B8860B] tracking-widest uppercase">
-                        {item.year}
-                      </span>
-                      {item.current && (
-                        <span className="px-2 py-0.5 bg-[#C1292E]/10 text-[#C1292E] text-xs rounded-full font-medium">
-                          Now
+                  <div
+                    className="pb-2 rounded-[24px] p-6 flex-1 relative overflow-hidden"
+                    style={{
+                      backgroundColor: item.cardBg,
+                      border: `1px solid ${item.borderColor}`,
+                    }}
+                  >
+                    {/* Soft grain overlay per card */}
+                    <div
+                      className="absolute inset-0 pointer-events-none opacity-20"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                      }}
+                    />
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span
+                          className="font-display text-sm font-bold tracking-widest uppercase"
+                          style={{ color: item.dark ? '#B8860B' : '#B8860B' }}
+                        >
+                          {item.year}
                         </span>
-                      )}
+                        {item.current && (
+                          <span className="px-2 py-0.5 bg-[#C1292E]/10 text-[#C1292E] text-xs rounded-full font-medium">
+                            Now
+                          </span>
+                        )}
+                      </div>
+                      <h3
+                        className="font-display text-xl font-bold mb-2"
+                        style={{ color: item.dark ? '#F5EFE6' : '#0A1128' }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className="leading-relaxed text-sm max-w-xl"
+                        style={{ color: item.dark ? '#F5EFE6CC' : '#4A3728' }}
+                      >
+                        {item.body}
+                      </p>
                     </div>
-                    <h3 className="font-display text-xl font-bold text-[#0A1128] mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-[#4A3728] leading-relaxed text-sm max-w-xl">{item.body}</p>
                   </div>
                 </div>
               </FadeUp>

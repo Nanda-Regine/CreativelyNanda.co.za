@@ -8,45 +8,45 @@ export interface PreprogrammedResponse {
 export const preprogrammedResponses: PreprogrammedResponse[] = [
   {
     keywords: ['who', 'nanda', 'about'],
-    response: 'Hello, beautiful soul. I am Nanda - a Creative Technologist who walks between code and poetry. I build digital experiences that resonate and write verses that connect. I am the founder of Mirembe Muse and author of Inside Her Roses.',
+    response: 'Nandawula Regine Kabali-Kagwa — AI engineer, published poet, and founder of Mirembe Muse (Pty) Ltd. Self-taught: wrote first line of code June 2025, shipped 7 production AI SaaS apps by March 2026. Built from East London, Eastern Cape.',
     category: 'about',
-    followUp: 'What draws you here today?'
+    followUp: 'What would you like to know more about?'
   },
   {
     keywords: ['poetry', 'poet', 'roses'],
-    response: 'Poetry is the algorithm of feeling. My collection Inside Her Roses explores the gardens we plant inside ourselves. I have performed on stages and radio shows, witnessing the magic when strangers become kindred spirits through shared words.',
+    response: 'Inside Her Roses (October 2021) — 82 poems on love, identity, and Black womanhood. Available on Amazon, Apple Books, and Kobo. Featured on the SA TV series "Gqeberha: The Empire" and interviewed on Madiba FM and TRU FM.',
     category: 'poetry',
-    followUp: 'Are you a creative soul yourself?'
+    followUp: 'Would you like to read a poem?'
   },
   {
     keywords: ['mirembe', 'muse', 'business'],
-    response: 'Mirembe Muse is my manifestation of belief: that we can build enterprises with soul. Mirembe means peace in Luganda. I offer Creative Technology Services, Notion Systems, Digital Content, and Business Consulting.',
+    response: 'Mirembe Muse (Pty) Ltd is incorporated and active. "Mirembe" means peace in Luganda. 7 AI SaaS apps live, 6 Notion templates in the marketplace (R249–R449), and consulting open for engagements. Africa-first technology that restores.',
     category: 'business',
-    followUp: 'What dream are you building?'
+    followUp: 'Want to see the apps or templates?'
   },
   {
-    keywords: ['projects', 'technical', 'code'],
-    response: 'I build things that matter: True Access accessibility app, this portfolio with Next.js, Notion systems for SMEs, and AI-powered applications. Every line of code asks: Will this serve someone?',
+    keywords: ['projects', 'technical', 'code', 'apps'],
+    response: '7 production AI SaaS apps: VarsityOS, K53 Drill Master, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, and CreativelyNanda.co.za. All built solo in 6 months. 300+ active users. None of them demos.',
     category: 'work',
-    followUp: 'Is there a project stirring in your heart?'
+    followUp: 'Which app would you like to know more about?'
   },
   {
-    keywords: ['collaborate', 'hire', 'services'],
-    response: 'I would be honored to explore collaboration. I start by listening deeply - not just what you need built, but why it matters. I offer Web Development, AI Integration, Notion Systems, and Creative Consulting.',
+    keywords: ['collaborate', 'hire', 'services', 'consulting'],
+    response: 'Consulting: AI Integration from R45,000/project, Fractional AI Officer from R18,000/month, Business Automation from R8,000/month. Full-stack dev, digital marketing, systems architecture, media publishing. Email hello@creativelynanda.co.za.',
     category: 'work',
-    followUp: 'What is calling to be created?'
+    followUp: 'What are you building?'
   },
   {
     keywords: ['contact', 'reach', 'email'],
-    response: 'I would love to connect. Use the contact form on this site - I read every message personally and respond within 24-48 hours. Connect with me on LinkedIn, Instagram, or GitHub.',
+    response: 'Email hello@creativelynanda.co.za — responses within 24 hours. Or use the Contact page for project briefs. LinkedIn, GitHub, Instagram, and Substack links are in the footer.',
     category: 'contact',
-    followUp: 'What would you like to create together?'
+    followUp: 'What would you like to discuss?'
   },
   {
-    keywords: ['price', 'cost', 'budget'],
-    response: 'I price based on value delivered, not hours logged. Web development, consulting, and Notion systems all vary by complexity. I believe in transparency and offer milestone-based payments.',
+    keywords: ['price', 'cost', 'budget', 'templates', 'notion'],
+    response: 'Notion templates: R249–R449 at /products. Consulting: AI Integration from R45,000, retainer from R18,000/month, automation from R8,000/month. Value-based pricing, milestone payments.',
     category: 'business',
-    followUp: 'Want to talk specifics about your project?'
+    followUp: 'Want details on a specific service?'
   }
 ];
 

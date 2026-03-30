@@ -44,6 +44,7 @@ const COVERLINES_RIGHT = [
 const PRODUCTS = [
   {
     slug: 'sme-command-center',
+    cover: '/assets/products/sme/cover.png',
     name: 'SME Command Center',
     price: 'R449',
     category: 'Business',
@@ -51,6 +52,7 @@ const PRODUCTS = [
   },
   {
     slug: 'writers-sanctuary',
+    cover: '/assets/products/writers-sanctuary/cover.png',
     name: "Writer's Sanctuary",
     price: 'R299',
     category: 'Creative',
@@ -58,6 +60,7 @@ const PRODUCTS = [
   },
   {
     slug: 'varsity-academic-excellence',
+    cover: '/assets/products/varsity/cover.png',
     name: 'Varsity Engine',
     price: 'R279',
     category: 'Student',
@@ -65,6 +68,7 @@ const PRODUCTS = [
   },
   {
     slug: 'creators-studio',
+    cover: '/assets/products/creators-studio/cover.png',
     name: "Creator's Studio",
     price: 'R399',
     category: 'Creative',
@@ -72,6 +76,7 @@ const PRODUCTS = [
   },
   {
     slug: 'music-artist-career-command-center',
+    cover: '/assets/products/music-artist/cover.png',
     name: 'Music Artist CC',
     price: 'R389',
     category: 'Creative',
@@ -79,6 +84,7 @@ const PRODUCTS = [
   },
   {
     slug: 'high-school-academic-excellence',
+    cover: '/assets/products/high-school/cover.png',
     name: 'High School Engine',
     price: 'R249',
     category: 'Student',
@@ -136,12 +142,12 @@ export default function Home() {
         className="relative h-screen min-h-[700px] overflow-hidden z-10"
         style={{ backgroundColor: '#0A1128' }}
       >
-        {/* Photo — right-aligned, transparent bg preferred */}
+        {/* Photo — centered on mobile, right-aligned on desktop */}
         <div
-          className="absolute right-0 bottom-0 h-[92%] w-[48%]"
+          className="absolute bottom-0 left-0 right-0 md:left-auto md:right-0 h-[68%] md:h-[92%] w-full md:w-[48%] flex justify-center md:block"
           style={{ transform: `translateY(${scrollY * 0.08}px)` }}
         >
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-[80%] md:w-full">
             <Image
               src="/assets/professional/nanda-professional-2-transparent.png"
               alt="Nandawula Regine — AI Engineer & Creative Technologist"
@@ -152,8 +158,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Gradient overlay — vignette edges */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent pointer-events-none" />
+        {/* Gradient overlay — heavier on mobile (bottom-up), left vignette on desktop */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/95 via-[#0A1128]/40 to-[#0A1128]/70 md:bg-none pointer-events-none md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent pointer-events-none hidden md:block" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/80 via-transparent to-transparent pointer-events-none" />
 
         {/* MASTHEAD */}
@@ -256,6 +263,7 @@ export default function Home() {
 
       {/* ── POETRY INTERLUDE ──────────────────────────────────────────────────── */}
       <section className="relative bg-[#0A1128] py-20 px-6 z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-40" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase mb-8">
             Inside Her Roses · Published October 2021
@@ -274,6 +282,7 @@ export default function Home() {
 
       {/* ── EDITORIAL INTRO ────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <FadeUp>
             <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
@@ -332,6 +341,7 @@ export default function Home() {
 
       {/* ── PRODUCTS GRID ──────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-white z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="max-w-5xl mx-auto">
           <FadeUp className="mb-12 flex items-end justify-between flex-wrap gap-4">
             <div>
@@ -359,7 +369,7 @@ export default function Home() {
                 >
                   <div className="relative aspect-video bg-gradient-to-br from-[#E8DCC4] to-[#F5EFE6]">
                     <Image
-                      src={`/assets/products/${p.slug}/cover.png`}
+                      src={p.cover}
                       alt={p.name}
                       fill
                       className="object-cover"
@@ -389,6 +399,7 @@ export default function Home() {
 
       {/* ── SERVICES — dark section ──────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-[#0A1128] z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-35" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="max-w-5xl mx-auto">
           <FadeUp className="text-center mb-14">
             <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
@@ -426,6 +437,7 @@ export default function Home() {
 
       {/* ── EDITORIAL QUOTE ───────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="max-w-3xl mx-auto text-center">
           <FadeUp>
             <p className="font-display text-5xl md:text-6xl italic text-[#0A1128] leading-[1.1] mb-8">
@@ -442,6 +454,7 @@ export default function Home() {
 
       {/* ── BOTTOM CTA — cherry ───────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-[#C1292E] z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
         <div className="max-w-3xl mx-auto text-center">
           <FadeUp>
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-white leading-tight mb-6">

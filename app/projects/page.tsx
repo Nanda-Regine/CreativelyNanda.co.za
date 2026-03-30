@@ -144,12 +144,12 @@ const SAAS_APPS = [
 const CLIENT_WORK: { slug: string; type: string; name: string; problem: string; impact: string[]; deliverable: string; caseStudy: string; caseStudyLabel?: string }[] = [];
 
 const LEARNING = [
-  { name: 'True Access', desc: 'Full-stack location-based service platform — first complex app.', stack: ['Supabase', 'Mapbox GL', 'JavaScript'], liveUrl: null },
-  { name: 'GreenVault', desc: 'Token-based e-commerce — introduced payment flow concepts.', stack: ['React', 'Node.js', 'PostgreSQL'], liveUrl: null },
-  { name: 'Cortex Hub', desc: 'Booking system — multi-user state management foundations.', stack: ['React', 'Express', 'SQLite'], liveUrl: null },
-  { name: 'Netflix Landing', desc: 'Pixel-perfect CSS recreation — design precision training.', stack: ['HTML5', 'CSS3'], liveUrl: null },
-  { name: 'YouTube Clone', desc: 'Interface recreation — component thinking and API consumption.', stack: ['React', 'YouTube API'], liveUrl: null },
-  { name: 'Weather App', desc: 'SheCodes-certified. First real API integration and deployment.', stack: ['JavaScript', 'OpenWeather API'], liveUrl: 'https://myweatherapp.vercel.app' },
+  { name: 'True Access', desc: 'Full-stack location-based service platform — first complex app.', stack: ['Supabase', 'Mapbox GL', 'JavaScript'], liveUrl: null, videoUrl: null, cardBg: '#EEF6EE', border: '#3A803A20' },
+  { name: 'GreenVault', desc: 'Token-based e-commerce — introduced payment flow concepts.', stack: ['React', 'Node.js', 'PostgreSQL'], liveUrl: null, videoUrl: '/assets/project-screen-record/GreenVault.mp4', cardBg: '#FDF8EE', border: '#B8860B20' },
+  { name: 'Cortex Hub', desc: 'Booking system — multi-user state management foundations.', stack: ['React', 'Express', 'SQLite'], liveUrl: null, videoUrl: '/assets/project-screen-record/cortexhub-booking-system.mp4', cardBg: '#EEF2F8', border: '#3B5EA620' },
+  { name: 'Netflix Landing', desc: 'Pixel-perfect CSS recreation — design precision training.', stack: ['HTML5', 'CSS3'], liveUrl: null, videoUrl: '/assets/project-screen-record/netflix-clone.mp4', cardBg: '#FDF0F0', border: '#C1292E20' },
+  { name: 'YouTube Clone', desc: 'Interface recreation — component thinking and API consumption.', stack: ['React', 'YouTube API'], liveUrl: null, videoUrl: '/assets/project-screen-record/youtube-clone.mp4', cardBg: '#FFF8E8', border: '#C9A84C20' },
+  { name: 'Weather App', desc: 'SheCodes-certified. First real API integration and deployment.', stack: ['JavaScript', 'OpenWeather API'], liveUrl: 'https://myweatherapp.vercel.app', videoUrl: null, cardBg: '#EEF0FD', border: '#4B5CC420' },
 ];
 
 const STATS = [
@@ -538,9 +538,16 @@ export default function ProjectsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="p-5 rounded-lg"
-                  style={{ backgroundColor: '#F2F0EB', border: '1px solid #E5E2DA' }}
+                  className="p-5 rounded-lg relative overflow-hidden"
+                  style={{ backgroundColor: item.cardBg, border: `1px solid ${item.border}` }}
                 >
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-20"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                    }}
+                  />
+                  <div className="relative z-10">
                   <div className="flex items-start justify-between mb-2">
                     <h3
                       className="font-display text-lg font-bold"
@@ -548,17 +555,31 @@ export default function ProjectsPage() {
                     >
                       {item.name}
                     </h3>
-                    {item.liveUrl && (
-                      <a
-                        href={item.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[11px] ml-2 shrink-0 hover:opacity-70 transition-opacity"
-                        style={{ color: GOLD, fontFamily: 'var(--font-body, sans-serif)' }}
-                      >
-                        Live ↗
-                      </a>
-                    )}
+                    <div className="flex items-center gap-2 ml-2 shrink-0">
+                      {item.videoUrl && (
+                        <a
+                          href={item.videoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[11px] hover:opacity-70 transition-opacity"
+                          style={{ color: TERRA, fontFamily: 'var(--font-body, sans-serif)' }}
+                          title="Watch screen recording"
+                        >
+                          ▶ Demo
+                        </a>
+                      )}
+                      {item.liveUrl && (
+                        <a
+                          href={item.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[11px] hover:opacity-70 transition-opacity"
+                          style={{ color: GOLD, fontFamily: 'var(--font-body, sans-serif)' }}
+                        >
+                          Live ↗
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <p className="text-xs mb-3 leading-relaxed" style={{ color: '#6B6B6B' }}>
                     {item.desc}
@@ -578,6 +599,7 @@ export default function ProjectsPage() {
                         {s}
                       </span>
                     ))}
+                  </div>
                   </div>
                 </motion.div>
               ))}

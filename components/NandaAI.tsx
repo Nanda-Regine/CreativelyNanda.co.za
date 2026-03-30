@@ -92,49 +92,25 @@ export default function NandaAI({ isOpen: externalOpen, onClose, initialMessage 
       });
 
       if (!res.ok) throw new Error('Request failed');
-      if (!res.body) throw new Error('No body');
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
+      const data = await res.json();
+      const reply = data.message ?? data.error ?? "Something went wrong.";
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() ?? '';
-
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6).trim();
-          if (data === '[DONE]') break;
-
-          try {
-            const parsed = JSON.parse(data);
-            if (parsed.text) {
-              setMessages((prev) => {
-                const updated = [...prev];
-                updated[updated.length - 1] = {
-                  ...updated[updated.length - 1],
-                  content: updated[updated.length - 1].content + parsed.text,
-                };
-                return updated;
-              });
-            }
-          } catch {
-            // ignore parse errors
-          }
-        }
-      }
+      setMessages((prev) => {
+        const updated = [...prev];
+        updated[updated.length - 1] = {
+          role: 'assistant',
+          content: reply,
+        };
+        return updated;
+      });
     } catch (err: unknown) {
       if (err instanceof Error && err.name !== 'AbortError') {
         setMessages((prev) => {
           const updated = [...prev];
           updated[updated.length - 1] = {
             role: 'assistant',
-            content: "Something went wrong. Email hello@mirembemuse.co.za directly.",
+            content: "Something went wrong. Email hello@creativelynanda.co.za directly.",
           };
           return updated;
         });
@@ -194,7 +170,7 @@ export default function NandaAI({ isOpen: externalOpen, onClose, initialMessage 
                 </div>
                 <div>
                   <p className="font-semibold text-white text-sm">Nanda AI</p>
-                  <p className="text-white/50 text-[11px]">Powered by Claude · Ask me anything</p>
+                  <p className="text-white/50 text-[11px]">AI Assistant · Ask me anything</p>
                 </div>
               </div>
               <button

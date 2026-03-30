@@ -11,32 +11,32 @@ import { contextImages, getContextFromPath } from './nanda-girl/types';
 // Context-aware speech bubbles for different pages
 const contextSpeechBubbles: Record<string, string[]> = {
   home: [
-    "Sawubona! Welcome to my world! ✨",
+    "7 AI apps. 6 months. East London. 🚀",
     "I'm a poet who codes & a coder who dreams!",
-    "Ask me about my journey!",
+    "Ask me about the journey!",
     "Need something built? Let's chat!",
-    "15 distinctions, 82 poems, 1 mission! 👑",
+    "AI engineer · Published poet · Founder 👑",
   ],
   poetry: [
-    "Inside Her Roses—82 poems of love & healing 🌹",
-    "I was featured on Gqeberha: The Empire! 📺",
+    "Inside Her Roses — 82 poems of love & healing 🌹",
+    "Featured on Gqeberha: The Empire! 📺",
     "Poetry is the algorithm of feeling...",
-    "Ask about my book—it's on Amazon!",
+    "Ask about my book — it's on Amazon!",
     "Each verse is a piece of my soul 💝",
   ],
   work: [
-    "50+ projects completed! 💼",
-    "React, Next.js, Supabase—I build it all!",
-    "Check out True Access App!",
-    "I reduced admin time by 40-60%!",
+    "7 production AI SaaS apps live! 💼",
+    "Next.js · TypeScript · Claude API · Supabase",
+    "Africa's first AI-native stokvel platform!",
+    "300+ active users across my apps",
     "Tech with soul, code with purpose ✨",
   ],
   about: [
-    "Poet • Developer • Dreamer 💫",
-    "From Eastern Cape to global impact!",
-    "15 academic distinctions—ask me how!",
+    "AI Engineer · Poet · Founder 💫",
+    "From Eastern Cape to Africa-first AI!",
+    "15 academic distinctions — ask me how!",
     "I believe tech should amplify humanity",
-    "First-generation entrepreneur here! 👑",
+    "First-generation entrepreneur 👑",
   ],
   blog: [
     "Enjoying the articles? 📚",
@@ -46,27 +46,27 @@ const contextSpeechBubbles: Record<string, string[]> = {
   ],
   contact: [
     "Ready to collaborate? 📧",
-    "I reply within 24-48 hours!",
+    "I reply within 24 hours!",
     "Let's build something beautiful together!",
-    "Remote-ready, globally minded! 🌍",
+    "Remote-ready, globally minded 🌍",
   ],
   marketplace: [
-    "15+ Notion templates available! 🛍️",
-    "Save 40-60% admin time with my systems!",
-    "Templates from R150 to R499",
+    "6 Notion templates — R249 to R449 🛍️",
+    "Built for African students, creators & SMEs!",
+    "SME Command Center is the most popular!",
     "Need help choosing? Ask me!",
   ],
   education: [
     "Nelson Mandela University graduate! 🎓",
     "15 distinctions across 3 degrees!",
-    "SheCodes certified, self-taught coder!",
+    "Self-taught engineer — first code June 2025!",
     "I believe in learning everywhere 📚",
   ],
   default: [
     "Click me to chat! 💬",
-    "I know everything about Nanda! ✨",
-    "Ask me anything—I'm here to help!",
-    "From poetry to code, I've got answers!",
+    "7 apps. 6 months. Ask me how. ✨",
+    "Ask me anything — I'm here to help!",
+    "From poetry to AI, I've got answers!",
   ],
 };
 
@@ -120,11 +120,10 @@ const knowledgeBase = {
   experience: {
     triggers: ['experience', 'work history', 'career', 'jobs', 'resume', 'worked', 'job', 'employment', 'balkan', 'sportsmans', 'manager', 'professional'],
     responses: [
-      "5+ years of professional experience! Currently Founder of Mirembe Muse. Previously Manager at Balkan Burger where I digitized operations, reduced waste by 22%, and improved profitability by 18%. Before that, Sportsmans Warehouse for 4 years. 💼",
-      "My journey: Junior Waitress → Senior Waitress → Marketing Assistant → Team Leader → Event Coordinator → Manager at Balkan Burger. Then I taught myself to code and now I build full-stack applications! Every role prepared me. 🦋",
-      "At Balkan Burger, I managed 15+ staff, achieved 4.8/5 customer satisfaction, increased upsell conversions by 30%, and wrote the entire operations manual. Then I brought those systems-thinking skills to software development! 📈",
-      "I've worn many hats: Receiving Clerk (99% accuracy), Cashier, Sales Assistant, Event Coordinator (100-500+ guests), Manager, Content Specialist at Distilled Photography, Workshop Coordinator, and now Creative Technologist. Growth is my middle name! 🌱",
-      "From restaurant operations to React applications—the common thread is systems thinking and leadership. At Balkan Burger, I reduced admin overhead by 35%. Now I reduce it for clients through Notion systems and automation. 💫",
+      "My career arc: Sportsmans Warehouse at 19 (Sales → Receiving Clerk, 4 years) → Balkan Burger (Waitress → Manager, 2+ years, 22% waste reduction, 18% profitability increase) → first line of code in June 2025 → 7 production AI SaaS apps by March 2026. 💼",
+      "From restaurant manager to AI engineer in under a year. At Balkan Burger I managed 15+ staff, wrote the operations manual, ran events for 100-500+ guests. Those systems-thinking skills are exactly what build scalable software. 🦋",
+      "The hospitality years taught pressure, precision, and people — three things that make a great engineer. Now I apply that same discipline to code. Every line asks: will this serve someone beautifully? 📈",
+      "Six months of coding. Seven production apps. That's the timeline. The business degree taught strategy, the restaurant taught operations under pressure, the code was always going to be the third language. 🌱",
     ]
   },
 
@@ -140,35 +139,32 @@ const knowledgeBase = {
   },
 
   projects: {
-    triggers: ['projects', 'portfolio', 'what has she built', 'work samples', 'applications', 'apps', 'built', 'created', 'true access', 'visionboard'],
+    triggers: ['projects', 'portfolio', 'what has she built', 'work samples', 'applications', 'apps', 'built', 'created', 'true access', 'saas', 'varsityos', 'k53', 'stokvelos', 'adminos', 'watchsankofa'],
     responses: [
-      "📱 True Access App—my full-stack location-based service platform. Built from scratch with Supabase, Mapbox GL, and responsive design. It maps the unmapped, making services accessible to all!",
-      "This very website (CreativelyNanda.co.za) is my creation! React, Next.js, Framer Motion animations, Supabase backend, AI chatbot integration, 95+ Lighthouse scores. Plus the AI assistant you're talking to now! 🌐✨",
-      "I've built 15+ Notion templates for students, SMEs, and creative professionals. CRM systems, financial dashboards, project hubs—each one saving clients 40-60% administrative time. Systems that spark joy! 📊",
-      "AfriFlix is in development—a platform to preserve spoken word culture digitally. Because our voices deserve platforms we control. Also working on PoetryTube to amplify poetic voices globally. 🎤",
-      "Every project tells a story: True Access speaks for the voiceless, my Notion systems restore time to the time-starved, this portfolio bridges technology and soul. I build experiences, not just applications. 💫",
+      "7 production AI SaaS apps live under Mirembe Muse 🚀: VarsityOS (student wellness), K53 Drill Master (learner's licence), StokvelOS (AI stokvel finance), AdminOS (5 AI agents for SMEs), WatchSankofa (African streaming), SankofaSessions (media publication), and CreativelyNanda.co.za (this site).",
+      "VarsityOS tackles SA's 50% university dropout rate with 6 AI agents covering study, budget, meals, and crisis support. K53 Drill Master has 50+ paying subscribers and 4.8/5 rating with isiXhosa support. All built solo in 6 months. 💫",
+      "StokvelOS digitises R50 billion in African community finance — the first AI-native stokvel platform on the continent. AdminOS replaces 6 separate subscriptions with 5 AI agents for South African SMEs. Real problems. Real solutions. 🌍",
+      "WatchSankofa gives African creators 85% revenue share (vs Netflix's 7%). SankofaSessions is a media publication for founders. Plus 6 Notion templates and this portfolio — none of them demos, all in production with real users. 📱",
     ]
   },
 
   mirembe: {
     triggers: ['mirembe', 'muse', 'business', 'company', 'startup', 'founder', 'enterprise', 'services offered'],
     responses: [
-      "🌿 Mirembe Muse (Pty) Ltd—my company launching 2026! 'Mirembe' means 'peace' in Luganda. We offer web development, Notion systems, AI integration, creative technology services, and business consulting.",
-      "Three pillars of Mirembe Muse: Technology (full-stack development, AI), Creativity (content, consulting), and Purpose (building with Ubuntu). We believe successful ventures can maintain humanity and soul. 🕊️",
-      "What I offer through Mirembe: React/Next.js applications, custom Notion operating systems, AI chatbots and automation, digital content creation, and poetry/speaking engagements. Technology that amplifies humanity! 💻✨",
-      "I'm a first-generation entrepreneur in my family—not just building a business, I'm building a blueprint. Mirembe Muse is heritage meeting horizon, African excellence thriving commercially. 👑",
-      "From wellness consulting to websites, from poetry workshops to productivity systems—Mirembe Muse is an ecosystem where creativity and commerce dance together. Watch this space! 🌍",
+      "Mirembe Muse (Pty) Ltd is incorporated — registered in South Africa since September 2025. 'Mirembe' means peace in Luganda (Kabali-Kagwa clan). 7 AI SaaS apps live, 6 Notion templates in the marketplace, and consulting open for engagements. 🌿",
+      "Mirembe Muse offers full-stack development, digital marketing, systems architecture, media publishing, and AI consulting. Not just a tech company — a complete digital partner for African businesses ready to scale. 💻",
+      "From R249 Notion templates to R45,000 AI integration projects — Mirembe Muse has a pathway for every stage. Built from East London, serving clients locally and internationally. 👑",
+      "The mission: Africa-first technology that restores, not extracts. Every product under Mirembe Muse asks — will this serve someone's actual life? That's Ubuntu in code. 🌍",
     ]
   },
 
   services: {
-    triggers: ['services', 'offer', 'provide', 'help with', 'what services', 'work together', 'collaborate', 'hire'],
+    triggers: ['services', 'offer', 'provide', 'help with', 'what services', 'work together', 'collaborate', 'hire', 'consulting', 'consult'],
     responses: [
-      "🎯 My services: Full-stack web development (React, Next.js), Notion system architecture, AI chatbot development, digital marketing strategy, creative consulting, and poetry workshops/speaking engagements!",
-      "I build: Landing pages to complex applications, Notion operating systems for businesses, AI-powered automations, brand experiences. Everything delivered with African excellence and global standards. 🌍✨",
-      "Whether you need a website that converts, workflows that liberate, chatbots that connect, or strategy that clarifies—I'm your person. I don't just provide services; I partner in vision. 🤝",
-      "Pricing approach: Value-based, not hours-logged. Notion templates R150-R499, custom projects discussed based on scope. I believe in fair exchange—your investment meets my excellence. 💰",
-      "I start by listening deeply—understanding not just WHAT needs to be built, but WHY it matters. Milestone-based payments, transparent communication, focus on creating experiences that resonate. Let's build! 💫",
+      "Consulting services: AI Integration (from R45,000/project), Fractional AI Officer retainer (from R18,000/month), Business Automation & WhatsApp workflows (from R8,000/month). Email hello@creativelynanda.co.za to discuss. 🎯",
+      "Full-stack development, digital marketing strategy, systems architecture, AI agent orchestration, media publishing support — and 6 Notion templates ready to purchase immediately at /products. 💫",
+      "Whether you need an app built, your business automated, your marketing systematised, or your brand voice sharpened — I partner in vision, not just deliver deliverables. Let's talk at /consulting. 🤝",
+      "Value-based pricing. Milestone payments. Transparent communication. I don't do cheap — I do excellence that pays for itself. Start the conversation at hello@creativelynanda.co.za. 💰",
     ]
   },
 
@@ -239,10 +235,9 @@ const knowledgeBase = {
   pricing: {
     triggers: ['price', 'cost', 'rate', 'charge', 'how much', 'budget', 'pay', 'afford', 'quote'],
     responses: [
-      "💰 Notion templates: R150-R499 investment in your peace of mind. Custom projects? Let's talk vision first, budget second. I believe in value-based pricing.",
-      "I don't do cheap; I do VALUE. Whether R200 or R20,000—you'll know exactly what you're investing in and why. Pricing reflects expertise, not ego. 💎",
-      "From accessible templates to enterprise solutions, there's a pathway for every budget. The conversation starts with vision, not price tags. Email me for a custom quote! 📊",
-      "Quality work deserves quality compensation, but I'm also about accessibility. Milestone-based payments, transparent communication. Contact me to find the sweet spot for your needs! ✉️",
+      "Notion templates: R249–R499 — buy directly at /products. Consulting: AI Integration from R45,000/project, Fractional AI Officer from R18,000/month, Automation from R8,000/month. Value-based, milestone payments. 💰",
+      "Templates are the most accessible entry point: Writer's Sanctuary (R299), Creator's Studio (R399), Music Artist CC (R389), Varsity Engine (R279), High School Engine (R249), SME Command Center (R449). All at /products. 💎",
+      "Custom projects start with a conversation, not a price tag. Email hello@creativelynanda.co.za with your brief and I'll tell you what's possible and what it takes. No fluff, just clarity. 📊",
     ]
   },
 
@@ -259,10 +254,9 @@ const knowledgeBase = {
   notion: {
     triggers: ['notion', 'templates', 'productivity', 'workspace', 'systems', 'crm', 'dashboard', 'workflow'],
     responses: [
-      "📊 I've built 15+ Notion templates ranging from R150 to R499—CRMs, financial dashboards, project hubs, knowledge bases. Each one saves 40-60% administrative time!",
-      "My Notion systems are like traditional African architecture—everything has its place, everything serves the whole. Chaos becomes clarity, overwhelm becomes flow. Beauty that functions! 🏺",
-      "I don't just organize data; I orchestrate harmony. AI-generated docs meet human-centered design. Notion work is meditation in database form—everything aligned, intentional. 🧘🏾‍♀️",
-      "From solopreneurs to teams, my templates adapt like water, powerful like earth. Productivity isn't about doing more; it's about flowing better. Check the marketplace! ✨",
+      "6 Notion templates live in the marketplace (R249–R449): Writer's Sanctuary, Creator's Studio, Music Artist Career Command Center, Varsity Academic Excellence, High School Academic Excellence, and SME Command Center. All at creativelynanda.co.za/products 📊",
+      "Each template is a full operating system — not just a page layout. Built for African students, creators, and SMEs who need structure that actually fits their lives. Systems that spark flow, not friction. 🏺",
+      "The SME Command Center (R449) replaces fragmented tools with one cohesive workspace. The academic engines (R249–R279) are built for NSFAS students who need to manage study, budget, and wellness in one place. ✨",
     ]
   },
 
@@ -380,9 +374,9 @@ const BotGirl = ({ mood = 'happy' }: { mood: string }) => {
 
 const suggestions = [
   "Who is Nanda? 👑",
+  "Tell me about your 7 apps 🚀",
   "Inside Her Roses 🌹",
-  "Tech skills & projects 💻",
-  "What can you build? 🚀",
+  "Consulting & pricing 💰",
   "Work experience 💼",
   "Education & certifications 🎓",
   "About Mirembe Muse 🌿",
@@ -407,7 +401,7 @@ export function NandaAssistant() {
 
   // Chat state
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: "Sawubona! ✨ I'm Nanda—Creative Technologist, published poet, and founder of Mirembe Muse. I know everything about my journey, my work, and my poetry. Ask me anything!" }
+    { role: 'assistant', content: "Sawubona! ✨ I'm Nanda — AI engineer, published poet, and founder of Mirembe Muse. I've shipped 7 production apps in 6 months and I'm building Africa-first technology. What would you like to know?" }
   ]);
   const [displayedSuggestions] = useState(() => getRandomSuggestions(5));
   const [input, setInput] = useState('');
@@ -473,10 +467,15 @@ export function NandaAssistant() {
     scrollToBottom();
   }, [messages]);
 
-  const findResponse = (userInput: string) => {
-    const input = userInput.toLowerCase();
+  const findResponse = (userInput: string, currentMessages: typeof messages) => {
+    const input = userInput.toLowerCase().trim();
+    // Only greet back if this is the very first user message (messages only has the initial assistant msg)
+    const isFirstMessage = currentMessages.filter(m => m.role === 'user').length === 0;
 
-    for (const [, data] of Object.entries(knowledgeBase)) {
+    for (const [category, data] of Object.entries(knowledgeBase)) {
+      // Skip greeting responses mid-conversation — let the API handle it naturally
+      if (category === 'greetings' && !isFirstMessage) continue;
+
       for (const trigger of data.triggers) {
         if (input.includes(trigger)) {
           const responses = data.responses;
@@ -499,7 +498,7 @@ export function NandaAssistant() {
 
     await new Promise(resolve => setTimeout(resolve, 600 + Math.random() * 600));
 
-    const quickResponse = findResponse(messageText);
+    const quickResponse = findResponse(messageText, messages);
 
     if (quickResponse) {
       setBotMood('happy');
