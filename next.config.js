@@ -8,9 +8,6 @@ const nextConfig = {
       { protocol: 'http', hostname: 'localhost' },
     ],
   },
-  experimental: {
-    optimizeCss: true,
-  },
   async headers() {
     return [
       {
