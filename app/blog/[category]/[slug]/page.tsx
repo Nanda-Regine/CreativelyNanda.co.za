@@ -104,12 +104,23 @@ function generateTOC(content: string) {
   return toc;
 }
 
-// Render markdown content with magazine styling
-function renderContent(content: string, category: string) {
-  const theme = blogCategoryThemes[category as keyof typeof blogCategoryThemes];
+// Escape raw HTML characters to prevent XSS before markdown processing
+function escapeHtml(raw: string): string {
+  return raw
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;');
+}
 
-  // Process content
-  let html = content
+// Render markdown content with magazine styling
+// Input is first HTML-escaped so that user content cannot inject arbitrary tags.
+function renderContent(content: string, _category: string) {
+  // Escape raw user content first — prevents XSS via dangerouslySetInnerHTML
+  const safe = escapeHtml(content);
+
+  let html = safe
     // Headers with IDs
     .replace(/^## (.+)$/gm, (_, title) =>
       `<h2 id="${slugify(title)}" class="article-h2">${title}</h2>`
@@ -127,8 +138,8 @@ function renderContent(content: string, category: string) {
     // Inline code
     .replace(/`([^`]+)`/g, '<code class="article-inline-code">$1</code>')
     // Blockquotes (pull quotes)
-    .replace(/^>\s*(.+)$/gm,
-      `<blockquote class="article-quote"><span class="quote-mark">"</span>$1</blockquote>`
+    .replace(/^&gt;\s*(.+)$/gm,
+      `<blockquote class="article-quote"><span class="quote-mark">&ldquo;</span>$1</blockquote>`
     )
     // Lists
     .replace(/^\d+\.\s+(.+)$/gm, '<li class="article-li">$1</li>')
@@ -136,7 +147,6 @@ function renderContent(content: string, category: string) {
     // Paragraphs
     .replace(/\n\n/g, '</p><p class="article-p">');
 
-  // Wrap in paragraph tags
   html = `<p class="article-p">${html}</p>`;
 
   return html;
