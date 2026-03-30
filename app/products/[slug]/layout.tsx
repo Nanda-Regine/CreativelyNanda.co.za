@@ -64,7 +64,7 @@ export async function generateMetadata({
     description: description ? description.slice(0, 160) : product.tagline,
     path: `/products/${product.slug}`,
     ogType: 'website',
-    ogImage: product.thumbnail || product.images?.[0] || undefined,
+    ogImage: product.thumbnail || undefined,
     keywords: [
       product.name,
       'Notion template South Africa',
