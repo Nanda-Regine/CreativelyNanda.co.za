@@ -1,10 +1,22 @@
 import Anthropic from '@anthropic-ai/sdk';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
+});
+
+// Sliding window: 10 requests per minute per IP
+const ratelimit = new Ratelimit({
+  redis: new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL!,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+  }),
+  limiter: Ratelimit.slidingWindow(10, '1 m'),
+  prefix: 'rl:chat',
 });
 
 const SYSTEM_PROMPT = `You are Nanda AI — the personal assistant and marketing voice for Nandawula Regine Kabali-Kagwa (Nanda), an Africa-first AI Engineer, Creative Technologist, Published Poet, and Founder of Mirembe Muse (Pty) Ltd. You live on her portfolio at creativelynanda.co.za.
@@ -65,6 +77,17 @@ RESPONSE GUIDELINES:
 
 export async function POST(req: Request) {
   try {
+    // Rate limit by IP — 10 requests per minute
+    const ip =
+      req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'anonymous';
+    const { success } = await ratelimit.limit(ip);
+    if (!success) {
+      return new Response(
+        JSON.stringify({ error: 'Too many requests. Please slow down.' }),
+        { status: 429, headers: { 'Content-Type': 'application/json' } },
+      );
+    }
+
     const { messages } = await req.json();
 
     if (!Array.isArray(messages) || messages.length === 0) {

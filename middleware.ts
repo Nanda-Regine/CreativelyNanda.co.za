@@ -1,44 +1,5 @@
-import arcjet, { shield, detectBot, slidingWindow } from "@arcjet/next";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-
-// Arcjet instance with base rules for all routes
-const aj = arcjet({
-  key: process.env.ARCJET_KEY!,
-  rules: [
-    shield({ mode: "LIVE" }),
-    detectBot({
-      mode: "LIVE",
-      allow: [
-        "CATEGORY:SEARCH_ENGINE",
-        "CATEGORY:MONITOR",
-        "CATEGORY:PREVIEW",
-      ],
-    }),
-    slidingWindow({
-      mode: "LIVE",
-      interval: "1m",
-      max: 60,
-    }),
-  ],
-});
-
-// Stricter Arcjet instance for AI/chat endpoints
-const ajAI = arcjet({
-  key: process.env.ARCJET_KEY!,
-  rules: [
-    shield({ mode: "LIVE" }),
-    detectBot({
-      mode: "LIVE",
-      allow: ["CATEGORY:PREVIEW"],
-    }),
-    slidingWindow({
-      mode: "LIVE",
-      interval: "1m",
-      max: 10,
-    }),
-  ],
-});
 
 const SECURITY_HEADERS = {
   "X-Content-Type-Options": "nosniff",
@@ -62,12 +23,16 @@ function isAdminAuthorized(request: NextRequest): boolean {
   return cookie === token;
 }
 
-export async function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Gate admin UI and API routes (login endpoints are exempt)
-  const isAdminLogin = pathname === "/admin/login" || pathname === "/api/admin/auth";
-  if (!isAdminLogin && (pathname.startsWith("/admin") || pathname.startsWith("/api/admin"))) {
+  const isAdminLogin =
+    pathname === "/admin/login" || pathname === "/api/admin/auth";
+  if (
+    !isAdminLogin &&
+    (pathname.startsWith("/admin") || pathname.startsWith("/api/admin"))
+  ) {
     if (!isAdminAuthorized(request)) {
       if (pathname.startsWith("/api/")) {
         const res = NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -81,30 +46,10 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Apply stricter rules to AI/chat API routes
-  const instance =
-    pathname.startsWith("/api/chat") || pathname.startsWith("/api/ai")
-      ? ajAI
-      : aj;
-
-  const decision = await instance.protect(request);
-
-  if (decision.isDenied()) {
-    if (decision.reason.isRateLimit()) {
-      const res = NextResponse.json(
-        { error: "Too many requests. Please slow down." },
-        { status: 429 }
-      );
-      Object.entries(SECURITY_HEADERS).forEach(([k, v]) => res.headers.set(k, v));
-      return res;
-    }
-    const res = NextResponse.json({ error: "Access denied" }, { status: 403 });
-    Object.entries(SECURITY_HEADERS).forEach(([k, v]) => res.headers.set(k, v));
-    return res;
-  }
-
   const response = NextResponse.next();
-  Object.entries(SECURITY_HEADERS).forEach(([k, v]) => response.headers.set(k, v));
+  Object.entries(SECURITY_HEADERS).forEach(([k, v]) =>
+    response.headers.set(k, v)
+  );
   return response;
 }
 
