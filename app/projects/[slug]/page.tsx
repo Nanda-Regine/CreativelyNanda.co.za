@@ -1274,8 +1274,8 @@ The lesson that stayed: design is an argument. Every visual decision argues for 
       problem: 'Invisible online despite excellent craft',
       metric: 'Live and used for client acquisition',
     },
-    liveUrl: 'https://kustom-krafts.vercel.app',
-    githubUrl: 'https://github.com/Nanda-Regine/kustom-krafts',
+    liveUrl: 'https://carpentary-os-demo.vercel.app/',
+    githubUrl: 'https://github.com/Nanda-Regine/carpentart-os-demo',
     images: [],
     metaTitle: 'Carpentry Business — Trade Services Website | Nandawula Regine',
     metaDescription:

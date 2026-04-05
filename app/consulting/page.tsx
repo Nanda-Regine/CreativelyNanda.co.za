@@ -277,14 +277,29 @@ function ServiceCard({ service, accent }: { service: Service; accent: string }) 
       <div
         className="relative overflow-hidden"
         style={{
-          backgroundColor: open ? '#FFFFFF' : 'rgba(255,255,255,0.7)',
-          border: `1px solid ${open ? accent + '30' : '#E5E2DA'}`,
-          borderLeft: `3px solid ${service.signature ? accent : accent + '60'}`,
-          borderRadius: '0 16px 0 16px',
-          transition: 'all 0.3s ease',
-          boxShadow: open ? '0 8px 32px rgba(0,0,0,0.08)' : 'none',
+          background: open
+            ? `linear-gradient(135deg, ${accent}18 0%, #E8DCC430 50%, #B8860B18 100%)`
+            : 'rgba(255,255,255,0.62)',
+          backdropFilter: open ? 'none' : 'blur(8px)',
+          border: `1px solid ${open ? accent + '35' : 'rgba(255,255,255,0.8)'}`,
+          borderRadius: open ? '32px 8px 32px 8px' : '24px 8px 24px 8px',
+          transition: 'all 0.35s ease',
+          boxShadow: open ? `0 12px 40px ${accent}18` : '0 2px 12px rgba(0,0,0,0.06)',
         }}
       >
+        {/* Corner accent */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: '72px',
+          height: '72px',
+          backgroundColor: open ? accent + '25' : accent + '12',
+          borderRadius: '0 8px 0 100%',
+          pointerEvents: 'none',
+          transition: 'background-color 0.3s ease',
+        }} />
+
         {/* Signature badge */}
         {service.signature && (
           <span style={{
@@ -294,12 +309,14 @@ function ServiceCard({ service, accent }: { service: Service; accent: string }) 
             fontFamily: 'var(--font-body, sans-serif)',
             fontSize: '10px',
             fontWeight: 600,
-            color: accent,
-            backgroundColor: accent + '15',
-            border: `1px solid ${accent}30`,
+            color: open ? '#FFFFFF' : accent,
+            backgroundColor: open ? accent : accent + '18',
+            border: `1px solid ${accent}35`,
             padding: '2px 8px',
             borderRadius: '20px',
             letterSpacing: '0.06em',
+            transition: 'all 0.25s ease',
+            zIndex: 1,
           }}>
             ★ Signature
           </span>
@@ -427,9 +444,9 @@ function ServiceCard({ service, accent }: { service: Service; accent: string }) 
 
                 {/* Price block */}
                 <div style={{
-                  backgroundColor: accent + '08',
-                  border: `1px solid ${accent}20`,
-                  borderRadius: '8px',
+                  background: `linear-gradient(135deg, ${accent}12 0%, #F5EFE6 100%)`,
+                  border: `1px solid ${accent}25`,
+                  borderRadius: '16px 4px 16px 4px',
                   padding: '14px 16px',
                 }}>
                   <p style={{
@@ -490,13 +507,23 @@ function ServiceCard({ service, accent }: { service: Service; accent: string }) 
 
 export default function ConsultingPage() {
   return (
-    <div style={{ backgroundColor: '#FAFAF8', color: '#1A1A1A' }}>
+    <div className="bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4]" style={{ color: '#1A1A1A', position: 'relative' }}>
+      {/* Fixed grain overlay */}
+      <div style={{
+        position: 'fixed',
+        inset: 0,
+        opacity: 0.28,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        pointerEvents: 'none',
+        zIndex: 0,
+      }} />
 
       {/* ── HERO ── */}
       <section style={{
         background: 'linear-gradient(135deg, #0A1128 0%, #1a2744 50%, #0A1128 100%)',
         padding: 'clamp(80px, 12vw, 140px) 24px clamp(60px, 8vw, 100px)',
         position: 'relative',
+        zIndex: 1,
         overflow: 'hidden',
       }}>
         {/* Grain */}
@@ -600,7 +627,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* ── PRICING ── */}
-      <section id="pricing" style={{ backgroundColor: '#FAFAF8', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
+      <section id="pricing" style={{ padding: 'clamp(48px, 8vw, 96px) 24px', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <FadeUp>
             <p style={{
@@ -686,9 +713,10 @@ export default function ConsultingPage() {
             <div style={{
               marginTop: '48px',
               padding: '28px 32px',
-              backgroundColor: 'rgba(193,41,46,0.04)',
-              border: '1px solid rgba(193,41,46,0.15)',
-              borderRadius: '0 24px 0 24px',
+              background: 'linear-gradient(135deg, rgba(193,41,46,0.08) 0%, rgba(232,220,196,0.30) 100%)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(193,41,46,0.20)',
+              borderRadius: '24px 8px 24px 8px',
               display: 'flex',
               flexDirection: 'column',
               gap: '12px',
@@ -739,21 +767,14 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ── WHY ME ── cream with cherry accent ── */}
+      {/* ── WHY ME ── */}
       <section style={{
-        background: 'linear-gradient(135deg, #F5EFE6 0%, #E8DCC4 100%)',
         padding: 'clamp(48px, 8vw, 96px) 24px',
         position: 'relative',
+        zIndex: 1,
         overflow: 'hidden',
       }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.18,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          pointerEvents: 'none',
-        }} />
-        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <FadeUp>
             <blockquote style={{
               fontFamily: 'var(--font-display, Georgia, serif)',
@@ -780,12 +801,12 @@ export default function ConsultingPage() {
             ].map((c, i) => (
               <FadeUp key={c.heading} delay={i * 0.08}>
                 <div style={{
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid #E5E2DA',
-                  borderLeft: `3px solid ${c.accent}`,
-                  borderRadius: '0 16px 0 16px',
+                  background: `linear-gradient(135deg, ${c.accent}14 0%, rgba(232,220,196,0.25) 50%, rgba(184,134,11,0.08) 100%)`,
+                  backdropFilter: 'blur(8px)',
+                  border: `1px solid ${c.accent}25`,
+                  borderRadius: '24px 8px 24px 8px',
                   padding: '24px',
-                  boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+                  boxShadow: `0 4px 20px ${c.accent}12`,
                 }}>
                   <h4 style={{
                     fontFamily: 'var(--font-display, Georgia, serif)',
@@ -812,8 +833,8 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── white ── */}
-      <section style={{ backgroundColor: '#FFFFFF', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
+      {/* ── HOW IT WORKS ── */}
+      <section style={{ padding: 'clamp(48px, 8vw, 96px) 24px', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <FadeUp>
             <h2 style={{
@@ -858,7 +879,8 @@ export default function ConsultingPage() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       margin: '0 auto 16px',
-                      backgroundColor: '#FFFFFF',
+                      backgroundColor: 'rgba(255,255,255,0.65)',
+                      backdropFilter: 'blur(8px)',
                       fontFamily: 'var(--font-body, sans-serif)',
                       fontWeight: 600,
                       fontSize: '0.85rem',
@@ -883,11 +905,12 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ── PAYMENT ── cream ── */}
+      {/* ── PAYMENT ── */}
       <section style={{
-        backgroundColor: '#F5EFE6',
         padding: 'clamp(40px, 6vw, 72px) 24px',
-        borderTop: '1px solid #E5E2DA',
+        borderTop: '1px solid rgba(184,134,11,0.15)',
+        position: 'relative',
+        zIndex: 1,
       }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <FadeUp>
@@ -920,9 +943,10 @@ export default function ConsultingPage() {
             ].map((item, i) => (
               <FadeUp key={item.title} delay={i * 0.08}>
                 <div style={{
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid #E5E2DA',
-                  borderRadius: '0 16px 0 16px',
+                  background: `linear-gradient(135deg, ${item.badgeColor}10 0%, rgba(232,220,196,0.30) 100%)`,
+                  backdropFilter: 'blur(8px)',
+                  border: `1px solid ${item.badgeColor}20`,
+                  borderRadius: '24px 8px 24px 8px',
                   padding: '24px',
                 }}>
                   <h4 style={{
@@ -969,6 +993,7 @@ export default function ConsultingPage() {
           backgroundColor: '#C1292E',
           padding: 'clamp(56px, 10vw, 112px) 24px',
           position: 'relative',
+          zIndex: 1,
           overflow: 'hidden',
         }}
       >

@@ -3,30 +3,55 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'AI Engineer | Nandawula Regine Kabali-Kagwa — AI Engineer South Africa',
+  title: 'Hire AI Engineer | Nandawula Regine Kabali-Kagwa — Claude API & Multi-Agent Systems',
   description:
-    'Custom Claude agents, WhatsApp-native workflows, production TypeScript. Nandawula Regine — AI Engineer based in East London, South Africa, building for the continent. Available for select engagements.',
+    'Hire Nandawula Regine — AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 7 live AI products. Remote-available from South Africa. Available for contract, fractional, and full-time engagements.',
   keywords: [
+    // Hire-intent — what recruiters and tech leads type
+    'hire AI engineer',
+    'AI engineer for hire',
+    'AI engineer remote work',
+    'remote AI engineer Africa',
+    'senior AI engineer',
+    'freelance AI engineer',
+    'contract AI engineer',
+    // LLM / agent specific
+    'Claude API developer',
+    'Anthropic Claude engineer',
+    'Claude API integration',
+    'LLM engineer',
+    'LLM developer for hire',
+    'multi-agent AI systems',
+    'multi-agent developer',
+    'AI agent developer',
+    'prompt engineer',
+    'RAG developer',
+    // Full-stack signals
+    'TypeScript developer for hire',
+    'Next.js developer for hire',
+    'full-stack AI developer',
+    'production TypeScript developer',
+    'Supabase architect',
+    'Supabase developer',
+    // WhatsApp / Africa-specific
+    'WhatsApp AI automation',
+    'Meta WhatsApp Cloud API developer',
     'AI engineer South Africa',
     'African AI engineer',
+    'East London South Africa developer',
+    'PayFast developer South Africa',
+    'business automation South Africa',
+    'fractional AI officer Africa',
+    // Identity
     'Nandawula Regine',
     'CreativelyNanda',
     'Mirembe Muse',
-    'Claude API developer',
     'AI consulting Africa',
-    'East London South Africa developer',
-    'WhatsApp AI automation',
-    'PayFast developer South Africa',
-    'Supabase architect Africa',
-    'multi-agent AI systems',
-    'business automation South Africa',
-    'fractional AI officer Africa',
-    'production TypeScript developer',
   ],
   openGraph: {
-    title: 'AI Engineer | Nandawula Regine Kabali-Kagwa — AI Engineer South Africa',
+    title: 'Hire AI Engineer | Nandawula Regine — Claude API & Multi-Agent Systems',
     description:
-      'Custom Claude agents, WhatsApp-native workflows, production TypeScript. Available for select AI engagements from East London, South Africa.',
+      'AI Engineer for hire. Custom Claude agents, multi-agent systems, production TypeScript. Available for remote engagements from East London, South Africa.',
     images: [{ url: 'https://creativelynanda.co.za/og-image.png', width: 1200, height: 630 }],
     type: 'website',
     url: 'https://creativelynanda.co.za/ai-engineer',
