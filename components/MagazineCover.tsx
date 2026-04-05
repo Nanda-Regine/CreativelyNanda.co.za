@@ -42,18 +42,35 @@ export default function MagazineCover() {
           66%  { transform: translate(-15px, 25px) scale(0.95); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
+        @keyframes nebula-gold-2 {
+          0%   { transform: translate(0px, 0px) scale(1); }
+          25%  { transform: translate(-40px, 20px) scale(1.12); }
+          60%  { transform: translate(20px, -30px) scale(0.92); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
         @keyframes nebula-cherry {
           0%   { transform: translate(0px, 0px) scale(1); }
           40%  { transform: translate(-25px, 15px) scale(1.06); }
           70%  { transform: translate(20px, -10px) scale(0.97); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
+        @keyframes nebula-cherry-2 {
+          0%   { transform: translate(0px, 0px) scale(1); }
+          30%  { transform: translate(35px, -25px) scale(1.10); }
+          65%  { transform: translate(-20px, 30px) scale(0.94); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes nebula-float {
+          0%   { transform: translate(0px, 0px) scale(1); opacity: 1; }
+          50%  { transform: translate(15px, -35px) scale(1.15); opacity: 0.7; }
+          100% { transform: translate(0px, 0px) scale(1); opacity: 1; }
+        }
         @keyframes grain-drift {
           0%   { backgroundPosition: 0px 0px; }
           100% { backgroundPosition: 300px 300px; }
         }
         @media (prefers-reduced-motion: reduce) {
-          .mag-nebula-gold, .mag-nebula-cherry, .mag-grain-anim { animation: none !important; }
+          [class*="mag-nebula"], .mag-grain-anim { animation: none !important; }
         }
         /* Mobile: clear the fixed nav (page uses -mt-20, section starts at y=0) */
         @media (max-width: 767px) {
@@ -63,7 +80,7 @@ export default function MagazineCover() {
           .photo-container {
             top: 0 !important;
             bottom: auto !important;
-            height: 135% !important;
+            height: calc(100dvh - 100px) !important;
             transform: translateX(-28%) !important;
             align-items: flex-end !important;
           }
@@ -87,17 +104,17 @@ export default function MagazineCover() {
         }}
       />
 
-      {/* NEBULA BLOB — ancestral gold */}
+      {/* BLOB 1 — gold, top right, large */}
       <div
         className="mag-nebula-gold"
         style={{
           position: 'absolute',
           right: '-5%',
           top: '5%',
-          width: '70%',
-          height: '80%',
+          width: '65%',
+          height: '75%',
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.22) 0%, rgba(201,148,58,0.10) 40%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.28) 0%, rgba(201,148,58,0.12) 40%, transparent 68%)',
           pointerEvents: 'none',
           zIndex: 2,
           animation: 'nebula-gold 22s ease-in-out infinite',
@@ -105,20 +122,76 @@ export default function MagazineCover() {
         }}
       />
 
-      {/* NEBULA BLOB — cherry/deep red */}
+      {/* BLOB 2 — gold, bottom centre, secondary */}
+      <div
+        className="mag-nebula-gold mag-nebula-gold-2"
+        style={{
+          position: 'absolute',
+          left: '20%',
+          bottom: '10%',
+          width: '50%',
+          height: '45%',
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.20) 0%, rgba(201,148,58,0.08) 45%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 2,
+          animation: 'nebula-gold-2 18s ease-in-out infinite',
+          animationDelay: '-6s',
+          willChange: 'transform',
+        }}
+      />
+
+      {/* BLOB 3 — cherry, bottom left, large */}
       <div
         className="mag-nebula-cherry"
         style={{
           position: 'absolute',
-          left: '-5%',
-          bottom: '0%',
-          width: '60%',
+          left: '-8%',
+          bottom: '-5%',
+          width: '62%',
           height: '65%',
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse at center, rgba(193,41,46,0.18) 0%, rgba(107,15,32,0.10) 50%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(193,41,46,0.24) 0%, rgba(107,15,32,0.12) 50%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 2,
-          animation: 'nebula-cherry 28s ease-in-out infinite',
+          animation: 'nebula-cherry 26s ease-in-out infinite',
+          willChange: 'transform',
+        }}
+      />
+
+      {/* BLOB 4 — cherry, top left, floating */}
+      <div
+        className="mag-nebula-cherry mag-nebula-cherry-2"
+        style={{
+          position: 'absolute',
+          left: '5%',
+          top: '15%',
+          width: '38%',
+          height: '40%',
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse at center, rgba(193,41,46,0.18) 0%, rgba(193,41,46,0.07) 50%, transparent 72%)',
+          pointerEvents: 'none',
+          zIndex: 2,
+          animation: 'nebula-cherry-2 20s ease-in-out infinite',
+          animationDelay: '-9s',
+          willChange: 'transform',
+        }}
+      />
+
+      {/* BLOB 5 — deep gold accent, centre, slow float */}
+      <div
+        style={{
+          position: 'absolute',
+          left: '35%',
+          top: '30%',
+          width: '40%',
+          height: '40%',
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.14) 0%, rgba(193,41,46,0.06) 55%, transparent 75%)',
+          pointerEvents: 'none',
+          zIndex: 2,
+          animation: 'nebula-float 32s ease-in-out infinite',
+          animationDelay: '-14s',
           willChange: 'transform',
         }}
       />
