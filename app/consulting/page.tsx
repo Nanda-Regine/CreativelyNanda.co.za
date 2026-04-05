@@ -1,43 +1,15 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-function FadeUp({
-  children,
-  className = '',
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
+function FadeUp({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
-      variants={{
-        hidden: { opacity: 0, y: 28 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1], delay },
-        },
-      }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
     >
       {children}
@@ -45,109 +17,243 @@ function FadeUp({
   );
 }
 
-type ServiceItem = {
+type Service = {
+  id: string;
   name: string;
+  tagline: string;
+  includes: string[];
   zar: string;
   usd: string;
-  timeline?: string;
-  timelineNote?: string;
-  signature: boolean;
-  proven: string | null;
+  timeline: string;
+  proven?: string;
+  signature?: boolean;
 };
 
-type PricingCategory = {
+type Category = {
   id: string;
   label: string;
   accent: string;
-  services: ServiceItem[];
+  services: Service[];
 };
 
-const PRICING_CATEGORIES: PricingCategory[] = [
+const CATEGORIES: Category[] = [
   {
-    id: 'web-dev',
-    label: 'WEB DEVELOPMENT',
+    id: 'web',
+    label: 'Web Development',
     accent: '#C1292E',
     services: [
-      { name: '1-Page Site', zar: 'R5,000–R10,000', usd: '$270–$540', timeline: '5–7 days', signature: false, proven: null },
-      { name: '5-Page Site', zar: 'R8,000–R15,000', usd: '$430–$810', timeline: '2–3 weeks', signature: false, proven: null },
-      { name: '5+ Page Site', zar: 'R30,000–R60,000', usd: '$1,620–$3,240', timeline: '3–5 weeks', signature: false, proven: 'CreativelyNanda' },
-      { name: 'E-Commerce', zar: 'R35,000–R65,000', usd: '$1,892–$3,514', timeline: '4–6 weeks', signature: true, proven: 'Mirembe Muse marketplace' },
-      { name: 'Booking System', zar: 'R30,000–R60,000', usd: '$1,622–$3,243', timeline: '4–7 weeks', signature: false, proven: 'Cortex Hub' },
-      { name: 'Location Platform', zar: 'R30,000–R60,000', usd: '$1,622–$3,243', timeline: '4–7 weeks', signature: false, proven: 'True Access' },
+      {
+        id: 'web-1page',
+        name: '1-Page Site',
+        tagline: 'A single, conversion-focused landing page.',
+        includes: ['Custom design — no templates', 'Mobile-first, SEO-ready', 'Contact form or WhatsApp CTA', 'Vercel deployment'],
+        zar: 'R5,000–R10,000',
+        usd: '$270–$540',
+        timeline: '5–7 days',
+      },
+      {
+        id: 'web-5page',
+        name: '5-Page Site',
+        tagline: 'Full business website with all key pages.',
+        includes: ['Home, About, Services, Gallery, Contact', 'Custom brand-aligned design', 'Performance optimised (95+ Lighthouse)', 'WhatsApp + email CTAs'],
+        zar: 'R8,000–R15,000',
+        usd: '$430–$810',
+        timeline: '2–3 weeks',
+      },
+      {
+        id: 'web-5plus',
+        name: '5+ Page Site',
+        tagline: 'Complex multi-section site with custom features.',
+        includes: ['Unlimited pages with CMS', 'Blog, portfolio or product catalogue', 'Advanced animations (Framer Motion)', 'Full SEO + schema markup'],
+        zar: 'R30,000–R60,000',
+        usd: '$1,620–$3,240',
+        timeline: '3–5 weeks',
+        proven: 'CreativelyNanda.co.za',
+      },
+      {
+        id: 'web-ecom',
+        name: 'E-Commerce Store',
+        tagline: 'Full online store with PayFast payments.',
+        includes: ['Product catalogue + cart + checkout', 'PayFast ZAR integration', 'Order management + email receipts', 'Digital goods delivery'],
+        zar: 'R35,000–R65,000',
+        usd: '$1,892–$3,514',
+        timeline: '4–6 weeks',
+        proven: 'Mirembe Muse Marketplace',
+        signature: true,
+      },
+      {
+        id: 'web-booking',
+        name: 'Booking System',
+        tagline: 'Real-time availability, reservations and payments.',
+        includes: ['Space/service availability calendar', 'Double-booking prevention (PostgreSQL tsrange)', 'PayFast + automated confirmations', 'Admin dashboard'],
+        zar: 'R30,000–R60,000',
+        usd: '$1,622–$3,243',
+        timeline: '4–7 weeks',
+        proven: 'Cortex Hub Booking',
+      },
+      {
+        id: 'web-location',
+        name: 'Location Platform',
+        tagline: 'Map-based platform with user contributions.',
+        includes: ['Mapbox GL JS interactive maps', 'Community data with RLS', 'WCAG accessibility compliance', 'Mobile-first PWA'],
+        zar: 'R30,000–R60,000',
+        usd: '$1,622–$3,243',
+        timeline: '4–7 weeks',
+        proven: 'True Access App',
+      },
     ],
   },
   {
-    id: 'ai-apps',
-    label: 'AI-POWERED WEBSITES & APPS',
-    accent: '#C9943A',
+    id: 'ai',
+    label: 'AI-Powered Apps & Websites',
+    accent: '#B8860B',
     services: [
-      { name: 'AI Chatbot Site', zar: 'R30,000–R60,000', usd: '$1,622–$3,243', timeline: '2–4 weeks', signature: true, proven: 'Nanda AI (+15% conversions)' },
-      { name: 'MCP-Embedded Site', zar: 'R60,000–R120,000', usd: '$3,243–$6,486', timeline: '4–6 weeks', signature: true, proven: 'Architecture proven in 7 live apps' },
-      { name: 'Full-Stack SaaS', zar: 'R40,000–R100,000', usd: '$2,162–$5,405', timeline: '5–10 weeks', signature: true, proven: '6 live SaaS products' },
-      { name: 'Streaming Platform', zar: 'R45,000–R90,000', usd: '$2,432–$4,865', timeline: '6–10 weeks', signature: false, proven: 'WatchSankofa' },
-      { name: 'RAG / Knowledge Base', zar: 'R35,000–R70,000', usd: '$1,892–$3,784', timeline: '2–3 weeks', signature: false, proven: 'Nanda AI chatbot' },
+      {
+        id: 'ai-chatbot',
+        name: 'AI Chatbot Site',
+        tagline: 'A website with an intelligent, context-aware assistant.',
+        includes: ['Claude or GPT-4o integration', 'Custom system prompt + persona', 'Conversation memory + rate limiting', 'Lead capture + CRM handoff'],
+        zar: 'R30,000–R60,000',
+        usd: '$1,622–$3,243',
+        timeline: '2–4 weeks',
+        proven: 'Nanda AI (+15% conversions)',
+        signature: true,
+      },
+      {
+        id: 'ai-mcp',
+        name: 'MCP-Embedded Site',
+        tagline: 'Site powered by custom Model Context Protocol tools.',
+        includes: ['Custom MCP server architecture', 'AI agents with tool use (search, DB, calendar)', 'Production-grade prompt caching', 'Real-time streaming responses'],
+        zar: 'R60,000–R120,000',
+        usd: '$3,243–$6,486',
+        timeline: '4–6 weeks',
+        proven: 'Architecture proven across 7 live apps',
+        signature: true,
+      },
+      {
+        id: 'ai-saas',
+        name: 'Full-Stack SaaS',
+        tagline: 'A complete AI-powered subscription product.',
+        includes: ['Multi-agent system design + build', 'Supabase auth + RLS + multi-tenancy', 'PayFast subscription billing', 'Admin dashboard + analytics'],
+        zar: 'R40,000–R100,000',
+        usd: '$2,162–$5,405',
+        timeline: '5–10 weeks',
+        proven: '6 live SaaS products in production',
+        signature: true,
+      },
+      {
+        id: 'ai-streaming',
+        name: 'Streaming Platform',
+        tagline: 'Video platform with creator monetisation.',
+        includes: ['Cloudinary or Mux video processing', 'Creator dashboard + analytics', 'Subscription + pay-per-view billing', 'Language-first content discovery'],
+        zar: 'R45,000–R90,000',
+        usd: '$2,432–$4,865',
+        timeline: '6–10 weeks',
+        proven: 'WatchSankofa',
+      },
+      {
+        id: 'ai-rag',
+        name: 'RAG / Knowledge Base',
+        tagline: 'AI that answers from your own documents and data.',
+        includes: ['Vector embeddings + semantic search', 'Document ingestion pipeline', 'Context-aware Q&A interface', 'Hallucination guardrails'],
+        zar: 'R35,000–R70,000',
+        usd: '$1,892–$3,784',
+        timeline: '2–3 weeks',
+        proven: 'Nanda AI chatbot',
+      },
     ],
   },
   {
     id: 'retainers',
-    label: 'AI ENGINEERING RETAINERS',
-    accent: '#8A9E7A',
+    label: 'AI Engineering Retainers',
+    accent: '#2D4A22',
     services: [
-      { name: 'AI Agent Development', zar: 'R25,000–R55,000', usd: '$1,351–$2,973', timelineNote: 'per month · highest margin', signature: true, proven: 'AdminOS + VarsityOS' },
-      { name: 'WhatsApp AI Automation', zar: 'R10,000–R25,000', usd: '$541–$1,351', timelineNote: 'per month · Meta WhatsApp Cloud API', signature: false, proven: null },
-      { name: 'Business Automation', zar: 'R8,000–R20,000', usd: '$432–$1,081', timelineNote: 'per month', signature: false, proven: 'AdminOS-proven' },
-      { name: 'AI Health Reports', zar: 'R5,000–R15,000', usd: '$270–$811', timelineNote: 'per month', signature: false, proven: 'StokvelOS + AdminOS' },
+      {
+        id: 'ret-agents',
+        name: 'AI Agent Development',
+        tagline: 'Ongoing specialist agent builds for your business.',
+        includes: ['Monthly scoped agent development', 'Multi-agent architecture advisory', 'Prompt engineering + optimisation', 'Performance monitoring + iteration'],
+        zar: 'R25,000–R55,000',
+        usd: '$1,351–$2,973',
+        timeline: 'per month',
+        proven: 'AdminOS + VarsityOS',
+        signature: true,
+      },
+      {
+        id: 'ret-whatsapp',
+        name: 'WhatsApp AI Automation',
+        tagline: 'Intelligent workflows via Meta WhatsApp Cloud API.',
+        includes: ['Meta WhatsApp Cloud API integration', 'Automated response + routing flows', 'Lead capture + CRM sync', 'Broadcast + template messaging'],
+        zar: 'R10,000–R25,000',
+        usd: '$541–$1,351',
+        timeline: 'per month',
+      },
+      {
+        id: 'ret-automation',
+        name: 'Business Automation',
+        tagline: 'Replace manual processes with intelligent systems.',
+        includes: ['Workflow audit + automation map', 'Cron-triggered reporting + alerts', 'Data pipeline + dashboard build', 'Staff-facing admin tools'],
+        zar: 'R8,000–R20,000',
+        usd: '$432–$1,081',
+        timeline: 'per month',
+        proven: 'AdminOS-proven',
+      },
+      {
+        id: 'ret-reports',
+        name: 'AI Health Reports',
+        tagline: 'Automated AI-generated business intelligence.',
+        includes: ['Weekly or monthly AI narrative reports', 'Anomaly detection + alerts', 'Plain-English summaries for non-technical teams', 'Delivered via email or WhatsApp'],
+        zar: 'R5,000–R15,000',
+        usd: '$270–$811',
+        timeline: 'per month',
+        proven: 'StokvelOS + AdminOS',
+      },
     ],
   },
   {
     id: 'notion',
-    label: 'NOTION & OPERATIONS',
+    label: 'Notion & Operations',
     accent: '#C1292E',
     services: [
-      { name: 'Notion OS — Solo', zar: 'R5,000–R10,000', usd: '$270–$540', timeline: '3–5 days', signature: false, proven: null },
-      { name: 'Notion OS — Business', zar: 'R8,000–R18,000', usd: '$432–$973', timeline: '1–2 weeks', signature: false, proven: null },
-      { name: 'Website + Notion Bundle', zar: 'R20,000–R40,000', usd: '$1,081–$2,162', timeline: '3–4 weeks', signature: true, proven: 'Mirembe Muse templates' },
-      { name: 'Notion Template (Digital)', zar: 'R299–R1,499', usd: '$16–$81', timelineNote: 'once-off · instant delivery', signature: false, proven: null },
+      {
+        id: 'notion-solo',
+        name: 'Notion OS — Solo',
+        tagline: 'A complete personal operating system in Notion.',
+        includes: ['Life dashboard + goals + habits', 'Project + task management', 'Knowledge base + notes', 'Finance tracker'],
+        zar: 'R5,000–R10,000',
+        usd: '$270–$540',
+        timeline: '3–5 days',
+      },
+      {
+        id: 'notion-business',
+        name: 'Notion OS — Business',
+        tagline: 'A full business OS built in Notion.',
+        includes: ['CRM with pipeline tracking', 'Financial management + chart of accounts', 'Project + team management', 'SOPs + knowledge base'],
+        zar: 'R8,000–R18,000',
+        usd: '$432–$973',
+        timeline: '1–2 weeks',
+      },
+      {
+        id: 'notion-bundle',
+        name: 'Website + Notion Bundle',
+        tagline: 'Your entire digital operation, built together.',
+        includes: ['Professional website (3–5 pages)', 'Notion OS matched to your business', 'Website ↔ Notion workflow integration', 'Training + handoff session'],
+        zar: 'R20,000–R40,000',
+        usd: '$1,081–$2,162',
+        timeline: '3–4 weeks',
+        proven: 'Mirembe Muse templates',
+        signature: true,
+      },
+      {
+        id: 'notion-template',
+        name: 'Digital Notion Template',
+        tagline: 'An off-the-shelf Notion system, ready to use.',
+        includes: ['Instant digital delivery', 'Video walkthrough included', 'One week of email support', '6 templates available in the store'],
+        zar: 'R299–R1,499',
+        usd: '$16–$81',
+        timeline: 'instant delivery',
+      },
     ],
-  },
-];
-
-const CREDENTIALS = [
-  {
-    heading: '7 production AI apps',
-    proof:
-      'Built solo in 9 months — VarsityOS, K53 Drill Master, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, CreativelyNanda.',
-  },
-  {
-    heading: 'Africa-first engineering',
-    proof:
-      'WhatsApp-native, PayFast-integrated, RLS-secured, load-shedding-aware. Built from inside the context — not adapted from elsewhere.',
-  },
-  {
-    heading: 'The poet who codes',
-    proof:
-      'Published author of Inside Her Roses. The only AI engineer on the continent writing system architecture and sonnets in the same week.',
-  },
-];
-
-const STACK_GROUPS = [
-  {
-    label: 'AI',
-    items: [
-      'Anthropic Claude',
-      'OpenAI',
-      'Prompt Caching',
-      'Multi-Agent Systems',
-      'RAG + Embeddings',
-    ],
-  },
-  {
-    label: 'Stack',
-    items: ['Next.js 14', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Vercel'],
-  },
-  {
-    label: 'Infra',
-    items: ['Upstash Redis', 'Sentry', 'PostHog', 'Resend', 'PayFast'],
   },
 ];
 
@@ -158,638 +264,840 @@ const STEPS = [
   { n: '04', label: 'You receive documented, production-ready work' },
 ];
 
-function ServiceCard({ service, accent }: { service: ServiceItem; accent: string }) {
+function ServiceCard({ service, accent }: { service: Service; accent: string }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div
-      className="relative overflow-hidden flex flex-col p-5 transition-all duration-300 group"
-      style={{
-        backgroundColor: '#0A1128',
-        borderLeft: `4px solid ${service.signature ? '#C9943A' : accent + '60'}`,
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        borderRight: '1px solid rgba(255,255,255,0.04)',
-        borderBottom: '1px solid rgba(255,255,255,0.04)',
-        borderRadius: service.signature ? '0 16px 0 16px' : '0 8px 0 8px',
-      }}
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* Signature gold ribbon */}
-      {service.signature && (
-        <div
-          className="absolute top-0 right-0 overflow-hidden"
-          style={{ width: 60, height: 60, pointerEvents: 'none' }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              top: 14,
-              right: -18,
-              backgroundColor: '#C9943A',
-              color: '#0A0F2C',
-              fontSize: '7px',
-              fontFamily: 'var(--font-mono, monospace)',
-              letterSpacing: '0.12em',
-              fontWeight: 700,
-              padding: '2px 20px',
-              transform: 'rotate(45deg)',
-              transformOrigin: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            ★ SIGNATURE
-          </div>
-        </div>
-      )}
-
-      {/* Service name */}
-      <h4
-        className="text-white font-semibold text-sm mb-3 pr-8"
-        style={{ fontFamily: 'var(--font-dm-sans, var(--font-body, sans-serif))' }}
-      >
-        {service.name}
-      </h4>
-
-      {/* ZAR price */}
-      <p
-        className="mb-0.5 font-bold leading-tight"
+      <div
+        className="relative overflow-hidden"
         style={{
-          fontFamily: 'var(--font-mono, monospace)',
-          fontSize: '1.35rem',
-          color: '#C9943A',
-          letterSpacing: '-0.02em',
+          backgroundColor: open ? '#FFFFFF' : 'rgba(255,255,255,0.7)',
+          border: `1px solid ${open ? accent + '30' : '#E5E2DA'}`,
+          borderLeft: `3px solid ${service.signature ? accent : accent + '60'}`,
+          borderRadius: '0 16px 0 16px',
+          transition: 'all 0.3s ease',
+          boxShadow: open ? '0 8px 32px rgba(0,0,0,0.08)' : 'none',
         }}
       >
-        {service.zar}
-      </p>
-
-      {/* USD equivalent */}
-      <p
-        style={{
-          fontFamily: 'var(--font-mono, monospace)',
-          fontSize: '0.7rem',
-          color: 'rgba(245,239,214,0.45)',
-          letterSpacing: '0.04em',
-          marginBottom: '0.75rem',
-        }}
-      >
-        {service.usd} USD
-      </p>
-
-      {/* Timeline badge */}
-      {(service.timeline || service.timelineNote) && (
-        <span
-          className="inline-block mb-3 px-2 py-0.5 rounded text-xs"
-          style={{
-            fontFamily: 'var(--font-dm-sans, sans-serif)',
+        {/* Signature badge */}
+        {service.signature && (
+          <span style={{
+            position: 'absolute',
+            top: 12,
+            right: 12,
+            fontFamily: 'var(--font-body, sans-serif)',
             fontSize: '10px',
-            color: '#8A9E7A',
-            backgroundColor: 'rgba(138,158,122,0.12)',
-            border: '1px solid rgba(138,158,122,0.25)',
-            alignSelf: 'flex-start',
-          }}
-        >
-          {service.timeline || service.timelineNote}
-        </span>
-      )}
+            fontWeight: 600,
+            color: accent,
+            backgroundColor: accent + '15',
+            border: `1px solid ${accent}30`,
+            padding: '2px 8px',
+            borderRadius: '20px',
+            letterSpacing: '0.06em',
+          }}>
+            ★ Signature
+          </span>
+        )}
 
-      {/* Proven by */}
-      {service.proven && (
-        <p
-          className="mt-auto pt-2"
-          style={{
-            fontFamily: 'var(--font-cormorant, var(--font-display, Georgia), serif)',
-            fontStyle: 'italic',
-            fontSize: '0.78rem',
-            color: 'rgba(201,164,76,0.7)',
-            borderTop: '1px solid rgba(255,255,255,0.05)',
-          }}
+        {/* Header — always visible */}
+        <button
+          onClick={() => setOpen(p => !p)}
+          className="w-full text-left"
+          style={{ padding: '20px 20px 16px' }}
         >
-          Proven by {service.proven}
-        </p>
-      )}
-    </div>
+          <div style={{ paddingRight: service.signature ? '90px' : '0' }}>
+            <h4
+              style={{
+                fontFamily: 'var(--font-display, Georgia, serif)',
+                fontSize: '1.15rem',
+                fontWeight: 700,
+                color: open ? accent : '#0A1128',
+                margin: '0 0 4px 0',
+                transition: 'color 0.2s',
+              }}
+            >
+              {service.name}
+            </h4>
+            <p style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '0.82rem',
+              color: '#6B6B6B',
+              margin: 0,
+              lineHeight: 1.5,
+            }}>
+              {service.tagline}
+            </p>
+          </div>
+
+          {/* What's included preview */}
+          <ul style={{ margin: '12px 0 0 0', padding: 0, listStyle: 'none' }}>
+            {service.includes.slice(0, 3).map((item, i) => (
+              <li key={i} style={{
+                fontFamily: 'var(--font-body, sans-serif)',
+                fontSize: '0.8rem',
+                color: '#4A4A4A',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '8px',
+                marginBottom: '4px',
+              }}>
+                <span style={{ color: accent, marginTop: '2px', flexShrink: 0, fontSize: '10px' }}>◆</span>
+                {item}
+              </li>
+            ))}
+            {service.includes.length > 3 && !open && (
+              <li style={{
+                fontFamily: 'var(--font-body, sans-serif)',
+                fontSize: '0.75rem',
+                color: '#9B9588',
+                paddingLeft: '18px',
+                marginBottom: '4px',
+              }}>
+                +{service.includes.length - 3} more included
+              </li>
+            )}
+          </ul>
+
+          {/* Toggle hint */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            marginTop: '14px',
+          }}>
+            <span style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              color: accent,
+            }}>
+              {open ? 'Hide pricing' : 'Reveal pricing'}
+            </span>
+            <motion.span
+              animate={{ rotate: open ? 180 : 0 }}
+              transition={{ duration: 0.25 }}
+              style={{ color: accent, fontSize: '12px', display: 'inline-block' }}
+            >
+              ↓
+            </motion.span>
+          </div>
+        </button>
+
+        {/* Revealed price */}
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              style={{ overflow: 'hidden' }}
+            >
+              <div style={{
+                padding: '0 20px 20px',
+                borderTop: `1px solid ${accent}15`,
+                marginTop: '4px',
+                paddingTop: '16px',
+              }}>
+                {/* Full includes list */}
+                {service.includes.length > 3 && (
+                  <ul style={{ margin: '0 0 16px 0', padding: 0, listStyle: 'none' }}>
+                    {service.includes.slice(3).map((item, i) => (
+                      <li key={i} style={{
+                        fontFamily: 'var(--font-body, sans-serif)',
+                        fontSize: '0.8rem',
+                        color: '#4A4A4A',
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '8px',
+                        marginBottom: '4px',
+                      }}>
+                        <span style={{ color: accent, marginTop: '2px', flexShrink: 0, fontSize: '10px' }}>◆</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* Price block */}
+                <div style={{
+                  backgroundColor: accent + '08',
+                  border: `1px solid ${accent}20`,
+                  borderRadius: '8px',
+                  padding: '14px 16px',
+                }}>
+                  <p style={{
+                    fontFamily: 'var(--font-display, Georgia, serif)',
+                    fontSize: '1.5rem',
+                    fontWeight: 700,
+                    color: accent,
+                    margin: '0 0 2px 0',
+                    letterSpacing: '-0.01em',
+                  }}>
+                    {service.zar}
+                  </p>
+                  <p style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '0.75rem',
+                    color: '#9B9588',
+                    margin: '0 0 8px 0',
+                  }}>
+                    {service.usd} USD · {service.timeline}
+                  </p>
+                  {service.proven && (
+                    <p style={{
+                      fontFamily: 'var(--font-cormorant, Georgia, serif)',
+                      fontStyle: 'italic',
+                      fontSize: '0.82rem',
+                      color: accent + 'CC',
+                      margin: 0,
+                    }}>
+                      Proven by {service.proven}
+                    </p>
+                  )}
+                </div>
+
+                <Link
+                  href="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    marginTop: '12px',
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: accent,
+                    textDecoration: 'none',
+                  }}
+                >
+                  Get a quote →
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
   );
 }
 
 export default function ConsultingPage() {
   return (
-    <div
-      className="min-h-screen"
-      style={{ color: '#1A1A1A', backgroundColor: '#0A1128' }}
-    >
-      {/* Grain texture */}
-      <div
-        className="fixed inset-0 pointer-events-none opacity-30 z-0"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
+    <div style={{ backgroundColor: '#FAFAF8', color: '#1A1A1A' }}>
 
-      {/* ── HERO — full navy ─────────────────────────────────────────────── */}
-      <section className="relative z-10 px-6 pt-32 pb-28 overflow-hidden" style={{ backgroundColor: '#0A1128' }}>
-        {/* Cherry blob */}
-        <div className="absolute top-0 right-0 w-80 h-80 pointer-events-none" style={{ backgroundColor: '#C1292E15', borderRadius: '0 0 0 100%' }} />
-        {/* Gold stripe */}
-        <div className="absolute left-0 top-40 w-1 h-24 bg-[#B8860B]/60 pointer-events-none" style={{ borderRadius: '0 4px 4px 0' }} />
+      {/* ── HERO ── */}
+      <section style={{
+        background: 'linear-gradient(135deg, #0A1128 0%, #1a2744 50%, #0A1128 100%)',
+        padding: 'clamp(80px, 12vw, 140px) 24px clamp(60px, 8vw, 100px)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Grain */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.3,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          pointerEvents: 'none',
+        }} />
+        {/* Cherry corner accent */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: '280px',
+          height: '280px',
+          backgroundColor: 'rgba(193,41,46,0.08)',
+          borderRadius: '0 0 0 100%',
+          pointerEvents: 'none',
+        }} />
 
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
           <FadeUp>
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C1292E] mb-5">
+            <p style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '11px',
+              letterSpacing: '0.3em',
+              textTransform: 'uppercase',
+              color: '#C1292E',
+              marginBottom: '20px',
+            }}>
               AI Engineering · Systems Architecture · Africa-first
             </p>
           </FadeUp>
           <FadeUp delay={0.05}>
-            <h1
-              className="font-display text-5xl md:text-7xl font-bold leading-[1.0] mb-8 text-white"
-              style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
-            >
+            <h1 style={{
+              fontFamily: 'var(--font-display, Georgia, serif)',
+              fontSize: 'clamp(2.4rem, 6vw, 5rem)',
+              fontWeight: 700,
+              lineHeight: 1.05,
+              color: '#FFFFFF',
+              marginBottom: '24px',
+            }}>
               You don&apos;t need to hire a team.{' '}
-              <br className="hidden md:block" />
-              You need{' '}
-              <span style={{ color: '#C1292E' }}>the right person.</span>
+              <span style={{ color: '#C1292E' }}>You need the right person.</span>
             </h1>
           </FadeUp>
-
           <FadeUp delay={0.1}>
-            <p
-              className="text-lg md:text-xl max-w-2xl leading-relaxed mb-10 text-white/60"
-              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-            >
+            <p style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '1.1rem',
+              color: 'rgba(255,255,255,0.6)',
+              maxWidth: '560px',
+              lineHeight: 1.7,
+              marginBottom: '36px',
+            }}>
               AI engineering, product strategy, and technical architecture — from
-              the founder who built seven Africa-first AI products in nine
-              months. Available for select engagements.
+              the founder who built seven Africa-first products in nine months.
             </p>
           </FadeUp>
-
-          <FadeUp delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+          <FadeUp delay={0.15}>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <a
-                href="#book"
-                className="inline-flex items-center justify-center px-7 py-4 rounded-full font-medium text-white transition-all hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
-                style={{ backgroundColor: '#C1292E', fontFamily: 'var(--font-body, sans-serif)' }}
+                href="#pricing"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '14px 28px',
+                  borderRadius: '50px',
+                  backgroundColor: '#C1292E',
+                  color: '#FFFFFF',
+                  fontFamily: 'var(--font-body, sans-serif)',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  textDecoration: 'none',
+                }}
               >
-                Book a Consultation
+                View Services & Pricing
               </a>
               <Link
                 href="/projects"
-                className="inline-flex items-center justify-center px-7 py-4 rounded-full font-medium transition-all hover:border-[#B8860B] hover:text-[#B8860B] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] text-white"
                 style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '14px 28px',
+                  borderRadius: '50px',
                   border: '1px solid rgba(255,255,255,0.2)',
+                  color: '#FFFFFF',
                   fontFamily: 'var(--font-body, sans-serif)',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  textDecoration: 'none',
                 }}
               >
-                View Projects
+                View Projects →
               </Link>
             </div>
           </FadeUp>
-
-          <FadeUp delay={0.3}>
-            <p
-              className="text-xs tracking-[0.2em] uppercase text-white/40"
-              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-            >
-              7 live products&nbsp;&nbsp;·&nbsp;&nbsp;Claude + Supabase +
-              Next.js&nbsp;&nbsp;·&nbsp;&nbsp;Africa-first AI&nbsp;&nbsp;·&nbsp;&nbsp;Available
-              globally
-            </p>
-          </FadeUp>
         </div>
-
-        {/* Diagonal divider */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none" style={{ background: 'linear-gradient(135deg, #0A1128 49%, #0A0F2C 50%)' }} />
       </section>
 
-      {/* ── EDITORIAL PRICING ─────────────────────────────────────────────── */}
-      <section className="relative z-10 px-6 pb-0 pt-4" style={{ backgroundColor: '#0A0F2C' }}>
-        {/* Grain */}
-        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-
-        <div className="max-w-5xl mx-auto relative z-10 pt-16">
+      {/* ── PRICING ── */}
+      <section id="pricing" style={{ backgroundColor: '#FAFAF8', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <FadeUp>
-            <p
-              className="mb-2"
-              style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: '0.65rem', color: '#C9943A', letterSpacing: '0.35em', textTransform: 'uppercase' }}
-            >
-              ENGAGEMENTS & PRICING
+            <p style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '11px',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: '#C1292E',
+              marginBottom: '8px',
+            }}>
+              Transparent pricing
             </p>
-            <h2
-              className="mb-4 leading-none"
-              style={{ fontFamily: 'var(--font-bebas, var(--font-display, Georgia), sans-serif)', fontSize: 'clamp(2.5rem, 6vw, 4rem)', color: '#FAF8F2', letterSpacing: '0.02em' }}
-            >
-              WHAT IT COSTS.
+            <h2 style={{
+              fontFamily: 'var(--font-display, Georgia, serif)',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              fontWeight: 700,
+              color: '#0A1128',
+              marginBottom: '8px',
+            }}>
+              Services & Engagements
             </h2>
-            <p
-              className="mb-16 max-w-xl"
-              style={{ fontFamily: 'var(--font-cormorant, Georgia, serif)', fontStyle: 'italic', fontSize: '1.1rem', color: 'rgba(250,248,242,0.55)', lineHeight: 1.6 }}
-            >
-              Transparent pricing. No hidden discovery costs. All rates in ZAR — USD equivalent at R18.50 per dollar.
+            <p style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '0.95rem',
+              color: '#6B6B6B',
+              marginBottom: '48px',
+              maxWidth: '520px',
+              lineHeight: 1.6,
+            }}>
+              All rates in ZAR — USD equivalent at R18.50 per dollar.
+              Tap any service to reveal full pricing.
             </p>
           </FadeUp>
 
-          {PRICING_CATEGORIES.map((cat, catIdx) => (
-            <div key={cat.id}>
-              {/* Diagonal separator between categories */}
-              {catIdx > 0 && (
-                <div
-                  className="relative h-8 my-0 pointer-events-none"
-                  style={{
-                    background: catIdx % 2 === 0
-                      ? 'linear-gradient(170deg, #0A0F2C 49%, #0D1535 50%)'
-                      : 'linear-gradient(170deg, #0D1535 49%, #0A0F2C 50%)',
-                  }}
-                />
-              )}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+            {CATEGORIES.map((cat) => (
+              <FadeUp key={cat.id}>
+                {/* Category header */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  marginBottom: '20px',
+                  paddingBottom: '12px',
+                  borderBottom: `2px solid ${cat.accent}20`,
+                }}>
+                  <div style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    backgroundColor: cat.accent,
+                    flexShrink: 0,
+                  }} />
+                  <p style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.28em',
+                    textTransform: 'uppercase',
+                    color: cat.accent,
+                    fontWeight: 600,
+                    margin: 0,
+                  }}>
+                    {cat.label}
+                  </p>
+                </div>
 
-              <div
-                className="relative px-0 pt-10 pb-12"
-                style={{
-                  backgroundColor: catIdx % 2 === 0 ? '#0A0F2C' : '#0D1535',
-                }}
-              >
-                <FadeUp>
-                  {/* Category stamp */}
-                  <div className="flex items-center gap-4 mb-8">
-                    <div
-                      style={{
-                        width: 28,
-                        height: 3,
-                        backgroundColor: cat.accent,
-                        borderRadius: 2,
-                        flexShrink: 0,
-                      }}
-                    />
-                    <p
-                      style={{
-                        fontFamily: 'var(--font-mono, monospace)',
-                        fontSize: '0.65rem',
-                        color: cat.accent,
-                        letterSpacing: '0.35em',
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      {cat.label}
-                    </p>
-                    <div
-                      style={{
-                        flex: 1,
-                        height: 1,
-                        backgroundColor: cat.accent + '20',
-                      }}
-                    />
-                  </div>
-                </FadeUp>
-
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-40px' }}
-                  variants={stagger}
-                  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
-                >
+                {/* Service cards grid */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 380px), 1fr))',
+                  gap: '12px',
+                }}>
                   {cat.services.map((service) => (
-                    <motion.div key={service.name} variants={fadeUp}>
-                      <ServiceCard service={service} accent={cat.accent} />
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-          ))}
-
-          {/* CTA after pricing */}
-          <FadeUp>
-            <div
-              className="mt-12 mb-0 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
-              style={{
-                backgroundColor: '#C1292E10',
-                border: '1px solid #C1292E30',
-                borderRadius: '0 24px 0 24px',
-              }}
-            >
-              <div>
-                <p
-                  style={{ fontFamily: 'var(--font-bebas, sans-serif)', fontSize: '1.6rem', color: '#FAF8F2', letterSpacing: '0.04em' }}
-                >
-                  NOT SURE WHICH TIER FITS?
-                </p>
-                <p
-                  style={{ fontFamily: 'var(--font-cormorant, Georgia, serif)', fontStyle: 'italic', color: 'rgba(250,248,242,0.5)', fontSize: '0.95rem', marginTop: 4 }}
-                >
-                  Send a brief and I&apos;ll scope it honestly.
-                </p>
-              </div>
-              <a
-                href="#book"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white transition-all hover:opacity-90 whitespace-nowrap"
-                style={{ backgroundColor: '#C1292E', fontFamily: 'var(--font-body, sans-serif)', fontSize: '0.875rem' }}
-              >
-                Book a Call →
-              </a>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* Diagonal divider to cream */}
-      <div className="relative h-16 pointer-events-none" style={{ background: 'linear-gradient(170deg, #0A0F2C 49%, #E8DCC4 50%)' }} />
-
-      {/* ── WHY ME ───────────────────────────────────────────────────────── */}
-      <section
-        className="relative py-20 px-6"
-        style={{ backgroundColor: '#E8DCC4' }}
-      >
-        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-5xl mx-auto relative z-10">
-          {/* Pull quote */}
-          <FadeUp>
-            <blockquote
-              className="font-display text-2xl md:text-3xl italic leading-relaxed mb-16 max-w-3xl"
-              style={{
-                fontFamily: 'var(--font-display, Georgia, serif)',
-                borderLeft: '3px solid #C1292E',
-                paddingLeft: '1.5rem',
-                color: '#0A1128',
-              }}
-            >
-              "I don&apos;t just know how to build with AI — I&apos;ve built seven
-              products that are live, indexed, paying users, and running in
-              production. The people I work with get that context applied to
-              their problem."
-            </blockquote>
-          </FadeUp>
-
-          <div className="grid md:grid-cols-5 gap-12">
-            {/* Credentials */}
-            <div className="md:col-span-3 space-y-5">
-              {CREDENTIALS.map((c, i) => (
-                <FadeUp key={c.heading}>
-                  <div
-                    className="p-6 relative overflow-hidden"
-                    style={{
-                      backgroundColor: '#0A1128',
-                      border: '1px solid #C1292E20',
-                      borderRadius: i % 2 === 0 ? '24px 8px 24px 8px' : '8px 24px 8px 24px',
-                    }}
-                  >
-                    <h4
-                      className="font-semibold mb-2 text-white"
-                      style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-                    >
-                      {c.heading}
-                    </h4>
-                    <p className="text-sm leading-relaxed text-white/60">
-                      {c.proof}
-                    </p>
-                  </div>
-                </FadeUp>
-              ))}
-            </div>
-
-            {/* Stack badges */}
-            <div className="md:col-span-2">
-              <FadeUp>
-                <p
-                  className="text-xs uppercase tracking-[0.2em] font-semibold mb-5 text-[#C1292E]"
-                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-                >
-                  What I build with
-                </p>
-                <div className="space-y-5">
-                  {STACK_GROUPS.map((group) => (
-                    <div key={group.label}>
-                      <p
-                        className="text-xs font-semibold mb-2 text-[#B8860B]"
-                        style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-                      >
-                        {group.label}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {group.items.map((item) => (
-                          <span
-                            key={item}
-                            className="text-xs px-3 py-1.5 rounded-full"
-                            style={{
-                              backgroundColor: '#0A1128',
-                              border: '1px solid #C1292E20',
-                              color: 'rgba(255,255,255,0.7)',
-                              fontFamily: 'var(--font-body, sans-serif)',
-                            }}
-                          >
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    <ServiceCard key={service.id} service={service} accent={cat.accent} />
                   ))}
                 </div>
               </FadeUp>
+            ))}
+          </div>
+
+          {/* Not sure CTA */}
+          <FadeUp>
+            <div style={{
+              marginTop: '48px',
+              padding: '28px 32px',
+              backgroundColor: 'rgba(193,41,46,0.04)',
+              border: '1px solid rgba(193,41,46,0.15)',
+              borderRadius: '0 24px 0 24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '12px',
+            }}
+            className="sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div>
+                <p style={{
+                  fontFamily: 'var(--font-display, Georgia, serif)',
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  color: '#0A1128',
+                  margin: '0 0 4px 0',
+                }}>
+                  Not sure which tier fits?
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-body, sans-serif)',
+                  fontStyle: 'italic',
+                  fontSize: '0.88rem',
+                  color: '#6B6B6B',
+                  margin: 0,
+                }}>
+                  Send a brief and I&apos;ll scope it honestly.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '12px 24px',
+                  borderRadius: '50px',
+                  backgroundColor: '#C1292E',
+                  color: '#FFFFFF',
+                  fontFamily: 'var(--font-body, sans-serif)',
+                  fontWeight: 600,
+                  fontSize: '0.85rem',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                }}
+              >
+                Get a Quote →
+              </Link>
             </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── WHY ME ── cream with cherry accent ── */}
+      <section style={{
+        background: 'linear-gradient(135deg, #F5EFE6 0%, #E8DCC4 100%)',
+        padding: 'clamp(48px, 8vw, 96px) 24px',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.18,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          pointerEvents: 'none',
+        }} />
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+          <FadeUp>
+            <blockquote style={{
+              fontFamily: 'var(--font-display, Georgia, serif)',
+              fontSize: 'clamp(1.2rem, 2.8vw, 1.8rem)',
+              fontStyle: 'italic',
+              lineHeight: 1.55,
+              color: '#0A1128',
+              borderLeft: '3px solid #C1292E',
+              paddingLeft: '24px',
+              marginBottom: '48px',
+              maxWidth: '760px',
+            }}>
+              &ldquo;I don&apos;t just know how to build with AI — I&apos;ve built seven
+              products that are live, indexed, paying users, and running in
+              production. The people I work with get that context applied to their problem.&rdquo;
+            </blockquote>
+          </FadeUp>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}>
+            {[
+              { heading: '7 production AI apps', proof: 'Built solo in 9 months — VarsityOS, K53, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, CreativelyNanda.', accent: '#C1292E' },
+              { heading: 'Africa-first engineering', proof: 'WhatsApp-native, PayFast-integrated, RLS-secured, load-shedding-aware. Built from inside the context.', accent: '#B8860B' },
+              { heading: 'The poet who codes', proof: 'Published author of Inside Her Roses. The only AI engineer writing system architecture and sonnets in the same week.', accent: '#2D4A22' },
+            ].map((c, i) => (
+              <FadeUp key={c.heading} delay={i * 0.08}>
+                <div style={{
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E5E2DA',
+                  borderLeft: `3px solid ${c.accent}`,
+                  borderRadius: '0 16px 0 16px',
+                  padding: '24px',
+                  boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+                }}>
+                  <h4 style={{
+                    fontFamily: 'var(--font-display, Georgia, serif)',
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    color: '#0A1128',
+                    margin: '0 0 8px 0',
+                  }}>
+                    {c.heading}
+                  </h4>
+                  <p style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '0.85rem',
+                    color: '#6B6B6B',
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}>
+                    {c.proof}
+                  </p>
+                </div>
+              </FadeUp>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
-      <section className="relative px-6 py-24" style={{ backgroundColor: '#0A1128' }}>
-        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-5xl mx-auto relative z-10">
+      {/* ── HOW IT WORKS ── white ── */}
+      <section style={{ backgroundColor: '#FFFFFF', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <FadeUp>
-            <h2
-              className="font-display text-3xl md:text-4xl font-bold mb-14 text-white"
-              style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
-            >
+            <h2 style={{
+              fontFamily: 'var(--font-display, Georgia, serif)',
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+              fontWeight: 700,
+              color: '#0A1128',
+              marginBottom: '48px',
+            }}>
               From first message to shipped product
             </h2>
           </FadeUp>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={stagger}
-            className="relative"
-          >
-            {/* Connector line (desktop only) */}
-            <div
-              className="hidden md:block absolute top-7 left-8 right-8 h-px"
-              style={{
-                backgroundImage: `repeating-linear-gradient(to right, #C1292E 0, #C1292E 8px, transparent 8px, transparent 18px)`,
-                zIndex: 0,
-              }}
-            />
+          <div style={{ position: 'relative' }}>
+            {/* connector line desktop */}
+            <div style={{
+              position: 'absolute',
+              top: '28px',
+              left: '7%',
+              right: '7%',
+              height: '1px',
+              backgroundImage: 'repeating-linear-gradient(to right, #C1292E 0, #C1292E 8px, transparent 8px, transparent 18px)',
+              zIndex: 0,
+            }} className="hidden md:block" />
 
-            <div className="grid md:grid-cols-4 gap-8 relative z-10">
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+              gap: '24px',
+              position: 'relative',
+              zIndex: 1,
+            }}>
               {STEPS.map((step) => (
-                <motion.div key={step.n} variants={fadeUp} className="text-center">
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-semibold text-sm"
-                    style={{
-                      backgroundColor: '#0A0F2C',
-                      border: '1px solid #C1292E',
-                      color: '#C1292E',
+                <FadeUp key={step.n}>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{
+                      width: '56px',
+                      height: '56px',
+                      borderRadius: '50%',
+                      border: '2px solid #C1292E',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      margin: '0 auto 16px',
+                      backgroundColor: '#FFFFFF',
                       fontFamily: 'var(--font-body, sans-serif)',
-                    }}
-                  >
-                    {step.n}
+                      fontWeight: 600,
+                      fontSize: '0.85rem',
+                      color: '#C1292E',
+                    }}>
+                      {step.n}
+                    </div>
+                    <p style={{
+                      fontFamily: 'var(--font-body, sans-serif)',
+                      fontSize: '0.85rem',
+                      color: '#4A4A4A',
+                      lineHeight: 1.5,
+                      margin: 0,
+                    }}>
+                      {step.label}
+                    </p>
                   </div>
-                  <p
-                    className="text-sm leading-snug text-white/60"
-                    style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-                  >
-                    {step.label}
-                  </p>
-                </motion.div>
+                </FadeUp>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── PAYMENT METHODS ──────────────────────────────────────────────── */}
-      <section
-        className="relative py-16 px-6"
-        style={{ backgroundColor: '#0D1535', borderTop: '1px solid #C1292E20' }}
-      >
-        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-5xl mx-auto relative z-10">
-          <FadeUp>
-            <p
-              className="text-xs uppercase tracking-[0.2em] font-semibold mb-8 text-[#C1292E]"
-              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-            >
-              Payment
-            </p>
-          </FadeUp>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <FadeUp>
-              <h4
-                className="font-semibold mb-2 text-white"
-                style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-              >
-                South African clients
-              </h4>
-              <p className="text-sm leading-relaxed text-white/60">
-                Invoiced in ZAR via PayFast. Bank transfer accepted for project
-                engagements over R20,000.
-              </p>
-              <span
-                className="inline-block mt-4 px-3 py-1.5 text-xs rounded-full"
-                style={{
-                  backgroundColor: '#FFFFFF10',
-                  border: '1px solid #B8860B40',
-                  color: '#B8860B',
-                  fontFamily: 'var(--font-body, sans-serif)',
-                }}
-              >
-                PayFast · ZAR
-              </span>
-            </FadeUp>
-
-            <FadeUp delay={0.1}>
-              <h4
-                className="font-semibold mb-2 text-white"
-                style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-              >
-                International clients
-              </h4>
-              <p className="text-sm leading-relaxed text-white/60">
-                Invoiced in USD, EUR, GBP, or KES via Wise. No conversion fees.
-                Same-day setup.
-              </p>
-              <span
-                className="inline-block mt-4 px-3 py-1.5 text-xs rounded-full"
-                style={{
-                  backgroundColor: '#FFFFFF10',
-                  border: '1px solid #FFFFFF20',
-                  color: 'rgba(255,255,255,0.7)',
-                  fontFamily: 'var(--font-body, sans-serif)',
-                }}
-              >
-                Wise · USD · EUR · GBP · KES
-              </span>
-            </FadeUp>
           </div>
         </div>
       </section>
 
-      {/* ── BOOK ─────────────────────────────────────────────────────────── */}
+      {/* ── PAYMENT ── cream ── */}
+      <section style={{
+        backgroundColor: '#F5EFE6',
+        padding: 'clamp(40px, 6vw, 72px) 24px',
+        borderTop: '1px solid #E5E2DA',
+      }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <FadeUp>
+            <p style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '11px',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: '#C1292E',
+              marginBottom: '24px',
+              fontWeight: 600,
+            }}>
+              Payment
+            </p>
+          </FadeUp>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
+            {[
+              {
+                title: 'South African clients',
+                body: 'Invoiced in ZAR via PayFast. Bank transfer accepted for projects over R20,000.',
+                badge: 'PayFast · ZAR',
+                badgeColor: '#B8860B',
+              },
+              {
+                title: 'International clients',
+                body: 'Invoiced in USD, EUR, GBP, or KES via Wise. No conversion fees. Same-day setup.',
+                badge: 'Wise · USD · EUR · GBP · KES',
+                badgeColor: '#0A1128',
+              },
+            ].map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.08}>
+                <div style={{
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E5E2DA',
+                  borderRadius: '0 16px 0 16px',
+                  padding: '24px',
+                }}>
+                  <h4 style={{
+                    fontFamily: 'var(--font-display, Georgia, serif)',
+                    fontSize: '1.05rem',
+                    fontWeight: 700,
+                    color: '#0A1128',
+                    margin: '0 0 8px 0',
+                  }}>
+                    {item.title}
+                  </h4>
+                  <p style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '0.85rem',
+                    color: '#6B6B6B',
+                    lineHeight: 1.6,
+                    margin: '0 0 16px 0',
+                  }}>
+                    {item.body}
+                  </p>
+                  <span style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    color: item.badgeColor,
+                    backgroundColor: item.badgeColor + '12',
+                    border: `1px solid ${item.badgeColor}25`,
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                  }}>
+                    {item.badge}
+                  </span>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BOOK — cherry ── */}
       <section
         id="book"
-        className="relative px-6 py-28 overflow-hidden"
-        style={{ backgroundColor: '#C1292E' }}
+        style={{
+          backgroundColor: '#C1292E',
+          padding: 'clamp(56px, 10vw, 112px) 24px',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
       >
-        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        {/* Asymmetric navy blob */}
-        <div className="absolute top-0 left-0 w-48 h-48 pointer-events-none" style={{ backgroundColor: '#0A112830', borderRadius: '0 0 100% 0' }} />
-        <div className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none" style={{ backgroundColor: '#0A112825', borderRadius: '100% 0 0 0' }} />
-
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.2,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          pointerEvents: 'none',
+        }} />
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
           <FadeUp>
-            <h2
-              className="font-display text-4xl md:text-5xl font-bold mb-12 text-white"
-              style={{ fontFamily: 'var(--font-display, Georgia, serif)' }}
-            >
+            <h2 style={{
+              fontFamily: 'var(--font-display, Georgia, serif)',
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              fontWeight: 700,
+              color: '#FFFFFF',
+              marginBottom: '40px',
+            }}>
               Start the conversation
             </h2>
           </FadeUp>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
             <FadeUp>
-              <div
-                className="p-8 flex flex-col gap-3"
-                style={{ backgroundColor: '#0A1128', borderRadius: '24px 8px 24px 8px', border: '1px solid rgba(255,255,255,0.1)' }}
-              >
-                <p
-                  className="text-xs uppercase tracking-[0.15em] font-semibold text-[#B8860B]"
-                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-                >
+              <div style={{
+                backgroundColor: '#0A1128',
+                borderRadius: '24px 8px 24px 8px',
+                border: '1px solid rgba(255,255,255,0.1)',
+                padding: '28px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
+              }}>
+                <p style={{
+                  fontFamily: 'var(--font-body, sans-serif)',
+                  fontSize: '10px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  color: '#B8860B',
+                  margin: 0,
+                }}>
                   Email me directly
                 </p>
                 <a
                   href="mailto:hello@creativelynanda.co.za"
-                  className="font-medium text-lg text-white hover:text-[#C1292E] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
-                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
+                  style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontWeight: 600,
+                    fontSize: '1rem',
+                    color: '#FFFFFF',
+                    textDecoration: 'none',
+                  }}
                 >
                   hello@creativelynanda.co.za
                 </a>
-                <p className="text-sm text-white/50">
+                <p style={{
+                  fontFamily: 'var(--font-body, sans-serif)',
+                  fontSize: '0.82rem',
+                  color: 'rgba(255,255,255,0.5)',
+                  margin: 0,
+                }}>
                   I respond within 24 hours.
                 </p>
               </div>
             </FadeUp>
 
-            <FadeUp delay={0.1}>
+            <FadeUp delay={0.08}>
               <Link
                 href="/contact"
-                className="flex flex-col justify-between p-8 transition-all group h-full hover:border-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                style={{ backgroundColor: '#0A1128', borderRadius: '8px 24px 8px 24px', border: '1px solid rgba(255,255,255,0.1)' }}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  backgroundColor: '#0A1128',
+                  borderRadius: '8px 24px 8px 24px',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  padding: '28px',
+                  textDecoration: 'none',
+                  minHeight: '120px',
+                }}
               >
                 <div>
-                  <p
-                    className="text-xs uppercase tracking-[0.15em] font-semibold mb-3 text-[#B8860B]"
-                    style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-                  >
+                  <p style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '10px',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600,
+                    color: '#B8860B',
+                    margin: '0 0 8px 0',
+                  }}>
                     Use the contact form
                   </p>
-                  <p className="text-sm text-white/60">
-                    Preferred for project briefs — gives me the context I need to respond meaningfully.
+                  <p style={{
+                    fontFamily: 'var(--font-body, sans-serif)',
+                    fontSize: '0.82rem',
+                    color: 'rgba(255,255,255,0.55)',
+                    margin: 0,
+                    lineHeight: 1.5,
+                  }}>
+                    Preferred for project briefs — gives me the context I need.
                   </p>
                 </div>
-                <span
-                  className="mt-6 inline-flex items-center gap-2 font-medium text-sm text-white group-hover:text-[#C1292E] transition-colors"
-                  style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-                >
-                  Go to contact form <span aria-hidden>→</span>
+                <span style={{
+                  fontFamily: 'var(--font-body, sans-serif)',
+                  fontWeight: 600,
+                  fontSize: '0.85rem',
+                  color: '#FFFFFF',
+                  marginTop: '20px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}>
+                  Go to contact form →
                 </span>
               </Link>
             </FadeUp>
           </div>
 
-          <FadeUp delay={0.2}>
-            <p
-              className="text-sm text-center text-white/60"
-              style={{ fontFamily: 'var(--font-body, sans-serif)' }}
-            >
-              No discovery calls unless you want one. A clear brief is enough to
-              get started.
+          <FadeUp delay={0.15}>
+            <p style={{
+              fontFamily: 'var(--font-body, sans-serif)',
+              fontSize: '0.85rem',
+              color: 'rgba(255,255,255,0.55)',
+              textAlign: 'center',
+            }}>
+              No discovery calls unless you want one. A clear brief is enough to get started.
             </p>
           </FadeUp>
         </div>
