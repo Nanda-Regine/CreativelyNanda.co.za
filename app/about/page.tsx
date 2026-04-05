@@ -30,7 +30,7 @@ function FadeUp({
 // ─── Data ───────────────────────────────────────────────────────────────────────
 const STATS = [
   { value: '7', label: 'Production Apps' },
-  { value: '2', label: 'Years of Building' },
+  { value: '9 mo', label: 'Zero to Production' },
   { value: '15', label: 'Academic Distinctions' },
   { value: '6', label: 'Certifications' },
 ];
@@ -56,26 +56,80 @@ const ANCESTRAL_CLANS = [
   },
 ];
 
-const BADGE_GROUPS = [
+const STACK = [
   {
-    category: 'AI & Engineering',
-    color: 'bg-[#C1292E]/10 text-[#C1292E] border border-[#C1292E]/20',
-    badges: ['Claude API', 'OpenAI', 'LangChain', 'Next.js', 'TypeScript', 'Supabase', 'Python'],
+    category: 'AI & Machine Learning',
+    accentColor: '#C9943A',
+    colSpan: 2,
+    skills: [
+      { name: 'Claude API', level: 'Expert' as const, note: 'Prompt caching, multi-agent systems, RAG' },
+      { name: 'Prompt Engineering', level: 'Expert' as const, note: 'Production cost optimisation, agent design' },
+      { name: 'AI Agent Architecture', level: 'Expert' as const, note: '5-agent AdminOS, 6-agent VarsityOS' },
+      { name: 'OpenAI GPT-4o', level: 'Advanced' as const, note: 'StokvelOS, comparison systems' },
+      { name: 'RAG & Embeddings', level: 'Advanced' as const, note: 'Vector search, Nanda AI chatbot' },
+      { name: 'MCP Integration', level: 'Advanced' as const, note: 'Model Context Protocol' },
+      { name: 'LangChain', level: 'Intermediate' as const, note: 'Pipeline orchestration' },
+    ],
   },
   {
-    category: 'Design & Creative',
-    color: 'bg-[#0A1128]/10 text-[#0A1128] border border-[#0A1128]/20',
-    badges: ['Figma', 'Framer Motion', 'Tailwind CSS', 'Brand Identity', 'Editorial Design'],
+    category: 'Frontend',
+    accentColor: '#2D4A22',
+    colSpan: 1,
+    skills: [
+      { name: 'Next.js 14 App Router', level: 'Expert' as const, note: 'Server Components, Edge, RSC' },
+      { name: 'React 18', level: 'Expert' as const, note: 'Hooks, performance, RSC patterns' },
+      { name: 'TypeScript (strict)', level: 'Expert' as const, note: 'Complex generics, type-safe APIs' },
+      { name: 'Tailwind CSS', level: 'Expert' as const, note: 'Design systems, custom tokens' },
+      { name: 'Framer Motion', level: 'Advanced' as const, note: 'Production animations, scroll-triggered' },
+      { name: 'PWA Development', level: 'Advanced' as const, note: 'Offline-first, installable (VarsityOS)' },
+      { name: 'Zustand', level: 'Advanced' as const, note: 'State management across all 7 apps' },
+    ],
   },
   {
-    category: 'Business & Strategy',
-    color: 'bg-[#B8860B]/10 text-[#6B5B10] border border-[#B8860B]/20',
-    badges: ['Product Strategy', 'Go-to-Market', 'Pricing Models', 'Financial Analysis', 'SWOT / PESTLE'],
+    category: 'Backend & Database',
+    accentColor: '#C9A84C',
+    colSpan: 1,
+    skills: [
+      { name: 'Supabase', level: 'Expert' as const, note: 'PostgreSQL, RLS, Auth, Realtime, Storage' },
+      { name: 'PostgreSQL + RLS', level: 'Expert' as const, note: 'Multi-tenant row-level security' },
+      { name: 'REST API Design', level: 'Expert' as const, note: 'Next.js API routes, webhook handlers' },
+      { name: 'Vercel Edge Functions', level: 'Advanced' as const, note: 'Cron jobs, edge middleware, streaming' },
+      { name: 'Node.js', level: 'Advanced' as const, note: 'Server-side logic, async/await patterns' },
+      { name: 'Upstash Redis', level: 'Intermediate' as const, note: 'Rate limiting, session cache, dedup' },
+    ],
   },
   {
-    category: 'Craft & Expression',
-    color: 'bg-[#C1292E]/10 text-[#C1292E] border border-[#C1292E]/20',
-    badges: ['Spoken Word Poetry', 'Luthier Arts', 'Public Speaking', 'Content Creation', 'Notion Systems'],
+    category: 'Payments & Commerce',
+    accentColor: '#7A9E7E',
+    colSpan: 1,
+    skills: [
+      { name: 'PayFast', level: 'Expert' as const, note: 'ZAR recurring SaaS, webhooks, prod' },
+      { name: 'LemonSqueezy', level: 'Advanced' as const, note: 'International digital products' },
+      { name: 'Xero API', level: 'Intermediate' as const, note: 'Invoice creation, client account sync' },
+      { name: 'Wise', level: 'Intermediate' as const, note: 'USD/EUR/GBP/KES international receipt' },
+    ],
+  },
+  {
+    category: 'Messaging & Comms',
+    accentColor: '#C9943A',
+    colSpan: 1,
+    skills: [
+      { name: 'Meta WhatsApp Cloud API', level: 'Advanced' as const, note: 'Business webhooks, HMAC auth' },
+      { name: 'Resend', level: 'Advanced' as const, note: 'Transactional email across all 7 apps' },
+      { name: 'Firebase Push (VAPID)', level: 'Advanced' as const, note: 'Push notifications, shared key 5 apps' },
+    ],
+  },
+  {
+    category: 'DevOps & Infrastructure',
+    accentColor: '#2D4A22',
+    colSpan: 1,
+    skills: [
+      { name: 'Vercel', level: 'Expert' as const, note: 'Deployments, cron, Edge, analytics' },
+      { name: 'GitHub', level: 'Expert' as const, note: '386+ commits across 7 repositories' },
+      { name: 'Sentry', level: 'Advanced' as const, note: '5 error monitoring projects live' },
+      { name: 'PostHog', level: 'Advanced' as const, note: 'Product analytics, 7 properties' },
+      { name: 'Arcjet', level: 'Intermediate' as const, note: 'Rate limiting in API routes' },
+    ],
   },
 ];
 
@@ -214,7 +268,7 @@ export default function About() {
 
             <FadeUp delay={0.2}>
               <p className="font-display text-xl italic text-[#C1292E] leading-relaxed max-w-xl">
-                Six months of code. Seven production apps. The arc was never accidental.
+                Nine months of code. Seven production apps. The arc was never accidental.
               </p>
             </FadeUp>
           </div>
@@ -317,7 +371,7 @@ export default function About() {
               The Story
             </p>
             <h2 className="font-display text-4xl font-bold text-[#0A1128] mb-6">
-              Business degree.<br />Self-taught engineer.<br />Seven apps. Two years.
+              Business degree.<br />Self-taught engineer.<br />Seven apps. Nine months.
             </h2>
             <div className="space-y-5 text-[#4A3728] leading-relaxed">
               <p>
@@ -388,39 +442,91 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── SKILLS — BADGE CLUSTER ─────────────────────────────────────────────── */}
-      <section className="relative z-10 py-20 px-6 bg-white/40">
-        <div className="max-w-5xl mx-auto">
+      {/* ── TECH STACK — EDITORIAL GRID ──────────────────────────────────────── */}
+      <section className="relative z-10 py-20 px-6" style={{ background: '#1A1A1A' }}>
+        {/* Grain */}
+        <div className="absolute inset-0 pointer-events-none opacity-30" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '300px 300px',
+        }} />
+        <div className="max-w-5xl mx-auto relative z-10">
           <FadeUp>
-            <p className="font-display text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#C9943A', letterSpacing: '0.35em', textTransform: 'uppercase', margin: '0 0 12px 0' }}>
               Skills & Tools
             </p>
-            <h2 className="font-display text-4xl font-bold text-[#0A1128] mb-12">
-              What I bring to the table.
+            <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(40px, 6vw, 72px)', color: '#FFFFFF', margin: '0 0 8px 0', letterSpacing: '0.02em', lineHeight: 0.95 }}>
+              WHAT I BRING
+            </h2>
+            <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(40px, 6vw, 72px)', color: '#C9943A', margin: '0 0 40px 0', letterSpacing: '0.02em', lineHeight: 0.95 }}>
+              TO THE TABLE.
             </h2>
           </FadeUp>
 
-          <div className="space-y-8">
-            {BADGE_GROUPS.map((group, i) => (
-              <FadeUp key={group.category} delay={i * 0.08}>
-                <div>
-                  <p className="text-xs tracking-widest uppercase text-[#6B6B6B] mb-3 font-medium">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
+            {STACK.map((group, i) => (
+              <FadeUp key={group.category} delay={i * 0.06} className={group.colSpan === 2 ? 'col-span-2' : ''}>
+                <div style={{
+                  position: 'relative',
+                  background: 'rgba(255,255,255,0.02)',
+                  border: `1px solid rgba(255,255,255,0.06)`,
+                  borderLeft: `4px solid ${group.accentColor}`,
+                  padding: '20px',
+                }}>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: group.accentColor, letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 14px 0' }}>
                     {group.category}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {group.badges.map((badge) => (
-                      <span
-                        key={badge}
-                        className={`px-4 py-2 rounded-full text-sm font-medium ${group.color}`}
-                      >
-                        {badge}
-                      </span>
-                    ))}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {group.skills.map((skill) => {
+                      const fillPct = skill.level === 'Expert' ? '100%' : skill.level === 'Advanced' ? '75%' : '50%';
+                      const fillColor = skill.level === 'Expert' ? group.accentColor : skill.level === 'Advanced' ? '#8A9E7A' : 'rgba(201,168,76,0.4)';
+                      return (
+                        <div key={skill.name}>
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '3px' }}>
+                            <span style={{ fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: '13px', color: '#FFFFFF', fontWeight: 600 }}>
+                              {skill.name}
+                            </span>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '7px', color: fillColor, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                              {skill.level}
+                            </span>
+                          </div>
+                          {/* Level bar */}
+                          <div style={{ height: '2px', background: 'rgba(255,255,255,0.06)', width: '100%', marginBottom: '3px' }}>
+                            <div style={{ height: '100%', width: fillPct, background: fillColor, transition: 'width 0.6s ease' }} />
+                          </div>
+                          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '11px', fontStyle: 'italic', color: 'rgba(245,240,232,0.4)', margin: 0 }}>
+                            {skill.note}
+                          </p>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </FadeUp>
             ))}
           </div>
+
+          {/* POPIA compliance block */}
+          <FadeUp delay={0.3}>
+            <div style={{
+              borderTop: '1px solid rgba(201,148,58,0.25)',
+              paddingTop: '24px',
+              marginTop: '60px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#C9943A', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
+                COMPLIANCE
+              </span>
+              <p style={{ fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: '14px', margin: 0, color: 'rgba(245,240,232,0.8)' }}>
+                <strong>POPIA Compliant</strong> · Reg. No: <strong>2026-005658</strong> · Registered: 2026-04-03
+              </p>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(201,148,58,0.6)', margin: 0 }}>
+                Mirembe Muse (Pty) Ltd · Information Officer: Kabali-Kagwa, Nandawula · Appointed 2025-08-28
+              </p>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
