@@ -79,7 +79,7 @@ export default function MagazineCover() {
           backgroundImage: GRAIN_SVG,
           backgroundRepeat: 'repeat',
           backgroundSize: '300px 300px',
-          opacity: 0.055,
+          opacity: 0.12,
           mixBlendMode: 'overlay',
           pointerEvents: 'none',
           zIndex: 5,
@@ -87,17 +87,17 @@ export default function MagazineCover() {
         }}
       />
 
-      {/* NEBULA BLOB — ancestral gold, right side near photo */}
+      {/* NEBULA BLOB — ancestral gold */}
       <div
         className="mag-nebula-gold"
         style={{
           position: 'absolute',
-          right: '-10%',
-          top: '10%',
-          width: '55%',
-          height: '70%',
+          right: '-5%',
+          top: '5%',
+          width: '70%',
+          height: '80%',
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.09) 0%, rgba(201,148,58,0.04) 45%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.22) 0%, rgba(201,148,58,0.10) 40%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 2,
           animation: 'nebula-gold 22s ease-in-out infinite',
@@ -105,17 +105,17 @@ export default function MagazineCover() {
         }}
       />
 
-      {/* NEBULA BLOB — cherry/deep red, bottom left */}
+      {/* NEBULA BLOB — cherry/deep red */}
       <div
         className="mag-nebula-cherry"
         style={{
           position: 'absolute',
           left: '-5%',
-          bottom: '5%',
-          width: '45%',
-          height: '55%',
+          bottom: '0%',
+          width: '60%',
+          height: '65%',
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse at center, rgba(193,41,46,0.07) 0%, rgba(107,15,32,0.04) 50%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(193,41,46,0.18) 0%, rgba(107,15,32,0.10) 50%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 2,
           animation: 'nebula-cherry 28s ease-in-out infinite',
