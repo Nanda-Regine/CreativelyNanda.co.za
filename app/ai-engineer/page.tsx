@@ -188,161 +188,54 @@ export default function AIEngineerPage() {
         </div>
       </section>
 
-      {/* ── DOSSIER TIERS — dark navy ─────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-[#0A1128]">
-        {/* Grain */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-20"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
-        <div className="max-w-5xl mx-auto relative z-10">
+      {/* ── ENGAGEMENTS — cream ───────────────────────────────────────────── */}
+      <section className="py-24 px-6 bg-gradient-to-br from-[#F5EFE6] via-[#FAF8F4] to-[#F0E8DC]">
+        <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <p
-              style={{
-                fontFamily: 'var(--font-mono, monospace)',
-                fontSize: '0.6rem',
-                color: '#C9943A',
-                letterSpacing: '0.4em',
-                textTransform: 'uppercase',
-                marginBottom: '0.5rem',
-              }}
-            >
-              CAPABILITY CLASSIFICATION
+            <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase mb-4 font-sans">
+              How we work together
             </p>
-            <h2
-              style={{
-                fontFamily: 'var(--font-bebas, var(--font-display, Georgia), sans-serif)',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                color: '#FAF8F2',
-                letterSpacing: '0.03em',
-                lineHeight: 1,
-              }}
-            >
-              ENGAGEMENT DOSSIERS.
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0A1128]">
+              Three ways to engage.
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-6">
             {DOSSIERS.map((dossier) => (
               <div
                 key={dossier.title}
-                className="relative overflow-hidden flex flex-col p-7"
+                className="flex flex-col bg-white rounded-2xl p-7 shadow-sm"
                 style={{
-                  backgroundColor: '#0D1535',
-                  border: `1px solid ${dossier.signature ? '#C9943A40' : 'rgba(255,255,255,0.07)'}`,
-                  borderTop: `3px solid ${dossier.signature ? '#C9943A' : '#C1292E50'}`,
-                  borderRadius: '0 16px 0 16px',
+                  borderTop: `3px solid ${dossier.signature ? '#B8860B' : '#C1292E'}`,
                 }}
               >
-                {/* Classification stamp */}
-                <p
-                  style={{
-                    fontFamily: 'var(--font-mono, monospace)',
-                    fontSize: '0.55rem',
-                    color: '#C9943A',
-                    letterSpacing: '0.4em',
-                    textTransform: 'uppercase',
-                    marginBottom: '0.75rem',
-                  }}
-                >
-                  ◆ CAPABILITY BRIEF
-                </p>
-
-                {/* Redaction bars */}
-                <div className="flex flex-col gap-1 mb-4">
-                  {[80, 60, 45].map((w, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        height: 4,
-                        width: `${w}%`,
-                        backgroundColor: 'rgba(255,255,255,0.06)',
-                        borderRadius: 2,
-                      }}
-                    />
-                  ))}
-                </div>
-
                 {/* Service name */}
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-bebas, var(--font-display, Georgia), sans-serif)',
-                    fontSize: '1.75rem',
-                    color: '#FAF8F2',
-                    letterSpacing: '0.04em',
-                    lineHeight: 1.1,
-                    marginBottom: '0.5rem',
-                  }}
-                >
+                <h3 className="font-display text-2xl font-bold text-[#0A1128] mb-3 leading-tight">
                   {dossier.title}
                 </h3>
 
-                <p
-                  className="text-sm leading-relaxed flex-1 mb-5"
-                  style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-body, sans-serif)' }}
-                >
+                <p className="text-sm leading-relaxed text-[#0A1128]/60 flex-1 mb-6">
                   {dossier.body}
                 </p>
 
-                {/* ZAR price */}
-                <p
-                  style={{
-                    fontFamily: 'var(--font-mono, monospace)',
-                    fontSize: '1.6rem',
-                    color: '#C9943A',
-                    letterSpacing: '-0.02em',
-                    fontWeight: 700,
-                    marginBottom: '0.2rem',
-                    lineHeight: 1,
-                  }}
-                >
-                  {dossier.zar}
-                </p>
-
-                {/* USD */}
-                <p
-                  style={{
-                    fontFamily: 'var(--font-mono, monospace)',
-                    fontSize: '0.68rem',
-                    color: 'rgba(245,239,214,0.4)',
-                    letterSpacing: '0.04em',
-                    marginBottom: dossier.proven ? '0.75rem' : '1.25rem',
-                  }}
-                >
-                  {dossier.usd}
-                </p>
-
-                {/* Proven by */}
-                {dossier.proven && (
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-cormorant, Georgia, serif)',
-                      fontStyle: 'italic',
-                      fontSize: '0.78rem',
-                      color: 'rgba(201,164,76,0.65)',
-                      borderTop: '1px solid rgba(255,255,255,0.06)',
-                      paddingTop: '0.6rem',
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    Proven by {dossier.proven}
+                {/* Price block */}
+                <div className="border-t border-[#0A1128]/8 pt-4 mb-5">
+                  <p className="font-display text-2xl font-bold text-[#0A1128] mb-0.5">
+                    {dossier.zar}
                   </p>
-                )}
+                  <p className="text-xs text-[#0A1128]/40 font-mono">{dossier.usd}</p>
+                  {dossier.proven && (
+                    <p className="font-display italic text-xs text-[#B8860B]/70 mt-2">
+                      Proven by {dossier.proven}
+                    </p>
+                  )}
+                </div>
 
                 {/* CTA */}
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-xs font-semibold transition-colors hover:opacity-70"
-                  style={{
-                    fontFamily: 'var(--font-mono, monospace)',
-                    color: '#C1292E',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    marginTop: 'auto',
-                  }}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#C1292E] hover:gap-3 transition-all"
                 >
-                  INITIATE PROJECT →
+                  Start the conversation →
                 </Link>
               </div>
             ))}
@@ -352,17 +245,9 @@ export default function AIEngineerPage() {
           <div className="mt-10 text-center">
             <Link
               href="/consulting"
-              style={{
-                fontFamily: 'var(--font-mono, monospace)',
-                fontSize: '0.7rem',
-                color: 'rgba(201,148,58,0.7)',
-                letterSpacing: '0.25em',
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-              }}
-              className="hover:opacity-100 opacity-70 transition-opacity"
+              className="text-[#0A1128]/50 text-xs tracking-widest uppercase font-mono hover:text-[#0A1128] transition-colors"
             >
-              VIEW FULL PRICING BREAKDOWN →
+              View full pricing breakdown →
             </Link>
           </div>
         </div>
