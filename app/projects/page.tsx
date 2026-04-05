@@ -662,9 +662,9 @@ export default function ProjectsPage() {
             {/* Stats bar */}
             <div style={{ display: 'flex', gap: '0', flexWrap: 'wrap' as const }}>
               {[
+                { v: '17', l: 'Portfolio Projects' },
                 { v: '7', l: 'Live AI SaaS Products' },
                 { v: '550+', l: 'GitHub Commits' },
-                { v: '36+', l: 'Technologies' },
                 { v: '9 Months', l: 'Zero → Production' },
               ].map(({ v, l }, i) => (
                 <div key={l} style={{
