@@ -44,7 +44,7 @@ export default function MagazineCover() {
         zIndex: 5,
       }} />
 
-      {/* VERTICAL SPINE (left gold bar) */}
+      {/* VERTICAL SPINE */}
       <div style={{
         position: 'absolute',
         left: 0,
@@ -86,8 +86,8 @@ export default function MagazineCover() {
         borderBottom: '1px solid rgba(201,148,58,0.25)',
         flexShrink: 0,
       }}>
-        {/* Left meta — desktop only */}
-        <div className="hidden md:block" style={{ width: '120px', flexShrink: 0 }}>
+        {/* Left meta */}
+        <div style={{ width: '100px', flexShrink: 0 }}>
           <span style={{
             fontFamily: 'var(--font-mono, monospace)',
             fontSize: '9px',
@@ -100,7 +100,7 @@ export default function MagazineCover() {
         {/* Centre: magazine title */}
         <h1 style={{
           fontFamily: 'var(--font-bebas, sans-serif)',
-          fontSize: 'clamp(48px, 9.5vw, 108px)',
+          fontSize: 'clamp(42px, 9vw, 108px)',
           lineHeight: 0.88,
           letterSpacing: '0.03em',
           color: '#FFFFFF',
@@ -112,8 +112,8 @@ export default function MagazineCover() {
           <span style={{ color: '#C9943A' }}>NANDA</span>
         </h1>
 
-        {/* Right meta — desktop only */}
-        <div className="hidden md:block" style={{ width: '120px', flexShrink: 0, textAlign: 'right' }}>
+        {/* Right meta */}
+        <div style={{ width: '100px', flexShrink: 0, textAlign: 'right' }}>
           <span style={{
             fontFamily: 'var(--font-mono, monospace)',
             fontSize: '8px',
@@ -123,12 +123,12 @@ export default function MagazineCover() {
             lineHeight: 1.8,
             display: 'block',
           }}>
-            EAST LONDON<br />SOUTH AFRICA<br />APRIL 2026
+            EAST LONDON<br />SOUTH AFRICA
           </span>
         </div>
       </div>
 
-      {/* NAV — slim bar below masthead (desktop only) */}
+      {/* NAV — desktop only */}
       <nav className="hidden md:flex" style={{
         position: 'relative',
         zIndex: 30,
@@ -177,60 +177,148 @@ export default function MagazineCover() {
         minHeight: 0,
       }}>
 
-        {/* LEFT COVERLINES — desktop only */}
-        <div className="hidden md:flex" style={{
-          width: '160px',
+        {/* ── LEFT COVERLINES — visible on ALL screen sizes ── */}
+        <div style={{
+          width: 'clamp(72px, 14vw, 160px)',
           flexShrink: 0,
+          display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           gap: '0px',
-          paddingRight: '12px',
-          paddingTop: '24px',
-          paddingBottom: '80px',
+          paddingRight: '8px',
+          paddingTop: '16px',
+          paddingBottom: '60px',
           zIndex: 20,
           position: 'relative',
         }}>
           {/* Coverline 1 */}
-          <div style={{ marginBottom: '16px' }}>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: '#C9943A', letterSpacing: '0.28em', textTransform: 'uppercase', margin: '0 0 5px 0' }}>
-              Inside This Issue
+          <div style={{ marginBottom: '12px' }}>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(6px, 1.2vw, 8px)',
+              color: '#C9943A',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              margin: '0 0 4px 0',
+            }}>
+              Inside
             </p>
-            <p style={{ fontFamily: 'var(--font-bebas)', fontSize: '32px', color: '#FFFFFF', lineHeight: '0.95', margin: '0 0 5px 0', letterSpacing: '0.02em' }}>
+            <p style={{
+              fontFamily: 'var(--font-bebas)',
+              fontSize: 'clamp(22px, 4.5vw, 32px)',
+              color: '#FFFFFF',
+              lineHeight: '0.95',
+              margin: '0 0 4px 0',
+              letterSpacing: '0.02em',
+            }}>
               7 APPS.
             </p>
-            <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '12px', fontStyle: 'italic', color: 'rgba(245,240,232,0.65)', margin: 0, lineHeight: 1.45 }}>
-              One woman. East London.<br />Africa&apos;s OS.
+            <p style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontSize: 'clamp(9px, 1.5vw, 12px)',
+              fontStyle: 'italic',
+              color: 'rgba(245,240,232,0.65)',
+              margin: 0,
+              lineHeight: 1.4,
+            }}>
+              One woman.<br />Africa&apos;s OS.
             </p>
           </div>
 
-          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.35)', margin: '0 0 16px 0' }} />
+          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.35)', margin: '0 0 12px 0' }} />
 
           {/* Coverline 2 */}
-          <div style={{ marginBottom: '16px' }}>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: '#C9943A', letterSpacing: '0.28em', textTransform: 'uppercase', margin: '0 0 5px 0' }}>
+          <div style={{ marginBottom: '12px' }}>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(6px, 1.2vw, 8px)',
+              color: '#C9943A',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              margin: '0 0 4px 0',
+            }}>
               The Build
             </p>
-            <p style={{ fontFamily: 'var(--font-bebas)', fontSize: '26px', color: '#FFFFFF', lineHeight: '0.95', margin: '0 0 5px 0', letterSpacing: '0.02em' }}>
-              POET WHO<br />CODES
+            <p style={{
+              fontFamily: 'var(--font-bebas)',
+              fontSize: 'clamp(18px, 3.5vw, 26px)',
+              color: '#FFFFFF',
+              lineHeight: '0.95',
+              margin: '0 0 4px 0',
+              letterSpacing: '0.02em',
+            }}>
+              POET<br />WHO CODES
             </p>
-            <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '12px', fontStyle: 'italic', color: 'rgba(245,240,232,0.65)', margin: 0, lineHeight: 1.45 }}>
-              Where Ubuntu becomes<br />architecture
+            <p className="hidden md:block" style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontSize: '11px',
+              fontStyle: 'italic',
+              color: 'rgba(245,240,232,0.65)',
+              margin: 0,
+              lineHeight: 1.4,
+            }}>
+              Ubuntu as<br />architecture
             </p>
           </div>
 
-          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.35)', margin: '0 0 16px 0' }} />
+          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.35)', margin: '0 0 12px 0' }} />
 
           {/* Coverline 3 */}
           <div>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: '#C9943A', letterSpacing: '0.28em', textTransform: 'uppercase', margin: '0 0 5px 0' }}>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(6px, 1.2vw, 8px)',
+              color: '#C9943A',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              margin: '0 0 4px 0',
+            }}>
               Ubuntu Tech
             </p>
-            <p style={{ fontFamily: 'var(--font-bebas)', fontSize: '28px', color: '#FFFFFF', lineHeight: '0.95', margin: '0 0 5px 0', letterSpacing: '0.02em' }}>
-              R50 BILLION
+            <p style={{
+              fontFamily: 'var(--font-bebas)',
+              fontSize: 'clamp(18px, 3.5vw, 28px)',
+              color: '#FFFFFF',
+              lineHeight: '0.95',
+              margin: '0 0 4px 0',
+              letterSpacing: '0.02em',
+            }}>
+              R50 BN
             </p>
-            <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '12px', fontStyle: 'italic', color: 'rgba(245,240,232,0.65)', margin: 0, lineHeight: 1.45 }}>
-              The stokvel economy.<br />Finally protected.
+            <p className="hidden md:block" style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontSize: '11px',
+              fontStyle: 'italic',
+              color: 'rgba(245,240,232,0.65)',
+              margin: 0,
+              lineHeight: 1.4,
+            }}>
+              Stokvels.<br />Finally protected.
             </p>
+          </div>
+
+          {/* Quote — desktop only, bottom of left column */}
+          <div className="hidden md:block" style={{ marginTop: 'auto', paddingTop: '16px' }}>
+            <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.2)', marginBottom: '10px' }} />
+            <p style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontSize: '10.5px',
+              fontStyle: 'italic',
+              color: 'rgba(245,240,232,0.42)',
+              lineHeight: 1.6,
+              margin: '0 0 5px 0',
+            }}>
+              &ldquo;she learned to speak<br />
+              in two tongues —<br />
+              code and longing.&rdquo;
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '7.5px',
+              color: 'rgba(201,148,58,0.5)',
+              letterSpacing: '0.18em',
+              margin: 0,
+            }}>— N.R.K-K.</p>
           </div>
         </div>
 
@@ -239,7 +327,7 @@ export default function MagazineCover() {
           position: 'absolute',
           bottom: 0,
           left: '50%',
-          transform: 'translateX(-30%)',
+          transform: 'translateX(-32%)',
           height: '88%',
           zIndex: 15,
           display: 'flex',
@@ -262,71 +350,76 @@ export default function MagazineCover() {
           />
         </div>
 
-        {/* COVER QUOTE — lower left, desktop only */}
-        <div className="hidden md:block" style={{
+        {/* ── RIGHT COVERLINES — visible on ALL screen sizes ── */}
+        <div style={{
           position: 'absolute',
-          bottom: '72px',
-          left: '28px',
-          zIndex: 25,
-          maxWidth: '150px',
-        }}>
-          <p style={{
-            fontFamily: 'var(--font-cormorant)',
-            fontSize: '11.5px',
-            fontStyle: 'italic',
-            color: 'rgba(245,240,232,0.45)',
-            lineHeight: 1.65,
-            margin: '0 0 5px 0',
-          }}>
-            &ldquo;she learned to speak<br />
-            in two tongues —<br />
-            the language of systems<br />
-            and the language of longing.&rdquo;
-          </p>
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '8px',
-            color: 'rgba(201,148,58,0.55)',
-            letterSpacing: '0.18em',
-            margin: 0,
-          }}>— N.R.K-K.</p>
-        </div>
-
-        {/* RIGHT COVERLINES + BARCODE — desktop only */}
-        <div className="hidden md:flex" style={{
-          position: 'absolute',
-          right: '14px',
+          right: '8px',
           top: '0',
           bottom: '0',
-          width: '130px',
+          width: 'clamp(72px, 13vw, 130px)',
+          display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          gap: '10px',
-          paddingBottom: '60px',
+          gap: '8px',
+          paddingBottom: '50px',
           zIndex: 20,
           textAlign: 'right',
         }}>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8.5px', color: '#C9943A', letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0, lineHeight: 1.6 }}>
-            Consulting from<br />R8,000/mo
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(6.5px, 1.2vw, 8.5px)',
+            color: '#C9943A',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            margin: 0,
+            lineHeight: 1.6,
+          }}>
+            From<br />R8,000/mo
           </p>
-          <p style={{ fontFamily: 'var(--font-bebas)', fontSize: '19px', color: '#FFFFFF', margin: 0, letterSpacing: '0.04em' }}>
-            300+ ACTIVE USERS
+          <p style={{
+            fontFamily: 'var(--font-bebas)',
+            fontSize: 'clamp(14px, 2.5vw, 19px)',
+            color: '#FFFFFF',
+            margin: 0,
+            letterSpacing: '0.04em',
+          }}>
+            300+ USERS
           </p>
-          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.3)' }} />
-          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '13px', fontStyle: 'italic', color: '#F5F0E8', margin: 0 }}>
+          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.3)', marginLeft: 'auto' }} />
+          <p style={{
+            fontFamily: 'var(--font-cormorant)',
+            fontSize: 'clamp(10px, 1.8vw, 13px)',
+            fontStyle: 'italic',
+            color: '#F5F0E8',
+            margin: 0,
+          }}>
             Inside Her Roses
           </p>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8.5px', color: '#C9943A', letterSpacing: '0.22em', margin: 0 }}>
-            POETRY · CODE<br />· POWER
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(6px, 1.1vw, 8px)',
+            color: '#C9943A',
+            letterSpacing: '0.18em',
+            margin: 0,
+            lineHeight: 1.6,
+          }}>
+            POETRY<br />CODE · POWER
           </p>
-          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.3)' }} />
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: 'rgba(201,148,58,0.6)', margin: 0, lineHeight: 1.7, letterSpacing: '0.12em' }}>
-            POPIA COMPLIANT<br />REG. 2026-005658
+          <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.3)', marginLeft: 'auto' }} />
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(5.5px, 1vw, 7.5px)',
+            color: 'rgba(201,148,58,0.6)',
+            margin: 0,
+            lineHeight: 1.7,
+            letterSpacing: '0.1em',
+          }}>
+            POPIA<br />2026-005658
           </p>
 
-          {/* DECORATIVE BARCODE */}
-          <div style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-            <svg width="80" height="46" viewBox="0 0 80 46" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
+          {/* BARCODE — desktop only */}
+          <div className="hidden md:flex" style={{ marginTop: '6px', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <svg width="72" height="40" viewBox="0 0 80 46" xmlns="http://www.w3.org/2000/svg">
               {[1,3,6,8,10,13,15,17,19,22,24,26,28,31,33,35,37,39,42,44,46,49,51,53,55,58,60,62,64,66,69,71,73,75,78].map((x, i) => (
                 <rect
                   key={i}
@@ -338,44 +431,19 @@ export default function MagazineCover() {
                 />
               ))}
             </svg>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '7px', color: 'rgba(245,240,232,0.28)', letterSpacing: '0.14em', margin: '3px 0 0 0' }}>
-              ISSUE 001 · APRIL 2026
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '6.5px',
+              color: 'rgba(245,240,232,0.28)',
+              letterSpacing: '0.12em',
+              margin: '2px 0 0 0',
+            }}>
+              ISSUE 001 · 2026
             </p>
           </div>
         </div>
 
-        {/* MOBILE descriptor + name treatment */}
-        <div style={{
-          position: 'absolute',
-          bottom: '60px',
-          left: 0,
-          right: 0,
-          textAlign: 'center',
-          zIndex: 25,
-          padding: '0 20px',
-        }} className="md:hidden">
-          <p style={{
-            fontFamily: 'var(--font-cormorant)',
-            fontSize: '13px',
-            fontStyle: 'italic',
-            color: 'rgba(245,240,232,0.75)',
-            margin: '0 0 4px 0',
-          }}>
-            AI Engineer · Published Poet · Founder, Mirembe Muse
-          </p>
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '8px',
-            color: 'rgba(201,148,58,0.7)',
-            letterSpacing: '0.2em',
-            margin: 0,
-            textTransform: 'uppercase',
-          }}>
-            POPIA COMPLIANT · 2026-005658
-          </p>
-        </div>
-
-        {/* FULL NAME below masthead — mobile visible */}
+        {/* FULL NAME — mobile, top of cover area */}
         <div style={{
           position: 'absolute',
           top: '8px',
@@ -392,11 +460,11 @@ export default function MagazineCover() {
             margin: 0,
             textTransform: 'uppercase',
           }}>
-            Nandawula Regine Kabali-Kagwa
+            Nandawula Regine
           </p>
         </div>
 
-        {/* FULL NAME treatment — desktop, below masthead left */}
+        {/* FULL NAME — desktop */}
         <div className="hidden md:block" style={{
           position: 'absolute',
           top: '8px',
@@ -413,6 +481,27 @@ export default function MagazineCover() {
             margin: 0,
           }}>
             Nandawula Regine Kabali-Kagwa
+          </p>
+        </div>
+
+        {/* MOBILE descriptor — bottom center */}
+        <div style={{
+          position: 'absolute',
+          bottom: '60px',
+          left: 0,
+          right: 0,
+          textAlign: 'center',
+          zIndex: 25,
+          padding: '0 90px',
+        }} className="md:hidden">
+          <p style={{
+            fontFamily: 'var(--font-cormorant)',
+            fontSize: '12px',
+            fontStyle: 'italic',
+            color: 'rgba(245,240,232,0.7)',
+            margin: 0,
+          }}>
+            AI Engineer · Poet · Founder
           </p>
         </div>
       </div>
@@ -441,7 +530,11 @@ export default function MagazineCover() {
           }
           .magazine-ticker-track:hover { animation-play-state: paused; }
           @media (max-width: 767px) {
-            .photo-container { left: 50% !important; transform: translateX(-50%) !important; height: 72% !important; }
+            .photo-container {
+              left: 50% !important;
+              transform: translateX(-50%) !important;
+              height: 65% !important;
+            }
           }
         `}</style>
         <div className="magazine-ticker-track">
