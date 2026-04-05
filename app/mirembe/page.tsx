@@ -204,10 +204,10 @@ export default function MirembePage() {
           <FadeUp className="mb-10">
             <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase font-sans mb-3">The proof</p>
             <h2 className="font-display text-4xl font-bold text-white">
-              Seven apps. One founder. Two years.
+              Seven apps. One founder. Nine months.
             </h2>
             <p className="text-white/50 mt-3 max-w-xl text-sm leading-relaxed">
-              Each app solves a real African problem. All built solo. All in production. None of them demos.
+              Each app solves a real African problem. All built solo. All in production. None of them demos. Nine months from zero coding knowledge to seven live AI SaaS applications.
             </p>
           </FadeUp>
 
@@ -229,6 +229,57 @@ export default function MirembePage() {
               </FadeUp>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── UBUNTU AS ARCHITECTURE ──────────────────────────────────── */}
+      <section className="relative py-24 px-6 bg-[#0A1128]">
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-3xl mx-auto relative z-10">
+          <FadeUp>
+            <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase font-sans mb-4">Philosophy</p>
+            <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(36px, 6vw, 64px)', color: '#FFFFFF', margin: '0 0 20px 0', letterSpacing: '0.02em', lineHeight: 1 }}>
+              UBUNTU AS ARCHITECTURE.
+            </h2>
+            <p className="text-white/75 text-lg leading-relaxed mb-8">
+              Ubuntu — &ldquo;I am because we are&rdquo; — is not philosophy at Mirembe Muse. It is embedded in
+              the technical decisions. StokvelOS protects community savings because community built the wealth.
+              AdminOS serves SMEs because an SME ecosystem sustains communities. VarsityOS supports students
+              because their success strengthens the country. Every product in this portfolio is Ubuntu made digital.
+            </p>
+          </FadeUp>
+
+          {/* Company facts block */}
+          <FadeUp delay={0.2}>
+            <div style={{ border: '1px solid rgba(201,148,58,0.3)', padding: '24px', background: 'rgba(201,148,58,0.03)' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '8px', color: '#C9943A', letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 14px 0' }}>
+                Company Facts
+              </p>
+              <div style={{ display: 'grid', gap: '8px' }}>
+                {[
+                  ['Company', 'Mirembe Muse (Pty) Ltd'],
+                  ['Registered', 'South Africa (CIPC)'],
+                  ['Location', 'East London, Eastern Cape'],
+                  ['Founded', '2025'],
+                  ['POPIA Registration', '2026-005658 · Registered 2026-04-03'],
+                  ['Information Officer', 'Kabali-Kagwa, Nandawula · Appointed 2025-08-28'],
+                  ['Products', '7 live SaaS applications'],
+                  ['Build time', '9 months from zero coding knowledge'],
+                  ['Tech', 'Next.js · TypeScript · Supabase · Claude API · PayFast · Vercel'],
+                  ['Philosophy', 'Ubuntu — I am because we are'],
+                ].map(([k, v]) => (
+                  <div key={k} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(201,148,58,0.6)', letterSpacing: '0.15em', minWidth: '180px', paddingTop: '2px' }}>
+                      {k}
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: '13px', color: 'rgba(245,240,232,0.8)' }}>
+                      {v}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
