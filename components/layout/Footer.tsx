@@ -74,6 +74,17 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* POPIA Badge */}
+        <div className="border-t border-beige/10 pt-4 mb-4 flex flex-wrap items-center gap-2">
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: '#8A9E7A', letterSpacing: '0.1em' }}>
+            🛡 POPIA Compliant · Registration No. 2026-005658
+          </span>
+          <span className="text-beige/20 text-xs">·</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: '#8A9E7A', letterSpacing: '0.08em' }}>
+            Information Regulator of South Africa
+          </span>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-beige/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-beige/60 text-sm">
