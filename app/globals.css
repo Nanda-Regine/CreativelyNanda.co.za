@@ -38,6 +38,18 @@
   --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
 
+  /* Magazine Design System */
+  --navy: #0A0F2C;
+  --ancestral-gold: #C9A84C;
+  --sage: #8A9E7A;
+  --cream: #F5EFD6;
+  --cherry: #8B1A2F;
+  --deep-red: #6B0F20;
+  --rose-blush: #C4566A;
+  --charcoal: #1A1A1A;
+  --off-white: #FAF8F2;
+  --grain-opacity: 0.04;
+
   /* Colors as CSS Variables (for non-Tailwind usage) */
   --color-navy: #1a1a2e;
   --color-navy-deep: #0A1128;
@@ -54,10 +66,14 @@
 }
 
 body {
-  font-family: var(--font-manrope);
+  font-family: var(--font-dm-sans, var(--font-manrope), sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+h1, h2, .masthead { font-family: var(--font-bebas, var(--font-cormorant), sans-serif); }
+.editorial { font-family: var(--font-cormorant), serif; }
+code, .mono { font-family: var(--font-mono), monospace; }
 
 html {
   scroll-behavior: smooth;

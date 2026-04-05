@@ -8,6 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Magazine Design System
+        'navy-mag': '#0A0F2C',
+        'ancestral-gold': '#C9A84C',
+        'sage-mag': '#8A9E7A',
+        'cream-mag': '#F5EFD6',
+        'cherry-mag': '#8B1A2F',
+        'deep-red': '#6B0F20',
+        'rose-blush-mag': '#C4566A',
+        charcoal: '#1A1A1A',
+        'off-white': '#FAF8F2',
+
         // Core Brand
         navy: '#1a1a2e',
         cherry: '#c21e56',
@@ -55,13 +66,17 @@ module.exports = {
         // Display/Headings
         display: ['var(--font-cormorant)', 'serif'],
         cormorant: ['var(--font-cormorant)', 'serif'],
+        // Magazine Masthead
+        bebas: ['var(--font-bebas)', 'sans-serif'],
         // Body Text
-        body: ['var(--font-manrope)', 'sans-serif'],
+        body: ['var(--font-dm-sans)', 'var(--font-manrope)', 'sans-serif'],
+        'dm-sans': ['var(--font-dm-sans)', 'sans-serif'],
         manrope: ['var(--font-manrope)', 'sans-serif'],
+        // Code / Mono
+        mono: ['var(--font-mono)', 'monospace'],
+        'ibm-mono': ['var(--font-mono)', 'monospace'],
         // Poetry/Literary
         lora: ['Lora', 'serif'],
-        // Code
-        mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
         // Handwritten Accents
         satisfy: ['Satisfy', 'cursive'],
       },

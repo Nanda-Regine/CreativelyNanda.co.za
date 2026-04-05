@@ -1,5 +1,5 @@
 import './globals.css';
-import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import { Cormorant_Garamond, Manrope, Bebas_Neue, DM_Sans, IBM_Plex_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import Navigation from '@/components/layout/Navigation';
@@ -20,6 +20,26 @@ const manrope = Manrope({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-manrope',
+  display: 'swap',
+});
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bebas',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+const ibmMono = IBM_Plex_Mono({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  variable: '--font-mono',
   display: 'swap',
 });
 
@@ -116,7 +136,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${bebasNeue.variable} ${dmSans.variable} ${ibmMono.variable}`}>
       <head>
         <JsonLd data={generateWebSiteJsonLd()} />
         <JsonLd data={generatePersonJsonLd()} />
