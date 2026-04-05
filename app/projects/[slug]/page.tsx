@@ -89,36 +89,58 @@ const projects: Record<string, ProjectData> = {
       'campus-compass',
     ],
     buildJourney: {
-      narrative: `VarsityOS started from a single statistic: South Africa's university dropout rate is over 50%. Behind that number are students who didn't fail academically — they failed at navigation. They couldn't find accommodation, couldn't manage their NSFAS budget, couldn't access mental health support at 2am when the spiral began. VarsityOS was built to be that 2am resource.
+      narrative: `VarsityOS was built around a single question: what does a first-generation SA university student actually need to survive and thrive? Not a generic student planner. Not a ChatGPT wrapper. Infrastructure — NSFAS budgeting, load-shedding study strategies, crisis support, part-time work balancing, all with 11-language awareness, woven together with an AI companion named Nova.
 
-The multi-agent architecture was the core challenge: six specialist Claude agents (Study Coach, Budget Manager, Meal Planner, Wellness Monitor, Registration Guide, Crisis Detector) had to coordinate without duplicating context or burning API tokens. The solution was a shared session store in Supabase with per-agent context windows and a routing layer that classifies intent before dispatching.
+The 15-table Supabase schema (profiles, budgets, expenses, tasks, modules, exams, meals, shifts, wellness entries) was built with full RLS from day one. 14 strategic indexes. Auto-triggers for profile creation, updated_at, and task completion timestamps. The database layer carries the complexity so the AI layer can stay focused.
 
-Crisis detection was the most sensitive engineering decision: when a student mentions self-harm or suicidal ideation, the system must respond with care, not a chatbot reply. The implementation surfaces SADAG and Lifeline SA helplines immediately and reframes the response away from advice toward human connection.`,
-      codeExample: `-- Crisis detection: surface helplines when student distress detected
--- Agent routing layer (simplified)
-SELECT
-  session_id,
-  message_content,
-  CASE
-    WHEN message_content ILIKE ANY(ARRAY['%end it%', '%give up%', '%cant go on%', '%suicidal%'])
-    THEN 'CRISIS'
-    WHEN message_content ILIKE ANY(ARRAY['%budget%', '%nsfas%', '%money%'])
-    THEN 'BUDGET_AGENT'
-    WHEN message_content ILIKE ANY(ARRAY['%study%', '%exam%', '%assignment%'])
-    THEN 'STUDY_AGENT'
-    ELSE 'GENERAL'
-  END AS agent_route
-FROM chat_messages
-WHERE session_id = $1
-ORDER BY created_at DESC LIMIT 1;`,
-      codeLanguage: 'sql',
-      codeLabel: 'Agent routing logic — Supabase query',
+Nova's breakthrough was prompt caching on the knowledge base. The system prompt is ~5,000 lines of SA-specific context: 25+ universities, NSFAS rules and appeal processes, SADAG mental health resources, load-shedding study strategies, student finance. This entire block is cached by Anthropic's server — after the first call, cache reads cost ~90% less per token. Nova's real cost is in the dynamic block: each student's actual budget, tasks, exams, and mood score injected per request.
+
+Crisis detection is a product ethics decision as much as an engineering one. When a student message matches distress signals, the system does not send a chatbot reply. It surfaces SADAG and Lifeline SA helplines first, then wraps any response in human-connection framing rather than advice.`,
+      codeExample: `// Nova AI — cached knowledge base + dynamic student context injection
+// ~5000-token system prompt cached; only per-student context charged at full rate
+
+export async function callNova(message: string, student: StudentContext) {
+  const response = await anthropic.messages.create({
+    model: 'claude-sonnet-4-6',
+    system: [
+      {
+        type: 'text',
+        text: NOVA_SA_KNOWLEDGE_BASE, // ~5000 lines — SA universities, NSFAS, SADAG, etc.
+        cache_control: { type: 'ephemeral' }, // Anthropic caches this block server-side
+      },
+    ],
+    messages: [
+      {
+        role: 'user',
+        content: \`Student context:
+Budget remaining: R\${student.nsfas_balance}
+Upcoming exams: \${student.exams.slice(0,3).map(e => \`\${e.module} in \${e.days_away}d\`).join(', ')}
+Wellness score (today): \${student.mood_score}/5
+Module averages: \${student.academic_summary}
+
+Message: \${message}\`,
+      }
+    ],
+    max_tokens: 1024,
+  });
+
+  const text = response.content[0].text;
+
+  // Crisis detection — surface helplines before any response
+  if (isCrisisSignal(message)) {
+    return \`SADAG: 0800 567 567 (24h) | Lifeline SA: 0861 322 322\n\n\${formatCrisisResponse(text)}\`;
+  }
+
+  return text;
+}`,
+      codeLanguage: 'typescript',
+      codeLabel: 'Nova AI — prompt caching + crisis detection pattern',
       lessons: [
-        'Multi-agent systems need a routing layer before an agent layer — intent classification is the hardest problem',
-        'Crisis detection is a product ethics decision, not just a technical one',
-        'NSFAS + SA university context cannot be retrofitted from a generic student app — it must be built in from the schema',
-        'PWA offline mode is not optional for SA students on intermittent data',
-        'The 2am use case is the real product specification',
+        'SA university context (NSFAS, SADAG, load-shedding) cannot be retrofitted — it must be the schema, not a feature',
+        'Prompt caching on a 5000-token knowledge base reduces Nova\'s per-conversation cost by ~90%',
+        'Crisis detection is a product ethics decision: no chatbot reply when a student is in distress — helplines first, always',
+        'Dynamic context injection (real budget, exams, mood) is what separates Nova from a generic AI — the personalisation is in the database, not the model',
+        'PWA offline mode is not optional for SA students on intermittent data — service worker caching is a feature parity requirement',
       ],
     },
   },
@@ -163,59 +185,46 @@ ORDER BY created_at DESC LIMIT 1;`,
       'K53 practice questions app',
     ],
     buildJourney: {
-      narrative: `K53 was built in a single day — Phase 0 was a 12-hour sprint from 09:00 to 21:47. The decision to use SM-2 spaced repetition (the algorithm behind Anki) was made at 10:30am after researching why most test prep apps fail: they show you questions randomly, not based on what you actually need to review.
+      narrative: `K53 was built in a documented 12-hour sprint on 2026-02-27. Phase 0 started at 09:00, Phase 1 shipped at 09:54 (commit a7e8ad3). The engineering log is timestamped by commit hash.
 
-SM-2 assigns each question an 'ease factor' that updates based on your response — questions you struggle with appear more frequently, questions you've mastered appear less. This is implemented as a Supabase function that recalculates intervals on each answer submission.
+Every decision has a written rationale. Why React 18 + Vite instead of Next.js? No server-side data fetching needed for v1 — game logic is static. Vite's HMR iterates faster on mobile quiz mechanics. Why no routing library? A single state string ('activeGame') is the routing layer — React Router adds 50KB for zero benefit. Why Georgia serif font? It feels like a printed test booklet. Familiar to older learners. Reduces cognitive friction. These aren't post-hoc justifications. They're commit-message-level decisions made in real time.
 
-The isiXhosa support was a late addition that became the most-discussed feature: South African learner drivers in the Eastern Cape should be able to prepare in their home language. Road signs are bilingual — the K53 study platform should be too.`,
-      codeExample: `-- SM-2 spaced repetition interval calculation
--- Runs as Supabase Edge Function on each answer submission
-CREATE OR REPLACE FUNCTION update_question_interval(
-  p_user_id UUID,
-  p_question_id UUID,
-  p_quality INTEGER -- 0-5 (0=complete blackout, 5=perfect)
-) RETURNS void AS $$
-DECLARE
-  v_ease_factor FLOAT;
-  v_interval INTEGER;
-  v_repetitions INTEGER;
-BEGIN
-  SELECT ease_factor, interval_days, repetitions
-  INTO v_ease_factor, v_interval, v_repetitions
-  FROM user_question_progress
-  WHERE user_id = p_user_id AND question_id = p_question_id;
+The freemium gate uses localStorage — no server round-trip on every answer. Deliberate: at 10 questions/day, the acceptable risk of power users clearing storage is lower than the cost of DB calls on a SA mobile connection. The AI tutor uses gpt-4o-mini, not 4o — the cost math was written into the build log: mini charges ~$0.00015/1K tokens vs $0.005 for 4o. At 200 tokens per explanation, 4o would cost 60x more for the same outcome.
 
-  -- SM-2 algorithm
-  IF p_quality < 3 THEN
-    v_repetitions := 0;
-    v_interval := 1;
-  ELSE
-    v_ease_factor := v_ease_factor + (0.1 - (5 - p_quality) * (0.08 + (5 - p_quality) * 0.02));
-    v_ease_factor := GREATEST(1.3, v_ease_factor);
+The Mock Exam ships 68 questions, not 70. The real DLTC Code 8 exam is 68 questions. Most study sites say 70. The 2024 DLTC examiner guidelines were verified before the spec was written.`,
+      codeExample: `// vite.config.js — manual chunk splitting for budget Android
+// First paint loads only vendor + App shell
+// ~180KB saved on initial load for 80% of users (Code 8 only)
 
-    IF v_repetitions = 0 THEN v_interval := 1;
-    ELSIF v_repetitions = 1 THEN v_interval := 6;
-    ELSE v_interval := ROUND(v_interval * v_ease_factor);
-    END IF;
-    v_repetitions := v_repetitions + 1;
-  END IF;
+manualChunks(id) {
+  if (id.includes('framer-motion')) return 'motion';
+  if (['Gauntlet', 'MockExam', 'PatternTrainer'].some(g => id.includes(g))) return 'games-core';
+  if (['PDPPrep', 'HeavyVehicle', 'Motorcycle'].some(g => id.includes(g))) return 'games-ext';
+  if (id.includes('node_modules')) return 'vendor';
+}
 
-  INSERT INTO user_question_progress (user_id, question_id, ease_factor, interval_days, repetitions, next_review)
-  VALUES (p_user_id, p_question_id, v_ease_factor, v_interval, v_repetitions, NOW() + (v_interval || ' days')::INTERVAL)
-  ON CONFLICT (user_id, question_id) DO UPDATE
-  SET ease_factor = EXCLUDED.ease_factor,
-      interval_days = EXCLUDED.interval_days,
-      repetitions = EXCLUDED.repetitions,
-      next_review = EXCLUDED.next_review;
-END;
-$$ LANGUAGE plpgsql;`,
-      codeLanguage: 'sql',
-      codeLabel: 'SM-2 spaced repetition — Supabase function',
+// Freemium gate — localStorage (no server round-trip per answer click)
+// Acceptable risk: power users clearing storage < cost of DB calls on SA mobile data
+function checkFreemiumGate() {
+  const usage = JSON.parse(localStorage.getItem('k53_usage') || '{}');
+  const today = new Date().toDateString();
+  const count = usage[today] || 0;
+  if (count >= 10) return showPaywall();
+  localStorage.setItem('k53_usage', JSON.stringify({ ...usage, [today]: count + 1 }));
+}
+
+// AI Tutor cost decision: gpt-4o-mini, not gpt-4o
+// 200 tokens/explanation × $0.00015 = R0.000054 per explanation (mini)
+// 200 tokens/explanation × $0.005   = R0.009    per explanation (4o)
+// At scale: 4o costs 60x more for identical user outcome → mini every time`,
+      codeLanguage: 'javascript',
+      codeLabel: 'Vite chunk splitting + freemium gate — engineering decisions',
       lessons: [
-        'SM-2 spaced repetition outperforms random question selection for retention — implement it at the database layer',
-        'Language support (isiXhosa) is not a translation feature, it is a market access decision',
-        'A 12-hour Phase 0 sprint is viable when the scope is ruthlessly scoped — one feature, done properly',
-        'PayFast webhook signature verification: field order matters, alphabetical sort breaks it',
+        'Timestamped build logs by commit hash make engineering decisions auditable — write the why, not just the what',
+        'localStorage freemium is the correct call when the risk of bypass is lower than the cost of server round-trips on SA mobile data',
+        'gpt-4o-mini vs 4o: do the token math before choosing a model — same outcome, 60x cost difference',
+        'Manual chunk splitting for mobile-first: games-ext loads only if users navigate to heavy/motorcycle content',
+        'Verify specs against primary sources — 68 questions, not 70. The real DLTC guideline, not the internet\'s approximation',
       ],
     },
   },
@@ -261,49 +270,61 @@ $$ LANGUAGE plpgsql;`,
       'AI fraud detection stokvel',
     ],
     buildJourney: {
-      narrative: `StokvelOS was built to solve something that touches 11 million South Africans: stokvels — community savings groups — are the backbone of township financial life, managing an estimated R50 billion annually. Almost all of it flows through WhatsApp messages, hand-written registers, and trust.
+      narrative: `The trigger for StokvelOS was a specific incident: a chairperson of a 20-member teachers' stokvel lost R4,200 because two members paid to an old account, records weren't reconciled, and by the time the discrepancy was found 3 months had passed. No audit trail. The core insight: a stokvel is not a bank. It's a trust community with rules. Fix the transparency, and most fraud, disputes, and misunderstandings dissolve before they become crises.
 
-The AI governance report was the core innovation: after every contribution cycle, StokvelOS generates a plain-English financial summary for the group's committee — who contributed, who owes, what the collective balance is, and whether the system detected any anomalies.
+The most consequential architectural decision was "Extract Once, Enforce Forever." A naive implementation would call Claude for every late payment check, every loan eligibility check, every compliance update. At scale across 30+ member stokvels paying monthly, that's thousands of unnecessary AI calls per month. Instead, Claude reads the stokvel's constitution exactly once on setup, extracts 18 structured fields (contribution_due_day, late_grace_days, late_penalty_percent, loan_eligibility_min_compliance, quorum_percent, chairperson_co_sign_above) into a typed JSONB blob stored in Supabase. All runtime enforcement runs as pure TypeScript — zero AI cost per transaction.
 
-The fraud detection system was trained on the real patterns of stokvel disputes: early withdrawal requests, contribution irregularities, and discrepancies between reported and actual amounts. In beta, it caught two real discrepancies that would have caused group conflict.`,
-      codeExample: `-- Contribution verification with fraud signal detection
--- Flags statistical anomalies in member contribution patterns
-WITH contribution_stats AS (
-  SELECT
-    member_id,
-    AVG(amount) as avg_contribution,
-    STDDEV(amount) as stddev_contribution,
-    COUNT(*) as total_contributions,
-    MAX(created_at) as last_contribution
-  FROM contributions
-  WHERE stokvel_id = $1
-  GROUP BY member_id
-),
-anomaly_detection AS (
-  SELECT
-    c.member_id,
-    c.amount,
-    cs.avg_contribution,
-    ABS(c.amount - cs.avg_contribution) / NULLIF(cs.stddev_contribution, 0) AS z_score,
-    CASE
-      WHEN ABS(c.amount - cs.avg_contribution) / NULLIF(cs.stddev_contribution, 0) > 2.5
-      THEN 'HIGH_ANOMALY'
-      WHEN ABS(c.amount - cs.avg_contribution) / NULLIF(cs.stddev_contribution, 0) > 1.5
-      THEN 'MEDIUM_ANOMALY'
-      ELSE 'NORMAL'
-    END as fraud_signal
-  FROM contributions c
-  JOIN contribution_stats cs ON c.member_id = cs.member_id
-  WHERE c.stokvel_id = $1 AND c.created_at > NOW() - INTERVAL '30 days'
-)
-SELECT * FROM anomaly_detection WHERE fraud_signal != 'NORMAL';`,
-      codeLanguage: 'sql',
-      codeLabel: 'Statistical fraud detection — contribution anomaly query',
+The WhatsApp agent's prompt caching is split into two blocks: a static cached block (constitution summary, extracted rules, monthly amount, payout type — identical for all messages from the same stokvel, cache hit after the first call) and a dynamic block (per-member: name, role, compliance %, this month's status). This reduces prompt tokens by ~70% after the first message per stokvel per hour.
+
+The dispute mediation agent runs a 7-state machine: open → investigating → awaiting_complainant_proof → awaiting_respondent_proof → reviewing → resolved | escalated. Auto-resolves if records can settle it. If not, enters conversation mode with a hard escalation at 5 turns — chairperson notified via WhatsApp. The system prompt instruction: "You are not on anyone's side. You protect the community's trust and harmony."`,
+      codeExample: `// "Extract Once, Enforce Forever" — constitution parsing architecture
+// Claude extracts 18 fields once on setup; all runtime enforcement is pure TS (free)
+
+// Step 1: ONE Claude call per stokvel (on setup or constitution update)
+const extracted = await anthropic.messages.create({
+  model: 'claude-sonnet-4-6',
+  max_tokens: 400,
+  messages: [{
+    role: 'user',
+    content: \`Extract ONLY explicitly stated rules. Return JSON. Do not infer. Null for unstated fields.\n\n\${constitutionText}\`,
+  }],
+});
+
+const rules = mergeWithDefaults(JSON.parse(extracted.content[0].text));
+// Store extracted rules — this is now the source of truth for all enforcement
+await supabase.from('stokvels')
+  .update({ extracted_rules: rules, rules_extracted_at: new Date() })
+  .eq('id', stokvelId);
+
+// Step 2: All runtime enforcement — pure TypeScript, zero AI cost
+export function checkLatePaymentPenalty(
+  contribution: Contribution,
+  rules: ExtractedRules
+): number {
+  const daysLate = differenceInDays(new Date(), parseISO(contribution.due_date));
+  if (daysLate <= (rules.late_grace_days ?? 7)) return 0;
+  return Math.round(contribution.amount * ((rules.late_penalty_percent ?? 10) / 100));
+}
+
+export function checkLoanEligibility(
+  member: StokvelMember,
+  rules: ExtractedRules
+): { eligible: boolean; reason: string } {
+  const compliance = member.compliance_rate ?? 0;
+  const required = rules.loan_eligibility_min_compliance ?? 0.8;
+  if (compliance < required) {
+    return { eligible: false, reason: \`Compliance \${Math.round(compliance*100)}% below required \${Math.round(required*100)}%\` };
+  }
+  return { eligible: true, reason: 'Meets constitution requirements' };
+}`,
+      codeLanguage: 'typescript',
+      codeLabel: 'Extract Once Enforce Forever — constitution compliance architecture',
       lessons: [
-        "Ubuntu as architecture: the stokvel's collective ownership model must be reflected in the RLS policies — members see group data, not each other's private balances",
-        'AI governance reports must be written for committee chairs, not developers — plain English, not metrics dashboards',
-        'Z-score anomaly detection works for contribution fraud because legitimate contribution amounts are highly consistent per member',
-        'Domain trust (stokvels = community trust) is a UX requirement, not just a feature',
+        '"Extract Once, Enforce Forever": use AI for rule extraction, pure code for rule enforcement — the constitution is read once, TS enforces it every transaction',
+        'Ubuntu as architecture: stokvel RLS policies must reflect collective ownership — members see group data, never each other\'s private balances',
+        'Split prompt caching: static stokvel context cached, per-member context dynamic — 70% token reduction after first message per stokvel per hour',
+        'Dispute mediation needs a hard escalation ceiling — 5 turns max before human (chairperson) intervenes; AI cannot mediate indefinitely',
+        'Deploying to Vercel jnb1 (Johannesburg) + Supabase Africa (Cape Town) puts compute and data on the continent — sub-100ms round trips for SA users',
       ],
     },
   },
@@ -351,46 +372,67 @@ SELECT * FROM anomaly_detection WHERE fraud_signal != 'NORMAL';`,
       'AI business assistant South Africa',
     ],
     buildJourney: {
-      narrative: `AdminOS is the product that Cortex Hub Booking, a shuttle service client, and every SME engagement made inevitable. After building a booking system for creative hubs and watching a transport operator manage bookings via WhatsApp at midnight, the pattern was unmistakable: South African small business owners are not technology-averse — they are technology-abandoned.
+      narrative: `Africa's businesses run on WhatsApp. Millions of messages land every day — client queries, invoice follow-ups, leave requests, complaints — and behind each one is a human manually responding, copying, chasing, and repeating. AdminOS was built to fix that. Not as a chatbot. As an operating system — one that handles the full admin layer automatically.
 
-The tools that exist were built for US small businesses, priced in USD, and designed around infrastructure that SA businesses don't have. AdminOS was built to fix that.
+Multi-tenancy is enforced at the database layer, not the application layer. Every table has tenant_id as a required column. Supabase RLS policies verify tenant_id = auth.jwt() ->> 'tenant_id' — a bug in the application code cannot leak one business's data to another. The middleware injects x-tenant-id, x-user-id, and x-user-role into every authenticated request header. The audit log is append-only — no UPDATE or DELETE policy granted.
 
-The multi-agent architecture puts five specialist Claude agents behind a WhatsApp interface — the single communication channel every SA business owner already uses. The load-shedding-aware offline mode was not a feature request. It was a requirement from day one.`,
-      codeExample: `// Agent orchestration — intent routing with context sharing
-// Each agent has a focused system prompt; shared context prevents re-fetching
+The most important cost decision: Claude prompt caching on the tenant system prompt. Every tenant has a pre-built context string (business name, type, language, tone, FAQs, staff directory, services, policies, extracted company goals) marked cache_control: ephemeral. Subsequent calls that hit the cache cost 90% less per token. Result: 85% reduction in AI operating costs at scale.
 
-const AGENT_ROUTES = {
-  SALES: /invoice|quote|client|proposal|payment/i,
-  FINANCE: /expense|budget|report|bank|cash flow/i,
-  HR: /staff|leave|payroll|shift|employee/i,
-  COMMS: /email|message|customer|complaint|follow.?up/i,
-  ANALYTICS: /stats|performance|revenue|growth|metrics/i,
-} as const;
+The WorkflowEngine runs 7 steps in sequence with per-step timeouts: deduplication (Redis SET NX atomic, 500ms), tenant context load (2s), FAQ cache check (2s), Claude response with caching (20s), 360dialog outbound (5s), audit log write (2s), Supabase Realtime dashboard push (1s). The 360dialog webhook must receive a 200 OK in under 1 second — the pipeline runs async, non-blocking, after the webhook responds. Fail-open on Redis unavailability: log the error, allow the request. Production cannot go down because a cache layer is unhealthy.
 
-async function routeToAgent(message: string, businessId: string) {
-  // Load shared business context once — cached in Upstash Redis (15min TTL)
-  const context = await getOrFetchBusinessContext(businessId);
+The debt recovery engine runs a 5-tier escalation sequence over 30 days via Vercel Cron at 09:00 SAST daily. Claude drafts each message in the tenant's own voice and tone. The wellness check-in sends daily WhatsApp mood check-ins to all staff (Mon–Fri 08:00 SAST). Burnout detection triggers a manager alert when the 7-day average drops below 2.5.`,
+      codeExample: `// AdminWorkflowEngine — 7-step async pipeline with per-step timeouts
+// 360dialog webhook must receive 200 OK in < 1s; pipeline runs non-blocking
 
-  // Route to specialist
-  const agentType = Object.entries(AGENT_ROUTES)
-    .find(([, pattern]) => pattern.test(message))?.[0] ?? 'GENERAL';
+export async function processWhatsAppMessage(
+  message: InboundMessage,
+  tenantId: string
+): Promise<void> {
+  // Respond to 360dialog immediately — pipeline is fire-and-forget from webhook's perspective
+  void runPipeline(message, tenantId);
+}
 
-  const response = await anthropic.messages.create({
-    model: 'claude-opus-4-6',
-    system: AGENT_PROMPTS[agentType](context), // Specialist prompt + business context
-    messages: [{ role: 'user', content: message }],
-  });
+async function runPipeline(message: InboundMessage, tenantId: string) {
+  // Step 1: Deduplication — atomic Redis SET NX (no GET+SET race condition)
+  const deduped = await redis.set(\`msg:\${message.id}\`, '1', { nx: true, ex: 86400 });
+  if (!deduped) return; // Already processed — 360dialog can send the same message 2-3x
 
-  return { response: response.content[0].text, agent: agentType };
-}`,
+  // Step 2: Load tenant context (cached in Redis, 15min TTL)
+  const context = await withTimeout(loadTenantContext(tenantId), 2000);
+
+  // Step 3: FAQ cache check — answer without AI if possible (Redis, 7-day TTL)
+  const cached = await withTimeout(checkFAQCache(message.text, tenantId), 2000);
+  if (cached) return sendAndLog(cached, message, tenantId);
+
+  // Step 4: Claude with prompt caching — 85% cost reduction on cache hits
+  const response = await withTimeout(
+    anthropic.messages.create({
+      model: 'claude-sonnet-4-6',
+      system: [{ type: 'text', text: context.systemPrompt, cache_control: { type: 'ephemeral' } }],
+      messages: buildConversationHistory(message, context), // Capped at 10 msgs
+    }),
+    20000
+  );
+
+  // Steps 5–7: Send → Audit → Dashboard (always attempted, even after prior failures)
+  await withTimeout(sendVia360dialog(response.content[0].text, message.from), 5000);
+  await withTimeout(logToAudit(message, response, tenantId), 2000);
+  await withTimeout(pushToSupabaseRealtime(tenantId, message), 1000);
+}
+
+// Multi-tenant RLS — enforced at DB layer, not application layer
+// CREATE POLICY "Tenant isolation" ON conversations
+//   USING (tenant_id = (auth.jwt() ->> 'tenant_id')::uuid);
+// A bug in application code cannot leak Business A's data to Business B.`,
       codeLanguage: 'typescript',
-      codeLabel: 'Agent routing — intent classification with shared context',
+      codeLabel: 'AdminWorkflowEngine — async pipeline with dedup, caching, and multi-tenant RLS',
       lessons: [
-        "WhatsApp is the South African B2B UX pattern — building an app that requires a new download is a barrier to adoption",
-        "Multi-tenant RLS: every SME's data must be isolated at the database layer, not the application layer",
-        'Shared context cache (Upstash Redis) prevents 5 agents from each fetching the same business data on every message',
-        'Load-shedding-aware architecture: offline queue + sync-on-reconnect is not optional for SA infrastructure',
-        'AdminOS pricing (R2,500/mo) was set by calculating what it replaces (R11,200/mo) — value-based pricing from day one',
+        'Multi-tenant isolation belongs in the database (RLS), not the application — application bugs cannot cause data leaks',
+        'Prompt caching on the tenant system prompt = 85% AI cost reduction; the cached block is pre-built business context, the dynamic block is per-message',
+        'Atomic Redis SET NX is the correct deduplication pattern — GET+SET has a race condition; 360dialog can deliver the same message multiple times',
+        'Fail-open on Redis unavailability: log and allow the request — production cannot go down because a cache layer is unhealthy',
+        'Per-step timeouts prevent one slow step (Claude at 20s max) from blocking the audit log and dashboard steps that must still run',
+        'Debt recovery tone must be in the tenant\'s own voice — Claude drafts per-tenant, not generic templates',
       ],
     },
   },
@@ -436,16 +478,63 @@ async function routeToAgent(message: string, businessId: string) {
       'African video platform',
     ],
     buildJourney: {
-      narrative: `WatchSankofa began as a question asked during the YouTube clone build: what does YouTube get wrong for African creators? The answer became the product specification.
+      narrative: `WatchSankofa began as a question during the YouTube clone: what does YouTube get wrong for African creators? Every layout decision was studied. The algorithm has no concept of isiZulu spoken word poetry as a distinct cultural form. An African filmmaker performing in Xhosa has the same discoverability as a gaming livestream. WatchSankofa was built to fix that.
 
-YouTube pays creators through an opaque ad revenue model that typically translates to 3-7% of content value. WatchSankofa pays 85% directly. The 'Sankofa' principle — the Akan concept of going back to fetch what was lost — is not branding. It is the engineering brief.
+The Phase 1 foundation was static HTML/CSS/JS — a landing page and product spec ('AFRIFLIX_MASTER_PROMPT.md') that seeded everything. Phase 2 was a full Next.js 16.1.7 rebuild started 2026-03-18. Every architecture decision in Phase 2 was written with a 'why' rationale.
 
-The Cloudinary integration handles the hardest part of any streaming platform: adaptive bitrate streaming that works on South African mobile data speeds. The creator dashboard shows not just views but earnings, watch time, and language distribution of the audience — the metrics that matter for a creator-first platform.`,
+The audio player architecture decision: Zustand with persist middleware over Redux or Context. The audio player must persist across navigation without remounting — a user browsing while listening cannot have the player restart mid-track on every route change. Zustand's persist syncs to localStorage. Redux is overkill; Context re-renders the entire tree on every state change — catastrophic for a media player.
+
+The video player is custom, not react-player. Control: WatchSankofa branding in the player, keyboard shortcuts that feel native, fullscreen with the container not the viewport, and the ability to swap the underlying video source to Cloudflare Stream's HLS without rewriting the UI.
+
+Server Components + client islands: content browsing, creator profiles, and search are server-rendered (no JavaScript for these read-heavy views). The audio player and video player are client islands. This is strictly better than a React SPA for a content platform where 80%+ of interactions are read operations.`,
+      codeExample: `// Zustand audio player — persists across navigation without remounting
+// Context would re-render the entire component tree on every state change
+// Redux is overkill; Zustand's persist handles SSR hydration cleanly
+
+interface AudioPlayerState {
+  currentTrack: Track | null;
+  isPlaying: boolean;
+  progress: number;
+  volume: number;
+  queue: Track[];
+  play: (track: Track) => void;
+  pause: () => void;
+  seek: (seconds: number) => void;
+  enqueue: (track: Track) => void;
+}
+
+export const useAudioPlayer = create<AudioPlayerState>()(
+  persist(
+    (set, get) => ({
+      currentTrack: null,
+      isPlaying: false,
+      progress: 0,
+      volume: 0.8,
+      queue: [],
+
+      play: (track) => set({ currentTrack: track, isPlaying: true }),
+      pause: () => set({ isPlaying: false }),
+      seek: (seconds) => set({ progress: seconds }),
+      enqueue: (track) => set((s) => ({ queue: [...s.queue, track] })),
+    }),
+    {
+      name: 'watchsankofa-player',
+      storage: createJSONStorage(() => localStorage),
+      // skipHydration prevents SSR/client mismatch — call rehydrate() after mount
+      skipHydration: true,
+      // Only persist these fields — not UI state like isPlaying
+      partialize: (s) => ({ currentTrack: s.currentTrack, volume: s.volume, queue: s.queue }),
+    }
+  )
+);`,
+      codeLanguage: 'typescript',
+      codeLabel: 'Zustand audio player — cross-navigation persistence pattern',
       lessons: [
-        "85% creator revenue share is a positioning decision before it is a financial one — it signals whose side the platform is on",
-        'Adaptive bitrate streaming (Cloudinary) is required for SA mobile data realities — not all viewers are on fibre',
-        'Flutterwave enables ZAR, NGN, KES, GHS payouts — Stripe does not; Africa-native payment rails are required for Africa-native creators',
-        'Sankofa principle as product philosophy: the platform exists to recover something that was taken, not to compete with what exists',
+        'Zustand + persist is the correct pattern for a media player: persists across navigation, no SSR mismatch with skipHydration, no Redux overhead',
+        'Server Components for read-heavy views (browsing, profiles, search) + client islands for interactive UI (player) — minimum JavaScript shipped to the client',
+        'Custom video player over react-player: swap the source to Cloudflare Stream HLS without rewriting the UI; own the keyboard shortcuts and fullscreen behaviour',
+        'The Sankofa principle is not branding — it is the product specification: recover what African creators were denied (ownership, revenue, visibility)',
+        '85% creator revenue share signals whose side the platform is on before a single feature ships',
       ],
     },
   },
@@ -488,15 +577,18 @@ The Cloudinary integration handles the hardest part of any streaming platform: a
       'African entrepreneur publication',
     ],
     buildJourney: {
-      narrative: `SankofaSessions was designed as the media layer of a larger content flywheel. The thesis: great streaming platforms are built on great editorial culture. Before WatchSankofa had content, it needed a publication that established what African creative excellence looks like.
+      narrative: `SankofaSessions is the media layer of a larger content flywheel. The thesis: great streaming platforms are built on great editorial culture. Before WatchSankofa had content, it needed a publication that established what African creative excellence looks like — and who gets to define it.
 
-Founder interviews are long-form — 2,000+ words — because the depth of the story is the differentiator. The Substack integration handles subscriber growth without building a proprietary newsletter system.
+The architecture decision: Substack for subscriber management, not a proprietary newsletter system. Building subscriber management from scratch (confirmation emails, preferences, unsubscribe flows, delivery infrastructure) is weeks of work that don't differentiate the product. Substack handles it; SankofaSessions focuses on editorial quality.
 
-The editorial voice is intentionally specific: African, female, technical, poetic. Not trying to be Forbes Africa. Trying to be something that didn't exist.`,
+The flywheel logic is deliberate: the publication builds an audience of people who care about African creative work → that audience discovers the streaming platform → creators want to be featured because the audience already exists. The publication is not marketing for WatchSankofa. It is the demand generation infrastructure.
+
+Long-form interviews (2,000+ words) are the moat. A 600-word founder Q&A can be produced at volume. A 2,000-word narrative profile of a Kenyan filmmaker building infrastructure for African cinema cannot be replicated without a genuine editorial point of view. Depth is the differentiator.`,
       lessons: [
-        'Media + streaming is a flywheel, not two separate products',
-        'Long-form editorial is a moat — it cannot be replicated at volume without a genuine point of view',
-        'Substack for subscriber management lets the editorial product focus on content, not infrastructure',
+        'Media + streaming is a flywheel, not two products — the publication builds the audience that makes the platform valuable to creators',
+        'Substack for subscriber infrastructure: let the editorial product focus on editorial quality, not delivery pipelines',
+        'Long-form depth (2,000+ words) is the moat — it cannot be replicated without a genuine point of view and editorial investment',
+        'The editorial voice is the product specification: African, female, technical, poetic — not trying to be Forbes Africa, trying to be something that didn\'t exist',
       ],
     },
   },
@@ -542,6 +634,62 @@ The editorial voice is intentionally specific: African, female, technical, poeti
       'Next.js portfolio with shop',
       'PayFast portfolio website',
     ],
+    buildJourney: {
+      narrative: `The goal from day one: not a static brochure. A cultural destination — the professional credibility of LinkedIn, the seamless commerce of a digital storefront, the literary community of a poetry platform, the editorial authority of a long-form publication, all in one. Every architecture decision was written with a rationale.
+
+PayFast over Stripe: Stripe doesn't process ZAR-denominated cards directly for SA merchants without complex setup. PayFast has ~60% market share in SA, supports EFT and instant EFT (dominant payment methods in ZA), and processes in Rand natively. For a site targeting SA students and entrepreneurs, Stripe adds friction and currency confusion. PayFast was always the correct choice for this market.
+
+Supabase over Firebase: Firestore's document model would require denormalising the product-order relationship that Postgres handles naturally with foreign keys and indexes. Supabase provides full PostgreSQL, Row Level Security at the database layer (orders readable by buyer, not other users), and signed Storage URLs for digital delivery — all without custom code.
+
+Zustand for the cart: the cart must persist across App Router navigations and survive browser refreshes. The critical pattern is skipHydration: true on the store, with rehydrate() called after mount — this prevents the 'cart flicker' where server HTML shows an empty cart but client state has items.
+
+TypeScript caught the PayFast signature bug before production: the PayfastPaymentData interface ensures every field passed to the signature generator is accounted for. A type error in the PayFast signature function would cause silent revenue loss. TypeScript strict mode on payment code costs nothing at build time; the same error in production costs revenue.`,
+      codeExample: `// Cart store — skipHydration pattern prevents SSR/client mismatch
+// Without this: server renders empty cart, client rehydrates with items → layout shift
+
+export const useCartStore = create<CartStore>()(
+  persist(
+    (set, get) => ({
+      items: [],
+      addItem: (item) => set((s) => {
+        if (s.items.find(i => i.id === item.id)) return s; // No duplicates
+        return { items: [...s.items, { ...item, quantity: 1 }] };
+      }),
+      removeItem: (id) => set((s) => ({ items: s.items.filter(i => i.id !== id) })),
+      clearCart: () => set({ items: [] }),
+      get total() { return get().items.reduce((sum, i) => sum + (i.price * i.quantity), 0); },
+    }),
+    {
+      name: 'mirembe-cart',
+      storage: createJSONStorage(() => localStorage),
+      skipHydration: true, // Critical — prevents SSR/client cart flicker
+    }
+  )
+);
+
+// Call rehydrate() after mount — never on the server
+useEffect(() => { useCartStore.persist.rehydrate(); }, []);
+
+// PayFast signature — field ORDER matters; alphabetical sort BREAKS it
+// This bug caused silent payment failures before the fix
+export function generateSignature(data: PayfastPaymentData, passphrase: string): string {
+  const params = Object.entries(data) // Insertion order — DO NOT .sort()
+    .filter(([, v]) => v !== '' && v !== null)
+    .map(([k, v]) => \`\${k}=\${encodeURIComponent(String(v)).replace(/%20/g, '+')}\`)
+    .join('&');
+  return md5(\`\${params}&passphrase=\${encodeURIComponent(passphrase)}\`);
+}`,
+      codeLanguage: 'typescript',
+      codeLabel: 'Cart skipHydration + PayFast field-order signature — production bugs caught',
+      lessons: [
+        'skipHydration: true on Zustand persist + rehydrate() after mount prevents the cart flicker in SSR/App Router applications',
+        'PayFast signature is field-ORDER sensitive — alphabetical sort breaks it silently; this is not documented prominently in PayFast docs',
+        'Supabase over Firebase: PostgreSQL + RLS + signed Storage URLs solves product-order-delivery in one platform',
+        'PayFast over Stripe: ZAR native, EFT support, 60% SA market share — the correct payment gateway for the SA market',
+        'TypeScript strict mode on payment code: the type error that catches a PayFast bug costs nothing at build time',
+        'Arcjet composable middleware: bot detection + rate limiting in one API — less custom code, more security coverage',
+      ],
+    },
   },
 
   // ── Foundation / Where It Started ────────────────────────────────────────────
@@ -740,6 +888,7 @@ ORDER BY confidence_score DESC NULLS LAST;`,
     },
     liveUrl: 'https://cortex-hub-booking-5e35.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/Cortex-Hub-Booking',
+    videoUrl: '/assets/project-screen-record/cortexhub-booking-system.mp4',
     images: [],
     metaTitle: 'Cortex Hub Booking — PostgreSQL Concurrent Booking Prevention | Nandawula Regine',
     metaDescription:
@@ -819,6 +968,7 @@ RETURNING id;`,
     },
     liveUrl: 'https://green-valut-e-commerce-store-demo.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/GreenValut-eCommerce-store-demo',
+    videoUrl: '/assets/project-screen-record/GreenVault.mp4',
     images: [],
     metaTitle: 'GreenVault eCommerce — PayFast Idempotent Webhook + Signed Download URLs | Nandawula Regine',
     metaDescription:
@@ -916,6 +1066,7 @@ export async function POST(request: Request) {
     },
     liveUrl: null,
     githubUrl: 'https://github.com/Nanda-Regine/CreativelyNanda-Youtube-clone',
+    videoUrl: '/assets/project-screen-record/youtube-clone.mp4',
     images: [],
     metaTitle: 'YouTube Clone — Day One. The Foundation. | Nandawula Regine',
     metaDescription:
