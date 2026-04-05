@@ -125,7 +125,7 @@ const STACK = [
     colSpan: 1,
     skills: [
       { name: 'Vercel', level: 'Expert' as const, note: 'Deployments, cron, Edge, analytics' },
-      { name: 'GitHub', level: 'Expert' as const, note: '386+ commits across 7 repositories' },
+      { name: 'GitHub', level: 'Expert' as const, note: '550+ commits across 7 repositories' },
       { name: 'Sentry', level: 'Advanced' as const, note: '5 error monitoring projects live' },
       { name: 'PostHog', level: 'Advanced' as const, note: 'Product analytics, 7 properties' },
       { name: 'Arcjet', level: 'Intermediate' as const, note: 'Rate limiting in API routes' },
