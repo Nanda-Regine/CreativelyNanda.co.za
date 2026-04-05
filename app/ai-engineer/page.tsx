@@ -282,7 +282,7 @@ export default function AIEngineerPage() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-display text-2xl md:text-3xl italic text-[#0A1128]">
-            7 AI SaaS products. 300+ users. All self-funded. All production.
+            7 AI SaaS products. All self-funded. All production.
             This is what I build for clients.
           </p>
           <Link href="/projects" className="inline-block mt-6 text-[#C1292E] font-medium hover:underline">

@@ -225,7 +225,7 @@ const TIMELINE = [
   {
     year: 'February–March 2026',
     title: 'Six apps in six weeks',
-    body: 'Campus Compass · K53 Drill Master · StokvelOS · AdminOS · WatchSankofa · SankofaSessions — all shipped solo under Mirembe Muse (Pty) Ltd. Seven AI SaaS products. 300+ users. East London, South Africa.',
+    body: 'Campus Compass · K53 Drill Master · StokvelOS · AdminOS · WatchSankofa · SankofaSessions — all shipped solo under Mirembe Muse (Pty) Ltd. Seven AI SaaS products. 550+ commits. East London, South Africa.',
     dot: 'bg-[#C1292E]',
     cardBg: '#0A1128',
     borderColor: '#C1292E40',
@@ -384,8 +384,8 @@ export default function About() {
               </p>
               <p>
                 Six months later: 7 production AI SaaS apps, a registered South African
-                company, and 300+ real users. Not demos. Production with payments,
-                infrastructure, and people&apos;s actual data depending on it working.
+                company, and 7 live production apps. Not demos. Production with payments,
+                infrastructure, and real data depending on it working.
               </p>
               <p>
                 The degree taught systems thinking. The hospitality work taught operations

@@ -171,9 +171,9 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: '7', label: 'Production Apps', color: 'text-[#C1292E]' },
-                { value: '300+', label: 'Active Users', color: 'text-[#C1292E]' },
+                { value: '550+', label: 'GitHub Commits', color: 'text-[#C1292E]' },
                 { value: '9 months', label: 'Self-Taught', color: 'text-[#C1292E]' },
-                { value: 'R300k', label: 'MRR Target', color: 'text-[#C1292E]' },
+                { value: 'Africa', label: 'First. Always.', color: 'text-[#C1292E]' },
               ].map((s) => (
                 <div
                   key={s.label}

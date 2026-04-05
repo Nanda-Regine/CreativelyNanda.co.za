@@ -71,7 +71,7 @@ const projects: Record<string, ProjectData> = {
       potential: '1M+ SA university students',
       economy: '50%+ dropout rate addressed',
       problem: 'Zero AI support at the critical moment',
-      metric: '300+ active users, 6 agents live',
+      metric: '6 AI agents live, crisis detection active',
     },
     liveUrl: 'https://campus-compass-phi.vercel.app',
     githubUrl: null,

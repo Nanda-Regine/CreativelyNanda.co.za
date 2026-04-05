@@ -32,7 +32,7 @@ const achievements = [
   },
   {
     icon: Code,
-    text: '9 Live Applications Built — 300+ Users Served · Graphic Design & Digital Marketing Certified',
+    text: '7 Live Applications Built · Graphic Design & Digital Marketing Certified',
     color: 'from-electric-cyan to-blue-500',
     bg: 'bg-blue-500/8',
     accent: '#00D4FF',
@@ -133,7 +133,7 @@ const bios = {
 
   medium: `Nandawula Regine Kabali-Kagwa is a South African Creative Technologist building at the intersection of code, culture, and creativity. Born to Ugandan and Xhosa-Sotho heritage, she carries five clan lineages that inform her Ubuntu-centered approach to technology.
 
-A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda has built 7 live AI SaaS products serving 300+ users, including AI-powered tools and Notion productivity systems. Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire — she has performed at 5 live spoken word events across the Eastern Cape.
+A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda has built 7 live AI SaaS products, including AI-powered tools and Notion productivity systems. Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire — she has performed at 5 live spoken word events across the Eastern Cape.
 
 As Founder of Mirembe Muse, she offers AI consulting, digital product creation, and is building Sanyu Botanicals — an African botanical wellness brand — for businesses across Africa.`,
 
@@ -238,8 +238,8 @@ export default function PressPage() {
           {/* Stats row */}
           <div className="flex flex-wrap justify-center gap-8 mb-10">
             {[
-              { value: '9', label: 'Live Apps' },
-              { value: '300+', label: 'Users Served' },
+              { value: '7', label: 'Live Apps' },
+              { value: '550+', label: 'GitHub Commits' },
               { value: '5', label: 'Performances' },
               { value: '15', label: 'Distinctions' },
             ].map((s) => (
@@ -370,7 +370,7 @@ export default function PressPage() {
               { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimango, Tshawe, Thabizolo)', accent: '#C1292E' },
               { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)', accent: '#C1292E' },
               { label: 'Certifications', value: 'Master Gen AI Professional · Prompt Engineering · Graphic Design · Digital Marketing · SheCodes Full-Stack', accent: '#00D4FF' },
-              { label: 'Applications Built', value: '7 live AI SaaS apps, 300+ users, R15K+ revenue generated', accent: '#C1292E' },
+              { label: 'Applications Built', value: '7 live AI SaaS apps · R15K+ revenue generated', accent: '#C1292E' },
               { label: 'Published Work', value: '"Inside Her Roses" poetry collection — featured on Showmax / Gqeberha: The Empire · 5 live performances', accent: '#C1292E' },
               { label: 'Company', value: 'Mirembe Muse (Pty) Ltd', accent: '#10B981' },
               { label: 'Tech Stack', value: 'Next.js, TypeScript, Supabase, OpenAI, Claude API, Mapbox, PayFast', accent: '#00D4FF' },

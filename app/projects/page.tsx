@@ -37,7 +37,7 @@ const PROJECTS: ProjectCard[] = [
     status: 'Beta',
     problem: '50%+ SA university dropout rate — and zero AI support for it.',
     impact: [
-      '300+ active users',
+      '6 AI agents: study, budget, meals, wellness, registration, crisis',
       '6 AI agents covering study, budget, meals, wellness',
       'Crisis detection auto-surfaces SADAG + Lifeline SA helplines',
     ],
