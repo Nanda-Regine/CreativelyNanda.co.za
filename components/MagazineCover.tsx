@@ -78,11 +78,7 @@ export default function MagazineCover() {
             padding-top: 84px;
           }
           .photo-container {
-            top: 0 !important;
-            bottom: auto !important;
-            height: calc(100dvh - 100px) !important;
-            transform: translateX(-28%) !important;
-            align-items: flex-end !important;
+            transform: translateX(-50%) !important;
           }
         }
       `}</style>
@@ -333,15 +329,17 @@ export default function MagazineCover() {
         flex: 1,
         display: 'flex',
         alignItems: 'stretch',
-        paddingLeft: '28px',
         overflow: 'visible',
         minHeight: 0,
       }}>
 
-        {/* ── LEFT COVERLINES — visible on ALL screen sizes ── */}
+        {/* ── LEFT COVERLINES — absolutely positioned so photo isn't squeezed ── */}
         <div style={{
+          position: 'absolute',
+          left: '28px',
+          top: 0,
+          bottom: 0,
           width: 'clamp(72px, 14vw, 160px)',
-          flexShrink: 0,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -350,7 +348,6 @@ export default function MagazineCover() {
           paddingTop: '16px',
           paddingBottom: '60px',
           zIndex: 20,
-          position: 'relative',
         }}>
           {/* Coverline 1 — AI Engineer */}
           <div style={{ marginBottom: '12px' }}>
@@ -483,13 +480,14 @@ export default function MagazineCover() {
           </div>
         </div>
 
-        {/* PHOTO — transparent PNG, floats from bottom */}
+        {/* PHOTO — transparent PNG, centred */}
         <div style={{
           position: 'absolute',
+          top: 0,
           bottom: 0,
           left: '50%',
-          transform: 'translateX(-32%)',
-          height: '88%',
+          transform: 'translateX(-50%)',
+          height: '100%',
           zIndex: 15,
           display: 'flex',
           alignItems: 'flex-end',
