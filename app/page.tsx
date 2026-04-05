@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import MagazineCover from '@/components/MagazineCover';
 
 // ─── Fade-up helper ─────────────────────────────────────────────────────────────
 function FadeUp({
@@ -29,18 +29,6 @@ function FadeUp({
 }
 
 // ─── Data ────────────────────────────────────────────────────────────────────────
-const COVERLINES_LEFT = [
-  { label: 'AI Engineering', sub: 'Claude · Supabase · TypeScript' },
-  { label: 'Notion Systems', sub: '6 templates live now' },
-  { label: 'Poetry', sub: '"Inside Her Roses" out now' },
-];
-
-const COVERLINES_RIGHT = [
-  { label: 'Consulting', sub: 'From R8,000/month' },
-  { label: '7 SaaS Apps', sub: '300+ active users' },
-  { label: 'Ubuntu × Code', sub: 'Africa-first infrastructure' },
-];
-
 const PRODUCTS = [
   {
     slug: 'sme-command-center',
@@ -115,151 +103,14 @@ const SERVICES = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────────
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <main className="min-h-screen">
 
-      {/* ── Grain texture overlay ─────────────────────────────────────────── */}
-      <div
-        className="fixed inset-0 pointer-events-none opacity-30 z-0"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
-
-      {/* ── COVER ──────────────────────────────────────────────────────────────
-          100vh magazine cover: dark navy, Nanda's photo,
-          masthead, coverlines left + right, name + tagline, price bar
-      ─────────────────────────────────────────────────────────────────────── */}
-      <section
-        className="relative h-screen min-h-[700px] overflow-hidden z-10"
-        style={{ backgroundColor: '#0A1128' }}
-      >
-        {/* Photo — centered on mobile (pulled up), right-aligned on desktop */}
-        <div
-          className="absolute top-[22%] bottom-0 md:top-auto md:bottom-0 left-0 right-0 md:left-auto md:right-0 md:h-[92%] md:w-[48%] flex justify-center md:block"
-          style={{ transform: `translateY(${scrollY * 0.08}px)` }}
-        >
-          <div className="relative h-full w-[85%] md:w-full">
-            <Image
-              src="/assets/professional/nanda-professional-2-transparent.png"
-              alt="Nandawula Regine — AI Engineer & Creative Technologist"
-              fill
-              className="object-contain object-top md:object-bottom"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Gradient overlay — heavier on mobile (bottom-up), left vignette on desktop */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/95 via-[#0A1128]/40 to-[#0A1128]/70 md:bg-none pointer-events-none md:hidden" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1128]/90 via-[#0A1128]/60 to-transparent pointer-events-none hidden md:block" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/80 via-transparent to-transparent pointer-events-none" />
-
-        {/* MASTHEAD */}
-        <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-8 pt-28 md:pt-32">
-          <div className="flex items-center gap-6">
-            <span className="text-[#C9A84C] font-sans text-[10px] tracking-[0.3em] uppercase">
-              Est. 2024
-            </span>
-            <span className="w-12 h-px bg-[#C9A84C]/40" />
-          </div>
-          <span className="text-[#C9A84C] font-sans text-[10px] tracking-[0.3em] uppercase">
-            East London, South Africa
-          </span>
-        </div>
-
-        {/* NAME + ISSUE line */}
-        <div className="absolute top-24 md:top-28 left-0 right-0 text-center px-6 pt-12">
-          <h1
-            className="font-display font-bold text-white leading-none select-none"
-            style={{ fontSize: 'clamp(52px, 10vw, 120px)' }}
-          >
-            CREATIVELY
-            <br />
-            <span className="text-[#C9A84C]">NANDA</span>
-          </h1>
-        </div>
-
-        {/* COVERLINES LEFT */}
-        <div className="absolute left-6 md:left-10 top-[45%] -translate-y-1/2 space-y-5 hidden sm:block">
-          {COVERLINES_LEFT.map((c, i) => (
-            <motion.div
-              key={c.label}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 + i * 0.12 }}
-              className="border-l-2 border-[#C9A84C] pl-3"
-            >
-              <p className="font-display text-base font-bold text-white leading-none">{c.label}</p>
-              <p className="font-sans text-[10px] text-white/50 mt-0.5">{c.sub}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* COVERLINES RIGHT */}
-        <div className="absolute right-6 md:right-10 top-[45%] -translate-y-1/2 space-y-5 hidden sm:block text-right">
-          {COVERLINES_RIGHT.map((c, i) => (
-            <motion.div
-              key={c.label}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 + i * 0.12 }}
-              className="border-r-2 border-[#C9A84C] pr-3"
-            >
-              <p className="font-display text-base font-bold text-white leading-none">{c.label}</p>
-              <p className="font-sans text-[10px] text-white/50 mt-0.5">{c.sub}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* BOTTOM PRICE BAR */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="absolute bottom-0 left-0 right-0 bg-[#C9A84C] px-6 md:px-10 py-3 flex items-center justify-between"
-        >
-          <div className="flex gap-6 items-center">
-            <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-[#1A1A1A] font-bold">
-              This Issue
-            </span>
-            <span className="font-sans text-[11px] text-[#1A1A1A]/60">
-              AI Consulting · 7 SaaS Apps · Notion Templates · Poetry · Mirembe Muse
-            </span>
-          </div>
-          <span className="font-display text-lg font-bold text-[#1A1A1A]">2026</span>
-        </motion.div>
-
-        {/* TAGLINE — bottom center above price bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="absolute bottom-16 left-0 right-0 text-center px-6"
-        >
-          <p className="font-display italic text-xl md:text-2xl text-white/70 max-w-lg mx-auto">
-            AI Engineer · Published Poet · Founder, Mirembe Muse
-          </p>
-        </motion.div>
-
-        {/* Scroll cue */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ delay: 1.5, duration: 2, repeat: Infinity }}
-          className="absolute bottom-16 right-8 text-white/30 text-2xl hidden md:block"
-        >
-          ↓
-        </motion.div>
-      </section>
+      {/* ── MAGAZINE COVER (100dvh) — negative margin to escape layout pt-20 ── */}
+      <div className="-mt-20">
+        <MagazineCover />
+      </div>
 
       {/* ── POETRY INTERLUDE ──────────────────────────────────────────────────── */}
       <section className="relative bg-[#0A1128] py-20 px-6 z-10">
@@ -292,13 +143,13 @@ export default function Home() {
               Business degree.
               <br />Self-taught engineer.
               <br />Seven apps.
-              <br /><span className="text-[#C1292E]">Two years.</span>
+              <br /><span className="text-[#C1292E]">Nine months.</span>
             </h2>
             <p className="text-[#6B6B6B] text-lg leading-[1.8] mb-8">
               I started at Nelson Mandela University studying business. While my classmates
-              wrote case studies, I was shipping code. Today I build AI-powered tools for
-              African entrepreneurs, students, and creators — backed by five ancestral lineages
-              and a Ugandan word that means peace.
+              wrote case studies, I was shipping code. In nine months from zero coding knowledge,
+              I built seven AI-powered tools for African entrepreneurs, students, and creators —
+              backed by five ancestral lineages and a Ugandan word that means peace.
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link
@@ -321,7 +172,7 @@ export default function Home() {
               {[
                 { value: '7', label: 'Production Apps', color: 'text-[#C1292E]' },
                 { value: '300+', label: 'Active Users', color: 'text-[#C1292E]' },
-                { value: '2 yrs', label: 'Self-Taught', color: 'text-[#C1292E]' },
+                { value: '9 months', label: 'Self-Taught', color: 'text-[#C1292E]' },
                 { value: 'R300k', label: 'MRR Target', color: 'text-[#C1292E]' },
               ].map((s) => (
                 <div
