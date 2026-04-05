@@ -31,17 +31,89 @@ export default function MagazineCover() {
       flexDirection: 'column',
     }}>
 
-      {/* GRAIN TEXTURE */}
+      {/* ── BACKGROUND ANIMATION KEYFRAMES ── */}
+      <style>{`
+        @keyframes nebula-gold {
+          0%   { transform: translate(0px, 0px) scale(1); }
+          33%  { transform: translate(30px, -20px) scale(1.08); }
+          66%  { transform: translate(-15px, 25px) scale(0.95); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes nebula-cherry {
+          0%   { transform: translate(0px, 0px) scale(1); }
+          40%  { transform: translate(-25px, 15px) scale(1.06); }
+          70%  { transform: translate(20px, -10px) scale(0.97); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes grain-drift {
+          0%   { backgroundPosition: 0px 0px; }
+          100% { backgroundPosition: 300px 300px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .mag-nebula-gold, .mag-nebula-cherry, .mag-grain-anim { animation: none !important; }
+        }
+      `}</style>
+
+      {/* ANIMATED GRAIN TEXTURE */}
+      <div
+        className="mag-grain-anim"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: GRAIN_SVG,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '300px 300px',
+          opacity: 0.055,
+          mixBlendMode: 'overlay',
+          pointerEvents: 'none',
+          zIndex: 5,
+          animation: 'grain-drift 8s linear infinite',
+        }}
+      />
+
+      {/* NEBULA BLOB — ancestral gold, right side near photo */}
+      <div
+        className="mag-nebula-gold"
+        style={{
+          position: 'absolute',
+          right: '-10%',
+          top: '10%',
+          width: '55%',
+          height: '70%',
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.09) 0%, rgba(201,148,58,0.04) 45%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 2,
+          animation: 'nebula-gold 22s ease-in-out infinite',
+          willChange: 'transform',
+        }}
+      />
+
+      {/* NEBULA BLOB — cherry/deep red, bottom left */}
+      <div
+        className="mag-nebula-cherry"
+        style={{
+          position: 'absolute',
+          left: '-5%',
+          bottom: '5%',
+          width: '45%',
+          height: '55%',
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse at center, rgba(193,41,46,0.07) 0%, rgba(107,15,32,0.04) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 2,
+          animation: 'nebula-cherry 28s ease-in-out infinite',
+          willChange: 'transform',
+        }}
+      />
+
+      {/* SCANLINE OVERLAY — editorial depth */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        backgroundImage: GRAIN_SVG,
-        backgroundRepeat: 'repeat',
-        backgroundSize: '300px 300px',
-        opacity: 0.035,
-        mixBlendMode: 'overlay',
+        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px)',
         pointerEvents: 'none',
-        zIndex: 5,
+        zIndex: 3,
       }} />
 
       {/* VERTICAL SPINE */}
