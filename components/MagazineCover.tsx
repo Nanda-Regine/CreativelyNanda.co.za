@@ -72,28 +72,14 @@ export default function MagazineCover() {
         @media (prefers-reduced-motion: reduce) {
           [class*="mag-nebula"], .mag-grain-anim { animation: none !important; }
         }
-        /* Mobile portrait: clear nav + force photo size with vh (bypasses % chain) */
-        @media (max-width: 767px) and (orientation: portrait) {
+        /* Mobile: clear the fixed nav */
+        @media (max-width: 767px) {
           .mag-cover-section {
             padding-top: 84px;
           }
+          /* Widen photo zone on mobile — left col is narrower so give photo more room */
           .photo-container {
-            transform: translateX(-50%) !important;
-            height: 80vh !important;
-          }
-          .photo-container img {
-            height: 80vh !important;
-            width: auto !important;
-            max-width: none !important;
-          }
-        }
-        /* Mobile landscape: just clear nav */
-        @media (max-width: 767px) and (orientation: landscape) {
-          .mag-cover-section {
-            padding-top: 84px;
-          }
-          .photo-container {
-            transform: translateX(-50%) !important;
+            left: 18% !important;
           }
         }
       `}</style>
@@ -344,17 +330,15 @@ export default function MagazineCover() {
         flex: 1,
         display: 'flex',
         alignItems: 'stretch',
-        overflow: 'visible',
+        paddingLeft: '28px',
+        overflow: 'hidden',
         minHeight: 0,
       }}>
 
-        {/* ── LEFT COVERLINES — absolutely positioned so photo isn't squeezed ── */}
+        {/* ── LEFT COVERLINES — flex child, overlays photo via zIndex ── */}
         <div style={{
-          position: 'absolute',
-          left: '28px',
-          top: 0,
-          bottom: 0,
           width: 'clamp(72px, 14vw, 160px)',
+          flexShrink: 0,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -495,28 +479,22 @@ export default function MagazineCover() {
           </div>
         </div>
 
-        {/* PHOTO — transparent PNG, centred */}
+        {/* PHOTO — fill container, face always visible */}
         <div style={{
           position: 'absolute',
           top: 0,
           bottom: 0,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          height: '100%',
+          left: '20%',
+          right: '0',
           zIndex: 15,
-          display: 'flex',
-          alignItems: 'flex-end',
           pointerEvents: 'none',
         }} className="photo-container">
           <Image
             src={PHOTO_FILENAME}
             alt="Nandawula Regine Kabali-Kagwa — Creative Technologist, AI Engineer, Published Poet, Founder of Mirembe Muse"
-            width={600}
-            height={900}
+            fill
             priority
             style={{
-              height: '100%',
-              width: 'auto',
               objectFit: 'contain',
               objectPosition: 'bottom center',
               filter: 'drop-shadow(0 0 60px rgba(201,148,58,0.12)) drop-shadow(0 20px 40px rgba(0,0,0,0.4))',
