@@ -72,8 +72,23 @@ export default function MagazineCover() {
         @media (prefers-reduced-motion: reduce) {
           [class*="mag-nebula"], .mag-grain-anim { animation: none !important; }
         }
-        /* Mobile: clear the fixed nav (page uses -mt-20, section starts at y=0) */
-        @media (max-width: 767px) {
+        /* Mobile portrait: clear nav + force photo size with vh (bypasses % chain) */
+        @media (max-width: 767px) and (orientation: portrait) {
+          .mag-cover-section {
+            padding-top: 84px;
+          }
+          .photo-container {
+            transform: translateX(-50%) !important;
+            height: 80vh !important;
+          }
+          .photo-container img {
+            height: 80vh !important;
+            width: auto !important;
+            max-width: none !important;
+          }
+        }
+        /* Mobile landscape: just clear nav */
+        @media (max-width: 767px) and (orientation: landscape) {
           .mag-cover-section {
             padding-top: 84px;
           }
