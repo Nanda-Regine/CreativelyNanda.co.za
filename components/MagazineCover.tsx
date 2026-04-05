@@ -52,17 +52,17 @@ export default function MagazineCover() {
         @media (prefers-reduced-motion: reduce) {
           .mag-nebula-gold, .mag-nebula-cherry, .mag-grain-anim { animation: none !important; }
         }
-        /* Mobile: push section below fixed nav + center photo */
+        /* Mobile: clear the fixed nav (page uses -mt-20, section starts at y=0) */
         @media (max-width: 767px) {
           .mag-cover-section {
-            padding-top: 72px;
+            padding-top: 84px;
           }
           .photo-container {
-            top: 50% !important;
-            bottom: auto !important;
-            transform: translateX(-32%) translateY(-50%) !important;
-            height: 72% !important;
-            align-items: center !important;
+            bottom: 0 !important;
+            top: auto !important;
+            height: 90% !important;
+            transform: translateX(-28%) !important;
+            align-items: flex-end !important;
           }
         }
       `}</style>
