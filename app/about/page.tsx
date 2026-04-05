@@ -43,7 +43,7 @@ const ANCESTRAL_CLANS = [
     symbol: '◈',
   },
   {
-    clan: 'Tshawe · Hlubi · Msimango',
+    clan: 'Tshawe · Hlubi · Msimanga',
     origin: 'Xhosa, Eastern Cape',
     meaning: 'The earth-keepers. The clans who held this land, told its stories, and taught that a place becomes yours only when you pour yourself into it.',
     symbol: '◆',
@@ -51,7 +51,7 @@ const ANCESTRAL_CLANS = [
   {
     clan: 'Thabizolo',
     origin: 'Sotho',
-    meaning: 'The peacekeepers. Those who build bridges between worlds — and between the person you were and the person you are becoming.',
+    meaning: 'The peacekeepers. Those who build bridges between worlds and between the person you were and the person you are becoming.',
     symbol: '◇',
   },
 ];
