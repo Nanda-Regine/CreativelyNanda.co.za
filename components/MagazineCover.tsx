@@ -61,8 +61,8 @@ export default function MagazineCover() {
             padding-top: 84px;
           }
           .photo-container {
-            bottom: 0 !important;
-            top: auto !important;
+            top: 0 !important;
+            bottom: auto !important;
             height: 90% !important;
             transform: translateX(-28%) !important;
             align-items: flex-end !important;
