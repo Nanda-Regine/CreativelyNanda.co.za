@@ -67,13 +67,13 @@ const PROOF = [
 ];
 
 const APPS = [
-  { name: 'VarsityOS', tag: 'EdTech · AI', href: 'https://campus-compass-phi.vercel.app' },
-  { name: 'K53 Drill Master', tag: 'GovTech · SaaS', href: 'https://nanda-k53-drill-master.vercel.app' },
-  { name: 'StokvelOS', tag: 'FinTech · AI', href: 'https://stokvelos.co.za' },
-  { name: 'AdminOS', tag: 'BizTech · AI Agents', href: 'https://adminos.co.za' },
-  { name: 'WatchSankofa', tag: 'Media · Streaming', href: 'https://watchsankofa.co.za' },
-  { name: 'SankofaSessions', tag: 'Publication', href: 'https://sankofasessions.co.za' },
-  { name: 'CreativelyNanda.co.za', tag: 'Portfolio · Product', href: 'https://creativelynanda.co.za' },
+  { name: 'VarsityOS', tag: 'EdTech · AI', href: 'https://campus-compass-phi.vercel.app', upgrading: false },
+  { name: 'K53 Drill Master', tag: 'GovTech · SaaS', href: 'https://nanda-k53-drill-master.vercel.app', upgrading: false },
+  { name: 'StokvelOS', tag: 'FinTech · AI', href: 'https://stokvelos.co.za', upgrading: true },
+  { name: 'AdminOS', tag: 'BizTech · AI Agents', href: 'https://adminos.co.za', upgrading: true },
+  { name: 'WatchSankofa', tag: 'Media · Streaming', href: 'https://watchsankofa.co.za', upgrading: true },
+  { name: 'SankofaSessions', tag: 'Publication', href: 'https://sankofasessions.co.za', upgrading: true },
+  { name: 'CreativelyNanda.co.za', tag: 'Portfolio · Product', href: 'https://creativelynanda.co.za', upgrading: false },
 ];
 
 export default function MirembePage() {
@@ -214,18 +214,29 @@ export default function MirembePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {APPS.map((app, i) => (
               <FadeUp key={app.name} delay={i * 0.06}>
-                <a
-                  href={app.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between p-5 bg-white/5 border border-white/10 rounded-xl hover:border-[#C1292E]/40 hover:bg-white/8 transition-all"
-                >
-                  <div>
-                    <h3 className="font-display font-bold text-white text-base group-hover:text-[#C1292E] transition-colors">{app.name}</h3>
-                    <p className="text-white/40 text-xs mt-0.5">{app.tag}</p>
+                {app.upgrading ? (
+                  <div className="flex items-center justify-between p-5 bg-white/3 border border-white/8 rounded-xl opacity-60 cursor-not-allowed select-none">
+                    <div>
+                      <h3 className="font-display font-bold text-white/50 text-base">{app.name}</h3>
+                      <p className="text-white/30 text-xs mt-0.5">{app.tag}</p>
+                      <p className="text-blue-300/70 text-xs mt-1 font-medium tracking-wide">⏸ Upgrading in progress</p>
+                    </div>
+                    <span className="text-white/15 text-sm ml-4 shrink-0">⏸</span>
                   </div>
-                  <span className="text-white/20 group-hover:text-[#C1292E] transition-colors text-sm ml-4 shrink-0">↗</span>
-                </a>
+                ) : (
+                  <a
+                    href={app.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between p-5 bg-white/5 border border-white/10 rounded-xl hover:border-[#C1292E]/40 hover:bg-white/8 transition-all"
+                  >
+                    <div>
+                      <h3 className="font-display font-bold text-white text-base group-hover:text-[#C1292E] transition-colors">{app.name}</h3>
+                      <p className="text-white/40 text-xs mt-0.5">{app.tag}</p>
+                    </div>
+                    <span className="text-white/20 group-hover:text-[#C1292E] transition-colors text-sm ml-4 shrink-0">↗</span>
+                  </a>
+                )}
               </FadeUp>
             ))}
           </div>

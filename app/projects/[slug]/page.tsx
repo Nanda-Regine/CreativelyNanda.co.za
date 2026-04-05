@@ -546,7 +546,7 @@ export const useAudioPlayer = create<AudioPlayerState>()(
     description:
       "Editorial media publication featuring African founders, creators, and builders. Functions as both a standalone publication and the content pipeline feeding WatchSankofa — interviews, essays, founder stories, and build-in-public content.",
     category: 'Media · Content Strategy · Publishing',
-    status: 'Beta',
+    status: 'Upgrading',
     year: '2025',
     problem:
       "African entrepreneurs have no dedicated media platform telling their stories with the depth and respect they deserve. Founder stories get reduced to LinkedIn posts or buried in global media that doesn't understand the context.",
@@ -564,7 +564,7 @@ export const useAudioPlayer = create<AudioPlayerState>()(
       problem: 'No dedicated African founder media',
       metric: 'Standalone publication + streaming pipeline',
     },
-    liveUrl: 'https://sankofasessions.co.za',
+    liveUrl: null,
     githubUrl: null,
     images: [],
     metaTitle: 'SankofaSessions — African Founder Media Publication | Nandawula Regine',
@@ -1120,7 +1120,7 @@ This is where everything started. This is the proof that fundamentals matter —
       problem: 'Standard project → personal creative statement',
       metric: 'Load shedding mood card: most-shared feature in testing',
     },
-    liveUrl: 'https://myweatherapp.vercel.app',
+    liveUrl: 'https://my-weather-app-rho-lyart.vercel.app/',
     githubUrl: 'https://github.com/Nanda-Regine/my-weather-app',
     images: [],
     metaTitle: 'MoodCast Weather App — Poems for Every Weather, Load Shedding Mood Card | Nandawula Regine',
@@ -1302,17 +1302,17 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
 
   'chanty-shuttle': {
     slug: 'chanty-shuttle',
-    title: 'Shuttle Service — Client Project',
-    tagline: 'Transport Business Digital Transformation — R34,000 Growth Package Delivered',
+    title: 'Transport Industry Digital Transformation',
+    tagline: 'How a South African Shuttle Operator Stopped Competing on Price — R34,000 Growth Package',
     description:
-      "Client project: full digital transformation for a South African shuttle and transport operator. R34,000 Growth Package delivered including professional website, Google Business setup, WhatsApp Business integration, and local SEO. First tiered client service model.",
+      "Full digital transformation for a South African shuttle and transport operator. R34,000 Growth Package delivered: professional website, Google Business Profile setup, WhatsApp Business integration, local SEO, and a Vision Package roadmap for corporate affiliate channels.",
     category: 'Client Work · SME · Digital Transformation',
     status: 'Live',
     year: '2025',
     problem:
-      "Transport operators compete on price because they can't compete on digital perception. This client had reliable vehicles and quality service — and zero digital identity that reflected that quality.",
+      "Transport operators in South Africa compete on price because they can't compete on digital perception. Reliable vehicles and quality service mean nothing when a corporate client can't find you, can't trust your brand at a glance, and has no frictionless way to book.",
     solution:
-      "Growth Package: professional website with booking inquiry flow, Google Business Profile optimisation, WhatsApp Business integration, social media templates, and local SEO. Vision Package roadmap: booking automation, affiliate marketing system for corporate partners.",
+      "Growth Package: professional website with booking inquiry flow, Google Business Profile optimisation, WhatsApp Business integration, social media templates, and local SEO. Vision Package roadmap: booking automation, affiliate marketing system so satisfied corporate partners become a systematic referral channel.",
     techStack: [
       { name: 'HTML5', reason: 'Fast, lightweight — transport clients book on mobile' },
       { name: 'CSS3', reason: 'Credibility-first design — professional trust signals above fold' },
@@ -1322,32 +1322,32 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
       potential: 'SA transport and shuttle market',
       economy: 'R34,000 Growth Package delivered',
       problem: 'Word-of-mouth caps growth at network size',
-      metric: 'First tiered service model: Growth → Vision Package',
+      metric: 'Tiered service model: Growth → Vision Package',
     },
     liveUrl: 'https://transport-shuttle-os.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/Transport-shuttle-os',
     images: [],
-    metaTitle: 'Shuttle Service Client Project — Transport Business Digital Transformation | Nandawula Regine',
+    metaTitle: 'Transport Industry Digital Transformation — SA Shuttle Service Case Study | Nandawula Regine',
     metaDescription:
-      "Client project: R34,000 digital transformation for a South African shuttle service. Website, WhatsApp integration, local SEO. Built by Nandawula Regine.",
+      "R34,000 digital transformation for a South African shuttle and transport operator. Website, WhatsApp integration, Google Business, local SEO. Built by Nandawula Regine.",
     keywords: [
       'shuttle service website South Africa',
-      'transport business website SA',
-      'digital transformation SME South Africa',
+      'transport business digital transformation SA',
+      'SME digital transformation South Africa',
     ],
     buildJourney: {
-      narrative: `This shuttle service engagement was the first multi-tiered client project — the Growth Package and Vision Package model that now structures all Mirembe Muse B2B work.
+      narrative: `This transport industry engagement introduced the multi-tiered client model — the Growth Package and Vision Package structure that now defines all Mirembe Muse B2B work.
 
-The Growth Package solved the immediate problem: establish professional credibility online. The Vision Package roadmap identified the next problem: corporate clients and hotel partners who already refer Chanty could become a systematic affiliate channel if the incentive structure was right.
+The Growth Package solved the immediate problem: establish professional credibility online. A transport operator with quality vehicles and reliable service was invisible to corporate buyers because their digital presence didn't match the standard of their actual service.
 
-A referral link system — track, attribute, reward — turns happy clients into a distribution channel. This thinking later became the LemonSqueezy affiliate architecture for digital products.
+The Vision Package roadmap identified the next problem: corporate clients and hotel partners who book regularly could become a systematic affiliate channel if the incentive structure was formalised. A referral link system — track, attribute, reward — turns satisfied clients into a distribution channel. This thinking later became the LemonSqueezy affiliate architecture for digital products.
 
-The most important lesson from Chanty: client work doesn't just generate revenue. It generates the product specifications for what comes next.`,
+The core insight: every manual process in a service business is a product specification waiting to happen. Client work doesn't just generate revenue — it generates the blueprint for what to build next.`,
       lessons: [
         'Tiered pricing solves the SA SME budget reality: start where you are, grow into the next tier',
-        'Corporate client affiliate architecture: happy clients as distribution channel',
-        'R34,000 Growth Package: first demonstration of the Mirembe Muse B2B pricing model',
-        'Client work is product research — every manual Chanty process became an AdminOS feature specification',
+        'Corporate affiliate architecture: satisfied clients as a managed distribution channel',
+        'R34,000 Growth Package: proof-of-concept for the Mirembe Muse B2B pricing model',
+        'Client delivery is product research — every manual process becomes a future automation feature spec',
       ],
     },
   },
@@ -1396,6 +1396,7 @@ const statusColors: Record<string, string> = {
   Live: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30',
   Beta: 'bg-amber-500/20 text-amber-400 border border-amber-500/30',
   Completed: 'bg-white/10 text-white/50 border border-white/15',
+  Upgrading: 'bg-blue-500/20 text-blue-300 border border-blue-500/30',
 };
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
@@ -1464,7 +1465,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              {project.liveUrl && (
+              {project.status === 'Upgrading' ? (
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 text-white/40 rounded-full font-semibold cursor-not-allowed select-none">
+                  ⏸ Upgrading in Progress
+                </span>
+              ) : project.liveUrl ? (
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -1474,7 +1479,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   <Globe className="w-4 h-4" />
                   View Live
                 </a>
-              )}
+              ) : null}
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}

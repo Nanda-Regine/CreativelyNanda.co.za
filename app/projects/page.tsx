@@ -130,7 +130,9 @@ const PROJECTS: ProjectCard[] = [
       'Builds the media flywheel that feeds the streaming platform',
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase', 'Substack'],
-    liveUrl: 'https://sankofasessions.co.za',
+    liveUrl: '/upgrades?app=sankofasessions',
+    liveLabel: 'Upgrading →',
+    liveInternal: true,
     bg: '#1A0A28',
     accent: '#9B59B6',
     category: 'saas',
@@ -250,7 +252,7 @@ const PROJECTS: ProjectCard[] = [
       'SheCodes Plus certified — first live API integration',
     ],
     stack: ['HTML5', 'CSS3', 'Vanilla JavaScript', 'OpenWeatherMap API', 'Geolocation API'],
-    liveUrl: 'https://myweatherapp.vercel.app',
+    liveUrl: 'https://my-weather-app-rho-lyart.vercel.app/',
     githubUrl: 'https://github.com/Nanda-Regine/my-weather-app',
     bg: '#150A20',
     accent: '#A78BFA',
@@ -661,7 +663,7 @@ export default function ProjectsPage() {
             <div style={{ display: 'flex', gap: '0', flexWrap: 'wrap' as const }}>
               {[
                 { v: '7', l: 'Live AI SaaS Products' },
-                { v: '400+', l: 'GitHub Commits' },
+                { v: '550+', l: 'GitHub Commits' },
                 { v: '36+', l: 'Technologies' },
                 { v: '9 Months', l: 'Zero → Production' },
               ].map(({ v, l }, i) => (
