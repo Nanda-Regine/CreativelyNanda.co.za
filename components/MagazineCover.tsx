@@ -63,7 +63,7 @@ export default function MagazineCover() {
           .photo-container {
             top: 0 !important;
             bottom: auto !important;
-            height: 90% !important;
+            height: 135% !important;
             transform: translateX(-28%) !important;
             align-items: flex-end !important;
           }
