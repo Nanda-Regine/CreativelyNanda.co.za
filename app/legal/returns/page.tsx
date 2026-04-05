@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     'Refund and Returns Policy for digital products purchased on CreativelyNanda.co.za — in compliance with the Consumer Protection Act (CPA) and ECT Act.',
 };
 
-const EFFECTIVE_DATE = '10 March 2026';
+const EFFECTIVE_DATE = '5 April 2026';
 const COMPANY = 'Mirembe Muse (Pty) Ltd';
 const TRADING_AS = 'CreativelyNanda.co.za';
 const EMAIL = 'hello@creativelynanda.co.za';
@@ -37,20 +37,26 @@ export default function ReturnsPolicy() {
           <section className="bg-cherry/8 border border-cherry/20 rounded-2xl p-6">
             <h2 className="font-display text-xl font-bold text-navy mb-2">Summary</h2>
             <ul className="space-y-1 text-sm">
-              <li>✓ &nbsp;7-day cooling-off period under the ECT Act for direct marketing purchases</li>
-              <li>✓ &nbsp;Refunds for defective or misdescribed products</li>
+              <li>✓ &nbsp;7-day cooling-off period under the ECT Act for direct marketing purchases (digital products)</li>
+              <li>✓ &nbsp;Refunds for defective or misdescribed digital products</li>
               <li>✓ &nbsp;Refunds for products not delivered within the agreed timeframe</li>
               <li>✗ &nbsp;No refunds once a digital product has been accessed or downloaded (content consumed)</li>
-              <li>✗ &nbsp;No refunds for change of mind after access (subject to ECT cooling-off exception)</li>
+              <li>✗ &nbsp;No refunds for change of mind after digital product access</li>
+              <li>✗ &nbsp;Consulting deposits are non-refundable once work has commenced</li>
+              <li>✓ &nbsp;Mid-project cancellation: fees for work completed are payable; remainder refunded</li>
             </ul>
           </section>
 
-          {/* 1. Digital products */}
+          {/* 1. Nature of products */}
           <section>
-            <h2 className="font-display text-2xl font-bold text-navy mb-3">1. Nature of Our Products</h2>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">1. Nature of Our Products and Services</h2>
             <p className="text-sm">
-              All products sold on CreativelyNanda.co.za are <strong>digital goods</strong> — specifically Notion template files and guides delivered electronically. Because digital products are downloaded or accessed instantly, special considerations apply under South African consumer law.
+              We offer two categories of products and services, each with different refund considerations:
             </p>
+            <ul className="mt-2 space-y-2 list-disc list-inside text-sm">
+              <li><strong>Digital products:</strong> Notion templates and guides delivered electronically. Because these are downloaded or accessed instantly, special considerations apply under South African consumer law (detailed in Sections 2–4 below).</li>
+              <li><strong>Consulting and service engagements:</strong> AI engineering, web development, business automation, and advisory services. These are governed by the project-specific cancellation terms in Section 5 below.</li>
+            </ul>
           </section>
 
           {/* 2. ECT Act cooling-off */}
@@ -107,9 +113,43 @@ export default function ReturnsPolicy() {
             </ul>
           </section>
 
-          {/* 5. How to request */}
+          {/* 5. Consulting cancellation */}
           <section>
-            <h2 className="font-display text-2xl font-bold text-navy mb-3">5. How to Request a Refund</h2>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">5. Consulting and Service Engagement Cancellations</h2>
+            <p className="text-sm">
+              The following cancellation terms apply to consulting, AI engineering, web development, and business automation engagements:
+            </p>
+            <div className="mt-3 space-y-3">
+              <div>
+                <h3 className="font-semibold text-navy text-sm">a) Project deposits</h3>
+                <p className="text-sm mt-1">
+                  Deposits paid to secure a project start date are <strong>non-refundable once work has commenced</strong>. "Work commenced" means we have begun any research, planning, architecture, design, or development activity related to your project.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-navy text-sm">b) Mid-project cancellation</h3>
+                <p className="text-sm mt-1">
+                  If you cancel a project after work has commenced, you are liable for payment of all work completed to the date of cancellation, calculated at our standard hourly rate or as a proportion of the agreed project fee, whichever is greater. Any deposit paid will be applied against this amount.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-navy text-sm">c) Retainer cancellations</h3>
+                <p className="text-sm mt-1">
+                  Monthly retainer engagements may be cancelled with 30 days&apos; written notice. Fees for the notice period are payable in full. No refund is provided for a month already billed and in progress.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-navy text-sm">d) Our right to cancel</h3>
+                <p className="text-sm mt-1">
+                  We reserve the right to cancel a consulting engagement if: payment is overdue by more than 14 days; you provide materially false information; or circumstances arise that make it impossible to deliver the agreed scope. In such cases, a pro-rata refund of any pre-paid fees (less work completed) will be issued.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* 6. How to request */}
+          <section>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">6. How to Request a Refund</h2>
             <p className="text-sm">To request a refund, please email us at <a href={`mailto:${EMAIL}`} className="text-cherry underline">{EMAIL}</a> with:</p>
             <ul className="mt-2 space-y-1 list-disc list-inside text-sm">
               <li>Your full name and email address used at checkout</li>
@@ -122,9 +162,9 @@ export default function ReturnsPolicy() {
             </p>
           </section>
 
-          {/* 6. Disputes */}
+          {/* 7. Disputes */}
           <section>
-            <h2 className="font-display text-2xl font-bold text-navy mb-3">6. Disputes</h2>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">7. Disputes</h2>
             <p className="text-sm">
               If you are not satisfied with the outcome of a refund request, you may escalate your complaint to:
             </p>

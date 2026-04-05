@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     'Terms and Conditions for CreativelyNanda.co.za — governing use of the website and purchase of digital products under South African law (ECT Act, CPA).',
 };
 
-const EFFECTIVE_DATE = '10 March 2026';
+const EFFECTIVE_DATE = '5 April 2026';
 const COMPANY = 'Mirembe Muse (Pty) Ltd';
 const TRADING_AS = 'CreativelyNanda.co.za';
 const EMAIL = 'hello@creativelynanda.co.za';
@@ -46,7 +46,7 @@ export default function TermsAndConditions() {
               <li><strong>Physical address:</strong> {ADDRESS}</li>
               <li><strong>Email address:</strong> <a href={`mailto:${EMAIL}`} className="text-cherry underline">{EMAIL}</a></li>
               <li><strong>Website:</strong> <a href={WEBSITE} className="text-cherry underline">{WEBSITE}</a></li>
-              <li><strong>Nature of business:</strong> Digital products (Notion templates), creative technology services, web development, and AI consulting.</li>
+              <li><strong>Nature of business:</strong> Digital products (Notion templates), AI engineering, web development, business automation, fractional AI advisory, and creative technology consulting.</li>
             </ul>
           </section>
 
@@ -62,10 +62,17 @@ export default function TermsAndConditions() {
           <section>
             <h2 className="font-display text-2xl font-bold text-navy mb-3">2. Products and Services</h2>
             <p className="text-sm">
-              We offer digital products (Notion templates), creative consulting, web development services, and educational content. All prices are displayed in South African Rand (ZAR) and are inclusive of any applicable VAT where stated.
+              We offer the following:
             </p>
+            <ul className="mt-2 space-y-1 list-disc list-inside text-sm">
+              <li><strong>Digital products:</strong> Notion templates and associated guides, delivered electronically.</li>
+              <li><strong>AI engineering and integration:</strong> Custom Claude API agents, multi-agent systems, WhatsApp automation, and AI-powered application development.</li>
+              <li><strong>Web development:</strong> Full-stack Next.js applications, database architecture, and production deployment.</li>
+              <li><strong>Business automation:</strong> Workflow automation, WhatsApp business integrations, and reporting pipelines.</li>
+              <li><strong>Fractional AI advisory:</strong> Monthly AI strategy, prototyping, and advisory services embedded in client teams.</li>
+            </ul>
             <p className="mt-2 text-sm">
-              Product descriptions, pricing, and availability are subject to change without prior notice. We reserve the right to refuse or cancel any order at our discretion.
+              All prices are displayed in South African Rand (ZAR). Consulting and service fees are exclusive of VAT unless explicitly stated otherwise. Product and service descriptions, pricing, and availability are subject to change without prior notice.
             </p>
           </section>
 
@@ -98,6 +105,21 @@ export default function TermsAndConditions() {
             </p>
           </section>
 
+          {/* 4b. Consulting engagements */}
+          <section>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">4b. Consulting and Service Engagements</h2>
+            <p className="text-sm">
+              Where we are engaged to provide consulting, AI engineering, web development, or business automation services:
+            </p>
+            <ul className="mt-2 space-y-2 list-disc list-inside text-sm">
+              <li>The scope of work, deliverables, timeline, and fee structure will be agreed in writing (via a proposal or Statement of Work) before work commences.</li>
+              <li>A deposit (typically 50% of the project fee) is required to secure a project start date. Deposits are non-refundable once work has commenced, except where {COMPANY} fails to deliver the agreed services.</li>
+              <li>The remaining balance is payable on delivery of the agreed deliverables or at agreed project milestones.</li>
+              <li>Retainer (monthly) engagements are billed at the start of each month and are cancellable with 30 days' written notice.</li>
+              <li>Work will not commence and deliverables will not be released until payment has cleared.</li>
+            </ul>
+          </section>
+
           {/* 5. Intellectual property */}
           <section>
             <h2 className="font-display text-2xl font-bold text-navy mb-3">5. Intellectual Property</h2>
@@ -106,6 +128,9 @@ export default function TermsAndConditions() {
             </p>
             <p className="mt-2 text-sm">
               <strong>Digital product licence:</strong> When you purchase a Notion template, you receive a personal, non-exclusive, non-transferable licence to use the template for your own personal or business purposes. You may not resell, redistribute, sublicense, or share the template with third parties.
+            </p>
+            <p className="mt-2 text-sm">
+              <strong>Custom development work:</strong> Intellectual property in custom-built software, code, and systems developed under a consulting engagement vests in the client upon receipt of full payment, unless otherwise agreed in writing. Until full payment is received, all IP remains the property of {COMPANY}. We retain the right to reference completed work in our portfolio unless a written non-disclosure agreement is in place.
             </p>
             <p className="mt-2 text-sm">
               <strong>Portfolio and website content:</strong> You may not reproduce, copy, or republish any content from this website without our prior written permission.

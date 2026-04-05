@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     'Privacy Policy for CreativelyNanda.co.za — how we collect, use, and protect your personal information in compliance with the Protection of Personal Information Act (POPIA), No. 4 of 2013.',
 };
 
-const EFFECTIVE_DATE = '10 March 2026';
+const EFFECTIVE_DATE = '5 April 2026';
 const COMPANY = 'Mirembe Muse (Pty) Ltd';
 const TRADING_AS = 'CreativelyNanda.co.za';
 const EMAIL = 'hello@creativelynanda.co.za';
@@ -98,8 +98,9 @@ export default function PrivacyPolicy() {
             <ul className="mt-3 space-y-2 list-disc list-inside text-sm">
               <li><strong>PayFast (DPO PayGate (Pty) Ltd):</strong> Payment processing. PayFast is a registered payment service provider in South Africa and is PCI DSS compliant. Your card details are never stored on our servers.</li>
               <li><strong>Supabase Inc.:</strong> Database and file storage hosted on AWS. Data may be stored outside South Africa. Supabase implements appropriate safeguards.</li>
-              <li><strong>Resend Inc.:</strong> Transactional email delivery (order confirmations).</li>
+              <li><strong>Resend Inc.:</strong> Transactional email delivery (order confirmations and project correspondence).</li>
               <li><strong>Vercel Inc.:</strong> Website hosting and edge deployment.</li>
+              <li><strong>Anthropic PBC:</strong> AI assistant functionality on this website. Messages you submit to the AI chat assistant are processed by Anthropic's Claude API. Anthropic does not use these messages to train its models by default. See Anthropic's privacy policy at anthropic.com/privacy.</li>
             </ul>
             <p className="mt-3 text-sm">
               Where data is processed outside South Africa, we take reasonable steps to ensure it receives equivalent protection to that provided by POPIA.
@@ -160,17 +161,39 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          {/* 9. Children */}
+          {/* 9. Consulting and B2B engagements */}
           <section>
-            <h2 className="font-display text-2xl font-bold text-navy mb-3">9. Children's Privacy</h2>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">9. Consulting and B2B Engagements</h2>
+            <p className="text-sm">
+              When you engage us for consulting, AI engineering, web development, or business automation services, we may process personal information about your employees, clients, or end users as part of delivering those services. In such cases:
+            </p>
+            <ul className="mt-2 space-y-1 list-disc list-inside text-sm">
+              <li>You, as the client, are the Responsible Party for any personal information you share with us.</li>
+              <li>We act as an Operator (as defined in POPIA) and will only process that information for the purposes of the engagement.</li>
+              <li>We will not retain client data beyond the conclusion of the project without written instruction.</li>
+              <li>Where required, we will enter into a written Operator Agreement before processing begins.</li>
+            </ul>
+          </section>
+
+          {/* 10. PAIA */}
+          <section>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">10. Access to Information (PAIA)</h2>
+            <p className="text-sm">
+              In terms of the Promotion of Access to Information Act, No. 2 of 2000 (PAIA), you may request access to records held by {COMPANY}. Requests must be submitted in writing to the Information Officer at {EMAIL}. We will respond within the timeframes prescribed by PAIA.
+            </p>
+          </section>
+
+          {/* 11. Children */}
+          <section>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">11. Children&apos;s Privacy</h2>
             <p className="text-sm">
               Our services are not directed at children under the age of 18. We do not knowingly collect personal information from minors. If you believe a minor has submitted personal information to us, please contact us immediately so we can delete it.
             </p>
           </section>
 
-          {/* 10. Changes */}
+          {/* 12. Changes */}
           <section>
-            <h2 className="font-display text-2xl font-bold text-navy mb-3">10. Changes to This Policy</h2>
+            <h2 className="font-display text-2xl font-bold text-navy mb-3">12. Changes to This Policy</h2>
             <p className="text-sm">
               We may update this Privacy Policy from time to time. The effective date at the top of this page will reflect when the policy was last revised. Continued use of the website after changes constitutes acceptance of the updated policy.
             </p>
