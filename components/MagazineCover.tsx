@@ -20,7 +20,7 @@ const GRAIN_SVG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
 
 export default function MagazineCover() {
   return (
-    <section style={{
+    <section className="mag-cover-section" style={{
       position: 'relative',
       width: '100%',
       height: '100dvh',
@@ -51,6 +51,19 @@ export default function MagazineCover() {
         }
         @media (prefers-reduced-motion: reduce) {
           .mag-nebula-gold, .mag-nebula-cherry, .mag-grain-anim { animation: none !important; }
+        }
+        /* Mobile: push section below fixed nav + center photo */
+        @media (max-width: 767px) {
+          .mag-cover-section {
+            padding-top: 72px;
+          }
+          .photo-container {
+            top: 50% !important;
+            bottom: auto !important;
+            transform: translateX(-32%) translateY(-50%) !important;
+            height: 72% !important;
+            align-items: center !important;
+          }
         }
       `}</style>
 
