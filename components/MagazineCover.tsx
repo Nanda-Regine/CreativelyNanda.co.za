@@ -261,7 +261,7 @@ export default function MagazineCover() {
         display: 'flex',
         alignItems: 'stretch',
         paddingLeft: '28px',
-        overflow: 'hidden',
+        overflow: 'visible',
         minHeight: 0,
       }}>
 
