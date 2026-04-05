@@ -5,15 +5,18 @@ import Image from 'next/image'
 const PHOTO_FILENAME = '/assets/professional/nanda-professional-2-transparent.png'
 
 const TICKER_ITEMS = [
-  'AI CONSULTING',
-  '7 SaaS APPS',
-  'NOTION TEMPLATES',
-  'POETRY · CODE · POWER',
+  'AI ENGINEER',
+  'FULL-STACK DEVELOPER',
+  'CLAUDE API · NEXT.JS · TYPESCRIPT',
+  'AFRICA-FIRST SOFTWARE',
+  '7 LIVE AI APPS',
+  'NMU ALUMNI',
+  'PUBLISHED POET',
   'MIREMBE MUSE',
-  'EST. 2025',
-  'EAST LONDON',
+  'EAST LONDON · SOUTH AFRICA',
+  'BUILDING FOR THE CONTINENT',
+  'SUPABASE · PAYFAST · WHATSAPP AI',
   'WHERE TRANSFORMATION HAS A TEMPLATE',
-  'POPIA COMPLIANT · REG. 2026-005658',
 ]
 
 const GRAIN_SVG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`
@@ -276,7 +279,7 @@ export default function MagazineCover() {
           zIndex: 20,
           position: 'relative',
         }}>
-          {/* Coverline 1 */}
+          {/* Coverline 1 — AI Engineer */}
           <div style={{ marginBottom: '12px' }}>
             <p style={{
               fontFamily: 'var(--font-mono)',
@@ -286,17 +289,17 @@ export default function MagazineCover() {
               textTransform: 'uppercase',
               margin: '0 0 4px 0',
             }}>
-              Inside
+              Role
             </p>
             <p style={{
               fontFamily: 'var(--font-bebas)',
-              fontSize: 'clamp(22px, 4.5vw, 32px)',
+              fontSize: 'clamp(20px, 4vw, 30px)',
               color: '#FFFFFF',
               lineHeight: '0.95',
               margin: '0 0 4px 0',
               letterSpacing: '0.02em',
             }}>
-              7 APPS.
+              AI<br />ENGINEER
             </p>
             <p style={{
               fontFamily: 'var(--font-cormorant)',
@@ -306,13 +309,13 @@ export default function MagazineCover() {
               margin: 0,
               lineHeight: 1.4,
             }}>
-              One woman.<br />Africa&apos;s OS.
+              Full-Stack Dev.<br />Africa-first.
             </p>
           </div>
 
           <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.35)', margin: '0 0 12px 0' }} />
 
-          {/* Coverline 2 */}
+          {/* Coverline 2 — 7 Apps */}
           <div style={{ marginBottom: '12px' }}>
             <p style={{
               fontFamily: 'var(--font-mono)',
@@ -322,7 +325,7 @@ export default function MagazineCover() {
               textTransform: 'uppercase',
               margin: '0 0 4px 0',
             }}>
-              The Build
+              In Production
             </p>
             <p style={{
               fontFamily: 'var(--font-bebas)',
@@ -332,7 +335,7 @@ export default function MagazineCover() {
               margin: '0 0 4px 0',
               letterSpacing: '0.02em',
             }}>
-              POET<br />WHO CODES
+              7 LIVE<br />APPS
             </p>
             <p className="hidden md:block" style={{
               fontFamily: 'var(--font-cormorant)',
@@ -342,13 +345,13 @@ export default function MagazineCover() {
               margin: 0,
               lineHeight: 1.4,
             }}>
-              Ubuntu as<br />architecture
+              9 months.<br />Zero to SaaS.
             </p>
           </div>
 
           <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.35)', margin: '0 0 12px 0' }} />
 
-          {/* Coverline 3 */}
+          {/* Coverline 3 — Published Poet */}
           <div>
             <p style={{
               fontFamily: 'var(--font-mono)',
@@ -358,7 +361,7 @@ export default function MagazineCover() {
               textTransform: 'uppercase',
               margin: '0 0 4px 0',
             }}>
-              Ubuntu Tech
+              Published
             </p>
             <p style={{
               fontFamily: 'var(--font-bebas)',
@@ -368,7 +371,7 @@ export default function MagazineCover() {
               margin: '0 0 4px 0',
               letterSpacing: '0.02em',
             }}>
-              R50 BN
+              POET &amp;<br />FOUNDER
             </p>
             <p className="hidden md:block" style={{
               fontFamily: 'var(--font-cormorant)',
@@ -378,7 +381,7 @@ export default function MagazineCover() {
               margin: 0,
               lineHeight: 1.4,
             }}>
-              Stokvels.<br />Finally protected.
+              Inside Her Roses.<br />NMU Alumni.
             </p>
           </div>
 
@@ -459,16 +462,17 @@ export default function MagazineCover() {
             margin: 0,
             lineHeight: 1.6,
           }}>
-            From<br />R8,000/mo
+            Building<br />Africa-First
           </p>
           <p style={{
             fontFamily: 'var(--font-bebas)',
-            fontSize: 'clamp(14px, 2.5vw, 19px)',
+            fontSize: 'clamp(14px, 2.5vw, 20px)',
             color: '#FFFFFF',
             margin: 0,
             letterSpacing: '0.04em',
+            lineHeight: 1,
           }}>
-            300+ USERS
+            CLAUDE API<br />&amp; NEXT.JS
           </p>
           <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.3)', marginLeft: 'auto' }} />
           <p style={{
@@ -477,8 +481,9 @@ export default function MagazineCover() {
             fontStyle: 'italic',
             color: '#F5F0E8',
             margin: 0,
+            lineHeight: 1.4,
           }}>
-            Inside Her Roses
+            NMU Alumni.<br />550+ commits.
           </p>
           <p style={{
             fontFamily: 'var(--font-mono)',
@@ -488,7 +493,7 @@ export default function MagazineCover() {
             margin: 0,
             lineHeight: 1.6,
           }}>
-            POETRY<br />CODE · POWER
+            SUPABASE<br />TYPESCRIPT
           </p>
           <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.3)', marginLeft: 'auto' }} />
           <p style={{
