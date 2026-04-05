@@ -185,7 +185,7 @@ const PROJECTS: ProjectCard[] = [
     githubUrl: 'https://github.com/Nanda-Regine/TrueAccApp',
     bg: '#001812',
     accent: '#10B981',
-    category: 'origin',
+    category: 'client',
   },
   {
     slug: 'cortex-hub',
@@ -296,7 +296,7 @@ const PROJECTS: ProjectCard[] = [
   },
   {
     slug: 'carpentry-business',
-    name: 'Kustom Krafts — Carpentry',
+    name: 'Carpentry Business — Client',
     status: 'Live',
     problem: 'SA trade businesses are exceptional at their craft and invisible online.',
     impact: [
@@ -313,7 +313,7 @@ const PROJECTS: ProjectCard[] = [
   },
   {
     slug: 'chanty-shuttle',
-    name: 'Chanty Shuttle Services',
+    name: 'Shuttle Service — Client',
     status: 'Live',
     problem: 'Transport operators compete on price because they can\'t compete on digital perception.',
     impact: [
@@ -322,7 +322,7 @@ const PROJECTS: ProjectCard[] = [
       'Affiliate marketing architecture: seed of AdminOS referral system',
     ],
     stack: ['HTML5', 'CSS3', 'Vanilla JavaScript'],
-    liveUrl: null,
+    liveUrl: 'https://transport-shuttle-os.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/Transport-shuttle-os',
     bg: '#0A0E1A',
     accent: '#60A5FA',

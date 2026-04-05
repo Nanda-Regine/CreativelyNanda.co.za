@@ -351,7 +351,7 @@ SELECT * FROM anomaly_detection WHERE fraud_signal != 'NORMAL';`,
       'AI business assistant South Africa',
     ],
     buildJourney: {
-      narrative: `AdminOS is the product that Cortex Hub Booking, Chanty Shuttle Services, and every SME client engagement made inevitable. After building a booking system for creative hubs and watching a shuttle service owner manage bookings via WhatsApp at midnight, the pattern was unmistakable: South African small business owners are not technology-averse — they are technology-abandoned.
+      narrative: `AdminOS is the product that Cortex Hub Booking, a shuttle service client, and every SME engagement made inevitable. After building a booking system for creative hubs and watching a transport operator manage bookings via WhatsApp at midnight, the pattern was unmistakable: South African small business owners are not technology-averse — they are technology-abandoned.
 
 The tools that exist were built for US small businesses, priced in USD, and designed around infrastructure that SA businesses don't have. AdminOS was built to fix that.
 
@@ -1101,7 +1101,7 @@ The lesson that stayed: design is an argument. Every visual decision argues for 
 
   'carpentry-business': {
     slug: 'carpentry-business',
-    title: 'Kustom Krafts — Carpentry Business',
+    title: 'Carpentry Business — Client Project',
     tagline: 'Portfolio-Forward Web Presence for an SA Trade Business',
     description:
       "Client project: a craft-first website for a South African carpentry and joinery business. Portfolio gallery above the fold, WhatsApp deep link CTA as primary conversion, zero dependencies for long-term client maintainability.",
@@ -1126,14 +1126,13 @@ The lesson that stayed: design is an argument. Every visual decision argues for 
     liveUrl: 'https://kustom-krafts.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/kustom-krafts',
     images: [],
-    metaTitle: 'Kustom Krafts — Carpentry Business Website | Nandawula Regine',
+    metaTitle: 'Carpentry Business — Trade Services Website | Nandawula Regine',
     metaDescription:
       "Client project: portfolio-forward website for a South African carpentry business. WhatsApp-first conversion architecture. Built by Nandawula Regine.",
     keywords: [
       'carpentry website South Africa',
       'trade business website SA',
       'WhatsApp website conversion',
-      'Kustom Krafts',
     ],
     buildJourney: {
       narrative: `The carpentry project's most important decision was made before writing a line of code: the portfolio gallery goes above the fold. Not the pitch. Not the pricing. The work.
@@ -1152,7 +1151,7 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
 
   'chanty-shuttle': {
     slug: 'chanty-shuttle',
-    title: 'Chanty Shuttle Services',
+    title: 'Shuttle Service — Client Project',
     tagline: 'Transport Business Digital Transformation — R34,000 Growth Package Delivered',
     description:
       "Client project: full digital transformation for a South African shuttle and transport operator. R34,000 Growth Package delivered including professional website, Google Business setup, WhatsApp Business integration, and local SEO. First tiered client service model.",
@@ -1160,7 +1159,7 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
     status: 'Live',
     year: '2025',
     problem:
-      "Transport operators compete on price because they can't compete on digital perception. Chanty had reliable vehicles and quality service — and zero digital identity that reflected that quality.",
+      "Transport operators compete on price because they can't compete on digital perception. This client had reliable vehicles and quality service — and zero digital identity that reflected that quality.",
     solution:
       "Growth Package: professional website with booking inquiry flow, Google Business Profile optimisation, WhatsApp Business integration, social media templates, and local SEO. Vision Package roadmap: booking automation, affiliate marketing system for corporate partners.",
     techStack: [
@@ -1174,20 +1173,19 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
       problem: 'Word-of-mouth caps growth at network size',
       metric: 'First tiered service model: Growth → Vision Package',
     },
-    liveUrl: null,
+    liveUrl: 'https://transport-shuttle-os.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/Transport-shuttle-os',
     images: [],
-    metaTitle: 'Chanty Shuttle Services — Transport Business Digital Transformation | Nandawula Regine',
+    metaTitle: 'Shuttle Service Client Project — Transport Business Digital Transformation | Nandawula Regine',
     metaDescription:
       "Client project: R34,000 digital transformation for a South African shuttle service. Website, WhatsApp integration, local SEO. Built by Nandawula Regine.",
     keywords: [
       'shuttle service website South Africa',
       'transport business website SA',
       'digital transformation SME South Africa',
-      'Chanty Shuttle',
     ],
     buildJourney: {
-      narrative: `Chanty Shuttle was the first multi-tiered client engagement — the Growth Package and Vision Package model that now structures all Mirembe Muse B2B work.
+      narrative: `This shuttle service engagement was the first multi-tiered client project — the Growth Package and Vision Package model that now structures all Mirembe Muse B2B work.
 
 The Growth Package solved the immediate problem: establish professional credibility online. The Vision Package roadmap identified the next problem: corporate clients and hotel partners who already refer Chanty could become a systematic affiliate channel if the incentive structure was right.
 
