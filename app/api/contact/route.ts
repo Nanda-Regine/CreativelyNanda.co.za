@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     // Send notification to Nanda
     await resend.emails.send({
       from: 'Creatively Nanda <hello@creativelynanda.co.za>',
-      to: 'nandaregine@gmail.com',
+      to: 'hello@creativelynanda.co.za',
       replyTo: email,
       subject: `New Contact: ${subject || 'General enquiry'} — from ${name}`,
       html: `
