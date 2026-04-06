@@ -30,13 +30,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/products/high-school-academic-excellence`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/products/varsity-academic-excellence`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/products/sme-command-center`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    // Project slugs (from Supabase migration 018)
-    { url: `${BASE_URL}/projects/creativelynanda-portfolio`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/projects/mirembe-muse-platform`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    // Project slugs
+    { url: `${BASE_URL}/projects/campus-compass`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/k53-drill-master`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/stokvel-os`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/adminos`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/watchsankofa`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/sankofasessions`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/creativelynanda`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/poetry-tube`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/projects/true-access-app`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/projects/visionboard-pro`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/projects/poetrytube-platform`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/projects/notion-template-systems`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/cortex-hub`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/projects/green-vault`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ];
 
   return staticRoutes;

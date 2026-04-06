@@ -146,8 +146,7 @@ export default function Home() {
               <br /><span className="text-[#C1292E]">Nine months.</span>
             </h2>
             <p className="text-[#6B6B6B] text-lg leading-[1.8] mb-8">
-              I started at Nelson Mandela University studying business. While my classmates
-              wrote case studies, I was shipping code. In nine months from zero coding knowledge,
+              After my degree, I taught myself to code. Then I started shipping. In nine months from zero coding knowledge,
               I built seven AI-powered tools for African entrepreneurs, students, and creators —
               backed by five ancestral lineages and a Ugandan word that means peace.
             </p>

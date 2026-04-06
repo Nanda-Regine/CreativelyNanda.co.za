@@ -383,9 +383,9 @@ export default function About() {
                 my first line of code.
               </p>
               <p>
-                Six months later: 7 production AI SaaS apps, a registered South African
-                company, and 7 live production apps. Not demos. Production with payments,
-                infrastructure, and real data depending on it working.
+                Nine months later: 7 production AI SaaS apps, a registered South African
+                company. Not demos. Production with payments, infrastructure, and real data
+                depending on it working.
               </p>
               <p>
                 The degree taught systems thinking. The hospitality work taught operations

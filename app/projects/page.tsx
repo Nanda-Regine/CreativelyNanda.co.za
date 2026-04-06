@@ -53,8 +53,8 @@ const PROJECTS: ProjectCard[] = [
     status: 'Live',
     problem: "60% of South Africans fail their learner's licence — a barrier to employment.",
     impact: [
-      '50+ paying subscribers at launch',
-      '4.8/5 user rating',
+      '50+ beta users',
+      '4.8/5 beta rating',
       '600+ questions with SM-2 spaced repetition + isiXhosa support',
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase', 'PayFast'],
@@ -67,7 +67,7 @@ const PROJECTS: ProjectCard[] = [
     slug: 'stokvel-os',
     name: 'StokvelOS',
     status: 'Beta',
-    problem: 'R50 billion moves through SA stokvels annually — 95% managed on paper.',
+    problem: 'R11 billion moves through SA stokvels annually — 95% managed on paper.',
     impact: [
       'First AI-native stokvel platform in Africa',
       'AI fraud detection caught 2 discrepancies in beta',

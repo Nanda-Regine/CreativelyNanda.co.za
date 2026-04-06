@@ -141,9 +141,9 @@ As Founder of Mirembe Muse, she offers AI consulting, digital product creation, 
 
 Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Each lineage gifted her a principle — lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
 
-After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in East London. In six months, she shipped 7 live AI SaaS products, accumulated 550+ GitHub commits, and built a digital products business generating monthly revenue — all while performing her poetry at 5 live events across the Eastern Cape.
+After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in East London. In nine months, she shipped 7 live AI SaaS products, accumulated 550+ GitHub commits, and built a digital products business generating monthly revenue — all while performing her poetry at 5 live events across the Eastern Cape.
 
-Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in building AI-powered solutions for African SMEs, from chatbots and automation systems to custom AI agents. Her flagship apps include K53 Drill Master (50+ paying subscribers), Campus Compass (200+ students), and StokvelOS — proving that world-class technology can, and should, be built from the African continent.
+Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in building AI-powered solutions for African SMEs, from chatbots and automation systems to custom AI agents. Her flagship apps include K53 Drill Master (50+ beta users), Campus Compass (growing student base), and StokvelOS — proving that world-class technology can, and should, be built from the African continent.
 
 Her poetry collection "Inside Her Roses" was featured on Showmax's hit series Gqeberha: The Empire, and she has been interviewed on Madiba FM and TRU FM. Through her company Mirembe Muse (Pty) Ltd, she is building Sanyu Botanicals, an African botanical wellness brand honouring ancestral hair care wisdom with modern formulation, alongside a portfolio of Notion templates, AI tools, and educational resources designed specifically for African entrepreneurs and students.
 
@@ -370,7 +370,7 @@ export default function PressPage() {
               { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimango, Tshawe, Thabizolo)', accent: '#C1292E' },
               { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)', accent: '#C1292E' },
               { label: 'Certifications', value: 'Master Gen AI Professional · Prompt Engineering · Graphic Design · Digital Marketing · SheCodes Full-Stack', accent: '#00D4FF' },
-              { label: 'Applications Built', value: '7 live AI SaaS apps · R15K+ revenue generated', accent: '#C1292E' },
+              { label: 'Applications Built', value: '7 live AI SaaS apps', accent: '#C1292E' },
               { label: 'Published Work', value: '"Inside Her Roses" poetry collection — featured on Showmax / Gqeberha: The Empire · 5 live performances', accent: '#C1292E' },
               { label: 'Company', value: 'Mirembe Muse (Pty) Ltd', accent: '#10B981' },
               { label: 'Tech Stack', value: 'Next.js, TypeScript, Supabase, OpenAI, Claude API, Mapbox, PayFast', accent: '#00D4FF' },

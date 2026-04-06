@@ -40,7 +40,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
     },
     {
       id: 'about-apps',
-      message: '7 production apps in under 2 years — want to see what I built?',
+      message: '7 production apps in 9 months — want to see what I built?',
       trigger: 'scroll',
       triggerValue: 50,
       sessionKey: 'about-apps',
