@@ -7,61 +7,97 @@ import { Button, TestimonialCard, Badge } from '@/components/ui';
 const workExperience = [
   {
     company: 'Mirembe Muse (Pty) Ltd',
-    location: 'East London, Eastern Cape, South Africa',
+    location: 'South Africa',
     roles: [
       {
-        title: 'Creative Technologist & Founder',
-        period: 'December 2025 - Present',
+        title: 'Founder | Creative Technologist',
+        period: 'September 2025 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Architecting and developing full-stack web applications using React, Next.js, and modern JavaScript (ES6+)',
-          'Building production systems with Supabase (authentication, databases, real-time features) and Mapbox GL',
-          'Designing AI-assisted development workflows that accelerate build cycles by 60%',
-          'Creating custom GPT prompt frameworks for automated documentation and SOPs',
-          'Implementing AI chatbots and business automation using OpenAI API',
-          'Designing end-to-end Notion operating systems (CRM, finance, projects, knowledge bases)',
-          'Productizing 15+ Notion templates for students, SMEs, and creative professionals'
+          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd, building AI-native solutions for the African context under Ubuntu. Affordability. Excellence.',
+          'Digital Services vertical: AI engineering, full-stack development, Notion consulting',
+          'Wellness Products vertical: natural hair oils and teas',
+          'Creative Studio vertical: books, mentorship, digital products',
+          'Set technical architecture, lead client delivery, manage business compliance (CIPC, SARS, POPIA)',
+          'Building in public, shipping production-grade software while documenting the process for Africa\'s next generation of builders'
         ],
-        tech: ['React', 'Next.js', 'TypeScript', 'Supabase', 'OpenAI API', 'Mapbox GL', 'Framer Motion']
-      }
-    ]
-  },
-  {
-    company: 'Freelance',
-    location: 'East London, Eastern Cape, South Africa',
-    roles: [
+        tech: ['Next.js', 'TypeScript', 'Supabase', 'Anthropic Claude API', 'Tailwind CSS', 'Vercel']
+      },
       {
-        title: 'Notion Consulting',
-        period: 'November 2025 - Present',
-        type: 'Freelance',
+        title: 'Full-Stack Product Engineer | AdminOS & StokvelOS',
+        period: 'March 2026 - Present',
+        type: 'Self-Employed',
         highlights: [
-          'Designing and implementing business operating systems in Notion',
-          'CRM systems with pipeline tracking and automated follow-ups',
-          'Financial management systems with dashboards and structured chart of accounts',
-          'Reduced client administrative time by 40–60% through automation',
-          'Delivered scalable systems adaptable to growing teams'
+          'Architecting enterprise-grade "Operating Systems" focused on automating SME administration and digitizing community-based financial systems (Stokvels) in South Africa',
+          'System Orchestration: Designed a multi-tenant architecture using Next.js 14 and Supabase, implementing complex logic for automated financial tracking and administrative workflows',
+          'AI Agent Integration: Developed autonomous workflows using Claude/OpenAI APIs to handle document processing and data entry, increasing operational efficiency by an estimated 60%',
+          'Fintech Security: Engineered robust data isolation using PostgreSQL Row Level Security (RLS) to protect sensitive financial data for community savings groups'
+        ],
+        tech: ['Next.js 14', 'TypeScript', 'Supabase', 'PostgreSQL RLS', 'Claude API', 'OpenAI API']
+      },
+      {
+        title: 'Lead Developer | VarsityOS & WatchSankofa',
+        period: 'February 2026 - April 2026',
+        type: 'Self-Employed',
+        highlights: [
+          'Building high-impact, localized platforms for student logistics and cultural media preservation',
+          'Product Launch: Directed the end-to-end build and deployment of varsityos.co.za, a logistics platform solving student utility fragmentation in the SA university ecosystem',
+          'Performance UX: Optimized media-heavy interfaces for WatchSankofa, ensuring seamless video playback and interaction on low-bandwidth mobile devices',
+          'Full-Stack Deployment: Managed DNS, SSL, and localized hosting (.co.za) to ensure high-availability for local users'
+        ],
+        tech: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Vercel']
+      },
+      {
+        title: 'System Architect | Digital Infrastructure',
+        period: 'November 2025 - April 2026',
+        type: 'Self-Employed',
+        highlights: [
+          'Specialized in the design and implementation of relational "Business Operating Systems" (BOS) using Notion and integrated automation tools to centralize complex, high-velocity operational workflows',
+          'Information Architecture: Engineered an end-to-end relational ecosystem to centralize decentralized business data, replacing fragmented legacy toolchains with a unified "Source of Truth"',
+          'Advanced Relational Design: Architected complex database schemas featuring multi-level relations, advanced rollups, and formula-driven logic to track real-time inventory, financial dependencies, and project lifecycles',
+          'Workflow Engineering: Designed and deployed automated internal dashboards that standardized cross-functional communication, resulting in a 40% reduction in administrative overhead',
+          'Built intuitive, high-performance interfaces (Notion-native) optimized for rapid data entry and executive-level reporting in high-pressure environments'
         ],
         tech: ['Notion', 'Database Architecture', 'Workflow Automation', 'AI Integration']
       }
     ]
   },
   {
-    company: 'CreativelyNanda | Portfolio & Client Projects',
-    location: 'East London, Eastern Cape, South Africa',
+    company: 'CreativelyNanda',
+    location: 'South Africa',
     roles: [
       {
-        title: 'Full-stack Developer',
-        period: 'June 2025 - Present',
+        title: 'Full-Stack Web Developer | CreativelyNanda',
+        period: 'January 2026 - February 2026',
         type: 'Portfolio & Client Work',
         highlights: [
-          'Built True Access App: full-stack location-based service platform from scratch',
-          'Frontend: HTML5, CSS3, JavaScript (ES6+) with mobile-first responsive design',
-          'Backend: Supabase for authentication, real-time database, and serverless functions',
-          'Mapping: Mapbox GL JS for interactive geospatial visualization',
-          'Building CreativelyNanda.co.za using React and Next.js with AI chatbot integration',
-          'SEO optimization and performance tuning targeting 95+ Lighthouse scores'
+          'Developed a high-performance portfolio and service platform using modern web standards to showcase creative and technical work',
+          'Modern Stack Implementation: Built a fully responsive web presence using TypeScript and Tailwind CSS, prioritizing clean code and sub-second loading times',
+          'Client Interaction Logic: Integrated custom contact and booking flows to streamline user acquisition and service delivery'
         ],
-        tech: ['React', 'Next.js', 'Supabase', 'Mapbox GL', 'Tailwind CSS', 'Vercel']
+        tech: ['TypeScript', 'Tailwind CSS', 'Next.js', 'Vercel']
+      },
+      {
+        title: 'Full-Stack Developer | True Access (Disability Platform)',
+        period: 'October 2025 - December 2025',
+        type: 'Client Project',
+        highlights: [
+          'Developed an accessibility-focused platform designed to bridge the gap in information and services for people with disabilities',
+          'Accessibility First (A11y): Prioritized inclusive design principles to ensure the platform was navigable and functional for users with diverse accessibility needs',
+          'Database Management: Architected the initial backend schema to handle sensitive user data and service provider directories with security as a core requirement'
+        ],
+        tech: ['React', 'Next.js', 'Supabase', 'Mapbox GL', 'Tailwind CSS']
+      },
+      {
+        title: 'Junior Developer | Cortex Hub Booking App',
+        period: 'August 2025 - September 2025',
+        type: 'Client Project',
+        highlights: [
+          'My first production deployment — a resource management and booking application for a tech hub environment',
+          'Foundation Building: Transitioned from zero coding knowledge to shipping a functional, CRUD-based booking system within 8 weeks',
+          'State Management: Learned the fundamentals of managing user sessions and real-time availability updates in a live production environment'
+        ],
+        tech: ['JavaScript', 'Supabase', 'CSS']
       }
     ]
   },
