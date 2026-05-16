@@ -101,3 +101,59 @@ Master specifications in: CLAUDERC_MASTER_BUILD_DOCUMENT.md
 - Section 7: Animation System
 - Section 8: Component Library
 - Section 19: PWA Configuration
+
+---
+
+## PayFast Universal Hub
+
+This site (`creativelynanda.co.za`) is the **single PayFast merchant hub** for all Mirembe Muse apps.
+
+### Why
+PayFast only allows one set of return/cancel/notify URLs per merchant account dashboard.
+Six apps share one account: VarsityOS, AdminOS, Stokvelos, K53 Drill Master, WatchSankofa, Sankofa Sessions.
+
+### URL Map
+| URL | Purpose |
+|-----|---------|
+| `https://creativelynanda.co.za/api/payfast/universal-notify` | ITN webhook — set in PayFast dashboard |
+| `https://creativelynanda.co.za/payfast/return` | Generic fallback return page (dashboard) |
+| `https://creativelynanda.co.za/payfast/cancel` | Generic fallback cancel page (dashboard) |
+
+### Per-Payment Override (how each app works)
+Each app's `initiate` route passes its own `return_url`, `cancel_url`, and `notify_url` fields in the payment form. PayFast uses these **instead** of the dashboard defaults, so each app gets branded return/cancel pages:
+```
+return_url = https://creativelynanda.co.za/payfast/return?app=varsityos
+cancel_url = https://creativelynanda.co.za/payfast/cancel?app=varsityos
+notify_url = https://creativelynanda.co.za/api/payfast/universal-notify
+```
+
+### App Routing via m_payment_id
+`m_payment_id` format: `{app}_{userId36}_{tier}_{timestamp}`
+The `universal-notify` handler reads the prefix before the first `_` to identify the app, then routes to that app's Supabase.
+
+### Env Vars (Vercel project: creativelynanda)
+```
+VARSITYOS_SUPABASE_URL / VARSITYOS_SUPABASE_SERVICE_ROLE_KEY / VARSITYOS_PAYFAST_PASSPHRASE
+ADMINOS_SUPABASE_URL  / ADMINOS_SUPABASE_SERVICE_ROLE_KEY  / ADMINOS_PAYFAST_PASSPHRASE
+STOKVELOS_SUPABASE_URL / STOKVELOS_SUPABASE_SERVICE_ROLE_KEY / STOKVELOS_PAYFAST_PASSPHRASE
+K53_SUPABASE_URL / K53_SUPABASE_SERVICE_ROLE_KEY / K53_PAYFAST_PASSPHRASE
+WATCHSANKOFA_SUPABASE_URL / WATCHSANKOFA_SUPABASE_SERVICE_ROLE_KEY / WATCHSANKOFA_PAYFAST_PASSPHRASE
+SANKOFASESSIONS_SUPABASE_URL / SANKOFASESSIONS_SUPABASE_SERVICE_ROLE_KEY / SANKOFASESSIONS_PAYFAST_PASSPHRASE
+PAYFAST_SANDBOX=true   # set to false in production
+```
+
+### Return/Cancel Page Modes
+Both pages handle two modes automatically:
+1. **`?app=varsityos`** — shows app branding + countdown redirect to that app's dashboard/upgrade URL
+2. **No `?app=`** (PayFast dashboard fallback) — shows generic success/cancel + `window.history.back()` button
+
+### Key Files
+- `app/api/payfast/universal-notify/route.ts` — ITN router
+- `app/payfast/return/page.tsx` — success page
+- `app/payfast/cancel/page.tsx` — cancel page
+
+### Adding a New App
+1. Add a `case 'newapp':` block in `getAppConfig()` in `universal-notify/route.ts`
+2. Add the app to `APP_CONFIGS` in both `return/page.tsx` and `cancel/page.tsx`
+3. Add env vars to Vercel: `NEWAPP_SUPABASE_URL`, `NEWAPP_SUPABASE_SERVICE_ROLE_KEY`, `NEWAPP_PAYFAST_PASSPHRASE`
+4. In the app's `initiate` route, set `m_payment_id = "newapp_{userId}_{plan}_{ts}"` and point URLs here
