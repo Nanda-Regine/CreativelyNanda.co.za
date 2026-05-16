@@ -1,43 +1,50 @@
 'use client'
 
+/**
+ * Universal PayFast Cancel Page
+ *
+ * Two modes:
+ * 1. With ?app=xxx  — user came via a specific app's payment form.
+ *    Auto-redirects to that app's upgrade page after a countdown.
+ *
+ * 2. Without ?app=  — user came via the PayFast dashboard fallback URL.
+ *    Shows a "payment cancelled" message + browser-back button.
+ *    Works for ANY app with no code changes.
+ *
+ * PayFast dashboard: https://creativelynanda.co.za/payfast/cancel
+ * Per-payment code:  cancel_url = https://creativelynanda.co.za/payfast/cancel?app=varsityos
+ */
+
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { XCircle, ArrowLeft, Loader2 } from 'lucide-react'
 
-// ─── App Registry ──────────────────────────────────────────────────────────
-const APP_CONFIGS: Record<string, { name: string; logo: string; upgradeUrl: string; color: string }> = {
-  varsityos: {
-    name:       'VarsityOS',
-    logo:       '🎓',
-    upgradeUrl: 'https://varsityos.co.za/upgrade',
-    color:      '#0d9488',
-  },
-  adminos: {
-    name:       'AdminOS',
-    logo:       '⚡',
-    upgradeUrl: 'https://adminos.co.za/upgrade',
-    color:      '#6366f1',
-  },
+// ─── App Registry — mirror return/page.tsx ────────────────────────────────
+const APP_CONFIGS: Record<string, {
+  name:       string
+  logo:       string
+  upgradeUrl: string
+}> = {
+  varsityos:      { name: 'VarsityOS',       logo: '🎓', upgradeUrl: 'https://varsityos.co.za/upgrade' },
+  adminos:        { name: 'AdminOS',          logo: '⚡', upgradeUrl: 'https://adminos.co.za/upgrade' },
+  stokvelos:      { name: 'Stokvelos',        logo: '💰', upgradeUrl: 'https://stokvelos.co.za/upgrade' },
+  k53drillmaster: { name: 'K53 Drill Master', logo: '🚗', upgradeUrl: 'https://k53drillmaster.co.za/upgrade' },
+  watchsankofa:   { name: 'WatchSankofa',    logo: '🎬', upgradeUrl: 'https://watchsankofa.co.za/upgrade' },
+  sankofasessions:{ name: 'Sankofa Sessions', logo: '🎵', upgradeUrl: 'https://sankofasessions.co.za/upgrade' },
 }
 
-const DEFAULT_CONFIG = {
-  name:       'your app',
-  logo:       '💡',
-  upgradeUrl: 'https://creativelynanda.co.za',
-  color:      '#f59e0b',
-}
-
-const REDIRECT_DELAY = 6 // seconds — give them more time to re-consider
+const REDIRECT_DELAY = 6 // seconds — give more time to reconsider
 
 export default function PayFastCancelPage() {
   const searchParams = useSearchParams()
   const appKey = searchParams.get('app') ?? ''
-  const config = APP_CONFIGS[appKey] ?? DEFAULT_CONFIG
+  const config = APP_CONFIGS[appKey] ?? null
 
   const [countdown, setCountdown] = useState(REDIRECT_DELAY)
   const [redirecting, setRedirecting] = useState(false)
 
   useEffect(() => {
+    if (!config) return
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
@@ -50,23 +57,23 @@ export default function PayFastCancelPage() {
       })
     }, 1000)
     return () => clearInterval(timer)
-  }, [config.upgradeUrl])
+  }, [config])
 
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-6 text-center"
       style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #111 100%)' }}
     >
-      {/* Card */}
       <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 space-y-6 shadow-2xl">
+
         {/* Icon */}
         <div className="flex items-center justify-center">
           <div className="w-20 h-20 rounded-full flex items-center justify-center text-4xl bg-white/5 border border-white/10">
-            {config.logo}
+            {config?.logo ?? '💡'}
           </div>
         </div>
 
-        {/* Status */}
+        {/* Status badge */}
         <div className="flex items-center justify-center gap-2 text-white/40">
           <XCircle className="w-5 h-5" />
           <span className="text-sm font-semibold tracking-wide uppercase">Payment Cancelled</span>
@@ -74,56 +81,61 @@ export default function PayFastCancelPage() {
 
         {/* Heading */}
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold text-white">
-            No worries — you can try again
-          </h1>
+          <h1 className="text-2xl font-bold text-white">No worries — you can try again</h1>
           <p className="text-white/60 text-sm leading-relaxed">
             Your payment was cancelled and nothing was charged.
-            You&apos;re being taken back to {config.name} so you can upgrade when you&apos;re ready.
+            {config
+              ? ` Taking you back to ${config.name} so you can upgrade when you're ready.`
+              : ' Head back to the app whenever you\'re ready to upgrade.'}
           </p>
         </div>
 
-        {/* Countdown */}
-        <div className="space-y-3">
-          {redirecting ? (
-            <div className="flex items-center justify-center gap-2 text-white/50 text-sm">
-              <Loader2 className="w-4 h-4 animate-spin" />
-              <span>Returning to {config.name}…</span>
+        {/* Countdown — only when app is known */}
+        {config && (
+          <div className="space-y-3">
+            {redirecting ? (
+              <div className="flex items-center justify-center gap-2 text-white/50 text-sm">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Returning to {config.name}…</span>
+              </div>
+            ) : (
+              <p className="text-white/40 text-sm">
+                Returning in <span className="font-bold text-white/60">{countdown}s</span>
+              </p>
+            )}
+            <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-white/20 transition-all ease-linear"
+                style={{
+                  width: `${((REDIRECT_DELAY - countdown) / REDIRECT_DELAY) * 100}%`,
+                  transitionDuration: '1000ms',
+                }}
+              />
             </div>
-          ) : (
-            <p className="text-white/40 text-sm">
-              Returning in{' '}
-              <span className="font-bold text-white/60">{countdown}s</span>
-            </p>
-          )}
-
-          {/* Progress bar — muted for cancel */}
-          <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-white/20 transition-all ease-linear"
-              style={{
-                width: `${((REDIRECT_DELAY - countdown) / REDIRECT_DELAY) * 100}%`,
-                transitionDuration: '1000ms',
-              }}
-            />
+            <a
+              href={config.upgradeUrl}
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              Back to {config.name} upgrade page
+            </a>
           </div>
-        </div>
+        )}
 
-        {/* CTA */}
-        <a
-          href={config.upgradeUrl}
-          className="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          Back to {config.name} upgrade page
-        </a>
+        {/* Generic fallback — browser back button */}
+        {!config && (
+          <button
+            onClick={() => window.history.back()}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white/80 border border-white/20 hover:bg-white/10 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Return to the app
+          </button>
+        )}
       </div>
 
-      {/* Reassurance */}
-      <div className="mt-6 max-w-xs space-y-1">
-        <p className="text-white/20 text-xs">
-          Nothing was charged to your card.
-        </p>
+      <div className="mt-6 space-y-1">
+        <p className="text-white/20 text-xs">Nothing was charged to your card.</p>
         <p className="text-white/20 text-xs">
           Payments by{' '}
           <span className="text-white/40">PayFast</span>

@@ -55,6 +55,34 @@ function getAppConfig(app: string): AppConfig | null {
         passphrase:     process.env.ADMINOS_PAYFAST_PASSPHRASE || '',
         name:           'AdminOS',
       }
+    case 'stokvelos':
+      return {
+        supabaseUrl:    process.env.STOKVELOS_SUPABASE_URL || '',
+        serviceRoleKey: process.env.STOKVELOS_SUPABASE_SERVICE_ROLE_KEY || '',
+        passphrase:     process.env.STOKVELOS_PAYFAST_PASSPHRASE || '',
+        name:           'Stokvelos',
+      }
+    case 'k53drillmaster':
+      return {
+        supabaseUrl:    process.env.K53_SUPABASE_URL || '',
+        serviceRoleKey: process.env.K53_SUPABASE_SERVICE_ROLE_KEY || '',
+        passphrase:     process.env.K53_PAYFAST_PASSPHRASE || '',
+        name:           'K53 Drill Master',
+      }
+    case 'watchsankofa':
+      return {
+        supabaseUrl:    process.env.WATCHSANKOFA_SUPABASE_URL || '',
+        serviceRoleKey: process.env.WATCHSANKOFA_SUPABASE_SERVICE_ROLE_KEY || '',
+        passphrase:     process.env.WATCHSANKOFA_PAYFAST_PASSPHRASE || '',
+        name:           'WatchSankofa',
+      }
+    case 'sankofasessions':
+      return {
+        supabaseUrl:    process.env.SANKOFASESSIONS_SUPABASE_URL || '',
+        serviceRoleKey: process.env.SANKOFASESSIONS_SUPABASE_SERVICE_ROLE_KEY || '',
+        passphrase:     process.env.SANKOFASESSIONS_PAYFAST_PASSPHRASE || '',
+        name:           'Sankofa Sessions',
+      }
     default:
       return null
   }
