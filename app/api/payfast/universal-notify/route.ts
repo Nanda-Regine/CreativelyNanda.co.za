@@ -308,8 +308,9 @@ async function handleK53(
   rest: string, // m_payment_id after "k53drillmaster_"
   supabase: AnySupabase,
 ) {
-  // rest = "{plan}_{timestamp}"  e.g. "monthly_1716300000000"
-  const plan = rest.split('_')[0] || 'monthly'
+  // custom_str1 holds the plan key set at checkout — more reliable than parsing rest.
+  // rest = "{plan}_{timestamp}" but "lifetime_pdp" contains an underscore so split('_')[0] breaks it.
+  const plan = (data.custom_str1 || rest.split('_').slice(0, rest.startsWith('lifetime_pdp') ? 2 : 1).join('_') || 'monthly')
   const email = (data.email_address || '').trim().toLowerCase()
 
   if (!email) {
@@ -341,17 +342,35 @@ async function handleK53(
 
   if (status === 'COMPLETE' || status === 'SUBSCR_PAYMENT') {
     try {
-      // Creates account + sends magic link if new; safe to call for existing users (they get a login link)
-      const { data: inviteData, error: inviteErr } = await supabase.auth.admin.inviteUserByEmail(email, {
-        redirectTo: 'https://k53drillmaster.co.za',
-      })
+      // Look up existing subscriber record first — SUBSCR_PAYMENT renewals always have an existing user.
+      // Calling inviteUserByEmail for existing users returns a user object with no id, so the upsert
+      // would never run. Query the subscribers table instead; only invite on a brand-new purchase.
+      let userId: string | undefined
 
-      if (inviteErr) {
-        // "User already registered" is not a failure — subscription renewal or returning customer
-        console.log(`[Universal ITN] K53: invite note for ${email}: ${inviteErr.message}`)
+      const { data: existingSub } = await supabase
+        .from('subscribers')
+        .select('user_id')
+        .eq('email', email)
+        .single()
+
+      if (existingSub?.user_id) {
+        userId = existingSub.user_id
+        console.log(`[Universal ITN] K53: found existing subscriber ${email}`)
+      } else if (status === 'COMPLETE') {
+        // First-time purchase — create account and send magic link
+        const { data: inviteData, error: inviteErr } = await supabase.auth.admin.inviteUserByEmail(email, {
+          redirectTo: 'https://k53drillmaster.co.za',
+        })
+        if (inviteErr) {
+          console.error(`[Universal ITN] K53: invite failed for ${email}: ${inviteErr.message}`)
+        } else {
+          userId = inviteData?.user?.id
+        }
+      } else {
+        // SUBSCR_PAYMENT but no subscriber record — unexpected; log and skip
+        console.error(`[Universal ITN] K53: SUBSCR_PAYMENT renewal but no subscriber found for ${email}`)
       }
 
-      const userId = inviteData?.user?.id
       if (userId) {
         const { error: dbErr } = await supabase.from('subscribers').upsert({
           user_id:            userId,
