@@ -198,54 +198,107 @@ async function handleAdminOS(
   rest: string, // m_payment_id after "adminos_"
   supabase: AnySupabase,
 ) {
-  // rest = "{tenantId36}_{plan}_{timestamp}"
-  const tenantId = rest.slice(0, 36)
-  const afterTenant = rest.slice(37)
-  const plan = afterTenant.split('_')[0] || 'starter' // starter | business | enterprise
+  // custom_str1 = tenantId, custom_str2 = plan, custom_str3 = addon
+  // Fallback: parse tenantId from rest = "{tenantId36}_{itemKey}_{timestamp}"
+  const tenantId = (data.custom_str1 || rest.slice(0, 36)).trim()
+  const plan     = data.custom_str2 || null  // starter | growth | enterprise | white_label
+  const addon    = data.custom_str3 || null  // ring | reach | sage | languages | client_portal
+  const status   = data.payment_status
 
-  // Always log
+  // Always log to payment_logs (universal)
   try {
     await supabase.from('payment_logs').insert({
       payfast_payment_id: data.pf_payment_id ?? null,
       amount:             parseFloat(data.amount_gross ?? '0'),
-      status:             data.payment_status ?? 'unknown',
+      status:             status ?? 'unknown',
       item_name:          data.item_name ?? null,
       raw_data:           data,
       tenant_id:          tenantId || null,
     })
   } catch { /* non-fatal */ }
 
-  const status = data.payment_status
+  // Also log to payment_events (AdminOS-specific table)
+  try {
+    await supabase.from('payment_events').insert({
+      tenant_id:     tenantId,
+      event_type:    `payfast.${(status || 'unknown').toLowerCase()}`,
+      payfast_pf_id: data.pf_payment_id ?? null,
+      payfast_token: data.token ?? null,
+      m_payment_id:  data.m_payment_id ?? null,
+      amount:        parseFloat(data.amount_gross ?? '0'),
+      plan:          plan || addon,
+      payload:       data,
+      processed:     status === 'COMPLETE' || status === 'SUBSCR_PAYMENT',
+    })
+  } catch { /* non-fatal */ }
 
   if ((status === 'COMPLETE' || status === 'SUBSCR_PAYMENT') && tenantId) {
-    const { error } = await supabase
-      .from('tenants')
-      .update({ plan, subscription_status: 'active' })
-      .eq('id', tenantId)
+    const periodEnd = new Date()
+    periodEnd.setMonth(periodEnd.getMonth() + 1)
 
-    if (error) {
-      console.error('[Universal ITN] AdminOS upgrade failed', { tenantId, plan, error: error.message })
-    } else {
-      console.log(`[Universal ITN] AdminOS: upgraded tenant ${tenantId} → ${plan}`)
+    if (addon) {
+      // Activate add-on — dynamic column names (addon_ring, addon_ring_expires_at, etc.)
+      const addonCol        = `addon_${addon}`
+      const addonExpiresCol = `addon_${addon}_expires_at`
       try {
-        await supabase.from('subscriptions').upsert({
-          tenant_id:                 tenantId,
-          plan,
-          status:                    'active',
-          payfast_subscription_token: data.token ?? null,
-          payfast_payment_id:        data.pf_payment_id ?? null,
-          amount:                    parseFloat(data.amount_gross ?? '0'),
-          updated_at:                new Date().toISOString(),
-        }, { onConflict: 'tenant_id' })
-      } catch { /* non-fatal */ }
+        await supabase.from('subscriptions').upsert(
+          {
+            tenant_id:         tenantId,
+            status:            'active',
+            payfast_token:     data.token ?? null,
+            [addonCol]:        true,
+            [addonExpiresCol]: periodEnd.toISOString(),
+            updated_at:        new Date().toISOString(),
+          } as Record<string, unknown>,
+          { onConflict: 'tenant_id' },
+        )
+        console.log(`[Universal ITN] AdminOS: activated addon ${addon} for tenant ${tenantId}`)
+      } catch (err) {
+        console.error('[Universal ITN] AdminOS: addon activation failed', err instanceof Error ? err.message : err)
+      }
+    } else if (plan) {
+      const { error } = await supabase
+        .from('tenants')
+        .update({ plan, active: true, subscription_status: 'active' })
+        .eq('id', tenantId)
+
+      if (error) {
+        console.error('[Universal ITN] AdminOS upgrade failed', { tenantId, plan, error: error.message })
+      } else {
+        console.log(`[Universal ITN] AdminOS: upgraded tenant ${tenantId} → ${plan}`)
+        try {
+          await supabase.from('subscriptions').upsert({
+            tenant_id:          tenantId,
+            plan,
+            status:             'active',
+            payfast_token:      data.token ?? null,
+            payfast_payment_id: data.pf_payment_id ?? null,
+            amount:             parseFloat(data.amount_gross ?? '0'),
+            current_period_end: periodEnd.toISOString(),
+            updated_at:         new Date().toISOString(),
+          }, { onConflict: 'tenant_id' })
+        } catch { /* non-fatal */ }
+      }
     }
   }
 
   if (status === 'CANCELLED' && tenantId) {
-    await supabase.from('tenants')
+    const { error } = await supabase
+      .from('tenants')
       .update({ plan: 'free', subscription_status: 'cancelled' })
       .eq('id', tenantId)
-    console.log(`[Universal ITN] AdminOS: cancelled subscription for tenant ${tenantId}`)
+    if (!error) {
+      try {
+        await supabase.from('subscriptions').upsert({
+          tenant_id:    tenantId,
+          plan:         'free',
+          status:       'cancelled',
+          cancelled_at: new Date().toISOString(),
+          updated_at:   new Date().toISOString(),
+        }, { onConflict: 'tenant_id' })
+      } catch { /* non-fatal */ }
+      console.log(`[Universal ITN] AdminOS: cancelled subscription for tenant ${tenantId}`)
+    }
   }
 }
 
