@@ -111,9 +111,11 @@ function phpUrlencode(str: string): string {
 
 function verifySignature(data: Record<string, string>, passphrase: string): boolean {
   const { signature, ...rest } = data
+  // PayFast builds ITN signatures with ksort() — must sort alphabetically
   const paramString = Object.entries(rest)
     .filter(([, v]) => v !== '')
-    .map(([k, v]) => `${k}=${phpUrlencode(v)}`)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([k, v]) => `${k}=${phpUrlencode(v.trim())}`)
     .join('&')
   const stringToHash = passphrase
     ? `${paramString}&passphrase=${phpUrlencode(passphrase.trim())}`
