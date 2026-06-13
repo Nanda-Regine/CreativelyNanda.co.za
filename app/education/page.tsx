@@ -46,7 +46,7 @@ const NMU_QUALS = [
     nqf: 'NQF Level 7',
     significance: 'The final academic layer — 15 distinctions across all three qualifications combined.',
     subjects: 'Advanced Strategy, Research Methods, Entrepreneurship Development, Corporate Governance, International Business',
-    connection: 'Strategic management frameworks are directly embedded in how Mirembe Muse is structured — seven apps, one infrastructure, horizontal productisation. This is the business brain behind the code.',
+    connection: 'Strategic management frameworks are directly embedded in how Mirembe Muse is structured — eight apps, three mobile apps, one infrastructure, horizontal productisation. This is the business brain behind the code.',
     highlight: '15 DISTINCTIONS',
   },
 ];
@@ -129,7 +129,7 @@ export default function EducationPage() {
           </FadeUp>
           <FadeUp delay={0.2}>
             <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(16px, 2vw, 20px)', fontStyle: 'italic', color: 'rgba(245,240,232,0.7)', maxWidth: '600px', lineHeight: 1.6, margin: 0 }}>
-              &ldquo;Three degrees. Six certifications. Nine months of code.
+              &ldquo;Three degrees. Six certifications. One year of code.
               And an ancestral knowing that none of this was coincidence.&rdquo;
             </p>
           </FadeUp>
@@ -304,22 +304,22 @@ export default function EducationPage() {
         </div>
       </section>
 
-      {/* ── BOTTOM CTA — nine months ─────────────────────────────────── */}
+      {/* ── BOTTOM CTA — one year ────────────────────────────────────── */}
       <section className="relative z-10 py-24 px-6 bg-[#0A0F2C] text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
         {/* Large background text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '18vw', color: 'rgba(201,148,58,0.04)', lineHeight: 1, userSelect: 'none', textAlign: 'center' }}>
-            NINE<br />MONTHS
+            ONE<br />YEAR
           </span>
         </div>
         <div className="max-w-3xl mx-auto relative z-10">
           <FadeUp>
             <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(52px, 10vw, 100px)', color: '#FFFFFF', lineHeight: 0.9, letterSpacing: '0.02em', margin: '0 0 4px 0' }}>
-              NINE MONTHS.
+              ONE YEAR.
             </h2>
             <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(52px, 10vw, 100px)', color: '#C9943A', lineHeight: 0.9, letterSpacing: '0.02em', margin: '0 0 4px 0' }}>
-              SEVEN APPLICATIONS.
+              EIGHT APPLICATIONS.
             </h2>
             <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(52px, 10vw, 100px)', color: '#FFFFFF', lineHeight: 0.9, letterSpacing: '0.02em', margin: '0 0 28px 0' }}>
               ONE VISION.

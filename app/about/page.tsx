@@ -67,7 +67,8 @@ const STACK = [
       { name: 'AI Agent Architecture', level: 'Expert' as const, note: '5-agent AdminOS, 6-agent VarsityOS' },
       { name: 'OpenAI GPT-4o', level: 'Advanced' as const, note: 'StokvelOS, comparison systems' },
       { name: 'RAG & Embeddings', level: 'Advanced' as const, note: 'Vector search, Nanda AI chatbot' },
-      { name: 'MCP Integration', level: 'Advanced' as const, note: 'Model Context Protocol' },
+      { name: 'Claude MCP', level: 'Expert' as const, note: 'Model Context Protocol — tool registration, server connections, production agent integrations' },
+      { name: 'Claude Design', level: 'Advanced' as const, note: 'Visual generation pipelines, design system co-creation, brand brief iteration' },
       { name: 'LangChain', level: 'Intermediate' as const, note: 'Pipeline orchestration' },
     ],
   },
@@ -82,7 +83,7 @@ const STACK = [
       { name: 'Tailwind CSS', level: 'Expert' as const, note: 'Design systems, custom tokens' },
       { name: 'Framer Motion', level: 'Advanced' as const, note: 'Production animations, scroll-triggered' },
       { name: 'PWA Development', level: 'Advanced' as const, note: 'Offline-first, installable (VarsityOS)' },
-      { name: 'Zustand', level: 'Advanced' as const, note: 'State management across all 7 apps' },
+      { name: 'Zustand', level: 'Advanced' as const, note: 'State management across all 8 apps' },
     ],
   },
   {
@@ -125,10 +126,23 @@ const STACK = [
     colSpan: 1,
     skills: [
       { name: 'Vercel', level: 'Expert' as const, note: 'Deployments, cron, Edge, analytics' },
-      { name: 'GitHub', level: 'Expert' as const, note: '550+ commits across 7 repositories' },
+      { name: 'GitHub', level: 'Expert' as const, note: '1,000+ commits across 8+ repositories' },
       { name: 'Sentry', level: 'Advanced' as const, note: '5 error monitoring projects live' },
-      { name: 'PostHog', level: 'Advanced' as const, note: 'Product analytics, 7 properties' },
+      { name: 'PostHog', level: 'Advanced' as const, note: 'Product analytics, 8 properties' },
       { name: 'Arcjet', level: 'Intermediate' as const, note: 'Rate limiting in API routes' },
+    ],
+  },
+  {
+    category: 'Creative & Marketing',
+    accentColor: '#C1292E',
+    colSpan: 2,
+    skills: [
+      { name: 'Brand Identity Design', level: 'Expert' as const, note: '8 distinct visual identities — AdminOS, VarsityOS, Sanyu Botanicals, K53, WatchSankofa, and more' },
+      { name: 'Graphic Design', level: 'Advanced' as const, note: 'Figma, Canva — editorial design, product packaging concepts, social media systems' },
+      { name: 'Digital Marketing', level: 'Advanced' as const, note: 'Content strategy, SEO, email campaigns, LinkedIn, AI-powered content engines' },
+      { name: 'Content Strategy', level: 'Advanced' as const, note: 'SankofaSessions publication, The Current blog, multi-format content pipelines' },
+      { name: 'Copywriting', level: 'Expert' as const, note: 'Published poet — brings editorial craft to product copy, landing pages, brand voice' },
+      { name: 'Botanical Brand Architecture', level: 'Advanced' as const, note: 'Sanyu Botanicals — ancestral ingredient sourcing, product concept to market' },
     ],
   },
 ];
@@ -225,7 +239,7 @@ const TIMELINE = [
   {
     year: 'February–March 2026',
     title: 'Six apps in six weeks',
-    body: 'Campus Compass · K53 Drill Master · StokvelOS · AdminOS · WatchSankofa · SankofaSessions — all shipped solo under Mirembe Muse (Pty) Ltd. Seven AI SaaS products. 550+ commits. East London, South Africa.',
+    body: 'Campus Compass · K53 Drill Master · StokvelOS · AdminOS · WatchSankofa · SankofaSessions · JarvisOS · Sanyu Botanicals — shipped solo under Mirembe Muse (Pty) Ltd. Eight AI products. 1,000+ commits. Paying clients. East London, South Africa.',
     dot: 'bg-[#C1292E]',
     cardBg: '#0A1128',
     borderColor: '#C1292E40',
@@ -268,7 +282,7 @@ export default function About() {
 
             <FadeUp delay={0.2}>
               <p className="font-display text-xl italic text-[#C1292E] leading-relaxed max-w-xl">
-                Nine months of code. Seven production apps. The arc was never accidental.
+                One year of code. Eight production apps. Paying clients. The arc was never accidental.
               </p>
             </FadeUp>
           </div>
@@ -371,7 +385,7 @@ export default function About() {
               The Story
             </p>
             <h2 className="font-display text-4xl font-bold text-[#0A1128] mb-6">
-              Business degree.<br />Self-taught engineer.<br />Seven apps. Nine months.
+              Business degree.<br />Self-taught engineer.<br />Eight apps.<br />One year.
             </h2>
             <div className="space-y-5 text-[#4A3728] leading-relaxed">
               <p>
@@ -383,9 +397,9 @@ export default function About() {
                 my first line of code.
               </p>
               <p>
-                Nine months later: 7 production AI SaaS apps, a registered South African
-                company. Not demos. Production with payments, infrastructure, and real data
-                depending on it working.
+                One year later: 8 production AI apps, 3 mobile apps, a registered South
+                African company, and paying clients. Not demos. Production with payments,
+                infrastructure, and real data depending on it working.
               </p>
               <p>
                 The degree taught systems thinking. The hospitality work taught operations
@@ -413,9 +427,9 @@ export default function About() {
                 </p>
                 <ul className="space-y-3 text-[#0A1128]">
                   {[
-                    'Running 7 live AI SaaS apps under Mirembe Muse (Pty) Ltd',
-                    'Open for select AI consulting engagements',
-                    'Publishing poetry. Building infrastructure. Doing both.',
+                    'Running 8+ live apps — JarvisOS (15-wing AI OS), Sanyu Botanicals, AdminOS, VarsityOS, K53, StokvelOS, WatchSankofa, and 3 mobile apps',
+                    'Open for select AI consulting — real clients, real outcomes',
+                    'Publishing poetry. Launching products. Doing all of it.',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <span className="text-[#C1292E] mt-0.5 shrink-0">◆</span>
@@ -526,6 +540,101 @@ export default function About() {
                 Mirembe Muse (Pty) Ltd · Information Officer: Kabali-Kagwa, Nandawula · Appointed 2025-08-28
               </p>
             </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── PHILOSOPHY & BOOKS ───────────────────────────────────────────────── */}
+      <section className="relative z-10 py-24 px-6 bg-[#0A1128] overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        <div className="max-w-5xl mx-auto relative z-10">
+
+          <FadeUp className="mb-6">
+            <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-4">The Intellectual Foundation</p>
+            <h2 className="font-display text-5xl md:text-6xl font-bold text-white leading-[0.95]">
+              The books that built<br />
+              <span className="text-[#C9943A]">the engineer.</span>
+            </h2>
+          </FadeUp>
+
+          {/* Jim Rohn hero quote */}
+          <FadeUp delay={0.1} className="mb-14">
+            <div className="bg-white/5 border border-[#C9943A]/25 rounded-2xl p-8 md:p-10">
+              <p className="font-mono text-xs tracking-[0.28em] uppercase text-[#C9943A] mb-5">The Philosophy That Changed Everything · Jim Rohn</p>
+              <blockquote className="font-display text-3xl md:text-4xl italic text-white leading-[1.2] mb-5">
+                &ldquo;Don&apos;t wish it were easier.<br />Wish you were better.&rdquo;
+              </blockquote>
+              <p className="text-white/60 text-base leading-relaxed max-w-3xl">
+                Rohn&apos;s principle that personal development compounds faster than any other investment
+                changed the direction of my life. It&apos;s why I studied three degrees while working
+                full-time. Why I taught myself to code after midnight shifts. Why I built 8 apps in a year
+                without stopping to question whether I was &ldquo;allowed to.&rdquo; Discipline invested
+                early pays differently at year five than at month six. Every certification, every app, every
+                commit — this is the compound effect made visible.
+              </p>
+            </div>
+          </FadeUp>
+
+          {/* Books grid */}
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              {
+                title: 'The Art of War',
+                author: 'Sun Tzu',
+                color: '#C1292E',
+                impact: 'Every feature I don\'t build is a victory. Every dependency I don\'t add is a strength. Efficiency is strategy — the product that does less, faster, defeats the product that does everything poorly.',
+                quote: '"The supreme art of war is to subdue the enemy without fighting."',
+                connection: 'AdminOS\'s 15-minute onboarding wasn\'t a marketing feature. It was a strategic one. Remove every obstacle before the user encounters resistance.',
+              },
+              {
+                title: 'In Sheep\'s Clothing',
+                author: 'George K. Simon',
+                color: '#7B2FBE',
+                impact: 'Understanding covert aggression changed how I read every professional relationship. Not to become cynical — to become clear-eyed. You can only build with honesty when you can identify when honesty isn\'t happening.',
+                quote: '"The most important thing is being honest about who you are and who the other person is."',
+                connection: 'Contracts before code. Scope in writing. These aren\'t defensive behaviors — they\'re how professionals protect the integrity of the work.',
+              },
+              {
+                title: '48 Laws of Power',
+                author: 'Robert Greene',
+                color: '#C9943A',
+                impact: 'Not a manual for manipulation — a map of human nature. As a young Black woman building a company in South Africa, not understanding power structures wouldn\'t have been virtuous. It would have been naive.',
+                quote: '"The key to power is the ability to judge who is best able to further your interests in all situations."',
+                connection: 'Why Mirembe Muse has proper legal incorporation, POPIA compliance, and professional engagement terms from day one. Structure protects vision.',
+              },
+              {
+                title: 'The Millionaire Next Door',
+                author: 'Thomas J. Stanley',
+                color: '#2D4A22',
+                impact: 'True wealth is built quietly. Not through performance and display — through discipline, frugality, and investing in what produces. This book fundamentally changed how I measure success.',
+                quote: '"Whatever your income, always live below your means."',
+                connection: 'All Mirembe Muse products are bootstrapped. No investors. No debt. Revenue reinvested into infrastructure. The wealth is in the compound, not the show.',
+              },
+            ].map((book, i) => (
+              <FadeUp key={book.title} delay={i * 0.08}>
+                <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors h-full flex flex-col">
+                  <div className="h-1 w-full" style={{ backgroundColor: book.color }} />
+                  <div className="p-7 flex flex-col flex-1">
+                    <div className="mb-4">
+                      <h3 className="font-display text-xl font-bold text-white mb-1">{book.title}</h3>
+                      <p className="font-mono text-xs tracking-widest uppercase mb-4" style={{ color: book.color }}>{book.author}</p>
+                      <p className="font-display italic text-white/50 text-sm leading-relaxed mb-4">{book.quote}</p>
+                    </div>
+                    <p className="text-white/65 text-sm leading-relaxed flex-1 mb-4">{book.impact}</p>
+                    <div className="border-t border-white/10 pt-4">
+                      <p className="font-mono text-xs text-white/35 leading-relaxed"><span style={{ color: book.color }}>→ In practice:</span> {book.connection}</p>
+                    </div>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+
+          {/* Additional reading note */}
+          <FadeUp delay={0.3} className="mt-10">
+            <p className="font-mono text-xs tracking-[0.2em] uppercase text-white/30 text-center">
+              Also formative: The E-Myth Revisited · Think and Grow Rich · The Obstacle Is the Way · Man&apos;s Search for Meaning · The Richest Man in Babylon
+            </p>
           </FadeUp>
         </div>
       </section>

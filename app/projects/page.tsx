@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
-type FilterKey = 'all' | 'saas' | 'origin' | 'client';
+type FilterKey = 'saas' | 'origin' | 'client';
 
 interface ProjectCard {
   slug: string;
@@ -176,17 +176,19 @@ const PROJECTS: ProjectCard[] = [
     slug: 'true-access-app',
     name: 'True Access',
     status: 'Live',
-    problem: '4M South Africans with disabilities have no verified accessibility database for public spaces.',
+    problem: "4.2M South Africans with disabilities have no verified, real-world accessibility database for public spaces.",
     impact: [
-      'Community-verified accessibility scores for SA locations',
-      'WCAG-compliant by design — accessibility-first development',
-      'Co-founded: first multi-stakeholder technical collaboration',
+      'SA\'s first disability accessibility mapping platform — Expo iOS + Android + Web from one codebase',
+      'SANS 10400-S compliance scoring + B2B pipeline: audit → sell ramp → get featured listing',
+      '7 full phases built: maps, audits, profiles, business portal, shop, Paystack, offline mode + data export API',
     ],
-    stack: ['Next.js', 'TypeScript', 'Mapbox GL JS', 'Supabase', 'Tailwind CSS'],
+    stack: ['Expo SDK 52', 'TypeScript', 'Mapbox', 'Supabase', 'NativeWind', 'Paystack'],
     liveUrl: 'https://true-access-app.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/TrueAccApp',
     bg: '#001812',
     accent: '#10B981',
+    featured: true,
+    rate: 'Client Project',
     category: 'client',
   },
   {

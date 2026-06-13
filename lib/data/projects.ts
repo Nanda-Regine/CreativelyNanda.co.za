@@ -1,5 +1,5 @@
 export type ProjectStatus = 'live' | 'beta' | 'building'
-export type ProjectCategory = 'saas' | 'origin' | 'media' | 'portfolio'
+export type ProjectCategory = 'saas' | 'origin' | 'media' | 'portfolio' | 'client'
 
 export interface BuildPhase {
   phase: string
@@ -31,6 +31,47 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'jarvisos',
+    name: 'JarvisOS',
+    tagline: 'A 15-wing personal AI operating system. The most complex thing I\'ve built.',
+    description:
+      'Production personal AI operating system with 15 interconnected intelligence wings: CEO (decisions), Finance (cash flow), Engineering (build logs), Marketing (campaigns), Cycle (menstrual intelligence), Scholar (learning), Corpus (RAG Q&A), Body (health), Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, and Crisis/Sankofa. Built entirely for personal use — and proof of what the architecture can do.',
+    problem:
+      'Running a multi-product company, shipping across 7 live apps, managing creative work, health, and personal growth with disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution.',
+    solution:
+      'A unified intelligence layer. Each wing handles one life domain and talks to others via Redis signal protocol. Claude Sonnet routes complex reasoning; Haiku handles speed tasks — 85% cost reduction. Corpus answers questions from 1,194 personal knowledge chunks via Upstash Vector RAG. Inngest queues long-running jobs. Offline-first PWA means it works in load-shedding.',
+    impact:
+      'Active daily use across all 15 wings. The most architecturally sophisticated project in the portfolio — proof of multi-agent, multi-context, multi-tenant system design at scale. 6+ months of continuous active development.',
+    status: 'live',
+    category: 'saas',
+    liveUrl: 'https://jarvis-os-wine.vercel.app',
+    githubUrl: 'https://github.com/Nanda-Regine/JarvisOS',
+    stack: [
+      { category: 'Frontend', items: ['Next.js 14 App Router', 'TypeScript (strict — tsc --noEmit exits 0)', 'Tailwind CSS', 'Zustand', 'PWA (offline-first, IndexedDB queue)'] },
+      { category: 'AI Architecture', items: ['Claude Sonnet + Haiku (model routing)', 'Prompt caching ≥4096 token static blocks', '15 wing-specific system prompts', 'Crisis detection + SA crisis routing'] },
+      { category: 'Knowledge Layer', items: ['Upstash Redis Vector (RAG)', '1,194 live knowledge chunks', 'Corpus wing document Q&A', 'Redis signal protocol (wing-to-wing communication)'] },
+      { category: 'Database', items: ['Supabase PostgreSQL + RLS', 'Supabase Auth + Realtime', 'Soft-delete + full audit trails'] },
+      { category: 'Infrastructure', items: ['Inngest async queues', 'Notion bidirectional sync', 'Vercel', '11 SA languages'] },
+      { category: 'Design System', items: ['12 wing-aware color palettes', '52px nav touch targets', 'Mobile-first 44px min tap targets'] },
+    ],
+    buildPhases: [
+      { phase: '1', title: 'Foundation + CEO Wing', date: 'Jan 2026', milestone: 'Multi-tenant schema, RLS, JWT, CEO decision-making wing, TypeScript strict baseline' },
+      { phase: '2', title: 'Finance + Engineering', date: 'Feb 2026', milestone: 'Cash flow tracking, build log system, Inngest async queues' },
+      { phase: '3', title: 'Corpus RAG', date: 'Feb 2026', milestone: 'Upstash Vector, 1,194 knowledge chunks ingested, document Q&A live' },
+      { phase: '4', title: 'Cycle + Body + Sanyu', date: 'Mar 2026', milestone: 'Menstrual cycle intelligence, health tracking, wellness wing, Redis signal protocol' },
+      { phase: '5', title: 'Marketing + Client Portal + Docs', date: 'Apr 2026', milestone: 'Campaign planning, client management, Notion bidirectional sync' },
+      { phase: '6', title: '20-Session UI Rebuild', date: 'May–Jun 2026', milestone: 'All 15 wings redesigned with 12 custom palettes, mobile-first touch targets, PWA complete' },
+    ],
+    metrics: [
+      { label: 'Intelligence wings', value: '15' },
+      { label: 'RAG knowledge chunks', value: '1,194' },
+      { label: 'Months active dev', value: '6+' },
+      { label: 'SA languages', value: '11' },
+    ],
+    accentColor: '#7B2FBE',
+    buildDuration: '6+ months continuous active development — still evolving',
+  },
   {
     id: 'adminos',
     name: 'AdminOS',
@@ -194,6 +235,44 @@ export const PROJECTS: Project[] = [
     buildDuration: 'Phase 0 in 1 day. Full v1 in 3 weeks.',
   },
   {
+    id: 'sanyubotanicals',
+    name: 'Sanyu Botanicals',
+    tagline: 'Five ancestral lineages. One hair care line. AI-powered personalization.',
+    description:
+      'African botanical wellness brand rooted in five clan lineages — Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Angel loyalty programme with private AI-powered hair journal. Ingredient library with ancestral and scientific context. Full e-commerce with PayFast.',
+    problem:
+      "African women have navigated a gap for generations: the botanical knowledge their grandmothers trusted vs. what gets marketed as 'professional.' The natural hair movement began closing it. Sanyu Botanicals is the product infrastructure that carries this forward — ancestral formulations, scientifically documented, accessible at South African price points.",
+    solution:
+      'A full e-commerce + AI experience. Claude-powered hair consultations recommend the right product from the full routine description. A private hair journal (Angel members only) learns from entries over time and surfaces personalized tips. An ingredient library explains every botanical in ancestral and clinical terms. The Angel loyalty system (Seed → Bloom → Royal Angel) deepens the relationship over time.',
+    impact:
+      'The most personal brand in the Mirembe Muse portfolio. Proof that a solo founder with AI tools can build a premium product brand, a sophisticated e-commerce experience, and a loyalty programme — without an agency.',
+    status: 'live',
+    category: 'saas',
+    liveUrl: 'https://sanyubotanicals.co.za',
+    githubUrl: 'https://github.com/Nanda-Regine/sanyu-botanicals',
+    stack: [
+      { category: 'Frontend', items: ['Next.js 14 App Router', 'TypeScript', 'Tailwind CSS', 'Cormorant Garamond + DM Sans design system'] },
+      { category: 'AI', items: ['Claude Sonnet (consultations)', 'Claude Haiku (journal tips)', 'Prompt caching on all product context'] },
+      { category: 'Commerce', items: ['PayFast ZAR', 'Supabase orders + variants', 'Cloudinary product image delivery'] },
+      { category: 'Loyalty', items: ['Angel QR card system (physical-digital)', 'Seed → Bloom → Royal Angel tiers', 'Private hair journal with AI insights'] },
+      { category: 'Infrastructure', items: ['Supabase PostgreSQL + RLS', 'Resend transactional email', 'PostHog analytics', 'Sentry', 'Vercel ISR'] },
+    ],
+    buildPhases: [
+      { phase: '1', title: 'Brand + Foundation', date: 'Apr 2026', milestone: 'Brand identity, design system (burgundy/gold/cream), product schema, Supabase setup' },
+      { phase: '2', title: 'E-Commerce', date: 'Apr 2026', milestone: 'Product pages, cart, PayFast checkout, order confirmation email flow' },
+      { phase: '3', title: 'Angel Loyalty', date: 'May 2026', milestone: 'QR card system, loyalty tier engine, Angel-only private hair journal' },
+      { phase: '4', title: 'AI Layer', date: 'May 2026', milestone: 'Hair consultation AI, journal tip generation, ingredient library with Claude-powered search' },
+    ],
+    metrics: [
+      { label: 'Products', value: '3 formulations' },
+      { label: 'Loyalty tiers', value: '3 Angel tiers' },
+      { label: 'Ancestral lineages', value: '5 clans' },
+      { label: 'AI features', value: 'Journal + consult' },
+    ],
+    accentColor: '#56061D',
+    buildDuration: 'Brand concept to live e-commerce in 6 weeks',
+  },
+  {
     id: 'watchsankofa',
     name: 'WatchSankofa — Sankofa TV',
     tagline: 'Netflix was built for Hollywood. Sankofa TV was built for us.',
@@ -233,11 +312,53 @@ export const PROJECTS: Project[] = [
     buildDuration: '8 weeks from static HTML to full streaming platform',
   },
   {
+    id: 'true-access',
+    name: 'True Access',
+    tagline: "South Africa's first disability accessibility mapping platform. Built for 4.2 million people.",
+    description:
+      "Universal Expo app (iOS + Android + Web from one codebase) that maps real-world accessibility of SA public spaces. Users with disabilities search, filter by their specific needs, and read community-verified reviews. Auditors complete SANS 10400-S compliance checklists. Businesses claim listings, receive compliance scores, and get connected to a product pipeline that solves their gaps. The dataset is a proprietary geographic asset with licensing potential to Google, Apple, World Bank, and SA government.",
+    problem:
+      "4.2 million South Africans live with a disability (Stats SA 2022). SANS 10400-S legally requires public buildings to be accessible — but there is no platform that aggregates real-world compliance data. Disabled people cannot know if a venue is safe to visit before they leave home. This costs dignity, money, and independence on every trip.",
+    solution:
+      "A full-stack universal mobile platform with 7 complete build phases. Disability-profile-aware map filtering. SANS 10400-S audit checklists with photo evidence. B2B compliance pipeline: audit → gap analysis → compliance product sales (co-founder manufactures ramps). GeoJSON data export API for government and investor licensing. Offline-first with Mapbox tile caching for load-shedding resilience.",
+    impact:
+      "South Africa's first verifiable, audited, real-world disability accessibility database. B2B flywheel closes the loop between audit and revenue: compliance products sold directly to non-compliant businesses. Data licensing revenue stream (GeoJSON API) ready for World Bank / municipality contracts. 7 phases shipped in 2 days — the fastest full-stack mobile build in the portfolio.",
+    status: 'live',
+    category: 'client',
+    liveUrl: 'https://true-access-app.vercel.app',
+    githubUrl: 'https://github.com/Nanda-Regine/TrueAccApp',
+    stack: [
+      { category: 'Mobile', items: ['Expo SDK 52', 'Expo Router v4', 'iOS + Android + Web (universal)', 'NativeWind v4 + Tailwind CSS'] },
+      { category: 'Core', items: ['TypeScript (strict)', 'Zustand', 'TanStack Query v5', 'React Hook Form + Zod'] },
+      { category: 'Maps', items: ['@rnmapbox/maps (native)', 'react-map-gl v7 (web)', 'Mapbox offline tile caching'] },
+      { category: 'Backend', items: ['Supabase PostgreSQL + RLS', 'Supabase Auth + Storage', 'Supabase Edge Functions (Deno)'] },
+      { category: 'Payments', items: ['Paystack ZAR (B2C shop + B2B subscriptions)', 'HMAC-SHA512 webhook verification'] },
+      { category: 'Push + Offline', items: ['Expo Notifications', 'Web Push API', 'TanStack Query offline sync', 'AppState reconnect invalidation'] },
+    ],
+    buildPhases: [
+      { phase: '1', title: 'Foundation + Auth', date: 'Jun 2026', commits: '40+', milestone: 'Expo SDK 52 universal scaffold, NativeWind, Supabase auth, disability profile onboarding, RLS schema' },
+      { phase: '2', title: 'Core Map + Locations', date: 'Jun 2026', commits: '35+', milestone: 'Mapbox iOS/Android/Web, location clusters, filters by disability type, SANS 10400-S compliance bar' },
+      { phase: '3', title: 'Profiles + Reviews', date: 'Jun 2026', commits: '30+', milestone: 'User profiles, community reviews with photos, Supabase Storage upload, helpful vote system' },
+      { phase: '4', title: 'Admin + Audit System', date: 'Jun 2026', commits: '40+', milestone: 'SANS 10400-S audit checklists, photo evidence, admin moderation, Mapbox Dataset publish on approval' },
+      { phase: '5', title: 'Business Portal', date: 'Jun 2026', commits: '35+', milestone: 'Business claiming, compliance gap analysis, plan upgrade CTA, push notifications edge function' },
+      { phase: '6', title: 'Shop + Payments', date: 'Jun 2026', commits: '40+', milestone: 'Disability-profile-filtered product catalog, Paystack checkout, webhook, subscription activation' },
+      { phase: '7', title: 'Intelligence + Polish', date: 'Jun 2026', commits: '30+', milestone: 'Offline mode, push notifications, GeoJSON data export API, Paystack B2B subscription activation, B2C order push' },
+    ],
+    metrics: [
+      { label: 'SA disabled population', value: '4.2M people' },
+      { label: 'Build phases', value: '7 complete' },
+      { label: 'Build time', value: '2 days' },
+      { label: 'Revenue streams', value: '7 modelled' },
+    ],
+    accentColor: '#10B981',
+    buildDuration: '7 complete phases from zero — the fastest complex mobile build in the portfolio',
+  },
+  {
     id: 'creativelynanda',
     name: 'CreativelyNanda.co.za',
     tagline: 'The portfolio that became a platform.',
     description:
-      'Personal brand hub — 72 commits, most iterated repo. Features multilingual blog "The Current", Notion template sales with automated delivery, project showcases, poetry section, Nanda AI chatbot, PayFast integration, and email automation via Resend.',
+      'Personal brand hub — most iterated repo. Features multilingual blog "The Current", Notion template sales with automated delivery, project showcases, poetry section, Nanda AI chatbot, PayFast integration, and email automation via Resend. Also serves as the PayFast universal payment hub for all 6 Mirembe Muse apps.',
     problem:
       'A standard portfolio site cannot hold a creative technologist who is also a published poet, a founder, a cultural technologist, and an AI engineer. The site needed to be as layered and alive as its owner.',
     solution:
@@ -265,14 +386,14 @@ export const PROJECTS: Project[] = [
       { phase: '5', title: 'Magazine Transformation', date: 'Apr 2026', milestone: 'Full-bleed magazine cover hero, editorial redesign, POPIA compliance display' },
     ],
     metrics: [
-      { label: 'GitHub commits', value: '72+' },
+      { label: 'GitHub commits', value: '100+' },
       { label: 'Features', value: 'AI + Blog + Shop + i18n' },
-      { label: 'Build months', value: '9' },
+      { label: 'Build months', value: '12' },
       { label: 'Iteration rank', value: '#1 repo' },
     ],
     accentColor: '#C9A84C',
     buildJourneyFile: 'creativelynanda-build-journey.md',
-    buildDuration: '9 months of continuous iteration — the living portfolio',
+    buildDuration: '1 year of continuous iteration — the living portfolio',
   },
   {
     id: 'origins',
@@ -305,7 +426,7 @@ export const PROJECTS: Project[] = [
       { label: 'Starting point', value: 'Zero' },
       { label: 'Time to first SaaS', value: '3 months' },
       { label: 'Certifications earned', value: '3+' },
-      { label: 'This led to', value: '7 live apps' },
+      { label: 'This led to', value: '8 live apps' },
     ],
     accentColor: '#7A9E7E',
     buildDuration: 'Mid-2025 → Sep 2025 · 3 months to first React project',

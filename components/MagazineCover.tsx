@@ -9,14 +9,17 @@ const TICKER_ITEMS = [
   'FULL-STACK DEVELOPER',
   'CLAUDE API · NEXT.JS · TYPESCRIPT',
   'AFRICA-FIRST SOFTWARE',
-  '7 LIVE AI APPS',
+  '8 LIVE APPS · 1 YEAR',
   'NMU ALUMNI',
   'PUBLISHED POET',
   'MIREMBE MUSE',
+  '1,000+ GITHUB COMMITS',
+  'JARVISOS · 15-WING AI OPERATING SYSTEM',
   'EAST LONDON · SOUTH AFRICA',
-  'BUILDING FOR THE CONTINENT',
+  'PAYING CLIENTS · REAL IMPACT',
   'SUPABASE · PAYFAST · WHATSAPP AI',
-  'WHERE TRANSFORMATION HAS A TEMPLATE',
+  'INNGEST · REDIS · VECTOR RAG',
+  'BUILDING FOR THE CONTINENT',
 ]
 
 const GRAIN_SVG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`
@@ -226,7 +229,7 @@ export default function MagazineCover() {
           fontWeight: 500,
           whiteSpace: 'nowrap',
         }}>
-          MIREMBE MUSE (PTY) LTD · ISSUE 001 · APRIL 2026
+          MIREMBE MUSE (PTY) LTD · ISSUE 002 · JUNE 2026
         </span>
       </div>
 
@@ -404,7 +407,7 @@ export default function MagazineCover() {
               margin: '0 0 4px 0',
               letterSpacing: '0.02em',
             }}>
-              7 LIVE<br />APPS
+              8 LIVE<br />APPS
             </p>
             <p className="hidden md:block" style={{
               fontFamily: 'var(--font-cormorant)',
@@ -414,7 +417,7 @@ export default function MagazineCover() {
               margin: 0,
               lineHeight: 1.4,
             }}>
-              9 months.<br />Zero to SaaS.
+              One year.<br />Zero to pro.
             </p>
           </div>
 
@@ -547,7 +550,7 @@ export default function MagazineCover() {
             margin: 0,
             lineHeight: 1.4,
           }}>
-            NMU Alumni.<br />550+ commits.
+            NMU Alumni.<br />1,000+ commits.
           </p>
           <p style={{
             fontFamily: 'var(--font-mono)',
@@ -592,7 +595,7 @@ export default function MagazineCover() {
               letterSpacing: '0.12em',
               margin: '2px 0 0 0',
             }}>
-              ISSUE 001 · 2026
+              ISSUE 002 · 2026
             </p>
           </div>
         </div>

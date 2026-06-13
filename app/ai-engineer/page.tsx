@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Hire AI Engineer | Nandawula Regine Kabali-Kagwa — Claude API & Multi-Agent Systems',
   description:
-    'Hire Nandawula Regine — AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 7 live AI products. Remote-available from South Africa. Available for contract, fractional, and full-time engagements.',
+    'Hire Nandawula Regine — AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 8 live AI products including JarvisOS (15-wing personal OS) and AdminOS. 1,000+ commits. Paying clients. Remote-available from South Africa.',
   keywords: [
     // Hire-intent — what recruiters and tech leads type
     'hire AI engineer',
@@ -69,27 +69,27 @@ export const metadata: Metadata = {
 const CAPABILITIES = [
   {
     title: 'Claude API Integration',
-    body: 'Custom AI agents, prompt caching, multi-agent architectures — built for production.',
+    body: 'Custom agents, prompt caching (85% cost reduction), model routing (Sonnet + Haiku), multi-agent architectures — built for production.',
   },
   {
-    title: 'Supabase + RLS Architecture',
-    body: 'PostgreSQL, Row Level Security, real-time subscriptions, and auth flows at scale.',
+    title: 'RAG + Vector Systems',
+    body: 'Upstash Vector, knowledge ingestion pipelines, document Q&A, and retrieval-augmented generation. Live in JarvisOS with 1,194 chunks.',
   },
   {
     title: 'WhatsApp-Native AI',
-    body: 'Meta WhatsApp Cloud API integration, business messaging, automated conversation flows.',
+    body: 'Meta WhatsApp Cloud API integration, business messaging, automated conversation flows. Live in AdminOS.',
   },
   {
-    title: 'Multi-Agent Systems',
-    body: 'Specialist agents, tool use, cron-triggered workflows, and agent orchestration.',
+    title: 'Multi-Agent + Async Systems',
+    body: 'Specialist agents, Inngest async queues, Redis signal protocol, cron-triggered workflows, and 15-wing agent orchestration.',
   },
   {
-    title: 'PayFast + Payments',
-    body: 'ZAR payment flows, webhook handling, subscription billing — live in production.',
+    title: 'Supabase + RLS Architecture',
+    body: 'PostgreSQL, Row Level Security multi-tenancy, real-time subscriptions, soft-delete + audit trails at scale.',
   },
   {
     title: 'Production TypeScript',
-    body: 'Strict mode, Zod validation, zero-error deployments. No shortcuts.',
+    body: 'Strict mode, Zod validation, zero-error deployments across all repos. tsc --noEmit exits 0. No shortcuts.',
   },
 ];
 
@@ -99,7 +99,7 @@ const DOSSIERS = [
     body: 'Custom Claude/OpenAI agents embedded in your product or business workflow.',
     zar: 'From R45,000',
     usd: '~$2,432 USD',
-    proven: '7 live AI products in production',
+    proven: '8 live apps — real clients — all production',
     signature: true,
   },
   {
@@ -282,7 +282,8 @@ export default function AIEngineerPage() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-display text-2xl md:text-3xl italic text-[#0A1128]">
-            7 AI SaaS products. All self-funded. All production.
+            8 live apps. JarvisOS — a 15-wing personal AI OS. Real paying clients.
+            1,000+ commits. All self-funded. All production.
             This is what I build for clients.
           </p>
           <Link href="/projects" className="inline-block mt-6 text-[#C1292E] font-medium hover:underline">

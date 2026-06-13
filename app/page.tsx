@@ -142,13 +142,13 @@ export default function Home() {
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#0A1128] leading-[0.95] mb-6">
               Business degree.
               <br />Self-taught engineer.
-              <br />Seven apps.
-              <br /><span className="text-[#C1292E]">Nine months.</span>
+              <br />Eight apps.
+              <br /><span className="text-[#C1292E]">One year.</span>
             </h2>
             <p className="text-[#6B6B6B] text-lg leading-[1.8] mb-8">
-              After my degree, I taught myself to code. Then I started shipping. In nine months from zero coding knowledge,
-              I built seven AI-powered tools for African entrepreneurs, students, and creators —
-              backed by five ancestral lineages and a Ugandan word that means peace.
+              After my degree, I taught myself to code. Then I started shipping. In one year from zero coding knowledge,
+              I built eight AI-powered tools for African entrepreneurs, students, and creators —
+              including JarvisOS, a 15-wing personal AI operating system — backed by five ancestral lineages and a Ugandan word that means peace.
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link
@@ -169,10 +169,10 @@ export default function Home() {
           <FadeUp delay={0.15}>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '7', label: 'Production Apps', color: 'text-[#C1292E]' },
-                { value: '550+', label: 'GitHub Commits', color: 'text-[#C1292E]' },
-                { value: '9 months', label: 'Self-Taught', color: 'text-[#C1292E]' },
-                { value: 'Africa', label: 'First. Always.', color: 'text-[#C1292E]' },
+                { value: '8+', label: 'Production Apps', color: 'text-[#C1292E]' },
+                { value: '1,000+', label: 'GitHub Commits', color: 'text-[#C1292E]' },
+                { value: '1 Year', label: 'Self-Taught', color: 'text-[#C1292E]' },
+                { value: '3+', label: 'Paying Clients', color: 'text-[#C1292E]' },
               ].map((s) => (
                 <div
                   key={s.label}
