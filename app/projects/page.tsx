@@ -493,10 +493,10 @@ function FeaturedProjectCard({ p, index }: { p: ProjectCard; index: number }) {
         </div>
 
         {/* Two-column layout on wider screens — name/copy left, metrics right */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) auto', gap: '32px', alignItems: 'start' }}>
+        <div className="flex flex-col xl:flex-row gap-8 items-start">
 
           {/* Left: copy */}
-          <div>
+          <div className="flex-1 min-w-0">
             <h3 style={{
               fontFamily: 'var(--font-display, Georgia, serif)',
               fontSize: 'clamp(28px, 4vw, 40px)',
@@ -603,13 +603,13 @@ function FeaturedProjectCard({ p, index }: { p: ProjectCard; index: number }) {
             </div>
           </div>
 
-          {/* Right: metrics grid */}
+          {/* Right: metrics grid — 4-across on mobile, 2×2 on xl */}
           {p.metrics && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', minWidth: '200px', flexShrink: 0 }}>
+            <div className="grid grid-cols-4 xl:grid-cols-2 gap-px w-full xl:w-auto xl:min-w-[200px] flex-shrink-0">
               {p.metrics.map((m) => (
                 <div key={m.label} style={{
                   background: 'rgba(255,255,255,0.04)', border: `1px solid ${p.accent}20`,
-                  padding: '14px 16px',
+                  padding: '10px 12px',
                 }}>
                   <div style={{
                     fontFamily: 'var(--font-bebas, Georgia, serif)', fontSize: '26px',
@@ -899,11 +899,7 @@ function SectionGroup({ category, projects }: { category: FilterKey; projects: P
             ))}
           </div>
         ) : (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '16px',
-          }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {regular.map((p, i) => (
               <StandardProjectCard key={p.slug} p={p} index={i} />
             ))}
@@ -1052,7 +1048,7 @@ export default function ProjectsPage() {
                 { v: '1 Year', l: 'Zero → Production' },
               ].map(({ v, l }, i) => (
                 <div key={l} style={{
-                  padding: '16px 28px',
+                  padding: 'clamp(10px, 2vw, 16px) clamp(12px, 3vw, 28px)',
                   borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.08)',
                 }}>
                   <div style={{
@@ -1076,7 +1072,7 @@ export default function ProjectsPage() {
         background: '#fff', borderBottom: '1px solid rgba(26,26,46,0.08)',
         padding: '0 24px', position: 'sticky', top: 0, zIndex: 10,
       }}>
-        <div style={{ maxWidth: '1160px', margin: '0 auto', display: 'flex', gap: '0' }}>
+        <div style={{ maxWidth: '1160px', margin: '0 auto', display: 'flex', gap: '0', overflowX: 'auto' as const }}>
           {FILTERS.map(({ key, label }) => {
             const active = activeFilter === key;
             return (

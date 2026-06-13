@@ -235,7 +235,7 @@ export default function EducationPage() {
                 { v: '8+', l: 'Live Apps Built' },
               ].map(({ v, l }, i) => (
                 <div key={l} style={{
-                  padding: '16px 28px',
+                  padding: 'clamp(10px, 2vw, 16px) clamp(12px, 3vw, 28px)',
                   borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none',
                 }}>
                   <div style={{ fontFamily: 'var(--font-bebas)', fontSize: '30px', color: '#C9943A', lineHeight: 1 }}>{v}</div>
@@ -266,11 +266,11 @@ export default function EducationPage() {
         {/* Photo grid */}
         <div className="relative z-10 px-6 pb-12 max-w-5xl mx-auto">
           <FadeUp delay={0.1}>
-            {/* Main row: large feature + two stacked */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: 'auto auto', gap: '6px', marginBottom: '6px' }}>
+            {/* Main row: feature (full-width mobile) + two alongside */}
+            <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: '6px', marginBottom: '6px' }}>
 
-              {/* Feature photo — spans 2 rows */}
-              <div style={{ gridRow: '1 / 3', position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
+              {/* Feature photo — full width on mobile, left col on md+ */}
+              <div className="col-span-2 md:col-span-1" style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
                 <Image
                   src="/assets/graduation/adv-dip-grad.jpg"
                   alt="Nanda at Advanced Diploma graduation — Nelson Mandela University 2024"
@@ -334,8 +334,8 @@ export default function EducationPage() {
 
             </div>
 
-            {/* Second row: 3 equal photos */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px' }}>
+            {/* Second row: 2-col mobile → 3-col md+ */}
+            <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: '6px' }}>
               {[
                 { src: '/assets/graduation/diploma-grad-2.jpg', label: 'Diploma · 2023', alt: 'Diploma graduation second photo' },
                 { src: '/assets/graduation/mom-me-grad.jpg', label: 'With Mama.', alt: 'Nanda and mom at graduation', italic: true },
@@ -370,7 +370,7 @@ export default function EducationPage() {
 
         {/* Graduation video strip */}
         <FadeUp delay={0.2}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', maxWidth: '1160px', margin: '0 auto 0', padding: '0 24px 48px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: '6px', maxWidth: '1160px', margin: '0 auto', padding: '0 24px 48px' }}>
             {[
               { src: '/assets/graduation/diploma-graduation.mp4', label: 'Diploma Graduation · NQF Level 6 · 2023' },
               { src: '/assets/graduation/adv-diploma-graduation.mp4', label: 'Advanced Diploma Graduation · NQF Level 7 · 2024' },
@@ -689,7 +689,7 @@ export default function EducationPage() {
             </p>
           </FadeUp>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '12px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
             {DEGREE_IN_CODE.map((item, i) => (
               <FadeUp key={item.subject} delay={i * 0.06}>
                 <div style={{
