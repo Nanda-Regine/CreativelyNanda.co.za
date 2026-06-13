@@ -133,7 +133,7 @@ function TestimonialsSlideshow() {
           </h2>
         </FadeUp>
 
-        <div className="relative min-h-[220px]">
+        <div>
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -141,9 +141,8 @@ function TestimonialsSlideshow() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0"
             >
-              <div className="bg-white/5 border border-white/10 rounded-[28px] p-7 md:p-10 h-full">
+              <div className="bg-white/5 border border-white/10 rounded-[28px] p-7 md:p-10">
                 <div className="text-[#B8860B]/30 text-5xl font-serif leading-none mb-4">&ldquo;</div>
                 <p className="font-display text-lg md:text-xl italic text-white/90 leading-relaxed mb-6">
                   {TESTIMONIALS[active].quote}
@@ -208,7 +207,7 @@ const BLOG_PREVIEW = [
   {
     slug: 'watchsankofa-85-percent-revenue-share-african-creators',
     category: 'Business',
-    title: 'WatchSankofa: Why 85% Revenue Share Isn\'t Charity — It\'s the Architecture of Justice',
+    title: 'WatchSankofa: Why 85% Revenue Share Isn\'t Charity, It\'s the Architecture of Justice',
     excerpt: 'Netflix pays creators approximately 7% of revenue. WatchSankofa pays 85%. This is not a competitive differentiator. It is a structural argument made in code.',
     accent: '#2D4A22',
   },

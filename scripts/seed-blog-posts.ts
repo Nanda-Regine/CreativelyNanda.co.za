@@ -1529,7 +1529,7 @@ Not every product needs a routerless state machine. K53 needed one because the p
 
   {
     slug: 'watchsankofa-85-percent-revenue-share-african-creators',
-    title: 'WatchSankofa: Why 85% Revenue Share Isn\'t Charity — It\'s the Architecture of Justice',
+    title: 'WatchSankofa: Why 85% Revenue Share Isn\'t Charity, It\'s the Architecture of Justice',
     excerpt: 'Netflix pays creators approximately 7% of revenue. WatchSankofa pays 85%. This is not a marketing decision. It\'s a structural argument about who streaming platforms are for.',
     content: `
 # WatchSankofa: Why 85% Revenue Share Isn't Charity — It's the Architecture of Justice
@@ -1595,7 +1595,7 @@ The platforms that will win in Africa over the next decade will not be the ones 
 
   {
     slug: 'true-access-sans-10400s-accessibility-tech-south-africa',
-    title: 'True Access: Building SA\'s First Disability Accessibility Map — SANS 10400-S, Expo SDK 52, and the B2B Flywheel',
+    title: 'True Access: Building SA\'s First Disability Accessibility Map, SANS 10400-S, Expo SDK 52, and the B2B Flywheel',
     excerpt: '4.2 million South Africans with disabilities have no verified database of accessible public spaces. True Access is the infrastructure. Here\'s the architecture that turned compliance auditing into a revenue engine.',
     content: `
 # True Access: Building SA's First Disability Accessibility Map

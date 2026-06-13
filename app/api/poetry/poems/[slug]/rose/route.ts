@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient, createServerClient } from '@/lib/supabase/server';
+import { POEMS } from '@/lib/poems-data';
 
 function getSupabase() {
   try {
@@ -7,6 +8,32 @@ function getSupabase() {
   } catch {
     return createServerClient();
   }
+}
+
+async function resolvePoem(supabase: ReturnType<typeof createServerClient>, slug: string) {
+  let { data: poem } = await supabase
+    .from('poems')
+    .select('id')
+    .eq('slug', slug)
+    .single();
+
+  if (!poem) {
+    const local = POEMS.find(p => p.slug === slug);
+    if (!local) return null;
+
+    const { data: inserted } = await supabase
+      .from('poems')
+      .upsert(
+        { slug: local.slug, title: local.title, content: local.content, excerpt: local.excerpt, view_count: 0 },
+        { onConflict: 'slug' }
+      )
+      .select('id')
+      .single();
+
+    poem = inserted;
+  }
+
+  return poem;
 }
 
 export async function POST(
@@ -39,12 +66,7 @@ export async function POST(
     );
   }
 
-  // Get the poem
-  const { data: poem } = await supabase
-    .from('poems')
-    .select('id')
-    .eq('slug', params.slug)
-    .single();
+  const poem = await resolvePoem(supabase, params.slug);
 
   if (!poem) {
     return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
@@ -86,15 +108,10 @@ export async function GET(
 ) {
   const supabase = getSupabase();
 
-  // Get the poem
-  const { data: poem } = await supabase
-    .from('poems')
-    .select('id')
-    .eq('slug', params.slug)
-    .single();
+  const poem = await resolvePoem(supabase, params.slug);
 
   if (!poem) {
-    return NextResponse.json({ error: 'Poem not found' }, { status: 404 });
+    return NextResponse.json([]);
   }
 
   // Get approved/featured roses (admin client bypasses RLS, so filter explicitly)
