@@ -67,7 +67,7 @@ const PROOF = [
 ];
 
 const APPS = [
-  { name: 'JarvisOS', tag: '15-wing AI OS · RAG', href: 'https://jarvis-os-wine.vercel.app', upgrading: false },
+  { name: 'JarvisOS', tag: '15-wing AI OS · RAG', href: '', upgrading: true },
   { name: 'AdminOS', tag: 'BizTech · AI Agents', href: 'https://adminos.co.za', upgrading: false },
   { name: 'VarsityOS', tag: 'EdTech · AI', href: 'https://campus-compass-phi.vercel.app', upgrading: false },
   { name: 'K53 Drill Master', tag: 'GovTech · SaaS', href: 'https://nanda-k53-drill-master.vercel.app', upgrading: false },

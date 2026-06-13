@@ -55,7 +55,6 @@ const PROJECTS: ProjectCard[] = [
       { label: 'SA languages', value: '11' },
     ],
     stack: ['Next.js 14', 'TypeScript', 'Claude Sonnet + Haiku', 'Upstash Vector', 'Upstash Redis', 'Inngest', 'Supabase', 'PWA (offline-first)'],
-    liveUrl: 'https://jarvis-os-wine.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/JarvisOS',
     bg: '#0D0520',
     accent: '#7B2FBE',

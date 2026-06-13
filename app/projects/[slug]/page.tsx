@@ -1328,7 +1328,6 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
       problem: 'Cognitive overhead from running 8 apps across disconnected tools',
       metric: '1,194 RAG chunks, 85% AI cost reduction, 6+ months active development',
     },
-    liveUrl: 'https://jarvis-os-wine.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/JarvisOS',
     images: [],
     metaTitle: 'JarvisOS — 15-Wing Personal AI Operating System | Nandawula Regine',

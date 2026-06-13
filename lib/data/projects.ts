@@ -45,7 +45,6 @@ export const PROJECTS: Project[] = [
       'Active daily use across all 15 wings. The most architecturally sophisticated project in the portfolio — proof of multi-agent, multi-context, multi-tenant system design at scale. 6+ months of continuous active development.',
     status: 'live',
     category: 'saas',
-    liveUrl: 'https://jarvis-os-wine.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/JarvisOS',
     stack: [
       { category: 'Frontend', items: ['Next.js 14 App Router', 'TypeScript (strict — tsc --noEmit exits 0)', 'Tailwind CSS', 'Zustand', 'PWA (offline-first, IndexedDB queue)'] },
