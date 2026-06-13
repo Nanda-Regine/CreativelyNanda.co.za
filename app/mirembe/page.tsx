@@ -60,19 +60,21 @@ const SERVICES = [
 ];
 
 const PROOF = [
-  { label: '7', sub: 'Production SaaS apps' },
-  { label: '550+', sub: 'GitHub commits' },
+  { label: '8+', sub: 'Production apps' },
+  { label: '1,000+', sub: 'GitHub commits' },
   { label: '6', sub: 'Notion templates live' },
   { label: '3', sub: 'Consecutive qualifications' },
 ];
 
 const APPS = [
+  { name: 'JarvisOS', tag: '15-wing AI OS · RAG', href: 'https://jarvis-os-wine.vercel.app', upgrading: false },
+  { name: 'AdminOS', tag: 'BizTech · AI Agents', href: 'https://adminos.co.za', upgrading: true },
   { name: 'VarsityOS', tag: 'EdTech · AI', href: 'https://campus-compass-phi.vercel.app', upgrading: false },
   { name: 'K53 Drill Master', tag: 'GovTech · SaaS', href: 'https://nanda-k53-drill-master.vercel.app', upgrading: false },
   { name: 'StokvelOS', tag: 'FinTech · AI', href: 'https://stokvelos.co.za', upgrading: true },
-  { name: 'AdminOS', tag: 'BizTech · AI Agents', href: 'https://adminos.co.za', upgrading: true },
   { name: 'WatchSankofa', tag: 'Media · Streaming', href: 'https://watchsankofa.co.za', upgrading: true },
-  { name: 'SankofaSessions', tag: 'Publication', href: 'https://sankofasessions.co.za', upgrading: true },
+  { name: 'Sanyu Botanicals', tag: 'Wellness · E-Commerce', href: 'https://sanyubotanicals.co.za', upgrading: true },
+  { name: 'True Access', tag: 'AccessTech · Mobile', href: 'https://trueaccess.co.za', upgrading: true },
   { name: 'CreativelyNanda.co.za', tag: 'Portfolio · Product', href: 'https://creativelynanda.co.za', upgrading: false },
 ];
 
@@ -119,7 +121,7 @@ export default function MirembePage() {
           <FadeUp delay={0.2}>
             <p className="font-display text-xl md:text-2xl italic text-[#B8860B] leading-relaxed max-w-2xl mb-10">
               Full-stack engineer · Digital strategist · Systems architect · Media publisher.
-              One founder. Seven apps. Africa-first infrastructure.
+              One founder. Eight apps. Africa-first infrastructure.
             </p>
           </FadeUp>
 
@@ -204,10 +206,10 @@ export default function MirembePage() {
           <FadeUp className="mb-10">
             <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase font-sans mb-3">The proof</p>
             <h2 className="font-display text-4xl font-bold text-white">
-              Seven apps. One founder. Nine months.
+              Eight apps. One founder. One year.
             </h2>
             <p className="text-white/50 mt-3 max-w-xl text-sm leading-relaxed">
-              Each app solves a real African problem. All built solo. All in production. None of them demos. Nine months from zero coding knowledge to seven live AI SaaS applications.
+              Each app solves a real African problem. All built solo. All in production. None of them demos. One year from zero coding knowledge to eight live applications.
             </p>
           </FadeUp>
 
@@ -274,8 +276,8 @@ export default function MirembePage() {
                   ['Founded', '2025'],
                   ['POPIA Registration', '2026-005658 · Registered 2026-04-03'],
                   ['Information Officer', 'Kabali-Kagwa, Nandawula · Appointed 2025-08-28'],
-                  ['Products', '7 live SaaS applications'],
-                  ['Build time', '9 months from zero coding knowledge'],
+                  ['Products', '8+ live applications'],
+                  ['Build time', '1 year from zero coding knowledge'],
                   ['Tech', 'Next.js · TypeScript · Supabase · Claude API · PayFast · Vercel'],
                   ['Philosophy', 'Ubuntu — I am because we are'],
                 ].map(([k, v]) => (

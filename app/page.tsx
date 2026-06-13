@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 import MagazineCover from '@/components/MagazineCover';
 
 // ─── Fade-up helper ─────────────────────────────────────────────────────────────
@@ -80,6 +81,30 @@ const PRODUCTS = [
   },
 ];
 
+const BLOG_PREVIEW = [
+  {
+    slug: 'african-women-fifth-industrial-revolution-building-not-waiting',
+    category: 'Writing',
+    title: 'African Women and the Fifth Industrial Revolution: We Are Not Late Adopters',
+    excerpt: 'The narrative that Africa is "catching up" to the 5IR misunderstands both Africa and the revolution. We are building the version of AI the continent actually needs.',
+    accent: '#C1292E',
+  },
+  {
+    slug: 'k53-sm2-spaced-repetition-south-africa-learners-licence',
+    category: 'Dev',
+    title: 'SM-2 in Production: How a 1980s Algorithm Fixed SA\'s 60% Learner\'s Licence Fail Rate',
+    excerpt: 'K53 Drill Master uses the same spaced repetition algorithm behind Anki and Duolingo. Here\'s why a 40-year-old algorithm is still the most effective learning system ever built.',
+    accent: '#B8860B',
+  },
+  {
+    slug: 'watchsankofa-85-percent-revenue-share-african-creators',
+    category: 'Business',
+    title: 'WatchSankofa: Why 85% Revenue Share Isn\'t Charity — It\'s the Architecture of Justice',
+    excerpt: 'Netflix pays creators approximately 7% of revenue. WatchSankofa pays 85%. This is not a competitive differentiator. It is a structural argument made in code.',
+    accent: '#2D4A22',
+  },
+];
+
 const SERVICES = [
   {
     title: 'AI Integration',
@@ -100,6 +125,43 @@ const SERVICES = [
     href: '/consulting',
   },
 ];
+
+// ─── Product card with image fallback ────────────────────────────────────────────
+function ProductCard({ p }: { p: typeof PRODUCTS[0] }) {
+  const [imgFailed, setImgFailed] = useState(false);
+  return (
+    <Link
+      href={`/products/${p.slug}`}
+      className="group block bg-white/60 backdrop-blur-sm border border-[#0A1128]/10 rounded-[24px] overflow-hidden hover:border-[#C1292E]/40 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
+    >
+      <div className="relative aspect-video bg-gradient-to-br from-[#E8DCC4] to-[#F5EFE6] flex items-center justify-center">
+        {!imgFailed ? (
+          <Image
+            src={p.cover}
+            alt={p.name}
+            fill
+            className="object-cover"
+            onError={() => setImgFailed(true)}
+          />
+        ) : (
+          <span className="font-display text-2xl font-bold text-[#0A1128]/20">{p.name[0]}</span>
+        )}
+        {p.badge && (
+          <span className="absolute top-2 right-2 bg-[#C1292E] text-white text-[9px] font-bold px-2 py-0.5 rounded-full z-10">
+            {p.badge}
+          </span>
+        )}
+      </div>
+      <div className="p-4">
+        <p className="font-sans text-[10px] tracking-widest uppercase text-[#B8860B] mb-1">{p.category}</p>
+        <h3 className="font-display font-bold text-[#0A1128] text-base leading-snug mb-1 group-hover:text-[#C1292E] transition-colors">
+          {p.name}
+        </h3>
+        <p className="font-display text-lg font-bold text-[#C1292E]">{p.price}</p>
+      </div>
+    </Link>
+  );
+}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────────
 export default function Home() {
@@ -213,34 +275,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {PRODUCTS.map((p, i) => (
               <FadeUp key={p.slug} delay={i * 0.06}>
-                <Link
-                  href={`/products/${p.slug}`}
-                  className="group block bg-white/60 backdrop-blur-sm border border-[#0A1128]/10 rounded-[24px] overflow-hidden hover:border-[#C1292E]/40 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
-                >
-                  <div className="relative aspect-video bg-gradient-to-br from-[#E8DCC4] to-[#F5EFE6]">
-                    <Image
-                      src={p.cover}
-                      alt={p.name}
-                      fill
-                      className="object-cover"
-                      onError={() => {}}
-                    />
-                    {p.badge && (
-                      <span className="absolute top-2 right-2 bg-[#C1292E] text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
-                        {p.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <p className="font-sans text-[10px] tracking-widest uppercase text-[#B8860B] mb-1">
-                      {p.category}
-                    </p>
-                    <h3 className="font-display font-bold text-[#0A1128] text-base leading-snug mb-1 group-hover:text-[#C1292E] transition-colors">
-                      {p.name}
-                    </h3>
-                    <p className="font-display text-lg font-bold text-[#C1292E]">{p.price}</p>
-                  </div>
-                </Link>
+                <ProductCard p={p} />
               </FadeUp>
             ))}
           </div>
@@ -282,6 +317,49 @@ export default function Home() {
               View all consulting offers →
             </Link>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* ── BLOG PREVIEW ─────────────────────────────────────────────────────── */}
+      <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        <div className="max-w-5xl mx-auto">
+          <FadeUp className="mb-12 flex items-end justify-between flex-wrap gap-4">
+            <div>
+              <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-3">The Current</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold italic text-[#0A1128]">
+                Writing from the build.
+              </h2>
+            </div>
+            <Link href="/blog" className="text-sm text-[#C1292E] font-medium hover:underline">
+              Read all 29 articles →
+            </Link>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {BLOG_PREVIEW.map((post, i) => (
+              <FadeUp key={post.slug} delay={i * 0.08}>
+                <Link
+                  href={`/blog/${post.category.toLowerCase()}/${post.slug}`}
+                  className="group flex flex-col bg-[#0A1128] rounded-[24px] overflow-hidden hover:ring-1 hover:ring-[#C1292E]/40 transition-all h-full"
+                >
+                  <div className="h-1 w-full" style={{ backgroundColor: post.accent }} />
+                  <div className="p-6 flex flex-col flex-1">
+                    <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: post.accent }}>
+                      {post.category}
+                    </p>
+                    <h3 className="font-display text-lg font-bold text-white leading-snug mb-3 group-hover:text-[#C1292E] transition-colors flex-1">
+                      {post.title}
+                    </h3>
+                    <p className="text-white/50 text-xs leading-relaxed line-clamp-3 mb-4">
+                      {post.excerpt}
+                    </p>
+                    <span className="text-[#C1292E] text-xs font-medium">Read article →</span>
+                  </div>
+                </Link>
+              </FadeUp>
+            ))}
+          </div>
         </div>
       </section>
 

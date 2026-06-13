@@ -29,8 +29,8 @@ function FadeUp({
 
 // ─── Data ───────────────────────────────────────────────────────────────────────
 const STATS = [
-  { value: '7', label: 'Production Apps' },
-  { value: '9 mo', label: 'Zero to Production' },
+  { value: '8+', label: 'Production Apps' },
+  { value: '1 Year', label: 'Zero to Production' },
   { value: '15', label: 'Academic Distinctions' },
   { value: '6', label: 'Certifications' },
 ];
@@ -477,9 +477,9 @@ export default function About() {
             </h2>
           </FadeUp>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {STACK.map((group, i) => (
-              <FadeUp key={group.category} delay={i * 0.06} className={group.colSpan === 2 ? 'col-span-2' : ''}>
+              <FadeUp key={group.category} delay={i * 0.06} className={group.colSpan === 2 ? 'md:col-span-2' : ''}>
                 <div style={{
                   position: 'relative',
                   background: 'rgba(255,255,255,0.02)',
