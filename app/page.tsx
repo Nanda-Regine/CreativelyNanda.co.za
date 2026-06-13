@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MagazineCover from '@/components/MagazineCover';
 
 // ─── Fade-up helper ─────────────────────────────────────────────────────────────
@@ -80,6 +80,115 @@ const PRODUCTS = [
     badge: null,
   },
 ];
+
+const TESTIMONIALS = [
+  {
+    initials: 'BI',
+    name: 'Bojan Ivanović',
+    title: 'Co-Founder, Balkan Burger Pty Ltd',
+    quote: 'Nanda is one of those rare gems who not only meets expectations but consistently redefines what excellence looks like. In short, Nanda is a powerhouse of talent and energy!',
+  },
+  {
+    initials: 'ZJ',
+    name: 'Zintle Joko',
+    title: 'Entrepreneur | Founder of Joko & Co',
+    quote: 'She is the best person I have ever worked with. Her attention to detail is unmatched, and she has a gift for balancing efficiency with creativity in a way that makes everything run smoothly.',
+  },
+  {
+    initials: 'AG',
+    name: 'Amy Gajjar',
+    title: 'Award-Winning Creative Consultant | Woolworths',
+    quote: 'Not only is she an amazing leader, but her attention to detail is extremely admirable. Her positivity and can-do attitude is truly inspirational and she is an asset to any business she works with.',
+  },
+  {
+    initials: 'NC',
+    name: 'Nicole Carlisle',
+    title: 'Team Member, Balkan Burger',
+    quote: 'Having such a supportive and inspiring manager made a lasting impact on my growth, both professionally and personally. She is one of the most helpful, efficient, and kind leaders I\'ve worked with.',
+  },
+];
+
+// ─── Testimonials slideshow ───────────────────────────────────────────────────────
+function TestimonialsSlideshow() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => setActive(i => (i + 1) % TESTIMONIALS.length), 5000);
+    return () => clearInterval(t);
+  }, [paused]);
+
+  const prev = () => { setPaused(true); setActive(i => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length); };
+  const next = () => { setPaused(true); setActive(i => (i + 1) % TESTIMONIALS.length); };
+
+  return (
+    <section className="relative py-24 px-6 bg-[#0A1128] z-10 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+      <div className="max-w-3xl mx-auto relative z-10">
+        <FadeUp className="text-center mb-12">
+          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-3">Recommendations</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold italic text-white leading-tight">
+            What colleagues say.
+          </h2>
+        </FadeUp>
+
+        <div className="relative min-h-[220px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0"
+            >
+              <div className="bg-white/5 border border-white/10 rounded-[28px] p-7 md:p-10 h-full">
+                <div className="text-[#B8860B]/30 text-5xl font-serif leading-none mb-4">&ldquo;</div>
+                <p className="font-display text-lg md:text-xl italic text-white/90 leading-relaxed mb-6">
+                  {TESTIMONIALS[active].quote}
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C1292E] to-[#B8860B] flex items-center justify-center text-white font-bold text-sm shrink-0">
+                    {TESTIMONIALS[active].initials}
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">{TESTIMONIALS[active].name}</p>
+                    <p className="text-white/40 text-xs">{TESTIMONIALS[active].title}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center justify-between mt-6">
+          <div className="flex gap-2">
+            {TESTIMONIALS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setPaused(true); setActive(i); }}
+                className={`w-2 h-2 rounded-full transition-all ${i === active ? 'bg-[#C1292E] w-6' : 'bg-white/20 hover:bg-white/40'}`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+          <div className="flex gap-2">
+            <button onClick={prev} className="w-9 h-9 rounded-full border border-white/20 text-white hover:border-[#C1292E] hover:text-[#C1292E] transition-all flex items-center justify-center text-sm">←</button>
+            <button onClick={next} className="w-9 h-9 rounded-full border border-white/20 text-white hover:border-[#C1292E] hover:text-[#C1292E] transition-all flex items-center justify-center text-sm">→</button>
+          </div>
+        </div>
+
+        <div className="text-center mt-8">
+          <Link href="/testimonials" className="text-[#B8860B] text-sm hover:underline">
+            Read all 6 recommendations →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const BLOG_PREVIEW = [
   {
@@ -250,6 +359,8 @@ export default function Home() {
           </FadeUp>
         </div>
       </section>
+
+      <TestimonialsSlideshow />
 
       {/* ── PRODUCTS GRID ──────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-white z-10">

@@ -328,77 +328,6 @@ const workExperience = [
   }
 ];
 
-// LinkedIn Recommendations Data
-const recommendations = [
-  {
-    name: 'Zintle Joko',
-    title: 'Entrepreneur | Events Planner | Founder of Joko & Co | Social Media Manager | Creative Visionary',
-    date: 'August 25, 2025',
-    relationship: 'Worked with Nanda on the same team',
-    text: `I had the absolute privilege of working alongside Nanda as a fellow manager at Balkan Burger, and I can confidently say she is the best person I have ever worked with. From the moment she started, she made an incredible impact, bringing structure, creativity, and positivity that completely elevated the workplace.
-
-Nanda has an amazing work ethic and is one of the most reliable professionals I know. She approaches challenges with innovative problem-solving skills, never settling for quick fixes but instead finding sustainable, smart solutions. Her attention to detail is unmatched, and she has a gift for balancing efficiency with creativity in a way that makes everything run smoothly.
-
-What really sets Nanda apart is her positive attitude and sense of humor, which made even the most stressful days enjoyable. She creates an environment where people feel supported, motivated, and inspired to bring their best. She's not only a strong leader but also an incredible team player who always puts the bigger picture first.`
-  },
-  {
-    name: 'Bojan Ivanović',
-    title: 'Co-Founder at Balkan Burger Pty Ltd',
-    date: 'January 19, 2025',
-    relationship: 'Bojan managed Nanda directly',
-    text: `I had the absolute privilege of working alongside Nanda Regine for two transformative years at Balkan Burger, where she held the role of Junior Manager. Let me tell you, Nanda is one of those rare gems who not only meets expectations but consistently redefines what excellence looks like.
-
-Nanda has an unmatched ability to balance strategy with execution but what truly sets her apart is her exceptional emotional intelligence and natural leadership. She possesses a remarkable ability to understand team dynamics, foster open communication, and respond to challenges with empathy and clarity, creating a culture of trust and collaboration. Nanda's talent for rallying teams, inspiring creativity, and aligning everyone around a shared vision has consistently driven both morale and results, making her an invaluable asset of our organisation. In short, Nanda is a powerhouse of talent and energy!`
-  },
-  {
-    name: 'Nicole Carlisle',
-    title: 'Team Member at Balkan Burger',
-    date: 'August 24, 2025',
-    relationship: 'Nicole reported directly to Nanda',
-    text: `I had the absolute pleasure of working under my manager Nanda, at Balkan Burger, and it was an incredible experience. She is one of the most helpful, efficient, and kind leaders I've worked with, always going the extra mile to guide and support her team.
-
-Nanda's approachable nature, patience, and professionalism created a positive and motivating workplace environment where everyone felt valued. At the same time, her high standards and strong work ethic set an excellent example for us all to follow.
-
-I am truly grateful for the skills and confidence I gained while working with her. Having such a supportive and inspiring manager made a lasting impact on my growth, both professionally and personally.`
-  },
-  {
-    name: 'Lindokuhle Nkwanyane',
-    title: 'Writer & Visual Thinker | Passionate About Storytelling',
-    date: 'August 23, 2025',
-    relationship: 'Lindokuhle reported directly to Nanda',
-    text: `I had the pleasure of working with Nanda during her time as Manager, and I can confidently say she was a fantastic colleague to work with. She's incredibly efficient, always ensuring tasks are well-organized and clearly communicated to the team. Her regular check-in meetings kept everything on track and helped create a smooth workflow.
-
-What stood out most was her supportive nature and positive energy—she brought a lively spirit that uplifted the entire restaurant. She's a hardworking, friendly professional who made the workplace feel both productive and enjoyable. Any team would be lucky to have her!`
-  },
-  {
-    name: 'Amy Gajjar',
-    title: 'Award-Winning Creative Consultant | Packaging Designer @ Woolworths | Brand Design, Concept Development & Creative Direction | Founder',
-    date: 'September 4, 2025',
-    relationship: 'Amy worked with Nanda on the same team',
-    text: `Had the pleasure of working with Nanda when I was consulting at Balkan Burger in early 2024. Not only is she an amazing leader, but her attention to detail is extremely admirable. Her positivity and can-do attitude is truly inspirational and she is an asset to any business she works with.
-
-I cannot recommend Nanda enough. Any team or company would be lucky to have her, not just for her professionalism and skills, but for the energy, vision, and heart she brings to her work.`
-  },
-  {
-    name: 'Maqawe Mvume',
-    title: 'Dreaming of bringing the world together with unique and evolutionary ideas',
-    date: 'August 25, 2025',
-    relationship: 'Maqawe worked with Nanda on the same team',
-    text: `I had the pleasure of working alongside Nanda at Sportsmans Warehouse, where we were both retail sales assistants. During this time, I was consistently impressed by her exceptional work ethic and natural leadership skills.
-
-Nanda approaches every task with focus, dedication, and a positive attitude, setting a high standard for those around her. She has a sharp mind and the ability to quickly understand and respond to challenges, often taking initiative to guide the team when needed. Her professionalism, reliability, and strong problem-solving skills made her a valuable asset to the workplace.
-
-I highly commend Nanda for her outstanding contributions and have no doubt that she will excel in any role she takes on.`
-  }
-];
-
-// Featured Quote from Letter of Recommendation
-const featuredQuote = {
-  text: "Nanda Regine is a rare and extraordinary talent who has left an indelible mark on our business. Her contributions have directly driven growth, enhanced our turnover, and solidified our foundations for the future. I have no doubt that she will continue to excel in any environment where leadership, innovation, and commitment are valued.",
-  author: "Bojan Ivanovic",
-  title: "Co-Founder, Balkan Burger Pty Ltd",
-  date: "December 2024"
-};
 
 // Expandable Role Component
 function RoleCard({ role, isExpanded, onToggle, index }) {
@@ -504,98 +433,15 @@ function RoleCard({ role, isExpanded, onToggle, index }) {
   );
 }
 
-// Expandable Recommendation Component
-function RecommendationCard({ rec, isExpanded, onToggle, index }) {
-  const previewText = rec.text.slice(0, 200) + '...';
-  
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="relative"
-    >
-      <div 
-        className={`
-          relative overflow-hidden transition-all duration-500 cursor-pointer
-          bg-white/90 backdrop-blur-sm hover:bg-white
-          ${isExpanded ? 'rounded-[40px] shadow-xl' : 'rounded-[28px] hover:shadow-lg'}
-        `}
-        onClick={onToggle}
-      >
-        {/* Decorative gradient bar */}
-        <div className="h-1.5 bg-gradient-to-r from-[#C1292E] via-[#B8860B] to-[#C1292E]" />
-        
-        <div className="p-6 md:p-8">
-          {/* Header */}
-          <div className="flex items-start gap-4 mb-4">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#C1292E] to-[#B8860B] flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-              {rec.name.split(' ').map(n => n[0]).join('')}
-            </div>
-            <div className="flex-1 min-w-0">
-              <h4 className="font-display text-lg md:text-xl font-bold text-[#0A1128] truncate">
-                {rec.name}
-              </h4>
-              <p className="text-[#0A1128]/60 text-xs md:text-sm line-clamp-2">{rec.title}</p>
-              <p className="text-[#C1292E] text-xs mt-1">{rec.date}</p>
-            </div>
-            <motion.span
-              animate={{ rotate: isExpanded ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-[#C1292E] text-xl flex-shrink-0"
-            >
-              ↓
-            </motion.span>
-          </div>
-          
-          {/* Quote icon */}
-          <div className="text-[#B8860B]/30 text-5xl md:text-6xl font-serif leading-none mb-2">"</div>
-          
-          {/* Text */}
-          <div className="text-[#0A1128]/80 text-sm md:text-base leading-relaxed">
-            {isExpanded ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                {rec.text.split('\n\n').map((paragraph, i) => (
-                  <p key={i} className="mb-4 last:mb-0">{paragraph}</p>
-                ))}
-              </motion.div>
-            ) : (
-              <p>{previewText}</p>
-            )}
-          </div>
-          
-          {/* Read more indicator */}
-          <div className="mt-4 flex items-center gap-2 text-[#C1292E] text-sm font-medium">
-            <span>{isExpanded ? 'Show less' : 'Read full recommendation'}</span>
-            <span>→</span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 export default function Work() {
   const [expandedRoles, setExpandedRoles] = useState([]);
-  const [expandedRecs, setExpandedRecs] = useState([]);
 
   const toggleRole = (roleId) => {
-    setExpandedRoles(prev => 
-      prev.includes(roleId) 
+    setExpandedRoles(prev =>
+      prev.includes(roleId)
         ? prev.filter(id => id !== roleId)
         : [...prev, roleId]
-    );
-  };
-
-  const toggleRec = (index) => {
-    setExpandedRecs(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
     );
   };
 
@@ -693,50 +539,10 @@ export default function Work() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               }
-              onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.location.href = '/testimonials'}
             >
               Read Testimonials
             </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ===== FEATURED QUOTE SECTION ===== */}
-      <section className="relative py-16 md:py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            {/* Organic shape container */}
-            <div 
-              className="relative bg-[#0A1128] p-8 md:p-12 lg:p-16 overflow-hidden"
-              style={{ borderRadius: '60px 20px 60px 20px' }}
-            >
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-48 md:w-64 h-48 md:h-64 bg-gradient-to-bl from-[#C1292E]/30 to-transparent rounded-full blur-2xl" />
-              <div className="absolute bottom-0 left-0 w-32 md:w-48 h-32 md:h-48 bg-gradient-to-tr from-[#B8860B]/20 to-transparent rounded-full blur-xl" />
-              
-              <div className="relative z-10">
-                {/* Quote mark */}
-                <div className="text-[#B8860B] text-7xl md:text-9xl font-serif leading-none mb-4 md:mb-6 opacity-50">"</div>
-                
-                <blockquote className="font-display text-xl md:text-2xl lg:text-3xl text-[#E8DCC4] leading-relaxed mb-8">
-                  {featuredQuote.text}
-                </blockquote>
-                
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-6 border-t border-[#E8DCC4]/20">
-                  <div>
-                    <p className="text-[#C1292E] font-display text-xl font-bold">{featuredQuote.author}</p>
-                    <p className="text-[#E8DCC4]/70">{featuredQuote.title}</p>
-                  </div>
-                  <span className="text-[#B8860B] text-sm">{featuredQuote.date}</span>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -814,41 +620,26 @@ export default function Work() {
         </div>
       </section>
 
-      {/* ===== RECOMMENDATIONS SECTION ===== */}
-      <section id="testimonials" className="relative py-16 md:py-24 px-6 bg-gradient-to-b from-transparent via-[#0A1128]/5 to-transparent scroll-mt-24">
+      {/* ===== TESTIMONIALS LINK ===== */}
+      <section className="relative py-12 px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section header */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12 md:mb-16"
+            className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 md:p-8 bg-[#0A1128] rounded-[24px]"
           >
-            <div className="flex items-center justify-center gap-6 mb-6">
-              <div className="w-12 md:w-20 h-px bg-[#B8860B]" />
-              <span className="text-[#B8860B] text-xs md:text-sm font-medium tracking-[0.3em] uppercase">Testimonials</span>
-              <div className="w-12 md:w-20 h-px bg-[#B8860B]" />
+            <div>
+              <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase font-sans mb-1">LinkedIn Recommendations</p>
+              <p className="text-white font-display text-xl font-bold">6 colleagues. One consistent verdict.</p>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A1128]">
-              What <span className="text-[#C1292E]">Colleagues</span> Say
-            </h2>
-            <p className="text-[#0A1128]/60 mt-4 max-w-xl mx-auto">
-              LinkedIn recommendations from managers, team members, and collaborators
-            </p>
+            <a
+              href="/testimonials"
+              className="shrink-0 px-7 py-3 bg-[#C1292E] text-white rounded-full font-semibold text-sm hover:bg-[#C1292E]/90 transition-all hover:scale-105"
+            >
+              Read all recommendations →
+            </a>
           </motion.div>
-
-          {/* Recommendations grid */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {recommendations.map((rec, index) => (
-              <RecommendationCard
-                key={index}
-                rec={rec}
-                isExpanded={expandedRecs.includes(index)}
-                onToggle={() => toggleRec(index)}
-                index={index}
-              />
-            ))}
-          </div>
         </div>
       </section>
 
