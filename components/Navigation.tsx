@@ -27,22 +27,42 @@ export default function Navigation() {
     { href: '/contact', label: 'Contact' },
   ];
 
-  // Mobile drawer: full list
-  const links = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/work', label: 'Work' },
-    { href: '/education', label: 'Education' },
-    { href: '/ai-engineer', label: 'AI Engineer' },
-    { href: '/consulting', label: 'Consulting' },
-    { href: '/testimonials', label: 'Testimonials' },
-    { href: '/mirembe', label: 'Mirembe' },
-    { href: '/poetry', label: 'Poetry' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/products', label: 'Shop' },
-    { href: '/press', label: 'Press' },
-    { href: '/contact', label: 'Contact' },
+  // Mobile drawer: grouped sections
+  const mobileGroups = [
+    {
+      label: 'DISCOVER',
+      links: [
+        { href: '/', label: 'Home' },
+        { href: '/about', label: 'About' },
+        { href: '/work', label: 'Work' },
+        { href: '/education', label: 'Education' },
+      ],
+    },
+    {
+      label: 'BUILD',
+      links: [
+        { href: '/projects', label: 'Projects' },
+        { href: '/ai-engineer', label: 'AI Engineer' },
+        { href: '/consulting', label: 'Consulting' },
+      ],
+    },
+    {
+      label: 'CREATE',
+      links: [
+        { href: '/poetry', label: 'Poetry' },
+        { href: '/blog', label: 'Blog' },
+        { href: '/products', label: 'Shop' },
+      ],
+    },
+    {
+      label: 'CONNECT',
+      links: [
+        { href: '/mirembe', label: 'Mirembe' },
+        { href: '/testimonials', label: 'Testimonials' },
+        { href: '/press', label: 'Press' },
+        { href: '/contact', label: 'Contact' },
+      ],
+    },
   ];
 
   return (
@@ -113,50 +133,64 @@ export default function Navigation() {
 
       {/* Mobile Menu - Left Side Drawer */}
       <div
-        className={`lg:hidden fixed top-0 left-0 bottom-0 w-72 bg-[#F5F0E8] z-[70] transform transition-transform duration-300 ease-in-out shadow-2xl ${
+        className={`lg:hidden fixed top-0 left-0 bottom-0 w-[280px] z-[70] transform transition-transform duration-300 ease-in-out shadow-2xl ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
-        style={{ height: '100vh', minHeight: '100%' }}
+        style={{ height: '100vh', background: '#0A1128' }}
       >
-        <div className="px-6 py-6 h-full flex flex-col bg-[#F5F0E8]">
-          {/* Header with logo and close button */}
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#0A1128]/10">
-            <span className="font-display text-2xl font-bold text-[#0A1128]">Nanda</span>
+        <div className="px-5 py-5 h-full flex flex-col overflow-hidden">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: '1px solid rgba(245,240,232,0.1)' }}>
+            <span className="font-display text-2xl font-bold" style={{ color: '#F5F0E8' }}>Nanda</span>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="text-[#0A1128] hover:text-cherry transition-colors p-1"
+              className="transition-colors p-1"
+              style={{ color: '#F5F0E8' }}
               aria-label="Close menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          {/* Navigation Links */}
-          <div className="space-y-1 overflow-y-auto flex-1 pb-4">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 px-3 text-lg font-medium rounded-lg transition-all ${
-                  pathname === link.href
-                    ? 'text-cherry bg-[#0A1128]/5'
-                    : 'text-[#0A1128] hover:text-cherry hover:bg-[#0A1128]/5'
-                }`}
-              >
-                {link.label}
-              </Link>
+          {/* Grouped Navigation */}
+          <div className="flex-1 overflow-y-auto space-y-5 pb-4">
+            {mobileGroups.map((group) => (
+              <div key={group.label}>
+                <p className="text-[10px] font-semibold tracking-widest mb-2 px-2" style={{ color: '#C9943A' }}>
+                  {group.label}
+                </p>
+                <div className="space-y-0.5">
+                  {group.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block py-2.5 px-3 text-[15px] font-medium rounded-lg transition-all"
+                      style={{
+                        color: pathname === link.href ? '#c21e56' : '#F5F0E8',
+                        background: pathname === link.href ? 'rgba(194,30,86,0.1)' : 'transparent',
+                      }}
+                    >
+                      {link.label}
+                      {pathname === link.href && (
+                        <span className="inline-block ml-2 w-1 h-1 rounded-full bg-cherry align-middle" />
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Download CV Button - Fixed at bottom */}
-          <div className="pt-4 border-t border-[#0A1128]/10 mt-auto">
+          {/* Download CV */}
+          <div className="pt-4 mt-auto" style={{ borderTop: '1px solid rgba(245,240,232,0.1)' }}>
             <a
               href="/assets/work/Nanda-cv.pdf"
               download="Nanda-CV.pdf"
-              className="block w-full px-6 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center text-lg"
+              className="block w-full py-3 rounded-full font-medium text-center text-sm transition-all hover:opacity-90"
+              style={{ background: '#c21e56', color: '#fff' }}
             >
               Download CV
             </a>
