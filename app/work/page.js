@@ -110,9 +110,9 @@ const workExperience = [
         tech: ['TypeScript', 'Tailwind CSS', 'Next.js', 'Vercel']
       },
       {
-        title: 'Lead Mobile Developer | True Access (Disability Accessibility Platform)',
+        title: 'Co-Founder & Technical Lead | True Access (Disability Accessibility Platform)',
         period: 'June 2026 - Present',
-        type: 'Client Project',
+        type: 'Co-Founded',
         highlights: [
           'SA\'s first disability accessibility mapping platform — universal Expo app running iOS, Android, and Web from a single codebase serving 4.2 million South Africans with disabilities',
           '7 complete build phases shipped in 2 days: maps, audits, profiles, business portal, shop, Paystack payments, offline mode + GeoJSON data export API',
