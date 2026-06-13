@@ -51,10 +51,7 @@ export async function GET(request: Request) {
 
     let query = supabase
       .from('blog_posts')
-      .select(`
-        *,
-        contributor:contributors(*)
-      `)
+      .select('*')
       .eq('is_published', true)
       .order('published_at', { ascending: false })
       .limit(limit);
