@@ -20,23 +20,10 @@ export async function POST() {
   const supabase = createServerClient();
 
   try {
-    // Check if posts already exist
-    const { data: existing } = await supabase
-      .from('blog_posts')
-      .select('slug')
-      .limit(1);
-
-    if (existing && existing.length > 0) {
-      return NextResponse.json({
-        message: 'Blog posts already exist. Delete existing posts first if you want to reseed.',
-        existing: true,
-      });
-    }
-
-    // Insert all blog posts
+    // Upsert all blog posts (insert new, update existing by slug)
     const { data, error } = await supabase
       .from('blog_posts')
-      .insert(blogPosts)
+      .upsert(blogPosts, { onConflict: 'slug' })
       .select();
 
     if (error) {
@@ -45,7 +32,7 @@ export async function POST() {
     }
 
     return NextResponse.json({
-      message: `Successfully seeded ${data.length} blog posts!`,
+      message: `Successfully upserted ${data.length} blog posts!`,
       posts: data.map(p => ({ slug: p.slug, title: p.title, category: p.category })),
     });
   } catch (err) {
