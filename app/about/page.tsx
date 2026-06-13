@@ -238,7 +238,7 @@ const TIMELINE = [
   },
   {
     year: 'February–March 2026',
-    title: 'Six apps in six weeks',
+    title: 'Eight apps. One year.',
     body: 'Campus Compass · K53 Drill Master · StokvelOS · AdminOS · WatchSankofa · SankofaSessions · JarvisOS · Sanyu Botanicals — shipped solo under Mirembe Muse (Pty) Ltd. Eight AI products. 1,000+ commits. Paying clients. East London, South Africa.',
     dot: 'bg-[#C1292E]',
     cardBg: '#0A1128',

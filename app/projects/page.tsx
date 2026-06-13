@@ -143,7 +143,7 @@ const PROJECTS: ProjectCard[] = [
     status: 'Live',
     problem: 'Most developer portfolios are templates. This one is a deployed product.',
     impact: [
-      '72+ commits — most iterated repo',
+      '100+ commits — most iterated repo',
       'Multilingual support, AI chatbot, Notion template sales',
       '15% increase in contact form submissions since AI chatbot launch',
     ],
@@ -658,16 +658,16 @@ export default function ProjectsPage() {
               maxWidth: '640px',
               lineHeight: 1.55,
             }}>
-              Seven applications. One woman. Nine months. Africa&apos;s tech infrastructure, built from East London.
+              Eight applications. One woman. One year. Africa&apos;s tech infrastructure, built from East London.
             </p>
 
             {/* Stats bar */}
             <div style={{ display: 'flex', gap: '0', flexWrap: 'wrap' as const }}>
               {[
-                { v: '17', l: 'Portfolio Projects' },
-                { v: '7', l: 'Live AI SaaS Products' },
-                { v: '550+', l: 'GitHub Commits' },
-                { v: '9 Months', l: 'Zero → Production' },
+                { v: '18+', l: 'Portfolio Projects' },
+                { v: '8+', l: 'Live Apps' },
+                { v: '1,000+', l: 'GitHub Commits' },
+                { v: '1 Year', l: 'Zero → Production' },
               ].map(({ v, l }, i) => (
                 <div key={l} style={{
                   padding: '16px 28px',
