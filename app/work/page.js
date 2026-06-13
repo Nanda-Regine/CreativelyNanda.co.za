@@ -14,26 +14,58 @@ const workExperience = [
         period: 'September 2025 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd, building AI-native solutions for the African context under Ubuntu. Affordability. Excellence.',
-          'Digital Services vertical: AI engineering, full-stack development, Notion consulting',
-          'Wellness Products vertical: natural hair oils and teas',
-          'Creative Studio vertical: books, mentorship, digital products',
-          'Set technical architecture, lead client delivery, manage business compliance (CIPC, SARS, POPIA)',
+          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd — 8 production applications, 1,000+ GitHub commits, 3+ paying clients. One year.',
+          'Digital Services vertical: AI engineering, full-stack development, multi-agent systems, Notion consulting',
+          'Wellness Brand vertical: Sanyu Botanicals — ancestral African hair care with AI-powered consultations and Angel loyalty programme',
+          'Creative Studio vertical: Inside Her Roses (published poetry), mentorship, digital products',
+          'Set technical architecture across 8 products spanning Next.js, Expo (iOS/Android/Web), Claude API, Supabase, Inngest, and Upstash Vector RAG',
+          'Manage business compliance: CIPC registration, SARS, POPIA Registration No. 2026-005658',
           'Building in public, shipping production-grade software while documenting the process for Africa\'s next generation of builders'
         ],
-        tech: ['Next.js', 'TypeScript', 'Supabase', 'Anthropic Claude API', 'Tailwind CSS', 'Vercel']
+        tech: ['Next.js', 'TypeScript', 'Expo SDK 52', 'Supabase', 'Anthropic Claude API', 'Upstash Vector', 'Inngest', 'PayFast', 'Paystack', 'Tailwind CSS', 'NativeWind', 'Vercel']
+      },
+      {
+        title: 'AI Systems Architect | JarvisOS — Personal AI OS',
+        period: 'January 2026 - Present',
+        type: 'Self-Built',
+        highlights: [
+          '15-wing personal AI operating system — the most architecturally complex project in the portfolio, built for personal daily use across every life domain',
+          'Intelligence Wings: CEO (decisions), Finance (cash flow), Engineering (build logs), Marketing (campaigns), Cycle (menstrual intelligence), Scholar (learning), Corpus (RAG Q&A), Body (health), Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, Crisis/Sankofa',
+          'RAG Architecture: Upstash Vector with 1,194 personal knowledge chunks — Corpus wing answers questions from ingested documents via semantic retrieval',
+          'Redis Signal Protocol: custom inter-wing pub/sub communication via Upstash Redis — 15 wings communicate without direct coupling, true event-driven architecture',
+          'Model Routing: Claude Sonnet for high-stakes reasoning wings (CEO, Corpus, Consulting), Haiku for speed tasks — 85% AI cost reduction without quality loss',
+          'Offline-first PWA with IndexedDB queue for load-shedding resilience; Notion bidirectional sync; 11 South African languages; 12 custom wing-aware color palettes',
+          'Inngest async queues for long-running jobs; 6+ months continuous active development; 327+ commits'
+        ],
+        tech: ['Next.js 14', 'TypeScript', 'Claude Sonnet + Haiku (model routing)', 'Upstash Vector (RAG)', 'Upstash Redis (signal protocol)', 'Supabase', 'Inngest', 'PWA (offline-first)', 'Framer Motion']
+      },
+      {
+        title: 'Brand Architect & Technical Founder | Sanyu Botanicals',
+        period: 'April 2026 - Present',
+        type: 'Self-Employed',
+        highlights: [
+          'Built an African botanical hair care brand from concept to live e-commerce in 6 weeks — rooted in 5 ancestral clan lineages: Nsenene, Hlubi, Msimango, Thabizolo, Tshawe',
+          'Three product formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles — ancestral botanical knowledge documented in both clinical and cultural terms',
+          'AI hair consultation engine: Claude Sonnet recommends the right product from a full routine description, personalised to each customer',
+          'Angel loyalty programme: Seed → Bloom → Royal Angel tiers with a physical-digital QR card system — loyalty card triggers digital journal unlock',
+          'Private AI-powered hair journal (Angel members only): Claude Haiku surfaces personalised tips from journal entries over time, learning the customer\'s hair journey',
+          'Full e-commerce with PayFast ZAR, Supabase RLS multi-tenant, Cloudinary product image delivery, Resend transactional email flows, PostHog analytics'
+        ],
+        tech: ['Next.js 14', 'TypeScript', 'Claude Sonnet + Haiku', 'PayFast', 'Supabase', 'Cloudinary', 'Resend', 'PostHog', 'Sentry', 'Vercel ISR']
       },
       {
         title: 'Full-Stack Product Engineer | AdminOS & StokvelOS',
         period: 'March 2026 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Architecting enterprise-grade "Operating Systems" focused on automating SME administration and digitizing community-based financial systems (Stokvels) in South Africa',
-          'System Orchestration: Designed a multi-tenant architecture using Next.js 14 and Supabase, implementing complex logic for automated financial tracking and administrative workflows',
-          'AI Agent Integration: Developed autonomous workflows using Claude/OpenAI APIs to handle document processing and data entry, increasing operational efficiency by an estimated 60%',
-          'Fintech Security: Engineered robust data isolation using PostgreSQL Row Level Security (RLS) to protect sensitive financial data for community savings groups'
+          'Architecting enterprise-grade AI operating systems for South African SMEs and community savings groups (stokvels) — R11B market with no digital infrastructure',
+          'AdminOS: 6 specialist AI agents (Alex/inbox, Chase/debt-recovery, Care/wellness, Doc/document-intelligence, Insight/analytics, Pen/email-composer) with model routing and ZAR token cost controls',
+          'Multi-tenancy: Supabase RLS scopes every database query by tenant_id from JWT — two Supabase client instances, strict isolation, immutable audit log with UPDATE/DELETE revoked at privilege level',
+          'Per-tenant AI economics: daily token budgets (25K trial → 2M enterprise), hourly spike detection at 50% threshold, abuse blocking, and async ZAR cost logging',
+          '25 Inngest async functions: daily briefs, debt recovery sequences, wellness fan-outs, payroll distribution, onboarding sequences, contextual triggers',
+          'WhatsApp-native via Meta Cloud API v19.0; Xero accounting integration; companion React Native mobile app (EAS build); load-shedding-aware PWA'
         ],
-        tech: ['Next.js 14', 'TypeScript', 'Supabase', 'PostgreSQL RLS', 'Claude API', 'OpenAI API']
+        tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind 4', 'Supabase', 'PostgreSQL RLS', 'Claude Sonnet + Haiku + Opus', 'Inngest', 'Upstash Redis', 'Meta WhatsApp API', 'PayFast', 'Xero', 'Expo (companion app)']
       },
       {
         title: 'Lead Developer | VarsityOS & WatchSankofa',
@@ -78,15 +110,18 @@ const workExperience = [
         tech: ['TypeScript', 'Tailwind CSS', 'Next.js', 'Vercel']
       },
       {
-        title: 'Full-Stack Developer | True Access (Disability Platform)',
-        period: 'October 2025 - December 2025',
+        title: 'Lead Mobile Developer | True Access (Disability Accessibility Platform)',
+        period: 'June 2026 - Present',
         type: 'Client Project',
         highlights: [
-          'Developed an accessibility-focused platform designed to bridge the gap in information and services for people with disabilities',
-          'Accessibility First (A11y): Prioritized inclusive design principles to ensure the platform was navigable and functional for users with diverse accessibility needs',
-          'Database Management: Architected the initial backend schema to handle sensitive user data and service provider directories with security as a core requirement'
+          'SA\'s first disability accessibility mapping platform — universal Expo app running iOS, Android, and Web from a single codebase serving 4.2 million South Africans with disabilities',
+          '7 complete build phases shipped in 2 days: maps, audits, profiles, business portal, shop, Paystack payments, offline mode + GeoJSON data export API',
+          'SANS 10400-S compliance audit checklists with photo evidence; disability-profile-aware map filtering (8 disability types, 15+ filter combinations)',
+          'B2B revenue flywheel: audit → compliance gap analysis → compliance product sales → featured listing (co-founder manufactures physical ramps)',
+          'Mapbox offline tile caching for load-shedding resilience; Supabase Edge Functions (Deno); Paystack HMAC-SHA512 webhook verification',
+          'GeoJSON data export API with licensing potential for World Bank, Apple Maps, Google Maps, and SA municipality contracts'
         ],
-        tech: ['React', 'Next.js', 'Supabase', 'Mapbox GL', 'Tailwind CSS']
+        tech: ['Expo SDK 52', 'TypeScript', 'Expo Router v4', 'NativeWind v4', 'Mapbox (native + web)', 'Supabase', 'Paystack', 'TanStack Query v5', 'Zustand', 'Zod']
       },
       {
         title: 'Junior Developer | Cortex Hub Booking App',
