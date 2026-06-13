@@ -31,19 +31,15 @@ export async function GET(
   try {
     const supabase = createServerClient();
 
-    // Get post with contributor and approved reviews
+    // Simple select — no joins to avoid FK/RLS failures
     const { data: post, error } = await supabase
       .from('blog_posts')
-      .select(`
-        *,
-        contributor:contributors(*),
-        reviews:blog_reviews(*)
-      `)
+      .select('*')
       .eq('slug', params.slug)
       .eq('is_published', true)
       .single();
 
-    if (error || !post) {
+    if (error || !post || !post.content) {
       // Try seed data as fallback
       const seedPost = blogPosts.find(p => p.slug === params.slug);
       if (!seedPost) {
@@ -60,10 +56,7 @@ export async function GET(
       });
     }
 
-    // Filter to only approved reviews
-    post.reviews = (post.reviews || []).filter((r: { is_approved: boolean }) => r.is_approved);
-
-    return NextResponse.json(post);
+    return NextResponse.json({ ...post, contributor: null, reviews: [] });
   } catch {
     // Fallback to seed data on error
     const seedPost = blogPosts.find(p => p.slug === params.slug);

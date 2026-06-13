@@ -1300,6 +1300,125 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
     },
   },
 
+  'jarvisos': {
+    slug: 'jarvisos',
+    title: 'JarvisOS',
+    tagline: 'A 15-Wing Personal AI Operating System — The Most Architecturally Complex Thing I\'ve Built',
+    description:
+      'Production personal AI operating system with 15 interconnected intelligence wings: CEO, Finance, Engineering, Marketing, Cycle (menstrual intelligence), Scholar, Corpus (RAG Q&A), Body, Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, and Crisis/Sankofa. 1,194 personal knowledge chunks indexed via Upstash Vector. Redis inter-wing signal protocol. Claude Sonnet routes complex reasoning; Haiku handles speed tasks — 85% cost reduction. Offline-first PWA. Built for active daily personal use.',
+    category: 'AI/ML · Personal OS · SaaS Architecture',
+    status: 'Live',
+    year: '2026',
+    problem:
+      'Running eight production apps, creative work, a wellness practice, and personal growth across disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution. No tool existed that unified personal intelligence — the kind that knows your business, your body, your creative output, and your financial state as one connected system.',
+    solution:
+      'A unified personal intelligence layer. Each of 15 wings handles one life domain and communicates with others via Redis pub/sub signal protocol — no direct wing-to-wing coupling. Corpus wing indexes 1,194 personal knowledge chunks via Upstash Vector RAG and answers document questions instantly. Inngest handles all long-running background jobs. Claude Sonnet for complex reasoning, Haiku for speed — 85% AI cost reduction via intelligent routing. Offline-first PWA with IndexedDB queue works through South African load-shedding.',
+    techStack: [
+      { name: 'Next.js 14 App Router', reason: 'Unified codebase for 15 wings + PWA offline shell' },
+      { name: 'Claude Sonnet + Haiku (model routing)', reason: '85% cost reduction — complex tasks to Sonnet, speed tasks to Haiku' },
+      { name: 'Upstash Vector (RAG)', reason: '1,194 personal knowledge chunks — Corpus wing document Q&A' },
+      { name: 'Upstash Redis (signal protocol)', reason: 'Wing-to-wing communication without direct coupling — distributed personal OS' },
+      { name: 'Inngest', reason: 'All long-running background jobs — wing sync, report generation' },
+      { name: 'Supabase PostgreSQL + RLS', reason: 'Full audit trail, soft-delete, multi-wing data isolation' },
+      { name: 'PWA (offline-first)', reason: 'IndexedDB queue — full functionality during SA load-shedding' },
+    ],
+    impact: {
+      potential: 'Daily active use across all 15 wings',
+      economy: 'Most architecturally sophisticated project in the portfolio',
+      problem: 'Cognitive overhead from running 8 apps across disconnected tools',
+      metric: '1,194 RAG chunks, 85% AI cost reduction, 6+ months active development',
+    },
+    liveUrl: 'https://jarvis-os-wine.vercel.app',
+    githubUrl: 'https://github.com/Nanda-Regine/JarvisOS',
+    images: [],
+    metaTitle: 'JarvisOS — 15-Wing Personal AI Operating System | Nandawula Regine',
+    metaDescription:
+      'JarvisOS: a production personal AI OS with 15 interconnected intelligence wings, 1,194 RAG knowledge chunks, Redis signal protocol, and Claude model routing. Built by Nandawula Regine.',
+    keywords: [
+      'personal AI operating system',
+      'RAG knowledge base personal',
+      'multi-agent AI system',
+      'Claude API personal assistant',
+      'Upstash Vector RAG',
+      'AI engineer South Africa',
+    ],
+    buildJourney: {
+      narrative: `JarvisOS started as a question: what if the tools for running my life understood each other?
+
+Phase 1 was the CEO wing — decision tracking, priority queuing, outcome logging. Within a week it was the most useful thing I'd built for myself. The Corpus wing (Phase 3) was the architectural inflection point: 1,194 personal knowledge chunks indexed into Upstash Vector. For the first time, I could ask my own documents questions and get instant, cited answers.
+
+The hardest architectural decision was inter-wing communication. Each wing needed to know about the others — a Cycle wing event should update the Body wing, a Finance alert should surface in CEO decisions — but direct coupling would make the system impossible to maintain across 15 wings. Redis pub/sub became the answer. Wings publish signals; other wings subscribe. The system is distributed but coherent.
+
+The 20-session UI rebuild in May–June 2026 was the longest continuous design sprint I've run. Every wing got its own palette, its own personality, its own touch target geometry. 12 custom palettes. 52px navigation targets. Mobile-first across all 15 wings. This is now the reference implementation for the entire Mirembe Muse design language.`,
+      lessons: [
+        'Redis pub/sub as inter-system signal protocol — 15 wings communicate without direct coupling',
+        'Upstash Vector for personal RAG — 1,194 chunks, sub-100ms retrieval on personal knowledge',
+        'Model routing as cost architecture: Sonnet for complexity, Haiku for speed = 85% cost reduction',
+        'PWA with IndexedDB queue is non-negotiable for SA — load-shedding is a product requirement, not an edge case',
+        'Design systems at personal scale: 12 palettes, each wing a different emotional register',
+      ],
+    },
+  },
+
+  'sanyu-botanicals': {
+    slug: 'sanyu-botanicals',
+    title: 'Sanyu Botanicals',
+    tagline: 'Five Ancestral Lineages. One Hair Care Line. AI-Powered Personalisation.',
+    description:
+      'African botanical wellness brand rooted in five clan lineages — Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Full e-commerce with PayFast. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Claude-powered hair consultation. Private AI hair journal (Angel loyalty members). Ingredient library with ancestral and scientific context. Angel loyalty programme: Seed, Bloom, Royal Angel — physical QR card unlocks digital AI journal.',
+    category: 'Wellness · E-Commerce · AI',
+    status: 'Live',
+    year: '2026',
+    problem:
+      "African women carry generations of botanical knowledge their grandmothers trusted — but the products that exist either ignore it or price it in USD. The natural hair movement has been building momentum for a decade. Sanyu Botanicals is the product infrastructure that carries this forward: ancestral formulations, scientifically documented, accessible at South African price points.",
+    solution:
+      'A full e-commerce + AI experience built on the Mirembe Muse ancestral brand system. Claude-powered hair consultations recommend the right product from a full routine description. The private AI hair journal (Angel loyalty members only) learns from entries over time and surfaces personalised tips. An ingredient library explains every botanical in both ancestral and clinical terms. The Angel loyalty system deepens the relationship over time: physical QR card → digital AI journal activation.',
+    techStack: [
+      { name: 'Next.js 14 App Router', reason: 'E-commerce + editorial + AI consultation in one codebase' },
+      { name: 'Claude Sonnet (consultations)', reason: 'Hair consultation engine — recommends product from full routine description' },
+      { name: 'Claude Haiku (journal tips)', reason: 'Private AI journal tip generation — fast, cost-efficient for recurring use' },
+      { name: 'PayFast ZAR', reason: 'Native SA payment rails — no currency conversion friction for ZA customers' },
+      { name: 'Supabase PostgreSQL + RLS', reason: 'Orders, Angel loyalty tiers, hair journal entries — all soft-deleted' },
+      { name: 'Cloudinary', reason: 'Product image delivery — CDN-optimised for SA mobile data realities' },
+      { name: 'Resend', reason: 'Order confirmation, shipping updates, Angel loyalty milestone emails' },
+    ],
+    impact: {
+      potential: 'African women natural hair market',
+      economy: 'First ancestral AI-powered hair wellness brand in SA',
+      problem: 'Botanical knowledge priced in USD and stripped of cultural context',
+      metric: '3 formulations, 3 Angel loyalty tiers, 5 ancestral lineages documented',
+    },
+    liveUrl: 'https://sanyubotanicals.vercel.app',
+    githubUrl: 'https://github.com/Nanda-Regine/sanyu-botanicals',
+    images: [],
+    metaTitle: 'Sanyu Botanicals — African Ancestral Hair Care with AI | Nandawula Regine',
+    metaDescription:
+      'Sanyu Botanicals: African botanical wellness brand rooted in 5 clan lineages. Claude-powered hair consultation, Angel loyalty QR cards, private AI hair journal. Built by Nandawula Regine.',
+    keywords: [
+      'African hair care South Africa',
+      'ancestral botanical hair products',
+      'natural hair AI consultation',
+      'Angel loyalty programme hair',
+      'African wellness brand AI',
+      'Sanyu Botanicals',
+    ],
+    buildJourney: {
+      narrative: `Sanyu Botanicals is the most personal brand in the portfolio. The five clan lineages — Nsenene (my grandmother's clan), Hlubi, Msimango, Thabizolo, Tshawe — are not marketing copy. They are the actual ancestral framework the formulations are built from.
+
+The hardest design decision was the Angel loyalty architecture. I wanted a system that connected the physical and digital worlds — a real card you hold, that unlocks something only you can access online. The QR card system: each Angel member gets a physical card with a unique QR code. Scanning it triggers authentication and unlocks the private AI hair journal. The journal remembers entries over time and surfaces personalised tips based on your documented routine.
+
+The hair consultation AI was built around one insight: most hair product recommendation engines ask "what's your hair type?" Sanyu asks "describe your full routine — what you use, in what order, how often." Claude reads the full routine context before recommending, which means the recommendations are actually useful.
+
+The ingredient library exists because I wanted every buyer to understand what they're putting in their hair in both ancestral and clinical terms. Not just "baobab oil" — but why this oil, from this region, has been used for centuries, and what the clinical documentation confirms.`,
+      lessons: [
+        'Physical-digital loyalty architecture: a QR card in the real world unlocks a private AI journal in the digital one',
+        'Consultation AI works better with full context than with categorical inputs — "describe your routine" beats "pick your hair type"',
+        'Ancestral documentation is product differentiation — ingredient library as brand IP',
+        'Prompt caching on product context: Claude knows all three formulations before the consultation begins — faster, cheaper, more accurate',
+      ],
+    },
+  },
+
   'chanty-shuttle': {
     slug: 'chanty-shuttle',
     title: 'Transport Industry Digital Transformation',
