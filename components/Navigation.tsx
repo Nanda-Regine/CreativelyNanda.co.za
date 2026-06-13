@@ -14,17 +14,34 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Desktop: primary links only (fits at lg breakpoint)
+  const desktopLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/work', label: 'Work' },
+    { href: '/consulting', label: 'Consulting' },
+    { href: '/testimonials', label: 'Testimonials' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/products', label: 'Shop' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
+  // Mobile drawer: full list
   const links = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/projects', label: 'Projects' },
     { href: '/work', label: 'Work' },
     { href: '/education', label: 'Education' },
-    { href: '/notion', label: 'Notion' },
+    { href: '/ai-engineer', label: 'AI Engineer' },
+    { href: '/consulting', label: 'Consulting' },
+    { href: '/testimonials', label: 'Testimonials' },
     { href: '/mirembe', label: 'Mirembe' },
     { href: '/poetry', label: 'Poetry' },
     { href: '/blog', label: 'Blog' },
     { href: '/products', label: 'Shop' },
+    { href: '/press', label: 'Press' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -44,7 +61,7 @@ export default function Navigation() {
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex gap-8 items-center">
-          {links.map((link) => (
+          {desktopLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
