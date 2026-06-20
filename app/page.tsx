@@ -1,10 +1,8 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import MagazineCover from '@/components/MagazineCover';
 
 // ─── Fade-up helper ─────────────────────────────────────────────────────────────
 function FadeUp({
@@ -29,443 +27,225 @@ function FadeUp({
   );
 }
 
-// ─── Data ────────────────────────────────────────────────────────────────────────
-const PRODUCTS = [
-  {
-    slug: 'sme-command-center',
-    cover: '/assets/products/sme/cover.png',
-    name: 'SME Command Center',
-    price: 'R449',
-    category: 'Business',
-    badge: 'POPULAR',
-  },
-  {
-    slug: 'writers-sanctuary',
-    cover: '/assets/products/writers-sanctuary/cover.png',
-    name: "Writer's Sanctuary",
-    price: 'R299',
-    category: 'Creative',
-    badge: 'BESTSELLER',
-  },
-  {
-    slug: 'varsity-academic-excellence',
-    cover: '/assets/products/varsity/cover.png',
-    name: 'Varsity Engine',
-    price: 'R279',
-    category: 'Student',
-    badge: null,
-  },
-  {
-    slug: 'creators-studio',
-    cover: '/assets/products/creators-studio/cover.png',
-    name: "Creator's Studio",
-    price: 'R399',
-    category: 'Creative',
-    badge: 'NEW',
-  },
-  {
-    slug: 'music-artist-career-command-center',
-    cover: '/assets/products/music-artist/cover.png',
-    name: 'Music Artist CC',
-    price: 'R389',
-    category: 'Creative',
-    badge: null,
-  },
-  {
-    slug: 'high-school-academic-excellence',
-    cover: '/assets/products/high-school/cover.png',
-    name: 'High School Engine',
-    price: 'R249',
-    category: 'Student',
-    badge: null,
-  },
+const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
+
+// Candid photo strip — no captions, just the images
+const STRIP = [
+  { src: '/assets/IMG-20260620-WA0016.jpg', alt: 'Nanda in a Sotho straw hat at a Drakensberg viewpoint' },
+  { src: '/assets/IMG-20260620-WA0011.jpg', alt: 'Nanda at the piano in a music studio' },
+  { src: '/assets/IMG-20260620-WA0057.jpg', alt: 'Nanda outdoors beneath a palm, afternoon light' },
+  { src: '/assets/performance/nmb-perform-1.jpg', alt: 'Nanda performing spoken word in Xhosa beadwork' },
+  { src: '/assets/IMG-20260620-WA0074.jpg', alt: 'Nanda in graduation gown among the trees' },
+  { src: '/assets/IMG-20260620-WA0025.jpg', alt: 'Nanda in a traditional red dress at an outdoor event' },
+  { src: '/assets/IMG-20260620-WA0014.jpg', alt: 'Nanda in Sotho attire preparing food with family' },
+  { src: '/assets/IMG-20260620-WA0046.jpg', alt: 'Spiral staircase, architectural portrait' },
 ];
 
-const TESTIMONIALS = [
-  {
-    initials: 'BI',
-    name: 'Bojan Ivanović',
-    title: 'Co-Founder, Balkan Burger Pty Ltd',
-    quote: 'Nanda is one of those rare gems who not only meets expectations but consistently redefines what excellence looks like. In short, Nanda is a powerhouse of talent and energy!',
-  },
-  {
-    initials: 'ZJ',
-    name: 'Zintle Joko',
-    title: 'Entrepreneur | Founder of Joko & Co',
-    quote: 'She is the best person I have ever worked with. Her attention to detail is unmatched, and she has a gift for balancing efficiency with creativity in a way that makes everything run smoothly.',
-  },
-  {
-    initials: 'AG',
-    name: 'Amy Gajjar',
-    title: 'Award-Winning Creative Consultant | Woolworths',
-    quote: 'Not only is she an amazing leader, but her attention to detail is extremely admirable. Her positivity and can-do attitude is truly inspirational and she is an asset to any business she works with.',
-  },
-  {
-    initials: 'NC',
-    name: 'Nicole Carlisle',
-    title: 'Team Member, Balkan Burger',
-    quote: 'Having such a supportive and inspiring manager made a lasting impact on my growth, both professionally and personally. She is one of the most helpful, efficient, and kind leaders I\'ve worked with.',
-  },
+// Painterly art teaser
+const ART = [
+  { src: '/assets/art/water.jpg', alt: 'Abstract palette-knife painting in cobalt and warm colour' },
+  { src: '/assets/art/dancer.jpg', alt: 'Painting of a dancer with wide arc arms and a ribbon halo' },
+  { src: '/assets/art/navy-floral.jpg', alt: 'Deep navy florals with starlight' },
+  { src: '/assets/art/bloom.jpg', alt: 'Warm palette-knife blooms in coral and teal' },
 ];
 
-// ─── Testimonials slideshow ───────────────────────────────────────────────────────
-function TestimonialsSlideshow() {
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => setActive(i => (i + 1) % TESTIMONIALS.length), 5000);
-    return () => clearInterval(t);
-  }, [paused]);
-
-  const prev = () => { setPaused(true); setActive(i => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length); };
-  const next = () => { setPaused(true); setActive(i => (i + 1) % TESTIMONIALS.length); };
-
-  return (
-    <section className="relative py-24 px-6 bg-[#0A1128] z-10 overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-      <div className="max-w-3xl mx-auto relative z-10">
-        <FadeUp className="text-center mb-12">
-          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-3">Recommendations</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold italic text-white leading-tight">
-            What colleagues say.
-          </h2>
-        </FadeUp>
-
-        <div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="bg-white/5 border border-white/10 rounded-[28px] p-7 md:p-10">
-                <div className="text-[#B8860B]/30 text-5xl font-serif leading-none mb-4">&ldquo;</div>
-                <p className="font-display text-lg md:text-xl italic text-white/90 leading-relaxed mb-6">
-                  {TESTIMONIALS[active].quote}
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C1292E] to-[#B8860B] flex items-center justify-center text-white font-bold text-sm shrink-0">
-                    {TESTIMONIALS[active].initials}
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">{TESTIMONIALS[active].name}</p>
-                    <p className="text-white/40 text-xs">{TESTIMONIALS[active].title}</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Controls */}
-        <div className="flex items-center justify-between mt-6">
-          <div className="flex gap-2">
-            {TESTIMONIALS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => { setPaused(true); setActive(i); }}
-                className={`w-2 h-2 rounded-full transition-all ${i === active ? 'bg-[#C1292E] w-6' : 'bg-white/20 hover:bg-white/40'}`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
-          <div className="flex gap-2">
-            <button onClick={prev} className="w-9 h-9 rounded-full border border-white/20 text-white hover:border-[#C1292E] hover:text-[#C1292E] transition-all flex items-center justify-center text-sm">←</button>
-            <button onClick={next} className="w-9 h-9 rounded-full border border-white/20 text-white hover:border-[#C1292E] hover:text-[#C1292E] transition-all flex items-center justify-center text-sm">→</button>
-          </div>
-        </div>
-
-        <div className="text-center mt-8">
-          <Link href="/testimonials" className="text-[#B8860B] text-sm hover:underline">
-            Read all 6 recommendations →
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const BLOG_PREVIEW = [
-  {
-    slug: 'african-women-fifth-industrial-revolution-building-not-waiting',
-    category: 'Writing',
-    title: 'African Women and the Fifth Industrial Revolution: We Are Not Late Adopters',
-    excerpt: 'The narrative that Africa is "catching up" to the 5IR misunderstands both Africa and the revolution. We are building the version of AI the continent actually needs.',
-    accent: '#C1292E',
-  },
-  {
-    slug: 'k53-sm2-spaced-repetition-south-africa-learners-licence',
-    category: 'Dev',
-    title: 'SM-2 in Production: How a 1980s Algorithm Fixed SA\'s 60% Learner\'s Licence Fail Rate',
-    excerpt: 'K53 Drill Master uses the same spaced repetition algorithm behind Anki and Duolingo. Here\'s why a 40-year-old algorithm is still the most effective learning system ever built.',
-    accent: '#B8860B',
-  },
-  {
-    slug: 'watchsankofa-85-percent-revenue-share-african-creators',
-    category: 'Business',
-    title: 'WatchSankofa: Why 85% Revenue Share Isn\'t Charity, It\'s the Architecture of Justice',
-    excerpt: 'Netflix pays creators approximately 7% of revenue. WatchSankofa pays 85%. This is not a competitive differentiator. It is a structural argument made in code.',
-    accent: '#2D4A22',
-  },
-];
-
-const SERVICES = [
-  {
-    title: 'AI Integration',
-    body: 'Custom Claude/OpenAI agents embedded in your product or business workflow.',
-    price: 'From R45,000',
-    href: '/consulting',
-  },
-  {
-    title: 'Fractional AI Officer',
-    body: 'Monthly AI strategy, prototyping, and advisory. Embedded in your team.',
-    price: 'From R18,000/mo',
-    href: '/consulting',
-  },
-  {
-    title: 'Business Automation',
-    body: 'WhatsApp-native workflows, automated reporting, debt recovery pipelines.',
-    price: 'From R8,000/mo',
-    href: '/consulting',
-  },
-];
-
-// ─── Product card with image fallback ────────────────────────────────────────────
-function ProductCard({ p }: { p: typeof PRODUCTS[0] }) {
-  const [imgFailed, setImgFailed] = useState(false);
-  return (
-    <Link
-      href={`/products/${p.slug}`}
-      className="group block bg-white/60 backdrop-blur-sm border border-[#0A1128]/10 rounded-[24px] overflow-hidden hover:border-[#C1292E]/40 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
-    >
-      <div className="relative aspect-video bg-gradient-to-br from-[#E8DCC4] to-[#F5EFE6] flex items-center justify-center">
-        {!imgFailed ? (
-          <Image
-            src={p.cover}
-            alt={p.name}
-            fill
-            className="object-cover"
-            onError={() => setImgFailed(true)}
-          />
-        ) : (
-          <span className="font-display text-2xl font-bold text-[#0A1128]/20">{p.name[0]}</span>
-        )}
-        {p.badge && (
-          <span className="absolute top-2 right-2 bg-[#C1292E] text-white text-[9px] font-bold px-2 py-0.5 rounded-full z-10">
-            {p.badge}
-          </span>
-        )}
-      </div>
-      <div className="p-4">
-        <p className="font-sans text-[10px] tracking-widest uppercase text-[#B8860B] mb-1">{p.category}</p>
-        <h3 className="font-display font-bold text-[#0A1128] text-base leading-snug mb-1 group-hover:text-[#C1292E] transition-colors">
-          {p.name}
-        </h3>
-        <p className="font-display text-lg font-bold text-[#C1292E]">{p.price}</p>
-      </div>
-    </Link>
-  );
-}
-
-// ─── Page ─────────────────────────────────────────────────────────────────────────
 export default function Home() {
-
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#0A1128]">
 
-      {/* ── MAGAZINE COVER (100dvh) — negative margin to escape layout pt-20 ── */}
-      <div className="-mt-20">
-        <MagazineCover />
-      </div>
+      {/* ── HERO — full-bleed editorial portrait ───────────────────────────────── */}
+      <section className="relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden bg-[#0A1128]">
+        {/* Photo */}
+        <Image
+          src="/assets/IMG-20260620-WA0057.jpg"
+          alt="Nandawula Regine Kabali-Kagwa beneath a palm, looking up in afternoon light"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_center] md:object-[75%_center]"
+        />
+        {/* Navy gradient — readable text on the left */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(90deg, rgba(10,17,40,0.96) 0%, rgba(10,17,40,0.82) 32%, rgba(10,17,40,0.35) 60%, rgba(10,17,40,0.15) 100%)',
+        }} />
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
 
-      {/* ── POETRY INTERLUDE ──────────────────────────────────────────────────── */}
-      <section className="relative bg-[#0A1128] py-20 px-6 z-10">
-        <div className="absolute inset-0 pointer-events-none opacity-40" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase mb-8">
-            Inside Her Roses · Published October 2021
-          </p>
-          <blockquote className="font-display text-3xl md:text-4xl italic text-white/90 leading-relaxed mb-6">
-            &ldquo;she learned to speak in two tongues —<br />
-            the language of systems<br />
-            and the language of longing.&rdquo;
-          </blockquote>
-          <p className="text-white/30 text-sm mb-8">— Nandawula Regine Kabali-Kagwa</p>
-          <a href="/poetry" className="text-[#C1292E] text-sm font-medium hover:underline">
-            Read the collection →
-          </a>
-        </div>
-      </section>
-
-      {/* ── EDITORIAL INTRO ────────────────────────────────────────────────────── */}
-      <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 h-full max-w-6xl mx-auto px-6 flex flex-col justify-center">
           <FadeUp>
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
-              The Story
+            <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-[#C9943A] mb-6">
+              Nseenene · AmaTshawe · AmaHlubi · Msimango
             </p>
-            <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#0A1128] leading-[0.95] mb-6">
-              Business degree.
-              <br />Self-taught engineer.
-              <br />Eight apps.
-              <br /><span className="text-[#C1292E]">One year.</span>
-            </h2>
-            <p className="text-[#6B6B6B] text-lg leading-[1.8] mb-8">
-              After my degree, I taught myself to code. Then I started shipping. In one year from zero coding knowledge,
-              I built eight AI-powered tools for African entrepreneurs, students, and creators —
-              including JarvisOS, a 15-wing personal AI operating system — backed by five ancestral lineages and a Ugandan word that means peace.
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              <Link
-                href="/about"
-                className="px-6 py-3 bg-[#0A1128] text-white rounded-full font-semibold text-sm hover:bg-[#C1292E] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A1128]"
-              >
-                Read the full story →
-              </Link>
-              <Link
-                href="/consulting"
-                className="px-6 py-3 border border-[#0A1128]/20 text-[#0A1128] rounded-full font-semibold text-sm hover:border-[#C1292E] hover:text-[#C1292E] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
-              >
-                Hire me
-              </Link>
-            </div>
           </FadeUp>
-
-          <FadeUp delay={0.15}>
-            <div className="grid grid-cols-2 gap-4">
+          <FadeUp delay={0.1}>
+            <h1 className="font-display text-white font-bold leading-[1.02] text-5xl md:text-7xl lg:text-[5.5rem] max-w-3xl">
+              I write poems.<br />
+              I come from <span className="text-[#C1292E]">nine generations.</span><br />
+              I make things beautiful.
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <p className="font-sans text-white/60 text-sm md:text-base mt-7 tracking-wide">
+              Nandawula Regine Kabali-Kagwa · Poet & Creative · East London, South Africa
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.28}>
+            <div className="w-9 h-[2px] bg-[#C1292E] mt-6 mb-8" />
+          </FadeUp>
+          <FadeUp delay={0.36}>
+            <div className="flex flex-wrap gap-3">
               {[
-                { value: '8+', label: 'Production Apps', color: 'text-[#C1292E]' },
-                { value: '1,000+', label: 'GitHub Commits', color: 'text-[#C1292E]' },
-                { value: '1 Year', label: 'Self-Taught', color: 'text-[#C1292E]' },
-                { value: '3+', label: 'Paying Clients', color: 'text-[#C1292E]' },
-              ].map((s) => (
+                { label: 'Published Poet', sub: 'Inside Her Roses' },
+                { label: '9 Generations', sub: 'Documented lineage' },
+                { label: 'Spoken Word', sub: 'Stage & studio' },
+              ].map((pill) => (
                 <div
-                  key={s.label}
-                  className="bg-white/60 backdrop-blur-sm rounded-[24px] p-6 text-center border border-[#0A1128]/5"
+                  key={pill.label}
+                  className="rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-5 py-2.5"
                 >
-                  <div className={`font-display text-4xl font-bold ${s.color} mb-1`}>
-                    {s.value}
-                  </div>
-                  <div className="text-xs text-[#6B6B6B] tracking-widest uppercase">{s.label}</div>
+                  <span className="font-display font-bold text-white text-sm">{pill.label}</span>
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C9943A] block mt-0.5">{pill.sub}</span>
                 </div>
               ))}
             </div>
           </FadeUp>
         </div>
-      </section>
 
-      <TestimonialsSlideshow />
-
-      {/* ── PRODUCTS GRID ──────────────────────────────────────────────────────── */}
-      <section className="relative py-24 px-6 bg-white z-10">
-        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-5xl mx-auto">
-          <FadeUp className="mb-12 flex items-end justify-between flex-wrap gap-4">
-            <div>
-              <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-3">
-                Digital Products
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold italic text-[#0A1128]">
-                Six systems for African life.
-              </h2>
-            </div>
-            <Link
-              href="/products"
-              className="text-sm text-[#C1292E] font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E] rounded"
-            >
-              View all 6 + bundles →
-            </Link>
-          </FadeUp>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {PRODUCTS.map((p, i) => (
-              <FadeUp key={p.slug} delay={i * 0.06}>
-                <ProductCard p={p} />
-              </FadeUp>
-            ))}
-          </div>
+        {/* Scroll cue */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 text-xs font-mono tracking-[0.3em] uppercase animate-pulse">
+          scroll
         </div>
       </section>
 
-      {/* ── SERVICES — dark section ──────────────────────────────────────────────── */}
-      <section className="relative py-24 px-6 bg-[#0A1128] z-10">
-        <div className="absolute inset-0 pointer-events-none opacity-35" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-5xl mx-auto">
-          <FadeUp className="text-center mb-14">
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">
-              AI Consulting
-            </p>
-            <h2 className="font-display text-5xl md:text-6xl font-bold italic text-white leading-[0.95]">
-              Africa&apos;s AI engineer.
-              <br />
-              <span className="text-[#C9A84C]">Available for select engagements.</span>
-            </h2>
-          </FadeUp>
-
-          <div className="grid md:grid-cols-3 gap-5 mb-12">
-            {SERVICES.map((s, i) => (
-              <FadeUp key={s.title} delay={i * 0.1}>
-                <div className="bg-gradient-to-r from-[#0A1128] to-[#1a2744] border border-white/10 rounded-xl p-7 hover:border-[#C1292E]/30 transition-colors h-full flex flex-col" style={{ borderRadius: '32px 12px 32px 12px' }}>
-                  <h3 className="font-display text-xl font-bold text-white mb-3">{s.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed flex-1 mb-4">{s.body}</p>
-                  <p className="text-[#C9A84C] font-medium text-sm">{s.price}</p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-
-          <FadeUp delay={0.3} className="text-center">
-            <Link
-              href="/consulting"
-              className="inline-block px-8 py-4 bg-[#C1292E] text-white rounded-full font-semibold hover:bg-[#C1292E]/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C1292E]"
-            >
-              View all consulting offers →
-            </Link>
-          </FadeUp>
+      {/* ── POETRY INTERLUDE ───────────────────────────────────────────────────── */}
+      <section className="relative bg-[#0A1128] py-24 px-6 z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-40" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-2xl mx-auto text-center relative z-10">
+          <p className="text-[#C9943A] text-xs tracking-[0.3em] uppercase mb-8">
+            Inside Her Roses · Published October 2021
+          </p>
+          <blockquote className="font-display text-3xl md:text-5xl italic text-white/90 leading-[1.3] mb-6">
+            &ldquo;she learned to speak in two tongues —<br />
+            the language of systems<br />
+            and the language of longing.&rdquo;
+          </blockquote>
+          <p className="text-white/30 text-sm mb-8">— Nandawula Regine Kabali-Kagwa</p>
+          <Link href="/poetry" className="text-[#C1292E] text-sm font-medium hover:underline">
+            Enter the collection →
+          </Link>
         </div>
       </section>
 
-      {/* ── BLOG PREVIEW ─────────────────────────────────────────────────────── */}
+      {/* ── INSIDE HER ROSES — the book ────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
-        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-5xl mx-auto">
-          <FadeUp className="mb-12 flex items-end justify-between flex-wrap gap-4">
-            <div>
-              <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-3">The Current</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold italic text-[#0A1128]">
-                Writing from the build.
-              </h2>
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-center relative z-10">
+          <FadeUp className="flex justify-center">
+            <div className="relative w-[260px] md:w-[340px] aspect-square shadow-2xl rounded-sm overflow-hidden ring-1 ring-[#0A1128]/10">
+              <Image
+                src="/assets/poetry-book/official-cover.jpg"
+                alt="Inside Her Roses — A Poetry Collection by Nandawula Regine Kabali-Kagwa"
+                fill
+                className="object-cover"
+              />
             </div>
-            <Link href="/blog" className="text-sm text-[#C1292E] font-medium hover:underline">
-              Read all 29 articles →
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#B8860B] mb-4">The Collection</p>
+            <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#0A1128] leading-[0.95] mb-6">
+              Inside<br />Her Roses.
+            </h2>
+            <p className="text-[#4A3728] text-lg leading-[1.8] mb-6">
+              A debut collection on womanhood, longing, healing and the quiet ferocity of
+              becoming. Performed on stages and broadcast on radio across the Eastern Cape —
+              from spoken-word nights to Tru FM and Madiba Radio.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <Link href="/poetry" className="px-6 py-3 bg-[#0A1128] text-white rounded-full font-semibold text-sm hover:bg-[#C1292E] transition-all">
+                Read the poetry →
+              </Link>
+              <Link href="/gallery" className="px-6 py-3 border border-[#0A1128]/20 text-[#0A1128] rounded-full font-semibold text-sm hover:border-[#C1292E] hover:text-[#C1292E] transition-all">
+                See performances
+              </Link>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── CANDID PHOTO STRIP ─────────────────────────────────────────────────── */}
+      <section className="relative bg-[#0A1128] py-16 z-10">
+        <div
+          className="flex gap-4 overflow-x-auto px-6 pb-2"
+          style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+        >
+          {STRIP.map((p) => (
+            <div
+              key={p.src}
+              className="relative shrink-0 w-[260px] h-[340px] rounded overflow-hidden"
+              style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.35)' }}
+            >
+              <Image src={p.src} alt={p.alt} fill className="object-cover" sizes="260px" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── LINEAGE ANCHOR ─────────────────────────────────────────────────────── */}
+      <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-2xl mx-auto text-center relative z-10">
+          <FadeUp>
+            <p className="font-sans text-[11px] tracking-[0.32em] uppercase text-[#B8860B] mb-7">
+              Nseenene · Tshawe · Hlubi · Msimango · Thabizolo
+            </p>
+            <p className="font-display text-2xl md:text-[2rem] text-[#0A1128] leading-[1.35] mb-6">
+              Nine generations documented.
+              Three nations. One woman
+              making her art in East London.
+            </p>
+            <p className="font-sans text-[13px] italic text-[#6B6B6B] mb-9">
+              Kabali-Kagwa · Kabombola · Kayenje–Butambala · Nsiisi–Busujju
+            </p>
+            <div className="w-full h-px bg-[#C1292E]/30 mb-9" />
+            <p className="font-display text-base italic text-[#0A1128] mb-1">
+              Ggwe Mpagi, ggwe Luwaga; Nakimera muka Ssuuna.
+            </p>
+            <p className="font-sans text-[11px] text-[#6B6B6B] mb-7">
+              (Nseenene Clan Motto · Buganda Kingdom)
+            </p>
+            <p className="font-display text-base italic text-[#0A1128] mb-1">
+              Msimango · Thabizolo · Nonkosi · Mlotshwa · Ngelengele
+            </p>
+            <p className="font-sans text-[11px] text-[#6B6B6B] mb-9">
+              (Msimango Clan Praises · AmaHlubi)
+            </p>
+            <Link href="/about" className="text-[#C1292E] text-sm font-medium hover:underline">
+              The full lineage →
             </Link>
           </FadeUp>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {BLOG_PREVIEW.map((post, i) => (
-              <FadeUp key={post.slug} delay={i * 0.08}>
-                <Link
-                  href={`/blog/${post.category.toLowerCase()}/${post.slug}`}
-                  className="group flex flex-col bg-[#0A1128] rounded-[24px] overflow-hidden hover:ring-1 hover:ring-[#C1292E]/40 transition-all h-full"
-                >
-                  <div className="h-1 w-full" style={{ backgroundColor: post.accent }} />
-                  <div className="p-6 flex flex-col flex-1">
-                    <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: post.accent }}>
-                      {post.category}
-                    </p>
-                    <h3 className="font-display text-lg font-bold text-white leading-snug mb-3 group-hover:text-[#C1292E] transition-colors flex-1">
-                      {post.title}
-                    </h3>
-                    <p className="text-white/50 text-xs leading-relaxed line-clamp-3 mb-4">
-                      {post.excerpt}
-                    </p>
-                    <span className="text-[#C1292E] text-xs font-medium">Read article →</span>
-                  </div>
+      {/* ── ART & CREATIVITY ───────────────────────────────────────────────────── */}
+      <section className="relative py-24 px-6 bg-[#0A1128] z-10 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-35" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-5xl mx-auto relative z-10">
+          <FadeUp className="mb-12 flex items-end justify-between flex-wrap gap-4">
+            <div>
+              <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-3">Colour & Movement</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold italic text-white">
+                The way I see the world.
+              </h2>
+            </div>
+            <Link href="/gallery" className="text-sm text-[#C1292E] font-medium hover:underline">
+              Enter the gallery →
+            </Link>
+          </FadeUp>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {ART.map((a, i) => (
+              <FadeUp key={a.src} delay={i * 0.07}>
+                <Link href="/gallery" className="group block relative aspect-[3/4] rounded-lg overflow-hidden">
+                  <Image src={a.src} alt={a.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width:768px) 50vw, 25vw" />
+                  <div className="absolute inset-0 bg-[#0A1128]/0 group-hover:bg-[#0A1128]/20 transition-colors" />
                 </Link>
               </FadeUp>
             ))}
@@ -473,47 +253,74 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── EDITORIAL QUOTE ───────────────────────────────────────────────────── */}
+      {/* ── SECOND POETRY INTERLUDE — Buganda introduction ─────────────────────── */}
       <section className="relative py-24 px-6 bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4] z-10">
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-3xl mx-auto text-center relative z-10">
           <FadeUp>
-            <p className="font-display text-5xl md:text-6xl italic text-[#0A1128] leading-[1.1] mb-8">
-              &ldquo;Technology should amplify humanity,
-              not replace it. Every line of code —
-              in service of connection.&rdquo;
+            <p className="font-display text-2xl md:text-[2.1rem] italic text-[#0A1128] leading-[1.45]">
+              I come from the genealogical line<br />
+              of Kabombola, who reigns from Kyakasuku.<br />
+              I come from the lineage of Segoma in Kayenje.<br />
+              My totem is the grasshopper.
             </p>
-            <p className="text-[#B8860B] font-sans text-sm tracking-widest uppercase font-medium">
-              — Nanda · AI Engineer & Creative Technologist
+            <p className="font-sans text-[11px] text-[#6B6B6B] mt-7 tracking-wide">
+              — adapted from the traditional Buganda introduction · Nandawula Regine Kabali-Kagwa
             </p>
           </FadeUp>
         </div>
       </section>
 
-      {/* ── BOTTOM CTA — cherry ───────────────────────────────────────────── */}
+      {/* ── MIREMBE BRIDGE — the door to the work ──────────────────────────────── */}
+      <section className="relative py-24 px-6 z-10 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A1128 0%, #1a2744 100%)' }}>
+        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <FadeUp>
+            <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-5">
+              The Other Half of the Story
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+              I also build.
+            </h2>
+            <p className="text-white/70 text-lg leading-[1.8] max-w-2xl mx-auto mb-4">
+              By day I&apos;m an AI engineer and founder. The apps, the consulting, the
+              technical work — eight production AI systems built in a year — live under my
+              company, <span className="text-white font-semibold">Mirembe Muse</span>.
+            </p>
+            <p className="text-white/45 text-sm mb-10 max-w-xl mx-auto">
+              If you&apos;re here for software, AI integration, or to work with me
+              professionally, that&apos;s the door.
+            </p>
+            <a
+              href="https://mirembemuse.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-9 py-4 bg-[#C9943A] text-[#0A1128] rounded-full font-bold hover:bg-[#d8a850] transition-all hover:scale-105"
+            >
+              Visit Mirembe Muse — Business &amp; Tech ↗
+            </a>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── BOTTOM CTA ─────────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 bg-[#C1292E] z-10">
-        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+        <div className="max-w-3xl mx-auto text-center relative z-10">
           <FadeUp>
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-white leading-tight mb-6">
-              Let&apos;s build something
+              Let&apos;s make something
               <br />worth remembering.
             </h2>
             <p className="text-white/80 text-lg mb-10">
-              Consulting engagements. AI integrations. Speaking. Templates. Poetry.
+              Poetry. Performance. Collaboration. Conversation.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/consulting"
-                className="px-8 py-4 bg-white text-[#C1292E] rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                Work with Nanda
+              <Link href="/contact" className="px-8 py-4 bg-white text-[#C1292E] rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105">
+                Get in touch
               </Link>
-              <Link
-                href="/products"
-                className="px-8 py-4 border-2 border-white/40 text-white rounded-full font-semibold hover:border-white hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-              >
-                Browse Templates
+              <Link href="/poetry" className="px-8 py-4 border-2 border-white/40 text-white rounded-full font-semibold hover:border-white hover:bg-white/10 transition-all">
+                Read the poetry
               </Link>
             </div>
           </FadeUp>

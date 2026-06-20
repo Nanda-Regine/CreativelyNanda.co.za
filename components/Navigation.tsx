@@ -14,53 +14,32 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Desktop: primary links only (fits at lg breakpoint)
+  // Desktop: personal / creative world only
   const desktopLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/work', label: 'Work' },
-    { href: '/consulting', label: 'Consulting' },
-    { href: '/testimonials', label: 'Testimonials' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/products', label: 'Shop' },
+    { href: '/poetry', label: 'Poetry' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/blog', label: 'Writing' },
     { href: '/contact', label: 'Contact' },
   ];
 
   // Mobile drawer: grouped sections
   const mobileGroups = [
     {
-      label: 'DISCOVER',
+      label: 'THE PERSON',
       links: [
         { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
-        { href: '/work', label: 'Work' },
-        { href: '/education', label: 'Education' },
+        { href: '/about', label: 'About & Lineage' },
+        { href: '/contact', label: 'Contact' },
       ],
     },
     {
-      label: 'BUILD',
-      links: [
-        { href: '/projects', label: 'Projects' },
-        { href: '/ai-engineer', label: 'AI Engineer' },
-        { href: '/consulting', label: 'Consulting' },
-      ],
-    },
-    {
-      label: 'CREATE',
+      label: 'THE ART',
       links: [
         { href: '/poetry', label: 'Poetry' },
-        { href: '/blog', label: 'Blog' },
-        { href: '/products', label: 'Shop' },
-      ],
-    },
-    {
-      label: 'CONNECT',
-      links: [
-        { href: '/mirembe', label: 'Mirembe' },
-        { href: '/testimonials', label: 'Testimonials' },
-        { href: '/press', label: 'Press' },
-        { href: '/contact', label: 'Contact' },
+        { href: '/gallery', label: 'Gallery' },
+        { href: '/blog', label: 'Writing' },
       ],
     },
   ];
@@ -98,12 +77,14 @@ export default function Navigation() {
             </Link>
           ))}
           
-          <a 
-            href="/assets/work/Nanda-cv.pdf"
-            download="Nanda-CV.pdf"
-            className="px-5 py-2.5 bg-cherry text-white rounded-full text-sm font-medium hover:bg-cherry-dark transition-all hover:scale-105"
+          <a
+            href="https://mirembemuse.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105"
+            style={{ background: '#C9943A', color: '#0A1128' }}
           >
-            Download CV
+            Mirembe Muse ↗
           </a>
         </div>
 
@@ -184,15 +165,19 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Download CV */}
+          {/* Mirembe Muse — business & tech */}
           <div className="pt-4 mt-auto" style={{ borderTop: '1px solid rgba(245,240,232,0.1)' }}>
+            <p className="text-[10px] tracking-widest mb-2 px-1" style={{ color: 'rgba(245,240,232,0.4)' }}>
+              FOR BUSINESS &amp; TECH
+            </p>
             <a
-              href="/assets/work/Nanda-cv.pdf"
-              download="Nanda-CV.pdf"
-              className="block w-full py-3 rounded-full font-medium text-center text-sm transition-all hover:opacity-90"
-              style={{ background: '#c21e56', color: '#fff' }}
+              href="https://mirembemuse.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full py-3 rounded-full font-semibold text-center text-sm transition-all hover:opacity-90"
+              style={{ background: '#C9943A', color: '#0A1128' }}
             >
-              Download CV
+              Visit Mirembe Muse ↗
             </a>
           </div>
         </div>

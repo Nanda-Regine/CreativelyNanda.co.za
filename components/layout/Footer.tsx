@@ -22,29 +22,35 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="font-display text-3xl font-bold text-cherry">Nanda</h3>
             <p className="text-beige/70 text-sm">
-              Creative Technologist building at the intersection of code, design, and storytelling.
+              Poet, creative and culture-keeper — writing, performing, and making things
+              beautiful from East London, South Africa.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Explore */}
           <div>
             <h4 className="font-display text-xl font-bold mb-4">Explore</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="text-beige/70 hover:text-cherry transition-colors">About</Link></li>
-              <li><Link href="/projects" className="text-beige/70 hover:text-cherry transition-colors">Projects</Link></li>
-              <li><Link href="/work" className="text-beige/70 hover:text-cherry transition-colors">Work Experience</Link></li>
+              <li><Link href="/about" className="text-beige/70 hover:text-cherry transition-colors">About &amp; Lineage</Link></li>
               <li><Link href="/poetry" className="text-beige/70 hover:text-cherry transition-colors">Poetry</Link></li>
+              <li><Link href="/gallery" className="text-beige/70 hover:text-cherry transition-colors">Gallery</Link></li>
+              <li><Link href="/blog" className="text-beige/70 hover:text-cherry transition-colors">Writing</Link></li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* The Work */}
           <div>
-            <h4 className="font-display text-xl font-bold mb-4">Services</h4>
+            <h4 className="font-display text-xl font-bold mb-4">The Work</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/projects" className="text-beige/70 hover:text-cherry transition-colors">Web Development</Link></li>
-              <li><Link href="/notion" className="text-beige/70 hover:text-cherry transition-colors">Notion Systems</Link></li>
-              <li><Link href="/mirembe" className="text-beige/70 hover:text-cherry transition-colors">Mirembe Muse</Link></li>
-              <li><Link href="/contact" className="text-beige/70 hover:text-cherry transition-colors">Get in Touch</Link></li>
+              <li>
+                <a href="https://mirembemuse.vercel.app" target="_blank" rel="noopener noreferrer" className="text-beige/70 hover:text-cherry transition-colors">
+                  Mirembe Muse ↗
+                </a>
+              </li>
+              <li className="text-beige/40 text-xs leading-relaxed pt-1">
+                Apps, AI engineering &amp; consulting live under my company.
+              </li>
+              <li className="pt-1"><Link href="/contact" className="text-beige/70 hover:text-cherry transition-colors">Get in touch</Link></li>
             </ul>
           </div>
 
@@ -87,9 +93,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-beige/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-beige/60 text-sm">
-            © {currentYear} Mirembe Muse (Pty) Ltd · East London, South Africa
-          </p>
+          <div>
+            <p className="text-beige/60 text-sm">
+              © {currentYear} Mirembe Muse (Pty) Ltd · East London, South Africa
+            </p>
+            <p className="text-beige/40 text-[10px] mt-1.5" style={{ letterSpacing: '0.08em' }}>
+              Nseenene · AmaTshawe · AmaHlubi · Msimango · Thabizolo
+            </p>
+          </div>
 
           <div className="flex items-center gap-4">
             {/* Social icons row */}

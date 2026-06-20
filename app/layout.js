@@ -44,9 +44,9 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: 'Nandawula Regine Kabali-Kagwa | AI Engineer & Full-Stack Developer — South Africa',
+  title: 'Nandawula Regine Kabali-Kagwa | Poet, Creative & Culture-Keeper — South Africa',
   description:
-    'Nandawula Regine Kabali-Kagwa — AI Engineer and full-stack TypeScript developer based in South Africa. Builds production Claude API agents, multi-agent systems, WhatsApp automation, and SaaS platforms. 7 live AI products, 550+ commits. Available for remote engagements globally.',
+    'Nandawula Regine Kabali-Kagwa — published poet (Inside Her Roses), performer and creative from East London, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimango. For software, AI engineering and consulting, visit Mirembe Muse.',
   keywords: [
     // Identity
     'Nandawula Regine Kabali-Kagwa',

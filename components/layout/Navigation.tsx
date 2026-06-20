@@ -20,15 +20,9 @@ export default function Navigation() {
   const links = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/ai-engineer', label: 'AI Engineer' },
-    { href: '/work', label: 'Work' },
-    { href: '/education', label: 'Education' },
-    { href: '/mirembe', label: 'Mirembe' },
     { href: '/poetry', label: 'Poetry' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/products', label: 'Shop' },
-    { href: '/press', label: 'Press' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/blog', label: 'Writing' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -72,11 +66,13 @@ export default function Navigation() {
           <PWAInstallButton variant="compact" />
 
           <a
-            href="/assets/work/Nanda-cv.pdf"
-            download="Nanda-CV.pdf"
-            className="px-5 py-2.5 bg-cherry text-white rounded-full text-sm font-medium hover:bg-cherry-dark transition-all hover:scale-105"
+            href="https://mirembemuse.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105"
+            style={{ background: '#C9943A', color: '#0A1128' }}
           >
-            Download CV
+            Mirembe Muse ↗
           </a>
         </div>
 
@@ -147,15 +143,18 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Download CV and Install App - Fixed at bottom */}
+          {/* Mirembe Muse and Install App - Fixed at bottom */}
           <div className="pt-4 border-t border-[#0A1128]/10 mt-auto space-y-3">
             <PWAInstallButton variant="default" />
+            <p className="text-[10px] tracking-widest text-[#0A1128]/40 px-1">FOR BUSINESS &amp; TECH</p>
             <a
-              href="/assets/work/Nanda-cv.pdf"
-              download="Nanda-CV.pdf"
-              className="block w-full px-6 py-4 bg-cherry text-white rounded-full font-medium hover:bg-cherry-dark transition-all text-center text-lg"
+              href="https://mirembemuse.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full px-6 py-4 rounded-full font-semibold transition-all text-center text-lg hover:opacity-90"
+              style={{ background: '#C9943A', color: '#0A1128' }}
             >
-              Download CV
+              Visit Mirembe Muse ↗
             </a>
           </div>
         </div>
