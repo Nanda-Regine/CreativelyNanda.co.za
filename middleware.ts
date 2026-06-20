@@ -26,6 +26,19 @@ function isAdminAuthorized(request: NextRequest): boolean {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Temporary maintenance mode — toggle with env MAINTENANCE_MODE=1.
+  // Public pages are rewritten to /maintenance; admin + API stay reachable.
+  if (
+    process.env.MAINTENANCE_MODE === "1" &&
+    pathname !== "/maintenance" &&
+    !pathname.startsWith("/admin") &&
+    !pathname.startsWith("/api")
+  ) {
+    const res = NextResponse.rewrite(new URL("/maintenance", request.url));
+    Object.entries(SECURITY_HEADERS).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
+  }
+
   // Gate admin UI and API routes (login endpoints are exempt)
   const isAdminLogin =
     pathname === "/admin/login" || pathname === "/api/admin/auth";
