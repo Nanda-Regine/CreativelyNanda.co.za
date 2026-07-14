@@ -2,6 +2,7 @@
 
 import { createAdminClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
+import { sendPoemBloomedEmail } from '@/lib/email/send-poem-bloomed';
 
 export interface GuestPoem {
   id: string;
@@ -46,10 +47,26 @@ export async function setGuestPoemStatus(id: string, status: GuestPoem['status']
     return { data: null, error: error.message };
   }
 
+  const poem = data as GuestPoem;
+
+  // The heartbeat: tell the writer their poem bloomed (best-effort, never blocks).
+  if ((status === 'approved' || status === 'featured') && poem.author_email) {
+    try {
+      await sendPoemBloomedEmail({
+        to: poem.author_email,
+        authorName: poem.author_name,
+        title: poem.title,
+        featured: status === 'featured',
+      });
+    } catch (e) {
+      console.error('poem-bloomed email failed (non-blocking):', e);
+    }
+  }
+
   revalidatePath('/admin/guest-poems');
   revalidatePath('/poetry/community');
 
-  return { data: data as GuestPoem, error: null };
+  return { data: poem, error: null };
 }
 
 export async function deleteGuestPoem(id: string) {

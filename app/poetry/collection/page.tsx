@@ -105,11 +105,12 @@ export default function PoetryCollection() {
       <nav className="px-6 pb-2">
         <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-3">
           {[
+            { href: '/poetry/community', label: 'The Circle', hint: 'Write with us' },
+            { href: '/poetry/erasure', label: 'The Erasure Studio', hint: 'Carve a poem from a poem' },
             { href: '/poetry/lineage', label: 'The Lineage Room', hint: 'Where I come from' },
             { href: '/poetry/poet-who-codes', label: 'The Poet Who Codes', hint: 'Two tongues, one mind' },
             { href: '/poetry/stage', label: 'The Stage', hint: 'The voice behind the verse' },
-            { href: '/poetry/my-garden', label: 'My Garden', hint: 'The poems you’ve kept' },
-            { href: '/poetry/community', label: 'The Circle', hint: 'Fellow writers' },
+            { href: '/poetry/my-garden', label: 'My Garden', hint: 'Your plot' },
           ].map((room) => (
             <Link
               key={room.href}

@@ -6,8 +6,10 @@ import Link from 'next/link';
 import { Button } from '@/components/ui';
 import { useSessionId } from '@/hooks/useSessionId';
 import {
-  ArrowLeft, Feather, Send, Instagram, Mail, Star, Sparkles, CheckCircle, Loader2, Flower2,
+  ArrowLeft, Feather, Send, Instagram, Mail, Star, Sparkles, CheckCircle, Loader2, Flower2, Shuffle, X,
 } from 'lucide-react';
+import { randomPrompt, type WritingPrompt } from '@/lib/data/prompts';
+import { recordPlanted } from '@/lib/poet-profile';
 
 interface GuestPoem {
   id: string;
@@ -36,6 +38,20 @@ export default function TheCircle() {
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  // Playful prompts — kill the blank page.
+  const [spun, setSpun] = useState<WritingPrompt | null>(null);
+  const [writingFrom, setWritingFrom] = useState<string | null>(null);
+
+  const spin = () => setSpun(randomPrompt(spun?.id));
+
+  const writeFrom = (prompt: { kind: 'seed' | 'spark'; text: string }) => {
+    setWritingFrom(prompt.text);
+    if (prompt.kind === 'seed') {
+      setForm((f) => ({ ...f, content: f.content ? f.content : `${prompt.text}\n` }));
+    }
+    document.getElementById('write')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     fetch('/api/poetry/guest-poems')
@@ -70,6 +86,8 @@ export default function TheCircle() {
       if (res.ok) {
         setMessage(data.message);
         setForm({ title: '', content: '', name: '', email: '', isAnonymous: false });
+        setWritingFrom(null);
+        recordPlanted(); // grow this writer's plot (badges live in My Garden)
       } else {
         setError(data.error || 'Something went wrong. Please try again.');
       }
@@ -110,24 +128,79 @@ export default function TheCircle() {
                 Share your poem
               </Button>
             </a>
-            <Link href="/poetry/collection">
+            <Link href="/poetry/erasure">
               <Button variant="outline" className="rounded-full border-cream/25 text-cream hover:bg-cream hover:text-navy">
-                Read Nanda&rsquo;s poems
+                ✂️ Erasure Studio
               </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* This season's prompt */}
+      {/* This season's prompt + Spin the Prompt */}
       <section className="px-6 py-8">
-        <div className="max-w-5xl mx-auto rounded-[2rem] border border-white/10 bg-[#0d1330]/70 p-8 md:p-10">
-          <div className="flex items-center gap-2 mb-4" style={{ color: '#C9A84C' }}>
-            <Sparkles className="w-4 h-4" />
-            <span className="text-xs font-mono uppercase tracking-[0.28em]">{PROMPT.month}&rsquo;s prompt</span>
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-[1.4fr_1fr] gap-4">
+          {/* Season prompt */}
+          <div className="rounded-[2rem] border border-white/10 bg-[#0d1330]/70 p-8 md:p-10">
+            <div className="flex items-center gap-2 mb-4" style={{ color: '#C9A84C' }}>
+              <Sparkles className="w-4 h-4" />
+              <span className="text-xs font-mono uppercase tracking-[0.28em]">{PROMPT.month}&rsquo;s prompt</span>
+            </div>
+            <p className="font-display italic text-2xl md:text-3xl text-cream mb-3">{PROMPT.line}</p>
+            <p className="text-cream/70 max-w-2xl mb-6">{PROMPT.invitation}</p>
+            <Button
+              className="rounded-full bg-cherry text-white hover:bg-cherry-dark"
+              leftIcon={<Feather className="w-4 h-4" />}
+              onClick={() => writeFrom({ kind: 'seed', text: 'She learned to speak in two tongues —' })}
+            >
+              Write from this line
+            </Button>
           </div>
-          <p className="font-display italic text-2xl md:text-3xl text-cream mb-3">{PROMPT.line}</p>
-          <p className="text-cream/70 max-w-2xl">{PROMPT.invitation}</p>
+
+          {/* Spin the Prompt */}
+          <div className="rounded-[2rem] border border-white/10 bg-[#0b1029]/75 p-8 flex flex-col">
+            <div className="flex items-center gap-2 mb-4" style={{ color: '#7FD4E6' }}>
+              <Shuffle className="w-4 h-4" />
+              <span className="text-xs font-mono uppercase tracking-[0.28em]">Spin the prompt</span>
+            </div>
+
+            <div className="flex-1 flex items-center">
+              {spun ? (
+                <motion.p
+                  key={spun.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="font-display italic text-xl text-cream leading-relaxed"
+                >
+                  {spun.text}
+                </motion.p>
+              ) : (
+                <p className="text-cream/50 italic font-display text-lg">
+                  Stuck? Let the garden hand you a spark.
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-wrap gap-2 mt-6">
+              <Button
+                variant="outline"
+                className="rounded-full border-cream/25 text-cream hover:bg-cream hover:text-navy"
+                leftIcon={<Shuffle className="w-4 h-4" />}
+                onClick={spin}
+              >
+                {spun ? 'Spin again' : 'Spin'}
+              </Button>
+              {spun && (
+                <Button
+                  className="rounded-full bg-cherry text-white hover:bg-cherry-dark"
+                  leftIcon={<Feather className="w-4 h-4" />}
+                  onClick={() => writeFrom(spun)}
+                >
+                  Write from this
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -194,9 +267,22 @@ export default function TheCircle() {
             <span className="text-xs font-mono uppercase tracking-[0.28em]">Plant a poem</span>
           </div>
           <h2 className="font-display text-3xl font-bold text-cream mb-2">Share your work</h2>
-          <p className="text-cream/60 text-sm mb-7">
+          <p className="text-cream/60 text-sm mb-5">
             Nanda reads every submission before it blooms in the garden. Kindness and honesty only.
           </p>
+
+          {writingFrom && !message && (
+            <div className="mb-6 flex items-start gap-2 rounded-xl border border-cherry/30 bg-cherry/[0.08] px-4 py-3">
+              <Feather className="w-4 h-4 text-cherry mt-0.5 shrink-0" />
+              <p className="text-sm text-cream/85 flex-1">
+                <span className="text-cream/50">Writing from:</span>{' '}
+                <span className="font-display italic">{writingFrom}</span>
+              </p>
+              <button onClick={() => setWritingFrom(null)} className="text-cream/40 hover:text-cream" aria-label="Clear prompt">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          )}
 
           <AnimatePresence mode="wait">
             {message ? (

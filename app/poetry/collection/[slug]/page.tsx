@@ -460,6 +460,13 @@ export default function PoemReader() {
         </motion.div>
       </section>
 
+      {/* Carve your own from this poem */}
+      <div className="max-w-2xl mx-auto px-6 -mt-2 mb-6 text-center">
+        <Link href={`/poetry/erasure?poem=${poem.slug}`} className="text-cream/55 hover:text-cherry text-sm transition-colors">
+          ✂️ Carve your own poem from this one in the Erasure Studio &rarr;
+        </Link>
+      </div>
+
       {/* Share-a-line-as-art modal */}
       <ShareLineCard poem={poem} open={showLineCard} onClose={() => setShowLineCard(false)} />
 
