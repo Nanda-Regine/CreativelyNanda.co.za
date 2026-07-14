@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui';
 import { RoseCard, FeaturedRoseCard } from '@/components/poetry/RoseCard';
-import { POEMS, CATEGORIES, type Poem } from '@/lib/poems-data';
+import { POEMS, CATEGORIES, type Poem, getMoodKeyForPoem } from '@/lib/poems-data';
 import { Search, Filter, BookOpen, Sparkles } from 'lucide-react';
+import Threshold from '@/components/poetry/Threshold';
+import { useMood } from '@/components/poetry/MoodProvider';
 
 export default function PoetryCollection() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -14,6 +16,10 @@ export default function PoetryCollection() {
   const [showFilters, setShowFilters] = useState(false);
   const [likes, setLikes] = useState<Record<string, number>>({});
   const [userLikes, setUserLikes] = useState<string[]>([]);
+
+  // The chosen mood now lives in the shared atmosphere context, so selecting a
+  // door at the Threshold both washes the garden and filters it here.
+  const { mood: selectedMood, setMood: setSelectedMood } = useMood();
 
   // Load likes from localStorage on mount
   useEffect(() => {
@@ -44,6 +50,10 @@ export default function PoetryCollection() {
       ? POEMS
       : POEMS.filter((p) => p.category === selectedCategory);
 
+    if (selectedMood) {
+      filtered = filtered.filter((p) => getMoodKeyForPoem(p) === selectedMood);
+    }
+
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
@@ -55,7 +65,7 @@ export default function PoetryCollection() {
     }
 
     return filtered;
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, selectedCategory, selectedMood]);
 
   // Featured poems - top liked from each category
   const featuredPoems = useMemo(() => {
@@ -64,7 +74,6 @@ export default function PoetryCollection() {
     categories.forEach((cat) => {
       const catPoems = POEMS.filter((p) => p.category === cat);
       if (catPoems.length > 0) {
-        // Get the one with most likes or random
         const sorted = [...catPoems].sort((a, b) => (likes[b.slug] || 0) - (likes[a.slug] || 0));
         featured.push(sorted[0]);
       }
@@ -76,97 +85,57 @@ export default function PoetryCollection() {
   const categoryCount = (cat: string) =>
     cat === 'All' ? totalPoems : POEMS.filter((p) => p.category === cat).length;
 
+  const hasFilter = selectedCategory !== 'All' || !!searchQuery || !!selectedMood;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-parchment via-cream to-parchment">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-12 px-6 overflow-hidden">
-        {/* Decorative roses */}
-        <motion.div
-          animate={{ rotate: [0, 10, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 15, repeat: Infinity }}
-          className="absolute top-20 right-10 w-[400px] h-[400px] opacity-5"
-        >
-          <svg viewBox="0 0 200 200" className="w-full h-full text-cherry">
-            <path
-              d="M100 20 C60 20, 30 50, 30 90 C30 130, 60 160, 100 180 C140 160, 170 130, 170 90 C170 50, 140 20, 100 20"
-              fill="currentColor"
-            />
-          </svg>
-        </motion.div>
+    <div className="min-h-screen text-beige">
+      {/* Breadcrumb (floats over the atmosphere) */}
+      <div className="max-w-6xl mx-auto px-6 pt-24">
+        <div className="flex items-center gap-2 text-sm text-cream/50">
+          <Link href="/poetry" className="hover:text-cherry transition-colors">Poetry</Link>
+          <span>/</span>
+          <span className="text-[var(--ancestral-gold,#C9A84C)]">Inside Her Roses</span>
+        </div>
+      </div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
-          {/* Breadcrumb */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 text-sm text-navy/60 mb-8"
-          >
-            <Link href="/poetry" className="hover:text-cherry transition-colors">Poetry</Link>
-            <span>/</span>
-            <span className="text-cherry">Inside Her Roses</span>
-          </motion.div>
+      {/* ── THE THRESHOLD — the emotional front gate ── */}
+      <Threshold />
 
-          {/* Header */}
-          <div className="flex items-center gap-6 mb-6">
-            <div className="w-16 h-px bg-cherry" />
-            <span className="text-cherry text-sm font-medium tracking-[0.3em] uppercase">Collection</span>
+      {/* ── THE GARDEN — the poems themselves ── */}
+      <section id="garden" className="scroll-mt-8 px-6 pt-8 pb-16">
+        <div className="max-w-6xl mx-auto">
+          {/* Section head */}
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-[var(--ancestral-gold,#C9A84C)] text-sm font-medium tracking-[0.3em] uppercase font-mono">
+              The Garden
+            </span>
+            <div className="flex-1 h-px bg-cream/15" />
+            <span className="text-cream/50 text-sm">{totalPoems} poems · 6 chapters</span>
           </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-navy mb-4"
-          >
-            Inside Her <span className="text-cherry">Roses</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-navy/70 max-w-2xl mb-2"
-          >
-            A poetry collection by <span className="font-semibold text-navy">Nanda Regine</span> — exploring love, identity, healing, and Black womanhood.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-navy/50 text-sm mb-8"
-          >
-            {totalPoems} poems across 6 chapters
-          </motion.p>
-
-          {/* Search Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3"
-          >
+          {/* Search + chapters */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-4">
             <div className="relative flex-1">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-navy/40" />
               <input
                 type="text"
-                placeholder="Search poems by title or words..."
+                placeholder="Search poems by title or words…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-white/80 backdrop-blur border border-navy/10 rounded-full text-navy placeholder:text-navy/40 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/20 transition-all"
+                className="w-full pl-12 pr-4 py-4 bg-cream/90 backdrop-blur border border-white/10 rounded-full text-navy placeholder:text-navy/40 focus:outline-none focus:border-cherry/50 focus:ring-2 focus:ring-cherry/20 transition-all"
               />
             </div>
             <Button
               variant={showFilters ? 'primary' : 'outline'}
               size="lg"
-              className="rounded-full"
+              className="rounded-full border-cream/30 text-cream hover:bg-cream hover:text-navy"
               leftIcon={<Filter className="w-5 h-5" />}
               onClick={() => setShowFilters(!showFilters)}
             >
               Chapters
             </Button>
-          </motion.div>
+          </div>
 
-          {/* Category Filters */}
           <AnimatePresence>
             {showFilters && (
               <motion.div
@@ -175,15 +144,15 @@ export default function PoetryCollection() {
                 exit={{ opacity: 0, height: 0 }}
                 className="overflow-hidden"
               >
-                <div className="pt-6 flex flex-wrap gap-2">
+                <div className="pb-2 flex flex-wrap gap-2">
                   {CATEGORIES.map((cat) => (
                     <button
                       key={cat.name}
                       onClick={() => setSelectedCategory(cat.name)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 backdrop-blur ${
                         selectedCategory === cat.name
                           ? 'bg-cherry text-white shadow-lg'
-                          : 'bg-white/60 text-navy hover:bg-cherry/10 hover:text-cherry'
+                          : 'bg-white/10 text-cream hover:bg-cherry/20 border border-white/10'
                       }`}
                     >
                       <span>{cat.icon}</span>
@@ -195,51 +164,24 @@ export default function PoetryCollection() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
-      </section>
 
-      {/* Featured Poems - only show when no search/filter */}
-      {!searchQuery && selectedCategory === 'All' && (
-        <section className="py-12 px-6 bg-navy">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <Sparkles className="w-5 h-5 text-gold" />
-              <h2 className="font-display text-2xl font-bold text-beige">Featured Poems</h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {featuredPoems.map((poem, index) => (
-                <FeaturedRoseCard
-                  key={poem.slug}
-                  poem={poem}
-                  index={index}
-                  likes={likes[poem.slug] || 0}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Poems Grid */}
-      <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Results count */}
-          <div className="flex items-center justify-between mb-8">
-            <p className="text-navy/60">
+          {/* Results row */}
+          <div className="flex items-center justify-between my-8">
+            <p className="text-cream/60">
               {selectedCategory !== 'All' && (
                 <span className="mr-2">
                   {CATEGORIES.find((c) => c.name === selectedCategory)?.icon}
                 </span>
               )}
-              Showing <span className="font-bold text-navy">{filteredPoems.length}</span>
+              Showing <span className="font-bold text-cream">{filteredPoems.length}</span>
               {selectedCategory !== 'All' && ` ${selectedCategory.toLowerCase()}`} poems
             </p>
-            {(selectedCategory !== 'All' || searchQuery) && (
+            {hasFilter && (
               <button
                 onClick={() => {
                   setSelectedCategory('All');
                   setSearchQuery('');
+                  setSelectedMood(null);
                 }}
                 className="text-cherry hover:text-cherry-dark text-sm font-medium"
               >
@@ -248,7 +190,27 @@ export default function PoetryCollection() {
             )}
           </div>
 
-          {/* Poems Grid */}
+          {/* Featured — only in the unfiltered garden */}
+          {!hasFilter && (
+            <div className="mb-12">
+              <div className="flex items-center gap-3 mb-6">
+                <Sparkles className="w-5 h-5 text-[var(--ancestral-gold,#C9A84C)]" />
+                <h2 className="font-display text-2xl font-bold text-cream">Featured blooms</h2>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {featuredPoems.map((poem, index) => (
+                  <FeaturedRoseCard
+                    key={poem.slug}
+                    poem={poem}
+                    index={index}
+                    likes={likes[poem.slug] || 0}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* The grid */}
           {filteredPoems.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {filteredPoems.map((poem, index) => (
@@ -268,25 +230,26 @@ export default function PoetryCollection() {
               animate={{ opacity: 1 }}
               className="text-center py-16"
             >
-              <BookOpen className="w-16 h-16 text-navy/20 mx-auto mb-4" />
-              <h3 className="font-display text-2xl font-bold text-navy mb-2">No poems found</h3>
-              <p className="text-navy/60 mb-6">Try a different search or chapter</p>
+              <BookOpen className="w-16 h-16 text-cream/20 mx-auto mb-4" />
+              <h3 className="font-display text-2xl font-bold text-cream mb-2">No poems found</h3>
+              <p className="text-cream/60 mb-6">Try a different search, chapter, or mood</p>
               <Button
                 variant="primary"
                 className="rounded-full"
                 onClick={() => {
                   setSelectedCategory('All');
                   setSearchQuery('');
+                  setSelectedMood(null);
                 }}
               >
-                View All Poems
+                View all poems
               </Button>
             </motion.div>
           )}
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-16 px-6 bg-gradient-to-r from-cherry to-cherry-dark">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -298,7 +261,7 @@ export default function PoetryCollection() {
               Own the Full Collection
             </h2>
             <p className="text-white/80 mb-8 max-w-xl mx-auto">
-              Get "Inside Her Roses" in print or digital format. Available worldwide through major retailers.
+              Get &ldquo;Inside Her Roses&rdquo; in print or digital format. Available worldwide through major retailers.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button

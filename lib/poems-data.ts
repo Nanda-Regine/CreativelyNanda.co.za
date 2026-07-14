@@ -1,6 +1,12 @@
 // Inside Her Roses - Complete Poetry Collection
 // Copyright © 2021 by Nandawula Regine Kabali-Kagwa
 
+export interface PoemTranslation {
+  lang: 'Luganda' | 'Xhosa';
+  label: string;   // e.g. "In Luganda"
+  content: string; // translated / mother-tongue version of the poem
+}
+
 export interface Poem {
   id: string;
   slug: string;
@@ -8,6 +14,14 @@ export interface Poem {
   content: string;
   category: 'Romance' | 'Sensual' | 'Life' | 'Personal' | 'Depth' | 'Empowering';
   excerpt: string;
+
+  // ── Optional soul layers (all degrade gracefully when absent) ──
+  mood?: MoodKey;                 // override the mood derived from category
+  audioUrl?: string;             // Nanda reading the poem aloud
+  paintingSrc?: string;          // a painting paired with this poem
+  backstory?: string;            // "the story behind this one"
+  translations?: PoemTranslation[]; // mother-tongue versions
+  season?: string;               // chapter / season grouping
 }
 
 export const CATEGORIES = [
@@ -19,6 +33,40 @@ export const CATEGORIES = [
   { name: 'Depth', icon: '🌊', color: 'blue-500' },
   { name: 'Empowering', icon: '👑', color: 'gold' },
 ] as const;
+
+// ── Moods: the emotional "door" into the garden ──────────────────────────────
+// Each mood maps to one or more categories, so browsing by feeling works
+// across all 85 poems today — no per-poem tagging required. A poem may still
+// override its mood via `Poem.mood`. `wash` drives the ambient colour-theming.
+export type MoodKey =
+  | 'longing' | 'desire' | 'wonder' | 'reflection' | 'solace' | 'fire';
+
+export interface Mood {
+  key: MoodKey;
+  label: string;
+  prompt: string;   // the door copy: how the reader's heart arrives
+  emoji: string;
+  wash: string;     // background colour-wash for this mood
+  categories: Poem['category'][];
+}
+
+export const MOODS: Mood[] = [
+  { key: 'longing',    label: 'Longing',    prompt: 'My heart is reaching for someone', emoji: '💗', wash: '#5c1f38', categories: ['Romance'] },
+  { key: 'desire',     label: 'Desire',     prompt: "I'm feeling the fire",              emoji: '🔥', wash: '#6b1330', categories: ['Sensual'] },
+  { key: 'wonder',     label: 'Wonder',     prompt: 'I want to marvel at life',          emoji: '🌿', wash: '#1f4a3f', categories: ['Life'] },
+  { key: 'reflection', label: 'Reflection', prompt: 'I need to sit with myself',         emoji: '💭', wash: '#332f52', categories: ['Personal'] },
+  { key: 'solace',     label: 'Solace',     prompt: "I'm carrying something heavy",       emoji: '🌊', wash: '#16304f', categories: ['Depth'] },
+  { key: 'fire',       label: 'Fire',       prompt: 'I need to feel my power',           emoji: '👑', wash: '#6e5216', categories: ['Empowering'] },
+];
+
+const CATEGORY_TO_MOOD: Record<Poem['category'], MoodKey> = {
+  Romance: 'longing',
+  Sensual: 'desire',
+  Life: 'wonder',
+  Personal: 'reflection',
+  Depth: 'solace',
+  Empowering: 'fire',
+};
 
 export const POEMS: Poem[] = [
   // ========== ROMANCE ==========
@@ -2447,4 +2495,52 @@ export function getRelatedPoems(slug: string, limit = 3): Poem[] {
   return POEMS
     .filter(p => p.category === current.category && p.slug !== slug)
     .slice(0, limit);
+}
+
+// ── Mood helpers ─────────────────────────────────────────────────────────────
+
+// The mood a poem belongs to (explicit override, else derived from category)
+export function getMoodKeyForPoem(poem: Poem): MoodKey {
+  return poem.mood ?? CATEGORY_TO_MOOD[poem.category];
+}
+
+export function getMood(key: MoodKey): Mood | undefined {
+  return MOODS.find(m => m.key === key);
+}
+
+// All poems that match a given mood
+export function getPoemsByMood(key: MoodKey): Poem[] {
+  return POEMS.filter(p => getMoodKeyForPoem(p) === key);
+}
+
+// ── Serendipity + ritual helpers ─────────────────────────────────────────────
+
+// Deterministic day index (days since the Unix epoch, in SAST) so the whole
+// world sees the same "Daily Bloom" on a given calendar day.
+function dayIndex(date = new Date()): number {
+  // Shift to SAST (UTC+2) so the bloom turns over at local midnight
+  const sast = new Date(date.getTime() + 2 * 60 * 60 * 1000);
+  return Math.floor(sast.getTime() / 86_400_000);
+}
+
+// One poem for today — same for everyone, changes at SAST midnight
+export function getDailyBloom(date = new Date()): Poem {
+  return POEMS[dayIndex(date) % POEMS.length];
+}
+
+// A poem plucked at random (optionally excluding one slug)
+export function getRandomPoem(excludeSlug?: string): Poem {
+  const pool = excludeSlug ? POEMS.filter(p => p.slug !== excludeSlug) : POEMS;
+  const i = Math.floor(Math.random() * pool.length);
+  return pool[i];
+}
+
+// ── Season / chapter helpers ─────────────────────────────────────────────────
+
+export function getSeasons(): string[] {
+  return Array.from(new Set(POEMS.map(p => p.season).filter(Boolean) as string[]));
+}
+
+export function getPoemsBySeason(season: string): Poem[] {
+  return POEMS.filter(p => p.season === season);
 }

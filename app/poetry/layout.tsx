@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { createMetadata } from '@/lib/seo';
+import PoetryAtmosphereShell from '@/components/poetry/PoetryAtmosphereShell';
 
 export const metadata: Metadata = createMetadata({
   title: 'Poetry - Inside Her Roses',
@@ -9,5 +10,5 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function PoetryLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return <PoetryAtmosphereShell>{children}</PoetryAtmosphereShell>;
 }
