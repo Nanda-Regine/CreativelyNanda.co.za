@@ -28,11 +28,16 @@ export function middleware(request: NextRequest) {
 
   // Temporary maintenance mode — toggle with env MAINTENANCE_MODE=1.
   // Public pages are rewritten to /maintenance; admin + API stay reachable.
+  // The poetry world (and its /assets images) is exempt so the Inside Her
+  // Roses experience can be shown publicly while the rest of the site is still
+  // "Back soon". Remove the /poetry and /assets exemptions to fully hide it.
   if (
     process.env.MAINTENANCE_MODE === "1" &&
     pathname !== "/maintenance" &&
     !pathname.startsWith("/admin") &&
-    !pathname.startsWith("/api")
+    !pathname.startsWith("/api") &&
+    !pathname.startsWith("/poetry") &&
+    !pathname.startsWith("/assets")
   ) {
     const res = NextResponse.rewrite(new URL("/maintenance", request.url));
     Object.entries(SECURITY_HEADERS).forEach(([k, v]) => res.headers.set(k, v));
