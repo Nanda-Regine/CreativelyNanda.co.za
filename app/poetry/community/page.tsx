@@ -1,468 +1,297 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Button, Badge, Card } from '@/components/ui';
+import { Button } from '@/components/ui';
+import { useSessionId } from '@/hooks/useSessionId';
 import {
-  Users,
-  MessageCircle,
-  Calendar,
-  Mic,
-  BookOpen,
-  Star,
-  ArrowRight,
-  Instagram,
-  Mail,
-  Heart,
-  Sparkles,
+  ArrowLeft, Feather, Send, Instagram, Mail, Star, Sparkles, CheckCircle, Loader2, Flower2,
 } from 'lucide-react';
 
-// Community stats
-const COMMUNITY_STATS = [
-  { label: 'Poets', value: '500+', icon: Users },
-  { label: 'Poems Shared', value: '2,000+', icon: BookOpen },
-  { label: 'Events Hosted', value: '25+', icon: Calendar },
-  { label: 'Countries', value: '12', icon: Sparkles },
-];
+interface GuestPoem {
+  id: string;
+  title: string;
+  content: string;
+  author_name: string | null;
+  is_anonymous: boolean;
+  status: 'approved' | 'featured';
+  created_at: string;
+}
 
-// Featured community members
-const FEATURED_POETS = [
-  {
-    name: 'Thandi M.',
-    location: 'Johannesburg',
-    avatar: '/assets/professional/nanda-consulting.jpg',
-    quote: 'Finding this community changed my relationship with my own voice.',
-    poemsShared: 23,
-  },
-  {
-    name: 'Sipho K.',
-    location: 'Cape Town',
-    avatar: '/assets/professional/nanda-consulting.jpg',
-    quote: 'A safe space to be vulnerable and creative.',
-    poemsShared: 45,
-  },
-  {
-    name: 'Naledi P.',
-    location: 'Durban',
-    avatar: '/assets/professional/nanda-consulting.jpg',
-    quote: 'The workshops helped me find my authentic style.',
-    poemsShared: 18,
-  },
-];
+// This month's prompt. Update the line/text here each cycle.
+const PROMPT = {
+  month: 'This season',
+  line: '“she learned to speak in two tongues”',
+  invitation:
+    'Write from that line — in any language your heart keeps. A poem, a fragment, a single honest stanza. Plant it below; I read every one.',
+};
 
-// Upcoming events
-const UPCOMING_EVENTS = [
-  {
-    title: 'Monthly Open Mic Night',
-    date: 'February 15, 2026',
-    time: '7:00 PM SAST',
-    type: 'Virtual',
-    description: 'Share your poetry in a supportive virtual space. All levels welcome.',
-    spots: 12,
-  },
-  {
-    title: 'Poetry Workshop: Finding Your Voice',
-    date: 'February 22, 2026',
-    time: '2:00 PM SAST',
-    type: 'Virtual',
-    description: 'A guided workshop on developing your unique poetic voice.',
-    spots: 8,
-  },
-  {
-    title: 'Book Club: African Poetry Now',
-    date: 'March 1, 2026',
-    time: '6:00 PM SAST',
-    type: 'Virtual',
-    description: 'Discussion of contemporary African poetry and its global impact.',
-    spots: 20,
-  },
-];
+export default function TheCircle() {
+  const sessionId = useSessionId();
+  const [poems, setPoems] = useState<GuestPoem[]>([]);
+  const [loading, setLoading] = useState(true);
 
-// Community benefits
-const BENEFITS = [
-  {
-    icon: Mic,
-    title: 'Open Mic Events',
-    description: 'Regular virtual and in-person events to share your work and connect with fellow poets.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Workshop Series',
-    description: 'Monthly workshops covering craft, performance, and the business of poetry.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Feedback Circles',
-    description: 'Get constructive feedback from fellow poets in a supportive environment.',
-  },
-  {
-    icon: Star,
-    title: 'Publishing Support',
-    description: 'Resources and guidance for poets ready to publish their work.',
-  },
-];
+  const [form, setForm] = useState({ title: '', content: '', name: '', email: '', isAnonymous: false });
+  const [submitting, setSubmitting] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-export default function PoetryCommunity() {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  useEffect(() => {
+    fetch('/api/poetry/guest-poems')
+      .then((r) => r.json())
+      .then((d) => { if (Array.isArray(d)) setPoems(d); })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
 
-  const handleSubscribe = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-
-    setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubscribed(true);
-    setIsSubmitting(false);
-    setEmail('');
+    setError(null);
+    if (!form.title.trim() || form.content.trim().length < 20) {
+      setError('A title and at least a few lines, please.');
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/poetry/guest-poems', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: form.title,
+          content: form.content,
+          authorName: form.isAnonymous ? null : form.name,
+          authorEmail: form.email,
+          isAnonymous: form.isAnonymous,
+          sessionId,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage(data.message);
+        setForm({ title: '', content: '', name: '', email: '', isAnonymous: false });
+      } else {
+        setError(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-parchment via-cream to-parchment">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        {/* Decorative elements */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-20 right-10 w-[400px] h-[400px] bg-gradient-to-bl from-cherry/10 to-transparent rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [-20, 20, -20] }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute bottom-20 left-10 w-32 h-32 border border-cherry/20 rounded-full"
-        />
+    <div className="min-h-screen text-cream">
+      {/* Hero */}
+      <section className="relative px-6 pt-28 pb-12">
+        <div className="max-w-5xl mx-auto">
+          <Link href="/poetry/collection" className="inline-flex items-center gap-2 text-cream/55 hover:text-cherry transition-colors mb-10 text-sm">
+            <ArrowLeft className="w-4 h-4" /> Back to the garden
+          </Link>
 
-        <div className="max-w-6xl mx-auto relative z-10">
-          {/* Breadcrumb */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 text-sm text-navy/60 mb-8"
-          >
-            <Link href="/poetry" className="hover:text-cherry transition-colors">Poetry</Link>
-            <span>/</span>
-            <span className="text-cherry">Community</span>
-          </motion.div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-14 h-px" style={{ background: '#C9A84C' }} />
+            <span className="text-xs font-mono tracking-[0.35em] uppercase" style={{ color: '#C9A84C' }}>
+              Inside Her Roses · The Circle
+            </span>
+          </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-px bg-cherry" />
-                <span className="text-cherry text-sm font-medium tracking-[0.3em] uppercase">Join Us</span>
-              </div>
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light italic leading-[1.05]" style={{ color: '#F5EFD6' }}>
+            Poetry is a conversation.<br />Bring your voice.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(245,239,214,0.72)' }}>
+            This is the meeting place for readers, dreamers, and fellow writers. Share a poem of
+            your own, read what others have planted, and let the garden grow beyond me.
+          </p>
 
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-navy mb-6">
-                Poetry <span className="text-cherry">Community</span>
-              </h1>
-
-              <p className="text-lg text-navy/70 mb-8 leading-relaxed">
-                A gathering place for poets, dreamers, and lovers of words. Connect, create,
-                and grow with a community that celebrates the power of poetry.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="rounded-full"
-                  rightIcon={<ArrowRight className="w-5 h-5" />}
-                  onClick={() => document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Join the Community
-                </Button>
-                <Link href="/poetry/collection">
-                  <Button variant="outline" size="lg" className="rounded-full">
-                    Browse Poems
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Right: Stats */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="grid grid-cols-2 gap-4"
-            >
-              {COMMUNITY_STATS.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="bg-white/80 backdrop-blur p-6 text-center"
-                  style={{ borderRadius: index % 2 === 0 ? '24px 8px 24px 8px' : '8px 24px 8px 24px' }}
-                >
-                  <stat.icon className="w-8 h-8 text-cherry mx-auto mb-3" />
-                  <div className="font-display text-3xl font-bold text-navy">{stat.value}</div>
-                  <div className="text-navy/60 text-sm">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#write">
+              <Button className="rounded-full bg-cherry text-white hover:bg-cherry-dark" leftIcon={<Feather className="w-4 h-4" />}>
+                Share your poem
+              </Button>
+            </a>
+            <Link href="/poetry/collection">
+              <Button variant="outline" className="rounded-full border-cream/25 text-cream hover:bg-cream hover:text-navy">
+                Read Nanda&rsquo;s poems
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 px-6 bg-navy">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-px bg-cherry" />
-              <span className="text-cherry text-sm font-medium tracking-[0.3em] uppercase">What We Offer</span>
-              <div className="w-12 h-px bg-cherry" />
+      {/* This season's prompt */}
+      <section className="px-6 py-8">
+        <div className="max-w-5xl mx-auto rounded-[2rem] border border-white/10 bg-[#0d1330]/70 p-8 md:p-10">
+          <div className="flex items-center gap-2 mb-4" style={{ color: '#C9A84C' }}>
+            <Sparkles className="w-4 h-4" />
+            <span className="text-xs font-mono uppercase tracking-[0.28em]">{PROMPT.month}&rsquo;s prompt</span>
+          </div>
+          <p className="font-display italic text-2xl md:text-3xl text-cream mb-3">{PROMPT.line}</p>
+          <p className="text-cream/70 max-w-2xl">{PROMPT.invitation}</p>
+        </div>
+      </section>
+
+      {/* The Guest Garden */}
+      <section className="px-6 py-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-xs font-mono tracking-[0.3em] uppercase" style={{ color: '#C9A84C' }}>The Guest Garden</span>
+            <div className="flex-1 h-px bg-cream/15" />
+            {!loading && poems.length > 0 && (
+              <span className="text-cream/50 text-sm">{poems.length} {poems.length === 1 ? 'poem' : 'poems'} planted</span>
+            )}
+          </div>
+
+          {loading ? (
+            <div className="flex items-center gap-2 text-cream/50 py-12 justify-center">
+              <Loader2 className="w-5 h-5 animate-spin" /> Gathering the garden…
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-beige">
-              Grow Your <span className="text-cherry">Craft</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BENEFITS.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur p-6 hover:bg-white/10 transition-colors"
-                style={{ borderRadius: index % 2 === 0 ? '24px 8px 24px 8px' : '8px 24px 8px 24px' }}
-              >
-                <div className="w-12 h-12 bg-cherry/20 rounded-full flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-cherry" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-beige mb-2">{benefit.title}</h3>
-                <p className="text-beige/60 text-sm">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
+          ) : poems.length === 0 ? (
+            <div className="text-center py-14 rounded-[2rem] border border-dashed border-white/15">
+              <div className="text-5xl mb-4">🌱</div>
+              <h3 className="font-display text-2xl text-cream mb-2">The garden is young.</h3>
+              <p className="text-cream/60 max-w-md mx-auto">
+                No guest poems have bloomed yet. Be the first to plant one — yours could open the circle.
+              </p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-4">
+              {poems.map((p, i) => (
+                <motion.article
+                  key={p.id}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (i % 4) * 0.05 }}
+                  className={`rounded-[1.5rem] border p-6 ${
+                    p.status === 'featured' ? 'border-cherry/40 bg-cherry/[0.06]' : 'border-white/10 bg-white/[0.04]'
+                  }`}
+                >
+                  {p.status === 'featured' && (
+                    <span className="inline-flex items-center gap-1 text-cherry text-xs font-medium mb-3">
+                      <Star className="w-3 h-3 fill-current" /> Featured by Nanda
+                    </span>
+                  )}
+                  <h3 className="font-display text-xl font-bold text-cream mb-3">{p.title}</h3>
+                  <p className="whitespace-pre-line font-serif text-cream/80 leading-relaxed text-[15px] max-h-64 overflow-hidden">
+                    {p.content}
+                  </p>
+                  <p className="mt-4 pt-3 border-t border-white/10 text-sm text-cream/50 font-display italic">
+                    — {p.is_anonymous ? 'Anonymous' : p.author_name || 'A fellow writer'}
+                  </p>
+                </motion.article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Featured Poets */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-12"
-          >
-            <span className="text-cherry text-sm font-medium tracking-[0.2em] uppercase">Featured Voices</span>
-            <div className="flex-1 h-px bg-navy/10" />
-          </motion.div>
+      {/* Submission */}
+      <section id="write" className="px-6 py-10 scroll-mt-24">
+        <div className="max-w-2xl mx-auto rounded-[2rem] border border-white/10 bg-[#0b1029]/75 p-8 md:p-10">
+          <div className="flex items-center gap-2 mb-2" style={{ color: '#C9A84C' }}>
+            <Feather className="w-4 h-4" />
+            <span className="text-xs font-mono uppercase tracking-[0.28em]">Plant a poem</span>
+          </div>
+          <h2 className="font-display text-3xl font-bold text-cream mb-2">Share your work</h2>
+          <p className="text-cream/60 text-sm mb-7">
+            Nanda reads every submission before it blooms in the garden. Kindness and honesty only.
+          </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {FEATURED_POETS.map((poet, index) => (
+          <AnimatePresence mode="wait">
+            {message ? (
               <motion.div
-                key={poet.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/80 backdrop-blur p-6 relative overflow-hidden"
-                style={{ borderRadius: '24px 8px 24px 8px' }}
+                key="thanks"
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center text-center py-8"
               >
-                {/* Quote mark */}
-                <div className="absolute top-4 right-4 text-cherry/10 text-6xl font-serif">"</div>
-
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full overflow-hidden">
-                    <img
-                      src={poet.avatar}
-                      alt={poet.name}
-                      className="w-full h-full object-cover"
+                <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mb-4">
+                  <CheckCircle className="w-8 h-8 text-emerald-300" />
+                </div>
+                <p className="font-display italic text-xl text-cream max-w-sm">{message}</p>
+                <button onClick={() => setMessage(null)} className="mt-6 text-cherry hover:text-cherry-dark text-sm font-medium">
+                  Plant another
+                </button>
+              </motion.div>
+            ) : (
+              <motion.form key="form" onSubmit={submit} className="space-y-4" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                <div>
+                  <label className="block text-sm text-cream/70 mb-1.5">Title</label>
+                  <input
+                    type="text" value={form.title} maxLength={120}
+                    onChange={(e) => setForm({ ...form, title: e.target.value })}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-cream placeholder:text-cream/30 focus:outline-none focus:border-cherry/60"
+                    placeholder="Name your poem"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-cream/70 mb-1.5">Your poem</label>
+                  <textarea
+                    value={form.content} rows={7} maxLength={4000}
+                    onChange={(e) => setForm({ ...form, content: e.target.value })}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-cream placeholder:text-cream/30 focus:outline-none focus:border-cherry/60 resize-none font-serif leading-relaxed"
+                    placeholder="Let it out. Line breaks are kept exactly as you write them."
+                  />
+                  <p className="text-xs text-cream/40 mt-1">{form.content.length}/4000</p>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm text-cream/70 mb-1.5">Your name {form.isAnonymous && <span className="text-cream/40">(hidden)</span>}</label>
+                    <input
+                      type="text" value={form.name} disabled={form.isAnonymous}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-cream placeholder:text-cream/30 focus:outline-none focus:border-cherry/60 disabled:opacity-40"
+                      placeholder="How to credit you"
                     />
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-navy">{poet.name}</h3>
-                    <p className="text-navy/60 text-sm">{poet.location}</p>
+                    <label className="block text-sm text-cream/70 mb-1.5">Email <span className="text-cream/40">(optional, private)</span></label>
+                    <input
+                      type="email" value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-cream placeholder:text-cream/30 focus:outline-none focus:border-cherry/60"
+                      placeholder="So Nanda can reach you"
+                    />
                   </div>
                 </div>
+                <label className="flex items-center gap-2 text-sm text-cream/60 cursor-pointer">
+                  <input type="checkbox" checked={form.isAnonymous}
+                    onChange={(e) => setForm({ ...form, isAnonymous: e.target.checked })}
+                    className="rounded border-white/20 text-cherry focus:ring-cherry" />
+                  Share it anonymously
+                </label>
 
-                <p className="text-navy/80 italic mb-4">"{poet.quote}"</p>
+                {error && <p className="text-cherry text-sm">{error}</p>}
 
-                <div className="flex items-center gap-2 text-sm text-navy/50">
-                  <BookOpen className="w-4 h-4" />
-                  <span>{poet.poemsShared} poems shared</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Events */}
-      <section className="py-16 px-6 bg-cream">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-px bg-cherry" />
-              <span className="text-cherry text-sm font-medium tracking-[0.3em] uppercase">Events</span>
-              <div className="w-12 h-px bg-cherry" />
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
-              Upcoming <span className="text-cherry">Gatherings</span>
-            </h2>
-          </motion.div>
-
-          <div className="space-y-4">
-            {UPCOMING_EVENTS.map((event, index) => (
-              <motion.div
-                key={event.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:shadow-lg transition-shadow"
-                style={{ borderRadius: '20px 8px 20px 8px' }}
-              >
-                {/* Date */}
-                <div className="flex-shrink-0 text-center md:w-24">
-                  <div className="font-display text-3xl font-bold text-cherry">
-                    {new Date(event.date).getDate()}
-                  </div>
-                  <div className="text-navy/60 text-sm">
-                    {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="font-display text-xl font-bold text-navy">{event.title}</h3>
-                    <Badge variant="secondary" size="sm">{event.type}</Badge>
-                  </div>
-                  <p className="text-navy/60 text-sm mb-2">{event.description}</p>
-                  <div className="flex items-center gap-4 text-sm text-navy/50">
-                    <span>{event.time}</span>
-                    <span className="w-1 h-1 bg-navy/30 rounded-full" />
-                    <span>{event.spots} spots left</span>
-                  </div>
-                </div>
-
-                {/* Action */}
-                <Button variant="outline" size="sm" className="rounded-full flex-shrink-0">
-                  RSVP
+                <Button type="submit" disabled={submitting} className="rounded-full bg-cherry text-white hover:bg-cherry-dark w-full sm:w-auto" leftIcon={submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}>
+                  {submitting ? 'Planting…' : 'Plant my poem'}
                 </Button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Join Section */}
-      <section id="join" className="py-20 px-6 bg-gradient-to-br from-cherry to-cherry-dark scroll-mt-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <Heart className="w-12 h-12 text-white/80 mx-auto mb-6" />
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-              Join Our Poetry Family
-            </h2>
-            <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Subscribe to receive updates about events, workshops, and community highlights.
-              Plus, get exclusive poetry prompts delivered to your inbox.
-            </p>
-
-            {isSubscribed ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-white/20 backdrop-blur rounded-full py-4 px-8 inline-block"
-              >
-                <span className="text-white font-medium">Welcome to the community!</span>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-white/50 focus:ring-2 focus:ring-white/20"
-                  required
-                />
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="rounded-full bg-white text-cherry hover:bg-cream"
-                  loading={isSubmitting}
-                >
-                  Subscribe
-                </Button>
-              </form>
+              </motion.form>
             )}
-
-            {/* Social links */}
-            <div className="mt-12 flex items-center justify-center gap-6">
-              <a
-                href="https://instagram.com/nanda.regine"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-                <span>Instagram</span>
-              </a>
-              <a
-                href="mailto:hello@creativelynanda.co.za"
-                className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-                <span>Email</span>
-              </a>
-            </div>
-          </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-12 px-6 bg-parchment">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-navy/60 mb-4">Explore the collection</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/poetry/collection">
-                <Button variant="primary" className="rounded-full">
-                  Browse Collection
-                </Button>
-              </Link>
-              <Button
-                variant="outline"
-                className="rounded-full"
-                onClick={() => window.open('https://books2read.com/Nrkk-insideherroses', '_blank')}
-              >
-                Get the Book
-              </Button>
-            </div>
-          </motion.div>
+      {/* Connect */}
+      <section className="px-6 py-14">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Flower2 className="w-6 h-6 text-cherry" />
+          </div>
+          <p className="font-display italic text-2xl text-cream/85 mb-6">
+            Hosting a poetry night, or want Nanda to read? The circle reaches beyond the screen.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <a href="https://instagram.com/nanda.regine" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-cream/70 hover:text-white transition-colors">
+              <Instagram className="w-5 h-5" /> @nanda.regine
+            </a>
+            <a href="mailto:hello@creativelynanda.co.za"
+              className="inline-flex items-center gap-2 text-cream/70 hover:text-white transition-colors">
+              <Mail className="w-5 h-5" /> hello@creativelynanda.co.za
+            </a>
+          </div>
         </div>
       </section>
     </div>
