@@ -101,6 +101,27 @@ export default function PoetryCollection() {
       {/* ── THE THRESHOLD — the emotional front gate ── */}
       <Threshold />
 
+      {/* ── ROOMS of the garden ── */}
+      <nav className="px-6 pb-2">
+        <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-3">
+          {[
+            { href: '/poetry/lineage', label: 'The Lineage Room', hint: 'Where I come from' },
+            { href: '/poetry/stage', label: 'The Stage', hint: 'The voice behind the verse' },
+            { href: '/poetry/my-garden', label: 'My Garden', hint: 'The poems you’ve kept' },
+            { href: '/poetry/community', label: 'The Circle', hint: 'Fellow writers' },
+          ].map((room) => (
+            <Link
+              key={room.href}
+              href={room.href}
+              className="group flex-1 min-w-[200px] rounded-2xl border border-white/10 bg-white/[0.05] hover:bg-white/[0.09] hover:border-white/25 transition-all px-5 py-4"
+            >
+              <p className="font-display text-lg text-cream group-hover:text-cherry transition-colors">{room.label}</p>
+              <p className="text-cream/45 text-xs mt-0.5">{room.hint}</p>
+            </Link>
+          ))}
+        </div>
+      </nav>
+
       {/* ── THE GARDEN — the poems themselves ── */}
       <section id="garden" className="scroll-mt-8 px-6 pt-8 pb-16">
         <div className="max-w-6xl mx-auto">
