@@ -64,7 +64,7 @@ export async function GET() {
 
   const { data, error } = await supabase
     .from('guest_poems')
-    .select('id, title, content, author_name, is_anonymous, status, created_at')
+    .select('id, title, content, author_name, is_anonymous, status, created_at, nanda_note')
     .in('status', ['approved', 'featured'])
     .order('status', { ascending: false }) // 'featured' before 'approved'
     .order('created_at', { ascending: false });

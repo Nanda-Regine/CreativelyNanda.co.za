@@ -8,8 +8,9 @@ import { useSessionId } from '@/hooks/useSessionId';
 import {
   ArrowLeft, Feather, Send, Instagram, Mail, Star, Sparkles, CheckCircle, Loader2, Flower2, Shuffle, X,
 } from 'lucide-react';
-import { randomPrompt, type WritingPrompt } from '@/lib/data/prompts';
+import { PROMPTS, randomPrompt, type WritingPrompt } from '@/lib/data/prompts';
 import { recordPlanted } from '@/lib/poet-profile';
+import PetalButton from '@/components/poetry/PetalButton';
 
 interface GuestPoem {
   id: string;
@@ -18,6 +19,7 @@ interface GuestPoem {
   author_name: string | null;
   is_anonymous: boolean;
   status: 'approved' | 'featured';
+  nanda_note: string | null;
   created_at: string;
 }
 
@@ -59,6 +61,10 @@ export default function TheCircle() {
       .then((d) => { if (Array.isArray(d)) setPoems(d); })
       .catch(() => {})
       .finally(() => setLoading(false));
+
+    // Today's spark — the same prompt for everyone, turning over each day.
+    const day = Math.floor(Date.now() / 86_400_000);
+    setSpun(PROMPTS[day % PROMPTS.length]);
   }, []);
 
   const submit = async (e: React.FormEvent) => {
@@ -161,7 +167,7 @@ export default function TheCircle() {
           <div className="rounded-[2rem] border border-white/10 bg-[#0b1029]/75 p-8 flex flex-col">
             <div className="flex items-center gap-2 mb-4" style={{ color: '#7FD4E6' }}>
               <Shuffle className="w-4 h-4" />
-              <span className="text-xs font-mono uppercase tracking-[0.28em]">Spin the prompt</span>
+              <span className="text-xs font-mono uppercase tracking-[0.28em]">Today&rsquo;s spark</span>
             </div>
 
             <div className="flex-1 flex items-center">
@@ -249,9 +255,20 @@ export default function TheCircle() {
                   <p className="whitespace-pre-line font-serif text-cream/80 leading-relaxed text-[15px] max-h-64 overflow-hidden">
                     {p.content}
                   </p>
-                  <p className="mt-4 pt-3 border-t border-white/10 text-sm text-cream/50 font-display italic">
-                    — {p.is_anonymous ? 'Anonymous' : p.author_name || 'A fellow writer'}
-                  </p>
+
+                  {p.nanda_note && (
+                    <div className="mt-4 rounded-xl border border-cherry/25 bg-cherry/[0.06] px-4 py-3">
+                      <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-cherry mb-1">Nanda&rsquo;s note</p>
+                      <p className="text-cream/80 text-sm italic font-display">&ldquo;{p.nanda_note}&rdquo;</p>
+                    </div>
+                  )}
+
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between gap-3">
+                    <p className="text-sm text-cream/50 font-display italic">
+                      — {p.is_anonymous ? 'Anonymous' : p.author_name || 'A fellow writer'}
+                    </p>
+                    <PetalButton guestPoemId={p.id} />
+                  </div>
                 </motion.article>
               ))}
             </div>

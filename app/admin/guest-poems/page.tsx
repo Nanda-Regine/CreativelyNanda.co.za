@@ -7,6 +7,7 @@ import { Button } from '@/components/ui';
 import {
   getGuestPoems,
   setGuestPoemStatus,
+  setGuestPoemNote,
   deleteGuestPoem,
   type GuestPoem,
 } from '../actions/guest-poems';
@@ -31,11 +32,13 @@ export default function AdminGuestPoems() {
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<GuestPoem['status'] | 'all'>('pending');
   const [busy, setBusy] = useState<string | null>(null);
+  const [notes, setNotes] = useState<Record<string, string>>({});
 
   const load = useCallback(async () => {
     setLoading(true);
     const { data } = await getGuestPoems();
     setPoems(data || []);
+    setNotes(Object.fromEntries((data || []).map((p) => [p.id, p.nanda_note || ''])));
     setLoading(false);
   }, []);
 
@@ -125,6 +128,25 @@ export default function AdminGuestPoems() {
                 <p className="whitespace-pre-line font-serif text-navy/80 leading-relaxed border-l-2 border-cherry/20 pl-4 mb-5 max-h-52 overflow-y-auto">
                   {p.content}
                 </p>
+
+                <div className="mb-5">
+                  <label className="block text-xs font-medium text-navy/50 mb-1">
+                    Your note (shown on featured poems &amp; sent in the bloom email)
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      value={notes[p.id] ?? ''}
+                      onChange={(e) => setNotes((n) => ({ ...n, [p.id]: e.target.value }))}
+                      placeholder="A personal line for this poet…"
+                      className="flex-1 px-3 py-2 text-sm border border-navy/10 rounded-lg focus:outline-none focus:border-cherry/50"
+                    />
+                    <Button size="sm" variant="outline" className="rounded-full"
+                      disabled={busy === p.id}
+                      onClick={() => act(p.id, () => setGuestPoemNote(p.id, notes[p.id] || ''))}>
+                      Save note
+                    </Button>
+                  </div>
+                </div>
 
                 <div className="flex flex-wrap gap-2">
                   {p.status !== 'approved' && (

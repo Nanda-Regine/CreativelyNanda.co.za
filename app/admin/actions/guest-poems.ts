@@ -13,6 +13,7 @@ export interface GuestPoem {
   is_anonymous: boolean;
   status: 'pending' | 'approved' | 'featured' | 'rejected';
   session_id: string | null;
+  nanda_note: string | null;
   created_at: string;
 }
 
@@ -57,6 +58,7 @@ export async function setGuestPoemStatus(id: string, status: GuestPoem['status']
         authorName: poem.author_name,
         title: poem.title,
         featured: status === 'featured',
+        note: poem.nanda_note,
       });
     } catch (e) {
       console.error('poem-bloomed email failed (non-blocking):', e);
@@ -67,6 +69,29 @@ export async function setGuestPoemStatus(id: string, status: GuestPoem['status']
   revalidatePath('/poetry/community');
 
   return { data: poem, error: null };
+}
+
+// Save Nanda's personal note on a guest poem (shown on featured poems + in the
+// bloom email). Pass an empty string to clear it.
+export async function setGuestPoemNote(id: string, note: string) {
+  const supabase = createAdminClient();
+
+  const { data, error } = await supabase
+    .from('guest_poems')
+    .update({ nanda_note: note.trim() || null })
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) {
+    console.error('Error saving note:', error);
+    return { data: null, error: error.message };
+  }
+
+  revalidatePath('/admin/guest-poems');
+  revalidatePath('/poetry/community');
+
+  return { data: data as GuestPoem, error: null };
 }
 
 export async function deleteGuestPoem(id: string) {

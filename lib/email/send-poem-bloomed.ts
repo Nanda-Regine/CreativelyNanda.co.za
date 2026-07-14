@@ -5,6 +5,7 @@ interface SendPoemBloomedOptions {
   authorName?: string | null;
   title: string;
   featured?: boolean;
+  note?: string | null;
 }
 
 const SITE = 'https://creativelynanda.co.za';
@@ -18,8 +19,15 @@ export async function sendPoemBloomedEmail({
   authorName,
   title,
   featured = false,
+  note,
 }: SendPoemBloomedOptions) {
   const name = authorName?.trim() || 'friend';
+  const noteHtml = note?.trim()
+    ? `<div style="border-left:3px solid #C9A84C;padding:4px 0 4px 16px;margin:0 0 28px;">
+         <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin:0 0 6px;">A note from Nanda</p>
+         <p style="font-size:16px;font-style:italic;line-height:1.6;color:#F5EFD6;margin:0;">&ldquo;${note.trim()}&rdquo;</p>
+       </div>`
+    : '';
   const subject = featured
     ? `🌟 Nanda featured your poem, “${title}”`
     : `🌹 Your poem “${title}” has bloomed`;
@@ -46,6 +54,7 @@ export async function sendPoemBloomedEmail({
       <p style="font-size:16px;line-height:1.7;color:rgba(245,239,214,0.82);margin:0 0 28px;">
         Thank you for trusting the garden with your words. Keep writing.
       </p>
+      ${noteHtml}
       <a href="${SITE}/poetry/community"
          style="display:inline-block;background:#C21E56;color:#ffffff;text-decoration:none;padding:12px 26px;border-radius:999px;font-family:Arial,sans-serif;font-size:14px;">
         See it in the garden
