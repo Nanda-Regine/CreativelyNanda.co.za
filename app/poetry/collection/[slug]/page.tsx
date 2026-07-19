@@ -15,6 +15,8 @@ import {
 import PoemAudio from '@/components/poetry/PoemAudio';
 import ShareLineCard from '@/components/poetry/ShareLineCard';
 import { RoseCard } from '@/components/poetry/RoseCard';
+import RoomBackdrop from '@/components/room/RoomBackdrop';
+import { MOOD_TO_TONE } from '@/lib/house-assets';
 import { useMood } from '@/components/poetry/MoodProvider';
 import { useSessionId } from '@/hooks/useSessionId';
 import {
@@ -217,9 +219,22 @@ export default function PoemReader() {
   };
 
   const accent = mood?.wash ?? '#8B1A2F';
+  const poemSeed = parseInt(poem.id, 10) || poem.slug.length;
 
   return (
     <div className="min-h-screen text-cream">
+      {/* This poem's own textured background — a different image per poem, laid
+          over the garden atmosphere, light-veiled so the verse stays legible. */}
+      <RoomBackdrop
+        tone={MOOD_TO_TONE[moodKey]}
+        seed={poemSeed}
+        wash={accent}
+        veil={0.5}
+        intensity={0.82}
+        fixed
+        className="-z-[5]"
+      />
+
       {/* Header */}
       <section className="relative pt-24 pb-6 px-6">
         <div className="max-w-3xl mx-auto">
@@ -411,7 +426,7 @@ export default function PoemReader() {
           transition={{ delay: 0.25 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="relative rounded-[2rem] border border-white/10 bg-white/[0.05] backdrop-blur-xl p-8 md:p-12 shadow-2xl">
+          <div className="relative rounded-[2rem] border border-white/12 bg-[#100a14]/55 backdrop-blur-2xl p-8 md:p-12 shadow-2xl">
             {/* mood accent seam */}
             <span
               className="absolute left-8 top-0 h-1 w-16 rounded-full"
