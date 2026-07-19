@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { MOODS, getPoemsByMood } from '@/lib/poems-data';
+import { MOOD_TO_TONE, backdropForTone, assetUrl } from '@/lib/house-assets';
 import { useMood } from './MoodProvider';
 import { useVisitStreak } from '@/hooks/useVisitStreak';
 import DailyBloom from './DailyBloom';
@@ -47,7 +48,7 @@ export default function Threshold() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ease: [0.22, 1, 0.36, 1] }}
-          className="font-display italic text-4xl sm:text-5xl lg:text-6xl text-cream font-light leading-[1.05] max-w-3xl"
+          className="font-display italic text-4xl sm:text-5xl lg:text-6xl text-cream font-light leading-[1.05] max-w-3xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)]"
           style={{ color: '#F5EFD6' }}
         >
           How does your heart<br />arrive today?
@@ -69,37 +70,59 @@ export default function Threshold() {
           {MOODS.map((m, i) => {
             const isActive = mood === m.key;
             const count = getPoemsByMood(m.key).length;
+            const img = assetUrl(backdropForTone(MOOD_TO_TONE[m.key], i + 2));
             return (
               <motion.button
                 key={m.key}
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -6 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => chooseMood(m.key)}
                 aria-pressed={isActive}
-                className={`group relative overflow-hidden rounded-2xl p-4 text-left backdrop-blur-md border transition-all duration-300 ${
+                className={`group relative flex min-h-[150px] flex-col justify-end overflow-hidden rounded-2xl p-4 text-left border transition-all duration-300 ${
                   isActive
-                    ? 'border-white/60 shadow-2xl ring-1 ring-white/40'
-                    : 'border-white/10 hover:border-white/30 shadow-lg'
+                    ? 'border-[#C9A84C]/70 shadow-2xl ring-1 ring-[#C9A84C]/50'
+                    : 'border-white/12 hover:border-white/35 shadow-lg'
                 }`}
-                style={{
-                  background: isActive
-                    ? `linear-gradient(160deg, ${m.wash}f2, ${m.wash}cc)`
-                    : `linear-gradient(160deg, ${m.wash}80, ${m.wash}40)`,
-                }}
               >
-                <span className="text-2xl block mb-2">{m.emoji}</span>
-                <span className="block font-display text-lg font-semibold text-white">
-                  {m.label}
-                </span>
-                <span className="block text-white/75 text-xs mt-1 leading-snug italic font-display">
-                  {m.prompt}
-                </span>
-                <span className="block text-white/45 text-[11px] mt-2 font-mono tracking-wide">
-                  {count} {count === 1 ? 'poem' : 'poems'}
-                </span>
+                {/* textured photograph per feeling */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full scale-105 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.16]"
+                  style={{ opacity: isActive ? 0.95 : 0.78 }}
+                />
+                {/* mood-tinted, bottom-weighted veil */}
+                <div
+                  className="absolute inset-0 transition-opacity duration-300"
+                  style={{
+                    background: `linear-gradient(to top, ${m.wash}f2 0%, ${m.wash}a8 42%, ${m.wash}33 78%, ${m.wash}0d 100%)`,
+                  }}
+                />
+                {/* gold top-seam that lights on active/hover */}
+                <div
+                  className={`absolute inset-x-0 top-0 h-1 transition-colors duration-300 ${
+                    isActive ? 'bg-[#C9A84C]' : 'bg-[#C9A84C]/0 group-hover:bg-[#C9A84C]/60'
+                  }`}
+                />
+
+                <div className="relative z-10">
+                  <span className="mb-1.5 block text-2xl drop-shadow">{m.emoji}</span>
+                  <span className="block font-display text-lg font-semibold text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
+                    {m.label}
+                  </span>
+                  <span className="mt-1 block font-display text-xs italic leading-snug text-white/80 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
+                    {m.prompt}
+                  </span>
+                  <span className="mt-2 block font-mono text-[11px] tracking-wide text-[#E7C86A]/80">
+                    {count} {count === 1 ? 'poem' : 'poems'}
+                  </span>
+                </div>
               </motion.button>
             );
           })}

@@ -18,7 +18,7 @@ export default function MoodAtmosphere() {
     <div
       aria-hidden
       className="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
-      style={{ background: '#06091a' }}
+      style={{ background: '#0c0a12' }}
     >
       <AnimatePresence>
         <motion.div
@@ -43,24 +43,24 @@ export default function MoodAtmosphere() {
         </motion.div>
       </AnimatePresence>
 
-      {/* soft vignette for editorial depth */}
+      {/* a whisper of edge-vignette for editorial depth (the mood tint already
+          carries most of it now, so this stays light — the image must breathe) */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(120% 80% at 50% 0%, transparent 40%, rgba(0,0,0,0.45) 100%)',
+            'radial-gradient(130% 90% at 50% 5%, transparent 60%, rgba(0,0,0,0.22) 100%)',
         }}
       />
 
-      {/* film grain — plain composite (no blend mode) to stay cheap on mobile
-          GPUs; the grain is subtle enough that straight opacity reads the same */}
+      {/* film grain — a material skin, tuned up to the level of the other sites */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: GRAIN_SVG,
           backgroundRepeat: 'repeat',
           backgroundSize: '240px 240px',
-          opacity: 0.06,
+          opacity: 0.09,
         }}
       />
     </div>
