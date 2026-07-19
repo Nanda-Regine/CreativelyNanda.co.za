@@ -590,3 +590,18 @@ The site began turning from a portfolio-with-a-shop into **a house you wander** 
 **The local build env is not the test.** OneDrive makes `next dev` pathologically slow (261s to ready, 183s to compile one route) and leaves git-tracked binaries (`/assets/art/*`) unmaterialized locally. Verification came from `tsc` (zero new errors), a live route render (HTTP 200 with the right poem + mood), the marginalia API (200), and exercising the petal upsert/aggregate directly against the live schema via Supabase MCP. Vercel builds from git and is unaffected.
 
 *Phase 1 shipped and verified 2026-07-19. Next: Phase 2 — the Atrium path-chooser, the living garden, and the narrative rooms (Roots, Crown, Forge) dressed from the visual atlas.*
+
+---
+
+## 15. The House of Roses — Phase 2a: The narrative rooms come alive (2026-07-19)
+
+Where the visual atlas met the rooms. Nanda's own photographs and the background pool — previously catalogued in `lib/house-assets.ts` but unused — were woven into three existing rooms **without rebuilding them**.
+
+- `components/room/PlacedPortrait.tsx` — a reusable, hook-free editorial figure (photograph + kicker + caption + accent seam + soft frame). No `'use client'`, so it renders in both the client poetry rooms and the server-rendered `/sanyu`.
+- **The Roots** (`app/poetry/lineage/page.tsx`) — a `stained`-tone `RoomBackdrop` behind the hero, and both roots portraits (`portraitsForRoom('roots')`: Nanda + her mother at graduation, and the forest canopy) placed between the Kiganda naming and the four houses.
+- **The Crown** (`app/sanyu/page.tsx`) — the natural-hair portrait placed inside "The Name Means Joy," at the heart of the hair-ritual → Sanyu origin. (No backdrop here — the page's forest-green botanical palette is left intact; only the portrait was added, gold-accented.)
+- **The Forge** (`app/poetry/poet-who-codes/page.tsx`) — a `navy-night` `RoomBackdrop` behind the hero, and the in-studio drums portrait placed before the Mirembe bridge as "a third tongue" (rhythm, before code and verse).
+
+**Learned:** the atlas paid off immediately — dressing three rooms was a handful of drop-in edits (`<RoomBackdrop tone=.. />` + `portraitsForRoom(room).map(...)`), because the placement decisions lived in data, not markup. Palette discipline matters per room: the poetry rooms share the navy/gold House vocabulary, but `/sanyu` has its own green botanical identity, so it got the portrait but not the navy backdrop.
+
+*Phase 2a shipped 2026-07-19 (tsc clean). Still open in Phase 2: the Atrium path-chooser + living garden (deferred — it touches the user-built magazine-cover homepage), and Library browse-by-feeling + View Transitions.*

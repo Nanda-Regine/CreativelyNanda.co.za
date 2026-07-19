@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Leaf, Sparkles, Heart, ArrowRight, Mail } from 'lucide-react';
 import { JsonLd, SITE_URL } from '@/lib/seo';
+import PlacedPortrait from '@/components/room/PlacedPortrait';
+import { portraitsForRoom } from '@/lib/house-assets';
 
 export const metadata: Metadata = {
   title: 'Sanyu Botanicals | African Botanical Wellness — Launching April 2026',
@@ -167,6 +169,19 @@ export default function SanyuBotanicalsPage() {
               Sanyu Botanicals is built on five ancestral lineages — each gifting a principle
               to our formulations. We don&apos;t just make hair products. We make heirlooms.
             </p>
+
+            {portraitsForRoom('crown').map((p) => (
+              <div key={p.file} className="mb-12 text-left">
+                <PlacedPortrait
+                  file={p.file}
+                  alt={p.alt}
+                  side="left"
+                  kicker="Where Sanyu was born"
+                  caption="It began with my own crown — the ritual of oils and patience that became a brand. The hair remembers what the hands were taught."
+                  accent="#C9943A"
+                />
+              </div>
+            ))}
 
             <div className="flex flex-wrap justify-center gap-4">
               <Link
