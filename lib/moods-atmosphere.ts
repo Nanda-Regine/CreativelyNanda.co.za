@@ -65,7 +65,7 @@ export const MOOD_ATMOSPHERES: Record<MoodKey, MoodAtmosphere> = {
   },
   fire: {
     key: 'fire',
-    image: '/assets/art/jewel.jpg',
+    image: '/assets/art/bloom.jpg',
     wash: '#6e5216',
     gradient: tint(46, 32, 10),
     imageOpacity: 0.76,
