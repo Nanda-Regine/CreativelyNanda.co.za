@@ -7,6 +7,8 @@ import { ArrowLeft, Sprout, Pencil, Check } from 'lucide-react';
 import { POEMS, type Poem } from '@/lib/poems-data';
 import { RoseCard } from '@/components/poetry/RoseCard';
 import SerendipityButton from '@/components/poetry/SerendipityButton';
+import RoomBackdrop from '@/components/room/RoomBackdrop';
+import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { useVisitStreak } from '@/hooks/useVisitStreak';
 import {
   getPoetProfile,
@@ -56,6 +58,7 @@ export default function MyGarden() {
 
   return (
     <div className="min-h-screen text-cream">
+      <RoomBackdrop image={PAGE_BACKDROPS.myGarden} wash="#0b1029" intensity={0.95} veil={0.2} fixed className="-z-10" />
       <section className="relative pt-24 pb-10 px-6">
         <div className="max-w-6xl mx-auto">
           <Link href="/poetry/collection" className="inline-flex items-center gap-2 text-cream/55 hover:text-cherry text-sm mb-8 transition-colors">
@@ -66,7 +69,7 @@ export default function MyGarden() {
             <Sprout className="w-6 h-6 text-cherry" />
             <span className="text-xs font-mono tracking-[0.3em] uppercase" style={{ color: '#C9A84C' }}>My Garden</span>
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-light italic mb-4" style={{ color: '#F5EFD6' }}>
+          <h1 className="font-display text-4xl md:text-6xl font-light italic mb-4 drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]" style={{ color: '#F5EFD6' }}>
             Your plot in the garden
           </h1>
           <p className="text-cream/60 max-w-2xl">

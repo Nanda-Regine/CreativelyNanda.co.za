@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { Leaf, Sparkles, Heart, ArrowRight, Mail } from 'lucide-react';
 import { JsonLd, SITE_URL } from '@/lib/seo';
 import PlacedPortrait from '@/components/room/PlacedPortrait';
-import { portraitsForRoom } from '@/lib/house-assets';
+import RoomBackdrop from '@/components/room/RoomBackdrop';
+import { portraitsForRoom, PAGE_BACKDROPS } from '@/lib/house-assets';
 
 export const metadata: Metadata = {
   title: 'Sanyu Botanicals | African Botanical Wellness — Launching April 2026',
@@ -154,9 +155,10 @@ export default function SanyuBotanicalsPage() {
           </div>
         </section>
 
-        {/* The Story */}
-        <section className="py-20 px-6 bg-forest-green">
-          <div className="max-w-4xl mx-auto text-center">
+        {/* The Story — a regal botanical moment */}
+        <section className="relative overflow-hidden py-20 px-6 bg-forest-green">
+          <RoomBackdrop image={PAGE_BACKDROPS.crown} wash="#123018" intensity={0.9} veil={0.32} />
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-cream mb-8">
               The Name Means <span className="text-sage-green">Joy</span>
             </h2>
