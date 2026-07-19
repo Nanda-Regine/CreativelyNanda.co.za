@@ -30,6 +30,31 @@ export default function Threshold() {
 
   return (
     <section className="relative min-h-[100dvh] flex flex-col justify-center px-6 pt-28 pb-16">
+      {/* The book itself, tucked in the corner of the garden */}
+      <motion.a
+        href="https://books2read.com/Nrkk-insideherroses"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ opacity: 0, y: -12, rotate: -7 }}
+        animate={{ opacity: 1, y: 0, rotate: -4 }}
+        transition={{ delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        whileHover={{ rotate: 0, y: -4, scale: 1.04 }}
+        className="group absolute right-4 top-24 z-20 sm:right-8 sm:top-28"
+        aria-label="Inside Her Roses — get the book"
+      >
+        <div className="w-[4.5rem] overflow-hidden rounded-lg border border-[#C9A84C]/40 shadow-2xl ring-1 ring-black/40 sm:w-24 lg:w-28">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/poetry-book/official-cover.jpg"
+            alt="Inside Her Roses — a poetry collection by Nandawula Regine Kabali-Kagwa"
+            className="w-full"
+          />
+        </div>
+        <span className="mt-2 block text-center font-mono text-[9px] uppercase tracking-[0.2em] text-[#C9A84C]/90 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          Get the book
+        </span>
+      </motion.a>
+
       <div className="max-w-6xl mx-auto w-full">
         {/* Kicker */}
         <motion.div

@@ -72,7 +72,7 @@ export const MOOD_TO_TONE: Record<MoodKey, Tone> = {
   wonder: 'aurora',
   reflection: 'abstract',
   solace: 'navy-night',
-  fire: 'jewel',
+  fire: 'bloom', // floral, not crystal — "Inside Her Roses" is a garden, not a jewel box
 };
 
 // Deterministic pick from a tone pool (seed by e.g. a poem's id, so a room is
