@@ -15,7 +15,7 @@ export default function LineageRoom() {
     <div className="min-h-screen text-cream">
       {/* Hero */}
       <section className="relative px-6 pt-28 pb-14 overflow-hidden">
-        <RoomBackdrop tone="stained" wash="#0b1029" intensity={0.28} />
+        <RoomBackdrop tone="stained" wash="#0b1029" intensity={0.72} veil={0.4} />
         <div className="relative max-w-5xl mx-auto">
           <Link
             href="/poetry/collection"
@@ -39,7 +39,7 @@ export default function LineageRoom() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ease }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-light italic leading-[1.05]"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-light italic leading-[1.05] drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)]"
             style={{ color: '#F5EFD6' }}
           >
             The soil the roses<br />grew from.
@@ -49,8 +49,8 @@ export default function LineageRoom() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.15 }}
-            className="mt-6 max-w-2xl text-lg leading-relaxed"
-            style={{ color: 'rgba(245,239,214,0.72)' }}
+            className="mt-6 max-w-2xl text-lg leading-relaxed drop-shadow-[0_1px_10px_rgba(0,0,0,0.55)]"
+            style={{ color: 'rgba(245,239,214,0.86)' }}
           >
             Before the poems, before the stage, before the code — there were the clans.
             I carry four royal houses in one body: a grasshopper from Buganda, and three
