@@ -75,6 +75,24 @@ const nextConfig = {
   compress: true,
   // Output optimization
   poweredByHeader: false,
+  // Business/portfolio routes now live on mirembemuse.co.za (the studio site).
+  // creativelynanda.co.za is the personal/creative identity only.
+  // NOTE: /products (live marketplace) and /upgrades (PayFast landing) intentionally stay.
+  redirects: async () => [
+    { source: '/ai-engineer', destination: 'https://mirembemuse.co.za/services/ai-engineering', permanent: true },
+    { source: '/consulting', destination: 'https://mirembemuse.co.za/services', permanent: true },
+    { source: '/work', destination: 'https://mirembemuse.co.za/case-studies', permanent: true },
+    { source: '/work/:path*', destination: 'https://mirembemuse.co.za/case-studies', permanent: true },
+    { source: '/projects', destination: 'https://mirembemuse.co.za/case-studies', permanent: true },
+    { source: '/projects/:slug', destination: 'https://mirembemuse.co.za/case-studies', permanent: true },
+    { source: '/press', destination: 'https://mirembemuse.co.za/press', permanent: true },
+    { source: '/mirembe', destination: 'https://mirembemuse.co.za', permanent: true },
+    { source: '/mirembe/:path*', destination: 'https://mirembemuse.co.za', permanent: true },
+    // House of Roses vocabulary: "The Library" is the collection. Aliases only —
+    // the canonical creative URLs stay /poetry/collection to preserve SEO.
+    { source: '/library', destination: '/poetry/collection', permanent: false },
+    { source: '/library/:slug', destination: '/poetry/collection/:slug', permanent: false },
+  ],
   // Cloudflare-compatible security headers
   headers: async () => [
     {

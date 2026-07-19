@@ -550,3 +550,43 @@ Building this project from a basic portfolio to a full-stack commerce platform i
 ---
 
 *Last updated: 2026-06-13. Reflects the state of the codebase at that point. Update as major features are added.*
+
+---
+
+## 14. The House of Roses — Phase 1: The Reading Room (2026-07-19)
+
+The site began turning from a portfolio-with-a-shop into **a house you wander** (spec: `docs/HOUSE_OF_ROSES.md`). The unifying idea: each section becomes a *room*, and **every poem ends on a doorway word that opens the next room** — reading as wayfinding. Phase 1 delivered the flagship: **The Reading Room**.
+
+### What was built
+
+**The immersive layer, laid over what already existed.** The reader at `/poetry/collection/[slug]` (85 file-based poems, mood-wash, hearts, roses, audio, backstory, translations) was kept as the plain, SEO-indexed surface. The Reading Room is a new experience layered on top at `/poetry/collection/[slug]/room` — a server component (canonical → the plain page, `noindex`) rendering a client orchestrator.
+
+- `components/room/ReadingRoom.tsx` — the orchestrator: a full-screen mood-washed overlay, three depth modes, the reveal, the ending, marginalia.
+- `components/room/LineReveal.tsx` — the poem arrives line-by-line in its own *breath* (`tempoMs`, derived from length or set per-poem); stanza breaks hold a longer beat; Space/→ advance, Enter reveals all; **instant in reduced-motion / Plain / Annotated**.
+- `components/room/AmbientCanvas.tsx` — drifting petals / ink / light on one Canvas (no deps, offline-safe), capped at 26 particles, paused on tab-hide and reduced-motion.
+- `components/room/DepthToggle.tsx` — **Plain · Room · Annotated** (the SEO-safe read · the paced immersion · Nanda's line commentary + reader whispers).
+- `components/room/Marginalia.tsx` — tap a line to read its story and leave a 280-char whisper; Nanda's own annotation pinned at top.
+- `components/room/PetalEnding.tsx` — "How did it leave you?" → leave a petal + tag a **feeling**; the poem shows its bloom count and **aura**; then the **doorway word** hands the reader onward.
+- `components/room/VoicePlayer.tsx` — wraps the existing `PoemAudio`; a seam for the future ElevenLabs voice pipeline.
+
+**The Salon (unique reviews, not stars).**
+- Migration `026_reading_room_salon.sql` — `poem_petals` (one petal per reader per poem, optional feeling, unique constraint, soft-delete) and `poem_marginalia` (line-anchored whispers, auto-approved, soft-delete). Service-role RLS, following the 024/025 convention.
+- API: `/api/poetry/poems/[slug]/petal` (POST/DELETE/GET — leave/withdraw a petal, read the bloom + feeling aggregate) and `/api/poetry/poems/[slug]/marginalia` (POST/GET). Both mirror the proven `resolvePoem` auto-create pattern from the rose route.
+- `lib/feelings.ts` — six curated feelings (longing, tender, seen, undone, emboldened, at-peace), each with an aura colour from the mood palette.
+- `lib/reading-room.ts` — pure logic: line splitting, tempo, doorway-word extraction, and the `ROOMS` map that resolves a doorway to a real room (Crown → `/sanyu`, Roots → `/poetry/lineage`, Forge → `/poetry/poet-who-codes`…) or the next kindred poem.
+
+**The visual atlas (design-system foundation).**
+- `lib/house-assets.ts` — one curated source of truth: mood paintings, the full `/assets/background images` pool sorted by *tone* (navy-night, jewel, bloom, pink-tender, stained, aurora, abstract), Nanda's portraits **placed by room** (Atrium/Crown/Roots/Forge), a gallery pool for the rest, and the ambient film list. Nothing generic; every asset accounted for; the chat-screenshot deliberately excluded.
+- `components/room/RoomBackdrop.tsx` — the Mirembe-style premium backdrop (photograph + colour scrim + vignette + grain) that Phase 2 rooms will use.
+
+**Routing.** `next.config.js` gained forward-compatible `/library` → `/poetry/collection` aliases (the spec's vocabulary as URLs, without renaming 85 indexed poems). The plain reader gained an **"Enter the Reading Room"** invitation.
+
+### What was learned
+
+**Reuse beat greenfield, decisively.** The spec assumed a green field; recon (two parallel Explore agents + Supabase MCP) found the mood-atmosphere system, the reader, and the hearts/roses APIs already built. The Reading Room became an *enhancement layer*, not a rebuild — and the migration shrank to two tables because a petals pattern (`guest_poem_petals`) already existed.
+
+**Keep poem content in the file, interaction in the DB.** Poems live in `lib/poems-data.ts`; Supabase holds only counts and reactions (auto-created on first touch). Room metadata (tempo, doorway, annotations) became optional fields on the file's `Poem` interface with derived defaults — so no empty DB columns violate "every backend has a working frontend."
+
+**The local build env is not the test.** OneDrive makes `next dev` pathologically slow (261s to ready, 183s to compile one route) and leaves git-tracked binaries (`/assets/art/*`) unmaterialized locally. Verification came from `tsc` (zero new errors), a live route render (HTTP 200 with the right poem + mood), the marginalia API (200), and exercising the petal upsert/aggregate directly against the live schema via Supabase MCP. Vercel builds from git and is unaffected.
+
+*Phase 1 shipped and verified 2026-07-19. Next: Phase 2 — the Atrium path-chooser, the living garden, and the narrative rooms (Roots, Crown, Forge) dressed from the visual atlas.*

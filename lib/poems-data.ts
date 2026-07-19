@@ -7,6 +7,15 @@ export interface PoemTranslation {
   content: string; // translated / mother-tongue version of the poem
 }
 
+// A line-anchored whisper written by Nanda herself — the "director's commentary"
+// surfaced in the Reading Room's Annotated depth mode. (Reader-written whispers
+// live in the poem_marginalia table, not here.)
+export interface PoemAnnotation {
+  line: number;    // 0-based index of the line this annotation belongs to
+  quote?: string;  // optional exact fragment to highlight within the line
+  story: string;   // the story behind the line
+}
+
 export interface Poem {
   id: string;
   slug: string;
@@ -22,6 +31,13 @@ export interface Poem {
   backstory?: string;            // "the story behind this one"
   translations?: PoemTranslation[]; // mother-tongue versions
   season?: string;               // chapter / season grouping
+
+  // ── Reading Room layers (all optional; sensible defaults are derived) ──
+  roomTempoMs?: number;                    // breath between revealed lines (default derived)
+  ambient?: 'petals' | 'ink' | 'light' | 'none'; // ambient particle field (default 'petals')
+  annotations?: PoemAnnotation[];          // Nanda's line-anchored commentary
+  doorwayWord?: string;                    // the last word that opens the next room
+  doorwayRoom?: string;                    // RoomKey the doorway leads to (see lib/reading-room)
 }
 
 export const CATEGORIES = [
