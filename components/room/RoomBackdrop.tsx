@@ -12,18 +12,26 @@ import { assetUrl, backdropForTone, type Tone } from '@/lib/house-assets';
 interface Props {
   tone: Tone;
   seed?: number;         // deterministic pick from the tone pool
-  wash?: string;         // colour scrim (defaults to a deep navy)
-  intensity?: number;    // 0..1 how much the photograph shows through (default 0.5)
+  wash?: string;         // colour tint (defaults to a deep navy)
+  intensity?: number;    // 0..1 how much the photograph shows through (default 0.85)
+  veil?: number;         // 0..1 how heavy the colour tint is (default 0.5 — keep it light)
   vignette?: boolean;    // darken the edges for focus (default true)
   fixed?: boolean;       // fixed to the viewport vs absolute to the parent
   className?: string;
+}
+
+// Turn a 0..1 alpha into a 2-digit hex suffix for `#rrggbb + aa`.
+function a(alpha: number): string {
+  const clamped = Math.max(0, Math.min(1, alpha));
+  return Math.round(clamped * 255).toString(16).padStart(2, '0');
 }
 
 export default function RoomBackdrop({
   tone,
   seed = 0,
   wash = '#0A0F2C',
-  intensity = 0.5,
+  intensity = 0.85,
+  veil = 0.5,
   vignette = true,
   fixed = false,
   className = '',
@@ -44,18 +52,21 @@ export default function RoomBackdrop({
         style={{ opacity: intensity }}
         loading="lazy"
       />
-      {/* colour scrim — keeps the mood and protects the type */}
+      {/* A light, bottom-weighted colour tint — the photograph keeps its colours,
+          the type keeps its legibility. Far lighter than a flat wash. */}
       <div
         className="absolute inset-0"
-        style={{ background: `linear-gradient(160deg, ${wash}cc 0%, ${wash}f2 100%)` }}
+        style={{
+          background: `linear-gradient(to top, ${wash}${a(veil + 0.35)} 0%, ${wash}${a(veil)} 40%, ${wash}${a(Math.max(0, veil - 0.35))} 100%)`,
+        }}
       />
       {vignette && (
         <div
           className="absolute inset-0"
-          style={{ background: 'radial-gradient(120% 100% at 50% 0%, transparent 40%, rgba(0,0,0,0.55) 100%)' }}
+          style={{ background: 'radial-gradient(120% 100% at 50% 0%, transparent 55%, rgba(0,0,0,0.35) 100%)' }}
         />
       )}
-      <div className="absolute inset-0 opacity-[0.12] mix-blend-soft-light" style={{ backgroundImage: GRAIN_SVG }} />
+      <div className="absolute inset-0 opacity-[0.10] mix-blend-soft-light" style={{ backgroundImage: GRAIN_SVG }} />
     </div>
   );
 }

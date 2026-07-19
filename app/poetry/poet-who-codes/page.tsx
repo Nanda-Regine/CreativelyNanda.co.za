@@ -52,7 +52,7 @@ export default function PoetWhoCodes() {
     <div className="min-h-screen text-cream">
       {/* Hero */}
       <section className="relative px-6 pt-28 pb-12 overflow-hidden">
-        <RoomBackdrop tone="navy-night" wash="#080b1c" intensity={0.3} seed={3} />
+        <RoomBackdrop tone="navy-night" wash="#080b1c" intensity={0.72} veil={0.42} seed={3} />
         <div className="relative max-w-5xl mx-auto">
           <Link href="/poetry/collection" className="inline-flex items-center gap-2 text-cream/55 hover:text-cherry transition-colors mb-10 text-sm">
             <ArrowLeft className="w-4 h-4" /> Back to the garden
@@ -67,14 +67,14 @@ export default function PoetWhoCodes() {
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ ease }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-light italic leading-[1.05]"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-light italic leading-[1.05] drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)]"
             style={{ color: '#F5EFD6' }}
           >
             She learned to speak<br />in two tongues.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
-            className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(245,239,214,0.72)' }}
+            className="mt-6 max-w-2xl text-lg leading-relaxed drop-shadow-[0_1px_10px_rgba(0,0,0,0.55)]" style={{ color: 'rgba(245,239,214,0.86)' }}
           >
             The language of systems, and the language of longing. Most people are told to choose.
             I refused. The same hands that write the poem write the program — both are the act of

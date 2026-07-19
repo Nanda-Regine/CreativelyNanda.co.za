@@ -11,6 +11,7 @@ import {
   type PoemAnnotation,
 } from '@/lib/poems-data';
 import { getAtmosphere, GRAIN_SVG } from '@/lib/moods-atmosphere';
+import { MOOD_TO_TONE, backdropForTone, assetUrl } from '@/lib/house-assets';
 import {
   splitLines,
   deriveTempoMs,
@@ -40,6 +41,16 @@ export default function ReadingRoom({ poem }: { poem: Poem }) {
   const mood = getMood(moodKey);
   const atmosphere = getAtmosphere(moodKey);
   const accent = mood?.wash ?? '#C9A84C';
+
+  // Each poem wears a different background drawn from its mood's pool — so no two
+  // rooms feel the same — over a lighter tint than the garden's default so the
+  // real colours come through while the paced lines stay readable.
+  const roomSeed = parseInt(poem.id, 10) || poem.slug.length;
+  const roomImage = moodKey
+    ? assetUrl(backdropForTone(MOOD_TO_TONE[moodKey], roomSeed))
+    : atmosphere.image;
+  const roomWash = atmosphere.wash;
+  const roomOverlay = `linear-gradient(165deg, ${roomWash}a6 0%, ${roomWash}cc 100%)`;
 
   const lines = useMemo(() => splitLines(poem.content), [poem.content]);
   const tempoMs = useMemo(() => deriveTempoMs(poem), [poem]);
@@ -99,13 +110,13 @@ export default function ReadingRoom({ poem }: { poem: Poem }) {
       <div className="pointer-events-none fixed inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={atmosphere.image}
+          src={roomImage}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ opacity: atmosphere.imageOpacity }}
+          style={{ opacity: Math.min(1, atmosphere.imageOpacity + 0.32) }}
         />
-        <div className="absolute inset-0" style={{ background: atmosphere.gradient }} />
+        <div className="absolute inset-0" style={{ background: roomOverlay }} />
         <div className="absolute inset-0 opacity-[0.14] mix-blend-soft-light" style={{ backgroundImage: GRAIN_SVG }} />
         <AmbientCanvas kind={ambient} color={accent} active={depth === 'room'} reducedMotion={reduced} />
       </div>
@@ -149,7 +160,7 @@ export default function ReadingRoom({ poem }: { poem: Poem }) {
           </p>
         )}
 
-        <div className="font-serif text-xl leading-relaxed text-cream/90 md:text-2xl">
+        <div className="font-serif text-xl leading-relaxed text-cream/90 md:text-2xl [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]">
           <LineReveal
             key={depth /* re-reveal on mode change */}
             lines={lines}
