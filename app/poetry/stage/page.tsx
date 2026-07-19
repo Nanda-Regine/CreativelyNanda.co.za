@@ -12,11 +12,21 @@ export default function SpokenWordStage() {
 
   return (
     <div className="min-h-screen bg-navy text-beige">
-      {/* Hero */}
-      <section className="relative pt-32 pb-16 px-6 overflow-hidden">
-        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-cherry/15 blur-3xl" />
-        <div className="max-w-5xl mx-auto relative z-10">
-          <Link href="/poetry" className="inline-flex items-center gap-2 text-beige/60 hover:text-cherry text-sm mb-8 transition-colors">
+      {/* Hero — cinematic, the poet mid-performance */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden min-h-[72vh] flex items-end">
+        <div className="pointer-events-none absolute inset-0">
+          <Image
+            src="/assets/performance/nmb-perform-1.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-top opacity-50"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 via-navy/45 to-navy" />
+        </div>
+        <div className="max-w-5xl mx-auto relative z-10 w-full">
+          <Link href="/poetry" className="inline-flex items-center gap-2 text-beige/70 hover:text-cherry text-sm mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Poetry
           </Link>
 
@@ -25,13 +35,33 @@ export default function SpokenWordStage() {
             <span className="text-cherry text-sm font-medium tracking-[0.3em] uppercase">The Stage</span>
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 drop-shadow-[0_2px_20px_rgba(0,0,0,0.7)]">
             The voice behind <span className="text-cherry">the verse</span>
           </h1>
-          <p className="text-lg text-beige/70 max-w-2xl">
+          <p className="text-lg text-beige/85 max-w-2xl drop-shadow-[0_1px_10px_rgba(0,0,0,0.6)]">
             A poem on the page is a whisper. On the stage, it breathes. Here are the nights the
             words left the book and found the room.
           </p>
+        </div>
+      </section>
+
+      {/* The storyline — page to stage */}
+      <section className="px-6 py-16">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <p className="font-display text-2xl md:text-3xl leading-relaxed italic text-beige">
+            There is a difference between a poem read in silence and a poem said aloud.
+          </p>
+          <p className="text-lg leading-relaxed text-beige/70">
+            On the page, the reader keeps the time. On the stage, I do — the breath, the pause, the
+            word held one beat too long. That is where a poem stops being ink and becomes blood,
+            where the room leans in and the silence between the lines begins to belong to everyone.
+          </p>
+          <blockquote className="border-l-2 pl-6 py-1" style={{ borderColor: '#C9A84C' }}>
+            <p className="font-display text-3xl md:text-4xl italic leading-tight text-cream">
+              &ldquo;Some poems you read. Others you have to say out loud — in a room full of
+              strangers, until they are not strangers anymore.&rdquo;
+            </p>
+          </blockquote>
         </div>
       </section>
 
@@ -70,6 +100,20 @@ export default function SpokenWordStage() {
         </div>
       </section>
 
+      {/* Pull-quote */}
+      <section className="px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <p className="font-display text-3xl md:text-5xl italic leading-tight text-cream/95">
+            The book holds the words.<br />The room holds the fire.
+          </p>
+        </motion.div>
+      </section>
+
       {/* Stills */}
       <section className="px-6 pb-24">
         <div className="max-w-6xl mx-auto">
@@ -91,6 +135,26 @@ export default function SpokenWordStage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Closing */}
+      <section className="px-6 pb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-md py-12 px-6"
+        >
+          <p className="font-display italic text-2xl md:text-3xl text-cream mb-6">
+            Every poem here was first a whisper on a page. Read them in their own quiet —
+            then imagine them said aloud.
+          </p>
+          <Link href="/poetry/collection">
+            <span className="inline-flex items-center gap-2 rounded-full bg-cherry px-7 py-3 text-white font-medium hover:bg-cherry-dark transition-colors">
+              Enter the garden &rarr;
+            </span>
+          </Link>
+        </motion.div>
       </section>
 
       {/* Video modal */}

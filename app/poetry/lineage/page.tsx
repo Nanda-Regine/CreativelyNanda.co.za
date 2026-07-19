@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { LINEAGES, KIGANDA_INTRODUCTION } from '@/lib/data/lineage';
 import RoomBackdrop from '@/components/room/RoomBackdrop';
 import PlacedPortrait from '@/components/room/PlacedPortrait';
-import { portraitsForRoom } from '@/lib/house-assets';
+import { portraitsForRoom, PAGE_BACKDROPS } from '@/lib/house-assets';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -15,7 +15,7 @@ export default function LineageRoom() {
     <div className="min-h-screen text-cream">
       {/* Hero */}
       <section className="relative px-6 pt-28 pb-14 overflow-hidden">
-        <RoomBackdrop tone="stained" wash="#0b1029" intensity={0.72} veil={0.4} />
+        <RoomBackdrop image={PAGE_BACKDROPS.roots} wash="#0b1029" intensity={0.95} veil={0.18} />
         <div className="relative max-w-5xl mx-auto">
           <Link
             href="/poetry/collection"

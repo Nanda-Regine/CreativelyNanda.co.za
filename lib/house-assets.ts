@@ -43,7 +43,7 @@ export type Tone =
   | 'aurora'       // luminous greens/teals — wonder
   | 'abstract';    // untitled colour fields — flexible, any room
 
-const DOWNLOADS = [11, 14, 15, 16, 17, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+const DOWNLOADS = [11, 14, 16, 17, 23, 24, 25, 26, 27, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
   .map((n) => `${BG}/download (${n}).jpg`);
 
 export const BACKDROPS: Record<Tone, string[]> = {
@@ -81,6 +81,17 @@ export function backdropForTone(tone: Tone, seed = 0): string {
   const pool = BACKDROPS[tone];
   return pool[Math.abs(seed) % pool.length];
 }
+
+// ── Art-directed page backgrounds — Nanda's own labelled choices ──────────────
+// Each page wears the exact background she picked (in /assets/background images).
+export const PAGE_BACKDROPS = {
+  garden: `${BG}/poetry-collection-background.jpg`,   // the cherry-blossom sunset
+  roots: `${BG}/poetry-lineage-background.jpg`,        // deep indigo feathers
+  forge: `${BG}/poet-who-codes-background.jpg`,        // torn rose-gold paper
+  forgeHeader: `${BG}/poet-who-codes-header.jpg`,      // quilled cherry blossom
+  circle: `${BG}/poetry-community-background.jpg`,     // teal + rust fibre
+  erasure: `${BG}/poetry-erasure-background.jpg`,      // translucent dahlia
+} as const;
 
 // ── Nanda's portraits — placed, not decorative ────────────────────────────────
 // Verified, room-assigned photographs. (The chat-screenshot Snapchat image is

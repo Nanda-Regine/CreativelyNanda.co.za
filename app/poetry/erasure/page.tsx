@@ -8,6 +8,8 @@ import { Button } from '@/components/ui';
 import { POEMS, getPoemBySlug, type Poem } from '@/lib/poems-data';
 import { useSessionId } from '@/hooks/useSessionId';
 import { recordPlanted } from '@/lib/poet-profile';
+import RoomBackdrop from '@/components/room/RoomBackdrop';
+import { PAGE_BACKDROPS } from '@/lib/house-assets';
 
 export default function ErasureStudio() {
   const sessionId = useSessionId();
@@ -104,6 +106,7 @@ export default function ErasureStudio() {
 
   return (
     <div className="min-h-screen text-cream">
+      <RoomBackdrop image={PAGE_BACKDROPS.erasure} wash="#7a2f3a" intensity={0.95} veil={0.2} fixed className="-z-10" />
       {/* Hero */}
       <section className="relative px-6 pt-24 pb-8">
         <div className="max-w-5xl mx-auto">
