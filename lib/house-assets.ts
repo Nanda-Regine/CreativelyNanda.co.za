@@ -91,6 +91,8 @@ export const PAGE_BACKDROPS = {
   forgeHeader: `${BG}/poet-who-codes-header.jpg`,      // quilled cherry blossom
   circle: `${BG}/poetry-community-background.jpg`,     // teal + rust fibre
   erasure: `${BG}/poetry-erasure-background.jpg`,      // translucent dahlia
+  myGarden: `${BG}/navy-floral.jpg`,                   // midnight florals — the personal plot
+  crown: `${BG}/download (41).jpg`,                    // navy + gold ginkgo — regal botanical
 } as const;
 
 // ── Nanda's portraits — placed, not decorative ────────────────────────────────
