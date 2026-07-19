@@ -11,6 +11,8 @@ import {
 import { PROMPTS, randomPrompt, type WritingPrompt } from '@/lib/data/prompts';
 import { recordPlanted } from '@/lib/poet-profile';
 import PetalButton from '@/components/poetry/PetalButton';
+import RoomBackdrop from '@/components/room/RoomBackdrop';
+import { PAGE_BACKDROPS } from '@/lib/house-assets';
 
 interface GuestPoem {
   id: string;
@@ -106,6 +108,7 @@ export default function TheCircle() {
 
   return (
     <div className="min-h-screen text-cream">
+      <RoomBackdrop image={PAGE_BACKDROPS.circle} wash="#123038" intensity={0.95} veil={0.2} fixed className="-z-10" />
       {/* Hero */}
       <section className="relative px-6 pt-28 pb-12">
         <div className="max-w-5xl mx-auto">

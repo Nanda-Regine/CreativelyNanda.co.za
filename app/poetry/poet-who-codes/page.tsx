@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Terminal } from 'lucide-react';
 import RoomBackdrop from '@/components/room/RoomBackdrop';
 import PlacedPortrait from '@/components/room/PlacedPortrait';
-import { portraitsForRoom } from '@/lib/house-assets';
+import { portraitsForRoom, PAGE_BACKDROPS } from '@/lib/house-assets';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -50,9 +50,12 @@ const COMMITS = [
 export default function PoetWhoCodes() {
   return (
     <div className="min-h-screen text-cream">
+      {/* The Forge's page background — torn rose-gold paper, lightly veiled */}
+      <RoomBackdrop image={PAGE_BACKDROPS.forge} wash="#241021" intensity={0.95} veil={0.22} fixed className="-z-10" />
+
       {/* Hero */}
       <section className="relative px-6 pt-28 pb-12 overflow-hidden">
-        <RoomBackdrop tone="navy-night" wash="#080b1c" intensity={0.72} veil={0.42} seed={3} />
+        <RoomBackdrop image={PAGE_BACKDROPS.forgeHeader} wash="#3a0f2a" intensity={0.95} veil={0.26} />
         <div className="relative max-w-5xl mx-auto">
           <Link href="/poetry/collection" className="inline-flex items-center gap-2 text-cream/55 hover:text-cherry transition-colors mb-10 text-sm">
             <ArrowLeft className="w-4 h-4" /> Back to the garden

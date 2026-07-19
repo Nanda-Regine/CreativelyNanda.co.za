@@ -22,8 +22,8 @@ export interface MoodAtmosphere {
 function tint(r: number, g: number, b: number): string {
   const c = (a: number) => `rgba(${r},${g},${b},${a})`;
   return (
-    `radial-gradient(115% 90% at 50% 18%, ${c(0.1)} 0%, ${c(0.3)} 55%, ${c(0.66)} 100%), ` +
-    `linear-gradient(to top, ${c(0.62)} 0%, ${c(0.12)} 45%, ${c(0.04)} 100%)`
+    `radial-gradient(120% 95% at 50% 20%, ${c(0.03)} 0%, ${c(0.16)} 62%, ${c(0.4)} 100%), ` +
+    `linear-gradient(to top, ${c(0.34)} 0%, ${c(0.05)} 50%, ${c(0.02)} 100%)`
   );
 }
 
@@ -75,10 +75,10 @@ export const MOOD_ATMOSPHERES: Record<MoodKey, MoodAtmosphere> = {
 // The neutral atmosphere before a reader has chosen a mood — the Threshold.
 // A graceful dancer, now shown richly rather than buried under navy.
 export const THRESHOLD_ATMOSPHERE: Omit<MoodAtmosphere, 'key'> = {
-  image: '/assets/art/dancer.jpg',
-  wash: '#0A0F2C',
-  gradient: tint(8, 11, 30),
-  imageOpacity: 0.7,
+  image: '/assets/background%20images/poetry-collection-background.jpg',
+  wash: '#3a1420',
+  gradient: tint(46, 18, 28),
+  imageOpacity: 0.85,
 };
 
 export function getAtmosphere(mood: MoodKey | null): Omit<MoodAtmosphere, 'key'> {
