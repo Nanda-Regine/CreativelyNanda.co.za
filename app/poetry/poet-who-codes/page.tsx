@@ -47,6 +47,26 @@ const COMMITS = [
   ['bu1ld1', 'ship: eight apps, one year, one woman'],
 ];
 
+// The soul layer — the range beneath the code (the details live at Mirembe).
+const RANGE = [
+  {
+    k: 'Intelligence, not gimmick',
+    v: 'Retrieval-augmented AI over a living corpus. Multi-agent systems that share one mind. Crisis detection that routes a frightened student to real, human help.',
+  },
+  {
+    k: 'Systems that hold weight',
+    v: 'Row-level security for true multi-tenancy. Offline-first PWAs built for load-shedding. Soft-deletes, audit trails, and TypeScript strict enough that the compiler never blinks.',
+  },
+  {
+    k: 'Designed, not decorated',
+    v: 'Colour systems tuned per context, 44px targets for a budget Android, motion that respects a tired thumb. The interface is the argument.',
+  },
+  {
+    k: 'Built for here',
+    v: 'Eleven South African languages. PayFast in rand. WhatsApp-native flows. Technology that speaks the language of the person holding the phone.',
+  },
+];
+
 export default function PoetWhoCodes() {
   return (
     <div className="min-h-screen text-cream">
@@ -182,6 +202,41 @@ export default function PoetWhoCodes() {
           />
         </section>
       ))}
+
+      {/* The soul layer — the range beneath the code */}
+      <section className="px-6 py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-14 h-px" style={{ background: '#C9A84C' }} />
+            <span className="text-xs font-mono tracking-[0.35em] uppercase" style={{ color: '#C9A84C' }}>
+              Beneath the code
+            </span>
+          </div>
+          <p className="font-display italic text-2xl md:text-3xl text-cream/90 leading-relaxed mb-10 max-w-3xl drop-shadow-[0_1px_10px_rgba(0,0,0,0.4)]">
+            The same instinct that ends a poem on the right word ends a system on the right
+            abstraction. Craft is craft. Here is the range it moves in.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {RANGE.map((r) => (
+              <div
+                key={r.k}
+                className="rounded-[1.5rem] border border-white/10 bg-[#0d1330]/70 p-6 backdrop-blur-sm"
+                style={{ borderLeft: '3px solid #C9A84C' }}
+              >
+                <h3 className="font-display text-xl text-cream mb-2">{r.k}</h3>
+                <p className="text-cream/70 leading-relaxed text-sm md:text-base">{r.v}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 max-w-3xl text-cream/75 leading-relaxed text-lg font-display italic drop-shadow-[0_1px_10px_rgba(0,0,0,0.4)]">
+            She does not separate the poet from the engineer. Both begin with an empty page and a
+            refusal to leave it empty. A poem is architecture you can feel; a codebase is a poem
+            that has to run. The soul is the same — only the syntax changes.
+          </p>
+        </div>
+      </section>
 
       {/* Bridge to Mirembe Muse */}
       <section className="px-6 py-16">
