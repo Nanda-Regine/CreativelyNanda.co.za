@@ -198,6 +198,21 @@ export default function EducationPage() {
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative z-10 bg-[#0A0F2C] pt-32 pb-20 px-6 overflow-hidden">
+        {/* Cinematic graduation still — the day, and my mother in it */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/assets/graduation/mom-me-grad.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-top opacity-[0.30]"
+            sizes="100vw"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(100deg, #0A0F2C 30%, rgba(10,15,44,0.55) 72%, rgba(10,15,44,0.88) 100%)' }}
+          />
+        </div>
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
         <div className="absolute inset-0 flex items-center justify-end pointer-events-none overflow-hidden pr-8">
           <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '20vw', color: 'rgba(201,148,58,0.04)', lineHeight: 1, userSelect: 'none' }}>
