@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { LINEAGES, KIGANDA_INTRODUCTION } from '@/lib/data/lineage';
+import RoomBackdrop from '@/components/room/RoomBackdrop';
+import PlacedPortrait from '@/components/room/PlacedPortrait';
+import { portraitsForRoom } from '@/lib/house-assets';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -11,8 +14,9 @@ export default function LineageRoom() {
   return (
     <div className="min-h-screen text-cream">
       {/* Hero */}
-      <section className="relative px-6 pt-28 pb-14">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative px-6 pt-28 pb-14 overflow-hidden">
+        <RoomBackdrop tone="stained" wash="#0b1029" intensity={0.28} />
+        <div className="relative max-w-5xl mx-auto">
           <Link
             href="/poetry/collection"
             className="inline-flex items-center gap-2 text-cream/55 hover:text-cherry transition-colors mb-10 text-sm"
@@ -85,6 +89,32 @@ export default function LineageRoom() {
             My totem is Nsenene. I carry my great-grandmother&rsquo;s name.
           </p>
         </div>
+      </section>
+
+      {/* The living lineage — Nanda's own photographs */}
+      <section className="px-6 py-14 space-y-16">
+        {portraitsForRoom('roots').map((p, i) => (
+          <motion.div
+            key={p.file}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ ease }}
+          >
+            <PlacedPortrait
+              file={p.file}
+              alt={p.alt}
+              side={i % 2 === 0 ? 'left' : 'right'}
+              kicker={i === 0 ? 'The line, still living' : 'Where we come from'}
+              caption={
+                i === 0
+                  ? 'Nine generations I can name — and here, one lifting the next. My mother, and me.'
+                  : 'The soil is not a metaphor. It is a forest that remembers our name.'
+              }
+              accent="#C9A84C"
+            />
+          </motion.div>
+        ))}
       </section>
 
       {/* The four houses */}

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui';
 import { RoseCard, FeaturedRoseCard } from '@/components/poetry/RoseCard';
-import { POEMS, CATEGORIES, type Poem, getMoodKeyForPoem } from '@/lib/poems-data';
+import { POEMS, CATEGORIES, MOODS, type Poem, getMoodKeyForPoem } from '@/lib/poems-data';
 import { Search, Filter, BookOpen, Sparkles } from 'lucide-react';
 import Threshold from '@/components/poetry/Threshold';
 import { useMood } from '@/components/poetry/MoodProvider';
@@ -84,6 +84,11 @@ export default function PoetryCollection() {
   const totalPoems = POEMS.length;
   const categoryCount = (cat: string) =>
     cat === 'All' ? totalPoems : POEMS.filter((p) => p.category === cat).length;
+  const moodCount = (key: string) =>
+    POEMS.filter((p) => getMoodKeyForPoem(p) === key).length;
+  const activeMoodPrompt = selectedMood
+    ? MOODS.find((m) => m.key === selectedMood)?.prompt
+    : null;
 
   const hasFilter = selectedCategory !== 'All' || !!searchQuery || !!selectedMood;
 
@@ -187,6 +192,51 @@ export default function PoetryCollection() {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* ── Browse by feeling ── selecting a feeling both filters the garden
+               and washes the whole atmosphere into that mood (shared context). */}
+          <div className="mt-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-[var(--ancestral-gold,#C9A84C)] text-xs font-medium tracking-[0.3em] uppercase font-mono">
+                Browse by feeling
+              </span>
+              <div className="flex-1 h-px bg-cream/15" />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {MOODS.map((m) => {
+                const active = selectedMood === m.key;
+                return (
+                  <button
+                    key={m.key}
+                    onClick={() => setSelectedMood(active ? null : m.key)}
+                    aria-pressed={active}
+                    className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium backdrop-blur transition-all border ${
+                      active
+                        ? 'text-white shadow-lg border-transparent'
+                        : 'bg-white/10 text-cream hover:bg-white/20 border-white/10'
+                    }`}
+                    style={active ? { background: m.wash } : undefined}
+                  >
+                    <span>{m.emoji}</span>
+                    <span>{m.label}</span>
+                    <span className="text-xs opacity-70">({moodCount(m.key)})</span>
+                  </button>
+                );
+              })}
+            </div>
+            <AnimatePresence>
+              {activeMoodPrompt && (
+                <motion.p
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="mt-3 font-display italic text-lg text-cream/70"
+                >
+                  &ldquo;{activeMoodPrompt}&rdquo;
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Results row */}
           <div className="flex items-center justify-between my-8">

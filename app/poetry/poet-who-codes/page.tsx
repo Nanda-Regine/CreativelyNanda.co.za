@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Terminal } from 'lucide-react';
+import RoomBackdrop from '@/components/room/RoomBackdrop';
+import PlacedPortrait from '@/components/room/PlacedPortrait';
+import { portraitsForRoom } from '@/lib/house-assets';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -48,8 +51,9 @@ export default function PoetWhoCodes() {
   return (
     <div className="min-h-screen text-cream">
       {/* Hero */}
-      <section className="relative px-6 pt-28 pb-12">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative px-6 pt-28 pb-12 overflow-hidden">
+        <RoomBackdrop tone="navy-night" wash="#080b1c" intensity={0.3} seed={3} />
+        <div className="relative max-w-5xl mx-auto">
           <Link href="/poetry/collection" className="inline-flex items-center gap-2 text-cream/55 hover:text-cherry transition-colors mb-10 text-sm">
             <ArrowLeft className="w-4 h-4" /> Back to the garden
           </Link>
@@ -161,6 +165,20 @@ export default function PoetWhoCodes() {
           </div>
         </div>
       </section>
+
+      {/* The third tongue — rhythm */}
+      {portraitsForRoom('forge').map((p) => (
+        <section key={p.file} className="px-6 py-14">
+          <PlacedPortrait
+            file={p.file}
+            alt={p.alt}
+            side="right"
+            kicker="A third tongue"
+            caption="Before the code and the verse, there was rhythm. The hands that keep time are the same ones that ship."
+            accent="#7FD4E6"
+          />
+        </section>
+      ))}
 
       {/* Bridge to Mirembe Muse */}
       <section className="px-6 py-16">

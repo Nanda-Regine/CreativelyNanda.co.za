@@ -275,6 +275,28 @@ export default function PoemReader() {
               {roses.length} {roses.length === 1 ? 'rose' : 'roses'}
             </span>
           </motion.div>
+
+          {/* Enter the Reading Room — the immersive layer */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mt-7"
+          >
+            <Link
+              href={`/poetry/collection/${slug}/room`}
+              className="group inline-flex items-center gap-3 rounded-full border px-6 py-3 transition-all hover:-translate-y-0.5"
+              style={{ borderColor: `${accent}88`, background: `${accent}1a` }}
+            >
+              <span className="text-lg">🌙</span>
+              <span className="font-display text-lg" style={{ color: '#F5EFD6' }}>
+                Enter the Reading Room
+              </span>
+              <span className="text-cream/50 text-sm group-hover:text-cream/80 transition-colors">
+                read it in your own breath &rarr;
+              </span>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
