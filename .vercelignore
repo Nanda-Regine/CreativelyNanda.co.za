@@ -1,0 +1,2 @@
+# Media served from Cloudinary CDN — do not bundle into the deployment
+public/assets/**/*.mp4

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     'AI consulting South Africa',
     'AI engineering South Africa',
     'web development South Africa',
-    'developer for hire East London South Africa',
+    'developer for hire KuGompo City South Africa',
     // Intent
     'AI development pricing',
     'web development pricing South Africa',

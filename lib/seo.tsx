@@ -181,7 +181,7 @@ export function generatePersonJsonLd() {
     ],
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'East London',
+      addressLocality: 'KuGompo City',
       addressRegion: 'Eastern Cape',
       addressCountry: 'ZA',
     },

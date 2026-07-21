@@ -269,7 +269,7 @@ const workExperience = [
   },
   {
     company: 'Sportsmans Warehouse',
-    location: 'East London, Eastern Cape, South Africa',
+    location: 'KuGompo City, Eastern Cape, South Africa',
     roles: [
       {
         title: 'Receiving Clerk',
@@ -311,7 +311,7 @@ const workExperience = [
  
   {
     company: 'St John Ambulance',
-    location: 'East London, Eastern Cape, South Africa',
+    location: 'KuGompo City, Eastern Cape, South Africa',
     roles: [
       {
         title: 'First Aid Instructor',

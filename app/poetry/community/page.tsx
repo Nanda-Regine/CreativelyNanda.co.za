@@ -137,9 +137,9 @@ export default function TheCircle() {
                 Share your poem
               </Button>
             </a>
-            <Link href="/poetry/erasure">
+            <Link href="/poetry/games">
               <Button variant="outline" className="rounded-full border-cream/25 text-cream hover:bg-cream hover:text-navy">
-                ✂️ Erasure Studio
+                🌹 Poetry Games
               </Button>
             </Link>
           </div>

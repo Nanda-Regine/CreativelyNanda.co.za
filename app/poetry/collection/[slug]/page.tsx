@@ -499,8 +499,8 @@ export default function PoemReader() {
 
       {/* Carve your own from this poem */}
       <div className="max-w-2xl mx-auto px-6 -mt-2 mb-6 text-center">
-        <Link href={`/poetry/erasure?poem=${poem.slug}`} className="text-cream/55 hover:text-cherry text-sm transition-colors">
-          ✂️ Carve your own poem from this one in the Erasure Studio &rarr;
+        <Link href="/poetry/games" className="text-cream/55 hover:text-cherry text-sm transition-colors">
+          🌹 Play with words in the Poetry Games &rarr;
         </Link>
       </div>
 

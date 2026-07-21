@@ -1833,7 +1833,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 ## Project Context
 **Category:** ${project.category}
 **Status:** ${project.status} · ${project.year}
-**Author:** Nandawula Regine Kabali-Kagwa — East London, South Africa
+**Author:** Nandawula Regine Kabali-Kagwa — KuGompo City, South Africa
 **Company:** Mirembe Muse (Pty) Ltd · Reg: 2026-005658
 
 ## Stack
@@ -1867,7 +1867,7 @@ ${project.githubUrl ? `- GitHub: ${project.githubUrl}` : '- GitHub: Private repo
 - Portfolio: https://creativelynanda.co.za/projects/${project.slug}
 
 ---
-Built from East London, South Africa · Nine months · Zero to production`}
+Built from KuGompo City, South Africa · Nine months · Zero to production`}
                 </pre>
               </div>
             </div>

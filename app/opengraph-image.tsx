@@ -144,7 +144,7 @@ export default function OGImage() {
             display: 'flex',
           }}
         >
-          East London, South Africa
+          KuGompo City, South Africa
         </div>
       </div>
     ),

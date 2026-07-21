@@ -86,7 +86,7 @@ const mediaMentions = [
   },
   {
     outlet: 'Live Poetry Performances',
-    topic: '5 spoken word performances — East London & Port Elizabeth',
+    topic: '5 spoken word performances — KuGompo City & Port Elizabeth',
     type: 'Stage',
     color: '#10B981',
     bg: 'bg-emerald-500/10',
@@ -98,7 +98,7 @@ const mediaMentions = [
 const speakingTopics = [
   {
     title: 'Building AI-Powered Products in Africa',
-    description: 'How I built 8 production applications in one year — with limited resources, from East London, South Africa — and turned them into revenue-generating products serving African communities.',
+    description: 'How I built 8 production applications in one year — with limited resources, from KuGompo City, South Africa — and turned them into revenue-generating products serving African communities.',
     audiences: ['Tech conferences', 'Startup events', 'Developer meetups'],
     color: '#C1292E',
   },
@@ -141,7 +141,7 @@ Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqe
 
 Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Each lineage gifted her a principle — lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
 
-After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in East London. In one year from her first line of code, she shipped 8 production AI applications, accumulated 1,000+ GitHub commits, and built a company with paying clients — all while performing her poetry at 5 live events across the Eastern Cape.
+After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in KuGompo City. In one year from her first line of code, she shipped 8 production AI applications, accumulated 1,000+ GitHub commits, and built a company with paying clients — all while performing her poetry at 5 live events across the Eastern Cape.
 
 Her work spans the full stack: multi-agent AI systems (AdminOS — 6 specialist agents, per-tenant ZAR token budgets, 25 Inngest async functions), personal AI operating systems (JarvisOS — 15 wings, 1,194 RAG knowledge chunks, Redis inter-wing signal protocol), mobile apps (True Access — iOS/Android/Web, co-founded, SANS 10400-S compliance), and product brands (Sanyu Botanicals — ancestral botanical hair care with AI-powered consultations and Angel loyalty programme).
 
@@ -368,7 +368,7 @@ export default function PressPage() {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               { label: 'Full Name', value: 'Nandawula Regine Kabali-Kagwa', accent: '#C1292E' },
-              { label: 'Based In', value: 'East London, South Africa', accent: '#10B981' },
+              { label: 'Based In', value: 'KuGompo City, South Africa', accent: '#10B981' },
               { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimango, Tshawe, Thabizolo)', accent: '#C1292E' },
               { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)', accent: '#C1292E' },
               { label: 'Certifications', value: 'Master Gen AI Professional · Prompt Engineering · Graphic Design · Digital Marketing · SheCodes Full-Stack', accent: '#00D4FF' },

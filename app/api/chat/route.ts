@@ -40,7 +40,7 @@ PERSONALITY & TONE:
 
 ABOUT NANDA:
 - Full name: Nandawula Regine Kabali-Kagwa
-- Location: East London, Eastern Cape, South Africa
+- Location: KuGompo City, Eastern Cape, South Africa
 - Contact: hello@creativelynanda.co.za
 - Self-taught engineer — first line of code June 2025, built 8+ production AI SaaS apps in one year
 - 1,000+ GitHub commits across all projects

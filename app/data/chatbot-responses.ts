@@ -8,7 +8,7 @@ export interface PreprogrammedResponse {
 export const preprogrammedResponses: PreprogrammedResponse[] = [
   {
     keywords: ['who', 'nanda', 'about'],
-    response: 'Nandawula Regine Kabali-Kagwa — AI engineer, published poet, and founder of Mirembe Muse (Pty) Ltd. Self-taught: wrote first line of code June 2025, shipped 7 production AI SaaS apps by March 2026. Built from East London, Eastern Cape.',
+    response: 'Nandawula Regine Kabali-Kagwa — AI engineer, published poet, and founder of Mirembe Muse (Pty) Ltd. Self-taught: wrote first line of code June 2025, shipped 7 production AI SaaS apps by March 2026. Built from KuGompo City, Eastern Cape.',
     category: 'about',
     followUp: 'What would you like to know more about?'
   },

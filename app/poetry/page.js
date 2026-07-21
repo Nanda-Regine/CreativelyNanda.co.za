@@ -1109,66 +1109,6 @@ export default function Poetry() {
         </motion.div>
       </section>
 
-      {/* ===== WHAT'S NEXT ===== */}
-      <section className="relative py-12 md:py-20 px-6 bg-beige">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={mobileViewport}
-            variants={scaleIn}
-            className="p-6 md:p-8 lg:p-12 bg-navy relative overflow-hidden"
-            style={{ borderRadius: '30px 12px 30px 12px' }}
-          >
-            <motion.div
-              animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.3, 0.2] }}
-              transition={{ duration: 6, repeat: Infinity }}
-              className="absolute top-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-cherry/20 rounded-full blur-3xl"
-            />
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={mobileViewport}
-              variants={staggerContainer}
-              className="relative z-10"
-            >
-              <motion.span
-                variants={fadeInUp}
-                className="text-cherry text-xs md:text-sm font-medium tracking-[0.2em] uppercase"
-              >
-                Coming Soon
-              </motion.span>
-              <motion.h3
-                variants={fadeInUp}
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-beige mt-3 md:mt-4 mb-4 md:mb-6"
-              >
-                PoetryTube
-              </motion.h3>
-              <motion.p
-                variants={fadeInUp}
-                className="text-beige/70 text-base md:text-lg leading-relaxed mb-4 md:mb-6 max-w-2xl"
-              >
-                An interactive poetry and spoken word platform that merges traditional
-                writing with digital innovation. Because poetry deserves its own space
-                in the digital world.
-              </motion.p>
-              <motion.div
-                variants={fadeInUp}
-                className="inline-flex items-center gap-2 text-cherry font-medium"
-              >
-                <span>Stay tuned</span>
-                <motion.span
-                  animate={{ scale: [1, 1.5, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                  className="w-2 h-2 bg-cherry rounded-full"
-                />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Hide scrollbar CSS */}
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {

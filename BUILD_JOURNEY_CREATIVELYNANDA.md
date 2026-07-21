@@ -643,3 +643,55 @@ She renamed pool images to intent-named files in `public/assets/background image
 - **The OneDrive local env can't verify** (next dev 4+ min). Trust `tsc --noEmit` + the Vercel **preview** deployment (check `gh api repos/.../commits/<sha>/status` when the Vercel MCP is flaky) → merge via `gh pr create`/`gh pr merge` → production. Verify live with `curl -o /dev/null -w '%{http_code}'`.
 
 *Phase 2 shipped + user-approved 2026-07-19. Still open: the **Atrium** homepage path-chooser + living garden (deferred — touches the hand-built magazine-cover homepage; needs Nanda's explicit go-ahead), native shared-element View Transitions, and Phase 3 (ElevenLabs voice, Upstash Vector mood search, RAG talk-to-the-poet, Journal Builder, Rose Society membership).*
+
+---
+
+## 17. The Editorial Magazine — full soul-site rebuild (2026-07-21)
+
+Nanda's brief: this is a **premium editorial magazine** — a story arc, features, journeys, felt as an
+experience, curated with "the eye of an artist." Background-images are the *canvas*; her photos/videos are
+the *soul* laid over it. No mass image dumps; image **families**, not single picks; all the ways a gallery
+can be told. Writing in a poetic, descriptive voice.
+
+### Media pipeline → Cloudinary
+Her assets were ~490MB (273 images avg ~1MB, one 9.2MB; 28 videos 210MB) — too heavy for the repo and the
+local OneDrive+sharp optimizer (2min+/image). Moved ALL site imagery/video to **Cloudinary**:
+- `scripts/upload-to-cloudinary.mjs` / `upload-folder.mjs` / `upload-one.mjs` (read `.env.local`, mirror
+  `public/assets` paths as `creativelynanda/<...>` public_ids). Two >10MB images were ffmpeg-downscaled to
+  fit Cloudinary's 10MB upload cap.
+- `lib/cloudinary.ts` — `cldVideo()` / `cldVideoPoster()` (poster frames generated on-the-fly via `so_`).
+- `components/media/AmbientVideo.tsx` — muted, looping, in-view-only, reduced-motion→poster.
+- Images via `<CldImage>` (next-cloudinary). Verified: 2.8MB hero→344KB, 9.2MB→1MB, AVIF/WebP per browser.
+
+### Vision docs (in `project-docs/asset-catalog/`)
+Full visual pass over every image + all 28 videos (ffmpeg frame extraction). Per-folder catalogs +
+`MASTER-CATALOG-AND-PLACEMENT.md` (palette, seven movements, placement patterns), `IMAGE-FAMILIES.md`
+(13 named portrait families, each with a gallery form), `ROOTS-CLAN-RESEARCH.md` (sourced clan history).
+
+### Pages shipped (all live on production; maintenance mode turned OFF)
+- **Home** — `components/home/CoverHero.tsx`: the OG magazine-cover aesthetic (gold spine, Bebas masthead,
+  flanking coverlines, ticker, nebula, grain) rebuilt around the red-afro portrait as a **feathered oval**
+  (elliptical mask, object-cover, responsive object-position dialed with Nanda) + seven-movement journey below.
+- **Gallery** — 13 image families, each in its own form (single+marginalia, mosaic, diptych, plate+filmstrip,
+  triptych, stacked spread, filmstrip, oval "vanity wall" veiled behind an opt-in). Poetic captions on
+  hover/lightbox; plain `alt` kept for a11y/SEO.
+- **Roots** — the Nseenene grasshopper clan of Buganda (ancestor **Nnandawula** = her namesake; motto,
+  Wannyana→Kabaka Kimera, Apolo Kagwa), amaTshawe royal house, Msimango/amaHlubi izithakazelo — cultural
+  imagery + umqombothi ambient video. Descent framed per Nanda's confirmation; family names as family memory.
+- **About** — feature profile: the two tongues, four chapters (Poet/Stage/Turn-to-code/Woman).
+- **Blog** — index → magazine contents page; article template → full-bleed feature (drop cap, gold pull-quotes).
+  All Supabase data wiring preserved.
+- **The Poet Who Codes** — dressed with maker imagery + code-as-poetry.
+- **Poetry Games** (`/poetry/games`, replaces the erasure page which now redirects) — three real, working games:
+  `WordSearch` (drag-to-find, placement algorithm, win detection), `MagneticPoetry` (free-drag word tiles),
+  `FinishTheLine` (prompt + localStorage-kept lines). In `components/games/`.
+- **Contact** — warm editorial rebuild; form + `/api/contact` wiring intact; business pointed to Mirembe.
+- **Nav** (`components/Navigation.tsx`) — redesigned/extended: Poetry dropdown, grouped mobile drawer, brand
+  "Nandawula". Removed the "PoetryTube — Coming Soon" section from `/poetry`.
+- SEO: per-page metadata layouts refreshed (accurate keywords + common search terms).
+
+### What was learned
+- **Cloudinary is mandatory here** — the local env cannot optimize/serve her real photos.
+- **Screenshots of the animated live pages fail** (the cover's continuous motion times out the Chrome
+  capture tool; static pages are fine) — visual tuning went via Nanda's eyes + `curl` HTML checks.
+- **Deploy cadence:** build against production via `vercel deploy --prod` (each increment), Nanda reviews live.

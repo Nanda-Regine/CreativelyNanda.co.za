@@ -107,7 +107,7 @@ export default function MirembePage() {
 
           <FadeUp>
             <p className="font-sans text-xs tracking-[0.35em] uppercase text-[#C1292E] mb-5">
-              Mirembe Muse (Pty) Ltd · East London, South Africa
+              Mirembe Muse (Pty) Ltd · KuGompo City, South Africa
             </p>
           </FadeUp>
 
@@ -272,7 +272,7 @@ export default function MirembePage() {
                 {[
                   ['Company', 'Mirembe Muse (Pty) Ltd'],
                   ['Registered', 'South Africa (CIPC)'],
-                  ['Location', 'East London, Eastern Cape'],
+                  ['Location', 'KuGompo City, Eastern Cape'],
                   ['Founded', '2025'],
                   ['POPIA Registration', '2026-005658 · Registered 2026-04-03'],
                   ['Information Officer', 'Kabali-Kagwa, Nandawula · Appointed 2025-08-28'],
@@ -354,7 +354,7 @@ export default function MirembePage() {
             />
           </div>
           <p className="text-white/50 text-sm mb-2">
-            Mirembe Muse (Pty) Ltd · East London, Eastern Cape, South Africa
+            Mirembe Muse (Pty) Ltd · KuGompo City, Eastern Cape, South Africa
           </p>
           <a href="mailto:hello@mirembemuse.co.za" className="text-[#C1292E] hover:underline text-sm">
             hello@mirembemuse.co.za
