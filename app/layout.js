@@ -229,6 +229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           `}
         </Script>
         <Analytics />
+              <script src="/mm-feedback.js" data-app="creativelynanda" defer></script>
       </body>
     </html>
   );
