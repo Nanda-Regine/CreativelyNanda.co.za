@@ -69,6 +69,10 @@ body {
   font-family: var(--font-dm-sans, var(--font-manrope), sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Contain stray horizontal overflow (decorative blobs, wide rows) on mobile.
+     `clip` — not `hidden` — so it doesn't create a scroll container that would
+     break position: sticky / the fixed nav. */
+  overflow-x: clip;
 }
 
 h1, h2, .masthead { font-family: var(--font-bebas, var(--font-cormorant), sans-serif); }
@@ -77,6 +81,7 @@ code, .mono { font-family: var(--font-mono), monospace; }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 /* Custom scrollbar */

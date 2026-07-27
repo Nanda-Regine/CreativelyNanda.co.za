@@ -49,7 +49,7 @@ const DOWNLOADS = [11, 14, 16, 17, 23, 24, 25, 26, 27, 29, 30, 31, 33, 34, 35, 3
 export const BACKDROPS: Record<Tone, string[]> = {
   'navy-night': [
     `${BG}/navy-floral.jpg`,
-    `${BG}/50+ Best Dark Blue iPhone Wallpapers (Free 4k HD Download).jpg`,
+    `${BG}/Marine Blue Wallpaper 4K HD Images.jpg`,
     `${BG}/Ultra HD 4K Dark & Minimalist Wallpapers 📱.jpg`,
     `${BG}/Atmospheric reference for ALTERITAS _Explore the full board on our profile__.jpg`,
   ],
@@ -104,12 +104,14 @@ export interface Portrait {
   alt: string;
 }
 
+// NOTE: files live in themed subfolders (reorganized 2026-07); keep these paths
+// in sync with public/assets. Served as local /public paths via PlacedPortrait.
 export const PORTRAITS: Portrait[] = [
-  { file: `${A}/IMG-20260620-WA0048.jpg`, room: 'atrium', alt: 'Nanda in a black-and-gold beaded dress on a staircase — the poet arriving.' },
-  { file: `${A}/IMG-20260620-WA0068.jpg`, room: 'crown',  alt: 'Nanda with her natural curls — the hair journey that became Sanyu.' },
-  { file: `${A}/IMG-20260620-WA0032.jpg`, room: 'roots',  alt: 'Nanda and her mother at graduation — lineage, one generation lifting the next.' },
-  { file: `${A}/IMG-20260620-WA0001.jpg`, room: 'roots',  alt: 'Nanda beneath an indigenous forest canopy — where she comes from.' },
-  { file: `${A}/IMG-20260620-WA0013.jpg`, room: 'forge',  alt: 'Nanda at the drums in-studio — the maker who is also a musician.' },
+  { file: `${A}/nanda-portraits/nanda-elegant/IMG-20260620-WA0048.jpg`, room: 'atrium', alt: 'Nanda in a black-and-gold beaded dress on a staircase — the poet arriving.' },
+  { file: `${A}/reviews/IMG-20260620-WA0068.jpg`, room: 'crown',  alt: 'Nanda with her natural curls — the hair journey that became Sanyu.' },
+  { file: `${A}/graduation/IMG-20260620-WA0032.jpg`, room: 'roots',  alt: 'Nanda and her mother at graduation — lineage, one generation lifting the next.' },
+  { file: `${A}/nanda-culture/IMG-20260620-WA0001.jpg`, room: 'roots',  alt: 'Nanda beneath an indigenous forest canopy — where she comes from.' },
+  { file: `${A}/nanda-portraits/nanda-and-poetry-art/IMG-20260620-WA0013.jpg`, room: 'forge',  alt: 'Nanda at the drums in-studio — the maker who is also a musician.' },
 ];
 
 export function portraitsForRoom(room: Portrait['room']): Portrait[] {
