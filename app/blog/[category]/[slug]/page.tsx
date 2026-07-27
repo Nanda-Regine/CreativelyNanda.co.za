@@ -359,7 +359,7 @@ export default function BlogPostPage() {
 
             {/* Title */}
             <h1
-              className="font-display italic leading-[1.02] mb-7"
+              className="font-display italic leading-[1.02] mb-7 break-words"
               style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5rem)', color: CREAM }}
             >
               {post.title}
@@ -438,7 +438,7 @@ export default function BlogPostPage() {
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-none"
+              className="max-w-none min-w-0"
             >
               {/* Magazine Drop Cap for first paragraph */}
               <div
@@ -618,6 +618,10 @@ export default function BlogPostPage() {
         .article-content {
           font-family: var(--font-dm-sans), sans-serif;
           color: ${NAVY};
+          /* Keep long words / URLs from pushing past the viewport on mobile */
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          hyphens: auto;
         }
 
         .article-content .article-p {
@@ -721,6 +725,9 @@ export default function BlogPostPage() {
           border-radius: 3px;
           font-family: var(--font-mono), monospace;
           font-size: 0.85em;
+          /* Long tokens (paths, identifiers) must wrap, not overflow */
+          overflow-wrap: anywhere;
+          word-break: break-word;
         }
 
         .article-li, .article-li-bullet {
