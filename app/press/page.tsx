@@ -139,7 +139,7 @@ Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqe
 
   long: `Nandawula Regine Kabali-Kagwa doesn't fit in boxes — and that's exactly the point.
 
-Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Each lineage gifted her a principle — lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
+Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Each lineage gifted her a principle — lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
 
 After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in KuGompo City. In one year from her first line of code, she shipped 8 production AI applications, accumulated 1,000+ GitHub commits, and built a company with paying clients — all while performing her poetry at 5 live events across the Eastern Cape.
 
@@ -369,7 +369,7 @@ export default function PressPage() {
             {[
               { label: 'Full Name', value: 'Nandawula Regine Kabali-Kagwa', accent: '#C1292E' },
               { label: 'Based In', value: 'KuGompo City, South Africa', accent: '#10B981' },
-              { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimango, Tshawe, Thabizolo)', accent: '#C1292E' },
+              { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimanga, Tshawe, Thabizolo)', accent: '#C1292E' },
               { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)', accent: '#C1292E' },
               { label: 'Certifications', value: 'Master Gen AI Professional · Prompt Engineering · Graphic Design · Digital Marketing · SheCodes Full-Stack', accent: '#00D4FF' },
               { label: 'Applications Built', value: '8+ production apps — AI SaaS, mobile (iOS/Android), and brand', accent: '#C1292E' },

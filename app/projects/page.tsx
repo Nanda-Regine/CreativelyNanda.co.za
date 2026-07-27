@@ -128,7 +128,7 @@ const PROJECTS: ProjectCard[] = [
     status: 'Live',
     problem: 'African women carry generations of botanical knowledge their grandmothers trusted. The products that exist either ignore it or price it in USD.',
     impact: [
-      'Ancestral hair care brand rooted in 5 clan lineages — Nsenene, Hlubi, Msimango, Thabizolo, Tshawe',
+      'Ancestral hair care brand rooted in 5 clan lineages — Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe',
       'Claude-powered hair consultation engine + private AI hair journal (Angel loyalty members only)',
       'Angel loyalty programme: Seed → Bloom → Royal Angel — physical QR card unlocks digital AI journal',
     ],

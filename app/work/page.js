@@ -44,7 +44,7 @@ const workExperience = [
         period: 'April 2026 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Built an African botanical hair care brand from concept to live e-commerce in 6 weeks — rooted in 5 ancestral clan lineages: Nsenene, Hlubi, Msimango, Thabizolo, Tshawe',
+          'Built an African botanical hair care brand from concept to live e-commerce in 6 weeks — rooted in 5 ancestral clan lineages: Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe',
           'Three product formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles — ancestral botanical knowledge documented in both clinical and cultural terms',
           'AI hair consultation engine: Claude Sonnet recommends the right product from a full routine description, personalised to each customer',
           'Angel loyalty programme: Seed → Bloom → Royal Angel tiers with a physical-digital QR card system — loyalty card triggers digital journal unlock',

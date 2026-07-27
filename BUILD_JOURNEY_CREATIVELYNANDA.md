@@ -695,3 +695,45 @@ Full visual pass over every image + all 28 videos (ffmpeg frame extraction). Per
 - **Screenshots of the animated live pages fail** (the cover's continuous motion times out the Chrome
   capture tool; static pages are fine) — visual tuning went via Nanda's eyes + `curl` HTML checks.
 - **Deploy cadence:** build against production via `vercel deploy --prod` (each increment), Nanda reviews live.
+
+## 18. Ship the rebuild + a full front-end review pass (2026-07-27)
+
+The editorial rebuild (§17) had been sitting on `feat/house-of-roses-reading-room` as a Vercel
+**preview only** — never PR'd to `main` — so production served the old design for ~5 days. Merged it
+(the new magazine cover, seven-movement journey, Cloudinary media, KuGompo City, poetry games all went
+live), then did a proper full-site audit.
+
+### The review (Playwright over all 39 public pages, desktop + mobile)
+Installed `playwright` in a clean non-OneDrive dir and drove **system Chrome** (`channel: 'chrome'`, no
+browser download — local npm/OneDrive is too slow). Swept every page at 1366px + 390px, measuring
+horizontal overflow, broken images, and console errors. Findings → fixes:
+- **Broken images (P0):** `lib/house-assets.ts` is a *local* visual atlas — `PORTRAITS` + `RoomBackdrop`
+  serve `/public/assets/*.jpg` **directly** (not Cloudinary). A source-photo reorg had moved files into
+  themed subfolders, so the hard-coded root paths 404'd on lineage / sanyu / the poem reader. Repointed
+  the atlas + swapped a missing `50+ Best Dark Blue…` backdrop for the real `Marine Blue…` file.
+  **Rule burned in: never exclude jpgs in `.vercelignore` or move `/public/assets` without updating this atlas.**
+- **Mobile overflow (P1):** ~20px sideways scroll on 32/39 pages → `overflow-x: clip` on `html`+`body`
+  (clip, not hidden — keeps sticky/fixed nav) + the footer bottom row set to `flex-wrap`.
+- **Hydration (P2):** React #425/#422 site-wide traced to `Footer.tsx` computing `new Date().getFullYear()`
+  during render → moved to `useEffect`. Re-uploaded a missing Heritage Cloudinary video; `prefetch={false}`
+  on the `/upgrades` → `/projects` links (that route 308s cross-origin to Mirembe → RSC-prefetch CORS).
+- **The chat overlap:** `NandaAssistant` (fixed bottom-left mascot) now starts minimized (small corner
+  avatar) on the home route so it never covers the cover; full character still shows elsewhere + on click.
+
+### The mistake worth recording
+I also **recomposed the mobile magazine cover on a guess** (portrait-right / coverlines-left). It was
+width-fragile — clipped the masthead at 360px and broke Nanda's symmetric composition. She called it, and
+it was **reverted**. Lesson: the `CoverHero` magazine cover is the crown jewel — **no cover redesign without
+Nanda's visual review first.** The original centered cover is the baseline.
+
+### Small correction
+Clan name spelling fixed site-wide: **Msimango → Msimanga** (her family's spelling) across all user-facing
+pages/metadata/footer; internal source-citation doc + external URLs left as their published spelling.
+
+### What was learned
+- **Vercel PREVIEW deploys are SSO-gated** → headless Playwright captures the login wall (false-clean).
+  Verify on **public production** instead.
+- **`house-assets.ts` is a local atlas, not Cloudinary** — asset housekeeping must keep its paths in sync;
+  real deploy-trimming needs that atlas migrated to `<CldImage>` (open follow-up).
+- **Don't redesign her signature surfaces unprompted.** Fix bugs freely; treat composition/aesthetics of the
+  cover as review-first.

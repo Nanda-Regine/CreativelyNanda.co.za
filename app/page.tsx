@@ -143,7 +143,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <FadeUp>
             <p className="font-sans text-[11px] tracking-[0.32em] uppercase text-[#C9943A] mb-7">
-              Nseenene · Tshawe · Hlubi · Msimango · Thabizolo
+              Nseenene · Tshawe · Hlubi · Msimanga · Thabizolo
             </p>
             <p className="font-display text-2xl md:text-[2.1rem] text-white leading-[1.35] mb-6">
               Nine generations documented.
@@ -161,10 +161,10 @@ export default function Home() {
               (Nseenene Clan Motto · Buganda Kingdom)
             </p>
             <p className="font-display text-base italic text-white/90 mb-1">
-              Msimango · Thabizolo · Nonkosi · Mlotshwa · Ngelengele
+              Msimanga · Thabizolo · Nonkosi · Mlotshwa · Ngelengele
             </p>
             <p className="font-sans text-[11px] text-white/45 mb-9">
-              (Msimango Clan Praises · AmaHlubi)
+              (Msimanga Clan Praises · AmaHlubi)
             </p>
             <Link href="/about" className="text-[#E4572E] text-sm font-medium hover:underline">
               The full lineage →

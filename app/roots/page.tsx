@@ -171,13 +171,13 @@ export default function Roots() {
         </div>
       </section>
 
-      {/* ═══ III. THE SCATTERED KINGDOM — amaHlubi / Msimango ═══════════════════ */}
+      {/* ═══ III. THE SCATTERED KINGDOM — amaHlubi / Msimanga ═══════════════════ */}
       <section className="relative px-6 py-24 md:py-28">
         <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 mx-auto max-w-5xl">
           <FadeUp>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-3">House III · amaHlubi, South Africa</p>
-            <h2 className="font-display text-4xl md:text-6xl font-bold mb-2">KwaMsimango</h2>
+            <h2 className="font-display text-4xl md:text-6xl font-bold mb-2">KwaMsimanga</h2>
             <p className="font-display text-xl md:text-2xl italic text-white/60 mb-8">The scattered kingdom</p>
           </FadeUp>
 
@@ -185,11 +185,11 @@ export default function Roots() {
             <FadeUp>
               <div className="space-y-5 text-white/75 leading-[1.85] md:text-lg font-light">
                 <p>
-                  The Msimango are amaHlubi — an Nguni people old enough to count kings back to the 1300s,
+                  The Msimanga are amaHlubi — an Nguni people old enough to count kings back to the 1300s,
                   down to <span className="text-white">Langalibalele</span>. Then, around 1818, the
                   <span className="text-white"> Mfecane</span> — the great scattering. The Hlubi kingdom was
                   shattered; its people fled north, west, into other nations, into refuge. That is why a
-                  Msimango can be found today in South Africa, Botswana, Lesotho, Zimbabwe. The spread of the
+                  Msimanga can be found today in South Africa, Botswana, Lesotho, Zimbabwe. The spread of the
                   clan across four countries is a fingerprint of that flight — and my own life across nations
                   is the same story, still moving.
                 </p>
@@ -250,7 +250,7 @@ export default function Roots() {
               I am the one they appointed to remember — and I remember in verse.
             </p>
             <p className="mt-8 font-mono text-[11px] tracking-[0.28em] uppercase text-white/40">
-              Nseenene · AmaTshawe · Msimango · Nine generations documented
+              Nseenene · AmaTshawe · Msimanga · Nine generations documented
             </p>
             <div className="mx-auto my-10 h-px w-16 bg-[#C9943A]/50" />
             <div className="flex flex-col justify-center gap-4 sm:flex-row">

@@ -103,7 +103,7 @@ export default function Footer() {
               © {currentYear} Mirembe Muse (Pty) Ltd · KuGompo City, South Africa
             </p>
             <p className="text-beige/40 text-[10px] mt-1.5" style={{ letterSpacing: '0.08em' }}>
-              Nseenene · AmaTshawe · AmaHlubi · Msimango · Thabizolo
+              Nseenene · AmaTshawe · AmaHlubi · Msimanga · Thabizolo
             </p>
           </div>
 

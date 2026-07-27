@@ -838,7 +838,7 @@ Sanyu Botanicals is a convergence — five ancestral lineages, modern botanical 
 
 ## The Name
 
-Sanyu is Luganda for joy. It's also one of the threads in my family lineage — along with Nsenene (the Grasshoppers, Ugandan royalty), Hlubi (Eastern Cape Nguni ancestors), Msimango, Thabizolo, and Tshawe.
+Sanyu is Luganda for joy. It's also one of the threads in my family lineage — along with Nsenene (the Grasshoppers, Ugandan royalty), Hlubi (Eastern Cape Nguni ancestors), Msimanga, Thabizolo, and Tshawe.
 
 These five clans each carried botanical knowledge across generations: which oils strengthen roots, which roots heal scalp, which rituals mark transitions. Sanyu Botanicals exists to make this knowledge accessible, dignified, and modern.
 
