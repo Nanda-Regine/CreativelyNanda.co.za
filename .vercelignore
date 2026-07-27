@@ -1,2 +1,16 @@
 # Media served from Cloudinary CDN — do not bundle into the deployment
 public/assets/**/*.mp4
+
+# Heavy source portraits (multi-MB originals) — served via Cloudinary <CldImage>,
+# not referenced by any local /assets path, so they don't need to ship in the bundle.
+public/assets/nanda-portraits/**
+
+# Loose original drops kept as source only (also not referenced locally).
+public/assets/IMG-*.jpg
+public/assets/IMG_*.jpg
+public/assets/Snapchat-*.jpg
+
+# NOTE: intentionally NOT a blanket "*.jpg" exclude. These folders are still
+# referenced by local /assets/... paths in code and MUST ship in the deploy:
+#   performance/  reviews/  art/  poetry-book/  background images/
+#   nanda-girl/  professional/  logos/  radio/
