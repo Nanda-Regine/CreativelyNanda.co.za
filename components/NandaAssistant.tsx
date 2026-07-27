@@ -392,7 +392,10 @@ const getRandomSuggestions = (count: number = 5) => {
 export function NandaAssistant() {
   const pathname = usePathname();
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
+  // Start minimized (small corner avatar) on the home page so the mascot doesn't
+  // overlap the full-bleed magazine cover's coverlines/portrait. Other pages have
+  // margins, so the full character shows there as before. Click expands it anywhere.
+  const [isMinimized, setIsMinimized] = useState(pathname === '/');
   const [isHovered, setIsHovered] = useState(false);
   const [showSpeechBubble, setShowSpeechBubble] = useState(false);
   const [currentBubbleText, setCurrentBubbleText] = useState('');
