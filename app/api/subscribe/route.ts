@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
 
             <p style="color: #0A1128; opacity: 0.75; line-height: 1.8; margin: 0 0 24px;">
               I write about building AI-powered applications, navigating tech as an African creative,
-              and the real process of building a company from East London, Eastern Cape.
+              and the real process of building a company from KuGompo City, Eastern Cape.
               Expect honesty, depth, and the occasional poem.
             </p>
 
@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
             </div>
 
             <p style="color: #B8860B; font-style: italic; font-size: 16px; margin: 24px 0 8px;">— Nanda</p>
-            <p style="color: #0A1128; font-size: 13px; margin: 0; opacity: 0.6;">Nandawula Regine Kabali-Kagwa · East London, South Africa</p>
+            <p style="color: #0A1128; font-size: 13px; margin: 0; opacity: 0.6;">Nandawula Regine Kabali-Kagwa · KuGompo City, South Africa</p>
 
             <hr style="border: none; border-top: 1px solid #E8DCC4; margin: 24px 0;" />
             <p style="color: #0A1128; font-size: 11px; opacity: 0.4; margin: 0; text-align: center;">

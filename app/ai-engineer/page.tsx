@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     'Meta WhatsApp Cloud API developer',
     'AI engineer South Africa',
     'African AI engineer',
-    'East London South Africa developer',
+    'KuGompo City South Africa developer',
     'PayFast developer South Africa',
     'business automation South Africa',
     'fractional AI officer Africa',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hire AI Engineer | Nandawula Regine — Claude API & Multi-Agent Systems',
     description:
-      'AI Engineer for hire. Custom Claude agents, multi-agent systems, production TypeScript. Available for remote engagements from East London, South Africa.',
+      'AI Engineer for hire. Custom Claude agents, multi-agent systems, production TypeScript. Available for remote engagements from KuGompo City, South Africa.',
     images: [{ url: 'https://creativelynanda.co.za/og-image.png', width: 1200, height: 630 }],
     type: 'website',
     url: 'https://creativelynanda.co.za/ai-engineer',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'AI Engineer | Nandawula Regine Kabali-Kagwa',
-    description: 'Building AI for Africa. Custom Claude agents, WhatsApp workflows, production TypeScript. East London, South Africa.',
+    description: 'Building AI for Africa. Custom Claude agents, WhatsApp workflows, production TypeScript. KuGompo City, South Africa.',
     images: ['https://creativelynanda.co.za/og-image.png'],
   },
   alternates: { canonical: 'https://creativelynanda.co.za/ai-engineer' },
@@ -136,7 +136,7 @@ export default function AIEngineerPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase mb-6 font-sans">
-              AI Engineer · East London, South Africa
+              AI Engineer · KuGompo City, South Africa
             </p>
             <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-[0.9] mb-6">
               Africa&apos;s AI Engineer.{' '}

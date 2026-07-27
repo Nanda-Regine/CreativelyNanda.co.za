@@ -46,13 +46,29 @@ const ibmMono = IBM_Plex_Mono({
 export const metadata = {
   title: 'Nandawula Regine Kabali-Kagwa | Poet, Creative & Culture-Keeper — South Africa',
   description:
-    'Nandawula Regine Kabali-Kagwa — published poet (Inside Her Roses), performer and creative from East London, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimango. For software, AI engineering and consulting, visit Mirembe Muse.',
+    'Nandawula Regine Kabali-Kagwa — published poet (Inside Her Roses), performer and creative from KuGompo City, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimango. For software, AI engineering and consulting, visit Mirembe Muse.',
   keywords: [
     // Identity
     'Nandawula Regine Kabali-Kagwa',
     'Nanda Regine',
     'CreativelyNanda',
     'Mirembe Muse',
+    // Heritage — Ugandan & South African (a real search dimension)
+    'Ugandan poet',
+    'Ugandan writer',
+    'Ugandan South African poet',
+    'Ugandan diaspora poet',
+    'Buganda',
+    'Baganda poet',
+    'Muganda woman writer',
+    'Nseenene clan',
+    'Luganda poetry',
+    'Kampala poet',
+    'Kabali-Kagwa',
+    'African woman poet',
+    'Xhosa poet',
+    'KuGompo City poet',
+    'East London poet',
     // Core roles — what hiring managers search
     'AI engineer',
     'AI engineer for hire',
@@ -86,7 +102,7 @@ export const metadata = {
     'South African developer',
     'remote developer Africa',
     'remote AI engineer',
-    'East London South Africa developer',
+    'KuGompo City South Africa developer',
     'African developer for hire',
     // Consulting / freelance searches
     'hire AI engineer',

@@ -11,7 +11,7 @@ import { contextImages, getContextFromPath } from './nanda-girl/types';
 // Context-aware speech bubbles for different pages
 const contextSpeechBubbles: Record<string, string[]> = {
   home: [
-    "7 AI apps. 6 months. East London. 🚀",
+    "7 AI apps. 6 months. KuGompo City. 🚀",
     "I'm a poet who codes & a coder who dreams!",
     "Ask me about the journey!",
     "Need something built? Let's chat!",
@@ -78,7 +78,7 @@ const knowledgeBase = {
       "Sawubona, radiant one! 🌅 I'm Nanda—Creative Technologist, poet, and dreamer. How may I illuminate your path today?",
       "Sanibonani! Welcome to my digital home. I'm Nandawula Regine Kabali-Kagwa, but you can call me Nanda. What brings you here?",
       "Greetings, kindred soul! ✨ I'm a poet who codes and a coder who dreams. What wisdom do you seek?",
-      "Hey there, beautiful! 🌺 Like sunrise over East London, your presence brightens this space. I'm Nanda—let's chat!",
+      "Hey there, beautiful! 🌺 Like sunrise over KuGompo City, your presence brightens this space. I'm Nanda—let's chat!",
       "Molweni! Step into my world where tech meets African heartbeats, where poetry meets pixels. What can I help you with?",
       "Hello, precious visitor! 💫 I'm Nanda—born from Eastern Cape soil, building dreams in code and verse. Ask me anything!",
     ]
@@ -87,7 +87,7 @@ const knowledgeBase = {
   identity: {
     triggers: ['who is nanda', 'about nanda', 'tell me about', 'who are you', 'introduce', 'what does she do', 'what do you do', 'about her', 'about you', 'your name', 'full name', 'background'],
     responses: [
-      "I'm Nandawula Regine Kabali-Kagwa—Creative Technologist, Published Poet, and Founder of Mirembe Muse. Based in East London, South Africa, I weave technology and creativity into experiences that matter. 🌍✨",
+      "I'm Nandawula Regine Kabali-Kagwa—Creative Technologist, Published Poet, and Founder of Mirembe Muse. Based in KuGompo City, South Africa, I weave technology and creativity into experiences that matter. 🌍✨",
       "I walk between worlds: the digital and the deeply human. A technologist whose hands build systems, a poet whose heart builds bridges. My roots are Ugandan and Zulu, my vision is global. 👑",
       "Poet • Developer • Dreamer. That's me in three words. I believe technology should amplify humanity, not replace it. Every line of code I write is a chance to make someone's day more beautiful.",
       "Born from Eastern Cape soil, I carry the ocean's resilience and the sky's limitless vision. I'm a first-generation entrepreneur building legacies through tech, poetry, and purpose. 🌊",
@@ -153,7 +153,7 @@ const knowledgeBase = {
     responses: [
       "Mirembe Muse (Pty) Ltd is incorporated — registered in South Africa since September 2025. 'Mirembe' means peace in Luganda (Kabali-Kagwa clan). 7 AI SaaS apps live, 6 Notion templates in the marketplace, and consulting open for engagements. 🌿",
       "Mirembe Muse offers full-stack development, digital marketing, systems architecture, media publishing, and AI consulting. Not just a tech company — a complete digital partner for African businesses ready to scale. 💻",
-      "From R249 Notion templates to R45,000 AI integration projects — Mirembe Muse has a pathway for every stage. Built from East London, serving clients locally and internationally. 👑",
+      "From R249 Notion templates to R45,000 AI integration projects — Mirembe Muse has a pathway for every stage. Built from KuGompo City, serving clients locally and internationally. 👑",
       "The mission: Africa-first technology that restores, not extracts. Every product under Mirembe Muse asks — will this serve someone's actual life? That's Ubuntu in code. 🌍",
     ]
   },
@@ -173,7 +173,7 @@ const knowledgeBase = {
     responses: [
       "📧 Email: nandaregine@gmail.com—I typically respond within 24-48 hours because your dreams don't wait! Or use the Contact page for a structured inquiry.",
       "Find me everywhere: LinkedIn (Nandawula Kabali-Kagwa), GitHub (Nanda-Regine), Instagram (@nanda.regine), Twitter (@creativelynanda), Medium, and Substack. The footer has all my links! 🔗",
-      "I'm based in East London, South Africa but work with clients globally. Time zones are just numbers, geography is just coordinates. Great work transcends both! 🌐✨",
+      "I'm based in KuGompo City, South Africa but work with clients globally. Time zones are just numbers, geography is just coordinates. Great work transcends both! 🌐✨",
       "Currently open for: Web development projects, Notion consulting, AI integration work, speaking engagements, creative collaborations. Remote-ready, globally minded, culturally grounded. Let's connect! 🤝",
       "Digital follows are lovely, but real conversations are sacred. Email nandaregine@gmail.com for opportunities, or slide into my LinkedIn DMs. I value authentic engagement! 💌",
     ]
@@ -193,7 +193,7 @@ const knowledgeBase = {
   location: {
     triggers: ['where', 'location', 'based', 'south africa', 'country', 'live', 'from', 'city', 'east london', 'eastern cape'],
     responses: [
-      "🌊 Based in East London, Eastern Cape, South Africa—where the Indian Ocean meets innovation! The Friendly City raising a formidable woman.",
+      "🌊 Based in KuGompo City, Eastern Cape, South Africa—where the Indian Ocean meets innovation! The Friendly City raising a formidable woman.",
       "South African roots, global reach. I carry Eastern Cape warmth to worldwide collaborations. PE taught me hospitality, the ocean taught me flow, now I bring both to remote work everywhere! 🇿🇦",
       "GPS coordinates: Eastern Cape. Spiritual coordinates: wherever great work is needed. I work with clients from Joburg to New York, Lagos to London. Geography is just coordinates! 🌍",
       "From Nelson Mandela's homeland to your inbox. I'm locally grounded but internationally minded—the ocean taught me resilience, now I build software that flows just as beautifully. 🌅",
@@ -264,7 +264,7 @@ const knowledgeBase = {
     triggers: ['tv', 'television', 'radio', 'interview', 'media', 'gqeberha', 'madiba', 'tru fm', 'press'],
     responses: [
       "📺 I was featured on 'Gqeberha: The Empire'—South African TV series! My poetry reached thousands of living rooms. Also interviewed on Madiba FM and TRU FM discussing poetry, creativity, and entrepreneurship.",
-      "From stages to screens to airwaves—my voice has traveled! Poetry performances across Port Elizabeth and East London, radio conversations about creativity and business, television features. The art speaks! 🎤✨",
+      "From stages to screens to airwaves—my voice has traveled! Poetry performances across Port Elizabeth and KuGompo City, radio conversations about creativity and business, television features. The art speaks! 🎤✨",
       "Media presence is part of the journey: in-depth radio conversations about the intersection of tech and creativity, TV features showcasing African voices, live poetry performances. The message must spread! 🌍",
     ]
   },

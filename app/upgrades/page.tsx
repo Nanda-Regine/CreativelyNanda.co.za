@@ -234,7 +234,7 @@ function UpgradesContent() {
             marginTop: '56px',
           }}
         >
-          Mirembe Muse (Pty) Ltd · East London, South Africa
+          Mirembe Muse (Pty) Ltd · KuGompo City, South Africa
         </p>
       </div>
     </main>

@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
               <a href="https://creativelynanda.co.za/products" style="color: #C1292E; font-weight: bold; text-decoration: none;">Mirembe Muse Notion Templates →</a>
             </div>
             <p style="color: #B8860B; font-style: italic; margin-top: 24px;">— Nanda</p>
-            <p style="color: #0A1128; opacity: 0.4; font-size: 11px; margin-top: 24px;">CreativelyNanda.co.za · East London, South Africa</p>
+            <p style="color: #0A1128; opacity: 0.4; font-size: 11px; margin-top: 24px;">CreativelyNanda.co.za · KuGompo City, South Africa</p>
           </div>
         </div>
       `,

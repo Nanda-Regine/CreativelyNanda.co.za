@@ -11,7 +11,7 @@ const EFFECTIVE_DATE = '5 April 2026';
 const COMPANY = 'Mirembe Muse (Pty) Ltd';
 const TRADING_AS = 'CreativelyNanda.co.za';
 const EMAIL = 'hello@creativelynanda.co.za';
-const ADDRESS = 'East London, Eastern Cape, South Africa';
+const ADDRESS = 'KuGompo City, Eastern Cape, South Africa';
 const WEBSITE = 'https://creativelynanda.co.za';
 
 export default function TermsAndConditions() {

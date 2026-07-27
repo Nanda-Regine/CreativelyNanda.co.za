@@ -23,7 +23,7 @@ export default function Footer() {
             <h3 className="font-display text-3xl font-bold text-cherry">Nanda</h3>
             <p className="text-beige/70 text-sm">
               Poet, creative and culture-keeper — writing, performing, and making things
-              beautiful from East London, South Africa.
+              beautiful from KuGompo City, South Africa.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export default function Footer() {
             <h4 className="font-display text-xl font-bold mb-4">The Work</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="https://mirembemuse.vercel.app" target="_blank" rel="noopener noreferrer" className="text-beige/70 hover:text-cherry transition-colors">
+                <a href="https://mirembemuse.co.za" target="_blank" rel="noopener noreferrer" className="text-beige/70 hover:text-cherry transition-colors">
                   Mirembe Muse ↗
                 </a>
               </li>
@@ -95,7 +95,7 @@ export default function Footer() {
         <div className="border-t border-beige/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
             <p className="text-beige/60 text-sm">
-              © {currentYear} Mirembe Muse (Pty) Ltd · East London, South Africa
+              © {currentYear} Mirembe Muse (Pty) Ltd · KuGompo City, South Africa
             </p>
             <p className="text-beige/40 text-[10px] mt-1.5" style={{ letterSpacing: '0.08em' }}>
               Nseenene · AmaTshawe · AmaHlubi · Msimango · Thabizolo

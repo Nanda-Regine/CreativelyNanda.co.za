@@ -69,7 +69,7 @@ export default function Maintenance() {
             marginTop: 28,
           }}
         >
-          — Nandawula Regine · East London, South Africa
+          — Nandawula Regine · KuGompo City, South Africa
         </p>
       </div>
     </div>

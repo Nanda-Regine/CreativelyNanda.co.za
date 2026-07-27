@@ -605,3 +605,93 @@ Where the visual atlas met the rooms. Nanda's own photographs and the background
 **Learned:** the atlas paid off immediately — dressing three rooms was a handful of drop-in edits (`<RoomBackdrop tone=.. />` + `portraitsForRoom(room).map(...)`), because the placement decisions lived in data, not markup. Palette discipline matters per room: the poetry rooms share the navy/gold House vocabulary, but `/sanyu` has its own green botanical identity, so it got the portrait but not the navy backdrop.
 
 *Phase 2a shipped 2026-07-19 (tsc clean). Still open in Phase 2: the Atrium path-chooser + living garden (deferred — it touches the user-built magazine-cover homepage), and Library browse-by-feeling + View Transitions.*
+
+---
+
+## 16. The House of Roses — Phase 2 complete + the design elevation (2026-07-19)
+
+A long, fast, iterative session took the House from a dark first pass all the way to Nanda's premium standard, then filled in the remaining rooms and the wider site. Everything below is **live in production** on creativelynanda.co.za, shipped across PRs #2–#8 (each preview-verified green on Vercel before merge). Working branch: `feat/house-of-roses-reading-room`.
+
+### The design elevation (the pivotal correction)
+Nanda's feedback drove a full visual re-think. Her design language (studied from mirembemuse.co.za / sanyubotanicals.co.za / varsityos.co.za): **photographs breathe at near-full strength**, warm **gold** metal, serif elegance, film grain, and only a *whisper* of veil. My first pass did the opposite (heavy navy scrim) — the exact mistake to avoid, since her brand is built on imagery.
+
+- **Textured image cards** — `RoseCard`/`FeaturedRoseCard` rewritten: each poem wears a photograph from its mood's pool (varied by id), cream type over a light mood-tinted foot-veil, slow zoom + lift on hover. No more flat colour boxes.
+- **`RoomBackdrop`** gained an `image` prop (art-directed backgrounds) + a **very light veil** engine (default veil 0.22, intensity 0.95, gentle edge-weighted tint). `lib/moods-atmosphere.ts` `tint()` rewritten much lighter; the garden's resting background became Nanda's cherry-blossom sunset.
+- **Legibility now rides on text-shadows + smoked-glass panels**, not blanket scrim.
+- Fire mood: swapped jewel *crystals* → *bloom* florals ("a garden, not a jewel box").
+- The **book cover** (`official-cover.jpg`) sits gold-framed in the garden's corner, linking to the book.
+
+### Art-directed page backgrounds (Nanda's own labelled files)
+She renamed pool images to intent-named files in `public/assets/background images/`, wired via `PAGE_BACKDROPS` in `lib/house-assets.ts`:
+`poetry-collection-background` (garden), `poetry-lineage-background` (Roots, indigo feathers), `poet-who-codes-header` + `poet-who-codes-background` (Forge), `poetry-community-background` (Circle), `poetry-erasure-background` (Erasure). Plus later, `navy-floral` for **My Garden** and the navy+gold ginkgo (`download (41).jpg`) for **the Crown** story.
+
+### Rooms finished
+- **The Stage** — cinematic performance-still hero + a page→stage storyline + editorial pull-quotes.
+- **My Garden** — midnight-floral background, the personal plot.
+- **The Crown** (`/sanyu`) — regal navy+gold ginkgo botanical behind "The Name Means Joy" (where the hair-journey portrait lives); green brand identity kept.
+- **Continuous room transitions** — `app/poetry/template.tsx` (opacity-only, so the fixed Reading Room overlay isn't re-anchored; atmosphere persists via the layout).
+- **Library browse-by-feeling** — mood pills on the garden that filter + wash the atmosphere.
+
+### Beyond the poetry world
+- **Nav reshuffle** — `components/layout/Navigation.tsx` (the ACTIVE nav; `components/Navigation.tsx` is dead code): "Poetry" is now a dropdown of all rooms (desktop hover / mobile expanded), `pathname.startsWith('/poetry')` active state.
+- **Gallery → "The Studio"** (`app/gallery/page.tsx`) — rebuilt with Nanda's own photographs only, in **circular gold-ringed frames** (Portraits / Culture / Performance / The Book). Removed the abstract `/assets/art/*` "Art" fillers that were never hers.
+- **Poet Who Codes** — a "Beneath the code" **soul-layer** section: the *range* of the craft (RAG/multi-agent AI, RLS multi-tenancy, offline PWAs, strict TS, 11 SA languages, WhatsApp/PayFast) as the poet's technical vocabulary — deliberately **not** a project catalogue (deep details live at Mirembe). Closes: "a poem is architecture you can feel; a codebase is a poem that has to run."
+- **Education** — cinematic graduation still (`mom-me-grad.jpg`, Nanda and her mother) behind the existing real NMU/tech-arc content.
+
+### What was learned
+- **Match the client's aesthetic, don't impose a default.** The navy-scrim misstep cost a round; her "I love my colours, very light veil" is now the rule (saved to memory as `nanda-design-language`).
+- **The OneDrive local env can't verify** (next dev 4+ min). Trust `tsc --noEmit` + the Vercel **preview** deployment (check `gh api repos/.../commits/<sha>/status` when the Vercel MCP is flaky) → merge via `gh pr create`/`gh pr merge` → production. Verify live with `curl -o /dev/null -w '%{http_code}'`.
+
+*Phase 2 shipped + user-approved 2026-07-19. Still open: the **Atrium** homepage path-chooser + living garden (deferred — touches the hand-built magazine-cover homepage; needs Nanda's explicit go-ahead), native shared-element View Transitions, and Phase 3 (ElevenLabs voice, Upstash Vector mood search, RAG talk-to-the-poet, Journal Builder, Rose Society membership).*
+
+---
+
+## 17. The Editorial Magazine — full soul-site rebuild (2026-07-21)
+
+Nanda's brief: this is a **premium editorial magazine** — a story arc, features, journeys, felt as an
+experience, curated with "the eye of an artist." Background-images are the *canvas*; her photos/videos are
+the *soul* laid over it. No mass image dumps; image **families**, not single picks; all the ways a gallery
+can be told. Writing in a poetic, descriptive voice.
+
+### Media pipeline → Cloudinary
+Her assets were ~490MB (273 images avg ~1MB, one 9.2MB; 28 videos 210MB) — too heavy for the repo and the
+local OneDrive+sharp optimizer (2min+/image). Moved ALL site imagery/video to **Cloudinary**:
+- `scripts/upload-to-cloudinary.mjs` / `upload-folder.mjs` / `upload-one.mjs` (read `.env.local`, mirror
+  `public/assets` paths as `creativelynanda/<...>` public_ids). Two >10MB images were ffmpeg-downscaled to
+  fit Cloudinary's 10MB upload cap.
+- `lib/cloudinary.ts` — `cldVideo()` / `cldVideoPoster()` (poster frames generated on-the-fly via `so_`).
+- `components/media/AmbientVideo.tsx` — muted, looping, in-view-only, reduced-motion→poster.
+- Images via `<CldImage>` (next-cloudinary). Verified: 2.8MB hero→344KB, 9.2MB→1MB, AVIF/WebP per browser.
+
+### Vision docs (in `project-docs/asset-catalog/`)
+Full visual pass over every image + all 28 videos (ffmpeg frame extraction). Per-folder catalogs +
+`MASTER-CATALOG-AND-PLACEMENT.md` (palette, seven movements, placement patterns), `IMAGE-FAMILIES.md`
+(13 named portrait families, each with a gallery form), `ROOTS-CLAN-RESEARCH.md` (sourced clan history).
+
+### Pages shipped (all live on production; maintenance mode turned OFF)
+- **Home** — `components/home/CoverHero.tsx`: the OG magazine-cover aesthetic (gold spine, Bebas masthead,
+  flanking coverlines, ticker, nebula, grain) rebuilt around the red-afro portrait as a **feathered oval**
+  (elliptical mask, object-cover, responsive object-position dialed with Nanda) + seven-movement journey below.
+- **Gallery** — 13 image families, each in its own form (single+marginalia, mosaic, diptych, plate+filmstrip,
+  triptych, stacked spread, filmstrip, oval "vanity wall" veiled behind an opt-in). Poetic captions on
+  hover/lightbox; plain `alt` kept for a11y/SEO.
+- **Roots** — the Nseenene grasshopper clan of Buganda (ancestor **Nnandawula** = her namesake; motto,
+  Wannyana→Kabaka Kimera, Apolo Kagwa), amaTshawe royal house, Msimango/amaHlubi izithakazelo — cultural
+  imagery + umqombothi ambient video. Descent framed per Nanda's confirmation; family names as family memory.
+- **About** — feature profile: the two tongues, four chapters (Poet/Stage/Turn-to-code/Woman).
+- **Blog** — index → magazine contents page; article template → full-bleed feature (drop cap, gold pull-quotes).
+  All Supabase data wiring preserved.
+- **The Poet Who Codes** — dressed with maker imagery + code-as-poetry.
+- **Poetry Games** (`/poetry/games`, replaces the erasure page which now redirects) — three real, working games:
+  `WordSearch` (drag-to-find, placement algorithm, win detection), `MagneticPoetry` (free-drag word tiles),
+  `FinishTheLine` (prompt + localStorage-kept lines). In `components/games/`.
+- **Contact** — warm editorial rebuild; form + `/api/contact` wiring intact; business pointed to Mirembe.
+- **Nav** (`components/Navigation.tsx`) — redesigned/extended: Poetry dropdown, grouped mobile drawer, brand
+  "Nandawula". Removed the "PoetryTube — Coming Soon" section from `/poetry`.
+- SEO: per-page metadata layouts refreshed (accurate keywords + common search terms).
+
+### What was learned
+- **Cloudinary is mandatory here** — the local env cannot optimize/serve her real photos.
+- **Screenshots of the animated live pages fail** (the cover's continuous motion times out the Chrome
+  capture tool; static pages are fine) — visual tuning went via Nanda's eyes + `curl` HTML checks.
+- **Deploy cadence:** build against production via `vercel deploy --prod` (each increment), Nanda reviews live.

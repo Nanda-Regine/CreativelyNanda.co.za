@@ -169,7 +169,7 @@ export default function NandaAI() {
     location: {
       triggers: ['where', 'location', 'based', 'south africa', 'country', 'live', 'from', 'city'],
       responses: [
-        "East London where the Indian Ocean meets innovation. South African roots, global reach. 🇿🇦🌊",
+        "KuGompo City where the Indian Ocean meets innovation. South African roots, global reach. 🇿🇦🌊",
         "Based in the heart of the Eastern Cape, working with souls across continents. Location is physical; impact is universal. 🌍✨",
         "Eastern Cape, South Africa -the Friendly City raising a formidable woman. She brings that warmth to every client interaction worldwide. ☀️",
         "From Nelson Mandela's hometown to the world's inbox. PE-based, internationally minded, culturally grounded. 🏖️",
