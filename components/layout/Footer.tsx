@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { Linkedin, Github, Twitter, Instagram, Mail } from 'lucide-react';
 import { PWAInstallButton } from '@/components/ui';
 
@@ -12,7 +13,11 @@ const SOCIALS = [
 ];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  // Resolve the year on the client only — `new Date()` during render diverges
+  // between the UTC server build and the visitor's timezone, which triggered
+  // React hydration errors #425/#422 site-wide. Fallback keeps SSR text stable.
+  const [currentYear, setCurrentYear] = useState(2026);
+  useEffect(() => setCurrentYear(new Date().getFullYear()), []);
 
   return (
     <footer className="bg-navy text-beige py-16 px-6">
@@ -102,7 +107,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
             {/* Social icons row */}
             <div className="flex gap-3">
               {SOCIALS.map(({ name, href, icon: Icon }) => (

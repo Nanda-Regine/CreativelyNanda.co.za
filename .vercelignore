@@ -1,16 +1,8 @@
-# Media served from Cloudinary CDN — do not bundle into the deployment
+# Videos are served from Cloudinary CDN — safe to keep out of the deployment bundle.
 public/assets/**/*.mp4
 
-# Heavy source portraits (multi-MB originals) — served via Cloudinary <CldImage>,
-# not referenced by any local /assets path, so they don't need to ship in the bundle.
-public/assets/nanda-portraits/**
-
-# Loose original drops kept as source only (also not referenced locally).
-public/assets/IMG-*.jpg
-public/assets/IMG_*.jpg
-public/assets/Snapchat-*.jpg
-
-# NOTE: intentionally NOT a blanket "*.jpg" exclude. These folders are still
-# referenced by local /assets/... paths in code and MUST ship in the deploy:
-#   performance/  reviews/  art/  poetry-book/  background images/
-#   nanda-girl/  professional/  logos/  radio/
+# NOTE on images: we do NOT exclude *.jpg here. lib/house-assets.ts (the "visual
+# atlas") serves many portraits/backgrounds as LOCAL /public paths via PlacedPortrait
+# + RoomBackdrop (lineage, sanyu, the poem reader, etc.), so excluding jpgs 404s them.
+# Trimming the ~image weight from the deploy requires migrating that atlas to
+# Cloudinary <CldImage> (like the Gallery already does) — tracked as follow-up work.

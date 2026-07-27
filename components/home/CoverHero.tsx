@@ -55,7 +55,13 @@ export default function CoverHero() {
            Narrow centred column => cover reveals more of her (zoomed out), smaller. */
         .cover-portrait{ object-fit:cover; object-position:center 58%; }
         @media (max-width:767px){
-          .cover-photo{ width:74% !important; }
+          /* Re-compose the cover for narrow screens: coverlines get a real column
+             on the left, the portrait moves to the right (feathered edge overlaps
+             gracefully), and the cramped right column is dropped — its heritage /
+             Mirembe lines live in the scroll sections + nav/footer. */
+          .cover-right{ display:none !important; }
+          .cover-photo{ width:60% !important; left:auto !important; right:6px !important; transform:none !important; }
+          .cover-left{ width:52% !important; max-width:52% !important; padding-right:4px !important; padding-bottom:40px !important; }
           .cover-portrait{ object-position:center 54%; }
         }
       `}</style>
@@ -116,7 +122,7 @@ export default function CoverHero() {
         </div>
 
         {/* LEFT COVERLINES — soul */}
-        <div style={{ width: 'clamp(78px, 15vw, 178px)', flexShrink: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '0', paddingRight: '8px', paddingTop: '18px', paddingBottom: '64px', position: 'relative', zIndex: 20 }}>
+        <div className="cover-left" style={{ width: 'clamp(78px, 15vw, 178px)', flexShrink: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '0', paddingRight: '8px', paddingTop: '18px', paddingBottom: '64px', position: 'relative', zIndex: 20 }}>
           <Coverline kicker="The Poet" title={'INSIDE\nHER ROSES'} sub={'Womanhood,\nlonging, becoming.'} />
           <Rule />
           <Coverline kicker="On Stage" title={'SPOKEN\nWORD'} sub={'Beadwork &\na microphone.'} />
@@ -132,7 +138,7 @@ export default function CoverHero() {
         </div>
 
         {/* RIGHT COVERLINES — heritage + the tech door */}
-        <div style={{ position: 'absolute', right: '8px', top: 0, bottom: 0, width: 'clamp(78px, 14vw, 150px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '10px', paddingBottom: '54px', zIndex: 20, textAlign: 'right' }}>
+        <div className="cover-right" style={{ position: 'absolute', right: '8px', top: 0, bottom: 0, width: 'clamp(78px, 14vw, 150px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '10px', paddingBottom: '54px', zIndex: 20, textAlign: 'right' }}>
           <div>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(6.5px,1.2vw,8.5px)', color: '#C9943A', letterSpacing: '0.14em', textTransform: 'uppercase', margin: '0 0 4px 0' }}>Heritage</p>
             <p style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(15px,2.6vw,22px)', color: '#FFFFFF', margin: '0 0 4px 0', letterSpacing: '0.03em', lineHeight: 0.98 }}>AMAHLUBI<br />&amp; BUGANDA</p>

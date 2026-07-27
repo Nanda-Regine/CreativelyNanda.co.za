@@ -44,6 +44,7 @@ function UpgradesContent() {
       <div style={{ position: 'absolute', top: '32px', left: '32px' }}>
         <Link
           href="/projects"
+          prefetch={false}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -189,6 +190,7 @@ function UpgradesContent() {
         >
           <Link
             href="/projects"
+            prefetch={false}
             style={{
               display: 'inline-block',
               padding: '12px 24px',
