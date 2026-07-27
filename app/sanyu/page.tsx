@@ -53,7 +53,7 @@ const pillars = [
   {
     icon: Leaf,
     title: 'Ancestral Wisdom',
-    description: 'Rooted in five clan lineages — Nsenene, Hlubi, Msimango, Thabizolo, Tshawe. Each formula carries centuries of botanical knowledge.',
+    description: 'Rooted in five clan lineages — Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe. Each formula carries centuries of botanical knowledge.',
   },
   {
     icon: Sparkles,
@@ -212,7 +212,7 @@ export default function SanyuBotanicalsPage() {
               {[
                 { clan: 'Nsenene', principle: 'Lead through people', nation: 'Ugandan' },
                 { clan: 'Hlubi', principle: 'Adapt and endure', nation: 'Xhosa' },
-                { clan: 'Msimango', principle: 'Heal at the root', nation: 'Zulu' },
+                { clan: 'Msimanga', principle: 'Heal at the root', nation: 'Zulu' },
                 { clan: 'Thabizolo', principle: 'Build unshakeable foundations', nation: 'Sotho' },
                 { clan: 'Tshawe', principle: 'Share what you create', nation: 'Xhosa' },
               ].map((item) => (

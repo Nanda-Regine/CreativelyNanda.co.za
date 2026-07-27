@@ -46,7 +46,7 @@ const ibmMono = IBM_Plex_Mono({
 export const metadata = {
   title: 'Nandawula Regine Kabali-Kagwa | Poet, Creative & Culture-Keeper — South Africa',
   description:
-    'Nandawula Regine Kabali-Kagwa — published poet (Inside Her Roses), performer and creative from KuGompo City, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimango. For software, AI engineering and consulting, visit Mirembe Muse.',
+    'Nandawula Regine Kabali-Kagwa — published poet (Inside Her Roses), performer and creative from KuGompo City, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimanga. For software, AI engineering and consulting, visit Mirembe Muse.',
   keywords: [
     // Identity
     'Nandawula Regine Kabali-Kagwa',

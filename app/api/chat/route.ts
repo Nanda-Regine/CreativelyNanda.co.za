@@ -47,7 +47,7 @@ ABOUT NANDA:
 - 15 academic distinctions at Nelson Mandela University: Higher Certificate → Diploma → Advanced Diploma in Business Management (NQF 5–7)
 - Published poet: "Inside Her Roses" (October 2021), 82 poems, Amazon/Apple Books/Kobo
 - Featured on SA TV series "Gqeberha: The Empire"; interviews on Madiba FM and TRU FM
-- Ugandan-Xhosa heritage; five ancestral clan lineages (Nsenene, Hlubi, Msimango, Thabizolo, Tshawe)
+- Ugandan-Xhosa heritage; five ancestral clan lineages (Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe)
 - POPIA registered information officer since 2025, registration 2026-005658
 
 SKILLS & EXPERTISE:

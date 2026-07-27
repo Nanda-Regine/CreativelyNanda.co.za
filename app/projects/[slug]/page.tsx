@@ -1364,7 +1364,7 @@ The 20-session UI rebuild in May–June 2026 was the longest continuous design s
     title: 'Sanyu Botanicals',
     tagline: 'Five Ancestral Lineages. One Hair Care Line. AI-Powered Personalisation.',
     description:
-      'African botanical wellness brand rooted in five clan lineages — Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Full e-commerce with PayFast. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Claude-powered hair consultation. Private AI hair journal (Angel loyalty members). Ingredient library with ancestral and scientific context. Angel loyalty programme: Seed, Bloom, Royal Angel — physical QR card unlocks digital AI journal.',
+      'African botanical wellness brand rooted in five clan lineages — Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Full e-commerce with PayFast. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Claude-powered hair consultation. Private AI hair journal (Angel loyalty members). Ingredient library with ancestral and scientific context. Angel loyalty programme: Seed, Bloom, Royal Angel — physical QR card unlocks digital AI journal.',
     category: 'Wellness · E-Commerce · AI',
     status: 'Live',
     year: '2026',
@@ -1402,7 +1402,7 @@ The 20-session UI rebuild in May–June 2026 was the longest continuous design s
       'Sanyu Botanicals',
     ],
     buildJourney: {
-      narrative: `Sanyu Botanicals is the most personal brand in the portfolio. The five clan lineages — Nsenene (my grandmother's clan), Hlubi, Msimango, Thabizolo, Tshawe — are not marketing copy. They are the actual ancestral framework the formulations are built from.
+      narrative: `Sanyu Botanicals is the most personal brand in the portfolio. The five clan lineages — Nsenene (my grandmother's clan), Hlubi, Msimanga, Thabizolo, Tshawe — are not marketing copy. They are the actual ancestral framework the formulations are built from.
 
 The hardest design decision was the Angel loyalty architecture. I wanted a system that connected the physical and digital worlds — a real card you hold, that unlocks something only you can access online. The QR card system: each Angel member gets a physical card with a unique QR code. Scanning it triggers authentication and unlocks the private AI hair journal. The journal remembers entries over time and surfaces personalised tips based on your documented routine.
 
