@@ -43,7 +43,11 @@ export default function CoverHero() {
         boxSizing: 'border-box',
       }}
     >
-      <style>{`
+      {/* CSS rendered via dangerouslySetInnerHTML so the raw text (quotes in the
+          [class*="cover-neb"] selector, "=>" in the comment) is emitted identically
+          on server and client — inline <style>{`…`} HTML-escapes on the server only,
+          which caused a text-content hydration mismatch (React #425 → #422). */}
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes cover-neb-a { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(26px,-22px) scale(1.1)} 100%{transform:translate(0,0) scale(1)} }
         @keyframes cover-neb-b { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(-30px,20px) scale(1.08)} 100%{transform:translate(0,0) scale(1)} }
         @keyframes cover-neb-c { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(18px,26px) scale(0.94)} 100%{transform:translate(0,0) scale(1)} }
@@ -58,7 +62,7 @@ export default function CoverHero() {
           .cover-photo{ width:74% !important; }
           .cover-portrait{ object-position:center 54%; }
         }
-      `}</style>
+      ` }} />
 
       {/* ── ATMOSPHERE: warm nebula over navy (the canvas) ── */}
       <div className="cover-neb-a" style={{ position: 'absolute', right: '-6%', top: '4%', width: '62%', height: '72%', borderRadius: '50%', background: 'radial-gradient(ellipse at center, rgba(201,148,58,0.30) 0%, rgba(201,148,58,0.10) 42%, transparent 68%)', zIndex: 1, animation: 'cover-neb-a 24s ease-in-out infinite', willChange: 'transform' }} />

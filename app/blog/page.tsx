@@ -31,6 +31,7 @@ function formatDate(dateString: string) {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'UTC', // pin to UTC so server + client render the same date (no hydration mismatch)
   });
 }
 
