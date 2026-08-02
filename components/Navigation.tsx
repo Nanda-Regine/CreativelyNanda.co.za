@@ -13,6 +13,7 @@ const PRIMARY = [
 
 const POETRY = [
   { href: '/poetry/collection', label: 'The Collection', hint: 'Inside Her Roses' },
+  { href: '/poetry/wall', label: 'The Wall', hint: 'Poems, page by page' },
   { href: '/poetry/stage', label: 'The Stage', hint: 'Spoken word' },
   { href: '/poetry/poet-who-codes', label: 'The Poet Who Codes', hint: 'Two tongues' },
   { href: '/poetry/games', label: 'Poetry Games', hint: 'The play room' },

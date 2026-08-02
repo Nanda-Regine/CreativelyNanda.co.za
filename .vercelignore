@@ -1,6 +1,11 @@
 # Videos are served from Cloudinary CDN — safe to keep out of the deployment bundle.
 public/assets/**/*.mp4
 
+# The @nanda.regine poem archive is served from Cloudinary (poem-wall/* via cldImg),
+# NOT local paths, so the heavy HEIC originals don't need to ship. Kept in git as
+# the master source; excluded from the Vercel bundle.
+public/assets/poem-instagram/**
+
 # NOTE on images: we do NOT exclude *.jpg here. lib/house-assets.ts (the "visual
 # atlas") serves many portraits/backgrounds as LOCAL /public paths via PlacedPortrait
 # + RoomBackdrop (lineage, sanyu, the poem reader, etc.), so excluding jpgs 404s them.
