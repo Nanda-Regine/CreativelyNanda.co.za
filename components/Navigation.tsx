@@ -22,6 +22,7 @@ const POETRY = [
 ];
 
 const AFTER = [
+  { href: '/engineer', label: 'The Engineer' },
   { href: '/blog', label: 'Writing' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -109,7 +110,7 @@ export default function Navigation() {
             </button>
           </div>
 
-          <MobileGroup label="The Person" links={[{ href: '/', label: 'Home' }, { href: '/about', label: 'About' }, { href: '/roots', label: 'Roots & Lineage' }, { href: '/contact', label: 'Contact' }]} pathname={pathname} onNav={() => setOpen(false)} />
+          <MobileGroup label="The Person" links={[{ href: '/', label: 'Home' }, { href: '/about', label: 'About' }, { href: '/engineer', label: 'The Engineer' }, { href: '/roots', label: 'Roots & Lineage' }, { href: '/contact', label: 'Contact' }]} pathname={pathname} onNav={() => setOpen(false)} />
           <MobileGroup label="The Art" links={[{ href: '/gallery', label: 'Gallery' }, { href: '/blog', label: 'Writing' }]} pathname={pathname} onNav={() => setOpen(false)} />
 
           {/* poetry accordion */}

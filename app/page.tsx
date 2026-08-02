@@ -198,7 +198,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ VII. THE BUILDER — the door to the work ════════════════════════════ */}
+      {/* ═══ VII. THE ENGINEER — teaser that opens the career feature ═══════════ */}
       <section className="relative py-28 px-6 overflow-hidden z-10" style={{ background: 'linear-gradient(135deg, #0A1128 0%, #1a2744 100%)' }}>
         <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
         <div className="max-w-5xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
@@ -206,37 +206,61 @@ export default function Home() {
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-5">
               The Other Half of the Story
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-              I also build.
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-[1.05] mb-6">
+              From zero to a<br />fifteen-wing AI OS.
             </h2>
-            <p className="text-white/70 text-lg leading-[1.8] mb-4">
-              By day I&apos;m an AI engineer and founder. The apps, the consulting, the
-              technical work — eight production AI systems built in a year — live under my
-              company, <span className="text-white font-semibold">Mirembe Muse</span>.
+            <p className="text-white/70 text-lg leading-[1.8] mb-8">
+              She wrote her first line of code in July 2025. One year later: eight live AI
+              products, a personal operating system with fifteen intelligence wings, and real
+              paying clients. This is the engineer&apos;s issue.
             </p>
-            <p className="text-white/45 text-sm mb-10">
-              If you&apos;re here for software, AI integration, or to work with me
-              professionally, that&apos;s the door.
-            </p>
-            <a
-              href="https://mirembemuse.co.za"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-9 py-4 bg-[#C9943A] text-[#0A1128] rounded-full font-bold hover:bg-[#d8a850] transition-all hover:scale-105"
-            >
-              Visit Mirembe Muse — Business &amp; Tech ↗
-            </a>
+
+            {/* three coverline stats */}
+            <div className="flex flex-wrap gap-x-9 gap-y-4 mb-9">
+              {[
+                ['8', 'Live apps'],
+                ['1,000+', 'Commits'],
+                ['15', 'Distinctions'],
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <p className="font-bebas text-[#C9943A] leading-none" style={{ fontSize: '2.6rem' }}>{v}</p>
+                  <p className="font-mono text-white/50 uppercase" style={{ fontSize: '10px', letterSpacing: '0.16em' }}>{l}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/engineer"
+                className="inline-flex items-center gap-2 px-9 py-4 bg-[#C9943A] text-[#0A1128] rounded-full font-bold hover:bg-[#d8a850] transition-all hover:scale-105"
+              >
+                Read the feature →
+              </Link>
+              <a
+                href="https://mirembemuse.co.za"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-9 py-4 border border-white/25 text-white rounded-full font-semibold hover:border-[#C9943A] hover:text-[#C9943A] transition-all"
+              >
+                Visit Mirembe Muse ↗
+              </a>
+            </div>
           </FadeUp>
           <FadeUp delay={0.15} className="order-1 md:order-2">
-            <div className="relative aspect-[4/5] rounded-xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+            <Link href="/engineer" className="group relative block aspect-[4/5] rounded-xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
               <CldImage
                 src="creativelynanda/professional/nanda-coding"
-                alt="Nanda working as an AI engineer at her screen"
+                alt="Nanda working as an AI engineer at her screen — read the career feature"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width:768px) 100vw, 40vw"
               />
-            </div>
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,17,40,0.8) 0%, transparent 55%)' }} />
+              <div className="absolute left-5 bottom-5">
+                <p className="font-mono text-[#C9943A] uppercase" style={{ fontSize: '10px', letterSpacing: '0.24em' }}>Issue 003</p>
+                <p className="font-display italic text-white text-2xl leading-tight">The Making<br />of an Engineer</p>
+              </div>
+            </Link>
           </FadeUp>
         </div>
       </section>
