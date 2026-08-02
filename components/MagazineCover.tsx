@@ -37,8 +37,11 @@ export default function MagazineCover() {
       flexDirection: 'column',
     }}>
 
-      {/* ── BACKGROUND ANIMATION KEYFRAMES ── */}
-      <style>{`
+      {/* ── BACKGROUND ANIMATION KEYFRAMES ──
+          dangerouslySetInnerHTML so the raw CSS (quotes in [class*="mag-nebula"])
+          is emitted identically server + client — avoids a text-content hydration
+          mismatch (React #425). Same fix as CoverHero. */}
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes nebula-gold {
           0%   { transform: translate(0px, 0px) scale(1); }
           33%  { transform: translate(30px, -20px) scale(1.08); }
@@ -85,7 +88,7 @@ export default function MagazineCover() {
             left: 18% !important;
           }
         }
-      `}</style>
+      ` }} />
 
       {/* ANIMATED GRAIN TEXTURE */}
       <div
