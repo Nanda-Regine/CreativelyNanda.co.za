@@ -24,3 +24,12 @@ export function cldVideo(id: string): string {
 export function cldVideoPoster(id: string, frame = 2, width = 1280): string {
   return `https://res.cloudinary.com/${CLOUD}/video/upload/so_${frame},f_auto,q_auto,w_${width},c_fill/${cldId(id)}.jpg`;
 }
+
+/**
+ * Optimized image delivery URL (auto format/quality, width-limited, aspect kept).
+ * Use with a plain <img> when you want the image's natural aspect ratio (e.g. a
+ * masonry wall of varied-shape cards) without knowing its dimensions up front.
+ */
+export function cldImg(id: string, width = 1000): string {
+  return `https://res.cloudinary.com/${CLOUD}/image/upload/f_auto,q_auto,w_${width},c_limit/${cldId(id)}`;
+}
