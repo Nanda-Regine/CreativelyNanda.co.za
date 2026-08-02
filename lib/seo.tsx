@@ -119,7 +119,7 @@ export function generatePersonJsonLd() {
     image: `${SITE_URL}/assets/professional/nanda-professional-2-transparent.png`,
     jobTitle: 'AI Engineer & Creative Technologist',
     description:
-      'Nandawula Regine Kabali-Kagwa is a South African AI engineer, full-stack TypeScript developer, and founder of Mirembe Muse (Pty) Ltd. She builds production AI systems — custom Claude agents, multi-agent architectures, WhatsApp automation, and SaaS platforms — for African businesses and global clients. 7 live AI products, 550+ commits, available for remote and on-site engagements.',
+      'Nandawula Regine Kabali-Kagwa is a South African AI engineer, full-stack TypeScript developer, and founder of Mirembe Muse (Pty) Ltd. She builds production AI systems — custom Claude agents, multi-agent architectures, WhatsApp automation, and SaaS platforms — for African businesses and global clients. 7 live AI products, 3,000+ commits, available for remote and on-site engagements.',
     worksFor: { '@type': 'Organization', name: 'Mirembe Muse (Pty) Ltd', url: 'https://mirembemuse.co.za' },
     alumniOf: {
       '@type': 'EducationalOrganization',

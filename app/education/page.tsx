@@ -630,7 +630,7 @@ export default function EducationPage() {
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(245,240,232,0.35)', letterSpacing: '0.1em', margin: 0 }}>
                 RESULT:
               </p>
-              {['8+ live apps', '1,000+ commits', '15 AI wings (JarvisOS)', '3+ paying clients', 'Mirembe Muse (Pty) Ltd'].map((tag) => (
+              {['8+ live apps', '3,000+ commits', '15 AI wings (JarvisOS)', '3+ paying clients', 'Mirembe Muse (Pty) Ltd'].map((tag) => (
                 <span key={tag} style={{
                   background: 'rgba(123,47,190,0.1)', border: '1px solid rgba(123,47,190,0.25)',
                   color: '#7B2FBE', fontFamily: 'var(--font-mono)', fontSize: '9px',

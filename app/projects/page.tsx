@@ -1043,7 +1043,7 @@ export default function ProjectsPage() {
               {[
                 { v: '18+', l: 'Portfolio Projects' },
                 { v: '8+', l: 'Live Apps' },
-                { v: '1,000+', l: 'GitHub Commits' },
+                { v: '3,000+', l: 'GitHub Commits' },
                 { v: '1 Year', l: 'Zero → Production' },
               ].map(({ v, l }, i) => (
                 <div key={l} style={{
