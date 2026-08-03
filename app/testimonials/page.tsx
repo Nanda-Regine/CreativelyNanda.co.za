@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
@@ -162,9 +163,8 @@ export default function TestimonialsPage() {
     <main className="min-h-screen bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4]">
       <div className="fixed inset-0 pointer-events-none opacity-25 z-0" style={{ backgroundImage: GRAIN }} />
 
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 bg-[#0A1128] pt-32 pb-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
+      {/* ── HERO (textured depth) ─────────────────────────────────────────── */}
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="relative z-10 pt-32 pb-20 px-6">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#C1292E]/15 pointer-events-none" style={{ borderRadius: '0 0 0 100%' }} />
         <div className="max-w-4xl mx-auto relative z-10">
           <motion.p
@@ -193,7 +193,7 @@ export default function TestimonialsPage() {
             hospitality, retail, and creative consulting.
           </motion.p>
         </div>
-      </section>
+      </TexturedSection>
 
       {/* ── FEATURED QUOTE — Bojan ───────────────────────────────────────── */}
       <section className="relative z-10 py-20 px-6">
