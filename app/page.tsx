@@ -69,12 +69,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ III. THE BOOK — altar on rose-lit navy ═════════════════════════════ */}
-      <section className="relative py-28 px-6 overflow-hidden z-10" style={{ background: 'radial-gradient(120% 90% at 30% 20%, #241021 0%, #14102A 55%, #0A1128 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
+      {/* ═══ III. THE BOOK — a LIGHT parchment spread (tonal breath) ════════════ */}
+      <TexturedSection texture={TEXTURES.roseWall} tone="parchment" className="relative py-28 px-6 z-10">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-center relative z-10">
           <FadeUp className="flex justify-center">
-            <div className="relative w-[260px] md:w-[360px] aspect-square shadow-2xl rounded-sm overflow-hidden ring-1 ring-[#C9943A]/25">
+            <div className="relative w-[260px] md:w-[360px] aspect-square shadow-2xl rounded-sm overflow-hidden ring-1 ring-[#6B0F20]/25">
               <CldImage
                 src="creativelynanda/poetry-book/official-cover"
                 alt="Inside Her Roses — A Poetry Collection by Nandawula Regine Kabali-Kagwa"
@@ -85,26 +84,26 @@ export default function Home() {
             </div>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-4">The Collection</p>
-            <h2 className="font-display text-5xl md:text-6xl font-bold italic text-white leading-[0.95] mb-6">
+            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C1292E] mb-4">The Collection</p>
+            <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#1a1230] leading-[0.95] mb-6">
               Inside<br />Her Roses.
             </h2>
-            <p className="text-white/70 text-lg leading-[1.8] mb-6">
+            <p className="text-[#2a2036] text-lg leading-[1.8] mb-6">
               A debut collection on womanhood, longing, healing and the quiet ferocity of
               becoming. Performed on stages and broadcast on radio across the Eastern Cape —
               from spoken-word nights to Tru FM and Madiba Radio.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <Link href="/poetry" className="px-6 py-3 bg-[#E4572E] text-white rounded-full font-semibold text-sm hover:bg-[#c9451f] transition-all">
+              <Link href="/poetry" className="px-6 py-3 bg-[#C1292E] text-white rounded-full font-semibold text-sm hover:bg-[#a01f28] transition-all">
                 Read the poetry →
               </Link>
-              <Link href="/gallery" className="px-6 py-3 border border-white/25 text-white rounded-full font-semibold text-sm hover:border-[#C9943A] hover:text-[#C9943A] transition-all">
+              <Link href="/gallery" className="px-6 py-3 border border-[#1a1230]/30 text-[#1a1230] rounded-full font-semibold text-sm hover:border-[#C1292E] hover:text-[#C1292E] transition-all">
                 See her world
               </Link>
             </div>
           </FadeUp>
         </div>
-      </section>
+      </TexturedSection>
 
       {/* ═══ IV. THE STAGE — cinematic band, one line of verse ══════════════════ */}
       <section className="relative h-[72vh] min-h-[460px] w-full overflow-hidden bg-black">
