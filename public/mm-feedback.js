@@ -38,10 +38,16 @@
 
   var open = false, type = 'general', panel
 
-  var btn = el('button', 'position:fixed;right:18px;bottom:18px;z-index:2147483000;border:none;cursor:pointer;' +
-    'background:' + COLOR + ';color:#0A0A0F;font:600 13px system-ui,sans-serif;padding:11px 16px;border-radius:999px;' +
-    'box-shadow:0 6px 22px rgba(0,0,0,0.35);', '💬 Feedback')
+  // Discreet circular icon (not a "Feedback" bar) so it doesn't break the editorial
+  // feel — dim by default, brightens on hover.
+  var btn = el('button', 'position:fixed;right:16px;bottom:16px;z-index:2147483000;border:none;cursor:pointer;' +
+    'width:38px;height:38px;background:' + COLOR + ';color:#0A0A0F;font-size:15px;border-radius:999px;opacity:0.45;' +
+    'box-shadow:0 4px 14px rgba(0,0,0,0.28);transition:opacity .2s,transform .2s;' +
+    'display:flex;align-items:center;justify-content:center;line-height:1;', '💬')
   btn.setAttribute('aria-label', 'Send feedback')
+  btn.setAttribute('title', 'Send feedback')
+  btn.onmouseenter = function () { btn.style.opacity = '1'; btn.style.transform = 'scale(1.08)' }
+  btn.onmouseleave = function () { btn.style.opacity = '0.45'; btn.style.transform = 'none' }
 
   function close() { open = false; if (panel) panel.remove(); panel = null; btn.style.display = 'block' }
 
