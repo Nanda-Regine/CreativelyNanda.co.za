@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 const P = (id: string) => `creativelynanda/nanda-portraits/${id}`;
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
@@ -72,9 +73,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ═══ TWO TONGUES — opening essay ═══ */}
-      <section className="relative px-6 py-24 md:py-28">
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
+      {/* ═══ TWO TONGUES — opening essay (textured depth) ═══ */}
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="px-6 py-24 md:py-28">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-8">In her own words, more or less</p>
@@ -85,7 +85,7 @@ export default function About() {
             </p>
           </FadeUp>
         </div>
-      </section>
+      </TexturedSection>
 
       {/* ═══ THE POET ═══ */}
       <Chapter kicker="The Poet" title="It began with a notebook." img={P('IMG_20250926_163119')}
@@ -151,9 +151,8 @@ export default function About() {
         </p>
       </Chapter>
 
-      {/* ═══ CLOSE ═══ */}
-      <section className="relative px-6 py-28" style={{ background: 'radial-gradient(120% 90% at 50% 0%, #241021 0%, #14102A 55%, #0A1128 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+      {/* ═══ CLOSE (textured depth) ═══ */}
+      <TexturedSection texture={TEXTURES.petal} tone="rose" className="px-6 py-28">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <h2 className="font-display text-4xl md:text-6xl font-bold italic leading-tight mb-8">
@@ -172,7 +171,7 @@ export default function About() {
             </div>
           </FadeUp>
         </div>
-      </section>
+      </TexturedSection>
     </main>
   );
 }
