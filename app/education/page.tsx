@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
+import { cldVideo } from '@/lib/cloudinary';
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
@@ -388,8 +389,8 @@ export default function EducationPage() {
         <FadeUp delay={0.2}>
           <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: '6px', maxWidth: '1160px', margin: '0 auto', padding: '0 24px 48px' }}>
             {[
-              { src: '/assets/graduation/diploma-graduation.mp4', label: 'Diploma Graduation · NQF Level 6 · 2023' },
-              { src: '/assets/graduation/adv-diploma-graduation.mp4', label: 'Advanced Diploma Graduation · NQF Level 7 · 2024' },
+              { src: cldVideo('graduation/diploma-graduation'), label: 'Diploma Graduation · NQF Level 6 · 2023' },
+              { src: cldVideo('graduation/adv-diploma-graduation'), label: 'Advanced Diploma Graduation · NQF Level 7 · 2024' },
             ].map(({ src, label }) => (
               <div key={src} style={{ position: 'relative', borderRadius: '2px', overflow: 'hidden', background: '#050810' }}>
                 <video
