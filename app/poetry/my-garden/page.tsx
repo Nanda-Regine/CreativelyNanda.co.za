@@ -9,6 +9,7 @@ import { RoseCard } from '@/components/poetry/RoseCard';
 import SerendipityButton from '@/components/poetry/SerendipityButton';
 import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import { useVisitStreak } from '@/hooks/useVisitStreak';
 import {
   getPoetProfile,
@@ -151,7 +152,7 @@ export default function MyGarden() {
       )}
 
       {/* Saved poems */}
-      <section className="px-6 pb-24">
+      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 pb-24 pt-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <span className="text-xs font-mono tracking-[0.3em] uppercase" style={{ color: '#C9A84C' }}>Poems you&rsquo;ve kept</span>
@@ -180,7 +181,7 @@ export default function MyGarden() {
             </motion.div>
           )}
         </div>
-      </section>
+      </TexturedSection>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import WordSearch from '@/components/games/WordSearch';
 import MagneticPoetry from '@/components/games/MagneticPoetry';
 import FinishTheLine from '@/components/games/FinishTheLine';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
@@ -67,14 +68,14 @@ export default function GamesPage() {
       </section>
 
       {/* close */}
-      <section className="relative z-10 px-6 pb-28 text-center">
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="relative z-10 px-6 pb-28 pt-6 text-center">
         <p className="mx-auto mb-8 max-w-xl font-display text-2xl md:text-3xl italic text-white/85">
           When you find the line you love, it stops being a game.
         </p>
         <Link href="/poetry/collection" className="rounded-full bg-[#C1292E] px-8 py-4 font-semibold text-white transition-all hover:scale-105">
           Read hers →
         </Link>
-      </section>
+      </TexturedSection>
     </main>
   );
 }

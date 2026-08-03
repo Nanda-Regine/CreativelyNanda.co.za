@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import { RoseCard, FeaturedRoseCard } from '@/components/poetry/RoseCard';
 import { POEMS, CATEGORIES, MOODS, type Poem, getMoodKeyForPoem } from '@/lib/poems-data';
 import { Search, Filter, BookOpen, Sparkles } from 'lucide-react';
@@ -323,7 +324,7 @@ export default function PoetryCollection() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 bg-gradient-to-r from-cherry to-cherry-dark">
+      <TexturedSection texture={TEXTURES.petal} tone="rose" className="py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -356,7 +357,7 @@ export default function PoetryCollection() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </TexturedSection>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Play, X, ArrowLeft } from 'lucide-react';
 import { PERFORMANCES, PERFORMANCE_STILLS, type Performance } from '@/lib/data/performances';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 export default function SpokenWordStage() {
   const [active, setActive] = useState<Performance | null>(null);
@@ -138,7 +139,7 @@ export default function SpokenWordStage() {
       </section>
 
       {/* Closing */}
-      <section className="px-6 pb-24">
+      <TexturedSection texture={TEXTURES.marble} tone="navy" className="px-6 pb-24 pt-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +156,7 @@ export default function SpokenWordStage() {
             </span>
           </Link>
         </motion.div>
-      </section>
+      </TexturedSection>
 
       {/* Video modal */}
       <AnimatePresence>

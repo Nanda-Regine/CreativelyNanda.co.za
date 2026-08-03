@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { PROMPTS, randomPrompt, type WritingPrompt } from '@/lib/data/prompts';
 import { recordPlanted } from '@/lib/poet-profile';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import PetalButton from '@/components/poetry/PetalButton';
 import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
@@ -380,7 +381,7 @@ export default function TheCircle() {
       </section>
 
       {/* Connect */}
-      <section className="px-6 py-14">
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="px-6 py-14">
         <div className="max-w-3xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Flower2 className="w-6 h-6 text-cherry" />
@@ -399,7 +400,7 @@ export default function TheCircle() {
             </a>
           </div>
         </div>
-      </section>
+      </TexturedSection>
     </div>
   );
 }
