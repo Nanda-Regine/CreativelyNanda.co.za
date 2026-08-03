@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import AmbientVideo from '@/components/media/AmbientVideo';
 import { cldVideo, cldVideoPoster } from '@/lib/cloudinary';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 const CU = (id: string) => `creativelynanda/nanda-culture/${id}`;
 const P = (id: string) => `creativelynanda/nanda-portraits/${id}`;
@@ -239,8 +240,7 @@ export default function Roots() {
       </section>
 
       {/* ═══ CLOSE — the introduction, made whole ══════════════════════════════ */}
-      <section className="relative px-6 py-28" style={{ background: 'radial-gradient(120% 90% at 50% 0%, #241021 0%, #14102A 55%, #0A1128 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="px-6 py-28">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-8">And so, the introduction</p>
@@ -268,7 +268,7 @@ export default function Roots() {
           and family record. Verified histories and praise-poetry; the family's own line and names are held
           as family memory.
         </p>
-      </section>
+      </TexturedSection>
     </main>
   );
 }

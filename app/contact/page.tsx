@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { CldImage } from 'next-cloudinary';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 const P = (id: string) => `creativelynanda/nanda-portraits/${id}`;
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
@@ -81,8 +82,8 @@ export default function Contact() {
         </div>
       )}
 
-      {/* ── OPENER ── */}
-      <section className="relative z-10 px-6 pt-36 pb-12 text-center">
+      {/* ── OPENER (textured depth) ── */}
+      <TexturedSection texture={TEXTURES.roseWall} tone="wine" className="relative z-10 px-6 pt-36 pb-16 text-center">
         <FadeUp>
           <p className="font-mono text-xs tracking-[0.35em] uppercase text-[#C9943A] mb-5">Say hello</p>
         </FadeUp>
@@ -95,7 +96,7 @@ export default function Contact() {
             this is where it starts.
           </p>
         </FadeUp>
-      </section>
+      </TexturedSection>
 
       {/* ── MAIN ── */}
       <section className="relative z-10 mx-auto max-w-6xl px-6 pb-24">

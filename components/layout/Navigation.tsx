@@ -19,6 +19,7 @@ const STORY: Item[] = [
 ];
 
 const POETRY_ROOMS: Item[] = [
+  { href: '/poetry', label: 'Enter the World', hint: 'The poetry home' },
   { href: '/poetry/collection', label: 'The Garden', hint: 'All the poems' },
   { href: '/poetry/wall', label: 'The Wall', hint: 'Poems, page by page' },
   { href: '/poetry/stage', label: 'The Stage', hint: 'The voice behind the verse' },

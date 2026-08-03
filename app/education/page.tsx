@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
@@ -775,8 +776,7 @@ export default function EducationPage() {
       </section>
 
       {/* ── BOTTOM CTA ───────────────────────────────────────────────── */}
-      <section className="relative z-10 py-24 px-6 bg-[#0A0F2C] text-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+      <TexturedSection texture={TEXTURES.marble} tone="navy" className="relative z-10 py-24 px-6 text-center">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '18vw', color: 'rgba(201,148,58,0.04)', lineHeight: 1, userSelect: 'none', textAlign: 'center' }}>
             ONE<br />YEAR
@@ -815,7 +815,7 @@ export default function EducationPage() {
             </div>
           </FadeUp>
         </div>
-      </section>
+      </TexturedSection>
 
     </div>
   );
