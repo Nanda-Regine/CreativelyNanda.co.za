@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Button, Badge, Card, Modal } from '@/components/ui';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 export default function Poetry() {
   const [activeVideo, setActiveVideo] = useState(null);
@@ -1073,7 +1074,7 @@ export default function Poetry() {
       </section>
 
       {/* ===== CLOSING QUOTE ===== */}
-      <section className="relative py-16 md:py-24 px-6 bg-navy overflow-hidden">
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="relative py-16 md:py-24 px-6">
         <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 8, repeat: Infinity }}
@@ -1107,7 +1108,7 @@ export default function Poetry() {
           </motion.blockquote>
           <motion.div variants={fadeInUp} className="text-beige/60">— Nanda Regine</motion.div>
         </motion.div>
-      </section>
+      </TexturedSection>
 
       {/* Hide scrollbar CSS */}
       <style jsx global>{`

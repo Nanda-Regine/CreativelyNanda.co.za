@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import { motion } from 'framer-motion';
 import {
   Search,
@@ -223,7 +224,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 px-6 bg-navy text-center">
+      <TexturedSection texture={TEXTURES.marble} tone="navy" className="py-16 px-6 text-center">
         <div className="max-w-2xl mx-auto">
           <p className="text-beige/50 text-sm tracking-widest uppercase mb-3">Nanda Marketplace</p>
           <h2 className="text-3xl font-display font-bold text-beige mb-4">
@@ -236,7 +237,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
             Questions? <a href="mailto:hello@creativelynanda.co.za" className="underline">hello@creativelynanda.co.za</a>
           </p>
         </div>
-      </section>
+      </TexturedSection>
     </div>
   );
 }
