@@ -219,7 +219,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-x-9 gap-y-4 mb-9">
               {[
                 ['8', 'Live apps'],
-                ['1,000+', 'Commits'],
+                ['3,000+', 'Commits'],
                 ['15', 'Distinctions'],
               ].map(([v, l]) => (
                 <div key={l}>

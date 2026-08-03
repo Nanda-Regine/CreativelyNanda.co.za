@@ -61,7 +61,7 @@ const SERVICES = [
 
 const PROOF = [
   { label: '8+', sub: 'Production apps' },
-  { label: '1,000+', sub: 'GitHub commits' },
+  { label: '3,000+', sub: 'GitHub commits' },
   { label: '6', sub: 'Notion templates live' },
   { label: '3', sub: 'Consecutive qualifications' },
 ];

@@ -28,7 +28,7 @@ const contextSpeechBubbles: Record<string, string[]> = {
     "7 production AI SaaS apps live! 💼",
     "Next.js · TypeScript · Claude API · Supabase",
     "Africa's first AI-native stokvel platform!",
-    "550+ GitHub commits and growing",
+    "3,000+ GitHub commits and growing",
     "Tech with soul, code with purpose ✨",
   ],
   about: [

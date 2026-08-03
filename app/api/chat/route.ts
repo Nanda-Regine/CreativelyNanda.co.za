@@ -43,7 +43,7 @@ ABOUT NANDA:
 - Location: KuGompo City, Eastern Cape, South Africa
 - Contact: hello@creativelynanda.co.za
 - Self-taught engineer — first line of code June 2025, built 8+ production AI SaaS apps in one year
-- 1,000+ GitHub commits across all projects
+- 3,000+ GitHub commits across all projects
 - 15 academic distinctions at Nelson Mandela University: Higher Certificate → Diploma → Advanced Diploma in Business Management (NQF 5–7)
 - Published poet: "Inside Her Roses" (October 2021), 82 poems, Amazon/Apple Books/Kobo
 - Featured on SA TV series "Gqeberha: The Empire"; interviews on Madiba FM and TRU FM
@@ -95,7 +95,7 @@ WORK HISTORY:
 - Balkan Burger: Waitress → Team Leader → Manager, 2+ years. Authored full operations manual, 22% waste reduction, 18% profitability increase, 4.8/5 customer satisfaction
 - June 2025: First line of code (SheCodes Plus).
 - September 2025: First production app (Cortex Hub Booking). Mirembe Muse incorporated.
-- Jan–Jun 2026: 8 apps built in 6 months. 1,000+ commits.
+- Jan–Jun 2026: 8 apps built in 6 months. 3,000+ commits.
 
 CONSULTING SERVICES & PRICING:
 - AI Integration: From R45,000/project

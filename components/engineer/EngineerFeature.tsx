@@ -74,7 +74,7 @@ const CRAFT = [
 
 const NUMBERS = [
   { value: '8', label: 'Live production apps' },
-  { value: '1,000+', label: 'GitHub commits' },
+  { value: '3,000+', label: 'GitHub commits' },
   { value: '1,194', label: 'RAG knowledge chunks' },
   { value: '15', label: 'JarvisOS intelligence wings' },
   { value: '15', label: 'Academic distinctions' },
@@ -196,7 +196,7 @@ export default function EngineerFeature() {
         <div className="absolute right-6 top-0 bottom-0 z-20 hidden lg:flex flex-col justify-center gap-6 text-right" style={{ width: '150px' }}>
           {[
             ['One year', '8 LIVE APPS'],
-            ['1,000+', 'COMMITS'],
+            ['3,000+', 'COMMITS'],
             ['Fifteen', 'DISTINCTIONS'],
           ].map(([a, b]) => (
             <div key={b}>

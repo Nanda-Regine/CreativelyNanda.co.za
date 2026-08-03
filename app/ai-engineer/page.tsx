@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Hire AI Engineer | Nandawula Regine Kabali-Kagwa — Claude API & Multi-Agent Systems',
   description:
-    'Hire Nandawula Regine — AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 8 live AI products including JarvisOS (15-wing personal OS) and AdminOS. 1,000+ commits. Paying clients. Remote-available from South Africa.',
+    'Hire Nandawula Regine — AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 8 live AI products including JarvisOS (15-wing personal OS) and AdminOS. 3,000+ commits. Paying clients. Remote-available from South Africa.',
   keywords: [
     // Hire-intent — what recruiters and tech leads type
     'hire AI engineer',
@@ -283,7 +283,7 @@ export default function AIEngineerPage() {
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-display text-2xl md:text-3xl italic text-[#0A1128]">
             8 live apps. JarvisOS — a 15-wing personal AI OS. Real paying clients.
-            1,000+ commits. All self-funded. All production.
+            3,000+ commits. All self-funded. All production.
             This is what I build for clients.
           </p>
           <Link href="/projects" className="inline-block mt-6 text-[#C1292E] font-medium hover:underline">
