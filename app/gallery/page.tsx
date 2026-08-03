@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 const P = (id: string) => `creativelynanda/nanda-portraits/${id}`;
@@ -166,8 +167,8 @@ export default function Gallery() {
       <div className="fixed inset-0 pointer-events-none opacity-[0.15] z-0" style={{ backgroundImage: GRAIN }} />
       <div className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-[#C9943A]/10 blur-3xl" />
 
-      {/* ── OPENER ── */}
-      <section className="relative z-10 px-6 pt-36 pb-16 text-center">
+      {/* ── OPENER (textured depth) ── */}
+      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="relative z-10 px-6 pt-36 pb-16 text-center">
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="font-mono text-xs tracking-[0.35em] uppercase text-[#C9943A] mb-5">
           A body of work, in chapters
@@ -182,7 +183,7 @@ export default function Gallery() {
           Not a folder of pictures. A table of contents for a life.
         </motion.p>
         <div className="mx-auto mt-10 h-px w-16 bg-[#C9943A]/50" />
-      </section>
+      </TexturedSection>
 
       {/* ── FAMILIES ── */}
       <div className="relative z-10 pb-10">

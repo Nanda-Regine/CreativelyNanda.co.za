@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import AmbientVideo from '@/components/media/AmbientVideo';
 import CoverHero from '@/components/home/CoverHero';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import { cldVideo, cldVideoPoster } from '@/lib/cloudinary';
 
 // ─── Fade-up helper ─────────────────────────────────────────────────────────────
@@ -199,8 +200,7 @@ export default function Home() {
       </section>
 
       {/* ═══ VII. THE ENGINEER — teaser that opens the career feature ═══════════ */}
-      <section className="relative py-28 px-6 overflow-hidden z-10" style={{ background: 'linear-gradient(135deg, #0A1128 0%, #1a2744 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
+      <TexturedSection texture={TEXTURES.marble} tone="navy" className="relative py-28 px-6 z-10">
         <div className="max-w-5xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <FadeUp className="order-2 md:order-1">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-5">
@@ -263,7 +263,7 @@ export default function Home() {
             </Link>
           </FadeUp>
         </div>
-      </section>
+      </TexturedSection>
 
       {/* ═══ CLOSE — the warm exhale ════════════════════════════════════════════ */}
       <section className="relative py-28 px-6 z-10" style={{ background: 'linear-gradient(135deg, #6B0F20 0%, #C21E56 55%, #E4572E 100%)' }}>
