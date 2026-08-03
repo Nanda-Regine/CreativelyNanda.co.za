@@ -392,10 +392,11 @@ const getRandomSuggestions = (count: number = 5) => {
 export function NandaAssistant() {
   const pathname = usePathname();
   const [isChatOpen, setIsChatOpen] = useState(false);
-  // Start minimized (small corner avatar) on the home page so the mascot doesn't
-  // overlap the full-bleed magazine cover's coverlines/portrait. Other pages have
-  // margins, so the full character shows there as before. Click expands it anywhere.
-  const [isMinimized, setIsMinimized] = useState(pathname === '/');
+  // Start minimized (a small, quiet corner avatar) on EVERY page — the full cartoon
+  // character + speech bubbles broke the premium editorial feel. It stays a subtle
+  // gold-ringed avatar until the visitor clicks to chat. Their choice persists via
+  // localStorage below.
+  const [isMinimized, setIsMinimized] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [showSpeechBubble, setShowSpeechBubble] = useState(false);
   const [currentBubbleText, setCurrentBubbleText] = useState('');
@@ -434,32 +435,13 @@ export function NandaAssistant() {
     }
   }, []);
 
-  // Speech bubble logic - show periodically when not chatting
+  // Auto speech bubbles are DISABLED — the periodic "pop-ups" (e.g. "From Eastern
+  // Cape to Africa-first AI!") undercut the premium editorial impression. The
+  // assistant now stays silent until the visitor opens it. (contextSpeechBubbles
+  // is kept for reference / future opt-in.)
   useEffect(() => {
-    if (isChatOpen || isMinimized) return;
-
-    const showBubble = () => {
-      const context = getContextFromPath(pathname);
-      const bubbles = contextSpeechBubbles[context] || contextSpeechBubbles.default;
-      const randomBubble = bubbles[Math.floor(Math.random() * bubbles.length)];
-      setCurrentBubbleText(randomBubble);
-      setShowSpeechBubble(true);
-
-      // Hide after 4 seconds
-      setTimeout(() => setShowSpeechBubble(false), 4000);
-    };
-
-    // Show first bubble after 5 seconds
-    const initialTimeout = setTimeout(showBubble, 5000);
-
-    // Then show periodically every 30 seconds
-    const interval = setInterval(showBubble, 30000);
-
-    return () => {
-      clearTimeout(initialTimeout);
-      clearInterval(interval);
-    };
-  }, [pathname, isChatOpen, isMinimized]);
+    setShowSpeechBubble(false);
+  }, [pathname]);
 
   // Scroll to bottom of messages
   const scrollToBottom = () => {
