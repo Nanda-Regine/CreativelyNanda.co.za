@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import { ArrowLeft, ArrowUpRight, Terminal } from 'lucide-react';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -384,8 +385,7 @@ export default function PoetWhoCodes() {
       </section>
 
       {/* ═══ BRIDGE TO MIREMBE MUSE ══════════════════════════════════════════════ */}
-      <section className="relative px-6 py-24" style={{ background: 'radial-gradient(120% 90% at 50% 0%, #241021 0%, #14102A 55%, #0A1128 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
+      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="relative px-6 py-24">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.3em] text-[#C9943A]">The systems have their own home</p>
@@ -412,7 +412,7 @@ export default function PoetWhoCodes() {
             </div>
           </FadeUp>
         </div>
-      </section>
+      </TexturedSection>
     </main>
   );
 }

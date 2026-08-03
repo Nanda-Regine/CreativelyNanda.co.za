@@ -7,6 +7,7 @@ import { LINEAGES, KIGANDA_INTRODUCTION } from '@/lib/data/lineage';
 import RoomBackdrop from '@/components/room/RoomBackdrop';
 import PlacedPortrait from '@/components/room/PlacedPortrait';
 import { portraitsForRoom, PAGE_BACKDROPS } from '@/lib/house-assets';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -198,7 +199,7 @@ export default function LineageRoom() {
       </section>
 
       {/* Closing bridge to the poems */}
-      <section className="px-6 py-16">
+      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 py-16">
         <div className="max-w-3xl mx-auto text-center">
           <motion.p
             initial={{ opacity: 0 }}
@@ -215,7 +216,7 @@ export default function LineageRoom() {
             Read the poetry this lineage produced <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </section>
+      </TexturedSection>
     </div>
   );
 }
