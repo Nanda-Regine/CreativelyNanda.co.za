@@ -17,6 +17,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import { PROJECTS } from '@/lib/data/projects';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 // ── Palette ─────────────────────────────────────────────────────────────────
 const NAVY = '#0A1128';
@@ -324,7 +325,7 @@ export default function EngineerFeature() {
       </div>
 
       {/* ══ THE NUMBERS ════════════════════════════════════════════════════════ */}
-      <section className="relative z-10 px-6 py-24 md:py-28" style={{ background: NAVY_DEEP }}>
+      <TexturedSection texture={TEXTURES.marble} tone="navy" className="relative z-10 px-6 py-24 md:py-28">
         <div className="mx-auto max-w-6xl">
           <FadeUp>
             <div className="text-center mb-14">
@@ -343,7 +344,7 @@ export default function EngineerFeature() {
             ))}
           </div>
         </div>
-      </section>
+      </TexturedSection>
 
       {/* ══ CHAPTER IV — THE PROOF ═════════════════════════════════════════════ */}
       <section id="chapter-IV" className="relative z-10 px-6 py-20 md:py-28" style={{ background: NAVY }}>

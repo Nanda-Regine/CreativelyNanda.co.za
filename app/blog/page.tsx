@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Search, Mail, ArrowRight, ArrowUpRight, Clock } from 'lucide-react';
 import type { BlogPost, Contributor } from '@/types/database';
 import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
+import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 // ── House palette ───────────────────────────────────────────────
 const NAVY = '#0A1128';
@@ -558,9 +559,8 @@ export default function BlogPage() {
               </div>
             </section>
 
-            {/* ── Newsletter ─────────────────────────────────── */}
-            <section className="relative px-6 py-28 overflow-hidden" style={{ background: NAVY }}>
-              <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: GRAIN, opacity: 0.12 }} />
+            {/* ── Newsletter (textured depth) ─────────────────── */}
+            <TexturedSection texture={TEXTURES.marble} tone="wine" className="relative px-6 py-28">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{ background: `radial-gradient(90% 60% at 50% 120%, ${ROSE}66, transparent 60%)` }}
@@ -591,7 +591,7 @@ export default function BlogPage() {
                   <SubscribeForm />
                 </motion.div>
               </div>
-            </section>
+            </TexturedSection>
           </>
         )}
       </div>
