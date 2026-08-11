@@ -23,6 +23,10 @@ const STORY: Item[] = [
 const FORGE_ROOMS: Item[] = [
   { href: '/forge', label: 'Enter the Forge', hint: 'The workshop' },
   { href: '/forge/origins', label: 'Where It Started', hint: 'The nine foundation projects' },
+  { href: '/forge/floor', label: 'The Workshop Floor', hint: 'Every build, one dossier each' },
+  { href: '/forge/scars', label: 'The Scar Room', hint: 'What broke, and why it was allowed to' },
+  { href: '/forge/nights', label: 'The Long Night', hint: 'The diary, night by night' },
+  { href: '/forge/commits', label: 'The Commit Wall', hint: 'A year of commits, as sentences' },
   { href: '/engineer', label: 'The Making', hint: 'Zero to eight apps in a year' },
   { href: '/poetry/poet-who-codes', label: 'The Poet Who Codes', hint: 'Two tongues, one mind' },
 ];

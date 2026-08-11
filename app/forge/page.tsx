@@ -9,6 +9,7 @@ import { ORIGINS } from '@/lib/data/forge-origins';
 // curation gate decorative. Here it is reduced to four integers before crossing
 // into the client component. See docs/THE_FORGE.md §3.
 import corpus from '@/lib/data/forge-corpus.json';
+import { getGithubTotals } from '@/lib/forge-data';
 
 export const metadata: Metadata = {
   title: 'The Forge | The workshop behind the poems — Nandawula Regine',
@@ -60,14 +61,18 @@ const JSON_LD = {
 };
 
 // Derived at build time so the threshold never states a number that has drifted
-// from the corpus it claims to describe.
+// from the corpus it claims to describe. The commit count comes from the GitHub
+// API rather than from the prose, for the same reason.
 function readStats(): ForgeStats {
   const entries = corpus.entries as { app: string; words: number; class: string }[];
+  const totals = getGithubTotals();
   return {
     apps: new Set(entries.map((e) => e.app)).size,
     words: entries.reduce((a, e) => a + e.words, 0),
     sessions: entries.filter((e) => e.class === 'session').length,
     projects: ORIGINS.length,
+    commits: totals.commits.toLocaleString('en-ZA'),
+    repos: totals.repos,
   };
 }
 

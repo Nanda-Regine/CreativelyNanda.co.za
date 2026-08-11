@@ -15,13 +15,16 @@ const ease = [0.22, 1, 0.36, 1] as const;
 // a door that opens onto nothing is worse than a door marked "not yet".
 const ROOMS: { name: string; line: string; href?: string }[] = [
   { name: 'Where It Started', line: 'Nine foundation projects. The sequence is the argument.', href: '/forge/origins' },
+  { name: 'The Workshop Floor', line: 'Every build, one dossier each — the problem, the decisions, the cost.', href: '/forge/floor' },
+  { name: 'The Scar Room', line: 'What broke. How it was found. Why the system allowed it.', href: '/forge/scars' },
+  { name: 'The Long Night', line: 'The diary. Night by night, newest first.', href: '/forge/nights' },
+  { name: 'The Commit Wall', line: 'A year of commit messages, read as sentences.', href: '/forge/commits' },
   { name: 'The Making', line: 'The career feature — zero to eight live products in a year.', href: '/engineer' },
   { name: 'The Poet Who Codes', line: 'The doorway between this wing and the garden.', href: '/poetry/poet-who-codes' },
-  { name: 'The Workshop Floor', line: 'Every build, one dossier each.' },
-  { name: 'The Long Night', line: 'The diary. Session by session, newest first.' },
-  { name: 'The Scar Room', line: 'What broke. What hour. What it cost.' },
+  // Still shut, and labelled as shut. A door that opens onto nothing is worse
+  // than a door marked "not yet" — and the honest reason each is closed is that
+  // it needs a live data source this site does not have. See THE_FORGE.md §5.6.
   { name: 'The Bench', line: 'Live vitals — apps breathing, deploys landing.' },
-  { name: 'The Commit Wall', line: 'Commit messages as found poetry.' },
   { name: 'The Dojo', line: 'Drills. Guess the bug. Read the trace.' },
 ];
 
@@ -44,14 +47,20 @@ export interface ForgeStats {
   words: number;
   sessions: number;
   projects: number;
+  /** Measured from the GitHub API by scripts/forge-github.mjs. Pre-formatted. */
+  commits: string;
+  repos: number;
 }
 
 export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
+  // Nothing here calls toLocaleString — the server already formatted it. Server
+  // and client can disagree on that call, which is precisely the hydration bug
+  // written up in the Scar Room.
   const figures: [string, string][] = [
-    [stats.projects.toString(), 'foundation projects'],
+    [stats.commits, 'commits, measured'],
     [stats.apps.toString(), 'builds journalled'],
-    [stats.sessions.toLocaleString(), 'work sessions logged'],
     [`${Math.round(stats.words / 1000)}k`, 'words of build journal'],
+    [stats.projects.toString(), 'foundation projects'],
   ];
 
   return (
@@ -108,7 +117,7 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
           <FadeUp>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>The rooms</p>
             <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold italic leading-tight text-white md:text-5xl">
-              Nine doors. Three of them open.
+              Nine doors. Seven of them open.
             </h2>
           </FadeUp>
 

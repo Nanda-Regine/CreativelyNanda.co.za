@@ -3,8 +3,24 @@
 > Companion to `HOUSE_OF_ROSES.md`. That doc built the garden. This one builds
 > the workshop on the other side of the same house.
 
-**Status:** spec. Corpus built and verified (`scripts/forge-ingest.mjs`).
-Rooms not yet built.
+**Status — 12 August 2026: Phase A is complete, and Phase B arrived early.**
+
+| Room | Route | State |
+|---|---|---|
+| ⚙️ The Forge | `/forge` | ✅ |
+| 🌱 Where It Started | `/forge/origins` | ✅ |
+| 🔨 The Workshop Floor | `/forge/floor` + `/[app]` | ✅ 9 dossiers |
+| 🩹 The Scar Room | `/forge/scars` | ✅ 9 postmortems |
+| 🌙 The Long Night | `/forge/nights` | ✅ 99 dated nights |
+| 🧱 The Commit Wall | `/forge/commits` | ✅ — **moved out of Phase B**, see §11 |
+| 📟 The Bench | `/forge/bench` | ⬜ still needs a live source; §9 Q4 stands (omit rather than fake) |
+| 🥋 The Dojo | `/forge/dojo` | ⬜ needs `engineering_dojo_drills` |
+
+The two remaining rooms are shut and **labelled as shut** on the threshold. Seven
+of nine doors open.
+
+⚠️ **The default-deny gate in §4 was never opened, and did not need to be.** No
+raw corpus section renders anywhere in the wing. See §12.
 
 ---
 
@@ -476,3 +492,102 @@ about the original — **rotate at the provider.**
 > use around secrets will always lose to a paste. Match the artefact. And note
 > which gate actually caught it — the pattern sweep found both; GitHub found one;
 > the hand-written probe found neither.
+
+---
+
+## 11. The bridge was never needed — 2026-08-12
+
+§5.6 filed **The Bench**, **The Commit Wall** and **The Dojo** as Phase B, blocked
+on §6's private→public push bridge. The reasoning was that commit data lives in
+JarvisOS's `engineering_commits` table (1,384 rows) and the prose corpus yields
+only 44 SHAs, which is far too thin for a wall.
+
+**That premise was wrong for one of the three rooms.** The commits are in GitHub,
+and a fine-grained read token reads them directly — including from the nine
+private repositories. `scripts/forge-github.mjs` pulls them locally and commits
+the result, exactly like `forge-ingest.mjs` and `upload-poem-wall.mjs`.
+
+```
+node scripts/forge-github.mjs        # → lib/data/forge-github.json  (37 KB)
+node scripts/forge-github.mjs --dry  # summarise, write nothing
+node scripts/forge-github.mjs --why  # list every line a safety rule withheld
+```
+
+**12 repositories · 3,098 commits · 43.2 MB of source · 52 weeks of activity ·
+57 lines on the wall.**
+
+This satisfies §6's actual security goal better than the bridge would have: the
+website never holds a JarvisOS credential *because it never needs one*. And every
+figure in the wing is now measured rather than written down — a number typed into
+prose starts drifting the moment it is typed, which is the failure mode of every
+"1,000+ commits" line on every portfolio.
+
+**The Bench and The Dojo stay in Phase B.** GitHub has commits; it does not have
+health checks, AI spend or drill content. §9 Q4's recommendation stands: omit the
+room rather than ship a static panel labelled "live".
+
+### The gate on commit messages
+
+Nine of the twelve repositories are private, so subjects pass the same discipline
+as the prose — with one difference. On a prose section the vocabulary probe routes
+to human review; on a one-line subject it **drops**, because there is nothing left
+worth a human's time to rescue. Credential shape → drop. Live-exposure disclosure
+→ drop (§4.6). A named individual → drop.
+
+⚠️ **The first version of that gate was badly wrong in both directions**, and the
+`--why` flag is what caught it. It withheld 111 of 141 publishable lines while
+looking careful. The write-up is in the Scar Room as *"The privacy filter that
+looked strict and was deleting the room"* — short version: `new RegExp(…, 'i')`
+makes `[A-Z]` match lowercase, so a rule meant to catch *"for Firstname Surname"* was
+really *"the word for, followed by any two words"*. A second rule was matching the
+*topic* of security rather than the *disclosure* of it, and was discarding K53
+road-sign codes (`R111`, `R118`) as salary figures.
+
+**Any filter that withholds must be able to print what it withheld.** An
+over-blocking filter has no error, no warning and no symptom — it just looks like
+caution, and the pressure it creates is to switch the whole thing off.
+
+---
+
+## 12. How the rooms got written without opening the gate
+
+§4 is a default-deny review that only Nanda can clear, and as of this build
+**nothing has been approved — `lib/data/forge-review.json` does not exist.** The
+rooms shipped anyway, because they do not render the corpus.
+
+> **The corpus is research. The rooms are written.**
+
+`lib/data/forge-builds.ts` and `lib/data/forge-scars.ts` are prose composed *from*
+the journals, where every sentence was chosen by a reader rather than passed by a
+filter. Three things follow, and all of them are improvements:
+
+1. **Safer than a paste.** The gate protects raw sections; writing removes the
+   need to render any. Nothing reaches a page that was not deliberately put there.
+2. **Better.** The corpus is a work log — abbreviated, written at 2am for a reader
+   who already has the context. This site is an editorial magazine.
+3. **Closer to the brief.** Not postmortems only, but *"technical decisions, the
+   learning curves, the wins, the solved bug, the methodology of building a
+   feature, why some APIs matter, how to start in tech"*. Each dossier's
+   `learned` field is that checklist made structural — a bolded claim, then the
+   reasoning, which is the shape her own build journals already use.
+
+The one room that *is* driven by the corpus is **The Long Night**, and it renders
+only what can be published without a human having read 219 bodies: the session
+**title**, its date, its build. A title is a line she wrote on purpose. A body is
+a work log. The ledger turns out to be the better room anyway — the titles are the
+writing.
+
+**Human review is still load-bearing and still owed.** The shortlist at
+`project-docs/forge-curation-shortlist.md` remains unmarked, and one of its twelve
+scar candidates (S03) carries a real person's name in the middle of a database
+bug while scoring clean on every automated signal. That section is not in the wing
+and would not have been caught by any filter here.
+
+### §9 answered
+
+| Q | Resolution |
+|---|---|
+| 2. Sankofa Sessions | **Left off the floor.** One section is not a room. Stated on the page rather than silently omitted. |
+| 4. The Bench without the bridge | **Omitted.** Door labelled shut. |
+| 5. The probe over-drops | **Moot for the wing** — no corpus section renders, so nothing was lost to it. Still open for whenever the gate is used. |
+| 6. The Scar Room is smaller than 20 | **Confirmed. It ships nine and does not pad.** Six rewritten from candidates, three written fresh (PayFast signature, React 425, the silent corpus loss), plus the security-posture essay §4.6 asked for and one new scar from building this. |
