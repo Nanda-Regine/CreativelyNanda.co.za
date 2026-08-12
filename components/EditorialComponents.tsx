@@ -47,8 +47,7 @@ export function HeroWithCutout() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <Link
-              href="/projects"
+            <Link href="/projects" prefetch={false}
               className="px-8 py-4 bg-cherry text-white rounded-full font-manrope font-semibold shadow-lg hover:shadow-xl transition-shadow"
             >
               View Projects

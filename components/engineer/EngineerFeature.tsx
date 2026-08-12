@@ -411,7 +411,7 @@ export default function EngineerFeature() {
           </div>
           <FadeUp>
             <div className="mt-10 text-center">
-              <Link href="/projects" className="font-mono uppercase transition-colors hover:text-[#C9943A]" style={{ color: 'rgba(245,240,232,0.55)', fontSize: '12px', letterSpacing: '0.2em' }}>
+              <Link href="/projects" prefetch={false} className="font-mono uppercase transition-colors hover:text-[#C9943A]" style={{ color: 'rgba(245,240,232,0.55)', fontSize: '12px', letterSpacing: '0.2em' }}>
                 See all nine projects →
               </Link>
             </div>

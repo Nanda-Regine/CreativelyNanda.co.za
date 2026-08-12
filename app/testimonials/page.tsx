@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import { FEATURED, RECOMMENDATIONS, READER_REPLIES, READER_SHOTS } from '@/lib/data/testimonials';
+import { hrefFor, EXTERNAL_LINK_PROPS } from '@/lib/external-routes';
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
@@ -283,18 +284,25 @@ export default function TestimonialsPage() {
             Ready to add your name to this list?
           </h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/consulting"
+            {/* /consulting and /work are 308s to mirembemuse (next.config.js).
+                As internal Links, Next prefetched an RSC payload for a
+                cross-origin redirect and the browser blocked it — which is what
+                filled this page's console with ERR_FAILED. See
+                `lib/external-routes.ts`. */}
+            <a
+              href={hrefFor('/consulting').href}
+              {...EXTERNAL_LINK_PROPS}
               className="px-8 py-4 bg-white text-[#C1292E] rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105"
             >
               Work with Nanda →
-            </Link>
-            <Link
-              href="/work"
+            </a>
+            <a
+              href={hrefFor('/work').href}
+              {...EXTERNAL_LINK_PROPS}
               className="px-8 py-4 border-2 border-white/40 text-white rounded-full font-semibold hover:border-white hover:bg-white/10 transition-all"
             >
               View full work history
-            </Link>
+            </a>
           </div>
         </div>
       </section>

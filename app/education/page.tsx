@@ -882,7 +882,7 @@ export default function EducationPage() {
                   See how the academic foundation translated into real work experience.
                 </p>
               </div>
-              <Link href="/work" style={{
+              <Link href="/work" prefetch={false} style={{
                 display: 'inline-block', background: '#0A0F2C', color: '#F5F1E8',
                 fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.15em',
                 padding: '10px 20px', textDecoration: 'none', whiteSpace: 'nowrap' as const,
@@ -933,15 +933,13 @@ export default function EducationPage() {
               Code taught her how to rebuild them.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/projects"
+              <Link href="/projects" prefetch={false}
                 className="px-8 py-4 bg-[#2D4A22] text-white font-semibold hover:bg-[#2D4A22]/90 transition-all hover:scale-105"
                 style={{ borderRadius: '9999px' }}
               >
                 See My Work →
               </Link>
-              <Link
-                href="/consulting"
+              <Link href="/consulting" prefetch={false}
                 className="px-8 py-4 bg-[#C1292E] text-white font-semibold hover:bg-[#C1292E]/90 transition-all hover:scale-105"
                 style={{ borderRadius: '9999px' }}
               >
