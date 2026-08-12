@@ -273,14 +273,25 @@ export default function TestimonialsPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative block overflow-hidden rounded-sm transition-transform hover:-translate-y-1"
-                  style={{ aspectRatio: '3 / 4', boxShadow: '0 8px 24px rgba(26,26,46,0.12)' }}
+                  style={{
+                    aspectRatio: '3 / 4',
+                    boxShadow: '0 8px 24px rgba(26,26,46,0.12)',
+                    background: '#E7E0D6',
+                  }}
                 >
+                  {/*
+                   * `contain`, not `cover`. These are screenshots of wildly
+                   * different shapes, and cover was zooming the wide ones until
+                   * a tile read as three enormous blurred words — "take her
+                   * writ", "ding more". A little letterboxing on a warm tile is
+                   * the cost of every one staying legible.
+                   */}
                   <CldImage
                     src={`creativelynanda/${id}`}
                     alt={`A reader's response to one of the poems (${i + 1} of ${READER_SHOTS.length})`}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                    className="object-cover object-top"
+                    className="object-contain"
                   />
                 </a>
               ))}
