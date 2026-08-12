@@ -90,7 +90,16 @@ export function OffsetFigure({
   alt: string;
   caption?: string;
   credit?: string;
-  bleed?: 'left' | 'right';
+  /**
+   * Which margin the image breaks into.
+   *
+   * ⚠️ `'none'` exists because the bleed is a NEGATIVE MARGIN, and a negative
+   * margin only makes sense against a text measure. Used inside a multi-column
+   * grid it pulls each tile over its neighbour and shoves the last one off the
+   * viewport — which is exactly what happened to the performance strip on
+   * /about and the three-up on /forge. In a grid, pass `bleed="none"`.
+   */
+  bleed?: 'left' | 'right' | 'none';
   ratio?: string;
   parallax?: boolean;
   className?: string;
@@ -103,7 +112,9 @@ export function OffsetFigure({
   return (
     <figure
       ref={ref}
-      className={`relative ${bleed === 'left' ? 'md:-ml-24 lg:-ml-40' : 'md:-mr-24 lg:-mr-40'} ${className}`}
+      className={`relative ${
+        bleed === 'left' ? 'md:-ml-24 lg:-ml-40' : bleed === 'right' ? 'md:-mr-24 lg:-mr-40' : ''
+      } ${className}`}
     >
       <div className="relative overflow-hidden rounded-sm" style={{ aspectRatio: ratio }}>
         <motion.img

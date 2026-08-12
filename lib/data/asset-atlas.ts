@@ -277,12 +277,19 @@ export const FAMILY = {
     note: 'Inside Her Roses — the cover on deep red roses, the interior spreads with their line drawings, the orange launch poster, the book in gardens and beside coffee. Deep red, cream, black.',
     ground: 'rose',
     hero: true,
+    // ⚠️ Verified against the CDN. The first version of this family invented
+    // three ids (`nanda-poetry-book-1..3`) that do not exist, and /about
+    // rendered a 404 into the page. Every id below was listed from Cloudinary
+    // rather than guessed from the folder name.
     ids: [
-      'poetry-book/nanda-poetry-book-1',
-      'poetry-book/nanda-poetry-book-2',
-      'poetry-book/nanda-poetry-book-3',
+      'poetry-book/official-cover',
+      'poetry-book/book-cover-1',
+      'poetry-book/book-shoot-1',
+      'poetry-book/book-pages',
+      'poetry-book/contents-page',
+      'poetry-book/romance-chapter',
+      'poetry-book/book-launch-poster',
     ],
-    local: ['assets/poetry-book'],
     rooms: ['/poetry', '/poetry/collection', '/'],
   },
 
@@ -364,6 +371,7 @@ export const FAMILY = {
   graduation: {
     note: 'Two graduations, on video — the auditorium, the procession, the bunting. Plus the first-graduation excitement clip. The Education page currently links to none of it.',
     ground: 'parchment',
+    video: true,
     ids: [
       'graduation/adv-diploma-graduation',
       'graduation/diploma-graduation',
@@ -392,9 +400,16 @@ export const FAMILY = {
     note: 'Sanyu Botanicals — herbal balm and serum, made in a kitchen (the whisk, the dried herbs, the mixing bowl) and photographed in gardens. Cream, burgundy, deep green. Currently absent from the Workshop Floor entirely.',
     ground: 'bone',
     hero: true,
+    // ⚠️ Opaque hashes, listed from the CDN. The first version guessed
+    // `sanyu/vault/1..18` from the fact that the folder was numbered elsewhere.
+    // It is not. Nothing in this folder is guessable — always list it.
     ids: [
-      'sanyu/vault/1', 'sanyu/vault/2', 'sanyu/vault/3',
-      'sanyu/vault/10', 'sanyu/vault/14', 'sanyu/vault/18',
+      'sanyu/vault/01f31fef7690',
+      'sanyu/vault/07c78766bb10',
+      'sanyu/vault/0af8d2ae28cf',
+      'sanyu/vault/0ef84fed2d0f',
+      'sanyu/vault/104eafc5eff9',
+      'sanyu/vault/10d68e574b7e',
     ],
     rooms: ['/forge/floor/sanyu', '/sanyu'],
   },

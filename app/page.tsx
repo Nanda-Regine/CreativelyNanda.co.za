@@ -91,7 +91,7 @@ export default function Home() {
             <p className="text-[#2a2036] text-lg leading-[1.8] mb-6">
               A debut collection on womanhood, longing, healing and the quiet ferocity of
               becoming. Performed on stages and broadcast on radio across the Eastern Cape —
-              from spoken-word nights to Tru FM and Madiba Radio.
+              from spoken-word nights to TRU FM and Madibaz Radio.
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link href="/poetry" className="px-6 py-3 bg-[#C1292E] text-white rounded-full font-semibold text-sm hover:bg-[#a01f28] transition-all">

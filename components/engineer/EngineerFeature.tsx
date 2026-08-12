@@ -111,16 +111,15 @@ function Rule({ w = '100%', color = 'rgba(201,148,58,0.3)' }: { w?: string; colo
 
 // A chapter spread: full-width band, image on one side, prose on the other.
 function Chapter({
-  num, title, kicker, img, alt, flip = false, accent = GOLD, children, swapReady = false,
+  num, title, kicker, img, alt, flip = false, accent = GOLD, children,
 }: {
   num: string; title: string; kicker: string; img: string; alt: string;
-  flip?: boolean; accent?: string; children: React.ReactNode; swapReady?: boolean;
+  flip?: boolean; accent?: string; children: React.ReactNode;
 }) {
   return (
     <section className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className={`grid items-center gap-10 md:grid-cols-2 md:gap-16 ${flip ? 'md:[&>*:first-child]:order-2' : ''}`}>
         <FadeUp>
-          {/* ⟢ SWAP-READY photo slot */}
           <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-2xl" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.45)', border: `1px solid rgba(201,148,58,0.18)` }}>
             <CldImage src={img} alt={alt} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
             <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(10,17,40,0.5) 0%, transparent 45%)' }} />
@@ -148,15 +147,27 @@ export default function EngineerFeature() {
 
       {/* ══ THE COVER — masthead over the builder-at-work portrait ══════════════ */}
       <section className="relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden">
-        {/* ⟢ SWAP-READY: replace with a candid engineering hero when shot */}
+        {/*
+         * The cover was `professional/nanda-coding` — a composited studio
+         * portrait: navy suit, stock office, a monitor of generic code. It was
+         * marked SWAP-READY for "a candid engineering hero when shot". The
+         * candid engineering photographs already existed, filed under
+         * `nanda-portraits/nanda-coding/`, and nobody had opened the folder.
+         *
+         * This is the real one: ten at night, hood up against the cold, the
+         * printer and the notebook on the desk beside her. It is the only image
+         * in the archive that looks like the year this feature is about.
+         */}
         <CldImage
-          src="creativelynanda/professional/nanda-coding"
-          alt="Nandawula Regine at her workstation, a monitor of colourful code beside her — AI engineer at work"
+          src="creativelynanda/nanda-portraits/nanda-coding/IMG_20250607_100134"
+          alt="Nandawula Regine at a desk at night, hood up, code on the laptop screen, a printer and notebook beside her"
           fill priority sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: 'center 20%' }}
+          style={{ objectPosition: '58% 42%' }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(8,13,34,0.94) 0%, rgba(10,17,40,0.72) 42%, rgba(10,17,40,0.28) 100%)' }} />
+        {/* Neutral, and only where the words land. The old wash was 94% navy
+            across the whole frame, which is how a photograph becomes a colour. */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(105deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.62) 40%, rgba(0,0,0,0.14) 78%, rgba(0,0,0,0) 100%)' }} />
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
 
         {/* gold spine */}
@@ -186,9 +197,20 @@ export default function EngineerFeature() {
               <a href="#contents" className="rounded-full px-7 py-3.5 font-semibold transition-all hover:scale-105" style={{ background: GOLD, color: NAVY }}>
                 Turn the page →
               </a>
-              <Link href="/ai-engineer" className="rounded-full px-7 py-3.5 font-semibold transition-all" style={{ border: '1px solid rgba(245,240,232,0.35)', color: CREAM }}>
+              {/* /ai-engineer and /projects are permanent redirects to
+                  mirembemuse.co.za (next.config.js). Sending a visitor through a
+                  308 costs a round trip, and Next prefetches an internal href it
+                  cannot resolve — which is what produced the RSC/CORS console
+                  errors this page was logging. Link to the destination. */}
+              <a
+                href="https://mirembemuse.co.za/services/ai-engineering"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full px-7 py-3.5 font-semibold transition-all"
+                style={{ border: '1px solid rgba(245,240,232,0.35)', color: CREAM }}
+              >
                 Work with me ↗
-              </Link>
+              </a>
             </div>
           </FadeUp>
         </div>
@@ -302,10 +324,9 @@ export default function EngineerFeature() {
       <div id="chapter-III" className="relative z-10" style={{ background: NAVY }}>
         <Chapter
           num="III" title="The Craft." kicker="Chapter III · What she builds now" flip
-          img="creativelynanda/professional/nanda-professional"
-          alt="Nandawula Regine — studio portrait, the composed engineer"
+          img="creativelynanda/nanda-portraits/nanda-coding/IMG_20260220_165913"
+          alt="Working from a hotel lobby between other commitments, laptop bag in hand"
           accent={GOLD}
-          swapReady
         >
           <p>The distance between the first chapter and this one is the whole point. She no longer builds pages — she builds <em>systems that think</em>: agents that route work between themselves, retrieval layers that answer from thousands of chunks, cost architectures that make production AI actually affordable in rands.</p>
           <p style={{ color: CREAM }}>This is what &ldquo;I&apos;ve evolved&rdquo; looks like on paper.</p>
@@ -360,9 +381,8 @@ export default function EngineerFeature() {
                   Every project below is live, self-funded, and carrying real users or real revenue. No demos. No mock data. The four here are the ones that best show the range — from a fifteen-wing personal OS to a universal mobile platform shipped in two days.
                 </p>
               </div>
-              {/* ⟢ SWAP-READY photo slot */}
               <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-2xl" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.45)', border: '1px solid rgba(201,148,58,0.18)' }}>
-                <CldImage src="creativelynanda/professional/nanda-professional-2" alt="Nandawula Regine — evening executive portrait" fill sizes="(max-width:768px) 100vw, 40vw" className="object-cover" />
+                <CldImage src="creativelynanda/nanda-portraits/nanda-coding/IMG_20260102_161137" alt="Working from a stoep overlooking a garden and a fountain, headphones on" fill sizes="(max-width:768px) 100vw, 40vw" className="object-cover" />
               </div>
             </div>
           </FadeUp>
@@ -370,7 +390,7 @@ export default function EngineerFeature() {
           <div className="grid gap-6 sm:grid-cols-2">
             {PROOF.map((p, i) => (
               <FadeUp key={p.id} delay={i * 0.06}>
-                <Link href={`/projects/${p.id}`} className="group block h-full rounded-xl p-7 transition-all hover:-translate-y-1" style={{ background: 'linear-gradient(150deg, rgba(20,29,56,0.9) 0%, rgba(10,17,40,0.92) 100%)', border: '1px solid rgba(201,148,58,0.16)' }}>
+                <a href="https://mirembemuse.co.za/case-studies" target="_blank" rel="noopener noreferrer" className="group block h-full rounded-xl p-7 transition-all hover:-translate-y-1" style={{ background: 'linear-gradient(150deg, rgba(20,29,56,0.9) 0%, rgba(10,17,40,0.92) 100%)', border: '1px solid rgba(201,148,58,0.16)' }}>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono uppercase" style={{ color: p.accentColor, fontSize: '10px', letterSpacing: '0.2em' }}>{p.status}</span>
                     <span className="w-2.5 h-2.5 rounded-full" style={{ background: p.accentColor, boxShadow: `0 0 12px ${p.accentColor}88` }} />
@@ -385,13 +405,13 @@ export default function EngineerFeature() {
                       </span>
                     ))}
                   </div>
-                </Link>
+                </a>
               </FadeUp>
             ))}
           </div>
           <FadeUp>
             <div className="mt-10 text-center">
-              <Link href="/projects" className="font-mono uppercase transition-colors hover:text-[#C9943A]" style={{ color: 'rgba(245,240,232,0.55)', fontSize: '12px', letterSpacing: '0.2em' }}>
+              <Link href="/projects" prefetch={false} className="font-mono uppercase transition-colors hover:text-[#C9943A]" style={{ color: 'rgba(245,240,232,0.55)', fontSize: '12px', letterSpacing: '0.2em' }}>
                 See all nine projects →
               </Link>
             </div>
@@ -448,9 +468,15 @@ export default function EngineerFeature() {
               Custom Claude agents. WhatsApp-native workflows. Production TypeScript. Built for the continent, available to the world.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/ai-engineer" className="rounded-full px-9 py-4 font-semibold transition-all hover:scale-105" style={{ background: GOLD, color: NAVY }}>
+              <a
+                href="https://mirembemuse.co.za/services/ai-engineering"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full px-9 py-4 font-semibold transition-all hover:scale-105"
+                style={{ background: GOLD, color: NAVY }}
+              >
                 Hire me as an AI engineer →
-              </Link>
+              </a>
               <a href="https://mirembemuse.co.za" target="_blank" rel="noopener noreferrer" className="rounded-full px-9 py-4 font-semibold transition-all" style={{ border: '1px solid rgba(245,240,232,0.4)', color: CREAM }}>
                 Visit Mirembe Muse ↗
               </a>

@@ -176,7 +176,7 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
               gutter, and the section closes right after. */}
           <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-24 md:grid-cols-12 md:gap-6">
             <div className="md:col-span-5">
-              <OffsetFigure image={lawn} alt="A laptop on a camping chair on a lawn under a palm tree" ratio="4 / 3" bleed="right" parallax={false} />
+              <OffsetFigure image={lawn} alt="A laptop on a camping chair on a lawn under a palm tree" ratio="4 / 3" bleed="none" parallax={false} />
             </div>
             <div className="md:col-span-3 md:pt-14">
               <VideoTile id="work/learning-to-code" label="learning to code" ratio="9 / 16" />

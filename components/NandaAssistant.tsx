@@ -131,7 +131,7 @@ const knowledgeBase = {
     triggers: ['poetry', 'book', 'inside her roses', 'poems', 'writing', 'author', 'published', 'writer', 'poet', 'roses', 'verses', 'literary'],
     responses: [
       "🌹 'Inside Her Roses'—my poetry collection published October 2021. 82 poems exploring love, identity, healing, and Black womanhood. Available on Amazon, Apple Books, Kobo, and major retailers worldwide!",
-      "I was featured on South African TV series 'Gqeberha: The Empire' as a poet! Also interviewed on Madiba FM and TRU FM. My verses have reached thousands of hearts through screens and airwaves. 📺✨",
+      "I was featured on South African TV series 'Gqeberha: The Empire' as a poet! Also interviewed on Madibaz Radio and TRU FM. My verses have reached thousands of hearts through screens and airwaves. 📺✨",
       "Poetry is the algorithm of feeling. My collection spans six themes: Romance, Sensual, Life, Personal, Depth, and Empowering. Each poem excavates truth—vulnerability and victory in equal measure. 💝",
       "I self-funded and organized my own book launch—crowdfunded, self-coordinated, fully executed. 100+ attendees, combined poetry workshop and dining experience. Main character energy before it was a trend! 🎉👑",
       "Find my poetry on Wattpad (@NandaRegine), AllPoetry (@Nanda_Regine), Instagram (@nanda.regine), and PoemHunter. The roses in my title aren't just flowers—they're growth through pain, beauty despite thorns, blooming as resistance. 🌹",
@@ -263,7 +263,7 @@ const knowledgeBase = {
   media: {
     triggers: ['tv', 'television', 'radio', 'interview', 'media', 'gqeberha', 'madiba', 'tru fm', 'press'],
     responses: [
-      "📺 I was featured on 'Gqeberha: The Empire'—South African TV series! My poetry reached thousands of living rooms. Also interviewed on Madiba FM and TRU FM discussing poetry, creativity, and entrepreneurship.",
+      "📺 I was featured on 'Gqeberha: The Empire'—South African TV series! My poetry reached thousands of living rooms. Also interviewed on Madibaz Radio and TRU FM discussing poetry, creativity, and entrepreneurship.",
       "From stages to screens to airwaves—my voice has traveled! Poetry performances across Port Elizabeth and KuGompo City, radio conversations about creativity and business, television features. The art speaks! 🎤✨",
       "Media presence is part of the journey: in-depth radio conversations about the intersection of tech and creativity, TV features showcasing African voices, live poetry performances. The message must spread! 🌍",
     ]

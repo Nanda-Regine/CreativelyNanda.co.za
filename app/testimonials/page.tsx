@@ -3,91 +3,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { CldImage } from 'next-cloudinary';
 import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
+import { FEATURED, RECOMMENDATIONS, READER_REPLIES, READER_SHOTS } from '@/lib/data/testimonials';
+import { hrefFor, EXTERNAL_LINK_PROPS } from '@/lib/external-routes';
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
-const FEATURED = {
-  text: 'Nanda Regine is a rare and extraordinary talent who has left an indelible mark on our business. Her contributions have directly driven growth, enhanced our turnover, and solidified our foundations for the future. I have no doubt that she will continue to excel in any environment where leadership, innovation, and commitment are valued.',
-  author: 'Bojan Ivanovic',
-  title: 'Co-Founder, Balkan Burger Pty Ltd',
-  date: 'December 2024',
-};
-
-export const RECOMMENDATIONS = [
-  {
-    name: 'Zintle Joko',
-    initials: 'ZJ',
-    title: 'Entrepreneur | Events Planner | Founder of Joko & Co | Social Media Manager',
-    date: 'August 25, 2025',
-    relationship: 'Worked with Nanda on the same team',
-    context: 'Balkan Burger',
-    text: `I had the absolute privilege of working alongside Nanda as a fellow manager at Balkan Burger, and I can confidently say she is the best person I have ever worked with. From the moment she started, she made an incredible impact, bringing structure, creativity, and positivity that completely elevated the workplace.
-
-Nanda has an amazing work ethic and is one of the most reliable professionals I know. She approaches challenges with innovative problem-solving skills, never settling for quick fixes but instead finding sustainable, smart solutions. Her attention to detail is unmatched, and she has a gift for balancing efficiency with creativity in a way that makes everything run smoothly.
-
-What really sets Nanda apart is her positive attitude and sense of humor, which made even the most stressful days enjoyable. She creates an environment where people feel supported, motivated, and inspired to bring their best. She's not only a strong leader but also an incredible team player who always puts the bigger picture first.`,
-  },
-  {
-    name: 'Bojan Ivanović',
-    initials: 'BI',
-    title: 'Co-Founder at Balkan Burger Pty Ltd',
-    date: 'January 19, 2025',
-    relationship: 'Bojan managed Nanda directly',
-    context: 'Balkan Burger',
-    text: `I had the absolute privilege of working alongside Nanda Regine for two transformative years at Balkan Burger, where she held the role of Junior Manager. Let me tell you, Nanda is one of those rare gems who not only meets expectations but consistently redefines what excellence looks like.
-
-Nanda has an unmatched ability to balance strategy with execution but what truly sets her apart is her exceptional emotional intelligence and natural leadership. She possesses a remarkable ability to understand team dynamics, foster open communication, and respond to challenges with empathy and clarity, creating a culture of trust and collaboration. Nanda's talent for rallying teams, inspiring creativity, and aligning everyone around a shared vision has consistently driven both morale and results, making her an invaluable asset of our organisation. In short, Nanda is a powerhouse of talent and energy!`,
-  },
-  {
-    name: 'Nicole Carlisle',
-    initials: 'NC',
-    title: 'Team Member at Balkan Burger',
-    date: 'August 24, 2025',
-    relationship: 'Nicole reported directly to Nanda',
-    context: 'Balkan Burger',
-    text: `I had the absolute pleasure of working under my manager Nanda, at Balkan Burger, and it was an incredible experience. She is one of the most helpful, efficient, and kind leaders I've worked with, always going the extra mile to guide and support her team.
-
-Nanda's approachable nature, patience, and professionalism created a positive and motivating workplace environment where everyone felt valued. At the same time, her high standards and strong work ethic set an excellent example for us all to follow.
-
-I am truly grateful for the skills and confidence I gained while working with her. Having such a supportive and inspiring manager made a lasting impact on my growth, both professionally and personally.`,
-  },
-  {
-    name: 'Lindokuhle Nkwanyane',
-    initials: 'LN',
-    title: 'Writer & Visual Thinker | Passionate About Storytelling',
-    date: 'August 23, 2025',
-    relationship: 'Lindokuhle reported directly to Nanda',
-    context: 'Balkan Burger',
-    text: `I had the pleasure of working with Nanda during her time as Manager, and I can confidently say she was a fantastic colleague to work with. She's incredibly efficient, always ensuring tasks are well-organized and clearly communicated to the team. Her regular check-in meetings kept everything on track and helped create a smooth workflow.
-
-What stood out most was her supportive nature and positive energy—she brought a lively spirit that uplifted the entire restaurant. She's a hardworking, friendly professional who made the workplace feel both productive and enjoyable. Any team would be lucky to have her!`,
-  },
-  {
-    name: 'Amy Gajjar',
-    initials: 'AG',
-    title: 'Award-Winning Creative Consultant | Packaging Designer @ Woolworths | Brand Design & Creative Direction',
-    date: 'September 4, 2025',
-    relationship: 'Amy worked with Nanda on the same team',
-    context: 'Balkan Burger',
-    text: `Had the pleasure of working with Nanda when I was consulting at Balkan Burger in early 2024. Not only is she an amazing leader, but her attention to detail is extremely admirable. Her positivity and can-do attitude is truly inspirational and she is an asset to any business she works with.
-
-I cannot recommend Nanda enough. Any team or company would be lucky to have her, not just for her professionalism and skills, but for the energy, vision, and heart she brings to her work.`,
-  },
-  {
-    name: 'Maqawe Mvume',
-    initials: 'MM',
-    title: 'Dreaming of bringing the world together with unique and evolutionary ideas',
-    date: 'August 25, 2025',
-    relationship: 'Maqawe worked with Nanda on the same team',
-    context: 'Sportsmans Warehouse',
-    text: `I had the pleasure of working alongside Nanda at Sportsmans Warehouse, where we were both retail sales assistants. During this time, I was consistently impressed by her exceptional work ethic and natural leadership skills.
-
-Nanda approaches every task with focus, dedication, and a positive attitude, setting a high standard for those around her. She has a sharp mind and the ability to quickly understand and respond to challenges, often taking initiative to guide the team when needed. Her professionalism, reliability, and strong problem-solving skills made her a valuable asset to the workplace.
-
-I highly commend Nanda for her outstanding contributions and have no doubt that she will excel in any role she takes on.`,
-  },
-];
 
 function RecCard({ rec, index }: { rec: typeof RECOMMENDATIONS[0]; index: number }) {
   const [expanded, setExpanded] = useState(false);
@@ -250,6 +172,137 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
+      {/*
+       * ── THE READER'S REPLY ──────────────────────────────────────────────
+       *
+       * Everything above this line is a colleague or a manager saying she is
+       * good to work with. This section is a stranger saying the writing landed
+       * — a different and much harder claim to be able to make about yourself,
+       * and it was sitting unused in `public/assets/reviews/` the whole time.
+       *
+       * Set on parchment on purpose: the page has been red and navy to here,
+       * and the shift in paper is what tells the eye a different KIND of
+       * evidence has started.
+       */}
+      <section className="relative z-10 overflow-hidden px-6 py-24" style={{ background: '#F5F0E8', color: '#1A1A2E' }}>
+        <div className="absolute inset-0 pointer-events-none opacity-[0.18]" style={{ backgroundImage: GRAIN }} />
+
+        <div className="relative z-10 mx-auto max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="font-mono text-[10.5px] uppercase tracking-[0.32em]" style={{ color: '#C1292E' }}>
+              The reader&apos;s reply
+            </p>
+            <h2 className="mt-4 max-w-3xl font-display font-bold italic leading-[1.04]" style={{ fontSize: 'clamp(2rem, 5.5vw, 3.6rem)' }}>
+              And then there are the people who never met her.
+            </h2>
+            <p className="mt-6 max-w-2xl text-[15.5px] font-light leading-[1.85]" style={{ color: 'rgba(26,26,46,0.72)' }}>
+              Everything above is a colleague. Below are strangers on a poetry platform, replying to individual
+              poems — transcribed from the screenshots, which are underneath. One of them is a criticism, and it
+              stays: a page where everyone agrees is a page that has been curated.
+            </p>
+          </motion.div>
+
+          {/* the quotes, staggered so the column breaks */}
+          <div className="mt-16 space-y-12">
+            {READER_REPLIES.map((r, i) => (
+              <motion.figure
+                key={`${r.reader}-${r.poem}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.7, delay: Math.min(i * 0.06, 0.3), ease: [0.22, 1, 0.36, 1] }}
+                className={i % 2 === 1 ? 'md:ml-auto md:max-w-2xl md:text-right' : 'md:max-w-2xl'}
+              >
+                <blockquote
+                  className={`border-l-2 pl-6 ${i % 2 === 1 ? 'md:border-l-0 md:border-r-2 md:pl-0 md:pr-6' : ''}`}
+                  style={{ borderColor: r.dissent ? 'rgba(26,26,46,0.35)' : '#C1292E' }}
+                >
+                  <p className="font-display italic leading-[1.4]" style={{ fontSize: 'clamp(1.15rem, 2.6vw, 1.7rem)' }}>
+                    {r.text}
+                  </p>
+                  <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[10.5px] uppercase tracking-[0.18em]" style={{ color: 'rgba(26,26,46,0.55)' }}>
+                    <span style={{ color: '#C1292E' }}>{r.reader}</span>
+                    <span>on “{r.poem}”</span>
+                    {r.dissent ? (
+                      <span className="rounded-full px-2 py-0.5" style={{ background: 'rgba(26,26,46,0.08)' }}>
+                        a note, not a compliment
+                      </span>
+                    ) : null}
+                  </figcaption>
+                </blockquote>
+              </motion.figure>
+            ))}
+          </div>
+
+          {/* the evidence itself, as a pinned wall */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.8 }}
+            className="mt-20"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: 'rgba(26,26,46,0.45)' }}>
+              Fourteen of them, unedited
+            </p>
+            {/*
+             * A GRID of uniform tiles, not CSS columns.
+             *
+             * Columns balance by content height, and these screenshots run from
+             * square to one very tall WhatsApp thread — so whichever column
+             * caught the tall one finished far below the others and left a slab
+             * of empty parchment. Two earlier attempts (four columns, then
+             * three) only moved the void around, because the cause is the
+             * variance, not the count.
+             *
+             * A fixed aspect with `object-top` crops each to its opening lines,
+             * which is the part that reads anyway. The transcribed quotes above
+             * carry the content; this wall is here to show there are fourteen of
+             * them and that they are real.
+             */}
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
+              {READER_SHOTS.map((id, i) => (
+                <a
+                  key={id}
+                  href={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto/creativelynanda/${id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block overflow-hidden rounded-sm transition-transform hover:-translate-y-1"
+                  style={{
+                    aspectRatio: '3 / 4',
+                    boxShadow: '0 8px 24px rgba(26,26,46,0.12)',
+                    background: '#E7E0D6',
+                  }}
+                >
+                  {/*
+                   * `contain`, not `cover`. These are screenshots of wildly
+                   * different shapes, and cover was zooming the wide ones until
+                   * a tile read as three enormous blurred words — "take her
+                   * writ", "ding more". A little letterboxing on a warm tile is
+                   * the cost of every one staying legible.
+                   */}
+                  <CldImage
+                    src={`creativelynanda/${id}`}
+                    alt={`A reader's response to one of the poems (${i + 1} of ${READER_SHOTS.length})`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                    className="object-contain"
+                  />
+                </a>
+              ))}
+            </div>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(26,26,46,0.4)' }}>
+              Tap any one to read it in full
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section className="relative z-10 py-20 px-6 bg-[#C1292E]">
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
@@ -258,18 +311,25 @@ export default function TestimonialsPage() {
             Ready to add your name to this list?
           </h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/consulting"
+            {/* /consulting and /work are 308s to mirembemuse (next.config.js).
+                As internal Links, Next prefetched an RSC payload for a
+                cross-origin redirect and the browser blocked it — which is what
+                filled this page's console with ERR_FAILED. See
+                `lib/external-routes.ts`. */}
+            <a
+              href={hrefFor('/consulting').href}
+              {...EXTERNAL_LINK_PROPS}
               className="px-8 py-4 bg-white text-[#C1292E] rounded-full font-semibold hover:bg-white/90 transition-all hover:scale-105"
             >
               Work with Nanda →
-            </Link>
-            <Link
-              href="/work"
+            </a>
+            <a
+              href={hrefFor('/work').href}
+              {...EXTERNAL_LINK_PROPS}
               className="px-8 py-4 border-2 border-white/40 text-white rounded-full font-semibold hover:border-white hover:bg-white/10 transition-all"
             >
               View full work history
-            </Link>
+            </a>
           </div>
         </div>
       </section>
