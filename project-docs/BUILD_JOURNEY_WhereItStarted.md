@@ -126,6 +126,7 @@ The affiliate marketing architecture was the intellectual breakthrough: Chanty's
 ---
 
 ### The Brief`
+
 4 million South Africans live with disabilities. There is no comprehensive, community-verified accessibility database for South African public spaces. TrueAccApp was built to create one.
 
 ### The Build
