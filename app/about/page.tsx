@@ -198,7 +198,7 @@ export default function About() {
           {FAMILY.performance.ids.slice(0, 4).map((id, i) => (
             <Reveal key={id} delay={i * 0.06}>
               <div className={i % 2 ? 'md:pt-8' : ''}>
-                <OffsetFigure image={id} alt="Live poetry performance" ratio="3 / 4" bleed="right" parallax={false} />
+                <OffsetFigure image={id} alt="Live poetry performance" ratio="3 / 4" bleed="none" parallax={false} />
               </div>
             </Reveal>
           ))}
@@ -330,7 +330,7 @@ export default function About() {
           {FAMILY.lesotho.ids.slice(0, 4).map((id, i) => (
             <Reveal key={id} delay={i * 0.06}>
               <div className={i % 2 ? 'md:pt-10' : ''}>
-                <OffsetFigure image={id} alt="The Lesotho highlands" ratio="3 / 4" bleed="right" parallax={false} />
+                <OffsetFigure image={id} alt="The Lesotho highlands" ratio="3 / 4" bleed="none" parallax={false} />
               </div>
             </Reveal>
           ))}
@@ -347,7 +347,7 @@ export default function About() {
           flip
           media={
             <div className="grid grid-cols-2 gap-4">
-              <OffsetFigure image={P('IMG_20250614_171644')} alt="On a sea wall at pastel dusk" ratio="3 / 4" bleed="left" parallax={false} />
+              <OffsetFigure image={P('IMG_20250614_171644')} alt="On a sea wall at pastel dusk" ratio="3 / 4" bleed="none" parallax={false} />
               <div className="pt-10">
                 <VideoTile id="nandas-videos-of-her/nanda-speaking-in-group" label="in a room of people" ratio="9 / 16" />
               </div>

@@ -250,16 +250,20 @@ export default function TestimonialsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: 'rgba(26,26,46,0.45)' }}>
               Fourteen of them, unedited
             </p>
-            <div className="mt-6 columns-2 gap-3 md:columns-4 md:gap-4">
+            {/*
+             * Three columns, not four, and no rotation on the column child.
+             * CSS columns balance by content height, and these screenshots run
+             * from square to very tall — at four columns the balancer left a
+             * blank half-column, and a `transform` on a `break-inside-avoid`
+             * child enlarges its bounding box, which made the gap worse. The
+             * tilt now lives on an inner element where it costs nothing.
+             */}
+            <div className="mt-6 columns-2 gap-3 md:columns-3 md:gap-4">
               {READER_SHOTS.map((id, i) => (
                 <div
                   key={id}
                   className="mb-3 break-inside-avoid overflow-hidden rounded-sm md:mb-4"
-                  style={{
-                    // a small alternating tilt, so the wall reads as pinned paper
-                    transform: `rotate(${i % 3 === 0 ? '-0.8' : i % 3 === 1 ? '0.6' : '-0.3'}deg)`,
-                    boxShadow: '0 8px 24px rgba(26,26,46,0.12)',
-                  }}
+                  style={{ boxShadow: '0 8px 24px rgba(26,26,46,0.12)' }}
                 >
                   <CldImage
                     src={`creativelynanda/${id}`}
