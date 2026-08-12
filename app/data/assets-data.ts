@@ -67,7 +67,7 @@ export const radioInterviews: MediaAsset[] = [
   {
     id: 'madiba-radio-vid',
     type: 'video',
-    title: 'Madiba FM Interview',
+    title: 'Madibaz Radio Interview',
     description: 'Radio interview discussing poetry, creativity, and business',
     videoFile: 'https://drive.google.com/uc?export=download&id=13jEDG0UZKJuA3NbmMfgi0JRzzDtTIMRU',
     coverImage: '/assets/radio/madiba-radio-vid-cover.jpg',
@@ -155,19 +155,19 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'madiba-radio-1',
     src: '/assets/radio/madiba-radio-1.jpg',
-    alt: 'Madiba FM Radio interview moment 1',
+    alt: 'Madibaz Radio interview moment 1',
     category: 'radio'
   },
   {
     id: 'madiba-radio-2',
     src: '/assets/radio/madiba-radio-2.jpg',
-    alt: 'Madiba FM Radio interview moment 2',
+    alt: 'Madibaz Radio interview moment 2',
     category: 'radio'
   },
   {
     id: 'madiba-radio-3',
     src: '/assets/radio/madiba-radio-3.jpg',
-    alt: 'Madiba FM Radio interview moment 3',
+    alt: 'Madibaz Radio interview moment 3',
     category: 'radio'
   },
   {

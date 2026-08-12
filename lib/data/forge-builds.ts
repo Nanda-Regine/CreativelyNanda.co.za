@@ -583,6 +583,110 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
 
   // ───────────────────────────────────────────────────────────────────────────
   {
+    key: 'sanyu',
+    slug: 'sanyu',
+    name: 'Sanyu Botanicals',
+    kicker: 'A physical product, sold online',
+    logo: 'sanyu-botanicals',
+    accent: '#7A2F3A',
+    standfirst:
+      'The only build on this floor with a factory — and the factory is a kitchen. Herbal balm and scalp serum, made by hand in small batches, with the software wrapped around the part that does not scale.',
+    problem: [
+      'Every other build here is software all the way down: the thing sold and the thing built are the same object. Sanyu is not. There is a stove, a whisk, dried herbs, a mixing bowl, jars that get filled one at a time, and a person whose hands are the bottleneck.',
+      'That inverts what the software is for. A storefront for a digital product exists to remove friction from an infinite supply. A storefront for a hand-made one exists to protect a finite supply — from over-ordering, from stock that says available when the shelf is empty, from a delivery promise that quietly assumes a warehouse.',
+    ],
+    decisions: [
+      {
+        title: 'Photograph the making, not just the jar.',
+        body:
+          'The product library leads with the whisk in the bowl, the herbs on the tray, the row of filled jars cooling on a counter — and only then the finished bottle held up in a garden. For a small-batch botanical the provenance is the product; a clean pack shot on white says nothing that a thousand identical brands are not also saying. It is a merchandising decision that happens to be made in a photo folder rather than in code, and it is the one that matters most.',
+      },
+      {
+        title: 'Trim every credential before you use it.',
+        body:
+          'Three separate commits here exist to strip whitespace off a payment passphrase and off environment variables before signing. An invisible trailing space in a dashboard field produces a signature mismatch that looks exactly like a wrong key, and it costs an afternoon every time somebody meets it fresh. The same bug appears in the K53 and VarsityOS journals — so it is not a gateway quirk, it is what happens whenever a secret is copied by a human.',
+      },
+      {
+        title: 'Lazy-initialise the mail client so a missing key cannot fail the build.',
+        body:
+          'The transactional-mail client was being constructed at module scope, so a build without that key crashed at compile time instead of failing at send time. Moving construction inside the call turns a deploy-blocking error into a runtime one with a real message. The general rule: anything that reads an environment variable at import time makes that variable a build dependency, whether or not the feature is switched on.',
+      },
+      {
+        title: 'Send from the domain that is verified today, not the one that will be.',
+        body:
+          'While DNS propagated for the new sending domain, order confirmations went out from an already-verified one. Unglamorous — and the alternative is a launch window in which every confirmation email lands silently in spam, which from the customer side is indistinguishable from never having sent it.',
+      },
+    ],
+    learned: [
+      {
+        claim: 'Physical stock needs a different definition of "available" than digital stock.',
+        why:
+          'A template can be sold a thousand times tonight. A balm cannot be sold past the number of jars that exist, and that number is a function of somebody’s Saturday. Software that treats the two identically will eventually accept an order it cannot fill, and that costs more trust than a sold-out label ever does.',
+      },
+      {
+        claim: 'A brand with a real product photographs better than a brand with a real budget.',
+        why:
+          'The strongest assets in this build were taken on a phone, in a kitchen and a garden, with no lighting kit. They work because the thing in frame is genuinely being made. Not an argument against production value — an argument that provenance outranks polish when the product is hand-made.',
+      },
+    ],
+    stack: ['Next.js', 'TypeScript', 'Supabase', 'PayFast', 'Resend', 'Cloudinary', 'Vercel'],
+    source: 'sanyubotanicals repository — commit history and the product library',
+  },
+
+  // ───────────────────────────────────────────────────────────────────────────
+  {
+    key: 'mirembe-muse',
+    slug: 'mirembe-muse',
+    name: 'Mirembe Muse',
+    kicker: 'The studio that sells the work',
+    logo: 'mirembe-muse',
+    accent: '#C9943A',
+    standfirst:
+      'The other half of the split this whole wing is built around. Every outcome, case study and price lives there; every process, failure and half-finished idea lives here.',
+    problem: [
+      'One person, several products, and two audiences who want incompatible things. A client evaluating a build wants outcomes, references and a price. A reader of this site wants the making — the wrong turns, the night something broke, the reasoning under a trade-off. Serve both from one site and it becomes a portfolio that is boasting and confessing at the same time, and neither audience believes it.',
+      'So there are two buildings and one rule for which is which: if a page starts arguing for her, it belongs on Mirembe Muse. That rule is also why this dossier is short. The interesting thing about Mirembe is what it sells, and this is the wrong site to sell it on.',
+    ],
+    decisions: [
+      {
+        title: 'Two sites, one rule, no overlap.',
+        body:
+          'Not two audiences on one site behind a filter, and not one site with a business section. Separate domains, separate deployments, separate databases. The cost is real — two of everything to maintain — and it buys the thing that matters: neither site has to hedge. A services page can make a claim without a poem beside it undercutting the register, and a postmortem can admit a month of blind monitoring without a prospective client reading it as a warning.',
+      },
+      {
+        title: 'The business routes redirect rather than duplicate.',
+        body:
+          'When a page moved to the studio site it became a permanent redirect here, not a copy. Two live copies of the same claim diverge — one gets a price update and the other does not — and the stale one is invariably the one a search engine has already indexed.',
+      },
+      {
+        title: 'Scope the database client to its own schema.',
+        body:
+          'The admin client is scoped to the studio schema and carries a correspondingly scoped token rather than a general-purpose one. Same instinct as the multi-tenant work in AdminOS: the blast radius of a mistake should be bounded by something structural, not by the care of whoever writes the next query.',
+      },
+      {
+        title: 'Publish a price only where it can be kept current.',
+        body:
+          'A recurring class of commit in this repository corrects a published price that had drifted from the tier that actually exists — a range gone stale, a tier removed but still listed. A number repeated across a site is a promise repeated across a site, and only one copy ever gets updated.',
+      },
+    ],
+    learned: [
+      {
+        claim: 'Two sites is a positioning decision that happens to have a hosting bill.',
+        why:
+          'The temptation with limited time is one site with a "work" tab. It is cheaper and it is worse, because the register cannot change between tabs — the whole site ends up in the tone of whichever audience is more commercially urgent, which is always the client. Splitting is what lets this side be honest.',
+      },
+      {
+        claim: 'A redirect is a maintenance decision before it is an SEO one.',
+        why:
+          'The reason to redirect rather than duplicate has very little to do with rankings. It is that one copy cannot go stale relative to another copy if there is only one copy.',
+      },
+    ],
+    stack: ['Next.js', 'TypeScript', 'Supabase (scoped schema)', 'PayFast', 'Resend', 'Vercel'],
+    source: 'MirembeApp repository — commit history; the split is specified in docs/THE_FORGE.md §0',
+  },
+
+  // ───────────────────────────────────────────────────────────────────────────
+  {
     key: 'creativelynanda',
     slug: 'creativelynanda',
     name: 'CreativelyNanda',

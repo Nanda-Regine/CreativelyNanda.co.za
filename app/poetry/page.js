@@ -126,8 +126,8 @@ export default function Poetry() {
   const radioVideos = [
     {
       id: 'madiba-radio',
-      title: 'Madiba FM Interview',
-      station: 'Madiba FM',
+      title: 'Madibaz Radio Interview',
+      station: 'Madibaz Radio',
       cover: '/assets/radio/madiba-radio-vid-cover.jpg',
       embedUrl: 'https://drive.google.com/file/d/13jEDG0UZKJuA3NbmMfgi0JRzzDtTIMRU/preview'
     },
@@ -526,7 +526,7 @@ export default function Poetry() {
             >
               {[
                 { icon: '🎬', title: 'TV Feature', desc: 'Featured poet on "Gqeberha: The Empire" — South African television series (2023)' },
-                { icon: '📻', title: 'Radio Interviews', desc: 'In-depth conversations on Madiba FM and TRU FM about poetry, creativity, and entrepreneurship' },
+                { icon: '📻', title: 'Radio Interviews', desc: 'In-depth conversations on Madibaz Radio and TRU FM about poetry, creativity, and entrepreneurship' },
                 { icon: '🎤', title: 'Live Performances', desc: 'Open mic events, poetry workshops, and spoken word performances across Port Elizabeth' }
               ].map((item, i) => (
                 <motion.div
@@ -697,7 +697,7 @@ export default function Poetry() {
               >
                 <img
                   src="/assets/radio/madiba-radio-1.jpg"
-                  alt="Madiba FM Radio Interview"
+                  alt="Madibaz Radio Interview"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent" />
@@ -807,7 +807,7 @@ export default function Poetry() {
             >
               <img
                 src="/assets/radio/madiba-radio-1.jpg"
-                alt="Madiba FM Radio Interview"
+                alt="Madibaz Radio Interview"
                 className="w-full h-full object-cover"
               />
             </div>
