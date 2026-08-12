@@ -7,7 +7,16 @@ import { CldImage } from 'next-cloudinary';
 import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
-const P = (id: string) => `creativelynanda/nanda-portraits/${id}`;
+/**
+ * Cloudinary id for a gallery image.
+ *
+ * Bare ids are portraits — that was true of every image here until the radio
+ * chapter arrived, and the Madibaz photographs live under `radio/` instead. An
+ * id that already carries a folder is therefore taken as-is under the base,
+ * rather than being forced into `nanda-portraits/` where it does not exist.
+ */
+const P = (id: string) =>
+  id.includes('/') ? `creativelynanda/${id}` : `creativelynanda/nanda-portraits/${id}`;
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
 // alt = plain, for screen readers / SEO. cap = the poetry shown on screen.
@@ -35,13 +44,35 @@ const FAMILIES: Family[] = [
       { id: 'IMG_20250301_144326', alt: 'Seated on mosaic tiles in Xhosa regalia, holding the book', cap: 'Her book in her lap like a small crown.' },
       { id: 'IMG_20250301_145301', alt: 'Mid-dance at the arts festival', cap: 'Joy that forgot it was being watched.' },
       { id: 'IMG_20250301_153220', alt: 'A warm duo at the festival', cap: 'Kept company, still the brightest thing.' },
-      { id: 'IMG_20250301_140746', alt: 'In the truFM radio studio', cap: 'The morning her voice went out over the city.' },
-      { id: 'IMG_20250301_140820', alt: 'The wider radio studio', cap: 'A quiet room, a loud arrival.' },
-      { id: 'IMG_20250301_141702', alt: 'A group at the radio backdrop', cap: 'The ones who came to hear.' },
+      { id: 'IMG_20250301_153203', alt: 'Three at the Mandela Bay Arts Festival backdrop', cap: 'Cobalt behind them, the whole city listening.' },
     ],
   },
   {
-    n: '03', name: 'Kin & Cloth', form: 'diptych',
+    /**
+     * ⚠️ The radio photographs were filed inside "Beadwork & Ceremony" with the
+     * festival shots — same day, same dress, so they had drifted together — and
+     * the Madibaz set was not in the gallery at all, because it lives in
+     * `assets/radio/` while TRU FM lives three folders away under
+     * `nanda-portraits/`. Two interviews, split across two folders, reading as
+     * one incidental afternoon.
+     *
+     * They are a chapter. Note the spelling: **Madibaz** Radio, the Nelson
+     * Mandela University station — not "Madiba".
+     */
+    n: '03', name: 'On Air', form: 'mosaic',
+    blurb: 'Two stations, two invitations, one voice that had to be carried into a room full of microphones and left there. TRU FM in the morning with the beadwork still on; Madibaz Radio at the desk, headphones down, mid-sentence.',
+    marginalia: 'The first time a stranger says your name on air, you understand the poems left the house without you.',
+    images: [
+      { id: 'IMG_20250301_140746', alt: 'Seated in the TRU FM studio in Xhosa regalia', cap: 'TRU FM. The morning her voice went out over the city.' },
+      { id: 'IMG_20250301_140820', alt: 'The wider TRU FM studio', cap: 'A quiet room, a loud arrival.' },
+      { id: 'IMG_20250301_141702', alt: 'A group beneath the TRU FM backdrop', cap: 'The ones who came to hear.' },
+      { id: 'radio/madiba-radio-1', alt: 'At the Madibaz Radio mixing desk', cap: 'Madibaz Radio. Faders up, and no way to take a sentence back.' },
+      { id: 'radio/madiba-radio-3', alt: 'Beneath the Madibaz Radio banner', cap: 'Connect. Inform. Engage. — and she did all three.' },
+      { id: 'radio/madiba-radio-2', alt: 'Celebrating after the Madibaz Radio interview', cap: 'The exhale afterwards, which is its own kind of interview.' },
+    ],
+  },
+  {
+    n: '04', name: 'Kin & Cloth', form: 'diptych',
     blurb: 'The cloth is older than any of them, and it fits. Here belonging looks like laughter between women who share a face and a grandmother.',
     images: [
       { id: 'IMG_20250616_095223', alt: 'Laughing between two elders in Xhosa dress, winter light', cap: 'Three generations, one laugh between them.' },
@@ -49,7 +80,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '04', name: 'Roof of Africa', form: 'plate-strip',
+    n: '05', name: 'Roof of Africa', form: 'plate-strip',
     blurb: 'Up where the air thins and the land forgets your name, she wraps the blanket tighter and stays. Small against the mountain, and unbothered by it.',
     images: [
       { id: 'IMG_20250424_100200', alt: 'In a blanket coat, gazing over Sani Pass', cap: 'She let the mountain be bigger, and stayed anyway.' },
@@ -60,7 +91,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '05', name: 'Cathedral of Trees', form: 'triptych-tall',
+    n: '06', name: 'Cathedral of Trees', form: 'triptych-tall',
     blurb: 'She lets the forest be bigger than her — head tipped back, breath held. The particular reverence of a woman who knows she is one green thing among many.',
     images: [
       { id: 'IMG_20250928_110323', alt: 'Looking up into a towering indigenous canopy', cap: 'A whole cathedral, and no need to speak.' },
@@ -69,7 +100,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '06', name: 'Bougainvillea', form: 'triptych',
+    n: '07', name: 'Bougainvillea', form: 'triptych',
     blurb: 'An hour so golden it feels invented. A bloom behind the ear, eyes lowered, the light doing what light does to a woman who isn’t looking for it.',
     images: [
       { id: 'IMG_20241107_161910', alt: 'Back to a wall of magenta blossom', cap: 'Turned toward the flowers, away from the fuss.' },
@@ -78,7 +109,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '07', name: 'Garden of Bloom & Print', form: 'mosaic',
+    n: '08', name: 'Garden of Bloom & Print', form: 'mosaic',
     blurb: 'Turn the colour all the way up. Joy with nowhere to be — print and petal and a dress mid-spin, a woman laughing before anyone asked her to.',
     images: [
       { id: 'IMG_20250101_163512', alt: 'Laughing under a green arbor in African print', cap: 'The laugh that gives the whole day away.' },
@@ -91,7 +122,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '08', name: 'Barefoot & Golden', form: 'mosaic',
+    n: '09', name: 'Barefoot & Golden', form: 'mosaic',
     blurb: 'Golden hour, and no hurry in her at all. A hat tipped low, shoes abandoned, the whole garden leaning in to keep her company.',
     images: [
       { id: 'nanda-green-2', alt: 'Fedora profile, barefoot mid-step in a tropical garden', cap: 'Unhurried, and impossible not to watch.' },
@@ -103,7 +134,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '09', name: 'Forest Cabin', form: 'triptych',
+    n: '10', name: 'Forest Cabin', form: 'triptych',
     blurb: 'A slow green afternoon that asks nothing of her. Skin and shade and a glass sweating in the heat — leisure as a form of self-possession.',
     images: [
       { id: 'IMG_20250926_163119', alt: 'Centred in a sunlit forest clearing', cap: 'The clearing made a stage of itself.' },
@@ -112,7 +143,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '10', name: 'The House of Elegance', form: 'stacked',
+    n: '11', name: 'The House of Elegance', form: 'stacked',
     blurb: 'Marble underfoot, gold overhead, a staircase built for exactly this descent. When she dresses for the evening, the architecture agrees to match.',
     images: [
       { id: 'IMG-20260620-WA0048', alt: 'A commanding pose, hand on the staircase rail', cap: 'The stairs were only ever waiting for her.' },
@@ -123,7 +154,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '11', name: 'The Maker’s Hours', form: 'single',
+    n: '12', name: 'The Maker’s Hours', form: 'single',
     blurb: 'No audience, no gown — just the work. A screen’s glow, a notebook, the world spread out before her while she quietly makes it.',
     marginalia: 'Between the ceremony and the syntax, this: an ordinary morning, and a woman building the thing you’ll later call effortless.',
     images: [
@@ -132,7 +163,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '12', name: 'The Sea Remembers', form: 'filmstrip',
+    n: '13', name: 'The Sea Remembers', form: 'filmstrip',
     blurb: 'She keeps turning her back to the camera and facing the water instead. Not loneliness — devotion. To the horizon, to herself, to whatever the sea is keeping.',
     images: [
       { id: 'IMG_20250614_171644', alt: 'On a sea wall at pastel dusk', cap: 'The hour the sea turns the colour of a bruise healing.' },
@@ -146,7 +177,7 @@ const FAMILIES: Family[] = [
     ],
   },
   {
-    n: '13', name: 'Intimate Frames', form: 'oval-veiled',
+    n: '14', name: 'Intimate Frames', form: 'oval-veiled',
     blurb: 'The register kept for no one — a mirror, a red lip, the private confidence of a woman alone and entirely at home in it.',
     images: [
       { id: 'IMG_20251007_140324', alt: 'A boudoir mirror with pool light through the window', cap: 'Alone, and in excellent company.' },

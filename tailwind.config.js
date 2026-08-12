@@ -7,6 +7,30 @@ module.exports = {
   ],
   theme: {
     extend: {
+      /**
+       * ⚠️ Opacity steps outside Tailwind's default 0 / 5…95 / 100 scale.
+       *
+       * A slash modifier that is not on the scale generates NO CSS AT ALL — the
+       * utility silently renders fully transparent, with no build warning and no
+       * error. Twenty-three of them had accumulated across the site, and one was
+       * structural: the navigation's scrolled state is `bg-navy/98`, so the nav
+       * bar has been losing its background the instant you scroll, on every page,
+       * in production. Nobody saw it because every page was dark enough that a
+       * transparent nav over dark content still looked like a nav — it only
+       * became obvious when the Forge introduced a cream ground and the links
+       * disappeared into it.
+       *
+       * Snapping the call sites to /95 would have worked too. Extending the scale
+       * is better: 8% really is a different tint from 10%, and this way the value
+       * somebody wrote is the value that renders.
+       */
+      opacity: {
+        3: '0.03',
+        8: '0.08',
+        12: '0.12',
+        92: '0.92',
+        98: '0.98',
+      },
       colors: {
         // Magazine Design System
         'navy-mag': '#0A0F2C',

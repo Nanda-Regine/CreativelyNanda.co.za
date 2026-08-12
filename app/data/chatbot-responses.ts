@@ -14,7 +14,7 @@ export const preprogrammedResponses: PreprogrammedResponse[] = [
   },
   {
     keywords: ['poetry', 'poet', 'roses'],
-    response: 'Inside Her Roses (October 2021) — 82 poems on love, identity, and Black womanhood. Available on Amazon, Apple Books, and Kobo. Featured on the SA TV series "Gqeberha: The Empire" and interviewed on Madiba FM and TRU FM.',
+    response: 'Inside Her Roses (October 2021) — 82 poems on love, identity, and Black womanhood. Available on Amazon, Apple Books, and Kobo. Featured on the SA TV series "Gqeberha: The Empire" and interviewed on Madibaz Radio and TRU FM.',
     category: 'poetry',
     followUp: 'Would you like to read a poem?'
   },

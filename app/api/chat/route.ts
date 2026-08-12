@@ -46,7 +46,7 @@ ABOUT NANDA:
 - 3,000+ GitHub commits across all projects
 - 15 academic distinctions at Nelson Mandela University: Higher Certificate → Diploma → Advanced Diploma in Business Management (NQF 5–7)
 - Published poet: "Inside Her Roses" (October 2021), 82 poems, Amazon/Apple Books/Kobo
-- Featured on SA TV series "Gqeberha: The Empire"; interviews on Madiba FM and TRU FM
+- Featured on SA TV series "Gqeberha: The Empire"; interviews on Madibaz Radio and TRU FM
 - Ugandan-Xhosa heritage; five ancestral clan lineages (Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe)
 - POPIA registered information officer since 2025, registration 2026-005658
 
@@ -61,7 +61,7 @@ SKILLS & EXPERTISE:
 PUBLISHED WORK:
 - "Inside Her Roses" — 82 poems on love, healing, Black womanhood, identity
 - Self-organised book launch, 100+ attendees
-- Interviewed on Madiba FM and TRU FM; featured on "Gqeberha: The Empire" TV
+- Interviewed on Madibaz Radio and TRU FM; featured on "Gqeberha: The Empire" TV
 
 MIREMBE MUSE (Pty) Ltd:
 - Registered South African company, incorporated September 2025

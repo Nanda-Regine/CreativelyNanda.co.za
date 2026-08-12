@@ -108,7 +108,64 @@ const TECH_ARC = [
     cert: null,
     accent: '#7B2FBE',
   },
+  {
+    date: '2026',
+    milestone: 'Back into a classroom, on purpose',
+    tech: 'JavaScript · React · GitHub · UX foundations · product launch',
+    what: 'FNB App Academy — University of Johannesburg Business School',
+    cert: 'In progress',
+    accent: '#00A2B9',
+  },
 ];
+
+/**
+ * FNB App Academy 2026.
+ *
+ * Deliberately given its own block rather than a line in `CERTS`, because the
+ * interesting thing about it is the direction of travel: eight production
+ * applications already shipped, and she enrolled in a beginners-to-advanced
+ * programme anyway. That is the opposite of how a self-taught engineer is
+ * usually narrated, and it is the more honest story.
+ *
+ * ⚠️ Every fact below is from the 2026 programme announcements, and the two
+ * limits are stated as plainly as the credentials: the certificate is endorsed
+ * by the Johannesburg Business School Centre for Entrepreneurship, and the
+ * programme is NOT currently an NQF qualification. A page that lists three real
+ * NQF qualifications immediately above cannot be vague about that distinction
+ * without cheapening the ones that are.
+ */
+const FNB_ACADEMY = {
+  kicker: 'Currently enrolled · 2026 cohort',
+  title: 'FNB App Academy',
+  partner: 'University of Johannesburg — Johannesburg Business School Centre for Entrepreneurship',
+  blurb:
+    'Free, online, nine weeks, twice a week. The 2026 intake is the first to run with UJ’s Business School, which co-developed the curriculum and provides the academic oversight, the entrepreneurship teaching and the employability support.',
+  levels: [
+    {
+      n: 'I',
+      name: 'Beginner',
+      body: 'JavaScript fundamentals and React, software development foundations, GitHub and collaboration, and the principles of UX design.',
+    },
+    {
+      n: 'II',
+      name: 'Intermediate',
+      body: 'Working with dynamic data, and building TaskMate — a real task-management application rather than an exercise.',
+    },
+    {
+      n: 'III',
+      name: 'Advanced',
+      body: 'Professional development technique, modern tooling, and how a digital product actually gets launched and promoted.',
+    },
+  ],
+  facts: [
+    ['35,000+', 'young people through the 2025 programme'],
+    ['50,000+', 'the 2026 national target'],
+    ['9 weeks', 'twice a week, fully online'],
+    ['R0', 'open and free, across the continent'],
+  ],
+  honest:
+    'The certificate is endorsed by the Johannesburg Business School Centre for Entrepreneurship. It is not currently an NQF qualification — unlike the three above it on this page — and it is listed here as what it is: a structured, industry-aligned programme she chose to sit after already shipping eight products.',
+};
 
 const DEGREE_IN_CODE = [
   {
@@ -504,6 +561,83 @@ export default function EducationPage() {
                 </div>
               ))}
             </div>
+
+            {/*
+             * The link back to the article itself. It existed on this page once
+             * and was lost in the editorial rebuild — four bullets describing a
+             * feature, with no way to go and read it, which asks the reader to
+             * take the claim on trust when the proof is one click away.
+             */}
+            <a
+              href="https://www.linkedin.com/feed/update/urn:li:activity:7184543544819204100/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] transition-opacity hover:opacity-85"
+              style={{ background: '#C9943A', color: '#0A0F2C' }}
+            >
+              Read the article on LinkedIn
+              <span aria-hidden>↗</span>
+            </a>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* ── FNB APP ACADEMY · 2026 ───────────────────────────────────── */}
+      <section className="relative z-10 overflow-hidden px-6 py-20" style={{ background: '#07242B' }}>
+        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
+        {/* an off-axis wash, so the section is not another flat band */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-32 -top-24 h-[28rem] w-[28rem] rounded-full opacity-25"
+          style={{ background: 'radial-gradient(circle, #00A2B9 0%, transparent 68%)' }}
+        />
+
+        <div className="relative z-10 mx-auto max-w-5xl">
+          <FadeUp>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#5FD3E4', letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 16px 0' }}>
+              {FNB_ACADEMY.kicker}
+            </p>
+            <h2 className="font-display text-4xl font-bold italic leading-[1.05] text-white md:text-6xl">
+              {FNB_ACADEMY.title}
+            </h2>
+            <p className="mt-4 max-w-2xl font-display text-lg italic leading-relaxed md:text-xl" style={{ color: 'rgba(245,240,232,0.82)' }}>
+              {FNB_ACADEMY.partner}
+            </p>
+            <p className="mt-6 max-w-2xl text-[15px] font-light leading-[1.85]" style={{ color: 'rgba(245,240,232,0.66)' }}>
+              {FNB_ACADEMY.blurb}
+            </p>
+          </FadeUp>
+
+          {/* the three levels, staggered rather than in a level row */}
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {FNB_ACADEMY.levels.map((l, i) => (
+              <FadeUp key={l.n}>
+                <div className={i === 1 ? 'md:pt-10' : i === 2 ? 'md:pt-20' : ''}>
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-display text-3xl font-bold italic" style={{ color: '#00A2B9' }}>{l.n}</span>
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.24em]" style={{ color: '#5FD3E4' }}>{l.name}</h3>
+                  </div>
+                  <p className="mt-3 border-l pl-4 text-[14.5px] font-light leading-[1.8]" style={{ borderColor: 'rgba(0,162,185,0.4)', color: 'rgba(245,240,232,0.72)' }}>
+                    {l.body}
+                  </p>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 gap-8 border-t pt-10 md:grid-cols-4" style={{ borderColor: 'rgba(245,240,232,0.14)' }}>
+            {FNB_ACADEMY.facts.map(([v, l]) => (
+              <FadeUp key={l}>
+                <p className="font-display text-3xl font-bold italic md:text-4xl" style={{ color: '#5FD3E4' }}>{v}</p>
+                <p className="mt-2 font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em]" style={{ color: 'rgba(245,240,232,0.5)' }}>{l}</p>
+              </FadeUp>
+            ))}
+          </div>
+
+          <FadeUp>
+            <p className="mt-12 max-w-3xl border-l-2 pl-5 text-[13.5px] font-light leading-[1.8]" style={{ borderColor: 'rgba(0,162,185,0.5)', color: 'rgba(245,240,232,0.6)' }}>
+              {FNB_ACADEMY.honest}
+            </p>
           </FadeUp>
         </div>
       </section>

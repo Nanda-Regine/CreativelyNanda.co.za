@@ -1,8 +1,25 @@
 'use client';
 
+/**
+ * ⚠️ THIS ROUTE IS NOT LIVE ON THIS SITE.
+ *
+ * `next.config.js` permanently redirects `/press` to `mirembemuse.co.za/press`,
+ * so this file never renders — the redirect fires first. It is kept because the
+ * content is still the source of truth for her press material and the page may
+ * be revived, but treat any change here as a change to a draft.
+ *
+ * The station-name correction below (Madibaz Radio, not "Madiba FM") matters
+ * regardless: the same error was live in eleven other places, including the AI
+ * assistant's system prompt, and those are fixed too.
+ *
+ * The radio photographs that this page would have shown are live in the
+ * gallery's "On Air" chapter instead, which is a route that actually resolves.
+ */
+
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CldImage } from 'next-cloudinary';
 import { Download, Mail, Award, Mic, Copy, Check, ExternalLink, BookOpen, Code, Sparkles, Users, Zap, Globe } from 'lucide-react';
 
 const achievements = [
@@ -67,13 +84,18 @@ const mediaMentions = [
     emoji: '📺',
   },
   {
-    outlet: 'Madiba FM',
+    // ⚠️ The station is **Madibaz Radio** — Nelson Mandela University's station,
+    // "Connect. Inform. Engage." It was listed here as "Madiba FM", which is a
+    // different thing and does not exist. Corrected against the photographs in
+    // `assets/radio/`, where the station banner is legible in frame.
+    outlet: 'Madibaz Radio',
     topic: 'Published Poet & Entrepreneur Feature',
     type: 'Radio',
     color: '#C1292E',
     bg: 'bg-purple-500/10',
     border: 'border-purple-400/30',
     emoji: '📻',
+    image: 'radio/madiba-radio-3',
   },
   {
     outlet: 'TRU FM',
@@ -83,6 +105,7 @@ const mediaMentions = [
     bg: 'bg-blue-500/10',
     border: 'border-blue-400/30',
     emoji: '🎙️',
+    image: 'nanda-portraits/IMG_20250301_141702',
   },
   {
     outlet: 'Live Poetry Performances',
@@ -147,7 +170,7 @@ Her work spans the full stack: multi-agent AI systems (AdminOS — 6 specialist 
 
 Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in Claude API integration, multi-agent architecture, and production TypeScript — with every system load-shedding-aware and ZAR-native by default.
 
-Her poetry collection "Inside Her Roses" was featured on Showmax's hit series Gqeberha: The Empire, and she has been interviewed on Madiba FM and TRU FM. Through Mirembe Muse (Pty) Ltd, she is proving that world-class AI engineering can, and should, be built from the African continent.
+Her poetry collection "Inside Her Roses" was featured on Showmax's hit series Gqeberha: The Empire, and she has been interviewed on Madibaz Radio and TRU FM. Through Mirembe Muse (Pty) Ltd, she is proving that world-class AI engineering can, and should, be built from the African continent.
 
 Nanda represents a new generation of African creators: technically excellent, culturally rooted, commercially viable, and unapologetically multidimensional.`,
 };
@@ -419,17 +442,41 @@ export default function PressPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {mediaMentions.map((mention, i) => (
               <div key={i}
-                className={`group relative rounded-3xl overflow-hidden p-6 border ${mention.border} ${mention.bg} hover:scale-[1.02] transition-all duration-300`}
+                className={`group relative overflow-hidden rounded-3xl border ${mention.border} ${mention.bg} transition-all duration-300 hover:scale-[1.02]`}
               >
-                {/* Asymmetric shape watermark */}
-                <div className="absolute -right-6 -bottom-6 text-6xl opacity-20 select-none">
-                  {mention.emoji}
+                {/*
+                 * A press page that lists two radio interviews as emoji tiles is
+                 * asking an editor to take her word for it. There are eight
+                 * photographs from inside those two studios — the desk, the
+                 * faders, the station banner legible behind her — so the card
+                 * leads with the evidence and keeps the emoji as a watermark for
+                 * the entries that have none.
+                 */}
+                {mention.image ? (
+                  <div className="relative h-44 overflow-hidden">
+                    <CldImage
+                      src={`creativelynanda/${mention.image}`}
+                      alt={`${mention.outlet} — ${mention.topic}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(0deg, rgba(10,17,40,0.92) 0%, rgba(10,17,40,0.15) 60%, rgba(10,17,40,0) 100%)' }} />
+                  </div>
+                ) : null}
+
+                <div className="relative p-6">
+                  {!mention.image ? (
+                    <div className="pointer-events-none absolute -bottom-6 -right-6 select-none text-6xl opacity-20">
+                      {mention.emoji}
+                    </div>
+                  ) : null}
+                  <span className="mb-3 block text-xs font-bold uppercase tracking-widest" style={{ color: mention.color }}>
+                    {mention.type}
+                  </span>
+                  <h3 className="mb-2 font-display text-xl font-bold text-beige">{mention.outlet}</h3>
+                  <p className="text-sm text-beige/60">{mention.topic}</p>
                 </div>
-                <span className="text-xs font-bold tracking-widest uppercase mb-3 block" style={{ color: mention.color }}>
-                  {mention.type}
-                </span>
-                <h3 className="font-display font-bold text-beige text-xl mb-2">{mention.outlet}</h3>
-                <p className="text-beige/60 text-sm">{mention.topic}</p>
               </div>
             ))}
           </div>
