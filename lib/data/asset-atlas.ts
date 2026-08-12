@@ -132,7 +132,18 @@ export const FAMILY = {
     note: 'Actual code on actual screens, lit magenta / teal / green. Use as texture and as full-bleed section grounds — never as a decorative stock "code" image.',
     ground: 'ink',
     hero: true,
-    ids: [`${C}IMG_20260220_165913`, `${C}IMG_20260102_161137`],
+    // ⚠️ These live under `vault/`, not under the portrait folders. The first
+    // version of this family pointed at the hotel-lobby and stoep photographs
+    // by mistake, so the Forge rendered a lobby behind a section about code.
+    // The vault ids are opaque hashes; the comments are the only index there is.
+    ids: [
+      'vault/044cd20df91d',   // magenta ambient, code filling the frame
+      'vault/3dae812bfb55',   // purple/teal, full-screen source
+      'vault/00b97803ad00',   // laptop by a window, daylight on the keys
+      'vault/12676734d8ed',   // yellow chair, teal code, dark room
+      'vault/2b43b4e14171',   // the TV-and-laptop rig
+      'vault/724fda9edad8',
+    ],
     rooms: ['/forge', '/forge/commits', '/forge/scars'],
   },
 

@@ -193,16 +193,24 @@ export function BigFigure({
 }
 
 /**
- * A pull-quote in the margin, rotated. Rotation is `md:` only — a rotated
- * element in a 390px column is just a broken line-length.
+ * A note set apart from the running text, tilted slightly off-axis.
+ *
+ * ⚠️ The first version positioned this absolutely at `md:-right-60`, outside
+ * its column. Every `Ground` is `overflow-hidden` (it has to be — the parallax
+ * layer is oversized and the slanted edges clip), so the note was sliced in
+ * half by the section boundary at 1440px: *"Every number i… measured from… at
+ * build time —"*.
+ *
+ * A margin note needs a margin to live in, and a full-bleed section does not
+ * have one. So it stays in flow and earns its separation with an indent, a
+ * rule and a small rotation instead. The rotation is `md:` only — tilting a
+ * 390px-wide paragraph just breaks the line length.
  */
 export function MarginNote({ children, accent, side = 'left' }: { children: React.ReactNode; accent: string; side?: 'left' | 'right' }) {
   return (
-    <Reveal
-      className={`relative my-10 md:my-0 md:absolute md:w-52 ${side === 'left' ? 'md:-left-60' : 'md:-right-60'}`}
-    >
+    <Reveal className={`my-10 max-w-sm ${side === 'right' ? 'md:ml-auto' : ''}`}>
       <div
-        className={`border-l-2 pl-4 md:${side === 'left' ? 'rotate-[-1.5deg]' : 'rotate-[1.5deg]'}`}
+        className={`border-l-2 py-1 pl-5 ${side === 'left' ? 'md:-rotate-1' : 'md:rotate-1'}`}
         style={{ borderColor: accent }}
       >
         <p className="font-display text-[15px] italic leading-relaxed opacity-85">{children}</p>

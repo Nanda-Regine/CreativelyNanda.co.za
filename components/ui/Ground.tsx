@@ -170,12 +170,25 @@ export function PhotoBleed({
   const g = GROUND[ground];
   const reduce = useReducedMotion();
 
+  /**
+   * ⚠️ The pocket is NEUTRAL, not the ground colour.
+   *
+   * The first version graded from `g.bg` at 95% alpha, which on the `garden`
+   * ground laid deep green over the whole lower two-thirds of the photograph —
+   * her cream puffer coat came out sage and the picture read as a colour swatch
+   * with a person in it. That is the exact failure the ground system was built
+   * to end, reintroduced one layer down.
+   *
+   * Black darkens without tinting, so the photograph keeps its own colour and
+   * the text still gets its contrast. The ground colour belongs on the section
+   * around the image, not on top of it.
+   */
   const pocket =
     from === 'left'
-      ? `linear-gradient(90deg, ${g.bg}F2 0%, ${g.bg}D9 34%, ${g.bg}00 68%)`
+      ? 'linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 32%, rgba(0,0,0,0) 66%)'
       : from === 'right'
-        ? `linear-gradient(270deg, ${g.bg}F2 0%, ${g.bg}D9 34%, ${g.bg}00 68%)`
-        : `linear-gradient(0deg, ${g.bg}F2 0%, ${g.bg}CC 38%, ${g.bg}00 72%)`;
+        ? 'linear-gradient(270deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 32%, rgba(0,0,0,0) 66%)'
+        : 'linear-gradient(0deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.5) 34%, rgba(0,0,0,0.12) 62%, rgba(0,0,0,0) 82%)';
 
   return (
     <section

@@ -77,7 +77,7 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
           <Reveal delay={0.1}>
             <h1
               className="mt-5 font-display font-bold italic leading-[0.84]"
-              style={{ fontSize: 'clamp(3.6rem, 15vw, 11rem)', color: garden.ink }}
+              style={{ fontSize: 'clamp(3.6rem, 15vw, 11rem)', color: '#FBF8F3', textShadow: '0 2px 40px rgba(0,0,0,0.45)' }}
             >
               The Forge
             </h1>
@@ -87,10 +87,10 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
               signal that this page is set rather than stacked. */}
           <div className="mt-8 grid gap-8 md:grid-cols-12">
             <Reveal delay={0.2} className="md:col-span-6 md:col-start-6">
-              <p className="font-display text-xl italic leading-relaxed md:text-3xl" style={{ color: garden.ink }}>
+              <p className="font-display text-xl italic leading-relaxed md:text-3xl" style={{ color: '#FBF8F3' }}>
                 The garden is where she writes. This is where she builds.
               </p>
-              <p className="mt-6 max-w-xl text-[15px] font-light leading-relaxed md:text-base" style={{ color: `${garden.ink}B3` }}>
+              <p className="mt-6 max-w-xl text-[15px] font-light leading-relaxed md:text-base" style={{ color: 'rgba(251,248,243,0.82)' }}>
                 Not a portfolio. A workshop — the drafts, the wrong turns, and the night something broke at two in
                 the morning along with the reason it broke. Code here is a medium, the same way a poem is.
               </p>
@@ -167,20 +167,24 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
             </div>
           </div>
 
-          <div className="mt-20 grid gap-6 md:mt-28 md:grid-cols-12">
+          {/* A three-up that is deliberately un-levelled: each tile starts at a
+              different height so the row reads as a spread rather than a strip.
+              Gaps are tight — the first pass left a void of dead ground under it. */}
+          <div className="mt-16 grid grid-cols-2 gap-4 md:mt-24 md:grid-cols-12 md:gap-6">
             <div className="md:col-span-4">
-              <OffsetFigure image={lawn} alt="A laptop on a camping chair on a lawn under a palm tree" ratio="3 / 4" bleed="right" />
+              <OffsetFigure image={lawn} alt="A laptop on a camping chair on a lawn under a palm tree" ratio="3 / 4" bleed="right" parallax={false} />
             </div>
-            <div className="md:col-span-3 md:pt-24">
+            <div className="md:col-span-3 md:pt-16">
               <VideoTile id="work/learning-to-code" label="learning to code" ratio="9 / 16" />
             </div>
-            <div className="md:col-span-4 md:col-start-9 md:pt-10">
+            <div className="col-span-2 md:col-span-4 md:col-start-9 md:pt-6">
               <OffsetFigure
-                image={lobby}
-                alt="Working from a hotel lobby"
-                ratio="4 / 5"
+                image={FAMILY.screens.ids[0]}
+                alt="Code on screen, lit magenta"
+                ratio="4 / 3"
                 bleed="right"
-                caption="Between other things."
+                parallax={false}
+                caption="Two in the morning, and the compiler is the only thing still answering."
               />
             </div>
           </div>
@@ -223,7 +227,7 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
       </Ground>
 
       {/* ═══ THE ROOMS — navy, once, at the close ════════════════════════════ */}
-      <Ground ground="midnight" image={FAMILY.screens.ids[0]} veil={0.5} focus="center" parallax className="px-6 py-24 md:py-32">
+      <Ground ground="midnight" image={FAMILY.screens.ids[1]} veil={0.52} focus="center" parallax className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: midnight.accent }}>
