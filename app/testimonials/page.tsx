@@ -251,31 +251,43 @@ export default function TestimonialsPage() {
               Fourteen of them, unedited
             </p>
             {/*
-             * Three columns, not four, and no rotation on the column child.
-             * CSS columns balance by content height, and these screenshots run
-             * from square to very tall — at four columns the balancer left a
-             * blank half-column, and a `transform` on a `break-inside-avoid`
-             * child enlarges its bounding box, which made the gap worse. The
-             * tilt now lives on an inner element where it costs nothing.
+             * A GRID of uniform tiles, not CSS columns.
+             *
+             * Columns balance by content height, and these screenshots run from
+             * square to one very tall WhatsApp thread — so whichever column
+             * caught the tall one finished far below the others and left a slab
+             * of empty parchment. Two earlier attempts (four columns, then
+             * three) only moved the void around, because the cause is the
+             * variance, not the count.
+             *
+             * A fixed aspect with `object-top` crops each to its opening lines,
+             * which is the part that reads anyway. The transcribed quotes above
+             * carry the content; this wall is here to show there are fourteen of
+             * them and that they are real.
              */}
-            <div className="mt-6 columns-2 gap-3 md:columns-3 md:gap-4">
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
               {READER_SHOTS.map((id, i) => (
-                <div
+                <a
                   key={id}
-                  className="mb-3 break-inside-avoid overflow-hidden rounded-sm md:mb-4"
-                  style={{ boxShadow: '0 8px 24px rgba(26,26,46,0.12)' }}
+                  href={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto/creativelynanda/${id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block overflow-hidden rounded-sm transition-transform hover:-translate-y-1"
+                  style={{ aspectRatio: '3 / 4', boxShadow: '0 8px 24px rgba(26,26,46,0.12)' }}
                 >
                   <CldImage
                     src={`creativelynanda/${id}`}
                     alt={`A reader's response to one of the poems (${i + 1} of ${READER_SHOTS.length})`}
-                    width={520}
-                    height={520}
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="h-auto w-full"
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                    className="object-cover object-top"
                   />
-                </div>
+                </a>
               ))}
             </div>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(26,26,46,0.4)' }}>
+              Tap any one to read it in full
+            </p>
           </motion.div>
         </div>
       </section>
