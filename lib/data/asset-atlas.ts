@@ -78,7 +78,15 @@ export interface Family {
   ground: GroundName;
   /** Cloudinary public_ids under creativelynanda/, in her order. */
   ids: string[];
-  /** Paths under /public for assets not yet on Cloudinary. */
+  /** Cloudinary VIDEO public_ids (delivered via cldVideo, not cldImg). */
+  videos?: string[];
+  /** True when `ids` are themselves videos rather than stills. */
+  video?: boolean;
+  /** Radio only: the second station's stills, kept distinct from TRU FM's. */
+  madibaz?: string[];
+  /** Poster frames she made herself for video tiles. */
+  covers?: string[];
+  /** Paths under /public for anything still not on Cloudinary. */
   local?: string[];
   /** Where this family is meant to be used. */
   rooms: string[];
@@ -87,6 +95,8 @@ export interface Family {
 }
 
 const P = 'nanda-portraits/';
+/** Her own subfolder, preserved on the CDN by scripts/upload-media.mjs. */
+const C = 'nanda-portraits/nanda-coding/';
 
 export const FAMILY = {
   // ── THE ENGINEER ──────────────────────────────────────────────────────────
@@ -103,10 +113,12 @@ export const FAMILY = {
     ground: 'garden',
     hero: true,
     ids: [
-      `${P}IMG_20250607_100134`,   // night, hooded, printer, notebook — the grind
-      `${P}IMG_20260102_161137`,   // stoep, headphones, garden + fountain beyond
-      `${P}IMG_20260102_163239`,   // camping chair on the lawn, palm tree, big sky
-      `${P}IMG_20260102_163300`,
+      `${C}IMG_20250607_100134`,   // night, hooded, printer, notebook — the grind
+      `${C}IMG_20260102_161137`,   // stoep, headphones, garden + fountain beyond
+      `${C}IMG_20260102_163239`,   // camping chair on the lawn, palm tree, big sky
+      `${C}IMG_20260102_163300`,
+      `${C}IMG_20260220_165913`,   // hotel lobby, Persian rug — working away from home
+      `${C}IMG_20260220_170019`,
     ],
     rooms: ['/forge', '/forge/nights', '/engineer'],
   },
@@ -120,10 +132,7 @@ export const FAMILY = {
     note: 'Actual code on actual screens, lit magenta / teal / green. Use as texture and as full-bleed section grounds — never as a decorative stock "code" image.',
     ground: 'ink',
     hero: true,
-    ids: [],
-    local: [
-      'assets/nanda-portraits/nanda-coding',   // directory — see TODO_UPLOAD
-    ],
+    ids: [`${C}IMG_20260220_165913`, `${C}IMG_20260102_161137`],
     rooms: ['/forge', '/forge/commits', '/forge/scars'],
   },
 
@@ -146,15 +155,15 @@ export const FAMILY = {
   demos: {
     note: 'Screen recordings of the foundation builds. These make Origins provable rather than described — a card that says "live demo" next to a moving image of the thing.',
     ground: 'bone',
-    ids: [],
-    local: [
-      'assets/project-screen-record/cortexhub-booking-system.mp4',
-      'assets/project-screen-record/GreenVault.mp4',
-      'assets/project-screen-record/youtube-clone.mp4',
-      'assets/project-screen-record/netflix-clone.mp4',
-      'assets/project-screen-record/Notion-building.mp4',
-      'assets/project-screen-record/creativelynanda.mp4',
+    ids: [
+      'project-screen-record/cortexhub-booking-system',
+      'project-screen-record/GreenVault',
+      'project-screen-record/youtube-clone',
+      'project-screen-record/netflix-clone',
+      'project-screen-record/Notion-building',
+      'project-screen-record/creativelynanda',
     ],
+    video: true,
     rooms: ['/forge/origins'],
   },
 
@@ -178,13 +187,12 @@ export const FAMILY = {
       `${P}IMG_20250301_140820`,
       `${P}IMG_20250301_141702`,   // TRU FM — group under the branded backdrop
     ],
-    local: [
-      'assets/radio/madiba-radio-1.jpg',        // Madibaz — at the mixing desk
-      'assets/radio/madiba-radio-2.jpg',        // Madibaz — arms up, celebrating
-      'assets/radio/madiba-radio-3.jpg',        // Madibaz — under the station banner
-      'assets/radio/madiba-radio-vid-cover.jpg',
-      'assets/radio/tru-fm-vid-cover.jpg',
+    madibaz: [
+      'radio/madiba-radio-1',        // at the mixing desk
+      'radio/madiba-radio-2',        // arms up, celebrating
+      'radio/madiba-radio-3',        // under the "Connect. Inform. Engage." banner
     ],
+    covers: ['radio/madiba-radio-vid-cover', 'radio/tru-fm-vid-cover'],
     rooms: ['/press', '/about', '/gallery'],
   },
 
@@ -333,8 +341,12 @@ export const FAMILY = {
   reviews: {
     note: 'Real reader responses — WhatsApp screenshots and platform comments with names and full paragraphs. Set on parchment with the cherry accent; do not put these on navy.',
     ground: 'parchment',
-    ids: [],
-    local: ['assets/reviews'],
+    ids: [
+      'reviews/review-1','reviews/review-2','reviews/review-3','reviews/review-4','reviews/review-5',
+      'reviews/review-6','reviews/review-7','reviews/review-8','reviews/review-9','reviews/review-10',
+      'reviews/IMG-20260620-WA0066','reviews/IMG-20260620-WA0067',
+      'reviews/IMG-20260620-WA0068','reviews/IMG-20260620-WA0071',
+    ],
     rooms: ['/testimonials', '/poetry', '/'],
   },
 
@@ -352,26 +364,16 @@ export const FAMILY = {
   bookLaunch: {
     note: 'The launch itself — signing, a customer buying, the workshop, the crowd. Proof that the book met people.',
     ground: 'rose',
-    ids: ['book-launch/book-customer'],
-    local: [
-      'assets/book-launch/book-signing.mp4',
-      'assets/book-launch/poetry-workshop.mp4',
-    ],
+    ids: ['book-launch/book-customer-poster'],
+    videos: ['book-launch/book-customer', 'book-launch/book-signing', 'book-launch/poetry-workshop'],
     rooms: ['/poetry', '/gallery'],
   },
 
   work: {
     note: 'Before the code: the Balkan Burger shift, latte art, the "learning to code" and "building an app" clips. The Origins story has no images at all right now — this is it.',
     ground: 'bone',
-    ids: [],
-    local: [
-      'assets/work/balkanburger-cuppuccino.jpg',
-      'assets/work/balkanburger-latte.jpg',
-      'assets/work/working-in-tech.jpg',
-      'assets/work/balkan-burger-shift.mp4',
-      'assets/work/learning-to-code.mp4',
-      'assets/work/building-app.mp4',
-    ],
+    ids: ['work/balkanburger-cuppuccino', 'work/balkanburger-latte', 'work/working-in-tech'],
+    videos: ['work/balkan-burger-shift', 'work/learning-to-code', 'work/building-app'],
     rooms: ['/forge/origins', '/engineer', '/about'],
   },
 

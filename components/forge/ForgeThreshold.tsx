@@ -1,18 +1,38 @@
 'use client';
 
-import { motion } from 'framer-motion';
+/**
+ * ⚙️ /forge — the threshold.
+ *
+ * ── REBUILT, AUGUST 2026 ──────────────────────────────────────────────────────
+ *
+ * The first version of this room was navy on navy on navy: `#0A1128` ground, a
+ * navy-tinted backdrop at 0.4 veil, a navy texture behind the principles, and a
+ * single gold hairline asked to carry all of it. Nanda's note was exact — the
+ * scrim had become the main character, and the photography was nowhere.
+ *
+ * What changed:
+ *
+ * 1. **Real photographs, at full strength.** The hero is her at a laptop at
+ *    night beside a printer; the rooms sit over a camping chair on a lawn under
+ *    a palm. Both were in the archive the whole time. The page previously ran on
+ *    a torn-paper texture and nothing else.
+ * 2. **Five grounds, not one.** garden → bone → ink → parchment → midnight.
+ *    Navy now appears once, at the end, as the closing colour rather than the
+ *    paper — see `components/ui/Ground.tsx`.
+ * 3. **The column breaks.** Offset figures, a rotated margin note, figures set
+ *    at display scale, slanted section edges. See `components/ui/Editorial.tsx`.
+ * 4. **The principles are a spread, not a list.** Nine numbered lines in a
+ *    centred `<ol>` is a document. They are now set two-up on parchment with the
+ *    numerals oversized, which is how a manifesto is actually printed.
+ */
+
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import { PAGE_BACKDROPS } from '@/lib/house-assets';
+import Ground, { PhotoBleed, groundTokens } from '@/components/ui/Ground';
+import { Reveal, OffsetFigure, BigFigure, PullQuote, Rule, MarginNote, VideoTile } from '@/components/ui/Editorial';
+import { FAMILY } from '@/lib/data/asset-atlas';
 import { THROUGHLINE } from '@/lib/data/forge-origins';
 
-const GOLD = '#C9943A';
-const ease = [0.22, 1, 0.36, 1] as const;
-
-// Rooms are declared with their real state. A room that isn't built says so —
-// a door that opens onto nothing is worse than a door marked "not yet".
 const ROOMS: { name: string; line: string; href?: string }[] = [
   { name: 'Where It Started', line: 'Nine foundation projects. The sequence is the argument.', href: '/forge/origins' },
   { name: 'The Workshop Floor', line: 'Every build, one dossier each — the problem, the decisions, the cost.', href: '/forge/floor' },
@@ -21,180 +41,239 @@ const ROOMS: { name: string; line: string; href?: string }[] = [
   { name: 'The Commit Wall', line: 'A year of commit messages, read as sentences.', href: '/forge/commits' },
   { name: 'The Making', line: 'The career feature — zero to eight live products in a year.', href: '/engineer' },
   { name: 'The Poet Who Codes', line: 'The doorway between this wing and the garden.', href: '/poetry/poet-who-codes' },
-  // Still shut, and labelled as shut. A door that opens onto nothing is worse
-  // than a door marked "not yet" — and the honest reason each is closed is that
-  // it needs a live data source this site does not have. See THE_FORGE.md §5.6.
   { name: 'The Bench', line: 'Live vitals — apps breathing, deploys landing.' },
   { name: 'The Dojo', line: 'Drills. Guess the bug. Read the trace.' },
 ];
-
-function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.8, delay, ease }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 export interface ForgeStats {
   apps: number;
   words: number;
   sessions: number;
   projects: number;
-  /** Measured from the GitHub API by scripts/forge-github.mjs. Pre-formatted. */
   commits: string;
   repos: number;
 }
 
 export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
-  // Nothing here calls toLocaleString — the server already formatted it. Server
-  // and client can disagree on that call, which is precisely the hydration bug
-  // written up in the Scar Room.
-  const figures: [string, string][] = [
-    [stats.commits, 'commits, measured'],
-    [stats.apps.toString(), 'builds journalled'],
-    [`${Math.round(stats.words / 1000)}k`, 'words of build journal'],
-    [stats.projects.toString(), 'foundation projects'],
-  ];
+  const garden = groundTokens('garden');
+  const bone = groundTokens('bone');
+  const ink = groundTokens('ink');
+  const parchment = groundTokens('parchment');
+  const midnight = groundTokens('midnight');
+
+  const [night, stoep, lawn, , lobby] = FAMILY.coding.ids;
 
   return (
-    <main className="min-h-screen" style={{ background: '#0A1128', color: '#F5F0E8' }}>
-      {/* ═══ THE THRESHOLD ═══════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[92vh] items-end overflow-hidden px-6 pb-24 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash="#0A1128" intensity={0.92} veil={0.4} />
-        <div className="relative z-10 mx-auto w-full max-w-5xl">
-          <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: GOLD }}>
+    <main className="min-h-screen">
+      {/* ═══ THE THRESHOLD — her, at 10pm, next to the printer ═══════════════ */}
+      <PhotoBleed image={night} ground="garden" focus="60% 40%" from="bottom" minH="94vh" className="-mt-20 pt-28">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-20">
+          <Reveal>
+            <p className="font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: garden.accent }}>
               A wing of the house
             </p>
-          </FadeUp>
+          </Reveal>
 
-          <FadeUp delay={0.1}>
-            <h1 className="mt-6 font-display text-6xl font-bold italic leading-[0.9] text-white md:text-[8.5rem]">
+          <Reveal delay={0.1}>
+            <h1
+              className="mt-5 font-display font-bold italic leading-[0.84]"
+              style={{ fontSize: 'clamp(3.6rem, 15vw, 11rem)', color: garden.ink }}
+            >
               The Forge
             </h1>
-          </FadeUp>
+          </Reveal>
 
-          <FadeUp delay={0.2}>
-            <p className="mt-8 max-w-2xl font-display text-xl italic leading-relaxed md:text-3xl" style={{ color: 'rgba(255,255,255,0.82)' }}>
-              The garden is where she writes. This is where she builds.
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={0.28}>
-            <p className="mt-7 max-w-2xl text-[15px] font-light leading-relaxed md:text-lg" style={{ color: 'rgba(255,255,255,0.62)' }}>
-              Not a portfolio. A workshop — the drafts, the wrong turns, the nights something
-              broke at two in the morning and the reason it broke. Code here is a medium,
-              the same way a poem is.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* ═══ THE FIGURES ═════════════════════════════════════════════════════ */}
-      <section className="border-y px-6 py-14" style={{ borderColor: 'rgba(201,148,58,0.2)', background: 'rgba(201,148,58,0.04)' }}>
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
-          {figures.map(([n, label], i) => (
-            <FadeUp key={label} delay={i * 0.06}>
-              <p className="font-display text-4xl font-bold italic md:text-5xl" style={{ color: GOLD }}>{n}</p>
-              <p className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: 'rgba(245,240,232,0.5)' }}>
-                {label}
+          {/* The standfirst sits off-axis, to the right of centre — the first
+              signal that this page is set rather than stacked. */}
+          <div className="mt-8 grid gap-8 md:grid-cols-12">
+            <Reveal delay={0.2} className="md:col-span-6 md:col-start-6">
+              <p className="font-display text-xl italic leading-relaxed md:text-3xl" style={{ color: garden.ink }}>
+                The garden is where she writes. This is where she builds.
               </p>
-            </FadeUp>
-          ))}
+              <p className="mt-6 max-w-xl text-[15px] font-light leading-relaxed md:text-base" style={{ color: `${garden.ink}B3` }}>
+                Not a portfolio. A workshop — the drafts, the wrong turns, and the night something broke at two in
+                the morning along with the reason it broke. Code here is a medium, the same way a poem is.
+              </p>
+            </Reveal>
+          </div>
         </div>
-      </section>
+      </PhotoBleed>
 
-      {/* ═══ THE ROOMS ═══════════════════════════════════════════════════════ */}
-      <section className="px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-5xl">
-          <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>The rooms</p>
-            <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold italic leading-tight text-white md:text-5xl">
+      {/* ═══ THE FIGURES — on bone, set as display objects ═══════════════════ */}
+      <Ground ground="bone" className="px-6 py-20 md:py-28" edge="slant">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <Rule label="Measured, not stated" accent={bone.accent} />
+          </Reveal>
+
+          <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-12">
+            <div className="md:col-span-3">
+              <BigFigure value={stats.commits} label="commits" accent={bone.accent} note="Read from the GitHub API when the site is built, across twelve repositories." />
+            </div>
+            <div className="md:col-span-3 md:pt-16">
+              <BigFigure value={String(stats.apps)} label="builds journalled" accent={bone.accent} />
+            </div>
+            <div className="md:col-span-3">
+              <BigFigure value={`${Math.round(stats.words / 1000)}k`} label="words of build journal" accent={bone.accent} note="Longer than the poetry collection." />
+            </div>
+            <div className="md:col-span-3 md:pt-16">
+              <BigFigure value={String(stats.projects)} label="foundation projects" accent={bone.accent} />
+            </div>
+          </div>
+        </div>
+      </Ground>
+
+      {/* ═══ WHERE THE WORK HAPPENS — photographs carry this section ═════════ */}
+      <Ground ground="ink" className="px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+            <div className="md:col-span-5">
+              <OffsetFigure
+                image={stoep}
+                alt="Working on a stoep overlooking a garden and fountain"
+                caption="The office is a camping chair, a stoep, a hotel lobby, and a desk beside a printer at ten at night."
+                bleed="left"
+                ratio="4 / 5"
+              />
+            </div>
+
+            <div className="relative md:col-span-6 md:col-start-7 md:pt-20">
+              <Reveal>
+                <Rule label="Where it happens" accent={ink.accent} />
+                <h2 className="mt-7 font-display font-bold italic leading-[1.05]" style={{ fontSize: 'clamp(2rem, 5vw, 3.4rem)' }}>
+                  There is no studio.
+                </h2>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p className="mt-6 text-[16px] font-light leading-[1.85]" style={{ color: `${ink.ink}B8` }}>
+                  Eight products, three thousand commits, and not one of them written in an office. The photographs
+                  on this page are the actual working conditions: a laptop on a camp chair in the middle of a lawn,
+                  a stoep with a view of a fountain, a hotel lobby between other things, a printer and a notebook at
+                  an hour when nobody replies to anything.
+                </p>
+              </Reveal>
+              <Reveal delay={0.14}>
+                <p className="mt-5 text-[16px] font-light leading-[1.85]" style={{ color: `${ink.ink}B8` }}>
+                  It matters because it is the constraint the whole practice is shaped around. Load shedding is not
+                  a translation string here. Mobile data has a price. A build that assumes a stable desk and a fast
+                  line is a build for somewhere else.
+                </p>
+              </Reveal>
+
+              <MarginNote accent={ink.accent} side="right">
+                Every number in this wing is measured from the repositories at build time — never typed into a
+                sentence and left to drift.
+              </MarginNote>
+            </div>
+          </div>
+
+          <div className="mt-20 grid gap-6 md:mt-28 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <OffsetFigure image={lawn} alt="A laptop on a camping chair on a lawn under a palm tree" ratio="3 / 4" bleed="right" />
+            </div>
+            <div className="md:col-span-3 md:pt-24">
+              <VideoTile id="work/learning-to-code" label="learning to code" ratio="9 / 16" />
+            </div>
+            <div className="md:col-span-4 md:col-start-9 md:pt-10">
+              <OffsetFigure
+                image={lobby}
+                alt="Working from a hotel lobby"
+                ratio="4 / 5"
+                bleed="right"
+                caption="Between other things."
+              />
+            </div>
+          </div>
+        </div>
+      </Ground>
+
+      {/* ═══ THE PRINCIPLES — a spread on parchment ══════════════════════════ */}
+      <Ground ground="parchment" className="px-6 py-24 md:py-32" edge="slant-reverse">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: parchment.accent }}>
+              Carved into the wall
+            </p>
+            <h2 className="mt-4 max-w-3xl font-display font-bold italic leading-[1.02]" style={{ fontSize: 'clamp(2.2rem, 6vw, 4.5rem)' }}>
+              Nine principles, learned the expensive way.
+            </h2>
+          </Reveal>
+
+          {/* Two columns, numerals oversized and set outside the text. */}
+          <ol className="mt-16 grid gap-x-14 gap-y-10 md:grid-cols-2">
+            {THROUGHLINE.map((line, i) => (
+              <Reveal key={line} delay={Math.min(i * 0.05, 0.4)}>
+                <li className="flex items-start gap-5 border-t pt-5" style={{ borderColor: `${parchment.ink}1F` }}>
+                  <span
+                    className="shrink-0 font-display font-bold italic leading-none"
+                    style={{ color: parchment.accent, fontSize: 'clamp(2rem, 4vw, 3rem)', opacity: 0.55 }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="font-display text-lg italic leading-snug md:text-xl">{line}</span>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+
+          <PullQuote accent={parchment.accent} attribution="The rule this whole wing is built on">
+            If a room starts arguing for her, it belongs on the other site.
+          </PullQuote>
+        </div>
+      </Ground>
+
+      {/* ═══ THE ROOMS — navy, once, at the close ════════════════════════════ */}
+      <Ground ground="midnight" image={FAMILY.screens.ids[0]} veil={0.5} focus="center" parallax className="px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: midnight.accent }}>
+              The rooms
+            </p>
+            <h2 className="mt-4 max-w-2xl font-display font-bold italic leading-[1.05]" style={{ fontSize: 'clamp(2rem, 5.5vw, 4rem)' }}>
               Nine doors. Seven of them open.
             </h2>
-          </FadeUp>
+          </Reveal>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border md:grid-cols-3" style={{ borderColor: 'rgba(201,148,58,0.2)', background: 'rgba(201,148,58,0.16)' }}>
+          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border md:grid-cols-3" style={{ borderColor: `${midnight.accent}33`, background: `${midnight.accent}26` }}>
             {ROOMS.map((r, i) => {
               const inner = (
-                <div className="flex h-full flex-col p-7 transition-colors" style={{ background: '#0A1128' }}>
+                <div className="flex h-full flex-col p-7 transition-colors" style={{ background: midnight.bg }}>
                   <div className="mb-3 flex items-center justify-between gap-3">
-                    <h3 className="font-display text-xl italic text-white md:text-2xl">{r.name}</h3>
+                    <h3 className="font-display text-xl italic md:text-2xl" style={{ color: midnight.ink }}>{r.name}</h3>
                     {r.href ? (
-                      <ArrowUpRight className="h-4 w-4 shrink-0" style={{ color: GOLD }} />
+                      <ArrowUpRight className="h-4 w-4 shrink-0" style={{ color: midnight.accent }} />
                     ) : (
-                      <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.2em]" style={{ color: 'rgba(245,240,232,0.3)' }}>
+                      <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.2em]" style={{ color: `${midnight.ink}4D` }}>
                         in the fire
                       </span>
                     )}
                   </div>
-                  <p className="text-sm font-light leading-relaxed" style={{ color: r.href ? 'rgba(245,240,232,0.68)' : 'rgba(245,240,232,0.35)' }}>
+                  <p className="text-sm font-light leading-relaxed" style={{ color: r.href ? `${midnight.ink}AD` : `${midnight.ink}59` }}>
                     {r.line}
                   </p>
                 </div>
               );
-
               return (
-                <FadeUp key={r.name} delay={i * 0.04} className="h-full">
+                <Reveal key={r.name} delay={Math.min(i * 0.04, 0.3)} className="h-full">
                   {r.href ? (
-                    <Link href={r.href} className="group block h-full hover:[&>div]:bg-[#0d1631]">
-                      {inner}
-                    </Link>
-                  ) : (
-                    inner
-                  )}
-                </FadeUp>
+                    <Link href={r.href} className="group block h-full hover:[&>div]:bg-[#0d1631]">{inner}</Link>
+                  ) : inner}
+                </Reveal>
               );
             })}
           </div>
-        </div>
-      </section>
 
-      {/* ═══ THE PRINCIPLES ══════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-4xl">
-          <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
-              Carved into the wall
-            </p>
-            <h2 className="mt-4 font-display text-3xl font-bold italic leading-tight text-white md:text-5xl">
-              Nine principles.
-            </h2>
-          </FadeUp>
-
-          <ol className="mt-12 space-y-4">
-            {THROUGHLINE.map((line, i) => (
-              <FadeUp key={line} delay={i * 0.035}>
-                <li className="flex items-baseline gap-5 border-b pb-4" style={{ borderColor: 'rgba(245,240,232,0.08)' }}>
-                  <span className="font-mono text-[11px] tracking-widest" style={{ color: GOLD }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="font-display text-lg italic leading-relaxed md:text-xl" style={{ color: 'rgba(245,240,232,0.9)' }}>
-                    {line}
-                  </span>
-                </li>
-              </FadeUp>
-            ))}
-          </ol>
-
-          <FadeUp delay={0.2}>
+          <Reveal delay={0.15}>
             <Link
               href="/forge/origins"
               className="mt-14 inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-mono text-[11px] uppercase tracking-widest transition-opacity hover:opacity-90"
-              style={{ background: GOLD, color: '#0A1128' }}
+              style={{ background: midnight.accent, color: midnight.bg }}
             >
               Where they came from <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
-          </FadeUp>
+          </Reveal>
         </div>
-      </TexturedSection>
+      </Ground>
     </main>
   );
 }
