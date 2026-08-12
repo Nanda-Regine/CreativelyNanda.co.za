@@ -1,5 +1,21 @@
 'use client';
 
+/**
+ * ⚠️ THIS ROUTE IS NOT LIVE ON THIS SITE.
+ *
+ * `next.config.js` permanently redirects `/press` to `mirembemuse.co.za/press`,
+ * so this file never renders — the redirect fires first. It is kept because the
+ * content is still the source of truth for her press material and the page may
+ * be revived, but treat any change here as a change to a draft.
+ *
+ * The station-name correction below (Madibaz Radio, not "Madiba FM") matters
+ * regardless: the same error was live in eleven other places, including the AI
+ * assistant's system prompt, and those are fixed too.
+ *
+ * The radio photographs that this page would have shown are live in the
+ * gallery's "On Air" chapter instead, which is a route that actually resolves.
+ */
+
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';

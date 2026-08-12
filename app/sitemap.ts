@@ -47,9 +47,22 @@ const FORGE: Entry[] = [
   // The career feature keeps its own URL and canonical — THE_FORGE.md §8 is
   // explicit that /engineer is well-indexed and must never be redirected.
   { path: '/engineer', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/ai-engineer', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/education', changeFrequency: 'monthly', priority: 0.7 },
 ];
+
+/**
+ * 🔴 NEVER LIST THESE. They are permanent redirects to mirembemuse.co.za, set
+ * in `next.config.js`, and a sitemap that declares a redirected URL is telling
+ * Search Console the page exists here when it does not — every one of them
+ * comes back as a "Page with redirect" error and dilutes the crawl budget for
+ * the pages that are real.
+ *
+ * The first version of this rebuilt sitemap listed /ai-engineer, /projects and
+ * /press. The route files still exist in `app/` (which is why they looked
+ * live), but the redirect fires before the page ever renders — so the files are
+ * dead code and the URLs are not this site's to claim.
+ */
+const REDIRECTED_TO_MIREMBE = ['/ai-engineer', '/projects', '/press'] as const;
 
 const POETRY: Entry[] = [
   { path: '/poetry', changeFrequency: 'weekly', priority: 0.9 },
@@ -68,7 +81,6 @@ const STORY: Entry[] = [
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/blog', changeFrequency: 'daily', priority: 0.8 },
   { path: '/testimonials', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/press', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/sanyu', changeFrequency: 'monthly', priority: 0.5 },
 ];
 
@@ -109,7 +121,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...LEGAL,
   ];
 
-  return entries.map((e) => ({
+  // Belt and braces: even if somebody re-adds one of these to a list above, it
+  // cannot reach the sitemap. A redirected URL declared here is a Search Console
+  // error, not a ranking opportunity.
+  const live = entries.filter((e) => !REDIRECTED_TO_MIREMBE.includes(e.path as (typeof REDIRECTED_TO_MIREMBE)[number]));
+
+  return live.map((e) => ({
     url: `${BASE_URL}${e.path}`,
     lastModified,
     changeFrequency: e.changeFrequency,
