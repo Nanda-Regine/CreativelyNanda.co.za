@@ -69,7 +69,10 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
       <PhotoBleed image={night} ground="garden" focus="60% 40%" from="bottom" minH="94vh" className="-mt-20 pt-28">
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-20">
           <Reveal>
-            <p className="font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: garden.accent }}>
+            {/* The garden accent (#E8B4C8) is a pale pink and vanished against
+                the grey curtain behind her. On a photograph the kicker needs its
+                own contrast, not the section's decorative colour. */}
+            <p className="font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: '#FFD9A0' }}>
               A wing of the house
             </p>
           </Reveal>
@@ -124,7 +127,7 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
       </Ground>
 
       {/* ═══ WHERE THE WORK HAPPENS — photographs carry this section ═════════ */}
-      <Ground ground="ink" className="px-6 py-24 md:py-32">
+      <Ground ground="ink" className="px-6 py-24 pb-16 md:py-32 md:pb-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
@@ -167,17 +170,18 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
             </div>
           </div>
 
-          {/* A three-up that is deliberately un-levelled: each tile starts at a
-              different height so the row reads as a spread rather than a strip.
-              Gaps are tight — the first pass left a void of dead ground under it. */}
-          <div className="mt-16 grid grid-cols-2 gap-4 md:mt-24 md:grid-cols-12 md:gap-6">
-            <div className="md:col-span-4">
-              <OffsetFigure image={lawn} alt="A laptop on a camping chair on a lawn under a palm tree" ratio="3 / 4" bleed="right" parallax={false} />
+          {/* Two large plates and a tall clip, un-levelled. The first version
+              used three small tiles in a 12-column grid, which left the row
+              short and a slab of dead ground underneath it. Bigger images, less
+              gutter, and the section closes right after. */}
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-24 md:grid-cols-12 md:gap-6">
+            <div className="md:col-span-5">
+              <OffsetFigure image={lawn} alt="A laptop on a camping chair on a lawn under a palm tree" ratio="4 / 3" bleed="right" parallax={false} />
             </div>
-            <div className="md:col-span-3 md:pt-16">
+            <div className="md:col-span-3 md:pt-14">
               <VideoTile id="work/learning-to-code" label="learning to code" ratio="9 / 16" />
             </div>
-            <div className="col-span-2 md:col-span-4 md:col-start-9 md:pt-6">
+            <div className="sm:col-span-2 md:col-span-4 md:pt-4">
               <OffsetFigure
                 image={FAMILY.screens.ids[0]}
                 alt="Code on screen, lit magenta"
@@ -220,14 +224,19 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
             ))}
           </ol>
 
-          <PullQuote accent={parchment.accent} attribution="The rule this whole wing is built on">
-            If a room starts arguing for her, it belongs on the other site.
-          </PullQuote>
+          <div className="mt-4 md:-mb-6">
+            <PullQuote accent={parchment.accent} attribution="The rule this whole wing is built on">
+              If a room starts arguing for her, it belongs on the other site.
+            </PullQuote>
+          </div>
         </div>
       </Ground>
 
       {/* ═══ THE ROOMS — navy, once, at the close ════════════════════════════ */}
-      <Ground ground="midnight" image={FAMILY.screens.ids[1]} veil={0.52} focus="center" parallax className="px-6 py-24 md:py-32">
+      {/* The code shot behind this section is texture, not reading matter — the
+          first pass ran a transcript legible enough to compete with the copy.
+          The magenta plate reads as colour and grain at this veil. */}
+      <Ground ground="midnight" image={FAMILY.screens.ids[0]} veil={0.55} focus="30% 60%" parallax className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: midnight.accent }}>
