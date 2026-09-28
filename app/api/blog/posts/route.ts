@@ -6,34 +6,9 @@ function isSupabaseConfigured() {
   return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 }
 
-// Create a new blog post
-export async function POST(request: Request) {
-  if (!isSupabaseConfigured()) {
-    return NextResponse.json({ error: 'Database not configured' }, { status: 503 });
-  }
-
-  const supabase = createServerClient();
-
-  try {
-    const body = await request.json();
-
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .insert(body)
-      .select()
-      .single();
-
-    if (error) {
-      console.error('Error creating post:', error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    return NextResponse.json(data, { status: 201 });
-  } catch (err) {
-    console.error('Error parsing request:', err);
-    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
-  }
-}
+// Posts are written only by the admin server actions (service role) and
+// scripts/publish-press.mjs. The unauthenticated POST that used to live here
+// inserted with the anon key and relied on an open RLS policy; removed 2026-09-28.
 
 export async function GET(request: Request) {
   // Return empty array if Supabase not configured (fallback to seed data)

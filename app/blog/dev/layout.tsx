@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import { createMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Development Articles',
-  description: 'Technical articles on React, Next.js, AI integration, Notion systems, and modern web development. Written by a full-stack developer in South Africa.',
+  title: 'Field Notes: The House of Roses Press',
+  description:
+    'Field notes from the Forge: how Nandawula Regine builds AI products for South Africa, decision by decision. K53 Drill Master, VarsityOS, True Access, JarvisOS, PayFast, Supabase, Claude.',
   path: '/blog/dev',
-  keywords: ['development', 'React', 'Next.js', 'AI', 'web development', 'tutorials'],
+  keywords: ['engineering field notes', 'South African software engineer', 'Next.js Supabase case study', 'Claude API production', 'building for budget Android', 'PayFast integration'],
 });
 
 export default function BlogDevLayout({ children }: { children: React.ReactNode }) {

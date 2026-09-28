@@ -1,600 +1,323 @@
-'use client';
+/**
+ * 📰 /blog — The House of Roses Press, front page.
+ *
+ * BUILD_JOURNEY §19.3 and §23. "Blog" is retired from the page (the URL stays;
+ * see lib/data/press-issues.ts). What a reader meets instead is a masthead,
+ * the issue on the stands with its contents, and the back issues, each piece
+ * filed in the issue its date falls in.
+ *
+ * Server-rendered from Supabase. The previous page was a client component that
+ * first painted the seed file, whose dates are relative to the build, and then
+ * swapped in the real posts. The server sent the wrong dates on every request.
+ * Search and the sign-up form are the only client islands.
+ *
+ * Only the press's own imprints are on the masthead. The business essays and
+ * Notion guides stay live at their URLs and are named once, at the foot.
+ */
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useReducedMotion } from 'framer-motion';
-import { Search, Mail, ArrowRight, ArrowUpRight, Clock } from 'lucide-react';
-import type { BlogPost, Contributor } from '@/types/database';
-import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
+import Link from 'next/link';
+import { ArrowUpRight, Mail } from 'lucide-react';
+import TexturedSection from '@/components/ui/TexturedSection';
 
-// ── House palette ───────────────────────────────────────────────
+// TEXTURES lives in a client module, so a server page cannot read it; the id is
+// repeated here (red-gold ink marble).
+const MARBLE = 'creativelynanda/backgrounds/download-29';
+import { PressSearch, SubscribeForm, type SearchItem } from '@/components/press/PressClient';
+import { getPressCards, type PressCard } from '@/lib/press';
+import { CURRENT_ISSUE, IMPRINTS, ISSUES, issueLabel, PRESS_NAME, STUDIO_CATEGORIES, type Issue } from '@/lib/data/press-issues';
+
+export const revalidate = 3600;
+
 const NAVY = '#0A1128';
 const GOLD = '#C9943A';
 const CHERRY = '#C1292E';
-const EMBER = '#E4572E';
 const ROSE = '#6B0F20';
 const CREAM = '#F5F0E8';
 
-const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+const href = (p: PressCard) => `/blog/${p.category}/${p.slug}`;
+const fmt = (d: string | null) =>
+  d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }) : '';
+const pad = (n: number) => String(n).padStart(2, '0');
 
-const CATEGORY_LABEL: Record<string, string> = {
-  dev: 'Development',
-  writing: 'Writing',
-  business: 'Business',
-  notion: 'Notion Templates',
-};
+export default async function PressFrontPage() {
+  const all = await getPressCards();
+  const press = all.filter((p) => !p.studio);
+  const studio = all.filter((p) => p.studio);
 
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    timeZone: 'UTC', // pin to UTC so server + client render the same date (no hydration mismatch)
-  });
-}
+  const inIssue = (i: Issue) => press.filter((p) => p.issue?.number === i.number);
+  // The issue on the stands: the newest one that has something in it.
+  const onStands = [...ISSUES].reverse().find((i) => inIssue(i).length || i.feature) ?? CURRENT_ISSUE;
+  const standPieces = inIssue(onStands);
+  const lead = standPieces.find((p) => p.cover_image) ?? standPieces[0];
+  const contents = standPieces.filter((p) => p !== lead);
+  const backIssues = [...ISSUES].reverse().filter((i) => i.number < onStands.number && (inIssue(i).length || i.feature));
+  const liveImprints = IMPRINTS.map((im) => ({ ...im, count: press.filter((p) => p.category === im.category).length })).filter((im) => im.count);
 
-// Transform database post to article card format
-function transformPost(post: BlogPost) {
-  return {
-    slug: post.slug,
-    title: post.title,
-    excerpt: post.excerpt || '',
-    coverImage: post.cover_image,
-    category: post.category,
-    publishedAt: post.published_at || post.created_at,
-    readingTime: post.reading_time || 5,
-    author: {
-      name: post.contributor?.name || 'Nanda Kabali-Kagwa',
-      avatar: post.contributor?.avatar || '/assets/professional/nanda-professional.jpg',
-    },
-    viewCount: post.view_count,
-    likeCount: post.like_count,
-  };
-}
-
-// Transform seed posts into the article card format
-function transformSeedPost(post: typeof seedPosts[number]) {
-  return {
-    slug: post.slug,
-    title: post.title,
-    excerpt: post.excerpt || '',
-    coverImage: post.cover_image || '',
-    category: post.category as 'dev' | 'writing' | 'business' | 'notion',
-    publishedAt: post.published_at || new Date().toISOString(),
-    readingTime: post.reading_time || 5,
-    author: {
-      name: 'Nanda Kabali-Kagwa',
-      avatar: '/assets/professional/nanda-professional.jpg',
-    },
-    viewCount: 0,
-    likeCount: 0,
-  };
-}
-
-type Article = ReturnType<typeof transformPost>;
-
-function SubscribeForm() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleSubscribe = async () => {
-    if (!email || status === 'loading') return;
-    setStatus('loading');
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      if (!res.ok) throw new Error();
-      setStatus('success');
-      setEmail('');
-    } catch {
-      setStatus('error');
-    }
-  };
-
-  if (status === 'success') {
-    return (
-      <div className="flex flex-col items-center gap-3 py-4">
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center border"
-          style={{ borderColor: `${GOLD}66`, background: `${GOLD}1a` }}
-        >
-          <span className="text-2xl" style={{ color: GOLD }}>✓</span>
-        </div>
-        <p className="font-display text-2xl italic" style={{ color: CREAM }}>
-          You&apos;re in. Welcome to the letters.
-        </p>
-        <p className="text-sm" style={{ color: `${CREAM}80` }}>
-          A confirmation is already on its way to your inbox.
-        </p>
-      </div>
-    );
-  }
+  const searchItems: SearchItem[] = all.map((p) => ({
+    href: href(p),
+    title: p.title,
+    excerpt: p.excerpt ?? '',
+    imprint: p.imprintName,
+    issue: p.issue ? issueLabel(p.issue.number) : '',
+  }));
 
   return (
-    <>
-      <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
-          placeholder="your@email.com"
-          disabled={status === 'loading'}
-          className="flex-1 px-6 py-4 bg-transparent border text-base focus:outline-none transition-all disabled:opacity-60"
-          style={{
-            borderColor: `${CREAM}33`,
-            color: CREAM,
-            borderRadius: 2,
-          }}
-        />
-        <motion.button
-          onClick={handleSubscribe}
-          disabled={status === 'loading' || !email}
-          className="px-8 py-4 font-mono text-xs uppercase tracking-[0.3em] transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
-          style={{ background: GOLD, color: NAVY, borderRadius: 2 }}
-          whileHover={{ scale: status === 'loading' ? 1 : 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          {status === 'loading' ? (
-            <><div className="w-4 h-4 border-2 rounded-full animate-spin" style={{ borderColor: `${NAVY}40`, borderTopColor: NAVY }} /> Sending</>
-          ) : (
-            <>Subscribe <ArrowRight className="w-4 h-4" /></>
-          )}
-        </motion.button>
-      </div>
-      {status === 'error' && (
-        <p className="text-sm mt-3" style={{ color: EMBER }}>
-          Something went wrong. Try again or write to nandaregine@gmail.com
-        </p>
-      )}
-      <p className="text-xs mt-5 font-mono uppercase tracking-[0.25em]" style={{ color: `${CREAM}55` }}>
-        No spam · Unsubscribe anytime
-      </p>
-    </>
-  );
-}
+    <div className="relative min-h-screen" style={{ background: CREAM }}>
+      {/* ═══ THE MASTHEAD ══════════════════════════════════════════════════ */}
+      <header className="relative -mt-20 overflow-hidden" style={{ background: NAVY, color: CREAM }}>
+        <div className="pointer-events-none absolute inset-0" style={{ background: `radial-gradient(120% 80% at 85% -10%, ${ROSE}77, transparent 60%)` }} />
+        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-14 pt-36">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b pb-4 font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ borderColor: `${CREAM}26`, color: `${CREAM}99` }}>
+            <span>KuGompo City · Est. 2026</span>
+            <span style={{ color: GOLD }}>
+              {issueLabel(onStands.number)} · {onStands.dated}
+            </span>
+          </div>
 
-// ── Article card (editorial) ────────────────────────────────────
-function ArticleCard({ article, index, reduce }: { article: Article; index: number; reduce: boolean | null }) {
-  const href = `/blog/${article.category}/${article.slug}`;
-  return (
-    <motion.div
-      initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay: Math.min(index * 0.06, 0.3), ease: [0.22, 1, 0.36, 1] }}
-    >
-      <Link href={href} className="group block">
-        <div
-          className="relative overflow-hidden mb-5"
-          style={{ borderRadius: 3, background: `${NAVY}0a`, aspectRatio: '3 / 2' }}
-        >
-          {article.coverImage ? (
-            <Image
-              src={article.coverImage}
-              alt={article.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
-            />
-          ) : (
-            <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${NAVY}, ${ROSE})` }} />
-          )}
-          <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${NAVY}55, transparent 55%)` }} />
-        </div>
-        <div className="flex items-center gap-3 mb-3">
-          <span className="font-mono text-[0.65rem] uppercase tracking-[0.3em]" style={{ color: GOLD }}>
-            {CATEGORY_LABEL[article.category] || article.category}
-          </span>
-          <span className="h-px flex-1" style={{ background: `${NAVY}1a` }} />
-          <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] flex items-center gap-1" style={{ color: `${NAVY}66` }}>
-            <Clock className="w-3 h-3" /> {article.readingTime}m
-          </span>
-        </div>
-        <h3
-          className="font-display text-2xl leading-snug mb-2 transition-colors"
-          style={{ color: NAVY }}
-        >
-          <span className="bg-[length:0%_1px] bg-no-repeat bg-left-bottom group-hover:bg-[length:100%_1px] transition-all duration-500"
-            style={{ backgroundImage: `linear-gradient(${GOLD}, ${GOLD})` }}>
-            {article.title}
-          </span>
-        </h3>
-        <p className="text-sm leading-relaxed line-clamp-3" style={{ color: `${NAVY}99` }}>
-          {article.excerpt}
-        </p>
-        <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-[0.25em]" style={{ color: `${NAVY}55` }}>
-          {formatDate(article.publishedAt)}
-        </p>
-      </Link>
-    </motion.div>
-  );
-}
+          <h1 className="mt-8 font-display font-bold italic leading-[0.9]" style={{ fontSize: 'clamp(3rem, 10vw, 7.5rem)' }}>
+            {PRESS_NAME.replace(' Press', '')}
+            <span className="block font-normal not-italic" style={{ color: GOLD, fontSize: '0.42em', letterSpacing: '0.2em' }}>
+              PRESS
+            </span>
+          </h1>
 
-export default function BlogPage() {
-  const reduce = useReducedMotion();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [articles, setArticles] = useState<Article[]>(
-    () => seedPosts.map(transformSeedPost)
-  );
-  const [contributors, setContributors] = useState<Contributor[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  // Try to fetch live articles from Supabase (seed data is already loaded)
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch('/api/blog/posts');
-        if (res.ok) {
-          const posts = await res.json();
-          if (posts && posts.length > 0) {
-            setArticles(posts.map(transformPost));
-
-            // Extract unique contributors
-            const uniqueContributors = posts
-              .filter((p: BlogPost) => p.contributor)
-              .map((p: BlogPost) => p.contributor)
-              .filter((c: Contributor, i: number, arr: Contributor[]) =>
-                arr.findIndex((a) => a?.id === c?.id) === i
-              );
-            setContributors(uniqueContributors);
-          }
-        }
-      } catch (error) {
-        // Seed data is already loaded, so no action needed
-        console.error('Error fetching posts:', error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
-  // Get featured article (first one with cover image, or first one)
-  const featuredArticle = articles.find(a => a.coverImage) || articles[0];
-
-  // Filter articles if searching
-  const filteredArticles = searchQuery
-    ? articles.filter(
-        (a) =>
-          a.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          a.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : null;
-
-  // Group articles by category
-  const devArticles = articles.filter(a => a.category === 'dev');
-  const writingArticles = articles.filter(a => a.category === 'writing');
-  const businessArticles = articles.filter(a => a.category === 'business');
-  const notionArticles = articles.filter(a => a.category === 'notion');
-
-  // Categories that actually have posts — for the filter rail
-  const categoryChips = [
-    { key: 'all', label: 'All Writing', count: articles.length },
-    { key: 'dev', label: CATEGORY_LABEL.dev, count: devArticles.length },
-    { key: 'writing', label: CATEGORY_LABEL.writing, count: writingArticles.length },
-    { key: 'business', label: CATEGORY_LABEL.business, count: businessArticles.length },
-    { key: 'notion', label: CATEGORY_LABEL.notion, count: notionArticles.length },
-  ].filter(c => c.count > 0);
-
-  // The rest of the contents (excludes the lead), honouring the active chip
-  const restArticles = articles
-    .filter(a => a.slug !== featuredArticle?.slug)
-    .filter(a => activeCategory === 'all' || a.category === activeCategory);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: NAVY }}>
-        <motion.div
-          className="flex flex-col items-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <div className="w-12 h-12 border-2 rounded-full animate-spin" style={{ borderColor: `${GOLD}30`, borderTopColor: GOLD }} />
-          <p className="font-mono text-xs uppercase tracking-[0.3em]" style={{ color: `${CREAM}80` }}>Loading the journal</p>
-        </motion.div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen relative" style={{ background: CREAM }}>
-      {/* Grain texture */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{ backgroundImage: GRAIN, opacity: 0.14 }}
-      />
-
-      {/* ── Masthead ──────────────────────────────────────────── */}
-      <header className="relative overflow-hidden" style={{ background: NAVY, color: CREAM }}>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: GRAIN, opacity: 0.12 }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: `radial-gradient(120% 80% at 80% -10%, ${ROSE}66, transparent 60%)` }}
-        />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16">
-          <motion.p
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-mono text-xs uppercase tracking-[0.4em] mb-8"
-            style={{ color: GOLD }}
-          >
-            The Journal · Field Notes from the Studio
-          </motion.p>
-
-          <motion.h1
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display leading-[0.95]"
-            style={{ fontSize: 'clamp(3.5rem, 11vw, 8rem)', color: CREAM }}
-          >
-            Writing
-          </motion.h1>
-
-          <motion.div
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.12 }}
-            className="mt-8 grid md:grid-cols-[1fr_auto] gap-8 items-end"
-          >
-            <p className="font-display italic max-w-xl" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', color: `${CREAM}cc`, lineHeight: 1.5 }}>
-              Essays on code and craft, poems in progress, and the quiet mechanics of building a
-              creative life — written between the studio and the stage.
-            </p>
-            <div className="flex md:flex-col md:items-end gap-4 md:gap-1 font-mono text-xs uppercase tracking-[0.25em]" style={{ color: `${CREAM}80` }}>
-              <span style={{ color: GOLD }}>Issue 001</span>
-              <span>{articles.length} pieces</span>
-              <span>Nandawula Regine</span>
+          <div className="mt-10 grid items-end gap-10 md:grid-cols-[1fr_auto]">
+            <div>
+              <p className="max-w-xl font-display text-xl italic leading-relaxed md:text-2xl" style={{ color: `${CREAM}cc` }}>
+                Essays and field notes by Nandawula Regine, published in numbered issues. The writing, and the making of the
+                work, in one house.
+              </p>
+              <div className="mt-8">
+                <PressSearch items={searchItems} />
+              </div>
             </div>
-          </motion.div>
-
-          {/* Search */}
-          <motion.div
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-12 max-w-md"
-          >
-            <div
-              className="flex items-center gap-3 px-5 py-3 border"
-              style={{ borderColor: `${CREAM}2e`, borderRadius: 2 }}
-            >
-              <Search className="w-4 h-4" style={{ color: GOLD }} />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search the archive…"
-                className="flex-1 bg-transparent text-sm focus:outline-none"
-                style={{ color: CREAM }}
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="font-mono text-[0.65rem] uppercase tracking-[0.2em]"
-                  style={{ color: `${CREAM}80` }}
-                >
-                  Clear
-                </button>
-              )}
-            </div>
-          </motion.div>
+            <ul className="flex gap-8 md:flex-col md:gap-3 md:text-right">
+              {liveImprints.map((im) => (
+                <li key={im.key}>
+                  <Link href={`/blog/${im.category}`} className="group inline-block">
+                    <span className="font-display text-2xl italic transition-colors group-hover:text-[#C9943A]">{im.name}</span>
+                    <span className="ml-2 font-mono text-[10px] tracking-[0.2em]" style={{ color: GOLD }}>
+                      {pad(im.count)}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        {/* Gold hairline foot */}
-        <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${GOLD}80, transparent)` }} />
+        <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${GOLD}90, transparent)` }} />
       </header>
 
-      <div className="relative z-10">
-        {/* ── Search results ────────────────────────────────── */}
-        {filteredArticles && (
-          <section className="py-16 px-6">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-end justify-between mb-10 pb-4 border-b" style={{ borderColor: `${NAVY}1a` }}>
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.3em] mb-2" style={{ color: GOLD }}>
-                    Archive Search
-                  </p>
-                  <h2 className="font-display text-3xl" style={{ color: NAVY }}>
-                    &ldquo;{searchQuery}&rdquo;
-                    <span className="ml-3 text-lg" style={{ color: `${NAVY}55` }}>
-                      {filteredArticles.length} result{filteredArticles.length === 1 ? '' : 's'}
-                    </span>
-                  </h2>
-                </div>
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="font-mono text-xs uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
-                  style={{ color: CHERRY }}
-                >
-                  Clear search
-                </button>
-              </div>
-
-              {filteredArticles.length === 0 ? (
-                <div className="text-center py-24">
-                  <Search className="w-12 h-12 mx-auto mb-5" style={{ color: `${NAVY}22` }} />
-                  <p className="font-display text-2xl italic" style={{ color: `${NAVY}99` }}>
-                    Nothing in the archive matches that yet.
-                  </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em]" style={{ color: `${NAVY}55` }}>
-                    Try a different word
-                  </p>
-                </div>
-              ) : (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
-                  {filteredArticles.map((article, i) => (
-                    <ArticleCard key={article.slug} article={article} index={i} reduce={reduce} />
-                  ))}
-                </div>
-              )}
+      {/* ═══ ON THE STANDS ═════════════════════════════════════════════════ */}
+      <section className="px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 flex items-end gap-6">
+            <span className="font-display font-bold italic leading-[0.8]" style={{ fontSize: 'clamp(4.5rem, 12vw, 9rem)', color: GOLD }}>
+              {String(onStands.number).padStart(3, '0')}
+            </span>
+            <div className="pb-2">
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: CHERRY }}>
+                On the stands
+              </p>
+              <h2 className="mt-2 font-display text-3xl italic md:text-5xl" style={{ color: NAVY }}>
+                {onStands.title}
+              </h2>
             </div>
-          </section>
-        )}
+          </div>
 
-        {/* ── Contents (when not searching) ─────────────────── */}
-        {!filteredArticles && (
-          <>
-            {/* Featured lead */}
-            {featuredArticle && (
-              <section className="py-16 px-6">
-                <div className="max-w-6xl mx-auto">
-                  <div className="flex items-center gap-4 mb-10">
-                    <span className="font-mono text-xs uppercase tracking-[0.3em]" style={{ color: GOLD }}>
-                      The Lead
-                    </span>
-                    <span className="h-px flex-1" style={{ background: `${NAVY}1a` }} />
-                  </div>
-
-                  <motion.div
-                    initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <Link
-                      href={`/blog/${featuredArticle.category}/${featuredArticle.slug}`}
-                      className="group grid lg:grid-cols-2 gap-8 lg:gap-12 items-center"
-                    >
-                      <div
-                        className="relative overflow-hidden order-1 lg:order-none"
-                        style={{ borderRadius: 4, aspectRatio: '4 / 3', background: `${NAVY}0a` }}
-                      >
-                        {featuredArticle.coverImage ? (
-                          <Image
-                            src={featuredArticle.coverImage}
-                            alt={featuredArticle.title}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            priority
-                            className="object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.03]"
-                          />
-                        ) : (
-                          <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${NAVY}, ${ROSE})` }} />
-                        )}
-                        <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${NAVY}4d, transparent 60%)` }} />
-                      </div>
-
-                      <div>
-                        <div className="flex items-center gap-3 mb-5">
-                          <span className="font-mono text-xs uppercase tracking-[0.3em]" style={{ color: CHERRY }}>
-                            {CATEGORY_LABEL[featuredArticle.category] || featuredArticle.category}
-                          </span>
-                          <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] flex items-center gap-1" style={{ color: `${NAVY}66` }}>
-                            <Clock className="w-3 h-3" /> {featuredArticle.readingTime} min read
-                          </span>
-                        </div>
-                        <h2
-                          className="font-display leading-[1.05] mb-5"
-                          style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.75rem)', color: NAVY }}
-                        >
-                          {featuredArticle.title}
-                        </h2>
-                        <p className="font-display italic mb-8" style={{ fontSize: '1.35rem', lineHeight: 1.6, color: `${NAVY}b3` }}>
-                          {featuredArticle.excerpt}
-                        </p>
-                        <span
-                          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] pb-1 border-b transition-colors"
-                          style={{ color: NAVY, borderColor: GOLD }}
-                        >
-                          Read the feature
-                          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: GOLD }} />
-                        </span>
-                      </div>
-                    </Link>
-                  </motion.div>
-                </div>
-              </section>
-            )}
-
-            {/* Filter rail + grid */}
-            <section className="py-12 px-6 pb-24">
-              <div className="max-w-6xl mx-auto">
-                <div className="flex flex-wrap items-center gap-4 mb-14 pb-6 border-b" style={{ borderColor: `${NAVY}1a` }}>
-                  <span className="font-mono text-xs uppercase tracking-[0.3em] mr-2" style={{ color: `${NAVY}66` }}>
-                    Sections
-                  </span>
-                  {categoryChips.map((chip) => {
-                    const active = activeCategory === chip.key;
-                    return (
-                      <button
-                        key={chip.key}
-                        onClick={() => setActiveCategory(chip.key)}
-                        className="font-mono text-xs uppercase tracking-[0.2em] px-4 py-2 border transition-all"
-                        style={{
-                          borderRadius: 2,
-                          color: active ? CREAM : NAVY,
-                          background: active ? NAVY : 'transparent',
-                          borderColor: active ? NAVY : `${NAVY}22`,
-                        }}
-                      >
-                        {chip.label}
-                        <span className="ml-2" style={{ color: active ? GOLD : `${NAVY}55` }}>{chip.count}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {restArticles.length > 0 ? (
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-                    {restArticles.map((article, i) => (
-                      <ArticleCard key={article.slug} article={article} index={i} reduce={reduce} />
-                    ))}
-                  </div>
+          {lead ? (
+            <Link href={href(lead)} className="group grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-14">
+              <div className="relative overflow-hidden" style={{ aspectRatio: '4 / 3', borderRadius: 3, background: `linear-gradient(135deg, ${NAVY}, ${ROSE})` }}>
+                {lead.cover_image ? (
+                  <Image src={lead.cover_image} alt="" fill priority sizes="(max-width:1024px) 100vw, 55vw" className="object-cover transition-transform duration-[1000ms] group-hover:scale-[1.03]" />
                 ) : (
-                  <p className="font-display text-2xl italic text-center py-16" style={{ color: `${NAVY}88` }}>
-                    More from this section is on the way.
-                  </p>
+                  <span className="absolute bottom-6 left-6 font-display text-7xl italic" style={{ color: `${CREAM}33` }}>
+                    {lead.imprintName}
+                  </span>
                 )}
               </div>
-            </section>
-
-            {/* ── Newsletter (textured depth) ─────────────────── */}
-            <TexturedSection texture={TEXTURES.marble} tone="wine" className="relative px-6 py-28">
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: `radial-gradient(90% 60% at 50% 120%, ${ROSE}66, transparent 60%)` }}
-              />
-              <div className="relative z-10 max-w-2xl mx-auto text-center">
-                <motion.div
-                  initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                >
-                  <div
-                    className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-8 border"
-                    style={{ borderColor: `${GOLD}66`, background: `${GOLD}12` }}
-                  >
-                    <Mail className="w-6 h-6" style={{ color: GOLD }} />
-                  </div>
-                  <p className="font-mono text-xs uppercase tracking-[0.4em] mb-6" style={{ color: GOLD }}>
-                    Letters from the Studio
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: CHERRY }}>
+                  The lead · {lead.imprintName}
+                </p>
+                <h3 className="mt-4 font-display leading-[1.04]" style={{ fontSize: 'clamp(2.1rem, 4.4vw, 3.5rem)', color: NAVY }}>
+                  {lead.title}
+                </h3>
+                {lead.excerpt ? (
+                  <p className="mt-5 font-display text-xl italic leading-relaxed" style={{ color: `${NAVY}b3` }}>
+                    {lead.excerpt}
                   </p>
-                  <h2 className="font-display leading-tight mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', color: CREAM }}>
-                    New writing, <span className="italic" style={{ color: GOLD }}>delivered by hand.</span>
-                  </h2>
-                  <p className="text-base mb-10 max-w-lg mx-auto" style={{ color: `${CREAM}b3`, lineHeight: 1.7 }}>
-                    Every new essay, poem, and template — sent the moment it&apos;s finished.
-                    No noise, no schedule. Only the work.
-                  </p>
-                  <SubscribeForm />
-                </motion.div>
+                ) : null}
+                <span className="mt-7 inline-flex items-center gap-2 border-b pb-1 font-mono text-xs uppercase tracking-[0.3em]" style={{ color: NAVY, borderColor: GOLD }}>
+                  Read it <ArrowUpRight className="h-4 w-4" style={{ color: GOLD }} />
+                </span>
               </div>
-            </TexturedSection>
-          </>
-        )}
-      </div>
+            </Link>
+          ) : null}
+
+          {onStands.feature ? <FeatureStrip feature={onStands.feature} /> : null}
+
+          {contents.length ? (
+            <div className="mt-16">
+              <p className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: `${NAVY}80` }}>
+                Also in this issue
+              </p>
+              <Contents pieces={contents} />
+            </div>
+          ) : null}
+        </div>
+      </section>
+
+      {/* ═══ THE BACK ISSUES ═══════════════════════════════════════════════ */}
+      <TexturedSection texture={MARBLE} tone="cream" className="px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: CHERRY }}>
+            The back issues
+          </p>
+          <div className="mt-10 space-y-20">
+            {backIssues.map((i) => {
+              const pieces = inIssue(i);
+              return (
+                <article key={i.number} id={`issue-${i.number}`} className="scroll-mt-28 grid gap-8 md:grid-cols-[13rem_1fr] md:gap-12">
+                  <div>
+                    <span className="block font-display font-bold italic leading-[0.8]" style={{ fontSize: '5.5rem', color: `${GOLD}` }}>
+                      {String(i.number).padStart(3, '0')}
+                    </span>
+                    <h3 className="mt-3 font-display text-2xl italic leading-tight" style={{ color: NAVY }}>
+                      {i.title}
+                    </h3>
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.24em]" style={{ color: `${NAVY}80` }}>
+                      {i.dated}{pieces.length ? ` · ${pieces.length} ${pieces.length === 1 ? 'piece' : 'pieces'}` : ''}
+                    </p>
+                  </div>
+                  <div>
+                    {i.feature ? <FeatureStrip feature={i.feature} compact /> : null}
+                    {pieces.length ? <Contents pieces={pieces} /> : null}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </TexturedSection>
+
+      {/* ═══ THE HOUSE RULES + WHAT ELSE IS KEPT HERE ══════════════════════ */}
+      <section className="px-6 py-20">
+        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+          <div>
+            <p className="font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: GOLD }}>
+              How this press works
+            </p>
+            <p className="mt-4 font-display text-2xl italic leading-relaxed" style={{ color: NAVY }}>
+              Every piece is filed in the issue its date falls in. Every number in a field note should be traceable to the code
+              it describes.
+            </p>
+          </div>
+          {studio.length ? (
+            <div className="self-end border-l-2 pl-6" style={{ borderColor: `${NAVY}1a` }}>
+              <p className="text-[15px] leading-relaxed" style={{ color: `${NAVY}99` }}>
+                Also kept here, so their links keep working:{' '}
+                {Object.entries(STUDIO_CATEGORIES).map(([cat, s], k) => {
+                  const n = studio.filter((p) => p.category === cat).length;
+                  if (!n) return null;
+                  return (
+                    <span key={cat}>
+                      {k ? ' and ' : ''}
+                      <Link href={s.href} className="underline decoration-dotted underline-offset-4" style={{ color: ROSE }}>
+                        {n} {s.name.toLowerCase()}
+                      </Link>
+                    </span>
+                  );
+                })}
+                . The business writing belongs to{' '}
+                <a href="https://mirembemuse.co.za" className="underline decoration-dotted underline-offset-4" style={{ color: ROSE }}>
+                  Mirembe Muse
+                </a>
+                .
+              </p>
+            </div>
+          ) : null}
+        </div>
+      </section>
+
+      {/* ═══ LETTERS ═══════════════════════════════════════════════════════ */}
+      <TexturedSection texture={MARBLE} tone="wine" className="relative px-6 py-24 md:py-28">
+        <div className="relative z-10 mx-auto max-w-2xl text-center">
+          <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-full border" style={{ borderColor: `${GOLD}66`, background: `${GOLD}12` }}>
+            <Mail className="h-6 w-6" style={{ color: GOLD }} />
+          </div>
+          <p className="mb-5 font-mono text-xs uppercase tracking-[0.4em]" style={{ color: GOLD }}>
+            Subscribe to the press
+          </p>
+          <h2 className="mb-6 font-display leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.1rem)', color: CREAM }}>
+            Each new issue, <span className="italic" style={{ color: GOLD }}>delivered by hand.</span>
+          </h2>
+          <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed" style={{ color: `${CREAM}b3` }}>
+            One email when an issue is published. Nothing in between.
+          </p>
+          <SubscribeForm />
+        </div>
+      </TexturedSection>
     </div>
+  );
+}
+
+/** A magazine contents list: number, imprint, title, standfirst, date. */
+function Contents({ pieces }: { pieces: PressCard[] }) {
+  return (
+    <ol className="border-t" style={{ borderColor: `${NAVY}26` }}>
+      {pieces.map((p, k) => (
+        <li key={p.slug}>
+          <Link href={href(p)} className="group grid grid-cols-[2.5rem_1fr] gap-4 border-b py-6 md:grid-cols-[3rem_8rem_1fr_7rem] md:gap-6" style={{ borderColor: `${NAVY}14` }}>
+            <span className="font-display text-2xl italic" style={{ color: GOLD }}>
+              {pad(k + 1)}
+            </span>
+            <span className="hidden pt-2 font-mono text-[10px] uppercase tracking-[0.22em] md:block" style={{ color: CHERRY }}>
+              {p.imprintName}
+            </span>
+            <span>
+              <span className="block font-display text-xl leading-snug transition-colors group-hover:text-[#6B0F20] md:text-2xl" style={{ color: NAVY }}>
+                {p.title}
+              </span>
+              {p.excerpt ? (
+                <span className="mt-1.5 block text-[14px] leading-relaxed line-clamp-2" style={{ color: `${NAVY}99` }}>
+                  {p.excerpt}
+                </span>
+              ) : null}
+              <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] md:hidden" style={{ color: `${NAVY}66` }}>
+                {p.imprintName} · {fmt(p.published_at)}
+              </span>
+            </span>
+            <span className="hidden pt-2 text-right font-mono text-[10px] uppercase tracking-[0.18em] md:block" style={{ color: `${NAVY}66` }}>
+              {fmt(p.published_at)}
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function FeatureStrip({ feature, compact = false }: { feature: NonNullable<Issue['feature']>; compact?: boolean }) {
+  return (
+    <Link
+      href={feature.href}
+      className={`group flex items-center justify-between gap-6 border px-6 ${compact ? 'mb-6 py-5' : 'mt-12 py-7'}`}
+      style={{ borderColor: `${GOLD}66`, background: `${GOLD}0d`, borderRadius: 2 }}
+    >
+      <span>
+        <span className="block font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: CHERRY }}>
+          The feature
+        </span>
+        <span className="mt-1 block font-display text-2xl italic" style={{ color: NAVY }}>
+          {feature.title}
+        </span>
+        <span className="mt-1 block text-[14px]" style={{ color: `${NAVY}99` }}>
+          {feature.line}
+        </span>
+      </span>
+      <ArrowUpRight className="h-5 w-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" style={{ color: GOLD }} />
+    </Link>
   );
 }

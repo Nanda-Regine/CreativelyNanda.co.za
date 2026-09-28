@@ -742,7 +742,7 @@ pages/metadata/footer; internal source-citation doc + external URLs left as thei
 
 A full creative-direction pass over every page and feature, answering one question Nanda posed:
 *"What would someone of this calibre show, in every one of her reigns, on her own site?"*
-The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20. Step 2 shipped 2026-09-28 — see §21. Step 3 (Dojo + Incident Replay) built 2026-09-28 — see §22; the Screening Room waits for recordings.**
+The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20. Step 2 shipped 2026-09-28 — see §21. Step 3 (Dojo + Incident Replay) shipped 2026-09-28 — see §22. Step 4 (the press) shipped 2026-09-28 — see §23.**
 
 ### The governing idea: one mind, two languages
 Most portfolios show **work**. This one should show **how she decides** — and her poetry and her
@@ -1017,3 +1017,70 @@ overflow, no page or console errors.
   already exists in another shape on the site.
 - **Withholding is the whole interaction.** The Scar Room always had the right order. Hiding the
   next step is what makes a reader stand where the engineer stood.
+
+## 23. The House of Roses Press, and Issue 004 (2026-09-28)
+
+Build order step 4 from §19: turn the blog into a publishing house. Decided with Nanda before
+building: keep every `/blog/...` URL (indexed and in the feeds), keep the 11 business posts and 6
+Notion guides live but off the masthead (Mirembe Muse has no journal yet), build the draft-diff
+machinery but show it only where real drafts exist, and backfill issue numbers by date.
+
+### The press
+- **`lib/data/press-issues.ts`** holds the name, the imprints (*Essays* = `writing`, *Field Notes* =
+  `dev`, *Letters* = declared and hidden until it has a piece), and **one issue calendar for the
+  house**: 001 The Launch Issue (Jan to Apr), 002 Eight Apps, One Year (May to Jun), 003 The Making of
+  an Engineer (the `/engineer` feature), 004 The Proof Issue (from 28 Sep). A piece belongs to the
+  issue its date falls in.
+- **`/blog`** is now the press's front page: masthead, the issue on the stands with its lead and
+  contents, and the back issues. **`/blog/writing`** and **`/blog/dev`** are imprint pages grouped by
+  issue, replacing two off-brand purple and blue templates.
+- **Every reading page is server-rendered.** The old article page was a client component. The server
+  sent a spinner ("Turning the page") and no text, so search engines and no-JS readers got nothing.
+  The old index painted the seed file first, whose dates are relative to the build, so the server sent
+  wrong dates on every request. Both now read Supabase through `lib/press.ts` (`React.cache`, so the
+  layout's metadata and the page share one query), and a Supabase error throws, which under ISR keeps
+  the last good page. A post requested under the wrong category 308s to its own URL.
+- **`lib/press-render.ts`** replaces a browser-side regex chain (no links, and every blank line inside
+  a code block became a paragraph) with a small server-side block parser. It escapes everything first
+  and allowlists link schemes, so it is the whole XSS boundary. It adds **layout blocks**, so each piece
+  can take its own shape: `chapter`, `statement`, `pull`, `aside` (floats into a margin column on wide
+  screens), `figures`, `timeline`, `ledger`, `receipt`, `checklist`, `frames`. Styles live in
+  `app/press.css`, a real stylesheet instead of the old runtime `<style jsx global>`.
+- **Colophon** on every piece: imprint, issue, date, length, drafts on file, typefaces.
+- **Draft Diff** (`components/press/DraftDiff.tsx`, `lib/diff-words.ts`): a word-level LCS diff between
+  successive drafts, computed on the server, played with a slider. `lib/data/press-drafts.ts` is empty
+  on purpose. No essay claims drafts it doesn't have. Nanda adds real drafts and the slider appears.
+- JSON-LD: each piece is an `Article` with `isPartOf` → `PublicationIssue` → `Periodical`.
+
+### Issue 004, The Proof Issue
+Five pieces written from the build journals (JarvisOS, K53, True Access, Campus Compass/VarsityOS),
+each with its own layout, **no em dashes** (house style from 2026-09-28, and enforced by the script):
+1. *The Site Was Selling Half the Product* (Field Notes): the claim audit. **Ledger** layout.
+2. *A Test Booklet in Your Pocket* (Field Notes): K53 on a budget Android. **Timeline + receipt.**
+3. *Know Before You Go* (Essays): True Access and quiet failures. **Audit checklist.**
+4. *What Nova Costs* (Field Notes): pricing an AI companion in rands. **Receipts.**
+5. *The Index Is Not the Territory* (Essays): the Sanyu vault. **Contact sheet.**
+
+Authored as markdown in `content/press/issue-004/`, so the text is version-controlled, and put into
+Supabase by `scripts/publish-press.mjs`. It dry-runs by default, `--draft` keeps pieces unpublished
+(proofread with `?preview=1`, dev only), and `--publish` keeps an existing `published_at`, so fixing a
+typo never re-dates a piece into a later issue. It refuses to write if any piece contains an em dash.
+Security specifics from the journals (webhooks, RLS gaps, data exposure) were deliberately left out.
+Same rule as the Scar Room.
+
+### A security hole found on the way, and closed
+The live `blog_posts` table had an RLS policy `blog_posts_service_write`: `FOR ALL`, role `public`,
+`USING (true)`. Anyone holding the anon key, which ships in every page, could insert, edit or delete
+posts. Two unauthenticated endpoints, `POST /api/blog/posts` and `POST /api/blog/seed`, depended on it.
+Both endpoints were removed (nothing called them), the policy was dropped with Nanda's go-ahead, and
+it was verified: an anon insert now fails `42501`, an anon update touches 0 rows, and public reads
+still return 39 posts. **A follow-up RLS audit of the other tables is the next security task.** The table-by-table findings are kept out of this public repository.
+
+### What was learned
+- **A client-rendered page makes no claims to a crawler.** The press's best writing was invisible to
+  search until it rendered on the server.
+- **Exports from a `'use client'` module are client references on the server.** `TEXTURES.marble` read
+  from a server page became a module reference and crashed the render. Plain data used by server pages
+  must live in a plain module.
+- **A policy named `service_write` doesn't mean the service role.** Without `TO service_role`, a policy
+  applies to everyone, and the service role bypasses RLS anyway, so the policy only ever granted anon.
