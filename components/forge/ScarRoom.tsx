@@ -32,6 +32,7 @@ import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import type { Scar } from '@/lib/data/forge-scars';
 import { FadeUp, Figures, RoomHeader, Doors, Artefact, GOLD, NAVY, ink } from './ForgeChrome';
+import IncidentReplay from './IncidentReplay';
 
 /** The room's own colour. Not the wing's gold — a scar is not a highlight. */
 const WOUND = '#8B1E3F';
@@ -101,9 +102,8 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
           standfirst="What broke, how it was found, the reason the system allowed it, and what the night cost."
           note={
             <>
-              Nine of them. There were more, and the room deliberately does not fill up — twenty adequate
-              postmortems are worth less than nine that each explain a cause. Three were written for this room
-              because they had never been written down anywhere: nobody had had to explain them to anyone yet.
+              Nine of them, each played back in the order it happened, with the cause withheld until you step
+              to it. There were more; the room does not pad.
             </>
           }
         />
@@ -182,6 +182,11 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
                 </h2>
               </FadeUp>
 
+              {!s.essay ? (
+                <FadeUp>
+                  <IncidentReplay scar={s} wound={WOUND} woundInk={WOUND_INK} />
+                </FadeUp>
+              ) : (
               <div className="mt-10 space-y-8">
                 {STEPS.map((step) => (
                   <FadeUp key={step.key}>
@@ -210,6 +215,16 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
                   </FadeUp>
                 ) : null}
               </div>
+              )}
+
+              {!s.essay ? (
+                <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: ink(0.36) }}>
+                  Think you could have found it?{' '}
+                  <Link href={`/forge/dojo#${s.slug}`} className="underline decoration-dotted underline-offset-4 transition-opacity hover:opacity-70" style={{ color: GOLD }}>
+                    It&rsquo;s a drill in the Dojo
+                  </Link>
+                </p>
+              ) : null}
 
               <div className="mt-14 h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(139,30,63,0.5), rgba(139,30,63,0))' }} />
             </article>

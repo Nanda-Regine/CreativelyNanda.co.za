@@ -44,6 +44,7 @@ const TARGETS = [
   'lib/data/forge-github.json',
   'lib/data/forge-builds.ts',
   'lib/data/forge-scars.ts',
+  'lib/data/forge-drills.ts',
   'lib/data/forge-origins.ts',
   'lib/forge-data.ts',
   'scripts/forge-github.mjs',

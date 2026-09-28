@@ -37,12 +37,12 @@ const ROOMS: { name: string; line: string; href?: string }[] = [
   { name: 'Where It Started', line: 'Nine foundation projects. The sequence is the argument.', href: '/forge/origins' },
   { name: 'The Workshop Floor', line: 'Every build, one dossier each — the problem, the decisions, the cost.', href: '/forge/floor' },
   { name: 'The Scar Room', line: 'What broke. How it was found. Why the system allowed it.', href: '/forge/scars' },
+  { name: 'The Dojo', line: 'Real incidents as drills. Here is the symptom — what is the cause?', href: '/forge/dojo' },
   { name: 'The Long Night', line: 'The diary. Night by night, newest first.', href: '/forge/nights' },
   { name: 'The Commit Wall', line: 'A year of commit messages, read as sentences.', href: '/forge/commits' },
   { name: 'The Making', line: 'The career feature — zero to eight live products in a year.', href: '/engineer' },
   { name: 'The Poet Who Codes', line: 'The doorway between this wing and the garden.', href: '/poetry/poet-who-codes' },
   { name: 'The Bench', line: 'Live vitals — apps breathing, deploys landing.' },
-  { name: 'The Dojo', line: 'Drills. Guess the bug. Read the trace.' },
 ];
 
 export interface ForgeStats {
