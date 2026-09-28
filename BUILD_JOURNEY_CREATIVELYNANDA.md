@@ -737,3 +737,184 @@ pages/metadata/footer; internal source-citation doc + external URLs left as thei
   real deploy-trimming needs that atlas migrated to `<CldImage>` (open follow-up).
 - **Don't redesign her signature surfaces unprompted.** Fix bugs freely; treat composition/aesthetics of the
   cover as review-first.
+
+## 19. The Revolution Plan — creative direction for every wing (2026-09-27)
+
+A full creative-direction pass over every page and feature, answering one question Nanda posed:
+*"What would someone of this calibre show, in every one of her reigns, on her own site?"*
+The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20.**
+
+### The governing idea: one mind, two languages
+Most portfolios show **work**. This one should show **how she decides** — and her poetry and her
+engineering already run on the same method: a line break is a design decision; an architecture
+choice is a line break. Every wing becomes an **instrument the visitor uses**, not a page they read.
+She is the rare poet who can build her own instruments — so the site should be full of them.
+
+### 0. Accuracy first — the Education page does not match the certificates
+Audit of `app/education/page.tsx` `CERTS` against the real files in `/public/certificates`:
+
+| Page says | Certificate says |
+|---|---|
+| Human-Centered Design · IDEO · 2024 | *The Field Guide to Human-Centered Design* · Canva Design School · 30 Sep 2025 (ID b9ebd9) |
+| Graphic Design Essentials · "Online Academy" · 2024 | Canva Design School · 29 Sep 2025 (ID 2ff694) · 45 min |
+| SheCodes Plus · 2025 | **Three** certs: Basics *Intro to Coding* (1 Jul 2025) · Basics Add-on *Intro to Web Development* (22 Jul 2025) · **Plus *Web Development* (26 Feb 2026)** — Delac / SheDreams Foundation supported |
+| Master Generative AI Professional · 2025 | *Master Generative AI* — "professional online course" · Great Learning · **13 Dec 2025** · verify `mygreatlearning.com/certificate/IEWIXPZJ` (file added 2026-09-27) |
+| *(missing)* | *ChatGPT for Business Communication* · 19 Aug 2025 · verify SFBWQPHH |
+| *(missing)* | *Hands-On with Google AI Studio* · 27 Aug 2025 · verify UWIVNAHO |
+| *(missing)* | *Affiliate Marketing* · 23 Aug 2025 · verify YXVMXKDC |
+| Google Digital Marketing & E-commerce · Coursera | **no file yet** — add the cert or remove the line |
+
+Name on every certificate: **Nandawula Kabali-Kagwa**. Rule: nothing is listed that cannot be shown.
+
+### 1. Education → the Honours Hall
+- **Hierarchy by weight, not a flat grid.** Tier 1: three NQF qualifications + 15 distinctions
+  (gold-leaf, museum-lit). Tier 2: structured programmes (FNB App Academy, SheCodes Plus). Tier 3:
+  short courses in a cabinet. A 45-minute course beside an NQF 7 Advanced Diploma shrinks the diploma.
+- **Gold threads.** The existing `connection` field becomes spatial: click a distinction module
+  (e.g. Financial Management) → a gold thread draws to the code it became (AdminOS ZAR token budget).
+- **Learning curve vs shipping curve.** Cert dates (Jul 2025 → Feb 2026) plotted on the same axis
+  as real commits from `lib/data/forge-github.json`. Proof she learned *while* shipping.
+- **Verifiable credentials.** Every Great Learning cert gets a live "Verify ↗" seal; certs open
+  like documents lifted off a lectern, not thumbnails.
+
+### 2. The Forge → from wall of text to workshop
+The data is already structured (`Decision`, `Lesson`, `Scar` with broke/found/cause/fix/cost) — the
+problem is only that it renders as prose.
+- **Blueprint mode (dossiers):** each build as a live architecture diagram (Next.js · Supabase ·
+  Claude · Redis · 360dialog); click a node → the decision made there.
+- **Incident Replay (Scar Room):** each postmortem as a 5-step scrubber; cause withheld until you
+  step to it; cost shown as a meter.
+- **The Dojo (the shut room, opened):** real scars as puzzles — "here's the symptom, what's the
+  cause?" — guess, then reveal. No mocked source needed: the scars ARE the drills.
+- **Screening Room:** app recordings in device frames with chapter markers tied to decisions.
+  Long Night → glowing 99-night heatmap. Commit Wall → 30-second timelapse of the year.
+- **Room rule:** ≤ ~40 words above the fold; the full dossier lives in a drawer.
+- **Media convention (set now):** `public/assets/project-screen-record/<app-slug>/01-name.mp4|png`
+  → upload script → Cloudinary → manifest → the Screening Room fills itself.
+
+### 3. The blog → a publishing house
+- **An imprint with a masthead.** Retire "blog". Imprints: *Essays* (writing) · *Field Notes* (dev)
+  · *Letters* (personal). Publish in **numbered issues** — the site already has Issue 002 on the
+  cover and *The Engineer's Issue 003*; one issue calendar for the whole house.
+- **Draft diffs.** Each essay's colophon (written in KuGompo City · N drafts) + a slider that plays
+  the revision history as diffs. Version control for prose — only the poet who codes can print that.
+- **Reading experience:** sidenotes, marginalia (reuse the Reading Room), drop caps, her voice
+  reading the piece aloud.
+- **Fact-checked.** The 10 `business` posts in `scripts/seed-blog-posts.ts` belong on Mirembe Muse
+  (positioning rule). Claim-heavy titles ("cut costs by 85%") show their evidence inline.
+- **Publish others** — an open contributor call with editorial standards (feeds §4 Belong).
+
+### 4. Poetry → an institution, three pillars
+- **READ — the Library.** *X-ray mode* on her poems shows the craft layer (why this break, what
+  this sound is doing) — the Forge's "decisions" in the language of poetry. Curated reading paths
+  through the canon and the oral traditions that made her (izibongo, Luganda forms), with commentary.
+- **LEARN — the Atelier** (tools built by the poet — uncopyable): line-break playground (drag breaks,
+  watch meaning shift) · live sound map (assonance/alliteration/rhyme light up as you type) · form
+  library (sonnet, ghazal, praise poem as interactive templates) · apprenticeship paths that grow
+  the visitor's My Garden.
+- **BELONG — the Circle:** weekly prompt + shared public garden · workshop circles with structured
+  rose/thorn/bud feedback · audio open mic on the Stage · real-time exquisite corpse (Supabase
+  realtime) · erasure over public-domain texts · **the loop:** the best community poems are
+  published in the next issue of the press. People return to be published by her.
+
+### 5. Deeper gaps — what separates "impressive" from world-class
+Found on a second, harder pass:
+
+1. **Content debt is the #1 risk.** `lib/poems-data.ts` has **85 poems**; the backstory / audio /
+   translation layers are defined in the type but **filled on none of them**. Rooms are being built
+   faster than they are filled. Rule: *no new room ships without the content to fill it* — each phase
+   gets a content budget (e.g. 10 X-ray poems, 12 audio readings) before the code.
+2. **One name, one entity.** Certificates say *Nandawula Kabali-Kagwa*; the site leads with
+   *Nandawula Regine*. Search engines and AI assistants can treat these as two people. Fix: one
+   canonical name in Person JSON-LD with `alternateName`, complete `sameAs`, and a **Wikidata**
+   entry → Knowledge Panel.
+3. **Be legible to AI.** No `llms.txt` and no RSS/JSON feed exist. People now ask assistants
+   "who is…". Add `/llms.txt` (a curated factual profile), RSS + JSON Feed per imprint, and rich
+   schema: `Book`, `CreativeWork`, `Course`, `Event`, `PodcastEpisode`,
+   `EducationalOccupationalCredential`.
+4. **A living portfolio — "The Observatory" / `/now`.** Live, API-sourced signals: apps up (Vercel),
+   commits this week (GitHub), latest poem, current issue, what she is working on this month. Every
+   number measured, never typed (the Forge rule, site-wide). Fed by a private→public push bridge
+   from JarvisOS, not a merged DB (see the open Supabase merge question).
+5. **The seam between wings — the Chronicle.** One timeline where the Long Night calendar overlays
+   poems written the same night and certs earned the same month. The most direct proof of
+   "one mind, two languages".
+6. **Her voice as a medium.** She performs and has radio and stage footage. A site-wide *Listen*
+   layer (her narration), a radio/podcast room, and a **speaker kit** (talks, topics, reel,
+   booking) — thought leadership is currently missing entirely.
+7. **Built for South Africa, visibly.** *Data-lite mode* (no autoplay video, compressed imagery —
+   respects SA data costs); download-an-issue-offline for load-shedding (the PWA already exists).
+   Publish real Lighthouse/accessibility scores as a proof-of-craft page. WCAG AA is the floor.
+8. **Community safeguarding before community launch.** POPIA consent, an age gate (minors will
+   write here), authors keep copyright (clear licence on submissions), moderation queue (existing
+   `poem_roses` status), soft delete only, and a crisis-resource response for poems touching
+   self-harm (SADAG helpline). Emotional writing communities need this on day one.
+9. **A Reader's Card.** One identity across wings (session-first, optional magic link): what you
+   have read, Dojo score, poems planted, issues collected. Returning visitors resume where they left.
+10. **Findability inside the house.** With 40+ rooms: a drawn house map + a ⌘K command palette
+    searching poems, dossiers, scars, essays. Reposition NandaAI as the **docent** — answers only
+    from site content and cites the room it came from.
+11. **Patronage, not ads — "The Rose Society".** Membership tiers via PayFast subscriptions: early
+    issues, a monthly workshop, critique from Nanda, signed *Inside Her Roses* editions + pre-orders
+    for the next collection. Makes the community sustainable. (Creative patronage lives here;
+    services stay on Mirembe Muse.)
+12. **Give the ladder back.** A *Start Here* path for aspiring (especially Black women) developers —
+    her real route (SheCodes → FNB App Academy → shipping) as a sequenced, honest syllabus.
+13. **Show the system.** A colophon/design-system page (seven grounds, type, motion principles,
+    image families) + `/uses`. Designers judge a studio by its system.
+14. **Measure what matters.** Define success events before building: read-to-end, Dojo completions,
+    return visits, submissions, members — as Vercel Analytics custom events.
+
+### Build order (recommended)
+1. Education accuracy fix + Honours Hall (certs are here now; accuracy is urgent)
+2. Entity + AI legibility (one name, Wikidata, llms.txt, feeds, schema) — small, compounding
+3. Forge: Dojo + Incident Replay → Screening Room when recordings land
+4. The press: issues, reading template, draft diffs
+5. Content sprint: X-ray + audio for the first 10 poems (pays down content debt)
+6. Poetry Atelier tools
+7. Safeguarding → the Circle community loop → the Rose Society
+8. Observatory / Chronicle / Reader's Card
+
+### Principles carried forward
+- Nothing listed that cannot be shown; every number measured, never typed.
+- No room without its content. Curation beats volume.
+- Poetry and engineering share one design language: *decisions made visible*.
+- CreativelyNanda = the making; Mirembe Muse = the outcomes.
+
+## 20. The Honours Hall — Revolution Plan step 1 shipped (2026-09-28)
+
+Build order step 1 from §19: fix the Education page's accuracy, then hang the certificates properly.
+
+### One source of truth — `lib/data/credentials.ts`
+Nine credentials, each transcribed from its file in `/public/certificates` (title, issuer, date and
+credential ID as printed — never from memory). The hero counts, the Hall, the Ledger pins and the
+page's JSON-LD all read this one file, so there is no second place a number can drift. The §19.0
+audit corrections are all in: both Canva Design School courses re-credited and re-dated (Sep 2025),
+the three SheCodes certificates split out, the four Great Learning courses with live verify links,
+and Google Digital Marketing **removed** until its certificate exists. The file's header documents
+the add-a-certificate recipe (file → entry → real pixel size → optional `crop`).
+
+### What the page now does
+- **`HonoursHall.tsx`** — hung by weight, not count. *II · The Path* (SheCodes, three steps, Jul 2025
+  → Feb 2026, FNB App Academy marked "in progress"), *III · The Cabinet* (short courses, one shelf per
+  issuer). Any frame opens **the Lectern**: the certificate full size beside the facts as printed,
+  verify link where the issuer offers one (Canva doesn't — the page says so), ← / → / Esc, focus
+  returned to the frame on close.
+- **`LearningLedger.tsx`** — cert dates pinned over 52 weeks of real commits (3,085 across the 12 repos
+  the Forge measures), summed server-side from `forge-github.json` so the 1.2 MB corpus never reaches
+  the client.
+- **`GoldThreads.tsx`** — the `DEGREE_IN_CODE` modules drawn to the code they became.
+- **`app/education/page.tsx`** is now a server wrapper (the old client page moved to
+  `components/education/EducationView.tsx`) emitting `ProfilePage` → `Person` JSON-LD with every
+  credential as `EducationalOccupationalCredential`, and both names declared (`alternateName`:
+  Kabali-Kagwa / Regine) — the first piece of §19.5 item 2.
+- Tech-arc cert labels corrected to their real dates; "Hons. Cert." → "Higher Cert.".
+
+### What was learned
+- **The page was wrong in public for months and nobody noticed — because nobody could check.** The
+  moment certificates became clickable documents, every mismatch became visible. Showing the proof
+  is also what forces the claims to be true.
+- **Local `next/image` on this laptop takes ~70 s per PNG on first request** — frames look blank in
+  dev screenshots. Wait for `naturalWidth > 0` before judging; not a production issue.
+- `tsc --noEmit` is clean for every new file; the repo still carries ~15 pre-existing errors
+  (firebase/sentry not installed, `liveUrl`, `images`, `NandaGirl` props) — a separate cleanup.
