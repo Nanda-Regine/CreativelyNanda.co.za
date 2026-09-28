@@ -38,6 +38,7 @@ const ROOMS: { name: string; line: string; href?: string }[] = [
   { name: 'The Workshop Floor', line: 'Every build, one dossier each — the problem, the decisions, the cost.', href: '/forge/floor' },
   { name: 'The Scar Room', line: 'What broke. How it was found. Why the system allowed it.', href: '/forge/scars' },
   { name: 'The Dojo', line: 'Real incidents as drills. Here is the symptom — what is the cause?', href: '/forge/dojo' },
+  { name: 'The App Studio', line: 'A hundred real screens from three live products. Pick one up.', href: '/forge/studio' },
   { name: 'The Long Night', line: 'The diary. Night by night, newest first.', href: '/forge/nights' },
   { name: 'The Commit Wall', line: 'A year of commit messages, read as sentences.', href: '/forge/commits' },
   { name: 'The Making', line: 'The career feature — zero to eight live products in a year.', href: '/engineer' },

@@ -14,6 +14,7 @@ import { CREDENTIALS_BY_DATE, formatCredentialDate } from '@/lib/data/credential
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
 import { SCARS } from '@/lib/data/forge-scars';
 import { DRILLS } from '@/lib/data/forge-drills';
+import { SCREENS } from '@/lib/data/app-screens';
 import { getFeedPosts, postUrl } from '@/lib/feeds';
 
 export const revalidate = 3600;
@@ -50,6 +51,7 @@ Profiles: ${SAME_AS.join(' · ')}
 ${BUILD_DOSSIERS.map((d) => `  - [${d.name}](${u(`/forge/floor/${d.slug}`)}): ${d.standfirst}`).join('\n')}
 - [The Scar Room](${u('/forge/scars')}): ${SCARS.length} real production incidents — what broke, the cause, the fix
 - [The Dojo](${u('/forge/dojo')}): ${DRILLS.length} debugging drills built from those incidents — diagnose the cause from the symptom
+- [The App Studio](${u('/forge/studio')}): ${SCREENS.length} real screenshots of her live products (VarsityOS, K53 Drill Master, Sanyu Botanicals) in phone frames
 - [The Long Night](${u('/forge/nights')}) and [the Commit Wall](${u('/forge/commits')}): her commit history, measured from GitHub
 - [The Engineer's Issue 003](${u('/engineer')}): a career feature
 

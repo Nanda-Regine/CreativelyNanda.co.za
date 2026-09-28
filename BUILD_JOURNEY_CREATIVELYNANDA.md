@@ -1084,3 +1084,42 @@ still return 39 posts. **A follow-up RLS audit of the other tables is the next s
   must live in a plain module.
 - **A policy named `service_write` doesn't mean the service role.** Without `TO service_role`, a policy
   applies to everyone, and the service role bypasses RLS anyway, so the policy only ever granted anon.
+
+## 24. The App Studio: a hundred real screens, and what they are for (2026-09-28)
+
+§19.2 planned a Screening Room "when recordings land". The screenshots landed first: Nanda added
+101 phone captures of VarsityOS, K53 Drill Master and Sanyu Botanicals (30 August 2026, a Huawei
+browser, 1080×2400). She asked for mobile mock-ups and "a beautiful app studio", then asked for
+something deeper than showing screens.
+
+### Looked at before listed
+Every capture was reviewed on contact sheets before anything was published. K53 and Sanyu are
+clean. Many VarsityOS screens come from Nanda's own account: her name, university, budget, family
+money, burnout score and lecturers' names. She chose to show them as they are. One screen, which
+appears to show a home address, is left out. **`lib/data/app-screens.ts` is the hand-written
+manifest** (app, chapter, caption, all 100). `scripts/upload-app-screens.mjs` uploads **only what
+the manifest lists** to `creativelynanda/app-screens/<app>/<HHMMSS>`, so the excluded screen can never
+leave the laptop. The source folders are git-ignored.
+
+### `/forge/studio`: three distances, then two questions
+- **The fan** (hero): one phone per product. **The screening**: per product, one horizontal
+  scroll-snap filmstrip per chapter, so 19 Study screens cost one row. **The wall**: every screen at
+  once, for scale. Any phone opens **the stage**: full height, arrows and keys, a thumbnail strip.
+- **Journeys** answer "what is it like to use?": five real flows (*Five days of money left*, *The
+  walk home*, *Will I graduate on time?*, *From wrong to right*, *From the jar to the cart*), played
+  like stories with progress segments, tap zones and a narration line per screen. They auto-advance
+  unless the reader prefers reduced motion. The narration describes the screen; it invents no user.
+- **Anatomy** answers "why is it like that?": six screens with numbered pins on the parts that were
+  decided. Where a build journal records the reason (full-fill answer feedback, code-filtered
+  questions, SVG over emoji), the note cites it; otherwise it describes what the design does.
+- Phones are drawn in CSS (bezel, punch-hole, buttons), so they scale crisply at no download cost.
+  Screens wait on an accent gradient and fade in. Overlays render through a portal, because a
+  transformed ancestor had trapped `position: fixed` in the bottom half of the page.
+- Linked from the threshold (9 of 10 doors open), the nav, the sitemap, `llms.txt`, and each of the
+  three dossiers. `SoftwareApplication` JSON-LD with screenshots.
+
+### What was learned
+- **A gallery answers one question. A studio answers three**: what it looks like, what it is like to
+  use, and why it is like that. The screens were the easy part.
+- **`trackOutbound()` returns a handler.** Wrapped in an arrow function it records nothing and throws
+  nothing. Caught on review, in this room's own first draft.

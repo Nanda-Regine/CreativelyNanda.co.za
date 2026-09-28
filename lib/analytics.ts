@@ -36,6 +36,8 @@ export type ForgeEvent =
   | 'forge_replay_complete' // a scar's replay was stepped through to the cost
   | 'forge_drill_answer'    // a Dojo drill was answered (first answer only)
   | 'forge_dojo_complete'   // every drill in the Dojo has been answered
+  | 'forge_studio_app'      // a product was chosen in the App Studio
+  | 'forge_studio_open'     // a screen was opened on the App Studio stage
   | 'forge_filter'          // a build filter was used on nights / commits
   | 'forge_live_app_click'  // someone left for one of the live products
   | 'forge_repo_click'      // someone went to a repository

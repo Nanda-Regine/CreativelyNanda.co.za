@@ -26,6 +26,7 @@ const FORGE_ROOMS: Item[] = [
   { href: '/forge/floor', label: 'The Workshop Floor', hint: 'Every build, one dossier each' },
   { href: '/forge/scars', label: 'The Scar Room', hint: 'What broke, and why it was allowed to' },
   { href: '/forge/dojo', label: 'The Dojo', hint: 'Real bugs as drills — find the cause' },
+  { href: '/forge/studio', label: 'The App Studio', hint: '100 real screens, three live products' },
   { href: '/forge/nights', label: 'The Long Night', hint: 'The diary, night by night' },
   { href: '/forge/commits', label: 'The Commit Wall', hint: 'A year of commits, as sentences' },
   { href: '/engineer', label: 'The Making', hint: 'Zero to eight apps in a year' },

@@ -58,3 +58,7 @@ nul
 
 # march_update prompt (local only)
 march_update.md
+
+# App Studio source screenshots: served from Cloudinary, never deployed (size + one excluded for privacy)
+/public/k53_and_sanyu_app_screenshots/
+/public/varsiyos_app_screenshots/
