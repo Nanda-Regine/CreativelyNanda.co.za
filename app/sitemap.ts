@@ -47,6 +47,7 @@ const FORGE: Entry[] = [
   { path: '/forge', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/forge/floor', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/forge/scars', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/forge/dojo', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/forge/nights', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/forge/commits', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/forge/origins', changeFrequency: 'monthly', priority: 0.8 },

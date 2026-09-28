@@ -742,7 +742,7 @@ pages/metadata/footer; internal source-citation doc + external URLs left as thei
 
 A full creative-direction pass over every page and feature, answering one question Nanda posed:
 *"What would someone of this calibre show, in every one of her reigns, on her own site?"*
-The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20. Step 2 shipped 2026-09-28 — see §21.**
+The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20. Step 2 shipped 2026-09-28 — see §21. Step 3 (Dojo + Incident Replay) built 2026-09-28 — see §22; the Screening Room waits for recordings.**
 
 ### The governing idea: one mind, two languages
 Most portfolios show **work**. This one should show **how she decides** — and her poetry and her
@@ -965,3 +965,55 @@ public edit under her identity, so Nanda creates it; then one constant changes.
   sitemap URL's live canonical after any metadata change (script in this entry's commit message).
 - The old dev server keeps serving hot-reloaded code after its task is stopped. A "Jest worker
   child process exceptions" 500 was memory starvation, not the route. Kill the port and restart.
+
+## 22. The Dojo opens, and the scars replay — Revolution Plan step 3 (2026-09-28)
+
+Build order step 3 from §19: turn the Forge from a wall of text into a workshop. The Dojo and
+Incident Replay are built. The Screening Room is deliberately **not** built yet: the only recordings in
+`public/assets/project-screen-record/` are the six foundation-project clips the site already uses,
+and §19.5 item 1 says no room ships without its content.
+
+### The Dojo — `/forge/dojo`, opened without the bridge
+The door had been shut since August, waiting on 74 drills in JarvisOS's `engineering_dojo_drills`
+behind a push bridge that doesn't exist. §19 found the way round it: **the scars are the drills.**
+`lib/data/forge-drills.ts` turns eight Scar Room incidents round. Each gives the symptom exactly as it
+arrived, a hidden *trace* you can ask for, and 3–4 candidate causes. Every candidate explains itself
+after you answer, not only the one you picked, because the wrong answers are where the teaching is.
+The writing rules are in the file's header:
+- the symptom never contains the answer
+- every wrong option is a hypothesis a competent engineer would actually have, and it is ruled out
+  by evidence in the symptom, not by new facts about her systems
+- answer positions are written, not shuffled, because a random order at render time is the
+  hydration bug from drill 3
+
+Your first answer per drill is kept in `localStorage` (`forge-dojo-v1`, try/caught), read in an
+effect so server and client agree. A belt of eight pips carries the score. The essay entry
+(`security-posture`) is never drilled. The page emits `Quiz` JSON-LD. Eight of nine Forge doors are
+now open; only the Bench stays shut, because it needs live data, and faking it is still off the table.
+
+### Incident Replay — the Scar Room
+`components/forge/IncidentReplay.tsx`: each postmortem plays as a five-stop scrubber (broke → found
+→ cause → fix → cost). The cause stays hidden until you step to it. The stops are WAI-ARIA tabs with
+arrow/Home/End keys, and **Read it straight** lays all five out at once. Every panel stays in the
+DOM (`hidden`, not unmounted), so search engines and no-JS readers still get the full text. The
+cost step carries a **reach meter**: five notches from *Caught in the tooling* to *Every payment*.
+It is an editorial rank read from each entry's own `cost`, so it is labelled in words and never as
+a number. Each scar links to its drill, and each drill links back.
+
+### Measured
+New events: `forge_replay_complete`, `forge_drill_answer` (slug, correct, hinted),
+`forge_dojo_complete` (score). No free text, same POPIA position as the rest of `lib/analytics.ts`.
+This is §19.5 item 14's "Dojo completions", defined before launch rather than after.
+
+### Verified
+Preflight is clean (`forge-drills.ts` added to its sweep). `tsc`: no errors in any touched file
+(repo total unchanged at 15, all pre-existing). Playwright desktop + 390px: answers persist across a
+reload, the replay's keyboard nav works, Read it straight shows 5/5 panels, 0 px horizontal
+overflow, no page or console errors.
+
+### What was learned
+- **A blocked room is sometimes blocked on the wrong premise twice.** The Commit Wall didn't need
+  the bridge (§11), and neither did the Dojo. Before calling a room "Phase B", ask whether its content
+  already exists in another shape on the site.
+- **Withholding is the whole interaction.** The Scar Room always had the right order. Hiding the
+  next step is what makes a reader stand where the engineer stood.

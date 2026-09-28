@@ -10,14 +10,14 @@
 | ⚙️ The Forge | `/forge` | ✅ |
 | 🌱 Where It Started | `/forge/origins` | ✅ |
 | 🔨 The Workshop Floor | `/forge/floor` + `/[app]` | ✅ 9 dossiers |
-| 🩹 The Scar Room | `/forge/scars` | ✅ 9 postmortems |
+| 🩹 The Scar Room | `/forge/scars` | ✅ 9 postmortems, each an Incident Replay (2026-09-28) |
 | 🌙 The Long Night | `/forge/nights` | ✅ 99 dated nights |
 | 🧱 The Commit Wall | `/forge/commits` | ✅ — **moved out of Phase B**, see §11 |
 | 📟 The Bench | `/forge/bench` | ⬜ still needs a live source; §9 Q4 stands (omit rather than fake) |
-| 🥋 The Dojo | `/forge/dojo` | ⬜ needs `engineering_dojo_drills` |
+| 🥋 The Dojo | `/forge/dojo` | ✅ 8 drills — **opened without the bridge** (2026-09-28): the scars are the drills. `lib/data/forge-drills.ts` |
 
-The two remaining rooms are shut and **labelled as shut** on the threshold. Seven
-of nine doors open.
+The Bench is the one room still shut, and it is **labelled as shut** on the
+threshold. Eight of nine doors open.
 
 ⚠️ **The default-deny gate in §4 was never opened, and did not need to be.** No
 raw corpus section renders anywhere in the wing. See §12.

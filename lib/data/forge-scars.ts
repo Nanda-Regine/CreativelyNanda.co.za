@@ -55,12 +55,36 @@ export interface Scar {
    * had had to explain them to anyone yet.
    */
   written?: boolean;
+  /**
+   * How far the damage reached, on the five-notch scale in `REACH` below. This
+   * is an editorial rank read out of the entry's own `cost`, not a measurement,
+   * and the page labels it with the notch's words rather than a number so it
+   * cannot pass for one. Omitted on the essay, which is not an incident.
+   */
+  reach?: 1 | 2 | 3 | 4 | 5;
+  /** Which step of the replay the artefact belongs beside. Default `cause`. */
+  artefactAt?: 'broke' | 'found' | 'cause' | 'fix' | 'cost';
+  /**
+   * An essay in the postmortem's clothing rather than an incident. Read straight
+   * through, never replayed, never drilled.
+   */
+  essay?: boolean;
 }
+
+/** The reach meter's five notches, least to most. */
+export const REACH: Record<1 | 2 | 3 | 4 | 5, string> = {
+  1: 'Caught in the tooling',
+  2: 'Generated output',
+  3: 'Every visitor',
+  4: 'A whole system, blind',
+  5: 'Every payment',
+};
 
 export const SCARS: Scar[] = [
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'four-dashboards',
+    reach: 4,
     title: 'The one bug that killed four dashboards',
     build: 'JarvisOS',
     buildSlug: 'jarvisos',
@@ -86,6 +110,8 @@ supabase.auth.admin.listUsers({ perPage: 1 })
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'inspector-was-lying',
+    reach: 2,
+    artefactAt: 'fix',
     title: 'My own inspector was lying, and I fixed the code it was lying about',
     build: 'JarvisOS',
     buildSlug: 'jarvisos',
@@ -113,6 +139,7 @@ el.style.height = 'auto';`,
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'payfast-signature',
+    reach: 5,
     title: 'Sorting the keys broke every payment',
     build: 'CreativelyNanda',
     buildSlug: 'creativelynanda',
@@ -140,6 +167,8 @@ const params = Object.keys(data)
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'silent-corpus-loss',
+    reach: 1,
+    artefactAt: 'fix',
     title: 'The tool that built this room lost a journal and said nothing',
     build: 'The Forge itself',
     when: '7 August 2026',
@@ -166,6 +195,7 @@ if (errors.length || builds.length < BUILDS.length) {
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'the-filter-that-deleted-the-room',
+    reach: 1,
     title: 'The privacy filter that looked strict and was deleting the room',
     build: 'The Forge itself',
     when: '12 August 2026',
@@ -191,6 +221,7 @@ new RegExp('for [A-Z][a-z]+ [A-Z][a-z]+', 'i')
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'hydration-class',
+    reach: 3,
     title: 'React 425 was never one bug',
     build: 'CreativelyNanda',
     buildSlug: 'creativelynanda',
@@ -212,6 +243,8 @@ new RegExp('for [A-Z][a-z]+ [A-Z][a-z]+', 'i')
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'deterministic-recorder',
+    reach: 2,
+    artefactAt: 'cost',
     title: 'You cannot record a smooth animation in real time',
     build: 'JarvisOS',
     buildSlug: 'jarvisos',
@@ -249,6 +282,7 @@ new RegExp('for [A-Z][a-z]+ [A-Z][a-z]+', 'i')
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'capture-scars',
+    reach: 2,
     title: 'My screenshot tool ate an app\'s navigation',
     build: 'JarvisOS',
     buildSlug: 'jarvisos',
@@ -270,6 +304,7 @@ new RegExp('for [A-Z][a-z]+ [A-Z][a-z]+', 'i')
   // ───────────────────────────────────────────────────────────────────────────
   {
     slug: 'security-posture',
+    essay: true,
     title: 'On the ones that are not written up here',
     build: 'Across the builds',
     written: true,
