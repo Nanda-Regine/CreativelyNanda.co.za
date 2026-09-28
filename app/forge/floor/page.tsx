@@ -7,7 +7,7 @@
  * strings and numbers before it is handed to `<WorkshopFloor />`.
  */
 
-import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL } from '@/lib/seo';
+import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL, personRef } from '@/lib/seo';
 import WorkshopFloor, { type FloorCard } from '@/components/forge/WorkshopFloor';
 import { getFloor, getFigures, getGithubTotals, getGithubLanguages, getCommitWall } from '@/lib/forge-data';
 import { SCARS } from '@/lib/data/forge-scars';
@@ -85,11 +85,7 @@ export default function WorkshopFloorPage() {
           url: f.gh!.live,
           applicationCategory: 'WebApplication',
           operatingSystem: 'Web',
-          author: {
-            '@type': 'Person',
-            name: 'Nandawula Regine Kabali-Kagwa',
-            url: SITE_URL,
-          },
+          author: personRef(),
         })),
     },
   ];

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PERSON_ID, personRef } from '@/lib/seo';
 import OriginsFeature from '@/components/forge/OriginsFeature';
 import { ORIGINS } from '@/lib/data/forge-origins';
 
@@ -47,6 +48,7 @@ const JSON_LD = {
   isPartOf: { '@type': 'WebSite', name: 'CreativelyNanda', url: 'https://creativelynanda.co.za' },
   about: {
     '@type': 'Person',
+    '@id': PERSON_ID,
     name: 'Nandawula Regine Kabali-Kagwa',
     jobTitle: 'AI Engineer',
     worksFor: { '@type': 'Organization', name: 'Mirembe Muse (Pty) Ltd' },
@@ -64,7 +66,7 @@ const JSON_LD = {
         description: p.subtitle,
         codeRepository: p.github,
         programmingLanguage: p.stack,
-        author: { '@type': 'Person', name: 'Nandawula Regine Kabali-Kagwa' },
+        author: personRef(),
       },
     })),
   },

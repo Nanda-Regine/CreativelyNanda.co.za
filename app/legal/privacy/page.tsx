@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  // Explicit, or it inherits the root layout's canonical and tells search
+  // engines this page is a duplicate of the homepage.
+  alternates: { canonical: 'https://creativelynanda.co.za/legal/privacy' },
   title: 'Privacy Policy | CreativelyNanda.co.za',
   description:
     'Privacy Policy for CreativelyNanda.co.za — how we collect, use, and protect your personal information in compliance with the Protection of Personal Information Act (POPIA), No. 4 of 2013.',

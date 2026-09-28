@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer';
 import NandaAssistant from '@/components/NandaAssistant';
 import { CartProvider } from '@/components/cart';
 import { I18nProvider } from '@/lib/i18n';
-import { generateWebSiteJsonLd, generatePersonJsonLd, JsonLd } from '@/lib/seo';
+import { generateWebSiteJsonLd, generatePersonJsonLd, JsonLd, FEED_ALTERNATES } from '@/lib/seo';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -179,6 +179,7 @@ export const metadata = {
   },
   alternates: {
     canonical: 'https://creativelynanda.co.za',
+    types: FEED_ALTERNATES,
   },
   verification: {
     google: '7rJEg1oSdQCjC8KlEE28mTq7fuGPOW08kSOKvHJKBB8',

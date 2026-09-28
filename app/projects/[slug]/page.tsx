@@ -2,7 +2,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github, Globe, ArrowRight } from 'lucide-react';
-import { JsonLd, SITE_URL, AUTHOR_NAME } from '@/lib/seo';
+import { JsonLd, SITE_URL, personRef } from '@/lib/seo';
 
 // ============================================================
 // TYPES
@@ -1527,7 +1527,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     name: project.title,
     description: project.description,
     url: project.liveUrl || `${SITE_URL}/projects/${project.slug}`,
-    author: { '@type': 'Person', name: AUTHOR_NAME, url: SITE_URL },
+    author: personRef(),
     applicationCategory: project.category,
     operatingSystem: 'Web',
     offers: {

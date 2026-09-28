@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PERSON_ID } from '@/lib/seo';
 import ForgeThreshold, { type ForgeStats } from '@/components/forge/ForgeThreshold';
 import { ORIGINS } from '@/lib/data/forge-origins';
 
@@ -54,6 +55,7 @@ const JSON_LD = {
   isPartOf: { '@type': 'WebSite', name: 'CreativelyNanda', url: 'https://creativelynanda.co.za' },
   about: {
     '@type': 'Person',
+    '@id': PERSON_ID,
     name: 'Nandawula Regine Kabali-Kagwa',
     jobTitle: 'AI Engineer',
     worksFor: { '@type': 'Organization', name: 'Mirembe Muse (Pty) Ltd' },
