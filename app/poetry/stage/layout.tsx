@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  // Explicit, or it inherits the root layout's canonical and tells search
+  // engines this page is a duplicate of the homepage.
+  alternates: { canonical: 'https://creativelynanda.co.za/poetry/stage' },
   title: 'The Stage — Spoken Word by Nanda Regine',
   description:
     'Watch Nanda Regine perform her poetry live — spoken word, open-mic nights and stage performances from Nelson Mandela Bay and beyond.',

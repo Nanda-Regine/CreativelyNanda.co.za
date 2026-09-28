@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  // Explicit, or it inherits the root layout's canonical and tells search
+  // engines this page is a duplicate of the homepage.
+  alternates: { canonical: 'https://creativelynanda.co.za/roots' },
   title: 'Roots — The Nseenene, amaTshawe & Msimanga Lineage | Nandawula Regine',
   description:
     'The heritage of Nandawula Regine Kabali-Kagwa across three nations: the Nseenene grasshopper clan of Buganda, the amaTshawe royal house of the Xhosa, and the amaHlubi Msimanga clan — clan totems, mottoes and praise-poetry, told as an editorial journey.',

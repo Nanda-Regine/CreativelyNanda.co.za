@@ -1,5 +1,11 @@
 import { MetadataRoute } from 'next';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
+import { POEMS } from '@/lib/poems-data';
+import { getFeedPosts, postUrl } from '@/lib/feeds';
+
+// The essays and field notes are read from Supabase, so the sitemap is rebuilt
+// hourly rather than frozen at deploy time.
+export const revalidate = 3600;
 
 /**
  * The sitemap.
@@ -102,7 +108,7 @@ const LEGAL: Entry[] = [
   { path: '/legal/returns', changeFrequency: 'yearly', priority: 0.3 },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
 
   const entries: Entry[] = [
@@ -116,6 +122,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
     ...POETRY,
+    // Every poem is a readable page of its own. Until 2026-09-28 not one of them
+    // was declared — only the collection index was.
+    ...POEMS.map((p): Entry => ({
+      path: `/poetry/collection/${p.slug}`,
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    })),
     ...STORY,
     ...SHOP,
     ...LEGAL,
@@ -126,10 +139,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // error, not a ranking opportunity.
   const live = entries.filter((e) => !REDIRECTED_TO_MIREMBE.includes(e.path as (typeof REDIRECTED_TO_MIREMBE)[number]));
 
-  return live.map((e) => ({
-    url: `${BASE_URL}${e.path}`,
-    lastModified,
-    changeFrequency: e.changeFrequency,
-    priority: e.priority,
-  }));
+  // Essays and Field Notes (the imprints syndicated in the feeds), with their
+  // real modified dates rather than the build time.
+  const posts = await getFeedPosts(undefined, 500);
+
+  return [
+    ...live.map((e) => ({
+      url: `${BASE_URL}${e.path}`,
+      lastModified,
+      changeFrequency: e.changeFrequency,
+      priority: e.priority,
+    })),
+    ...posts.map((p) => ({
+      url: postUrl(p),
+      lastModified: new Date(p.updated_at ?? p.published_at),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ];
 }

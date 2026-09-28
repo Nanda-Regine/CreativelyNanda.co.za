@@ -742,7 +742,7 @@ pages/metadata/footer; internal source-citation doc + external URLs left as thei
 
 A full creative-direction pass over every page and feature, answering one question Nanda posed:
 *"What would someone of this calibre show, in every one of her reigns, on her own site?"*
-The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20.**
+The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20. Step 2 shipped 2026-09-28 — see §21.**
 
 ### The governing idea: one mind, two languages
 Most portfolios show **work**. This one should show **how she decides** — and her poetry and her
@@ -918,3 +918,50 @@ the add-a-certificate recipe (file → entry → real pixel size → optional `c
   dev screenshots. Wait for `naturalWidth > 0` before judging; not a production issue.
 - `tsc --noEmit` is clean for every new file; the repo still carries ~15 pre-existing errors
   (firebase/sentry not installed, `liveUrl`, `images`, `NandaGirl` props) — a separate cleanup.
+
+## 21. One name, one entity — Revolution Plan step 2 shipped (2026-09-28)
+
+Build order step 2 from §19: make the site legible to search engines and AI assistants.
+
+### One entity — `PERSON_ID`
+The audit found **15 separate `Person` objects** across the site's JSON-LD (every Forge room, the
+engineer feature, education, blog and poem schema), none sharing an `@id`. To a search engine that
+is fifteen unconnected people, only some called Kabali-Kagwa. Now `lib/seo.tsx` has `PERSON_ID`
+(`/#person`), and every author/publisher/about points at it via `personRef()`. The full record lives
+once, in the root layout. It gained `givenName`/`familyName`, "Nandawula Kabali-Kagwa" (the
+certificate name) in `alternateName`, both nationalities, *Poet* as an occupation, and a description
+that says she is a poet. It had only described the engineer, and it quoted typed numbers
+("7 live AI products, 3,000+ commits") that had already drifted. `SAME_AS` is one list, and
+`WIKIDATA_ID` joins it the moment it is set.
+
+### Wikidata — prepared, not published
+`project-docs/wikidata-entry.md`: label, aliases, the statements with property ids, and a notability
+warning. A self-created item without independent references (press, ISBN, NMU) gets deleted. It is a
+public edit under her identity, so Nanda creates it; then one constant changes.
+
+### Legible to AI and to readers
+- **`/llms.txt`**: a factual profile generated from the site's own data. Poem, certificate, dossier and
+  scar counts are computed, so it cannot drift. It names both identities as one person and points
+  business readers to Mirembe Muse.
+- **Feeds**: RSS 2.0 + JSON Feed 1.1 at `/feed.xml`, `/feed.json`, and per imprint
+  `/feed/{essays|field-notes}.{xml|json}`. Only the two CreativelyNanda imprints (writing → *Essays*,
+  dev → *Field Notes*); `business` belongs on Mirembe Muse. Source is Supabase only. The seed file's
+  dates are `new Date()`-relative and would re-date every entry on every deploy. Discovery `<link>`s
+  are declared in `createMetadata` too, because a page's `alternates` replaces the root's.
+
+### Two indexing bugs found on the way
+- **8 pages canonicalised to the wrong URL.** `/roots`, `/testimonials` and the three legal pages
+  inherited the root layout's `canonical: '/'`, and `/poetry/stage`, `/games` and `/my-garden`
+  inherited `/poetry`'s. Each told Google it was a duplicate of another page. That hit `/roots`
+  hardest, the heritage page. Fixed with explicit canonicals, plus new layouts for the two client pages
+  that had no metadata at all.
+- **The sitemap declared no poem and no article.** It had 46 URLs and now has 151: all 82 poems and the
+  23 essays/field notes, with real modified dates, revalidated hourly.
+
+### What was learned
+- **Identity is a graph, not a string.** Writing the same name in fifteen places does not make one
+  person. One `@id` that everything references does.
+- **A page that sets no metadata still makes claims.** It inherits the parent's canonical. Sweep every
+  sitemap URL's live canonical after any metadata change (script in this entry's commit message).
+- The old dev server keeps serving hot-reloaded code after its task is stopped. A "Jest worker
+  child process exceptions" 500 was memory starvation, not the route. Kill the port and restart.

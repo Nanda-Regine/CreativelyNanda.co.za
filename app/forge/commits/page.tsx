@@ -6,7 +6,7 @@
  * with the dossier accents happens in one place.
  */
 
-import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL } from '@/lib/seo';
+import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL, personRef } from '@/lib/seo';
 import CommitWall, { type WallRow } from '@/components/forge/CommitWall';
 import { getCommitWall } from '@/lib/forge-data';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
@@ -80,7 +80,7 @@ export default function CommitWallPage() {
       description: 'Commit messages from twelve repositories, selected for reading as sentences.',
       url: `${SITE_URL}/forge/commits`,
       isPartOf: { '@type': 'WebSite', name: 'Creatively Nanda', url: SITE_URL },
-      author: { '@type': 'Person', name: 'Nandawula Regine Kabali-Kagwa', url: SITE_URL },
+      author: personRef(),
       dateModified: wall.generatedAt,
       mainEntity: { '@type': 'ItemList', numberOfItems: rows.length },
     },

@@ -6,7 +6,7 @@
  * reasoning at the top of `components/forge/LongNight.tsx`.
  */
 
-import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL } from '@/lib/seo';
+import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL, personRef } from '@/lib/seo';
 import LongNight, { type NightRow } from '@/components/forge/LongNight';
 import { getNightsByMonth, getNights, getFigures } from '@/lib/forge-data';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
@@ -98,7 +98,7 @@ export default function LongNightPage() {
       description: 'The dated build diary — every logged working session, newest first.',
       url: `${SITE_URL}/forge/nights`,
       isPartOf: { '@type': 'WebSite', name: 'Creatively Nanda', url: SITE_URL },
-      author: { '@type': 'Person', name: 'Nandawula Regine Kabali-Kagwa', url: SITE_URL },
+      author: personRef(),
       // A count a crawler can trust, matched to what the page actually renders.
       mainEntity: {
         '@type': 'ItemList',

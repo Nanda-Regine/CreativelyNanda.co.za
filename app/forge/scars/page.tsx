@@ -6,7 +6,7 @@
  * its figures, which is why it is a server component.
  */
 
-import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL } from '@/lib/seo';
+import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL, personRef } from '@/lib/seo';
 import ScarRoom from '@/components/forge/ScarRoom';
 import { SCARS } from '@/lib/data/forge-scars';
 import { getFigures } from '@/lib/forge-data';
@@ -49,7 +49,7 @@ export default function ScarRoomPage() {
       description: 'Nine engineering postmortems — what broke, how it was found, the cause, the fix, the cost.',
       url: `${SITE_URL}/forge/scars`,
       isPartOf: { '@type': 'WebSite', name: 'Creatively Nanda', url: SITE_URL },
-      author: { '@type': 'Person', name: 'Nandawula Regine Kabali-Kagwa', url: SITE_URL },
+      author: personRef(),
       // Each scar is its own TechArticle so a search engine can surface the one
       // that matches the bug somebody is currently searching for. That is the
       // whole SEO argument for this room: these are the queries engineers type.
@@ -58,7 +58,7 @@ export default function ScarRoomPage() {
         headline: s.title,
         description: s.summary,
         url: `${SITE_URL}/forge/scars#${s.slug}`,
-        author: { '@type': 'Person', name: 'Nandawula Regine Kabali-Kagwa' },
+        author: personRef(),
         inLanguage: 'en-ZA',
         about: s.build,
       })),

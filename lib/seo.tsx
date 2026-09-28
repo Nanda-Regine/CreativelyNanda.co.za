@@ -11,6 +11,52 @@ export const TWITTER_HANDLE = '@creativelynanda';
 export const AUTHOR_NAME = 'Nandawula Regine Kabali-Kagwa';
 
 // ============================================================
+// ONE NAME, ONE ENTITY (BUILD_JOURNEY §19.5 item 2)
+// ============================================================
+// The certificates say Kabali-Kagwa, the site leads with Regine. Without a
+// shared @id, every author/publisher/about block on the site describes a
+// separate, unconnected person. Every Person node points at PERSON_ID, and the
+// full record lives once, in generatePersonJsonLd() in the root layout.
+
+export const PERSON_ID = `${SITE_URL}/#person`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+export const AUTHOR_ALTERNATE_NAMES = [
+  'Nandawula Kabali-Kagwa',
+  'Nandawula Regine',
+  'Nanda Regine',
+  'CreativelyNanda',
+];
+
+/**
+ * Wikidata item for Nanda, e.g. 'Q123456789'. Empty until the item exists —
+ * see project-docs/wikidata-entry.md for the statements to submit. Once set,
+ * it joins sameAs and becomes the strongest single identity signal.
+ */
+export const WIKIDATA_ID = '';
+
+export const SAME_AS = [
+  'https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/',
+  'https://github.com/Nanda-Regine',
+  'https://x.com/CreativelyNanda',
+  'https://www.instagram.com/nanda.regine/',
+  ...(WIKIDATA_ID ? [`https://www.wikidata.org/wiki/${WIKIDATA_ID}`] : []),
+];
+
+/**
+ * Feed discovery <link>s. Metadata `alternates` is replaced, not merged, by any
+ * page that sets its own — so createMetadata re-declares these on every page.
+ */
+export const FEED_ALTERNATES = {
+  'application/rss+xml': [{ url: `${SITE_URL}/feed.xml`, title: 'Creatively Nanda — Essays & Field Notes' }],
+  'application/feed+json': [{ url: `${SITE_URL}/feed.json`, title: 'Creatively Nanda — Essays & Field Notes' }],
+};
+
+/** Point at the canonical Person. Use for every author, publisher and about. */
+export function personRef() {
+  return { '@type': 'Person' as const, '@id': PERSON_ID, name: AUTHOR_NAME, url: SITE_URL };
+}
+
+// ============================================================
 // METADATA HELPER
 // ============================================================
 
@@ -46,6 +92,7 @@ export function createMetadata({
     ...(keywords && { keywords }),
     alternates: {
       canonical: url,
+      types: FEED_ALTERNATES,
     },
     openGraph: {
       type: ogType,
@@ -94,10 +141,11 @@ export function generateWebSiteJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': WEBSITE_ID,
     name: SITE_NAME,
     url: SITE_URL,
     description: 'Portfolio of Nanda - Creative Technologist, Full-Stack Developer, Notion Systems Architect, and Published Poet',
-    publisher: { '@type': 'Person', name: AUTHOR_NAME },
+    publisher: personRef(),
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -113,13 +161,16 @@ export function generatePersonJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': PERSON_ID,
     name: AUTHOR_NAME,
-    alternateName: ['Nanda Regine', 'CreativelyNanda', 'Nandawula Regine'],
+    givenName: 'Nandawula',
+    familyName: 'Kabali-Kagwa',
+    alternateName: AUTHOR_ALTERNATE_NAMES,
     url: SITE_URL,
     image: `${SITE_URL}/assets/professional/nanda-professional-2-transparent.png`,
     jobTitle: 'AI Engineer & Creative Technologist',
     description:
-      'Nandawula Regine Kabali-Kagwa is a South African AI engineer, full-stack TypeScript developer, and founder of Mirembe Muse (Pty) Ltd. She builds production AI systems — custom Claude agents, multi-agent architectures, WhatsApp automation, and SaaS platforms — for African businesses and global clients. 7 live AI products, 3,000+ commits, available for remote and on-site engagements.',
+      'Nandawula Regine Kabali-Kagwa is a Ugandan-South African poet and AI engineer based in KuGompo City (East London), Eastern Cape — author of the poetry collection Inside Her Roses and founder of Mirembe Muse (Pty) Ltd. She builds production AI systems — Claude agents, multi-agent architectures, WhatsApp automation and SaaS platforms — for African businesses, and writes, performs and publishes poetry rooted in Buganda and South African oral traditions.',
     worksFor: { '@type': 'Organization', name: 'Mirembe Muse (Pty) Ltd', url: 'https://mirembemuse.co.za' },
     alumniOf: {
       '@type': 'EducationalOrganization',
@@ -127,6 +178,10 @@ export function generatePersonJsonLd() {
       address: { '@type': 'PostalAddress', addressLocality: 'Gqeberha', addressCountry: 'ZA' },
     },
     knowsAbout: [
+      // Writing
+      'Poetry',
+      'Spoken Word',
+      'Performance Poetry',
       // AI / LLM
       'Artificial Intelligence',
       'Large Language Models',
@@ -185,15 +240,18 @@ export function generatePersonJsonLd() {
       addressRegion: 'Eastern Cape',
       addressCountry: 'ZA',
     },
-    sameAs: [
-      'https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/',
-      'https://github.com/Nanda-Regine',
-      'https://x.com/CreativelyNanda',
-      'https://www.instagram.com/nanda.regine/',
-      SITE_URL,
+    sameAs: SAME_AS,
+    nationality: [
+      { '@type': 'Country', name: 'South Africa' },
+      { '@type': 'Country', name: 'Uganda' },
     ],
-    nationality: { '@type': 'Country', name: 'South Africa' },
     hasOccupation: [
+      {
+        '@type': 'Occupation',
+        name: 'Poet',
+        occupationalCategory: '27-3043.05',
+        skills: 'Poetry, spoken word performance, editing, publishing',
+      },
       {
         '@type': 'Occupation',
         name: 'AI Engineer',
@@ -245,11 +303,10 @@ export function generateBlogPostingJsonLd(post: BlogPostSEO) {
     ...(post.coverImage && {
       image: post.coverImage.startsWith('http') ? post.coverImage : `${SITE_URL}${post.coverImage}`,
     }),
-    author: {
-      '@type': 'Person',
-      name: post.authorName || AUTHOR_NAME,
-      url: SITE_URL,
-    },
+    author:
+      !post.authorName || post.authorName === AUTHOR_NAME
+        ? personRef()
+        : { '@type': 'Person', name: post.authorName },
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -377,12 +434,12 @@ export function generatePoemJsonLd(poem: PoemSEO) {
     name: poem.title,
     description: poem.excerpt,
     url: `${SITE_URL}/poetry/collection/${poem.slug}`,
-    author: { '@type': 'Person', name: AUTHOR_NAME },
+    author: personRef(),
     genre: 'Poetry',
     isPartOf: {
       '@type': 'Book',
       name: 'Inside Her Roses',
-      author: { '@type': 'Person', name: AUTHOR_NAME },
+      author: personRef(),
     },
     inLanguage: 'en',
   };

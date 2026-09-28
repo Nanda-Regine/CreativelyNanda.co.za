@@ -8,7 +8,7 @@
 
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL } from '@/lib/seo';
+import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL, personRef } from '@/lib/seo';
 import BuildDossierView from '@/components/forge/BuildDossierView';
 import { getFloor, getFloorEntry } from '@/lib/forge-data';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
@@ -76,7 +76,7 @@ export default function BuildDossierPage({ params }: { params: { app: string } }
       headline: `${d.name} — ${d.kicker}`,
       description: d.standfirst,
       url: `${SITE_URL}/forge/floor/${d.slug}`,
-      author: { '@type': 'Person', name: 'Nandawula Regine Kabali-Kagwa', url: SITE_URL },
+      author: personRef(),
       publisher: { '@type': 'Organization', name: 'Mirembe Muse (Pty) Ltd' },
       inLanguage: 'en-ZA',
       about: d.stack,
@@ -96,7 +96,7 @@ export default function BuildDossierPage({ params }: { params: { app: string } }
             url: gh.live,
             applicationCategory: 'WebApplication',
             operatingSystem: 'Web',
-            author: { '@type': 'Person', name: 'Nandawula Regine Kabali-Kagwa', url: SITE_URL },
+            author: personRef(),
           },
         ]
       : []),

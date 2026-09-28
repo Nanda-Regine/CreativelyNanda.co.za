@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  // Explicit, or it inherits the root layout's canonical and tells search
+  // engines this page is a duplicate of the homepage.
+  alternates: { canonical: 'https://creativelynanda.co.za/legal/terms' },
   title: 'Terms & Conditions | CreativelyNanda.co.za',
   description:
     'Terms and Conditions for CreativelyNanda.co.za — governing use of the website and purchase of digital products under South African law (ECT Act, CPA).',

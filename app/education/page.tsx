@@ -1,4 +1,5 @@
 import EducationView from '@/components/education/EducationView';
+import { PERSON_ID, AUTHOR_ALTERNATE_NAMES } from '@/lib/seo';
 import type { LedgerSeries } from '@/components/education/LearningLedger';
 import { CREDENTIALS } from '@/lib/data/credentials';
 // Server-only: reduced to one array of weekly totals before it reaches the
@@ -36,8 +37,9 @@ const JSON_LD = {
   url: 'https://creativelynanda.co.za/education',
   mainEntity: {
     '@type': 'Person',
+    '@id': PERSON_ID,
     name: 'Nandawula Regine Kabali-Kagwa',
-    alternateName: ['Nandawula Kabali-Kagwa', 'Nandawula Regine', 'Nanda Regine'],
+    alternateName: AUTHOR_ALTERNATE_NAMES,
     url: 'https://creativelynanda.co.za',
     alumniOf: {
       '@type': 'CollegeOrUniversity',

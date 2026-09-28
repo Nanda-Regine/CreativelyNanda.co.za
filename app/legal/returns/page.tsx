@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  // Explicit, or it inherits the root layout's canonical and tells search
+  // engines this page is a duplicate of the homepage.
+  alternates: { canonical: 'https://creativelynanda.co.za/legal/returns' },
   title: 'Refund & Returns Policy | CreativelyNanda.co.za',
   description:
     'Refund and Returns Policy for digital products purchased on CreativelyNanda.co.za — in compliance with the Consumer Protection Act (CPA) and ECT Act.',

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PERSON_ID } from '@/lib/seo';
 import EngineerFeature from '@/components/engineer/EngineerFeature';
 
 export const metadata: Metadata = {
@@ -43,6 +44,7 @@ const JSON_LD = {
   '@type': 'ProfilePage',
   mainEntity: {
     '@type': 'Person',
+    '@id': PERSON_ID,
     name: 'Nandawula Regine Kabali-Kagwa',
     jobTitle: 'AI Engineer',
     description:

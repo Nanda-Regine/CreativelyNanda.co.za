@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  // Explicit, or it inherits the root layout's canonical and tells search
+  // engines this page is a duplicate of the homepage.
+  alternates: { canonical: 'https://creativelynanda.co.za/poetry/games' },
   title: 'Poetry Games — Word Search, Magnetic Poetry & Finish the Line | Creatively Nanda',
   description:
     'A little play room for word-lovers: a poetry word search, drag-and-drop magnetic poetry, and a finish-the-line game. Interactive literary games for poets and aspiring writers by Nandawula Regine.',
