@@ -214,7 +214,7 @@ export default function MyGarden() {
       </Stock>
 
       {/* ── Kept ── */}
-      <Stock paper="navy" edge="slant" className="px-6 pt-24 pb-16">
+      <Stock paper="navy" edge="slant" className="px-6 pt-32 pb-16">
         <div className="mx-auto max-w-6xl">
           <p className="kicker t-gold">Kept</p>
           <h2 className="t-head mt-3 font-display text-3xl font-bold md:text-4xl">The poems you came back for.</h2>

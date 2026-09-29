@@ -173,16 +173,16 @@ export function xray(poem: Pick<Poem, 'content'>): Xray {
   });
   const refrains = Array.from(byText.values()).filter((ix) => ix.length >= 2).sort((a, b) => b.length - a.length || a[0] - b[0]);
   const inRefrain = new Set(refrains.flat());
-  for (const ix of refrains.slice(0, 2)) {
+  refrains.slice(0, 2).forEach((ix, k) => {
     add({
       kind: 'refrain',
-      title: 'The refrain',
+      title: k === 0 ? 'The refrain' : 'The second refrain',
       finding: `${quote(ix[0])} is said ${times(ix.length)}.`,
       craft: 'A refrain is the poem’s heartbeat. The words stay the same; what changes is everything the reader has been through since the last time.',
       lines: ix,
       marks: ix.map(whole),
     });
-  }
+  });
 
   // ── The turn: a refrain line that comes back with its last word changed. ──
   for (const ix of refrains) {
@@ -289,7 +289,7 @@ export function xray(poem: Pick<Poem, 'content'>): Xray {
       finding:
         hinges.length === 1
           ? `One line stops on “${h.t.word}”, a word that cannot end a thought, so the reader has to cross the break to finish it.`
-          : `${hinges.length} lines stop on a word that cannot end a thought (${Array.from(new Set()).slice(0, 3).join(', ')}), so the reader has to cross the break to finish them.`,
+          : `${hinges.length} lines stop on a word that cannot end a thought (${Array.from(new Set(hinges.map((x) => `“${x.t.word}”`))).slice(0, 3).join(', ')}), so the reader has to cross the break to finish them.`,
       craft: 'A line break is a pause the poet chooses. Breaking on “and” or “because” holds the breath at the hinge, and the next line arrives as a small surprise.',
       lines: hinges.map((x) => x.i),
       marks: hinges.map((x) => ({ line: x.i, start: x.t.start, end: x.t.end })),
@@ -313,7 +313,7 @@ export function xray(poem: Pick<Poem, 'content'>): Xray {
           ? `One ellipsis, ${inside ? 'in the middle of a line' : 'where a line trails off'}.`
           : `${pauseMarks.length} ellipses${inside ? `, ${inside} of them in the middle of a line` : ''}.`,
       craft: 'An ellipsis inside a line is a caesura you can see: the voice stops, and the rest of the line comes after a breath. On the page it is the performer’s pause, written down.',
-      lines: Array.from(new Set()),
+      lines: Array.from(new Set(pauseMarks.map((m) => m.line))),
       marks: pauseMarks,
     });
   }
@@ -383,7 +383,7 @@ export function xray(poem: Pick<Poem, 'content'>): Xray {
       title: 'The pulse word',
       finding: `“${pw}” is said ${times(pm.length)} in ${n} lines.`,
       craft: 'The word a poem cannot stop saying is usually the one it is about, even when the title says otherwise.',
-      lines: Array.from(new Set()),
+      lines: Array.from(new Set(pm.map((m) => m.line))),
       marks: pm,
     });
   }
