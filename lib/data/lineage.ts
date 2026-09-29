@@ -6,11 +6,24 @@
 // can draw from one source of truth.
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Each house is dressed in a cloth of its own people, photographed on
+// Wikimedia Commons and served from Cloudinary (cropped at delivery). The CC
+// BY-SA licences need a visible credit, which the Lineage Room prints on the
+// image.
+const CLD = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+export interface ClothCredit {
+  cloth: string;   // what the cloth is
+  author: string;
+  licence: string;
+  source: string;  // the Commons file page
+}
+
 export interface Lineage {
   id: string;
   bg: string;
+  cloth: ClothCredit;
   accent: string;
-  icon: string;
   title: string;
   subtitle: string;
   body: string;
@@ -22,9 +35,14 @@ export interface Lineage {
 export const LINEAGES: Lineage[] = [
   {
     id: 'nseenene',
-    bg: '/assets/art/jewel.jpg',
+    bg: `${CLD}/c_crop,x_300,y_950,w_2500,h_1700/f_auto,q_auto,w_1400,c_limit/creativelynanda/lineage/cloth-barkcloth`,
+    cloth: {
+      cloth: 'Olubugo, Kiganda barkcloth beaten from the mutuba tree',
+      author: 'Rtr PK',
+      licence: 'CC BY-SA 4.0',
+      source: 'https://commons.wikimedia.org/wiki/File:Olubugo_(back_cloth).jpg',
+    },
     accent: '#C9943A',
-    icon: '🦗',
     title: 'Nseenene Clan · Buganda Kingdom',
     subtitle: 'Uganda · Nine Generations',
     body:
@@ -38,9 +56,14 @@ export const LINEAGES: Lineage[] = [
   },
   {
     id: 'amatshawe',
-    bg: '/assets/art/bloom.jpg',
+    bg: `${CLD}/c_crop,x_0,y_1500,w_4480,h_3000/f_auto,q_auto,w_1400,c_limit/creativelynanda/lineage/cloth-umbhaco`,
+    cloth: {
+      cloth: 'Umbhaco, Xhosa ochre cloth with black braid and buttons',
+      author: 'Rhodapenmarck',
+      licence: 'CC0',
+      source: 'https://commons.wikimedia.org/wiki/File:D%C3%A9tail_de_costume_Umbhaco,_Afrique_du_Sud,_collection_priv%C3%A9e_de_Ariane_Mawaffo.jpg',
+    },
     accent: '#C1292E',
-    icon: '👑',
     title: 'AmaTshawe · Xhosa Nation',
     subtitle: 'Eastern Cape · Oldest Royal House in South Africa',
     body:
@@ -53,9 +76,14 @@ export const LINEAGES: Lineage[] = [
   },
   {
     id: 'amahlubi',
-    bg: '/assets/art/navy-floral.jpg',
+    bg: `${CLD}/f_auto,q_auto,w_1400,c_limit/creativelynanda/lineage/cloth-shweshwe-brown`,
+    cloth: {
+      cloth: 'Isishweshwe, the printed cotton of the southern highlands',
+      author: 'HelenOnline',
+      licence: 'CC BY-SA 3.0',
+      source: 'https://commons.wikimedia.org/wiki/File:Brown_shweshwe.jpg',
+    },
     accent: '#7A9E7E',
-    icon: '🏔',
     title: 'AmaHlubi · The Ancient Nation',
     subtitle: 'Traced to Kenya · 900–1300 CE',
     body:
@@ -68,15 +96,20 @@ export const LINEAGES: Lineage[] = [
   },
   {
     id: 'msimango',
-    bg: '/assets/art/water.jpg',
+    bg: `${CLD}/f_auto,q_auto,w_1400,c_limit/creativelynanda/lineage/cloth-shweshwe-blue`,
+    cloth: {
+      cloth: 'Isishweshwe in indigo, the original colour of the cloth',
+      author: 'HelenOnline',
+      licence: 'CC BY-SA 3.0',
+      source: 'https://commons.wikimedia.org/wiki/File:Blue_shweshwe.jpg',
+    },
     accent: '#C9943A',
-    icon: '⚡',
-    title: 'Msimango · oThabizolo',
+    title: 'Msimanga · oThabizolo',
     subtitle: 'AmaHlubi Royal Branch · Drakensberg',
     body:
-      'And I am Msimango. oThabizolo. The praise name means: the ones who were happy the day before. My ancestor Msimango, son of King Busobengwe of the amaHlubi, celebrated the night before the throne was to be named, certain of being chosen. His father named Mthimkhulu I instead. Msimango built AmaShwabada from that moment. He became the Establisher. The name Msimango itself means: to confirm, to strengthen, to make firm. I understand this story. I build before the world confirms it is possible. I celebrate what I am building. And then I build it anyway.',
+      'And I am Msimanga. oThabizolo. The praise name means: the ones who were happy the day before. My ancestor Msimanga, son of King Busobengwe of the amaHlubi, celebrated the night before the throne was to be named, certain of being chosen. His father named Mthimkhulu I instead. Msimanga built AmaShwabada from that moment. He became the Establisher. The name Msimanga itself means: to confirm, to strengthen, to make firm. I understand this story. I build before the world confirms it is possible. I celebrate what I am building. And then I build it anyway.',
     praises:
-      'Msimango · Thabizolo · Nonkosi · Mlotshwa · Ngelengele · Wena owehla ngesilulu abafokazane behla ngezinyawo',
+      'Msimanga · Thabizolo · Nonkosi · Mlotshwa · Ngelengele · Wena owehla ngesilulu abafokazane behla ngezinyawo',
     praisesTranslation: 'You descended by ladder while the commoners descended on foot',
   },
 ];

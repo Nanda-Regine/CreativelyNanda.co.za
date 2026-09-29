@@ -137,16 +137,29 @@ export default function LineageRoom() {
                   className={`relative min-h-[260px] lg:min-h-[420px] ${flip ? 'lg:order-2' : ''}`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={l.bg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                  <img
+                    src={l.bg}
+                    alt={l.cloth.cloth}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: `linear-gradient(${flip ? '270deg' : '90deg'}, rgba(11,16,41,0) 30%, rgba(11,16,41,0.85) 100%)`,
+                      background: `linear-gradient(${flip ? '270deg' : '90deg'}, rgba(11,16,41,0) 45%, rgba(11,16,41,0.7) 100%)`,
                     }}
                   />
-                  <div className="absolute top-6 left-6 flex items-center gap-3">
-                    <span className="text-4xl drop-shadow-lg">{l.icon}</span>
-                  </div>
+                  {/* the cloth, named and credited (the CC BY-SA licences ask for it) */}
+                  <p
+                    className={`absolute bottom-0 ${flip ? 'right-0 text-right' : 'left-0'} max-w-[85%] px-5 py-3 text-[10.5px] leading-snug`}
+                    style={{ background: 'linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0))', color: 'rgba(255,255,255,0.85)' }}
+                  >
+                    <span className="font-display italic text-[13px]">{l.cloth.cloth}</span>
+                    <br />
+                    <a href={l.cloth.source} target="_blank" rel="noopener noreferrer" className="underline decoration-white/30 underline-offset-2 hover:decoration-white">
+                      {l.cloth.author}, {l.cloth.licence}, Wikimedia Commons
+                    </a>
+                  </p>
                 </div>
 
                 {/* Text side */}

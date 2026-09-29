@@ -238,7 +238,7 @@ export const PROJECTS: Project[] = [
     name: 'Sanyu Botanicals',
     tagline: 'Five ancestral lineages. One hair care line. AI-powered personalization.',
     description:
-      'African botanical wellness brand rooted in five clan lineages: Nsenene, Hlubi, Msimango, Thabizolo, and Tshawe. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Angel loyalty programme with private AI-powered hair journal. Ingredient library with ancestral and scientific context. Full e-commerce with PayFast.',
+      'African botanical wellness brand rooted in five clan lineages: Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Angel loyalty programme with private AI-powered hair journal. Ingredient library with ancestral and scientific context. Full e-commerce with PayFast.',
     problem:
       "African women have navigated a gap for generations: the botanical knowledge their grandmothers trusted vs. what gets marketed as 'professional.' The natural hair movement began closing it. Sanyu Botanicals is the product infrastructure that carries this forward: ancestral formulations, scientifically documented, accessible at South African price points.",
     solution:
