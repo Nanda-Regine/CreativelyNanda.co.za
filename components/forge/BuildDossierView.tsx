@@ -19,6 +19,7 @@
 
 import Link from 'next/link';
 import { ArrowUpRight, Lock, GitBranch, Calendar } from 'lucide-react';
+import { STUDIO_APPS } from '@/lib/data/app-screens';
 import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
@@ -118,6 +119,18 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
               >
                 {meta.live.replace(/^https?:\/\//, '')} <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
+            </FadeUp>
+          ) : null}
+
+          {STUDIO_APPS.some((x) => x.dossier === d.slug) ? (
+            <FadeUp delay={0.34}>
+              <Link
+                href="/forge/studio"
+                className="mt-5 inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.22em] underline decoration-dotted underline-offset-4 transition-opacity hover:opacity-70 sm:ml-6"
+                style={{ color: d.accent }}
+              >
+                See its screens in the App Studio <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
             </FadeUp>
           ) : null}
         </div>
