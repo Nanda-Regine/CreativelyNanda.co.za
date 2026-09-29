@@ -62,12 +62,12 @@ export type Ground = {
 export const GROUND = {
   parchment: { bg: '#F5F0E8', ink: '#1A1A2E', accent: '#C21E56', from: 'the blush-and-cherry botanical cards she already uses for performances and radio' },
   bone:      { bg: '#EFE9E1', ink: '#22201D', accent: '#B4653A', from: 'the terracotta wall behind the beer brewing; Basotho ochre' },
-  studio:    { bg: '#0E3B3E', ink: '#F2EDE4', accent: '#E8590C', from: 'the TRU FM studio — teal walls, orange station branding' },
+  studio:    { bg: '#0E3B3E', ink: '#F2EDE4', accent: '#E8590C', from: 'the TRU FM studio, teal walls, orange station branding' },
   cobalt:    { bg: '#123A8A', ink: '#F4F7FF', accent: '#F5C518', from: 'the Nelson Mandela Bay Arts Festival step-and-repeat' },
-  garden:    { bg: '#14361F', ink: '#F1F5EC', accent: '#E8B4C8', from: 'bougainvillea against green — the magenta/green pairing that recurs everywhere' },
+  garden:    { bg: '#14361F', ink: '#F1F5EC', accent: '#E8B4C8', from: 'bougainvillea against green, the magenta/green pairing that recurs everywhere' },
   rose:      { bg: '#2A0E1A', ink: '#F7EDF1', accent: '#C21E56', from: 'Inside Her Roses on deep red roses' },
-  ink:       { bg: '#12131A', ink: '#EDEDF2', accent: '#7B2FBE', from: 'the RGB-lit coding photographs — magenta, teal and green ambient on a dark room' },
-  midnight:  { bg: '#0A1128', ink: '#F5F0E8', accent: '#C9943A', from: 'the existing house navy — kept, but as ONE ground among seven' },
+  ink:       { bg: '#12131A', ink: '#EDEDF2', accent: '#7B2FBE', from: 'the RGB-lit coding photographs, magenta, teal and green ambient on a dark room' },
+  midnight:  { bg: '#0A1128', ink: '#F5F0E8', accent: '#C9943A', from: 'the existing house navy, kept, but as ONE ground among seven' },
 } as const satisfies Record<string, Ground>;
 
 export type GroundName = keyof typeof GROUND;
@@ -129,7 +129,7 @@ export const FAMILY = {
    * gradient: they are literally the colour of her working nights.
    */
   screens: {
-    note: 'Actual code on actual screens, lit magenta / teal / green. Use as texture and as full-bleed section grounds — never as a decorative stock "code" image.',
+    note: 'Actual code on actual screens, lit magenta / teal / green. Use as texture and as full-bleed section grounds, never as a decorative stock "code" image.',
     ground: 'ink',
     hero: true,
     // ⚠️ These live under `vault/`, not under the portrait folders. The first
@@ -149,7 +149,7 @@ export const FAMILY = {
 
   /** Real product UI, browser-framed. Needs cropping — see CROP below. */
   varsityos: {
-    note: 'VarsityOS product screenshots — landing, Nova AI chat, study planner, Pomodoro, budget, meals. Dark UI over magenta/teal gradient mesh. Genuinely handsome; crop the browser chrome and Windows taskbar off before use.',
+    note: 'VarsityOS product screenshots: landing, Nova AI chat, study planner, Pomodoro, budget, meals. Dark UI over magenta/teal gradient mesh. Genuinely handsome; crop the browser chrome and Windows taskbar off before use.',
     ground: 'ink',
     ids: [
       'varsityos-landing-page/1',
@@ -164,7 +164,7 @@ export const FAMILY = {
 
   /** The demo recordings behind the foundation projects. */
   demos: {
-    note: 'Screen recordings of the foundation builds. These make Origins provable rather than described — a card that says "live demo" next to a moving image of the thing.',
+    note: 'Screen recordings of the foundation builds. These make Origins provable rather than described, a card that says "live demo" next to a moving image of the thing.',
     ground: 'bone',
     ids: [
       'project-screen-record/cortexhub-booking-system',
@@ -189,7 +189,7 @@ export const FAMILY = {
    * NOTE THE SPELLING: **Madibaz** Radio (NMU's station), not "Madiba".
    */
   radio: {
-    note: 'TWO radio interviews — Madibaz Radio (mixing desk, "Connect. Inform. Engage." banner) and TRU FM (teal studio walls, orange station branding, Xhosa dress). Present as a pair; she has branded cards for both.',
+    note: 'TWO radio interviews, Madibaz Radio (mixing desk, "Connect. Inform. Engage." banner) and TRU FM (teal studio walls, orange station branding, Xhosa dress). Present as a pair; she has branded cards for both.',
     ground: 'studio',
     hero: true,
     ids: [
@@ -209,7 +209,7 @@ export const FAMILY = {
 
   // ── THE STAGE ─────────────────────────────────────────────────────────────
   festival: {
-    note: 'Nelson Mandela Bay Arts Festival — cobalt step-and-repeat, Xhosa dress, and the mosaic plaza shot that is the single best full-bleed image in the archive.',
+    note: 'Nelson Mandela Bay Arts Festival: cobalt step-and-repeat, Xhosa dress, and the mosaic plaza shot that is the single best full-bleed image in the archive.',
     ground: 'cobalt',
     hero: true,
     ids: [
@@ -222,7 +222,7 @@ export const FAMILY = {
   },
 
   performance: {
-    note: 'Live poetry on stage — mic, black drape, brick, an orange rug. Plus her own blush-and-cherry event cards (NMB Arts Festival, Yellowwood Forest, Poetry Event).',
+    note: 'Live poetry on stage: mic, black drape, brick, an orange rug. Plus her own blush-and-cherry event cards (NMB Arts Festival, Yellowwood Forest, Poetry Event).',
     ground: 'parchment',
     ids: [
       'performance/nmb-perform-1',
@@ -239,7 +239,7 @@ export const FAMILY = {
 
   // ── HERITAGE ──────────────────────────────────────────────────────────────
   heritage: {
-    note: 'Brewing African beer against a terracotta wall in Xhosa beadwork; the Sotho blanket; three generations in traditional dress. Warm ochre, indigo, rust — the richest colour in the archive.',
+    note: 'Brewing African beer against a terracotta wall in Xhosa beadwork; the Sotho blanket; three generations in traditional dress. Warm ochre, indigo, rust, the richest colour in the archive.',
     ground: 'bone',
     hero: true,
     ids: [
@@ -257,7 +257,7 @@ export const FAMILY = {
   },
 
   lesotho: {
-    note: 'The mountain set — Sani Pass at 2,874 m, Basotho blanket, a horse on a ridge, the conical hat at a gorge lookout. Grey-green, ochre, enormous sky. Built for wide crops and parallax.',
+    note: 'The mountain set: Sani Pass at 2,874 m, Basotho blanket, a horse on a ridge, the conical hat at a gorge lookout. Grey-green, ochre, enormous sky. Built for wide crops and parallax.',
     ground: 'bone',
     hero: true,
     ids: [
@@ -274,7 +274,7 @@ export const FAMILY = {
 
   // ── THE BOOK ──────────────────────────────────────────────────────────────
   book: {
-    note: 'Inside Her Roses — the cover on deep red roses, the interior spreads with their line drawings, the orange launch poster, the book in gardens and beside coffee. Deep red, cream, black.',
+    note: 'Inside Her Roses: the cover on deep red roses, the interior spreads with their line drawings, the orange launch poster, the book in gardens and beside coffee. Deep red, cream, black.',
     ground: 'rose',
     hero: true,
     // ⚠️ Verified against the CDN. The first version of this family invented
@@ -352,24 +352,22 @@ export const FAMILY = {
 
   // ── THE RECEIPTS ──────────────────────────────────────────────────────────
   /**
-   * Fourteen images of readers reacting — WhatsApp messages and platform
+   * Ten images of readers reacting on a poetry platform, as
    * comments with real names and real paragraphs. This is the most persuasive
    * material in the archive and it is on no page.
    */
   reviews: {
-    note: 'Real reader responses — WhatsApp screenshots and platform comments with names and full paragraphs. Set on parchment with the cherry accent; do not put these on navy.',
+    note: 'Real reader responses: platform comments with names and full paragraphs. The four private WhatsApp screenshots were taken off the site on 2026-09-29 at her request. Set on parchment with the cherry accent; do not put these on navy.',
     ground: 'parchment',
     ids: [
       'reviews/review-1','reviews/review-2','reviews/review-3','reviews/review-4','reviews/review-5',
       'reviews/review-6','reviews/review-7','reviews/review-8','reviews/review-9','reviews/review-10',
-      'reviews/IMG-20260620-WA0066','reviews/IMG-20260620-WA0067',
-      'reviews/IMG-20260620-WA0068','reviews/IMG-20260620-WA0071',
     ],
     rooms: ['/testimonials', '/poetry', '/'],
   },
 
   graduation: {
-    note: 'Two graduations, on video — the auditorium, the procession, the bunting. Plus the first-graduation excitement clip. The Education page currently links to none of it.',
+    note: 'Two graduations, on video, the auditorium, the procession, the bunting. Plus the first-graduation excitement clip. The Education page currently links to none of it.',
     ground: 'parchment',
     video: true,
     ids: [
@@ -381,7 +379,7 @@ export const FAMILY = {
   },
 
   bookLaunch: {
-    note: 'The launch itself — signing, a customer buying, the workshop, the crowd. Proof that the book met people.',
+    note: 'The launch itself: signing, a customer buying, the workshop, the crowd. Proof that the book met people.',
     ground: 'rose',
     ids: ['book-launch/book-customer-poster'],
     videos: ['book-launch/book-customer', 'book-launch/book-signing', 'book-launch/poetry-workshop'],
@@ -389,7 +387,7 @@ export const FAMILY = {
   },
 
   work: {
-    note: 'Before the code: the Balkan Burger shift, latte art, the "learning to code" and "building an app" clips. The Origins story has no images at all right now — this is it.',
+    note: 'Before the code: the Balkan Burger shift, latte art, the "learning to code" and "building an app" clips. The Origins story has no images at all right now: this is it.',
     ground: 'bone',
     ids: ['work/balkanburger-cuppuccino', 'work/balkanburger-latte', 'work/working-in-tech'],
     videos: ['work/balkan-burger-shift', 'work/learning-to-code', 'work/building-app'],
@@ -397,7 +395,7 @@ export const FAMILY = {
   },
 
   sanyu: {
-    note: 'Sanyu Botanicals — herbal balm and serum, made in a kitchen (the whisk, the dried herbs, the mixing bowl) and photographed in gardens. Cream, burgundy, deep green. Currently absent from the Workshop Floor entirely.',
+    note: 'Sanyu Botanicals: herbal balm and serum, made in a kitchen (the whisk, the dried herbs, the mixing bowl) and photographed in gardens. Cream, burgundy, deep green. Currently absent from the Workshop Floor entirely.',
     ground: 'bone',
     hero: true,
     // ⚠️ Opaque hashes, listed from the CDN. The first version guessed

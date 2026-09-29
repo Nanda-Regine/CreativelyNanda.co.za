@@ -111,7 +111,7 @@ export default function TestimonialsPage() {
             transition={{ delay: 0.2 }}
             className="text-white/60 text-lg max-w-xl leading-relaxed"
           >
-            Six LinkedIn recommendations from managers, peers, and direct reports — spanning
+            Six LinkedIn recommendations from managers, peers, and direct reports, spanning
             hospitality, retail, and creative consulting.
           </motion.p>
         </div>
@@ -202,7 +202,7 @@ export default function TestimonialsPage() {
             </h2>
             <p className="mt-6 max-w-2xl text-[15.5px] font-light leading-[1.85]" style={{ color: 'rgba(26,26,46,0.72)' }}>
               Everything above is a colleague. Below are strangers on a poetry platform, replying to individual
-              poems — transcribed from the screenshots, which are underneath. One of them is a criticism, and it
+              poems, transcribed from the screenshots, which are underneath. One of them is a criticism, and it
               stays: a page where everyone agrees is a page that has been curated.
             </p>
           </motion.div>
@@ -248,7 +248,7 @@ export default function TestimonialsPage() {
             className="mt-20"
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: 'rgba(26,26,46,0.45)' }}>
-              Fourteen of them, unedited
+              Ten of them, unedited
             </p>
             {/*
              * A GRID of uniform tiles, not CSS columns.
@@ -262,7 +262,7 @@ export default function TestimonialsPage() {
              *
              * A fixed aspect with `object-top` crops each to its opening lines,
              * which is the part that reads anyway. The transcribed quotes above
-             * carry the content; this wall is here to show there are fourteen of
+             * carry the content; this wall is here to show there are ten of
              * them and that they are real.
              */}
             <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4">

@@ -65,7 +65,7 @@ I am truly grateful for the skills and confidence I gained while working with he
     context: 'Balkan Burger',
     text: `I had the pleasure of working with Nanda during her time as Manager, and I can confidently say she was a fantastic colleague to work with. She's incredibly efficient, always ensuring tasks are well-organized and clearly communicated to the team. Her regular check-in meetings kept everything on track and helped create a smooth workflow.
 
-What stood out most was her supportive nature and positive energy—she brought a lively spirit that uplifted the entire restaurant. She's a hardworking, friendly professional who made the workplace feel both productive and enjoyable. Any team would be lucky to have her!`,
+What stood out most was her supportive nature and positive energy: she brought a lively spirit that uplifted the entire restaurant. She's a hardworking, friendly professional who made the workplace feel both productive and enjoyable. Any team would be lucky to have her!`,
   },
   {
     name: 'Amy Gajjar',
@@ -96,7 +96,7 @@ I highly commend Nanda for her outstanding contributions and have no doubt that 
 /**
  * READER REPLIES — the poetry platform, and the strongest material on the page.
  *
- * Fourteen screenshots of real readers responding to individual poems sat in
+ * Ten screenshots of real readers responding to individual poems sat in
  * `public/assets/reviews/` and appeared nowhere on the site. Professional
  * recommendations say she is good to work with; these say the writing landed on
  * a stranger, which is a different and harder claim to make about yourself.
@@ -146,7 +146,7 @@ export const READER_REPLIES: ReaderReply[] = [
   {
     reader: 'Denis Kutosi',
     poem: 'Our Chapter',
-    text: 'The poem employs imagery to perfection — but it feels more prose than poetry.',
+    text: 'The poem employs imagery to perfection, but it feels more prose than poetry.',
     shot: 'reviews/review-9',
     dissent: true,
   },
@@ -157,6 +157,4 @@ export const READER_SHOTS = [
   'reviews/review-1', 'reviews/review-2', 'reviews/review-3', 'reviews/review-4',
   'reviews/review-5', 'reviews/review-6', 'reviews/review-7', 'reviews/review-8',
   'reviews/review-9', 'reviews/review-10',
-  'reviews/IMG-20260620-WA0066', 'reviews/IMG-20260620-WA0067',
-  'reviews/IMG-20260620-WA0068', 'reviews/IMG-20260620-WA0071',
 ];
