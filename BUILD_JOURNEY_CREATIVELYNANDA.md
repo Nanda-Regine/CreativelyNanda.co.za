@@ -742,7 +742,7 @@ pages/metadata/footer; internal source-citation doc + external URLs left as thei
 
 A full creative-direction pass over every page and feature, answering one question Nanda posed:
 *"What would someone of this calibre show, in every one of her reigns, on her own site?"*
-The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20. Step 2 shipped 2026-09-28 — see §21. Step 3 (Dojo + Incident Replay) shipped 2026-09-28 — see §22. Step 4 (the press) shipped 2026-09-28 — see §23.**
+The plan of record. Build order is at the end. **Step 1 shipped 2026-09-28 — see §20. Step 2 shipped 2026-09-28 — see §21. Step 3 (Dojo + Incident Replay) shipped 2026-09-28 — see §22. Step 4 (the press) shipped 2026-09-28 — see §23. Step 5 started 2026-09-29: X-ray shipped, the content half waits on Nanda — see §26.**
 
 ### The governing idea: one mind, two languages
 Most portfolios show **work**. This one should show **how she decides** — and her poetry and her
@@ -1194,3 +1194,69 @@ site. PR #15 was merged, and this work shipped as five commits on `main`.
 - **Smooth scrolling fools samplers.** `scroll-behavior: smooth` on `html` made
   `window.scrollTo` animate, so the first navy audit sampled only the top of each
   page. Use `behavior: 'instant'`.
+
+## 26. X-ray, a garden that grows, cloth for the four houses, and a site with no em dashes (2026-09-29)
+
+Revolution Plan step 5 was "X-ray + audio for the first 10 poems". The audio and
+the backstories have to come from Nanda; there are no recordings in the repo and
+nothing should be invented in her voice. The half that could be built honestly
+was built: the X-ray, measured from the text.
+
+### X-ray (`lib/poem-xray.ts` + `components/poetry/XrayPoem.tsx`)
+Every poem now has a Read / X-ray switch (deep link: `#xray`). The poem goes onto
+a light box (navy header, bone paper, cherry marks) and ten devices are measured,
+never typed: the refrain and the second refrain, **the turn** (a refrain that
+returns with one word changed: *Criminal of the Night*'s "his" becoming "theirs"),
+the landing word, anaphora ("the drumbeat"), rhyme within earshot with scheme
+letters, **hinge breaks** (a line that stops on "and" or "because"), ellipsis
+pauses, alliteration, the drop (a sudden short line) and the pulse word. Syllable
+bars in the margin draw each poem's shape. All 82 poems get findings (3.7 on
+average). Nanda's own `annotations` appear as "In her words" when she writes
+them. Events: `poem_xray_open`, `poem_xray_device`.
+
+### My Garden, rebuilt
+It opened on a pen-name prompt, a zero, five grey badges and "still soil", and
+used "plant" for both bookmarking and writing. Now three verbs: **read** (every
+poem opened plants a seed in a plot of all 82, bedded by feeling;
+`lib/reading-trail.ts`), **keep** (the bookmark blooms it), **write** (poems
+planted in The Circle). A "plant your next one" card picks an unread poem in the
+feeling you read most. Navy, parchment, navy, cherry.
+
+### Lineage: cloth, not paintings
+Each house now wears a cloth of its own people, from Wikimedia Commons: olubugo
+barkcloth (Nseenene), umbhaco (AmaTshawe), brown and indigo isishweshwe
+(AmaHlubi, Msimanga). CC0 and CC BY-SA, credited on each image, cropped at
+delivery by Cloudinary. The corner emoji is gone; "Msimango" corrected to
+Msimanga.
+
+### No em dashes, anywhere
+958 rewrites in 136 files, plus 39 blog posts and 6 products in Supabase (backup
+of every touched row kept outside the repo). `scripts/lib/dashless.mjs` holds the
+rules: a pair around an aside becomes commas or parentheses, a label or list gets
+a colon, a new sentence a full stop, a title a middle dot, a range an en dash.
+`scripts/dashless-sweep.mjs` walks the TypeScript syntax tree so only visible text
+changes. Both Forge ingest scripts now run their output through it.
+
+### Also
+- /testimonials: the four private WhatsApp screenshots are off the site; /sanyu
+  had been showing one of them as a portrait of her hair, now a real photograph.
+- Indexing: a live audit of every reachable URL. The 82 Reading Rooms were
+  noindex and canonical at once (now indexable, canonical kept); the blog
+  categories, business posts and bundles were missing from the sitemap;
+  /blog/business server-rendered only a spinner; utility pages claimed to be the
+  homepage (now noindex); /poetry/erasure answered 200 with an empty page (now a
+  308 to the games). robots.txt names the AI crawlers as welcome; llms.txt lists
+  the new rooms.
+- New standing rule from Nanda: navy, beige and cherry in **equal** balance.
+
+### What was learned
+- **Measure the craft, leave the intention to the poet.** The X-ray can say that
+  a line stops on "because"; only Nanda can say why. Keeping those in separate
+  layers is what lets the room ship before her notes exist.
+- **`$1` inside a double-quoted shell string is empty.** A regex replacement run
+  through `node -e "…"` silently deleted three expressions. Write replacements
+  with the Edit tool, or in a file.
+- **The working copy is CRLF even where git stores LF.** Indent detection and
+  exact-match edits that assume `\n` fail quietly; normalise first.
+- **A page-level `redirect()` is not a redirect to a crawler** when the page is
+  statically rendered: it answered 200. Redirects belong in `next.config.js`.

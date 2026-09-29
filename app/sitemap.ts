@@ -81,7 +81,6 @@ const POETRY: Entry[] = [
   { path: '/poetry/poet-who-codes', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/poetry/games', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/poetry/community', changeFrequency: 'monthly', priority: 0.7 },
-  { path: '/poetry/erasure', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/poetry/my-garden', changeFrequency: 'monthly', priority: 0.5 },
 ];
 

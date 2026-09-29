@@ -45,7 +45,7 @@ Profiles: ${SAME_AS.join(' · ')}
 - [Lineage](${u('/poetry/lineage')}): the four houses her poetry comes from (Nseenene of Buganda, amaTshawe, amaHlubi, Msimanga), each shown in its own cloth
 - [The Poet Who Codes](${u('/poetry/poet-who-codes')}): where the writing and the engineering meet
 - [The Circle](${u('/poetry/community')}): a community garden where readers write and share poems
-- [Poetry Games](${u('/poetry/games')}) and [the Erasure Studio](${u('/poetry/erasure')}): playful writing tools
+- [Poetry Games](${u('/poetry/games')}): playful writing tools, erasure poetry among them
 - [My Garden](${u('/poetry/my-garden')}): a private plot that grows as a reader reads, kept in their own browser
 
 ## Engineering · The Forge

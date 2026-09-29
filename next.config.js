@@ -90,6 +90,9 @@ const nextConfig = {
     { source: '/mirembe/:path*', destination: 'https://mirembemuse.co.za', permanent: true },
     // House of Roses vocabulary: "The Library" is the collection. Aliases only —
     // the canonical creative URLs stay /poetry/collection to preserve SEO.
+    // The Erasure Studio became the Poetry Games play room. A real 308, not the
+    // page-level redirect() it used to be, which answered 200 with an empty page.
+    { source: '/poetry/erasure', destination: '/poetry/games', permanent: true },
     { source: '/library', destination: '/poetry/collection', permanent: false },
     { source: '/library/:slug', destination: '/poetry/collection/:slug', permanent: false },
   ],
