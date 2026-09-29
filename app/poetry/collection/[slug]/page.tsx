@@ -14,6 +14,9 @@ import {
 } from '@/lib/poems-data';
 import PoemAudio from '@/components/poetry/PoemAudio';
 import ShareLineCard from '@/components/poetry/ShareLineCard';
+import XrayPoem from '@/components/poetry/XrayPoem';
+import { track } from '@/lib/analytics';
+import { recordRead } from '@/lib/reading-trail';
 import { RoseCard } from '@/components/poetry/RoseCard';
 import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { MOOD_TO_TONE } from '@/lib/house-assets';
@@ -66,11 +69,29 @@ export default function PoemReader() {
   const [submitted, setSubmitted] = useState(false);
   const [newRose, setNewRose] = useState({ name: '', content: '', isAnonymous: false });
   const [showHearts, setShowHearts] = useState(false);
+  const [xrayOn, setXrayOn] = useState(false);
+
+  // A shared link can open straight into the X-ray: /poetry/collection/you#xray
+  useEffect(() => {
+    if (window.location.hash === '#xray') setXrayOn(true);
+  }, []);
+
+  const toggleXray = (on: boolean) => {
+    setXrayOn(on);
+    const url = window.location.pathname + window.location.search + (on ? '#xray' : '');
+    window.history.replaceState(null, '', url);
+    if (on) track('poem_xray_open', { poem: slug });
+  };
 
   // Entering a poem washes the whole garden into that poem's feeling.
   useEffect(() => {
     if (poem) setMood(getMoodKeyForPoem(poem));
   }, [poem, setMood]);
+
+  // Opening a poem plants it in the reader's garden (/poetry/my-garden).
+  useEffect(() => {
+    if (poem) recordRead(poem.slug);
+  }, [poem]);
 
   // Load hearts + roses from Supabase; saves stay on-device.
   useEffect(() => {
@@ -352,7 +373,7 @@ export default function PoemReader() {
               whileTap={{ scale: 0.9 }}
               onClick={handleSave}
               className={`p-2 rounded-full transition-colors ${isSaved ? 'bg-gold/20 text-gold' : 'hover:bg-white/10 text-cream/60'}`}
-              title={isSaved ? 'Remove from your garden' : 'Plant in your garden'}
+              title={isSaved ? 'Stop keeping this poem' : 'Keep this poem in your garden'}
             >
               <Bookmark className={`w-5 h-5 ${isSaved ? 'fill-gold' : ''}`} />
             </motion.button>
@@ -426,6 +447,38 @@ export default function PoemReader() {
           transition={{ delay: 0.25 }}
           className="max-w-2xl mx-auto"
         >
+          {/* Read it, or see the craft under it */}
+          <div className="mb-5 flex items-center justify-between gap-4">
+            <div
+              role="tablist"
+              aria-label="How to read this poem"
+              className="inline-flex rounded-full p-1"
+              style={{ background: 'rgba(245,240,232,0.08)', boxShadow: 'inset 0 0 0 1px rgba(245,240,232,0.16)' }}
+            >
+              {([['read', 'Read'], ['xray', 'X-ray']] as const).map(([key, label]) => {
+                const on = (key === 'xray') === xrayOn;
+                return (
+                  <button
+                    key={key}
+                    role="tab"
+                    aria-selected={on}
+                    onClick={() => toggleXray(key === 'xray')}
+                    className="rounded-full px-5 py-1.5 text-sm font-medium transition-all"
+                    style={on ? { background: '#C21E56', color: '#fff' } : { color: 'rgba(245,240,232,0.7)' }}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="hidden text-right text-xs text-cream/50 sm:block">
+              {xrayOn ? 'Rhyme, refrain, breath and shape, measured' : 'X-ray shows the craft under the poem'}
+            </p>
+          </div>
+
+          {xrayOn ? (
+            <XrayPoem poem={poem} />
+          ) : (
           <div className="relative rounded-[2rem] border border-white/12 bg-[#100a14]/55 backdrop-blur-2xl p-8 md:p-12 shadow-2xl">
             {/* mood accent seam */}
             <span
@@ -455,6 +508,7 @@ export default function PoemReader() {
               <p className="text-cream/40 text-sm mt-1">From &ldquo;Inside Her Roses&rdquo;</p>
             </motion.div>
           </div>
+          )}
 
           {/* The story behind this one — intimate, confided */}
           {poem.backstory && (

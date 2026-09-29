@@ -41,6 +41,9 @@ export type ForgeEvent =
   | 'forge_filter'          // a build filter was used on nights / commits
   | 'forge_live_app_click'  // someone left for one of the live products
   | 'forge_repo_click'      // someone went to a repository
+  // ── Poetry ──
+  | 'poem_xray_open'        // X-ray was switched on for a poem
+  | 'poem_xray_device'      // a device was chosen inside the X-ray
   // ── Cross-site ──
   | 'mirembe_handoff'       // the business hand-off to mirembemuse was taken
   | 'outbound_click';

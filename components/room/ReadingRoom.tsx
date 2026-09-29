@@ -11,6 +11,7 @@ import {
   type PoemAnnotation,
 } from '@/lib/poems-data';
 import { getAtmosphere, GRAIN_SVG } from '@/lib/moods-atmosphere';
+import { recordRead } from '@/lib/reading-trail';
 import { MOOD_TO_TONE, backdropForTone, assetUrl } from '@/lib/house-assets';
 import {
   splitLines,
@@ -77,6 +78,11 @@ export default function ReadingRoom({ poem }: { poem: Poem }) {
     mq.addEventListener('change', h);
     return () => mq.removeEventListener('change', h);
   }, []);
+
+  // Opening the room plants this poem in the reader's garden.
+  useEffect(() => {
+    recordRead(poem.slug);
+  }, [poem.slug]);
 
   // Load reader whispers once (used by the Annotated mode).
   useEffect(() => {
