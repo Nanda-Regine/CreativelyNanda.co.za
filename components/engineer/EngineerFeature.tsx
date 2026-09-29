@@ -24,6 +24,9 @@ const NAVY = '#0A1128';
 const NAVY_DEEP = '#080D22';
 const GOLD = '#C9943A';
 const CREAM = '#F5F0E8';
+// Text that follows the paper (app/stock.css): cream on navy, navy on parchment.
+const HEAD = 'rgb(var(--head-rgb))';
+const GOLD_TEXT = 'var(--gold-ink)';
 const CHERRY = '#C1292E';
 const EMBER = '#E4572E';
 
@@ -97,7 +100,7 @@ const DEGREE_IN_CODE = [
 ];
 
 // ── Small building blocks ───────────────────────────────────────────────────
-function Kicker({ children, color = GOLD }: { children: React.ReactNode; color?: string }) {
+function Kicker({ children, color = GOLD_TEXT }: { children: React.ReactNode; color?: string }) {
   return (
     <p className="font-mono uppercase" style={{ color, fontSize: '11px', letterSpacing: '0.32em', margin: 0 }}>
       {children}
@@ -111,7 +114,7 @@ function Rule({ w = '100%', color = 'rgba(201,148,58,0.3)' }: { w?: string; colo
 
 // A chapter spread: full-width band, image on one side, prose on the other.
 function Chapter({
-  num, title, kicker, img, alt, flip = false, accent = GOLD, children,
+  num, title, kicker, img, alt, flip = false, accent = GOLD_TEXT, children,
 }: {
   num: string; title: string; kicker: string; img: string; alt: string;
   flip?: boolean; accent?: string; children: React.ReactNode;
@@ -120,18 +123,18 @@ function Chapter({
     <section className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className={`grid items-center gap-10 md:grid-cols-2 md:gap-16 ${flip ? 'md:[&>*:first-child]:order-2' : ''}`}>
         <FadeUp>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-2xl" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.45)', border: `1px solid rgba(201,148,58,0.18)` }}>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-2xl" style={{ boxShadow: 'var(--shadow)', border: `1px solid rgba(201,148,58,0.18)` }}>
             <CldImage src={img} alt={alt} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(10,17,40,0.5) 0%, transparent 45%)' }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 45%)' }} />
             {/* Chapter numeral, dropped like a fashion-spread folio */}
-            <span className="absolute left-4 bottom-3 font-display italic" style={{ color: CREAM, fontSize: '54px', lineHeight: 1, textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>{num}.</span>
+            <span className="absolute left-4 bottom-3 font-display italic" style={{ color: '#F5F0E8', fontSize: '54px', lineHeight: 1, textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>{num}.</span>
           </div>
         </FadeUp>
         <FadeUp delay={0.12}>
           <div>
             <Kicker color={accent}>{kicker}</Kicker>
-            <h2 className="font-display font-bold" style={{ color: CREAM, fontSize: 'clamp(2.4rem, 5vw, 3.4rem)', lineHeight: 1.02, margin: '16px 0 22px' }}>{title}</h2>
-            <div className="space-y-5 font-light" style={{ color: 'rgba(245,240,232,0.78)', lineHeight: 1.9, fontSize: '1.08rem' }}>{children}</div>
+            <h2 className="font-display font-bold" style={{ color: HEAD, fontSize: 'clamp(2.4rem, 5vw, 3.4rem)', lineHeight: 1.02, margin: '16px 0 22px' }}>{title}</h2>
+            <div className="space-y-5 font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.78)', lineHeight: 1.9, fontSize: '1.08rem' }}>{children}</div>
           </div>
         </FadeUp>
       </div>
@@ -142,11 +145,11 @@ function Chapter({
 // ── Page ────────────────────────────────────────────────────────────────────
 export default function EngineerFeature() {
   return (
-    <main className="min-h-screen" style={{ background: NAVY, color: CREAM }}>
+    <main className="stock-parchment min-h-screen">
       <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.12]" style={{ backgroundImage: GRAIN }} />
 
       {/* ══ THE COVER — masthead over the builder-at-work portrait ══════════════ */}
-      <section className="relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden">
+      <section className="stock-navy relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden">
         {/*
          * The cover was `professional/nanda-coding` — a composited studio
          * portrait: navy suit, stock office, a monitor of generic code. It was
@@ -183,11 +186,11 @@ export default function EngineerFeature() {
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="font-display font-bold" style={{ fontSize: 'clamp(2.8rem, 8.5vw, 6.2rem)', lineHeight: 0.92, letterSpacing: '-0.01em', margin: '20px 0 0' }}>
-              The Making<br />of an <span style={{ color: GOLD, fontStyle: 'italic' }}>Engineer</span>
+              The Making<br />of an <span style={{ color: GOLD_TEXT, fontStyle: 'italic' }}>Engineer</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="mt-7 max-w-xl font-light" style={{ color: 'rgba(245,240,232,0.75)', fontSize: '1.15rem', lineHeight: 1.7 }}>
+            <p className="mt-7 max-w-xl font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.75)', fontSize: '1.15rem', lineHeight: 1.7 }}>
               From a single line of code to a fifteen-wing AI operating system — in one year.
               The other half of the poet who codes, told the way it deserves to be told.
             </p>
@@ -207,7 +210,7 @@ export default function EngineerFeature() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full px-7 py-3.5 font-semibold transition-all"
-                style={{ border: '1px solid rgba(245,240,232,0.35)', color: CREAM }}
+                style={{ border: '1px solid rgb(var(--ink-rgb) / 0.35)', color: HEAD }}
               >
                 Work with me ↗
               </a>
@@ -223,8 +226,8 @@ export default function EngineerFeature() {
             ['Fifteen', 'DISTINCTIONS'],
           ].map(([a, b]) => (
             <div key={b}>
-              <p className="font-display italic" style={{ color: 'rgba(245,240,232,0.7)', fontSize: '13px', margin: 0 }}>{a}</p>
-              <p className="font-bebas" style={{ color: CREAM, fontSize: '26px', lineHeight: 0.9, letterSpacing: '0.02em', margin: '2px 0 0' }}>{b}</p>
+              <p className="font-display italic" style={{ color: 'rgb(var(--ink-rgb) / 0.7)', fontSize: '13px', margin: 0 }}>{a}</p>
+              <p className="font-bebas" style={{ color: HEAD, fontSize: '26px', lineHeight: 0.9, letterSpacing: '0.02em', margin: '2px 0 0' }}>{b}</p>
               <Rule w="60%" color="rgba(201,148,58,0.35)" />
             </div>
           ))}
@@ -232,7 +235,7 @@ export default function EngineerFeature() {
       </section>
 
       {/* ══ IN THIS ISSUE — the contents page ══════════════════════════════════ */}
-      <section id="contents" className="relative z-10 px-6 py-24 md:py-28" style={{ background: NAVY_DEEP }}>
+      <section id="contents" className="stock-bone relative z-10 px-6 py-24 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
@@ -240,19 +243,19 @@ export default function EngineerFeature() {
                 <Kicker>Contents</Kicker>
                 <h2 className="font-display font-bold" style={{ fontSize: 'clamp(2.6rem, 6vw, 4rem)', lineHeight: 1, margin: '12px 0 0' }}>In This Issue</h2>
               </div>
-              <p className="font-mono" style={{ color: 'rgba(245,240,232,0.4)', fontSize: '11px', letterSpacing: '0.2em' }}>FIVE CHAPTERS · ONE RISE</p>
+              <p className="font-mono" style={{ color: 'rgb(var(--ink-rgb) / 0.4)', fontSize: '11px', letterSpacing: '0.2em' }}>FIVE CHAPTERS · ONE RISE</p>
             </div>
           </FadeUp>
           <div>
             {CONTENTS.map((c, i) => (
               <FadeUp key={c.num} delay={i * 0.06}>
                 <a href={`#chapter-${c.num}`} className="group grid grid-cols-[auto_1fr_auto] items-baseline gap-5 py-5 transition-colors" style={{ borderTop: '1px solid rgba(201,148,58,0.16)' }}>
-                  <span className="font-display italic" style={{ color: GOLD, fontSize: '30px', width: '44px' }}>{c.num}</span>
+                  <span className="font-display italic" style={{ color: GOLD_TEXT, fontSize: '30px', width: '44px' }}>{c.num}</span>
                   <span>
                     <span className="font-display block transition-colors group-hover:text-[#C9943A]" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 700 }}>{c.title}</span>
-                    <span className="font-light" style={{ color: 'rgba(245,240,232,0.6)', fontSize: '0.98rem' }}>{c.line}</span>
+                    <span className="font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.6)', fontSize: '0.98rem' }}>{c.line}</span>
                   </span>
-                  <span className="font-mono hidden sm:inline transition-transform group-hover:translate-x-1" style={{ color: 'rgba(245,240,232,0.35)', fontSize: '12px' }}>→</span>
+                  <span className="font-mono hidden sm:inline transition-transform group-hover:translate-x-1" style={{ color: 'rgb(var(--ink-rgb) / 0.35)', fontSize: '12px' }}>→</span>
                 </a>
               </FadeUp>
             ))}
@@ -262,7 +265,7 @@ export default function EngineerFeature() {
       </section>
 
       {/* ══ CHAPTER I — ZERO ═══════════════════════════════════════════════════ */}
-      <div id="chapter-I" className="relative z-10" style={{ background: NAVY }}>
+      <div id="chapter-I" className="stock-parchment relative z-10">
         <Chapter
           num="I" title="Zero." kicker="Chapter I · July 2025"
           img="creativelynanda/nanda-portraits/nanda-green-1"
@@ -270,28 +273,28 @@ export default function EngineerFeature() {
           accent="#FBBF24"
         >
           <p>There was a version of this story where it never started. No computer-science degree. No bootcamp cohort. No mentor down the hall. Just a business graduate in KuGompo City who opened an editor and typed the first line she&apos;d ever written.</p>
-          <p style={{ color: CREAM }}>She didn&apos;t come to code from theory. She came to it from <em>need</em> — the products in her head had nowhere to live until she could build them herself.</p>
+          <p style={{ color: HEAD }}>She didn&apos;t come to code from theory. She came to it from <em>need</em> — the products in her head had nowhere to live until she could build them herself.</p>
         </Chapter>
         {/* Pull quote */}
         <FadeUp>
           <blockquote className="mx-auto max-w-4xl px-6 pb-8 text-center">
-            <p className="font-display italic" style={{ fontSize: 'clamp(1.7rem, 4.5vw, 2.9rem)', lineHeight: 1.3, color: CREAM }}>
+            <p className="font-display italic" style={{ fontSize: 'clamp(1.7rem, 4.5vw, 2.9rem)', lineHeight: 1.3, color: HEAD }}>
               &ldquo;I learned to speak in two tongues — the language of systems, and the language of longing.&rdquo;
             </p>
-            <p className="font-mono mt-4" style={{ color: GOLD, fontSize: '12px', letterSpacing: '0.2em' }}>— N.R.K-K.</p>
+            <p className="font-mono mt-4" style={{ color: GOLD_TEXT, fontSize: '12px', letterSpacing: '0.2em' }}>— N.R.K-K.</p>
           </blockquote>
         </FadeUp>
       </div>
 
       {/* ══ CHAPTER II — THE SPRINT (arc timeline) ═════════════════════════════ */}
-      <section id="chapter-II" className="relative z-10 px-6 py-20 md:py-28" style={{ background: 'linear-gradient(160deg, #0A1128 0%, #141d38 100%)' }}>
+      <section id="chapter-II" className="stock-bone relative z-10 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <Kicker color={CHERRY}>Chapter II · The Sprint</Kicker>
             <h2 className="font-display font-bold" style={{ fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', lineHeight: 1, margin: '14px 0 10px' }}>
-              Eight apps.<br /><span style={{ color: GOLD }}>One year.</span>
+              Eight apps.<br /><span style={{ color: GOLD_TEXT }}>One year.</span>
             </h2>
-            <p className="max-w-2xl font-light mb-14" style={{ color: 'rgba(245,240,232,0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
+            <p className="max-w-2xl font-light mb-14" style={{ color: 'rgb(var(--ink-rgb) / 0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
               Not eight ideas. Eight <em>shipped</em>, production, paying-user applications — each a rung on a ladder that got steeper on purpose. Read it top to bottom: this is a year measured in deployments.
             </p>
           </FadeUp>
@@ -304,13 +307,13 @@ export default function EngineerFeature() {
                 <FadeUp key={a.date} delay={i * 0.05}>
                   <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-7 gap-y-2">
                     <div className="relative flex items-center gap-3">
-                      <span className="hidden sm:block rounded-full" style={{ width: '15px', height: '15px', background: a.accent, boxShadow: `0 0 0 4px ${NAVY}, 0 0 16px ${a.accent}66`, zIndex: 1 }} />
+                      <span className="hidden sm:block rounded-full" style={{ width: '15px', height: '15px', background: a.accent, boxShadow: `0 0 0 4px var(--stock), 0 0 16px ${a.accent}66`, zIndex: 1 }} />
                       <span className="font-mono uppercase" style={{ color: a.accent, fontSize: '12px', letterSpacing: '0.18em' }}>{a.date}</span>
                     </div>
                     <div className="sm:pt-0">
-                      <h3 className="font-display font-bold" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.7rem)', color: CREAM, marginBottom: '4px' }}>{a.milestone}</h3>
-                      <p className="font-mono" style={{ color: 'rgba(245,240,232,0.55)', fontSize: '12.5px', letterSpacing: '0.04em', marginBottom: '4px' }}>{a.tech}</p>
-                      <p className="font-light italic" style={{ color: GOLD, fontSize: '0.95rem' }}>{a.what}</p>
+                      <h3 className="font-display font-bold" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.7rem)', color: HEAD, marginBottom: '4px' }}>{a.milestone}</h3>
+                      <p className="font-mono" style={{ color: 'rgb(var(--ink-rgb) / 0.55)', fontSize: '12.5px', letterSpacing: '0.04em', marginBottom: '4px' }}>{a.tech}</p>
+                      <p className="font-light italic" style={{ color: GOLD_TEXT, fontSize: '0.95rem' }}>{a.what}</p>
                     </div>
                   </div>
                 </FadeUp>
@@ -321,7 +324,7 @@ export default function EngineerFeature() {
       </section>
 
       {/* ══ CHAPTER III — THE CRAFT ════════════════════════════════════════════ */}
-      <div id="chapter-III" className="relative z-10" style={{ background: NAVY }}>
+      <div id="chapter-III" className="stock-parchment relative z-10">
         <Chapter
           num="III" title="The Craft." kicker="Chapter III · What she builds now" flip
           img="creativelynanda/nanda-portraits/nanda-coding/IMG_20260220_165913"
@@ -329,15 +332,15 @@ export default function EngineerFeature() {
           accent={GOLD}
         >
           <p>The distance between the first chapter and this one is the whole point. She no longer builds pages — she builds <em>systems that think</em>: agents that route work between themselves, retrieval layers that answer from thousands of chunks, cost architectures that make production AI actually affordable in rands.</p>
-          <p style={{ color: CREAM }}>This is what &ldquo;I&apos;ve evolved&rdquo; looks like on paper.</p>
+          <p style={{ color: HEAD }}>This is what &ldquo;I&apos;ve evolved&rdquo; looks like on paper.</p>
         </Chapter>
         <section className="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CRAFT.map((c, i) => (
               <FadeUp key={c.title} delay={i * 0.05}>
                 <div className="h-full rounded-xl p-7" style={{ background: 'linear-gradient(150deg, rgba(20,29,56,0.9) 0%, rgba(10,17,40,0.9) 100%)', border: '1px solid rgba(201,148,58,0.16)' }}>
-                  <h3 className="font-display font-bold mb-3" style={{ fontSize: '1.35rem', color: CREAM }}>{c.title}</h3>
-                  <p className="font-light" style={{ color: 'rgba(245,240,232,0.68)', fontSize: '0.95rem', lineHeight: 1.7 }}>{c.body}</p>
+                  <h3 className="font-display font-bold mb-3" style={{ fontSize: '1.35rem', color: HEAD }}>{c.title}</h3>
+                  <p className="font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.68)', fontSize: '0.95rem', lineHeight: 1.7 }}>{c.body}</p>
                 </div>
               </FadeUp>
             ))}
@@ -346,7 +349,7 @@ export default function EngineerFeature() {
       </div>
 
       {/* ══ THE NUMBERS ════════════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.marble} tone="navy" className="relative z-10 px-6 py-24 md:py-28">
+      <TexturedSection texture={TEXTURES.marble} tone="navy" className="stock-navy relative z-10 px-6 py-24 md:py-28">
         <div className="mx-auto max-w-6xl">
           <FadeUp>
             <div className="text-center mb-14">
@@ -358,8 +361,8 @@ export default function EngineerFeature() {
             {NUMBERS.map((n, i) => (
               <FadeUp key={n.label} delay={i * 0.05}>
                 <div className="text-center">
-                  <p className="font-bebas" style={{ color: GOLD, fontSize: 'clamp(3.4rem, 9vw, 5.5rem)', lineHeight: 0.9, letterSpacing: '0.01em' }}>{n.value}</p>
-                  <p className="font-mono uppercase mt-2" style={{ color: 'rgba(245,240,232,0.6)', fontSize: '11px', letterSpacing: '0.18em' }}>{n.label}</p>
+                  <p className="font-bebas" style={{ color: GOLD_TEXT, fontSize: 'clamp(3.4rem, 9vw, 5.5rem)', lineHeight: 0.9, letterSpacing: '0.01em' }}>{n.value}</p>
+                  <p className="font-mono uppercase mt-2" style={{ color: 'rgb(var(--ink-rgb) / 0.6)', fontSize: '11px', letterSpacing: '0.18em' }}>{n.label}</p>
                 </div>
               </FadeUp>
             ))}
@@ -368,16 +371,16 @@ export default function EngineerFeature() {
       </TexturedSection>
 
       {/* ══ CHAPTER IV — THE PROOF ═════════════════════════════════════════════ */}
-      <section id="chapter-IV" className="relative z-10 px-6 py-20 md:py-28" style={{ background: NAVY }}>
+      <section id="chapter-IV" className="stock-bone relative z-10 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <FadeUp>
             <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 items-center mb-16">
               <div>
                 <Kicker color={EMBER}>Chapter IV · The Proof</Kicker>
                 <h2 className="font-display font-bold" style={{ fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', lineHeight: 1, margin: '14px 0 16px' }}>
-                  Not a portfolio.<br /><span style={{ color: GOLD }}>A production record.</span>
+                  Not a portfolio.<br /><span style={{ color: GOLD_TEXT }}>A production record.</span>
                 </h2>
-                <p className="font-light" style={{ color: 'rgba(245,240,232,0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
+                <p className="font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
                   Every project below is live, self-funded, and carrying real users or real revenue. No demos. No mock data. The four here are the ones that best show the range — from a fifteen-wing personal OS to a universal mobile platform shipped in two days.
                 </p>
               </div>
@@ -395,13 +398,13 @@ export default function EngineerFeature() {
                     <span className="font-mono uppercase" style={{ color: p.accentColor, fontSize: '10px', letterSpacing: '0.2em' }}>{p.status}</span>
                     <span className="w-2.5 h-2.5 rounded-full" style={{ background: p.accentColor, boxShadow: `0 0 12px ${p.accentColor}88` }} />
                   </div>
-                  <h3 className="font-display font-bold mb-2 transition-colors group-hover:text-[#C9943A]" style={{ fontSize: '1.5rem', color: CREAM }}>{p.name}</h3>
-                  <p className="font-light italic mb-5" style={{ color: 'rgba(245,240,232,0.7)', fontSize: '0.98rem' }}>{p.tagline}</p>
+                  <h3 className="font-display font-bold mb-2 transition-colors group-hover:text-[#C9943A]" style={{ fontSize: '1.5rem', color: HEAD }}>{p.name}</h3>
+                  <p className="font-light italic mb-5" style={{ color: 'rgb(var(--ink-rgb) / 0.7)', fontSize: '0.98rem' }}>{p.tagline}</p>
                   <div className="flex flex-wrap gap-x-5 gap-y-2">
                     {p.metrics.slice(0, 3).map((m) => (
                       <span key={m.label} className="inline-flex items-baseline gap-1.5">
-                        <span className="font-bebas" style={{ color: GOLD, fontSize: '1.5rem', lineHeight: 1 }}>{m.value}</span>
-                        <span className="font-mono" style={{ color: 'rgba(245,240,232,0.45)', fontSize: '9.5px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{m.label}</span>
+                        <span className="font-bebas" style={{ color: GOLD_TEXT, fontSize: '1.5rem', lineHeight: 1 }}>{m.value}</span>
+                        <span className="font-mono" style={{ color: 'rgb(var(--ink-rgb) / 0.45)', fontSize: '9.5px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{m.label}</span>
                       </span>
                     ))}
                   </div>
@@ -411,7 +414,7 @@ export default function EngineerFeature() {
           </div>
           <FadeUp>
             <div className="mt-10 text-center">
-              <Link href="/projects" prefetch={false} className="font-mono uppercase transition-colors hover:text-[#C9943A]" style={{ color: 'rgba(245,240,232,0.55)', fontSize: '12px', letterSpacing: '0.2em' }}>
+              <Link href="/projects" prefetch={false} className="font-mono uppercase transition-colors hover:text-[#C9943A]" style={{ color: 'rgb(var(--ink-rgb) / 0.55)', fontSize: '12px', letterSpacing: '0.2em' }}>
                 See all nine projects →
               </Link>
             </div>
@@ -420,15 +423,15 @@ export default function EngineerFeature() {
       </section>
 
       {/* ══ CHAPTER V — THE FOUNDATION ═════════════════════════════════════════ */}
-      <section id="chapter-V" className="relative z-10 px-6 py-20 md:py-28" style={{ background: 'linear-gradient(160deg, #141d38 0%, #0A1128 100%)' }}>
+      <section id="chapter-V" className="stock-parchment relative z-10 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <Kicker>Chapter V · The Foundation</Kicker>
             <h2 className="font-display font-bold" style={{ fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', lineHeight: 1, margin: '14px 0 14px' }}>
-              The business brain<br /><span style={{ color: GOLD, fontStyle: 'italic' }}>under the code.</span>
+              The business brain<br /><span style={{ color: GOLD_TEXT, fontStyle: 'italic' }}>under the code.</span>
             </h2>
-            <p className="max-w-2xl font-light mb-4" style={{ color: 'rgba(245,240,232,0.75)', fontSize: '1.1rem', lineHeight: 1.8 }}>
-              Three qualifications from Nelson Mandela University. <span style={{ color: CREAM }}>Fifteen distinctions.</span> People assume the engineering came first. It didn&apos;t — the strategy did. Every architectural decision has a business module in its DNA.
+            <p className="max-w-2xl font-light mb-4" style={{ color: 'rgb(var(--ink-rgb) / 0.75)', fontSize: '1.1rem', lineHeight: 1.8 }}>
+              Three qualifications from Nelson Mandela University. <span style={{ color: HEAD }}>Fifteen distinctions.</span> People assume the engineering came first. It didn&apos;t — the strategy did. Every architectural decision has a business module in its DNA.
             </p>
           </FadeUp>
 
@@ -436,8 +439,8 @@ export default function EngineerFeature() {
             {DEGREE_IN_CODE.map((d, i) => (
               <FadeUp key={d.subject} delay={i * 0.05}>
                 <div className="h-full rounded-xl p-6" style={{ background: 'rgba(201,148,58,0.06)', border: '1px solid rgba(201,148,58,0.2)' }}>
-                  <p className="font-mono uppercase mb-3" style={{ color: GOLD, fontSize: '11px', letterSpacing: '0.18em' }}>{d.subject}</p>
-                  <p className="font-light" style={{ color: 'rgba(245,240,232,0.82)', fontSize: '0.98rem', lineHeight: 1.7 }}>
+                  <p className="font-mono uppercase mb-3" style={{ color: GOLD_TEXT, fontSize: '11px', letterSpacing: '0.18em' }}>{d.subject}</p>
+                  <p className="font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.82)', fontSize: '0.98rem', lineHeight: 1.7 }}>
                     <span className="font-mono" style={{ color: EMBER }}>→ </span>{d.code}
                   </p>
                 </div>
@@ -447,7 +450,7 @@ export default function EngineerFeature() {
 
           <FadeUp>
             <div className="mt-12">
-              <Link href="/education" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold transition-all hover:scale-105" style={{ border: `1px solid ${GOLD}`, color: GOLD }}>
+              <Link href="/education" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold transition-all hover:scale-105" style={{ border: `1px solid ${GOLD}`, color: GOLD_TEXT }}>
                 The full academic record + graduation gallery →
               </Link>
             </div>
@@ -456,15 +459,15 @@ export default function EngineerFeature() {
       </section>
 
       {/* ══ CLOSE — the back cover ═════════════════════════════════════════════ */}
-      <section className="relative z-10 px-6 py-28" style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #1a2744 60%, ${GOLD} 220%)` }}>
+      <section className="stock-cherry relative z-10 px-6 py-28">
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <Kicker>The Back Cover</Kicker>
-            <h2 className="font-display font-bold italic" style={{ fontSize: 'clamp(2.6rem, 7vw, 4.2rem)', lineHeight: 1.05, margin: '16px 0 20px', color: CREAM }}>
+            <h2 className="font-display font-bold italic" style={{ fontSize: 'clamp(2.6rem, 7vw, 4.2rem)', lineHeight: 1.05, margin: '16px 0 20px', color: HEAD }}>
               This is what I build<br />for clients.
             </h2>
-            <p className="font-light mb-10" style={{ color: 'rgba(245,240,232,0.8)', fontSize: '1.15rem' }}>
+            <p className="font-light mb-10" style={{ color: 'rgb(var(--ink-rgb) / 0.8)', fontSize: '1.15rem' }}>
               Custom Claude agents. WhatsApp-native workflows. Production TypeScript. Built for the continent, available to the world.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -477,7 +480,7 @@ export default function EngineerFeature() {
               >
                 Hire me as an AI engineer →
               </a>
-              <a href="https://mirembemuse.co.za" target="_blank" rel="noopener noreferrer" className="rounded-full px-9 py-4 font-semibold transition-all" style={{ border: '1px solid rgba(245,240,232,0.4)', color: CREAM }}>
+              <a href="https://mirembemuse.co.za" target="_blank" rel="noopener noreferrer" className="rounded-full px-9 py-4 font-semibold transition-all" style={{ border: '1px solid rgb(var(--ink-rgb) / 0.4)', color: HEAD }}>
                 Visit Mirembe Muse ↗
               </a>
             </div>

@@ -23,13 +23,13 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 
 export default function Roots() {
   return (
-    <main className="min-h-screen bg-[#0A1128] text-[#F5F0E8]">
+    <main className="stock-parchment paper-remap min-h-screen">
 
       {/* ═══ OPENER — heritage hero ══════════════════════════════════════════════ */}
-      <section className="relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden">
+      <section className="stock-navy relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden">
         <CldImage src={CU('IMG-20260620-WA0042')} alt="Nanda in a black Xhosa beaded ceremonial skirt on a mosaic mandala, wide sky"
           fill priority sizes="100vw" className="object-cover object-[center_28%]" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,17,40,0.95) 0%, rgba(10,17,40,0.5) 38%, rgba(10,17,40,0.15) 65%, rgba(10,17,40,0) 85%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 38%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0) 85%)' }} />
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 flex h-full max-w-5xl mx-auto flex-col justify-end px-6 pb-24">
           <FadeUp>
@@ -122,11 +122,11 @@ export default function Roots() {
       </section>
 
       {/* ═══ II. THE ROYAL HOUSE — amaTshawe (Xhosa) — umqombothi video ═════════ */}
-      <section className="relative min-h-[100dvh] w-full overflow-hidden">
+      <section className="stock-navy relative min-h-[100dvh] w-full overflow-hidden">
         <AmbientVideo src={cldVideo('nanda-culture/nanda-making-african-beer')}
           poster={cldVideoPoster('nanda-culture/nanda-making-african-beer', 2)}
           objectPosition="center" alt="Nanda brewing umqombothi in Xhosa beaded regalia" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,17,40,0.72) 0%, rgba(10,17,40,0.86) 55%, rgba(10,17,40,0.95) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.25) 100%)' }} />
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-5xl flex-col justify-center px-6 py-24">
           <FadeUp>
@@ -173,7 +173,7 @@ export default function Roots() {
       </section>
 
       {/* ═══ III. THE SCATTERED KINGDOM — amaHlubi / Msimanga ═══════════════════ */}
-      <section className="relative px-6 py-24 md:py-28">
+      <section className="stock-bone relative px-6 py-24 md:py-28">
         <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 mx-auto max-w-5xl">
           <FadeUp>
@@ -240,7 +240,7 @@ export default function Roots() {
       </section>
 
       {/* ═══ CLOSE — the introduction, made whole ══════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="px-6 py-28">
+      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="stock-navy px-6 py-28">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-8">And so, the introduction</p>

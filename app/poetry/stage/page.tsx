@@ -12,9 +12,9 @@ export default function SpokenWordStage() {
   const [active, setActive] = useState<Performance | null>(null);
 
   return (
-    <div className="min-h-screen bg-navy text-beige">
+    <div className="stock-parchment paper-remap min-h-screen">
       {/* Hero — cinematic, the poet mid-performance */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden min-h-[72vh] flex items-end">
+      <section className="stock-navy relative pt-32 pb-20 px-6 overflow-hidden min-h-[72vh] flex items-end">
         <div className="pointer-events-none absolute inset-0">
           <Image
             src="/assets/performance/nmb-perform-1.jpg"
@@ -77,7 +77,7 @@ export default function SpokenWordStage() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => setActive(p)}
-              className="group relative overflow-hidden rounded-2xl aspect-video text-left"
+              className="on-photo group relative overflow-hidden rounded-2xl aspect-video text-left text-white"
             >
               <Image
                 src={p.cover}
@@ -86,7 +86,7 @@ export default function SpokenWordStage() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="flex items-center justify-center w-16 h-16 rounded-full bg-cherry/90 group-hover:bg-cherry group-hover:scale-110 transition-all shadow-xl">
                   <Play className="w-7 h-7 text-white translate-x-0.5" fill="currentColor" />
@@ -139,7 +139,7 @@ export default function SpokenWordStage() {
       </section>
 
       {/* Closing */}
-      <TexturedSection texture={TEXTURES.marble} tone="navy" className="px-6 pb-24 pt-4">
+      <TexturedSection texture={TEXTURES.marble} tone="navy" className="stock-navy px-6 pb-24 pt-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ export default function SpokenWordStage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActive(null)}
-            className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
+            className="on-photo fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
           >
             <motion.div
               initial={{ scale: 0.94, opacity: 0 }}

@@ -507,26 +507,26 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
       </section>
 
       {/* ── NMU FEATURED ARTICLE ─────────────────────────────────────── */}
-      <section className="relative z-10 py-16 px-6 bg-[#0A0F2C]">
+      <section className="stock-bone relative z-10 py-16 px-6">
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
         <div className="max-w-4xl mx-auto relative z-10">
           <FadeUp>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#C9943A', letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 16px 0' }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--gold-ink)', letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 16px 0' }}>
               Featured Article
             </p>
             <div style={{ borderLeft: '3px solid #C9943A', paddingLeft: '24px', marginBottom: '24px' }}>
-              <p style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: 'clamp(20px, 3vw, 28px)', fontStyle: 'italic', color: '#FFFFFF', lineHeight: 1.4, margin: '0 0 10px 0' }}>
+              <p style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: 'clamp(20px, 3vw, 28px)', fontStyle: 'italic', color: 'rgb(var(--head-rgb))', lineHeight: 1.4, margin: '0 0 10px 0' }}>
                 &ldquo;Management graduand finds calling in writing&rdquo;
               </p>
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#C9943A', letterSpacing: '0.2em', margin: 0 }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--gold-ink)', letterSpacing: '0.2em', margin: 0 }}>
                 — Nelson Mandela University · 135,000+ followers
               </p>
             </div>
             <div className="space-y-3">
               {NMU_ARTICLE_BULLETS.map((b, i) => (
                 <div key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <span style={{ color: '#C9943A', fontFamily: 'var(--font-mono)', fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>—</span>
-                  <p style={{ fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: '14px', color: 'rgba(245,240,232,0.7)', margin: 0, lineHeight: 1.6 }}>
+                  <span style={{ color: 'var(--gold-ink)', fontFamily: 'var(--font-mono)', fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>—</span>
+                  <p style={{ fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: '14px', color: 'rgb(var(--ink-rgb) / 0.75)', margin: 0, lineHeight: 1.6 }}>
                     {b}
                   </p>
                 </div>

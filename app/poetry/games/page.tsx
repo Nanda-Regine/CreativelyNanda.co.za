@@ -20,7 +20,7 @@ export default function GamesPage() {
   const [active, setActive] = useState<(typeof GAMES)[number]['key']>('search');
 
   return (
-    <main className="min-h-screen bg-[#0A1128] text-[#F5F0E8]">
+    <main className="stock-parchment paper-remap min-h-screen">
       <div className="fixed inset-0 pointer-events-none opacity-[0.14] z-0" style={{ backgroundImage: GRAIN }} />
       <div className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-[#C9943A]/10 blur-3xl" />
 
@@ -68,7 +68,7 @@ export default function GamesPage() {
       </section>
 
       {/* close */}
-      <TexturedSection texture={TEXTURES.marble} tone="wine" className="relative z-10 px-6 pb-28 pt-6 text-center">
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="stock-cherry relative z-10 px-6 pb-28 pt-6 text-center">
         <p className="mx-auto mb-8 max-w-xl font-display text-2xl md:text-3xl italic text-white/85">
           When you find the line you love, it stops being a game.
         </p>

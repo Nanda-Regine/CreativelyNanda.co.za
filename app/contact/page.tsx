@@ -62,7 +62,7 @@ export default function Contact() {
   const labelCls = 'mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-[#C9943A]';
 
   return (
-    <main className="min-h-screen bg-[#0A1128] text-[#F5F0E8]">
+    <main className="stock-parchment paper-remap min-h-screen">
       <div className="fixed inset-0 pointer-events-none opacity-[0.14] z-0" style={{ backgroundImage: GRAIN }} />
       <div className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-[#C9943A]/10 blur-3xl" />
 
@@ -83,7 +83,7 @@ export default function Contact() {
       )}
 
       {/* ── OPENER (textured depth) ── */}
-      <TexturedSection texture={TEXTURES.roseWall} tone="wine" className="relative z-10 px-6 pt-36 pb-16 text-center">
+      <TexturedSection texture={TEXTURES.roseWall} tone="wine" className="stock-cherry relative z-10 px-6 pt-36 pb-16 text-center">
         <FadeUp>
           <p className="font-mono text-xs tracking-[0.35em] uppercase text-[#C9943A] mb-5">Say hello</p>
         </FadeUp>
@@ -192,7 +192,7 @@ export default function Contact() {
       </section>
 
       {/* ── CLOSE ── */}
-      <section className="relative z-10 px-6 pb-28 pt-4 text-center" style={{ background: 'radial-gradient(120% 90% at 50% 100%, #241021 0%, transparent 60%)' }}>
+      <section className="stock-bone relative z-10 px-6 pb-28 pt-16 text-center">
         <FadeUp>
           <p className="mx-auto max-w-xl font-display text-2xl md:text-3xl italic leading-relaxed text-white/90">
             Bring a clear thought and an honest word. That&apos;s always where the good things start.

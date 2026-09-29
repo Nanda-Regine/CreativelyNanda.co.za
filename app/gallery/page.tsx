@@ -194,12 +194,12 @@ export default function Gallery() {
   const open = (img: Img) => setLightbox(img);
 
   return (
-    <main className="min-h-screen bg-[#0A1128] text-[#F5F0E8]">
+    <main className="stock-parchment paper-remap min-h-screen">
       <div className="fixed inset-0 pointer-events-none opacity-[0.15] z-0" style={{ backgroundImage: GRAIN }} />
       <div className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-[#C9943A]/10 blur-3xl" />
 
       {/* ── OPENER (textured depth) ── */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="relative z-10 px-6 pt-36 pb-16 text-center">
+      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="stock-navy relative z-10 px-6 pt-36 pb-16 text-center">
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="font-mono text-xs tracking-[0.35em] uppercase text-[#C9943A] mb-5">
           A body of work, in chapters
@@ -244,7 +244,7 @@ export default function Gallery() {
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setLightbox(null)}
-            className="fixed inset-0 z-[100] flex cursor-zoom-out items-center justify-center bg-black/92 p-4 md:p-10"
+            className="on-photo fixed inset-0 z-[100] flex cursor-zoom-out items-center justify-center bg-black/92 p-4 md:p-10"
           >
             <motion.figure
               initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.94, opacity: 0 }}
@@ -288,7 +288,7 @@ function Frame({ img, open, ratio = 'aspect-[3/4]', className = '', round = fals
       className={`group relative ${ratio} w-full overflow-hidden ${round ? 'rounded-full ring-2 ring-[#C9943A]/30' : 'rounded-lg'} ${className}`}>
       <CldImage src={P(img.id)} alt={img.alt} fill sizes="(max-width:768px) 100vw, 33vw"
         className="object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
-      <span className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-[#0A1128]/70 via-transparent to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <span className="on-photo pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-transparent to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         <span className="font-display text-sm italic text-white/90">{img.cap}</span>
       </span>
     </button>

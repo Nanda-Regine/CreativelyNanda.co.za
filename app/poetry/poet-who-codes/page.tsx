@@ -103,7 +103,7 @@ function Chapter({
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl ring-1 ring-[#C9943A]/25">
         <CldImage src={img} alt={alt} fill sizes="(max-width:768px) 100vw, 45vw"
           className="object-cover" style={{ objectPosition: focal }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(10,17,40,0.55), rgba(10,17,40,0) 55%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0) 55%)' }} />
       </div>
     </FadeUp>
   );
@@ -127,16 +127,16 @@ function Chapter({
 
 export default function PoetWhoCodes() {
   return (
-    <main className="min-h-screen bg-[#0A1128] text-[#F5F0E8]">
+    <main className="stock-parchment paper-remap min-h-screen">
 
       {/* ═══ HERO — laptop by the garden swing ═══════════════════════════════════ */}
-      <section className="relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden">
+      <section className="stock-navy relative -mt-20 h-[100dvh] min-h-[640px] w-full overflow-hidden">
         <CldImage
           src={IMG.swing}
           alt="Nanda's laptop open on a table by a garden swing, long afternoon shadows across the lawn"
           fill priority sizes="100vw" className="object-cover object-[center_35%]"
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,17,40,0.96) 0%, rgba(10,17,40,0.55) 40%, rgba(10,17,40,0.2) 68%, rgba(10,17,40,0.35) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.1) 68%, rgba(0,0,0,0.25) 100%)' }} />
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
 
         <div className="relative z-10 flex h-full max-w-5xl mx-auto flex-col justify-end px-6 pb-24">
@@ -230,7 +230,7 @@ export default function PoetWhoCodes() {
       </Chapter>
 
       {/* ═══ THE POEM, COMPILED — code-as-poetry moment ══════════════════════════ */}
-      <section className="relative px-6 py-20 md:py-24">
+      <section className="stock-bone relative px-6 py-20 md:py-24">
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 mx-auto max-w-3xl">
           <FadeUp>
@@ -335,7 +335,7 @@ export default function PoetWhoCodes() {
       </Chapter>
 
       {/* ═══ THE SOUL LAYER — the range beneath the code ═════════════════════════ */}
-      <section className="relative w-full overflow-hidden">
+      <section className="stock-navy relative w-full overflow-hidden">
         <div className="relative h-[52vh] min-h-[360px] w-full">
           <CldImage
             src={IMG.screen}
@@ -385,7 +385,7 @@ export default function PoetWhoCodes() {
       </section>
 
       {/* ═══ BRIDGE TO MIREMBE MUSE ══════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="relative px-6 py-24">
+      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="stock-navy relative px-6 py-24">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.3em] text-[#C9943A]">The systems have their own home</p>
