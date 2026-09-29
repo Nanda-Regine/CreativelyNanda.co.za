@@ -25,7 +25,7 @@ import { Download, Mail, Award, Mic, Copy, Check, ExternalLink, BookOpen, Code, 
 const achievements = [
   {
     icon: Sparkles,
-    text: 'Master Gen AI Professional Certified — Generative AI, Prompt Engineering & AI Product Development',
+    text: 'Master Gen AI Professional Certified · Generative AI, Prompt Engineering & AI Product Development',
     color: 'from-[#C1292E] to-[#a01020]',
     bg: 'bg-cherry/8',
     accent: '#C1292E',
@@ -33,7 +33,7 @@ const achievements = [
   },
   {
     icon: BookOpen,
-    text: 'Published Poet — "Inside Her Roses" (2021), featured on Showmax & Gqeberha: The Empire · 5 live poetry performances',
+    text: 'Published Poet"Inside Her Roses" (2021), featured on Showmax & Gqeberha: The Empire · 5 live poetry performances',
     color: 'from-[#C1292E] to-[#a01020]',
     bg: 'bg-purple-500/8',
     accent: '#C1292E',
@@ -41,7 +41,7 @@ const achievements = [
   },
   {
     icon: Award,
-    text: 'Advanced Diploma in Business Management (NQF 7) — 15 Academic Distinctions, Nelson Mandela University',
+    text: 'Advanced Diploma in Business Management (NQF 7) · 15 Academic Distinctions, Nelson Mandela University',
     color: 'from-[#C1292E] to-[#a01020]',
     bg: 'bg-amber-500/8',
     accent: '#C1292E',
@@ -57,7 +57,7 @@ const achievements = [
   },
   {
     icon: Globe,
-    text: 'Founder of Mirembe Muse (Pty) Ltd — Notion templates, AI services & Sanyu Botanicals wellness brand',
+    text: 'Founder of Mirembe Muse (Pty) Ltd, Notion templates, AI services & Sanyu Botanicals wellness brand',
     color: 'from-emerald-500 to-teal-500',
     bg: 'bg-emerald-500/8',
     accent: '#10B981',
@@ -76,7 +76,7 @@ const achievements = [
 const mediaMentions = [
   {
     outlet: 'Showmax / Gqeberha: The Empire',
-    topic: 'Inside Her Roses — Poetry Book Launch & Feature',
+    topic: 'Inside Her Roses, Poetry Book Launch & Feature',
     type: 'Television',
     color: '#C1292E',
     bg: 'bg-cherry/10',
@@ -109,7 +109,7 @@ const mediaMentions = [
   },
   {
     outlet: 'Live Poetry Performances',
-    topic: '5 spoken word performances — KuGompo City & Port Elizabeth',
+    topic: '5 spoken word performances, KuGompo City & Port Elizabeth',
     type: 'Stage',
     color: '#10B981',
     bg: 'bg-emerald-500/10',
@@ -121,7 +121,7 @@ const mediaMentions = [
 const speakingTopics = [
   {
     title: 'Building AI-Powered Products in Africa',
-    description: 'How I built 8 production applications in one year — with limited resources, from KuGompo City, South Africa — and turned them into revenue-generating products serving African communities.',
+    description: 'How I built 8 production applications in one year (with limited resources, from KuGompo City, South Africa) and turned them into revenue-generating products serving African communities.',
     audiences: ['Tech conferences', 'Startup events', 'Developer meetups'],
     color: '#C1292E',
   },
@@ -133,7 +133,7 @@ const speakingTopics = [
   },
   {
     title: 'Women in Tech: Breaking Barriers',
-    description: 'Navigating the tech industry as a Black African woman — and building world-class technology despite systemic barriers.',
+    description: 'Navigating the tech industry as a Black African woman, and building world-class technology despite systemic barriers.',
     audiences: ["Women in STEM", 'University panels', 'Corporate diversity events'],
     color: '#F59E0B',
   },
@@ -145,30 +145,30 @@ const speakingTopics = [
   },
   {
     title: 'Ubuntu in Code: African Philosophy Meets Technology',
-    description: 'Building technology that amplifies humanity instead of replacing it — lessons from African philosophy for the AI era.',
+    description: 'Building technology that amplifies humanity instead of replacing it, lessons from African philosophy for the AI era.',
     audiences: ['Tech ethics panels', 'Philosophy departments', 'Innovation forums'],
     color: '#00D4FF',
   },
 ];
 
 const bios = {
-  short: `Nandawula Regine Kabali-Kagwa is a Creative Technologist, Published Poet, and Founder of Mirembe Muse (Pty) Ltd. In one year, she built 8 production AI applications serving African entrepreneurs, students, and communities — while honoring her Ugandan-Xhosa heritage. She codes. She writes poetry. She builds businesses. She refuses to choose.`,
+  short: `Nandawula Regine Kabali-Kagwa is a Creative Technologist, Published Poet, and Founder of Mirembe Muse (Pty) Ltd. In one year, she built 8 production AI applications serving African entrepreneurs, students, and communities, while honoring her Ugandan-Xhosa heritage. She codes. She writes poetry. She builds businesses. She refuses to choose.`,
 
   medium: `Nandawula Regine Kabali-Kagwa is a South African Creative Technologist building at the intersection of code, culture, and creativity. Born to Ugandan and Xhosa-Sotho heritage, she carries five clan lineages that inform her Ubuntu-centered approach to technology.
 
-A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda built 8 production AI applications in one year — including JarvisOS (a 15-wing personal AI operating system), AdminOS (multi-agent AI for SA SMEs), Sanyu Botanicals (ancestral hair care brand with AI consultations), and True Access (SA's first disability accessibility mapping platform, co-founded). 3,000+ GitHub commits. 3+ paying clients.
+A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda built 8 production AI applications in one year, including JarvisOS (a 15-wing personal AI operating system), AdminOS (multi-agent AI for SA SMEs), Sanyu Botanicals (ancestral hair care brand with AI consultations), and True Access (SA's first disability accessibility mapping platform, co-founded). 3,000+ GitHub commits. 3+ paying clients.
 
-Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire — she has performed at 5 live spoken word events across the Eastern Cape.`,
+Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire, she has performed at 5 live spoken word events across the Eastern Cape.`,
 
-  long: `Nandawula Regine Kabali-Kagwa doesn't fit in boxes — and that's exactly the point.
+  long: `Nandawula Regine Kabali-Kagwa doesn't fit in boxes, and that's exactly the point.
 
-Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Each lineage gifted her a principle — lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
+Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Each lineage gifted her a principle: lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
 
-After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in KuGompo City. In one year from her first line of code, she shipped 8 production AI applications, accumulated 3,000+ GitHub commits, and built a company with paying clients — all while performing her poetry at 5 live events across the Eastern Cape.
+After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in KuGompo City. In one year from her first line of code, she shipped 8 production AI applications, accumulated 3,000+ GitHub commits, and built a company with paying clients, all while performing her poetry at 5 live events across the Eastern Cape.
 
-Her work spans the full stack: multi-agent AI systems (AdminOS — 6 specialist agents, per-tenant ZAR token budgets, 25 Inngest async functions), personal AI operating systems (JarvisOS — 15 wings, 1,194 RAG knowledge chunks, Redis inter-wing signal protocol), mobile apps (True Access — iOS/Android/Web, co-founded, SANS 10400-S compliance), and product brands (Sanyu Botanicals — ancestral botanical hair care with AI-powered consultations and Angel loyalty programme).
+Her work spans the full stack: multi-agent AI systems (AdminOS (6 specialist agents, per-tenant ZAR token budgets, 25 Inngest async functions), personal AI operating systems (JarvisOS) 15 wings, 1,194 RAG knowledge chunks, Redis inter-wing signal protocol), mobile apps (True Access (iOS/Android/Web, co-founded, SANS 10400-S compliance), and product brands (Sanyu Botanicals) ancestral botanical hair care with AI-powered consultations and Angel loyalty programme).
 
-Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in Claude API integration, multi-agent architecture, and production TypeScript — with every system load-shedding-aware and ZAR-native by default.
+Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in Claude API integration, multi-agent architecture, and production TypeScript, with every system load-shedding-aware and ZAR-native by default.
 
 Her poetry collection "Inside Her Roses" was featured on Showmax's hit series Gqeberha: The Empire, and she has been interviewed on Madibaz Radio and TRU FM. Through Mirembe Muse (Pty) Ltd, she is proving that world-class AI engineering can, and should, be built from the African continent.
 
@@ -256,7 +256,7 @@ export default function PressPage() {
 
           <p className="text-xl text-beige/65 max-w-3xl mx-auto leading-relaxed mb-10">
             Official media resources for{' '}
-            <strong className="text-beige">Nandawula Regine Kabali-Kagwa</strong> —
+            <strong className="text-beige">Nandawula Regine Kabali-Kagwa</strong>,
             Creative Technologist, AI Engineer, Published Poet, and African Entrepreneur.
           </p>
 
@@ -369,9 +369,9 @@ export default function PressPage() {
           </h2>
           <p className="text-beige/50 mb-10 text-sm">Copy with one click. Use freely for programs, websites, and features.</p>
 
-          <CopyBio label="Short Bio — 50 words" text={bios.short} accent="#C1292E" />
-          <CopyBio label="Medium Bio — 150 words" text={bios.medium} accent="#7C3AED" />
-          <CopyBio label="Full Bio — 300 words" text={bios.long} accent="#D4A574" />
+          <CopyBio label="Short Bio · 50 words" text={bios.short} accent="#C1292E" />
+          <CopyBio label="Medium Bio · 150 words" text={bios.medium} accent="#7C3AED" />
+          <CopyBio label="Full Bio · 300 words" text={bios.long} accent="#D4A574" />
         </div>
       </section>
 
@@ -393,10 +393,10 @@ export default function PressPage() {
               { label: 'Full Name', value: 'Nandawula Regine Kabali-Kagwa', accent: '#C1292E' },
               { label: 'Based In', value: 'KuGompo City, South Africa', accent: '#10B981' },
               { label: 'Heritage', value: 'Ugandan (Kabali-Kagwa clan) + Xhosa-Sotho (Hlubi, Msimanga, Tshawe, Thabizolo)', accent: '#C1292E' },
-              { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) — Nelson Mandela University (15 Distinctions)', accent: '#C1292E' },
+              { label: 'Education', value: 'Advanced Diploma in Business Management (NQF 7) · Nelson Mandela University (15 Distinctions)', accent: '#C1292E' },
               { label: 'Certifications', value: 'Master Gen AI Professional · Prompt Engineering · Graphic Design · Digital Marketing · SheCodes Full-Stack', accent: '#00D4FF' },
-              { label: 'Applications Built', value: '8+ production apps — AI SaaS, mobile (iOS/Android), and brand', accent: '#C1292E' },
-              { label: 'Published Work', value: '"Inside Her Roses" poetry collection — featured on Showmax / Gqeberha: The Empire · 5 live performances', accent: '#C1292E' },
+              { label: 'Applications Built', value: '8+ production apps: AI SaaS, mobile (iOS/Android), and brand', accent: '#C1292E' },
+              { label: 'Published Work', value: '"Inside Her Roses" poetry collection, featured on Showmax / Gqeberha: The Empire · 5 live performances', accent: '#C1292E' },
               { label: 'Company', value: 'Mirembe Muse (Pty) Ltd', accent: '#10B981' },
               { label: 'Tech Stack', value: 'Next.js, TypeScript, Supabase, OpenAI, Claude API, Mapbox, PayFast', accent: '#00D4FF' },
               { label: 'Languages', value: 'English, isiXhosa (conversational), Luganda (heritage)', accent: '#D4A574' },
@@ -456,7 +456,7 @@ export default function PressPage() {
                   <div className="relative h-44 overflow-hidden">
                     <CldImage
                       src={`creativelynanda/${mention.image}`}
-                      alt={`${mention.outlet} — ${mention.topic}`}
+                      alt={`${mention.outlet} · ${mention.topic}`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -542,7 +542,7 @@ export default function PressPage() {
             {[
               { label: 'Portfolio', href: '/', desc: 'CreativelyNanda.co.za', color: '#C1292E' },
               { label: 'AI Engineer', href: '/ai-engineer', desc: 'Services & AI projects', color: '#00D4FF' },
-              { label: 'Projects', href: '/projects', desc: '8+ live apps — AI, mobile & brand', color: '#C1292E' },
+              { label: 'Projects', href: '/projects', desc: '8+ live apps, AI, mobile & brand', color: '#C1292E' },
               { label: 'Poetry', href: '/poetry', desc: '"Inside Her Roses" collection', color: '#D4A574' },
               { label: 'Shop', href: '/products', desc: 'Mirembe Muse Notion templates', color: '#10B981' },
               { label: 'GitHub', href: 'https://github.com/Nanda-Regine', desc: '3,000+ commits', color: '#F59E0B' },

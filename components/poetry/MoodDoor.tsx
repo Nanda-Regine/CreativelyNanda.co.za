@@ -21,7 +21,7 @@ export default function MoodDoor({ selected, onSelect }: MoodDoorProps) {
           How does your heart arrive today?
         </p>
         <p className="text-navy/50 text-sm mt-1">
-          Choose a feeling — I&rsquo;ll open the poems that meet you there.
+          Choose a feeling. I&rsquo;ll open the poems that meet you there.
         </p>
       </div>
 

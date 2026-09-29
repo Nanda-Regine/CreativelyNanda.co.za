@@ -105,7 +105,7 @@ export default async function EmailPreviewPage() {
             <div>
               <p className="text-sm font-medium text-amber-800">These are live previews with sample data</p>
               <p className="text-sm text-amber-700 mt-0.5">
-                The Purchase Confirmation shows how your customer's email looks — including the Quick Start Guide section (appears when a product has a guide URL set). The "Download Now" links are token-based and expire after 7 days.
+                The Purchase Confirmation shows how your customer's email looks, including the Quick Start Guide section (appears when a product has a guide URL set). The "Download Now" links are token-based and expire after 7 days.
               </p>
             </div>
           </div>

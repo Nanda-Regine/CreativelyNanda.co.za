@@ -434,7 +434,7 @@ export async function POST(request: NextRequest) {
     const mpid = data.m_payment_id ?? ''
     const firstUnderscore = mpid.indexOf('_')
     if (firstUnderscore === -1) {
-      console.warn('[Universal ITN] Invalid m_payment_id format — no app prefix:', mpid)
+      console.warn('[Universal ITN] Invalid m_payment_id format, no app prefix:', mpid)
       return new NextResponse('OK', { status: 200 })
     }
 

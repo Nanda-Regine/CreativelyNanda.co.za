@@ -60,7 +60,7 @@ export async function generateMetadata({
   const { product, description } = productData;
 
   return createMetadata({
-    title: `${product.name} — Notion Template | Mirembe Muse`,
+    title: `${product.name} · Notion Template | Mirembe Muse`,
     description: description ? description.slice(0, 160) : product.tagline,
     path: `/products/${product.slug}`,
     ogType: 'website',

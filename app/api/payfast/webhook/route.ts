@@ -149,13 +149,13 @@ export async function POST(request: NextRequest) {
           const pdfUrl = slug
             ? `${SITE_URL}/assets/products/guides/${slug}.pdf`
             : null;
-          return pdfUrl ? { name: `${item.name} — Quick-Start Guide (PDF)`, url: pdfUrl } : null;
+          return pdfUrl ? { name: `${item.name} · Quick-Start Guide (PDF)`, url: pdfUrl } : null;
         }).filter(Boolean) as { name: string; url: string }[];
 
         // Notion template links (the actual product)
         const guideLinks = orderItems
           .filter((item) => item.guide_url)
-          .map((item) => ({ name: `${item.name} — Notion Template`, url: item.guide_url as string }));
+          .map((item) => ({ name: `${item.name} · Notion Template`, url: item.guide_url as string }));
 
         await sendPurchaseConfirmation({
           to: order.user_email,

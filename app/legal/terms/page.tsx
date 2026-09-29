@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://creativelynanda.co.za/legal/terms' },
   title: 'Terms & Conditions | CreativelyNanda.co.za',
   description:
-    'Terms and Conditions for CreativelyNanda.co.za — governing use of the website and purchase of digital products under South African law (ECT Act, CPA).',
+    'Terms and Conditions for CreativelyNanda.co.za, governing use of the website and purchase of digital products under South African law (ECT Act, CPA).',
 };
 
 const EFFECTIVE_DATE = '5 April 2026';
@@ -127,7 +127,7 @@ export default function TermsAndConditions() {
           <section>
             <h2 className="font-display text-2xl font-bold text-navy mb-3">5. Intellectual Property</h2>
             <p className="text-sm">
-              All content on this website — including text, designs, code, images, poetry, and digital products — is the intellectual property of {COMPANY} and is protected under South African copyright law and applicable international treaties.
+              All content on this website (including text, designs, code, images, poetry, and digital products) is the intellectual property of {COMPANY} and is protected under South African copyright law and applicable international treaties.
             </p>
             <p className="mt-2 text-sm">
               <strong>Digital product licence:</strong> When you purchase a Notion template, you receive a personal, non-exclusive, non-transferable licence to use the template for your own personal or business purposes. You may not resell, redistribute, sublicense, or share the template with third parties.

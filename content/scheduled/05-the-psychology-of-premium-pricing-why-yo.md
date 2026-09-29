@@ -12,11 +12,11 @@ A bottle of wine costs R50 to produce. One sells for R100. Another sells for R90
 
 Yet the R900 bottle consistently outsells the R100 bottle among target customers.
 
-Welcome to the neuroscience of pricing psychology—and why premium positioning isn't manipulation, it's communication.
+Welcome to the neuroscience of pricing psychology · and why premium positioning isn't manipulation, it's communication.
 
 **The Pricing-Quality Heuristic**
 
-Research from Stanford's Graduate School of Business reveals what neuroscientists call the "price-quality heuristic"—a mental shortcut where higher price signals higher quality.
+Research from Stanford's Graduate School of Business reveals what neuroscientists call the "price-quality heuristic" · a mental shortcut where higher price signals higher quality.
 
 A groundbreaking 2008 study published in *Proceedings of the National Academy of Sciences* used fMRI brain scans while participants drank wine:
 
@@ -30,7 +30,7 @@ A groundbreaking 2008 study published in *Proceedings of the National Academy of
 - Participants genuinely experienced more enjoyment
 - The prefrontal cortex showed enhanced reward processing
 
-**The shocking finding: Price doesn't just influence perception—it changes actual experience.**
+**The shocking finding: Price doesn't just influence perception, it changes actual experience.**
 
 **Why Your Brain Trusts Price as Quality Signal**
 
@@ -75,7 +75,7 @@ Fascinating research from the University of Cape Town's Business School examined
 
 **The study found African consumers are 23% more likely to trust premium-priced products than Western consumers.**
 
-This isn't a weakness to exploit—it's a psychology to honor with actual quality.
+This isn't a weakness to exploit: it's a psychology to honor with actual quality.
 
 **The Ethics of Premium Pricing**
 
@@ -154,7 +154,7 @@ In 2019, Stripe published internal research after analyzing millions of transact
 
 **The Confidence Premium**
 
-Research from Columbia Business School discovered what they call the "confidence premium"—when sellers price confidently (without apologizing or explaining), buyers perceive more value.
+Research from Columbia Business School discovered what they call the "confidence premium", when sellers price confidently (without apologizing or explaining), buyers perceive more value.
 
 **The study compared:**
 - **Group A:** "This costs R2,999. I know it's expensive, but..."
@@ -233,7 +233,7 @@ Your price tells customers:
 **Pricing R2,999 says:** "I'm comprehensive, professional-grade, worth serious investment"
 **Pricing R15,000 says:** "I'm bespoke, premium, worth significant commitment"
 
-None are wrong—they attract different customers for different outcomes.
+None are wrong, they attract different customers for different outcomes.
 
 **The Beautiful Integration**
 

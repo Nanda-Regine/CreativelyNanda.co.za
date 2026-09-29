@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { createMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Gallery — Nandawula Regine · Portraits, Culture & Performance',
+  title: 'Gallery · Nandawula Regine · Portraits, Culture & Performance',
   description:
-    'A photographic gallery of Nandawula Regine Kabali-Kagwa — thirteen image families across a decade: red-bodice portraits, Xhosa beadwork and ceremony, highland adventure, golden-hour gardens, the sea, and the poet at work. KuGompo City, South Africa.',
+    'A photographic gallery of Nandawula Regine Kabali-Kagwa, thirteen image families across a decade: red-bodice portraits, Xhosa beadwork and ceremony, highland adventure, golden-hour gardens, the sea, and the poet at work. KuGompo City, South Africa.',
   path: '/gallery',
   keywords: [
     'Nandawula Regine gallery',

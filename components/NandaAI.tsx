@@ -18,7 +18,7 @@ interface NandaAIProps {
 const INITIAL_MESSAGE: Message = {
   role: 'assistant',
   content:
-    "Sawubona! 👋 I'm Nanda AI — ask me anything about my work, consulting offers, Notion templates, or how I can help your business.",
+    "Sawubona! 👋 I'm Nanda AI: ask me anything about my work, consulting offers, Notion templates, or how I can help your business.",
 };
 
 export default function NandaAI({ isOpen: externalOpen, onClose, initialMessage }: NandaAIProps) {

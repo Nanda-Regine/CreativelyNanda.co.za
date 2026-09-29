@@ -17,16 +17,16 @@ export async function POST(request: NextRequest) {
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
     if (!merchantId || merchantId === 'undefined') {
       console.error('[checkout] PAYFAST_MERCHANT_ID is not set in environment variables');
-      return NextResponse.json({ error: 'Payment configuration error — PAYFAST_MERCHANT_ID missing' }, { status: 500 });
+      return NextResponse.json({ error: 'Payment configuration error, PAYFAST_MERCHANT_ID missing' }, { status: 500 });
     }
     if (!merchantKey || merchantKey === 'undefined') {
       console.error('[checkout] PAYFAST_MERCHANT_KEY is not set in environment variables');
-      return NextResponse.json({ error: 'Payment configuration error — PAYFAST_MERCHANT_KEY missing' }, { status: 500 });
+      return NextResponse.json({ error: 'Payment configuration error, PAYFAST_MERCHANT_KEY missing' }, { status: 500 });
     }
     if (!siteUrl) {
-      console.error('[checkout] NEXT_PUBLIC_SITE_URL is not set — return/cancel/notify URLs will be broken');
+      console.error('[checkout] NEXT_PUBLIC_SITE_URL is not set, return/cancel/notify URLs will be broken');
     }
-    console.log('[checkout] PayFast config — merchant_id:', merchantId, '| sandbox:', process.env.NEXT_PUBLIC_PAYFAST_SANDBOX, '| site_url:', siteUrl);
+    console.log('[checkout] PayFast config, merchant_id:', merchantId, '| sandbox:', process.env.NEXT_PUBLIC_PAYFAST_SANDBOX, '| site_url:', siteUrl);
 
     const body: CheckoutRequest = await request.json();
     const { items, customerEmail, customerName } = body;
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Log payment summary for debugging (no sensitive values)
-    console.log('[checkout] PayFast payment — amount:', paymentData.amount, '| item:', paymentData.item_name, '| order:', order.id, '| url:', getCheckoutUrl());
+    console.log('[checkout] PayFast payment, amount:', paymentData.amount, '| item:', paymentData.item_name, '| order:', order.id, '| url:', getCheckoutUrl());
 
     // Return PayFast URL and form data
     return NextResponse.json({

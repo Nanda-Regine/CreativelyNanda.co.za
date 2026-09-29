@@ -3,7 +3,7 @@ import { PERSON_ID } from '@/lib/seo';
 import EngineerFeature from '@/components/engineer/EngineerFeature';
 
 export const metadata: Metadata = {
-  title: 'The Making of an Engineer | Nandawula Regine — From Zero to a 15-Wing AI OS',
+  title: 'The Making of an Engineer | Nandawula Regine · From Zero to a 15-Wing AI OS',
   description:
     'A career feature: how Nandawula Regine Kabali-Kagwa went from her first line of code in July 2025 to eight live AI products and a 15-wing personal AI operating system in one year. Multi-agent systems, RAG, model routing, and the fifteen distinctions underneath it all.',
   keywords: [

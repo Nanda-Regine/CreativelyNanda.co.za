@@ -366,7 +366,7 @@ export default function NewProductPage() {
                   {/* OR Notion URL fallback */}
                   {!pdfPath && (
                     <div>
-                      <label className="block text-sm font-medium text-navy mb-1.5">— or — Notion Template / External URL</label>
+                      <label className="block text-sm font-medium text-navy mb-1.5">Or: Notion Template / External URL</label>
                       <input value={notionUrl} onChange={e => setNotionUrl(e.target.value)}
                         className="w-full px-4 py-2.5 border border-navy/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-cherry/20 focus:border-cherry font-mono text-sm"
                         placeholder="https://www.notion.so/templates/..." />

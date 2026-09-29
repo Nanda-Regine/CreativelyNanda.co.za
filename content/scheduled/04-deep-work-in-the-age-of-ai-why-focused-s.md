@@ -43,11 +43,11 @@ Research from MIT's McGovern Institute for Brain Research reveals what happens d
 
 **The 4-Hour Deep Work Window**
 
-A fascinating study from Florida State University examined elite performers across domains—musicians, athletes, writers, scientists.
+A fascinating study from Florida State University examined elite performers across domains, musicians, athletes, writers, scientists.
 
 **Universal finding:** Peak performers rarely exceeded 4-5 hours of intensely focused work per day.
 
-Why? The prefrontal cortex—responsible for complex thinking—has limited metabolic resources. After 4-5 hours of deep cognitive work, it needs recovery.
+Why? The prefrontal cortex, responsible for complex thinking, has limited metabolic resources. After 4-5 hours of deep cognitive work, it needs recovery.
 
 **Pushing beyond this threshold results in:**
 - 60% more errors
@@ -82,7 +82,7 @@ Modern research from the University of Toronto found optimal work structure foll
 
 **The 90-Minute Deep Work Block:**
 - 90 minutes of focused, uninterrupted work
-- 15-20 minute complete break (not email—actual rest)
+- 15-20 minute complete break (not email, actual rest)
 - Repeat for 2-3 cycles maximum
 
 **Research findings:**
@@ -126,7 +126,7 @@ Modern research from the University of Toronto found optimal work structure foll
 
 **The Attention Residue Problem**
 
-A 2009 University of Minnesota study discovered "attention residue"—when you switch tasks, part of your attention remains on the previous task.
+A 2009 University of Minnesota study discovered "attention residue", when you switch tasks, part of your attention remains on the previous task.
 
 **The findings:**
 - After switching tasks, it takes 15-25 minutes for full cognitive reset
@@ -233,7 +233,7 @@ You don't need more time. You need better use of cognitive resources.
 
 African philosophy reminds us: **A person is not a machine.**
 
-Western productivity culture treats humans like computers—more hours in equals more output out.
+Western productivity culture treats humans like computers, more hours in equals more output out.
 
 But neuroscience confirms what Ubuntu teaches: **Rest is not the opposite of productivity. Rest enables productivity.**
 
@@ -245,7 +245,7 @@ For the next 30 days:
 
 1. **Schedule one 90-minute deep work block daily** (non-negotiable)
 2. **Eliminate all interruptions** during this block
-3. **Take a real break after** (not email—actual rest)
+3. **Take a real break after** (not email, actual rest)
 4. **Track your output** (what you complete, quality level)
 5. **Adjust and optimize** based on results
 

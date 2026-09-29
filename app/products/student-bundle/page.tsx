@@ -27,8 +27,8 @@ export default function StudentBundle() {
           </h2>
           <ul className="space-y-3 mb-6">
             {[
-              'Varsity Academic Excellence Engine — R279',
-              'High School Academic Excellence Engine — R249',
+              'Varsity Academic Excellence Engine · R279',
+              'High School Academic Excellence Engine · R249',
             ].map((item) => (
               <li key={item} className="flex items-center gap-2 text-[#1A1A1A]">
                 <span className="text-[#C9A84C] font-bold">✓</span>
@@ -48,7 +48,7 @@ export default function StudentBundle() {
         <p className="text-[#6B6B6B] text-sm mb-8 leading-relaxed">
           To purchase the bundle at the discounted rate, buy both templates individually and
           email <a href="mailto:hello@mirembemuse.co.za" className="text-[#C9A84C] hover:underline">hello@mirembemuse.co.za</a>{' '}
-          with your order numbers — we&apos;ll refund the difference immediately.
+          with your order numbers: we&apos;ll refund the difference immediately.
           <br /><br />
           Combined total if bought separately: R528. Bundle price: <strong>R420</strong>.
         </p>
@@ -58,13 +58,13 @@ export default function StudentBundle() {
             href="/products/varsity-academic-excellence"
             className="px-6 py-3 bg-[#C9A84C] text-[#1A1A1A] rounded-lg font-semibold hover:bg-[#C9A84C]/90 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
           >
-            Buy Varsity Engine — R279
+            Buy Varsity Engine, R279
           </Link>
           <Link
             href="/products/high-school-academic-excellence"
             className="px-6 py-3 border border-[#C9A84C]/40 text-[#1A1A1A] rounded-lg font-semibold hover:border-[#C9A84C] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
           >
-            Buy High School Engine — R249
+            Buy High School Engine · R249
           </Link>
         </div>
       </div>

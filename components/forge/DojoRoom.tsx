@@ -140,7 +140,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
           standfirst="Here is the symptom, exactly as it arrived. What is the cause?"
           note={
             <>
-              Eight real incidents from the Scar Room, turned round. Commit to an answer before you are told —
+              Eight real incidents from the Scar Room, turned round. Commit to an answer before you are told,
               that is the whole exercise.
             </>
           }

@@ -46,7 +46,7 @@ const CATEGORIES: Category[] = [
         id: 'web-1page',
         name: '1-Page Site',
         tagline: 'A single, conversion-focused landing page.',
-        includes: ['Custom design — no templates', 'Mobile-first, SEO-ready', 'Contact form or WhatsApp CTA', 'Vercel deployment'],
+        includes: ['Custom design, no templates', 'Mobile-first, SEO-ready', 'Contact form or WhatsApp CTA', 'Vercel deployment'],
         zar: 'R5,000–R10,000',
         usd: '$270–$540',
         timeline: '5–7 days',
@@ -217,7 +217,7 @@ const CATEGORIES: Category[] = [
     services: [
       {
         id: 'notion-solo',
-        name: 'Notion OS — Solo',
+        name: 'Notion OS · Solo',
         tagline: 'A complete personal operating system in Notion.',
         includes: ['Life dashboard + goals + habits', 'Project + task management', 'Knowledge base + notes', 'Finance tracker'],
         zar: 'R5,000–R10,000',
@@ -226,7 +226,7 @@ const CATEGORIES: Category[] = [
       },
       {
         id: 'notion-business',
-        name: 'Notion OS — Business',
+        name: 'Notion OS · Business',
         tagline: 'A full business OS built in Notion.',
         includes: ['CRM with pipeline tracking', 'Financial management + chart of accounts', 'Project + team management', 'SOPs + knowledge base'],
         zar: 'R8,000–R18,000',
@@ -581,7 +581,7 @@ export default function ConsultingPage() {
               lineHeight: 1.7,
               marginBottom: '36px',
             }}>
-              AI engineering, product strategy, and technical architecture — from
+              AI engineering, product strategy, and technical architecture, from
               the founder who built seven Africa-first products in nine months.
             </p>
           </FadeUp>
@@ -657,7 +657,7 @@ export default function ConsultingPage() {
               maxWidth: '520px',
               lineHeight: 1.6,
             }}>
-              All rates in ZAR — USD equivalent at R18.50 per dollar.
+              All rates in ZAR, USD equivalent at R18.50 per dollar.
               Tap any service to reveal full pricing.
             </p>
           </FadeUp>
@@ -787,7 +787,7 @@ export default function ConsultingPage() {
               marginBottom: '48px',
               maxWidth: '760px',
             }}>
-              &ldquo;I don&apos;t just know how to build with AI — I&apos;ve built seven
+              &ldquo;I don&apos;t just know how to build with AI. I&apos;ve built seven
               products that are live, indexed, paying users, and running in
               production. The people I work with get that context applied to their problem.&rdquo;
             </blockquote>
@@ -795,7 +795,7 @@ export default function ConsultingPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}>
             {[
-              { heading: '7 production AI apps', proof: 'Built solo in 9 months — VarsityOS, K53, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, CreativelyNanda.', accent: '#C1292E' },
+              { heading: '7 production AI apps', proof: 'Built solo in 9 months: VarsityOS, K53, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, CreativelyNanda.', accent: '#C1292E' },
               { heading: 'Africa-first engineering', proof: 'WhatsApp-native, PayFast-integrated, RLS-secured, load-shedding-aware. Built from inside the context.', accent: '#B8860B' },
               { heading: 'The poet who codes', proof: 'Published author of Inside Her Roses. The only AI engineer writing system architecture and sonnets in the same week.', accent: '#2D4A22' },
             ].map((c, i) => (
@@ -1096,7 +1096,7 @@ export default function ConsultingPage() {
                     margin: 0,
                     lineHeight: 1.5,
                   }}>
-                    Preferred for project briefs — gives me the context I need.
+                    Preferred for project briefs, gives me the context I need.
                   </p>
                 </div>
                 <span style={{

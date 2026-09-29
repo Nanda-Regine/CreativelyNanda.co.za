@@ -23,12 +23,12 @@ export const IMPRINTS: Record<Imprint, { category: string; title: string; descri
   essays: {
     category: 'writing',
     title: 'Essays',
-    description: 'Essays by Nandawula Regine Kabali-Kagwa — on writing, heritage, and building as a Black African woman.',
+    description: 'Essays by Nandawula Regine Kabali-Kagwa, on writing, heritage, and building as a Black African woman.',
   },
   'field-notes': {
     category: 'dev',
     title: 'Field Notes',
-    description: 'Field notes from the Forge — how Nandawula Regine Kabali-Kagwa builds AI products for Africa, decision by decision.',
+    description: 'Field notes from the Forge, how Nandawula Regine Kabali-Kagwa builds AI products for Africa, decision by decision.',
   },
 };
 
@@ -72,10 +72,10 @@ const esc = (s: string) =>
 function feedMeta(imprint?: Imprint) {
   const i = imprint ? IMPRINTS[imprint] : null;
   return {
-    title: i ? `${i.title} — ${SITE_NAME}` : `${SITE_NAME} — Essays & Field Notes`,
+    title: i ? `${i.title} · ${SITE_NAME}` : `${SITE_NAME} · Essays & Field Notes`,
     description: i
       ? i.description
-      : 'Essays and field notes by Nandawula Regine Kabali-Kagwa — Ugandan-South African poet and AI engineer.',
+      : 'Essays and field notes by Nandawula Regine Kabali-Kagwa, Ugandan-South African poet and AI engineer.',
     home: i ? `${SITE_URL}/blog/${i.category}` : `${SITE_URL}/blog`,
     self: (ext: 'xml' | 'json') => (imprint ? `${SITE_URL}/feed/${imprint}.${ext}` : `${SITE_URL}/feed.${ext}`),
   };

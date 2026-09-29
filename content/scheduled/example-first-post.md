@@ -9,7 +9,7 @@ publishDate: 2024-03-18
 
 ## The Reality We Face
 
-As a South African freelancer, load-shedding isn't just an inconvenience—it's a daily puzzle we have to solve. After years of adapting, I've developed strategies that keep me productive even during Stage 6.
+As a South African freelancer, load-shedding isn't just an inconvenience · it's a daily puzzle we have to solve. After years of adapting, I've developed strategies that keep me productive even during Stage 6.
 
 ## My Essential Toolkit
 
@@ -35,7 +35,7 @@ I've learned to work WITH the load-shedding schedule, not against it:
 
 ## The Mindset Shift
 
-The biggest change wasn't technical—it was mental. I stopped seeing load-shedding as an obstacle and started seeing it as forced focus time.
+The biggest change wasn't technical · it was mental. I stopped seeing load-shedding as an obstacle and started seeing it as forced focus time.
 
 No Netflix. No endless scrolling. Just work or rest.
 

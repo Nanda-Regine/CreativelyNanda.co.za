@@ -218,7 +218,7 @@ export default function CheckoutSuccessPage() {
             <li className="flex items-start gap-3">
               <Mail className="w-5 h-5 text-cherry mt-0.5 flex-shrink-0" />
               <span className="text-navy/70 text-sm">
-                A confirmation email with your links is on its way — check your inbox (and spam folder)
+                A confirmation email with your links is on its way, check your inbox (and spam folder)
               </span>
             </li>
           </ul>

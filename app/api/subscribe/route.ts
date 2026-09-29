@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 
           <div style="background: #F5EFE6; padding: 40px 32px; border-radius: 0 0 16px 16px; border: 1px solid #E8DCC4;">
             <p style="color: #0A1128; font-size: 18px; line-height: 1.7; margin: 0 0 20px;">
-              Welcome to <strong>The Current</strong> — where code meets creativity, technology meets culture, and African voices lead the conversation.
+              Welcome to <strong>The Current</strong>where code meets creativity, technology meets culture, and African voices lead the conversation.
             </p>
 
             <p style="color: #0A1128; opacity: 0.75; line-height: 1.8; margin: 0 0 24px;">
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
               </div>
             </div>
 
-            <p style="color: #B8860B; font-style: italic; font-size: 16px; margin: 24px 0 8px;">— Nanda</p>
+            <p style="color: #B8860B; font-style: italic; font-size: 16px; margin: 24px 0 8px;">Nanda</p>
             <p style="color: #0A1128; font-size: 13px; margin: 0; opacity: 0.6;">Nandawula Regine Kabali-Kagwa · KuGompo City, South Africa</p>
 
             <hr style="border: none; border-top: 1px solid #E8DCC4; margin: 24px 0;" />

@@ -41,7 +41,7 @@ export default function Roots() {
           <FadeUp delay={0.2}>
             <p className="mt-7 max-w-2xl font-light text-white/70 text-lg leading-relaxed">
               In Buganda you are never only yourself. To introduce yourself, you must name your father, his
-              father, your clan, its totem, its motto — identity spoken aloud as genealogy. This is that
+              father, your clan, its totem, its motto, identity spoken aloud as genealogy. This is that
               introduction, made in full.
             </p>
           </FadeUp>
@@ -61,7 +61,7 @@ export default function Roots() {
             <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-start">
               <div className="space-y-5 text-white/75 leading-[1.85] md:text-lg font-light">
                 <p>
-                  The Nseenene take the grasshopper as their totem — not only a sign but a season. Twice a
+                  The Nseenene take the grasshopper as their totem, not only a sign but a season. Twice a
                   year, when the rains come, the swarms rise over Buganda and are gathered: a delicacy, a
                   harvest, a small green promise of abundance. To this clan you do not eat your own totem.
                   You honour it.
@@ -69,17 +69,17 @@ export default function Roots() {
                 <p>
                   The clan remembers its beginning as a migration. <span className="text-white">Kiroboozi</span>,
                   a herdsman on the slopes of Mugamba Hill, had three children who drove their cattle down
-                  through Bwera into Ggomba: Buyonga, Kalibbala — and their sister,
+                  through Bwera into Ggomba: Buyonga, Kalibbala, and their sister,
                   <span className="text-[#E4572E]"> Nnandawula</span>. A woman remembered by name in a line
                   that counts itself through fathers. Her name did not end. It was carried, and carried, and
-                  given again — until it arrived here, spelled the way I spell it.
+                  given again, until it arrived here, spelled the way I spell it.
                 </p>
                 <p>
                   Through Buyonga's daughter <span className="text-white">Wannyana</span>, mother of
                   <span className="text-white"> Kabaka Kimera</span>, the third king of Buganda, the clan is
-                  woven into the founding of a throne — which is why our praise still calls on
+                  woven into the founding of a throne, which is why our praise still calls on
                   <em> Nakimera</em>, of Kimera. And the name I carry, <span className="text-white">Kagwa</span>,
-                  is the name of <span className="text-white">Sir Apolo Kagwa</span> — Katikkiro of Buganda for
+                  is the name of <span className="text-white">Sir Apolo Kagwa</span>, Katikkiro of Buganda for
                   thirty-six years, regent to a child-king, and the first man to write our history down so it
                   could not be lost. The colossus of Buganda.
                 </p>
@@ -100,7 +100,7 @@ export default function Roots() {
                 </dl>
                 <p className="mt-6 text-white/50 text-[13px] leading-relaxed italic">
                   And in our own telling: I come from the line of Kabombola, who reigns from Kyakasuku; from
-                  Segoma in Kayenje. Names the internet does not keep — only the family does.
+                  Segoma in Kayenje. Names the internet does not keep, only the family does.
                 </p>
               </div>
             </div>
@@ -139,20 +139,20 @@ export default function Roots() {
               <p>
                 Every Xhosa king traces back to one ancestor: <span className="text-white">Tshawe</span>. And
                 the way he came to the throne is the part I love. He was not the eldest, not the Great House
-                heir — he was the junior son. When their father died, his brothers Cirha and Jwarha held the
-                senior claims. Tshawe took warriors, met them in the field, and <em>won</em> the kingship —
+                heir: he was the junior son. When their father died, his brothers Cirha and Jwarha held the
+                senior claims. Tshawe took warriors, met them in the field, and <em>won</em> the kingship,
                 then held it for his line forever. The oldest royal house in South Africa begins with a
                 younger child who refused to be minor.
               </p>
               <p>
-                This house keeps its memory two ways. The <span className="text-white">isiduko</span> — the
-                clan name — passes from father to child and matters more than any surname; to know a person's
+                This house keeps its memory two ways. The <span className="text-white">isiduko</span>, the
+                clan name, passes from father to child and matters more than any surname; to know a person's
                 isiduko is to know their ancestors and be able to praise them. And the
                 <span className="text-white"> imbongi</span>, the praise-poet, walks beside the chief and
                 recites the deeds of the house out loud. History, kept as performed poetry.
               </p>
               <p className="text-white/90">
-                I was born into a nation that appoints a poet to remember the family — and then I became one.
+                I was born into a nation that appoints a poet to remember the family, and then I became one.
               </p>
             </div>
           </FadeUp>
@@ -186,17 +186,17 @@ export default function Roots() {
             <FadeUp>
               <div className="space-y-5 text-white/75 leading-[1.85] md:text-lg font-light">
                 <p>
-                  The Msimanga are amaHlubi — an Nguni people old enough to count kings back to the 1300s,
+                  The Msimanga are amaHlubi, an Nguni people old enough to count kings back to the 1300s,
                   down to <span className="text-white">Langalibalele</span>. Then, around 1818, the
-                  <span className="text-white"> Mfecane</span> — the great scattering. The Hlubi kingdom was
+                  <span className="text-white"> Mfecane</span>, the great scattering. The Hlubi kingdom was
                   shattered; its people fled north, west, into other nations, into refuge. That is why a
                   Msimanga can be found today in South Africa, Botswana, Lesotho, Zimbabwe. The spread of the
-                  clan across four countries is a fingerprint of that flight — and my own life across nations
+                  clan across four countries is a fingerprint of that flight, and my own life across nations
                   is the same story, still moving.
                 </p>
                 <p>
                   Its praises are real, and they are poetry: the one who <em>descends in a grain-basket while
-                  commoners come down on foot</em> — an image of rank folded into a single line, spoken to
+                  commoners come down on foot</em>, an image of rank folded into a single line, spoken to
                   greet and to honour.
                 </p>
               </div>
@@ -212,7 +212,7 @@ export default function Roots() {
                   <span className="text-[#E4572E]">Ngelengele!</span>
                 </p>
                 <p className="mt-5 text-white/50 text-[13px] leading-relaxed">
-                  Praise-names carried, not translated — the way they are meant to be spoken. isiHlubi, the
+                  Praise-names carried, not translated, the way they are meant to be spoken. isiHlubi, the
                   language they belong to, is endangered now; to say them at all is to keep them alive.
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default function Roots() {
             <p className="font-display text-2xl md:text-4xl italic leading-[1.4] text-white/90">
               I am of the grasshopper and the throne of Buganda; of the royal house of Tshawe; of the
               scattered kingdom of the Hlubi. Three nations gave me their names and their poetry.
-              I am the one they appointed to remember — and I remember in verse.
+              I am the one they appointed to remember, and I remember in verse.
             </p>
             <p className="mt-8 font-mono text-[11px] tracking-[0.28em] uppercase text-white/40">
               Nseenene · AmaTshawe · Msimanga · Nine generations documented

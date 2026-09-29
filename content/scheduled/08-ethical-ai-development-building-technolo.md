@@ -10,7 +10,7 @@ publishDate: 2024-02-28
 
 As AI becomes more powerful, one question becomes more urgent: **How do we build technology that serves humanity without diminishing it?**
 
-This isn't theoretical philosophy—it's practical ethics every developer must grapple with. Let's examine the research and build a framework for ethical tech development.
+This isn't theoretical philosophy · it's practical ethics every developer must grapple with. Let's examine the research and build a framework for ethical tech development.
 
 **The AI Impact Research**
 
@@ -28,7 +28,7 @@ MIT's AI Policy Forum published a comprehensive study in 2024 examining AI's imp
 - Privacy violations: +167%
 - Deepfake-related fraud: +520%
 
-**The finding: AI is a multiplier—it amplifies both human wisdom and human flaws.**
+**The finding: AI is a multiplier, it amplifies both human wisdom and human flaws.**
 
 **The Developer Responsibility Thesis**
 
@@ -42,7 +42,7 @@ Research from Stanford's Center for AI Ethics proposes that developers have uniq
 
 **Why the difference?** AI systems make autonomous decisions that affect people who never chose to interact with them.
 
-**Example:** A developer builds a hiring AI. That AI rejects qualified candidates due to hidden bias. The rejected candidates never chose to be judged by AI—but they're affected.
+**Example:** A developer builds a hiring AI. That AI rejects qualified candidates due to hidden bias. The rejected candidates never chose to be judged by AI, but they're affected.
 
 **The research conclusion: With AI, developer responsibility extends beyond the direct user to anyone affected by the system.**
 
@@ -125,7 +125,7 @@ Fascinating research from the University of Cape Town's AI Ethics Lab examines A
 **Research finding:** Ubuntu-informed AI development naturally addresses many Western AI ethics concerns because communal thinking prevents individualistic exploitation.
 
 **Example from my work:**
-AfriFlix uses AI for recommendations, but the core model is "storytelling circles"—community-based discovery, not isolated algorithmic feeding.
+AfriFlix uses AI for recommendations, but the core model is "storytelling circles", community-based discovery, not isolated algorithmic feeding.
 
 **The Unintended Consequences Research**
 
@@ -244,7 +244,7 @@ Before launching any AI-powered feature, I ask:
 
 Here's what the research consistently shows:
 
-**Ethical technology isn't a constraint—it's a competitive advantage.**
+**Ethical technology isn't a constraint, it's a competitive advantage.**
 
 Companies that prioritize ethics:
 - Build more loyal user bases
@@ -259,7 +259,7 @@ Companies that prioritize ethics:
 
 Technology is never neutral. Every line of code embeds values.
 
-The question isn't whether your tech will have impact—it's whether that impact will honor human dignity.
+The question isn't whether your tech will have impact: it's whether that impact will honor human dignity.
 
 Ubuntu wisdom reminds us: **What we build should strengthen the web of relationships that make us human, not replace it.**
 
@@ -279,7 +279,7 @@ Starting today:
 4. **Make ethics part of every design decision**, not an afterthought
 5. **Share your ethical framework** publicly (accountability)
 
-The research is clear: The most successful technology of the next decade will be built by developers who understood ethics isn't a constraint—it's the foundation.
+The research is clear: The most successful technology of the next decade will be built by developers who understood ethics isn't a constraint, it's the foundation.
 
 **Build technology that honors humanity. The future is counting on it.**
 

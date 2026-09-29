@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
             We&rsquo;ll reach out when the botanical line launches.
           </p>
           <p style="font-size: 14px; color: #6B6B6B; border-top: 1px solid #E0D8CC; padding-top: 20px; margin-top: 32px;">
-            &mdash; Nanda, Mirembe Muse<br />
+            Nanda, Mirembe Muse<br />
             <a href="https://creativelynanda.co.za/mirembe" style="color: #C9A84C;">mirembe.co.za</a>
           </p>
         </div>

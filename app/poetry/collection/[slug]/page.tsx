@@ -451,7 +451,7 @@ export default function PoemReader() {
               viewport={{ once: true }}
               className="mt-12 pt-8 border-t border-white/10 text-right"
             >
-              <p className="font-display text-2xl italic" style={{ color: '#C9A84C' }}>— Nanda Regine</p>
+              <p className="font-display text-2xl italic" style={{ color: '#C9A84C' }}>Nanda Regine</p>
               <p className="text-cream/40 text-sm mt-1">From &ldquo;Inside Her Roses&rdquo;</p>
             </motion.div>
           </div>

@@ -31,7 +31,7 @@ const PROMPT = {
   month: 'This season',
   line: '“she learned to speak in two tongues”',
   invitation:
-    'Write from that line — in any language your heart keeps. A poem, a fragment, a single honest stanza. Plant it below; I read every one.',
+    'Write from that line, in any language your heart keeps. A poem, a fragment, a single honest stanza. Plant it below; I read every one.',
 };
 
 export default function TheCircle() {
@@ -161,7 +161,7 @@ export default function TheCircle() {
             <Button
               className="rounded-full bg-cherry text-white hover:bg-cherry-dark"
               leftIcon={<Feather className="w-4 h-4" />}
-              onClick={() => writeFrom({ kind: 'seed', text: 'She learned to speak in two tongues —' })}
+              onClick={() => writeFrom({ kind: 'seed', text: 'She learned to speak in two tongues' })}
             >
               Write from this line
             </Button>
@@ -234,7 +234,7 @@ export default function TheCircle() {
               <div className="text-5xl mb-4">🌱</div>
               <h3 className="font-display text-2xl text-cream mb-2">The garden is young.</h3>
               <p className="text-cream/60 max-w-md mx-auto">
-                No guest poems have bloomed yet. Be the first to plant one — yours could open the circle.
+                No guest poems have bloomed yet. Be the first to plant one, yours could open the circle.
               </p>
             </div>
           ) : (
@@ -269,7 +269,7 @@ export default function TheCircle() {
 
                   <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between gap-3">
                     <p className="text-sm text-cream/50 font-display italic">
-                      — {p.is_anonymous ? 'Anonymous' : p.author_name || 'A fellow writer'}
+                      · {p.is_anonymous ? 'Anonymous' : p.author_name || 'A fellow writer'}
                     </p>
                     <PetalButton guestPoemId={p.id} />
                   </div>

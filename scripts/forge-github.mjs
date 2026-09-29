@@ -44,6 +44,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scrubCredentials } from './lib/redact-credentials.mjs';
+import { dashlessDeep } from './lib/dashless.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'lib/data/forge-github.json');
@@ -566,6 +567,7 @@ if (DRY) {
   console.log('\n--dry — nothing written.\n');
   console.log(wallCurated.slice(0, 15).map((l) => `  ${l.date}  ${l.subject}`).join('\n'));
 } else {
-  fs.writeFileSync(OUT, JSON.stringify(payload, null, 2));
+  // House style: no em dashes in anything the site shows.
+  fs.writeFileSync(OUT, JSON.stringify(dashlessDeep(payload), null, 2));
   console.log(`\n✓ ${path.relative(ROOT, OUT)} — ${(fs.statSync(OUT).size / 1024).toFixed(0)} KB\n`);
 }

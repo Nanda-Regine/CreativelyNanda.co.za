@@ -40,13 +40,13 @@ export default function Threshold() {
         transition={{ delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         whileHover={{ rotate: 0, y: -4, scale: 1.04 }}
         className="group absolute right-4 top-24 z-20 sm:right-8 sm:top-28"
-        aria-label="Inside Her Roses — get the book"
+        aria-label="Inside Her Roses · get the book"
       >
         <div className="w-[4.5rem] overflow-hidden rounded-lg border border-[#C9A84C]/40 shadow-2xl ring-1 ring-black/40 sm:w-24 lg:w-28">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/poetry-book/official-cover.jpg"
-            alt="Inside Her Roses — a poetry collection by Nandawula Regine Kabali-Kagwa"
+            alt="Inside Her Roses · a poetry collection by Nandawula Regine Kabali-Kagwa"
             className="w-full"
           />
         </div>
@@ -86,7 +86,7 @@ export default function Threshold() {
           className="mt-5 text-base sm:text-lg text-cream/70 max-w-xl"
           style={{ color: 'rgba(245,239,214,0.72)' }}
         >
-          Choose a feeling — I&rsquo;ll open the poems that meet you there, and wash
+          Choose a feeling. I&rsquo;ll open the poems that meet you there, and wash
           the whole garden in that light.
         </motion.p>
 
@@ -188,7 +188,7 @@ export default function Threshold() {
               Not sure where to begin?
             </p>
             <p className="text-cream/60 text-sm" style={{ color: 'rgba(245,239,214,0.6)' }}>
-              Let the garden choose for you — one poem, plucked at random.
+              Let the garden choose for you, one poem, plucked at random.
             </p>
             <SerendipityButton className="self-start mt-1" />
             {streak > 1 && (

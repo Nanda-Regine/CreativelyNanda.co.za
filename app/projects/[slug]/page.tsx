@@ -51,12 +51,12 @@ const projects: Record<string, ProjectData> = {
     title: 'VarsityOS',
     tagline: 'The AI University Companion for SA Students Facing a 50%+ Dropout Rate',
     description:
-      'Multi-agent AI platform built to address South Africa\'s university dropout crisis. Six specialist Claude agents cover study coaching, budget management, meal planning, wellness monitoring, registration guidance, and crisis detection — with SADAG + Lifeline SA helplines surfaced automatically.',
+      'Multi-agent AI platform built to address South Africa\'s university dropout crisis. Six specialist Claude agents cover study coaching, budget management, meal planning, wellness monitoring, registration guidance, and crisis detection, with SADAG + Lifeline SA helplines surfaced automatically.',
     category: 'AI/ML · SaaS · Education',
     status: 'Beta',
     year: '2025',
     problem:
-      '50%+ of South African university students drop out — not because they fail academically, but because they fail at navigation. No money for accommodation. No idea how to manage NSFAS. No mental health support at 2am when the spiral begins.',
+      '50%+ of South African university students drop out, not because they fail academically, but because they fail at navigation. No money for accommodation. No idea how to manage NSFAS. No mental health support at 2am when the spiral begins.',
     solution:
       'A PWA with six specialist Claude AI agents (Study Coach, Budget Manager, Meal Planner, Wellness Monitor, Registration Guide, Crisis Detector) sharing a Supabase session store. Crisis detection surfaces SADAG and Lifeline SA helplines immediately. Offline-capable for SA mobile data realities.',
     techStack: [
@@ -76,7 +76,7 @@ const projects: Record<string, ProjectData> = {
     liveUrl: 'https://campus-compass-phi.vercel.app',
     githubUrl: null,
     images: [],
-    metaTitle: 'VarsityOS — AI University Companion for South African Students | Nandawula Regine',
+    metaTitle: 'VarsityOS · AI University Companion for South African Students | Nandawula Regine',
     metaDescription:
       'VarsityOS uses 6 specialist Claude AI agents to support SA students through dropout risk. Study coaching, NSFAS budget management, crisis detection with SADAG helplines. Built by Nandawula Regine.',
     keywords: [
@@ -89,14 +89,14 @@ const projects: Record<string, ProjectData> = {
       'campus-compass',
     ],
     buildJourney: {
-      narrative: `VarsityOS was built around a single question: what does a first-generation SA university student actually need to survive and thrive? Not a generic student planner. Not a ChatGPT wrapper. Infrastructure — NSFAS budgeting, load-shedding study strategies, crisis support, part-time work balancing, all with 11-language awareness, woven together with an AI companion named Nova.
+      narrative: `VarsityOS was built around a single question: what does a first-generation SA university student actually need to survive and thrive? Not a generic student planner. Not a ChatGPT wrapper. Infrastructure: NSFAS budgeting, load-shedding study strategies, crisis support, part-time work balancing, all with 11-language awareness, woven together with an AI companion named Nova.
 
 The 15-table Supabase schema (profiles, budgets, expenses, tasks, modules, exams, meals, shifts, wellness entries) was built with full RLS from day one. 14 strategic indexes. Auto-triggers for profile creation, updated_at, and task completion timestamps. The database layer carries the complexity so the AI layer can stay focused.
 
-Nova's breakthrough was prompt caching on the knowledge base. The system prompt is ~5,000 lines of SA-specific context: 25+ universities, NSFAS rules and appeal processes, SADAG mental health resources, load-shedding study strategies, student finance. This entire block is cached by Anthropic's server — after the first call, cache reads cost ~90% less per token. Nova's real cost is in the dynamic block: each student's actual budget, tasks, exams, and mood score injected per request.
+Nova's breakthrough was prompt caching on the knowledge base. The system prompt is ~5,000 lines of SA-specific context: 25+ universities, NSFAS rules and appeal processes, SADAG mental health resources, load-shedding study strategies, student finance. This entire block is cached by Anthropic's server, after the first call, cache reads cost ~90% less per token. Nova's real cost is in the dynamic block: each student's actual budget, tasks, exams, and mood score injected per request.
 
 Crisis detection is a product ethics decision as much as an engineering one. When a student message matches distress signals, the system does not send a chatbot reply. It surfaces SADAG and Lifeline SA helplines first, then wraps any response in human-connection framing rather than advice.`,
-      codeExample: `// Nova AI — cached knowledge base + dynamic student context injection
+      codeExample: `// Nova AI, cached knowledge base + dynamic student context injection
 // ~5000-token system prompt cached; only per-student context charged at full rate
 
 export async function callNova(message: string, student: StudentContext) {
@@ -105,7 +105,7 @@ export async function callNova(message: string, student: StudentContext) {
     system: [
       {
         type: 'text',
-        text: NOVA_SA_KNOWLEDGE_BASE, // ~5000 lines — SA universities, NSFAS, SADAG, etc.
+        text: NOVA_SA_KNOWLEDGE_BASE, // ~5000 lines, SA universities, NSFAS, SADAG, etc.
         cache_control: { type: 'ephemeral' }, // Anthropic caches this block server-side
       },
     ],
@@ -126,7 +126,7 @@ Message: \${message}\`,
 
   const text = response.content[0].text;
 
-  // Crisis detection — surface helplines before any response
+  // Crisis detection, surface helplines before any response
   if (isCrisisSignal(message)) {
     return \`SADAG: 0800 567 567 (24h) | Lifeline SA: 0861 322 322\n\n\${formatCrisisResponse(text)}\`;
   }
@@ -134,13 +134,13 @@ Message: \${message}\`,
   return text;
 }`,
       codeLanguage: 'typescript',
-      codeLabel: 'Nova AI — prompt caching + crisis detection pattern',
+      codeLabel: 'Nova AI, prompt caching + crisis detection pattern',
       lessons: [
-        'SA university context (NSFAS, SADAG, load-shedding) cannot be retrofitted — it must be the schema, not a feature',
+        'SA university context (NSFAS, SADAG, load-shedding) cannot be retrofitted: it must be the schema, not a feature',
         'Prompt caching on a 5000-token knowledge base reduces Nova\'s per-conversation cost by ~90%',
-        'Crisis detection is a product ethics decision: no chatbot reply when a student is in distress — helplines first, always',
-        'Dynamic context injection (real budget, exams, mood) is what separates Nova from a generic AI — the personalisation is in the database, not the model',
-        'PWA offline mode is not optional for SA students on intermittent data — service worker caching is a feature parity requirement',
+        'Crisis detection is a product ethics decision: no chatbot reply when a student is in distress, helplines first, always',
+        'Dynamic context injection (real budget, exams, mood) is what separates Nova from a generic AI, the personalisation is in the database, not the model',
+        'PWA offline mode is not optional for SA students on intermittent data, service worker caching is a feature parity requirement',
       ],
     },
   },
@@ -150,12 +150,12 @@ Message: \${message}\`,
     title: 'K53 Drill Master',
     tagline: "AI-Powered Driving Test Prep Tackling South Africa's 60% Failure Rate",
     description:
-      "Adaptive learning platform for South Africa's K53 driving test. SM-2 spaced repetition algorithm ensures students review what they struggle with — not random questions. 600+ questions with isiXhosa language support. 50+ paying subscribers at launch.",
+      "Adaptive learning platform for South Africa's K53 driving test. SM-2 spaced repetition algorithm ensures students review what they struggle with, not random questions. 600+ questions with isiXhosa language support. 50+ paying subscribers at launch.",
     category: 'AI/ML · Education · SaaS',
     status: 'Live',
     year: '2025',
     problem:
-      "60% of South Africans fail their K53 learner's licence test — a direct barrier to employment and economic participation. Most study prep apps show questions randomly. Random is not the same as effective.",
+      "60% of South Africans fail their K53 learner's licence test, a direct barrier to employment and economic participation. Most study prep apps show questions randomly. Random is not the same as effective.",
     solution:
       'SM-2 spaced repetition algorithm implemented as a Supabase function: tracks each question\'s ease factor and review interval per user, surfacing struggling questions more frequently. isiXhosa language support for Eastern Cape learner drivers. PayFast subscription billing.',
     techStack: [
@@ -167,13 +167,13 @@ Message: \${message}\`,
     impact: {
       potential: '500K+ SA learner drivers annually',
       economy: '60%+ K53 failure rate addressed',
-      problem: 'Random prep fails — spaced repetition wins',
+      problem: 'Random prep fails, spaced repetition wins',
       metric: '50+ paying subscribers, 4.8/5 rating',
     },
     liveUrl: 'https://nanda-k53-drill-master.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/nanda-k53-drill-master',
     images: [],
-    metaTitle: 'K53 Drill Master — Spaced Repetition Driving Test Prep | Nandawula Regine',
+    metaTitle: 'K53 Drill Master · Spaced Repetition Driving Test Prep | Nandawula Regine',
     metaDescription:
       "K53 Drill Master uses SM-2 spaced repetition to help South Africans pass their driving test. isiXhosa support, 600+ questions, 50+ paying subscribers. Built by Nandawula Regine.",
     keywords: [
@@ -187,12 +187,12 @@ Message: \${message}\`,
     buildJourney: {
       narrative: `K53 was built in a documented 12-hour sprint on 2026-02-27. Phase 0 started at 09:00, Phase 1 shipped at 09:54 (commit a7e8ad3). The engineering log is timestamped by commit hash.
 
-Every decision has a written rationale. Why React 18 + Vite instead of Next.js? No server-side data fetching needed for v1 — game logic is static. Vite's HMR iterates faster on mobile quiz mechanics. Why no routing library? A single state string ('activeGame') is the routing layer — React Router adds 50KB for zero benefit. Why Georgia serif font? It feels like a printed test booklet. Familiar to older learners. Reduces cognitive friction. These aren't post-hoc justifications. They're commit-message-level decisions made in real time.
+Every decision has a written rationale. Why React 18 + Vite instead of Next.js? No server-side data fetching needed for v1, game logic is static. Vite's HMR iterates faster on mobile quiz mechanics. Why no routing library? A single state string ('activeGame') is the routing layer, React Router adds 50KB for zero benefit. Why Georgia serif font? It feels like a printed test booklet. Familiar to older learners. Reduces cognitive friction. These aren't post-hoc justifications. They're commit-message-level decisions made in real time.
 
-The freemium gate uses localStorage — no server round-trip on every answer. Deliberate: at 10 questions/day, the acceptable risk of power users clearing storage is lower than the cost of DB calls on a SA mobile connection. The AI tutor uses gpt-4o-mini, not 4o — the cost math was written into the build log: mini charges ~$0.00015/1K tokens vs $0.005 for 4o. At 200 tokens per explanation, 4o would cost 60x more for the same outcome.
+The freemium gate uses localStorage, no server round-trip on every answer. Deliberate: at 10 questions/day, the acceptable risk of power users clearing storage is lower than the cost of DB calls on a SA mobile connection. The AI tutor uses gpt-4o-mini, not 4o, the cost math was written into the build log: mini charges ~$0.00015/1K tokens vs $0.005 for 4o. At 200 tokens per explanation, 4o would cost 60x more for the same outcome.
 
 The Mock Exam ships 68 questions, not 70. The real DLTC Code 8 exam is 68 questions. Most study sites say 70. The 2024 DLTC examiner guidelines were verified before the spec was written.`,
-      codeExample: `// vite.config.js — manual chunk splitting for budget Android
+      codeExample: `// vite.config.js: manual chunk splitting for budget Android
 // First paint loads only vendor + App shell
 // ~180KB saved on initial load for 80% of users (Code 8 only)
 
@@ -203,7 +203,7 @@ manualChunks(id) {
   if (id.includes('node_modules')) return 'vendor';
 }
 
-// Freemium gate — localStorage (no server round-trip per answer click)
+// Freemium gate, localStorage (no server round-trip per answer click)
 // Acceptable risk: power users clearing storage < cost of DB calls on SA mobile data
 function checkFreemiumGate() {
   const usage = JSON.parse(localStorage.getItem('k53_usage') || '{}');
@@ -215,16 +215,16 @@ function checkFreemiumGate() {
 
 // AI Tutor cost decision: gpt-4o-mini, not gpt-4o
 // 200 tokens/explanation × $0.00015 = R0.000054 per explanation (mini)
-// 200 tokens/explanation × $0.005   = R0.009    per explanation (4o)
+// 200 tokens/explanation × $0.005 = R0.009 per explanation (4o)
 // At scale: 4o costs 60x more for identical user outcome → mini every time`,
       codeLanguage: 'javascript',
-      codeLabel: 'Vite chunk splitting + freemium gate — engineering decisions',
+      codeLabel: 'Vite chunk splitting + freemium gate, engineering decisions',
       lessons: [
-        'Timestamped build logs by commit hash make engineering decisions auditable — write the why, not just the what',
+        'Timestamped build logs by commit hash make engineering decisions auditable, write the why, not just the what',
         'localStorage freemium is the correct call when the risk of bypass is lower than the cost of server round-trips on SA mobile data',
-        'gpt-4o-mini vs 4o: do the token math before choosing a model — same outcome, 60x cost difference',
+        'gpt-4o-mini vs 4o: do the token math before choosing a model, same outcome, 60x cost difference',
         'Manual chunk splitting for mobile-first: games-ext loads only if users navigate to heavy/motorcycle content',
-        'Verify specs against primary sources — 68 questions, not 70. The real DLTC guideline, not the internet\'s approximation',
+        'Verify specs against primary sources, 68 questions, not 70. The real DLTC guideline, not the internet\'s approximation',
       ],
     },
   },
@@ -232,14 +232,14 @@ function checkFreemiumGate() {
   'stokvel-os': {
     slug: 'stokvel-os',
     title: 'StokvelOS',
-    tagline: 'The First AI-Native Stokvel Platform — Serving 11M South Africans',
+    tagline: 'The First AI-Native Stokvel Platform · Serving 11M South Africans',
     description:
       "AI-powered stokvel management platform digitalising South Africa's R50 billion informal savings economy. Automated contribution tracking, AI fraud detection, plain-English governance reports for committee chairs.",
     category: 'AI/ML · Community Finance · SaaS',
     status: 'Beta',
     year: '2025',
     problem:
-      "R50 billion moves through SA stokvels annually — 95% managed on paper. WhatsApp messages, hand-written registers, and trust. The disputes, fraud, and financial loss that follow fall hardest on communities that can least afford it.",
+      "R50 billion moves through SA stokvels annually, 95% managed on paper. WhatsApp messages, hand-written registers, and trust. The disputes, fraud, and financial loss that follow fall hardest on communities that can least afford it.",
     solution:
       'Full-stack stokvel management with automated contribution tracking, Z-score anomaly detection for fraud signals, and AI-generated plain-English governance reports after every contribution cycle. Built with Ubuntu as architecture: collective ownership in RLS policies.',
     techStack: [
@@ -258,9 +258,9 @@ function checkFreemiumGate() {
     liveUrl: null,
     githubUrl: null,
     images: [],
-    metaTitle: 'StokvelOS — AI-Native Stokvel Management for 11M South Africans | Nandawula Regine',
+    metaTitle: 'StokvelOS · AI-Native Stokvel Management for 11M South Africans | Nandawula Regine',
     metaDescription:
-      "StokvelOS is the first AI-native stokvel platform — automated contribution tracking, fraud detection, and governance reports for South Africa's 11M stokvel members. Built by Nandawula Regine.",
+      "StokvelOS is the first AI-native stokvel platform: automated contribution tracking, fraud detection, and governance reports for South Africa's 11M stokvel members. Built by Nandawula Regine.",
     keywords: [
       'stokvel management app',
       'stokvel software South Africa',
@@ -272,12 +272,12 @@ function checkFreemiumGate() {
     buildJourney: {
       narrative: `The trigger for StokvelOS was a specific incident: a chairperson of a 20-member teachers' stokvel lost R4,200 because two members paid to an old account, records weren't reconciled, and by the time the discrepancy was found 3 months had passed. No audit trail. The core insight: a stokvel is not a bank. It's a trust community with rules. Fix the transparency, and most fraud, disputes, and misunderstandings dissolve before they become crises.
 
-The most consequential architectural decision was "Extract Once, Enforce Forever." A naive implementation would call Claude for every late payment check, every loan eligibility check, every compliance update. At scale across 30+ member stokvels paying monthly, that's thousands of unnecessary AI calls per month. Instead, Claude reads the stokvel's constitution exactly once on setup, extracts 18 structured fields (contribution_due_day, late_grace_days, late_penalty_percent, loan_eligibility_min_compliance, quorum_percent, chairperson_co_sign_above) into a typed JSONB blob stored in Supabase. All runtime enforcement runs as pure TypeScript — zero AI cost per transaction.
+The most consequential architectural decision was "Extract Once, Enforce Forever." A naive implementation would call Claude for every late payment check, every loan eligibility check, every compliance update. At scale across 30+ member stokvels paying monthly, that's thousands of unnecessary AI calls per month. Instead, Claude reads the stokvel's constitution exactly once on setup, extracts 18 structured fields (contribution_due_day, late_grace_days, late_penalty_percent, loan_eligibility_min_compliance, quorum_percent, chairperson_co_sign_above) into a typed JSONB blob stored in Supabase. All runtime enforcement runs as pure TypeScript, zero AI cost per transaction.
 
-The WhatsApp agent's prompt caching is split into two blocks: a static cached block (constitution summary, extracted rules, monthly amount, payout type — identical for all messages from the same stokvel, cache hit after the first call) and a dynamic block (per-member: name, role, compliance %, this month's status). This reduces prompt tokens by ~70% after the first message per stokvel per hour.
+The WhatsApp agent's prompt caching is split into two blocks: a static cached block (constitution summary, extracted rules, monthly amount, payout type, identical for all messages from the same stokvel, cache hit after the first call) and a dynamic block (per-member: name, role, compliance %, this month's status). This reduces prompt tokens by ~70% after the first message per stokvel per hour.
 
-The dispute mediation agent runs a 7-state machine: open → investigating → awaiting_complainant_proof → awaiting_respondent_proof → reviewing → resolved | escalated. Auto-resolves if records can settle it. If not, enters conversation mode with a hard escalation at 5 turns — chairperson notified via WhatsApp. The system prompt instruction: "You are not on anyone's side. You protect the community's trust and harmony."`,
-      codeExample: `// "Extract Once, Enforce Forever" — constitution parsing architecture
+The dispute mediation agent runs a 7-state machine: open → investigating → awaiting_complainant_proof → awaiting_respondent_proof → reviewing → resolved | escalated. Auto-resolves if records can settle it. If not, enters conversation mode with a hard escalation at 5 turns, chairperson notified via WhatsApp. The system prompt instruction: "You are not on anyone's side. You protect the community's trust and harmony."`,
+      codeExample: `// "Extract Once, Enforce Forever", constitution parsing architecture
 // Claude extracts 18 fields once on setup; all runtime enforcement is pure TS (free)
 
 // Step 1: ONE Claude call per stokvel (on setup or constitution update)
@@ -291,12 +291,12 @@ const extracted = await anthropic.messages.create({
 });
 
 const rules = mergeWithDefaults(JSON.parse(extracted.content[0].text));
-// Store extracted rules — this is now the source of truth for all enforcement
+// Store extracted rules, this is now the source of truth for all enforcement
 await supabase.from('stokvels')
   .update({ extracted_rules: rules, rules_extracted_at: new Date() })
   .eq('id', stokvelId);
 
-// Step 2: All runtime enforcement — pure TypeScript, zero AI cost
+// Step 2: All runtime enforcement, pure TypeScript, zero AI cost
 export function checkLatePaymentPenalty(
   contribution: Contribution,
   rules: ExtractedRules
@@ -318,13 +318,13 @@ export function checkLoanEligibility(
   return { eligible: true, reason: 'Meets constitution requirements' };
 }`,
       codeLanguage: 'typescript',
-      codeLabel: 'Extract Once Enforce Forever — constitution compliance architecture',
+      codeLabel: 'Extract Once Enforce Forever, constitution compliance architecture',
       lessons: [
-        '"Extract Once, Enforce Forever": use AI for rule extraction, pure code for rule enforcement — the constitution is read once, TS enforces it every transaction',
-        'Ubuntu as architecture: stokvel RLS policies must reflect collective ownership — members see group data, never each other\'s private balances',
-        'Split prompt caching: static stokvel context cached, per-member context dynamic — 70% token reduction after first message per stokvel per hour',
-        'Dispute mediation needs a hard escalation ceiling — 5 turns max before human (chairperson) intervenes; AI cannot mediate indefinitely',
-        'Deploying to Vercel jnb1 (Johannesburg) + Supabase Africa (Cape Town) puts compute and data on the continent — sub-100ms round trips for SA users',
+        '"Extract Once, Enforce Forever": use AI for rule extraction, pure code for rule enforcement, the constitution is read once, TS enforces it every transaction',
+        'Ubuntu as architecture: stokvel RLS policies must reflect collective ownership, members see group data, never each other\'s private balances',
+        'Split prompt caching: static stokvel context cached, per-member context dynamic, 70% token reduction after first message per stokvel per hour',
+        'Dispute mediation needs a hard escalation ceiling, 5 turns max before human (chairperson) intervenes; AI cannot mediate indefinitely',
+        'Deploying to Vercel jnb1 (Johannesburg) + Supabase Africa (Cape Town) puts compute and data on the continent, sub-100ms round trips for SA users',
       ],
     },
   },
@@ -334,21 +334,21 @@ export function checkLoanEligibility(
     title: 'AdminOS',
     tagline: 'The AI Operating System for South African SMEs',
     description:
-      "Full-stack AI business OS replacing 6 separate SaaS subscriptions. Five specialist Claude agents handle communication, invoicing, HR, reporting, and customer service — all accessible via WhatsApp. Built for South African load-shedding, PayFast, and isiXhosa context.",
+      "Full-stack AI business OS replacing 6 separate SaaS subscriptions. Five specialist Claude agents handle communication, invoicing, HR, reporting, and customer service, all accessible via WhatsApp. Built for South African load-shedding, PayFast, and isiXhosa context.",
     category: 'AI/ML · SaaS · SME Tools',
     status: 'Beta',
     year: '2025',
     problem:
-      "SA SMEs pay R11,200/month across fragmented tools — CRM, invoicing, HR, comms, analytics — most of which they barely use and none of which talk to each other.",
+      "SA SMEs pay R11,200/month across fragmented tools (CRM, invoicing, HR, comms, analytics) most of which they barely use and none of which talk to each other.",
     solution:
-      '5 specialist AI agents (Sales, Finance, HR, Comms, Analytics) replacing 6 subscriptions. WhatsApp-native interface — no app switching required. Xero-integrated, PayFast-enabled, load-shedding-aware offline mode.',
+      '5 specialist AI agents (Sales, Finance, HR, Comms, Analytics) replacing 6 subscriptions. WhatsApp-native interface, no app switching required. Xero-integrated, PayFast-enabled, load-shedding-aware offline mode.',
     techStack: [
       { name: 'Next.js 14', reason: 'App Router + API routes for agent orchestration' },
       { name: 'TypeScript', reason: 'Type-safe agent message contracts' },
-      { name: 'Supabase', reason: 'Multi-tenant RLS — each SME sees only their data' },
+      { name: 'Supabase', reason: 'Multi-tenant RLS, each SME sees only their data' },
       { name: 'Claude API', reason: '5 specialist agents with shared context cache' },
       { name: 'Upstash Redis', reason: 'Rate limiting + prompt cache warm storage' },
-      { name: 'Meta WhatsApp Cloud API', reason: 'Primary client interface — SA businesses live on WhatsApp' },
+      { name: 'Meta WhatsApp Cloud API', reason: 'Primary client interface, SA businesses live on WhatsApp' },
       { name: 'PayFast', reason: 'ZAR subscription billing' },
       { name: 'Resend', reason: 'Automated invoice + report delivery' },
     ],
@@ -361,7 +361,7 @@ export function checkLoanEligibility(
     liveUrl: null,
     githubUrl: null,
     images: [],
-    metaTitle: 'AdminOS — AI Business OS for South African SMEs | Nandawula Regine',
+    metaTitle: 'AdminOS · AI Business OS for South African SMEs | Nandawula Regine',
     metaDescription:
       'AdminOS replaces 6 SaaS subscriptions with 5 specialist Claude AI agents, accessible via WhatsApp. Built for South African SMEs by Nandawula Regine.',
     keywords: [
@@ -372,39 +372,39 @@ export function checkLoanEligibility(
       'AI business assistant South Africa',
     ],
     buildJourney: {
-      narrative: `Africa's businesses run on WhatsApp. Millions of messages land every day — client queries, invoice follow-ups, leave requests, complaints — and behind each one is a human manually responding, copying, chasing, and repeating. AdminOS was built to fix that. Not as a chatbot. As an operating system — one that handles the full admin layer automatically.
+      narrative: `Africa's businesses run on WhatsApp. Millions of messages land every day (client queries, invoice follow-ups, leave requests, complaints) and behind each one is a human manually responding, copying, chasing, and repeating. AdminOS was built to fix that. Not as a chatbot. As an operating system, one that handles the full admin layer automatically.
 
-Multi-tenancy is enforced at the database layer, not the application layer. Every table has tenant_id as a required column. Supabase RLS policies verify tenant_id = auth.jwt() ->> 'tenant_id' — a bug in the application code cannot leak one business's data to another. The middleware injects x-tenant-id, x-user-id, and x-user-role into every authenticated request header. The audit log is append-only — no UPDATE or DELETE policy granted.
+Multi-tenancy is enforced at the database layer, not the application layer. Every table has tenant_id as a required column. Supabase RLS policies verify tenant_id = auth.jwt() ->> 'tenant_id', a bug in the application code cannot leak one business's data to another. The middleware injects x-tenant-id, x-user-id, and x-user-role into every authenticated request header. The audit log is append-only, no UPDATE or DELETE policy granted.
 
 The most important cost decision: Claude prompt caching on the tenant system prompt. Every tenant has a pre-built context string (business name, type, language, tone, FAQs, staff directory, services, policies, extracted company goals) marked cache_control: ephemeral. Subsequent calls that hit the cache cost 90% less per token. Result: 85% reduction in AI operating costs at scale.
 
-The WorkflowEngine runs 7 steps in sequence with per-step timeouts: deduplication (Redis SET NX atomic, 500ms), tenant context load (2s), FAQ cache check (2s), Claude response with caching (20s), 360dialog outbound (5s), audit log write (2s), Supabase Realtime dashboard push (1s). The 360dialog webhook must receive a 200 OK in under 1 second — the pipeline runs async, non-blocking, after the webhook responds. Fail-open on Redis unavailability: log the error, allow the request. Production cannot go down because a cache layer is unhealthy.
+The WorkflowEngine runs 7 steps in sequence with per-step timeouts: deduplication (Redis SET NX atomic, 500ms), tenant context load (2s), FAQ cache check (2s), Claude response with caching (20s), 360dialog outbound (5s), audit log write (2s), Supabase Realtime dashboard push (1s). The 360dialog webhook must receive a 200 OK in under 1 second: the pipeline runs async, non-blocking, after the webhook responds. Fail-open on Redis unavailability: log the error, allow the request. Production cannot go down because a cache layer is unhealthy.
 
 The debt recovery engine runs a 5-tier escalation sequence over 30 days via Vercel Cron at 09:00 SAST daily. Claude drafts each message in the tenant's own voice and tone. The wellness check-in sends daily WhatsApp mood check-ins to all staff (Mon–Fri 08:00 SAST). Burnout detection triggers a manager alert when the 7-day average drops below 2.5.`,
-      codeExample: `// AdminWorkflowEngine — 7-step async pipeline with per-step timeouts
+      codeExample: `// AdminWorkflowEngine, 7-step async pipeline with per-step timeouts
 // 360dialog webhook must receive 200 OK in < 1s; pipeline runs non-blocking
 
 export async function processWhatsAppMessage(
   message: InboundMessage,
   tenantId: string
 ): Promise<void> {
-  // Respond to 360dialog immediately — pipeline is fire-and-forget from webhook's perspective
+  // Respond to 360dialog immediately (pipeline is fire-and-forget from webhook's perspective
   void runPipeline(message, tenantId);
 }
 
 async function runPipeline(message: InboundMessage, tenantId: string) {
-  // Step 1: Deduplication — atomic Redis SET NX (no GET+SET race condition)
+  // Step 1: Deduplication) atomic Redis SET NX (no GET+SET race condition)
   const deduped = await redis.set(\`msg:\${message.id}\`, '1', { nx: true, ex: 86400 });
-  if (!deduped) return; // Already processed — 360dialog can send the same message 2-3x
+  if (!deduped) return; // Already processed, 360dialog can send the same message 2-3x
 
   // Step 2: Load tenant context (cached in Redis, 15min TTL)
   const context = await withTimeout(loadTenantContext(tenantId), 2000);
 
-  // Step 3: FAQ cache check — answer without AI if possible (Redis, 7-day TTL)
+  // Step 3: FAQ cache check, answer without AI if possible (Redis, 7-day TTL)
   const cached = await withTimeout(checkFAQCache(message.text, tenantId), 2000);
   if (cached) return sendAndLog(cached, message, tenantId);
 
-  // Step 4: Claude with prompt caching — 85% cost reduction on cache hits
+  // Step 4: Claude with prompt caching, 85% cost reduction on cache hits
   const response = await withTimeout(
     anthropic.messages.create({
       model: 'claude-sonnet-4-6',
@@ -412,7 +412,7 @@ async function runPipeline(message: InboundMessage, tenantId: string) {
       messages: buildConversationHistory(message, context), // Capped at 10 msgs
     }),
     20000
-  );
+);
 
   // Steps 5–7: Send → Audit → Dashboard (always attempted, even after prior failures)
   await withTimeout(sendVia360dialog(response.content[0].text, message.from), 5000);
@@ -420,19 +420,19 @@ async function runPipeline(message: InboundMessage, tenantId: string) {
   await withTimeout(pushToSupabaseRealtime(tenantId, message), 1000);
 }
 
-// Multi-tenant RLS — enforced at DB layer, not application layer
+// Multi-tenant RLS, enforced at DB layer, not application layer
 // CREATE POLICY "Tenant isolation" ON conversations
-//   USING (tenant_id = (auth.jwt() ->> 'tenant_id')::uuid);
+// USING (tenant_id = (auth.jwt() ->> 'tenant_id')::uuid);
 // A bug in application code cannot leak Business A's data to Business B.`,
       codeLanguage: 'typescript',
-      codeLabel: 'AdminWorkflowEngine — async pipeline with dedup, caching, and multi-tenant RLS',
+      codeLabel: 'AdminWorkflowEngine: async pipeline with dedup, caching, and multi-tenant RLS',
       lessons: [
-        'Multi-tenant isolation belongs in the database (RLS), not the application — application bugs cannot cause data leaks',
+        'Multi-tenant isolation belongs in the database (RLS), not the application, application bugs cannot cause data leaks',
         'Prompt caching on the tenant system prompt = 85% AI cost reduction; the cached block is pre-built business context, the dynamic block is per-message',
-        'Atomic Redis SET NX is the correct deduplication pattern — GET+SET has a race condition; 360dialog can deliver the same message multiple times',
-        'Fail-open on Redis unavailability: log and allow the request — production cannot go down because a cache layer is unhealthy',
+        'Atomic Redis SET NX is the correct deduplication pattern, GET+SET has a race condition; 360dialog can deliver the same message multiple times',
+        'Fail-open on Redis unavailability: log and allow the request, production cannot go down because a cache layer is unhealthy',
         'Per-step timeouts prevent one slow step (Claude at 20s max) from blocking the audit log and dashboard steps that must still run',
-        'Debt recovery tone must be in the tenant\'s own voice — Claude drafts per-tenant, not generic templates',
+        'Debt recovery tone must be in the tenant\'s own voice, Claude drafts per-tenant, not generic templates',
       ],
     },
   },
@@ -440,7 +440,7 @@ async function runPipeline(message: InboundMessage, tenantId: string) {
   watchsankofa: {
     slug: 'watchsankofa',
     title: 'WatchSankofa',
-    tagline: 'The African-First Streaming Platform — 85% Revenue Share for Creators',
+    tagline: 'The African-First Streaming Platform · 85% Revenue Share for Creators',
     description:
       "Video streaming platform for African creators built on the Sankofa principle: go back and fetch what was lost. 85% creator revenue share vs Netflix's ~7%. Flutterwave payouts, isiXhosa content support, African cinematic design system.",
     category: 'Streaming · Creative Technology · Social Impact',
@@ -456,7 +456,7 @@ async function runPipeline(message: InboundMessage, tenantId: string) {
       { name: 'Supabase', reason: 'Content metadata, creator profiles, viewer analytics' },
       { name: 'Cloudinary', reason: 'Video processing, transcoding, adaptive streaming' },
       { name: 'Flutterwave', reason: 'Africa-native creator payouts (ZAR, NGN, KES, GHS)' },
-      { name: 'Tailwind CSS', reason: 'Cinematic dark theme — mahogany, amber, deep red' },
+      { name: 'Tailwind CSS', reason: 'Cinematic dark theme: mahogany, amber, deep red' },
     ],
     impact: {
       potential: 'African content creators continent-wide',
@@ -467,7 +467,7 @@ async function runPipeline(message: InboundMessage, tenantId: string) {
     liveUrl: null,
     githubUrl: null,
     images: [],
-    metaTitle: 'WatchSankofa — African Streaming Platform | 85% Creator Revenue Share | Nandawula Regine',
+    metaTitle: 'WatchSankofa · African Streaming Platform | 85% Creator Revenue Share | Nandawula Regine',
     metaDescription:
       "WatchSankofa is an African-first streaming platform with 85% creator revenue share, Flutterwave payouts, and language-first discovery. Built by Nandawula Regine.",
     keywords: [
@@ -480,14 +480,14 @@ async function runPipeline(message: InboundMessage, tenantId: string) {
     buildJourney: {
       narrative: `WatchSankofa began as a question during the YouTube clone: what does YouTube get wrong for African creators? Every layout decision was studied. The algorithm has no concept of isiZulu spoken word poetry as a distinct cultural form. An African filmmaker performing in Xhosa has the same discoverability as a gaming livestream. WatchSankofa was built to fix that.
 
-The Phase 1 foundation was static HTML/CSS/JS — a landing page and product spec ('AFRIFLIX_MASTER_PROMPT.md') that seeded everything. Phase 2 was a full Next.js 16.1.7 rebuild started 2026-03-18. Every architecture decision in Phase 2 was written with a 'why' rationale.
+The Phase 1 foundation was static HTML/CSS/JS, a landing page and product spec ('AFRIFLIX_MASTER_PROMPT.md') that seeded everything. Phase 2 was a full Next.js 16.1.7 rebuild started 2026-03-18. Every architecture decision in Phase 2 was written with a 'why' rationale.
 
-The audio player architecture decision: Zustand with persist middleware over Redux or Context. The audio player must persist across navigation without remounting — a user browsing while listening cannot have the player restart mid-track on every route change. Zustand's persist syncs to localStorage. Redux is overkill; Context re-renders the entire tree on every state change — catastrophic for a media player.
+The audio player architecture decision: Zustand with persist middleware over Redux or Context. The audio player must persist across navigation without remounting, a user browsing while listening cannot have the player restart mid-track on every route change. Zustand's persist syncs to localStorage. Redux is overkill; Context re-renders the entire tree on every state change, catastrophic for a media player.
 
 The video player is custom, not react-player. Control: WatchSankofa branding in the player, keyboard shortcuts that feel native, fullscreen with the container not the viewport, and the ability to swap the underlying video source to Cloudflare Stream's HLS without rewriting the UI.
 
 Server Components + client islands: content browsing, creator profiles, and search are server-rendered (no JavaScript for these read-heavy views). The audio player and video player are client islands. This is strictly better than a React SPA for a content platform where 80%+ of interactions are read operations.`,
-      codeExample: `// Zustand audio player — persists across navigation without remounting
+      codeExample: `// Zustand audio player, persists across navigation without remounting
 // Context would re-render the entire component tree on every state change
 // Redux is overkill; Zustand's persist handles SSR hydration cleanly
 
@@ -520,20 +520,20 @@ export const useAudioPlayer = create<AudioPlayerState>()(
     {
       name: 'watchsankofa-player',
       storage: createJSONStorage(() => localStorage),
-      // skipHydration prevents SSR/client mismatch — call rehydrate() after mount
+      // skipHydration prevents SSR/client mismatch (call rehydrate() after mount
       skipHydration: true,
-      // Only persist these fields — not UI state like isPlaying
+      // Only persist these fields) not UI state like isPlaying
       partialize: (s) => ({ currentTrack: s.currentTrack, volume: s.volume, queue: s.queue }),
     }
-  )
+)
 );`,
       codeLanguage: 'typescript',
-      codeLabel: 'Zustand audio player — cross-navigation persistence pattern',
+      codeLabel: 'Zustand audio player, cross-navigation persistence pattern',
       lessons: [
         'Zustand + persist is the correct pattern for a media player: persists across navigation, no SSR mismatch with skipHydration, no Redux overhead',
-        'Server Components for read-heavy views (browsing, profiles, search) + client islands for interactive UI (player) — minimum JavaScript shipped to the client',
+        'Server Components for read-heavy views (browsing, profiles, search) + client islands for interactive UI (player), minimum JavaScript shipped to the client',
         'Custom video player over react-player: swap the source to Cloudflare Stream HLS without rewriting the UI; own the keyboard shortcuts and fullscreen behaviour',
-        'The Sankofa principle is not branding — it is the product specification: recover what African creators were denied (ownership, revenue, visibility)',
+        'The Sankofa principle is not branding, it is the product specification: recover what African creators were denied (ownership, revenue, visibility)',
         '85% creator revenue share signals whose side the platform is on before a single feature ships',
       ],
     },
@@ -544,7 +544,7 @@ export const useAudioPlayer = create<AudioPlayerState>()(
     title: 'SankofaSessions',
     tagline: 'The Media Publication Powering the WatchSankofa Content Flywheel',
     description:
-      "Editorial media publication featuring African founders, creators, and builders. Functions as both a standalone publication and the content pipeline feeding WatchSankofa — interviews, essays, founder stories, and build-in-public content.",
+      "Editorial media publication featuring African founders, creators, and builders. Functions as both a standalone publication and the content pipeline feeding WatchSankofa: interviews, essays, founder stories, and build-in-public content.",
     category: 'Media · Content Strategy · Publishing',
     status: 'Upgrading',
     year: '2025',
@@ -567,7 +567,7 @@ export const useAudioPlayer = create<AudioPlayerState>()(
     liveUrl: null,
     githubUrl: null,
     images: [],
-    metaTitle: 'SankofaSessions — African Founder Media Publication | Nandawula Regine',
+    metaTitle: 'SankofaSessions · African Founder Media Publication | Nandawula Regine',
     metaDescription:
       "SankofaSessions is an editorial publication featuring African founders, creators, and builders. The media publication powering the WatchSankofa content flywheel.",
     keywords: [
@@ -577,7 +577,7 @@ export const useAudioPlayer = create<AudioPlayerState>()(
       'African entrepreneur publication',
     ],
     buildJourney: {
-      narrative: `SankofaSessions is the media layer of a larger content flywheel. The thesis: great streaming platforms are built on great editorial culture. Before WatchSankofa had content, it needed a publication that established what African creative excellence looks like — and who gets to define it.
+      narrative: `SankofaSessions is the media layer of a larger content flywheel. The thesis: great streaming platforms are built on great editorial culture. Before WatchSankofa had content, it needed a publication that established what African creative excellence looks like, and who gets to define it.
 
 The architecture decision: Substack for subscriber management, not a proprietary newsletter system. Building subscriber management from scratch (confirmation emails, preferences, unsubscribe flows, delivery infrastructure) is weeks of work that don't differentiate the product. Substack handles it; SankofaSessions focuses on editorial quality.
 
@@ -585,10 +585,10 @@ The flywheel logic is deliberate: the publication builds an audience of people w
 
 Long-form interviews (2,000+ words) are the moat. A 600-word founder Q&A can be produced at volume. A 2,000-word narrative profile of a Kenyan filmmaker building infrastructure for African cinema cannot be replicated without a genuine editorial point of view. Depth is the differentiator.`,
       lessons: [
-        'Media + streaming is a flywheel, not two products — the publication builds the audience that makes the platform valuable to creators',
+        'Media + streaming is a flywheel, not two products, the publication builds the audience that makes the platform valuable to creators',
         'Substack for subscriber infrastructure: let the editorial product focus on editorial quality, not delivery pipelines',
-        'Long-form depth (2,000+ words) is the moat — it cannot be replicated without a genuine point of view and editorial investment',
-        'The editorial voice is the product specification: African, female, technical, poetic — not trying to be Forbes Africa, trying to be something that didn\'t exist',
+        'Long-form depth (2,000+ words) is the moat: it cannot be replicated without a genuine point of view and editorial investment',
+        'The editorial voice is the product specification: African, female, technical, poetic, not trying to be Forbes Africa, trying to be something that didn\'t exist',
       ],
     },
   },
@@ -596,9 +596,9 @@ Long-form interviews (2,000+ words) are the moat. A 600-word founder Q&A can be 
   creativelynanda: {
     slug: 'creativelynanda',
     title: 'CreativelyNanda.co.za',
-    tagline: 'Portfolio & Digital HQ — The Website That Builds Itself',
+    tagline: 'Portfolio & Digital HQ. The Website That Builds Itself',
     description:
-      'My personal portfolio, digital headquarters, and product platform — a magazine-inspired, AI-integrated website with a Notion template shop, poetry collection, blog, and AI assistant. Built with Next.js, Supabase, and PayFast.',
+      'My personal portfolio, digital headquarters, and product platform, a magazine-inspired, AI-integrated website with a Notion template shop, poetry collection, blog, and AI assistant. Built with Next.js, Supabase, and PayFast.',
     category: 'Web App · Personal Brand · Full-Stack',
     status: 'Live',
     year: '2025',
@@ -624,7 +624,7 @@ Long-form interviews (2,000+ words) are the moat. A 600-word founder Q&A can be 
     liveUrl: 'https://creativelynanda.co.za',
     githubUrl: 'https://github.com/Nanda-Regine/CreativelyNanda.co.za',
     images: [],
-    metaTitle: 'CreativelyNanda.co.za — Portfolio & Digital HQ | Nandawula Regine',
+    metaTitle: 'CreativelyNanda.co.za · Portfolio & Digital HQ | Nandawula Regine',
     metaDescription:
       'CreativelyNanda.co.za is a full-stack personal brand platform with Notion template shop, poetry collection, blog, and AI assistant. Built with Next.js, Supabase, and PayFast by Nandawula Regine.',
     keywords: [
@@ -635,16 +635,16 @@ Long-form interviews (2,000+ words) are the moat. A 600-word founder Q&A can be 
       'PayFast portfolio website',
     ],
     buildJourney: {
-      narrative: `The goal from day one: not a static brochure. A cultural destination — the professional credibility of LinkedIn, the seamless commerce of a digital storefront, the literary community of a poetry platform, the editorial authority of a long-form publication, all in one. Every architecture decision was written with a rationale.
+      narrative: `The goal from day one: not a static brochure. A cultural destination: the professional credibility of LinkedIn, the seamless commerce of a digital storefront, the literary community of a poetry platform, the editorial authority of a long-form publication, all in one. Every architecture decision was written with a rationale.
 
 PayFast over Stripe: Stripe doesn't process ZAR-denominated cards directly for SA merchants without complex setup. PayFast has ~60% market share in SA, supports EFT and instant EFT (dominant payment methods in ZA), and processes in Rand natively. For a site targeting SA students and entrepreneurs, Stripe adds friction and currency confusion. PayFast was always the correct choice for this market.
 
-Supabase over Firebase: Firestore's document model would require denormalising the product-order relationship that Postgres handles naturally with foreign keys and indexes. Supabase provides full PostgreSQL, Row Level Security at the database layer (orders readable by buyer, not other users), and signed Storage URLs for digital delivery — all without custom code.
+Supabase over Firebase: Firestore's document model would require denormalising the product-order relationship that Postgres handles naturally with foreign keys and indexes. Supabase provides full PostgreSQL, Row Level Security at the database layer (orders readable by buyer, not other users), and signed Storage URLs for digital delivery, all without custom code.
 
-Zustand for the cart: the cart must persist across App Router navigations and survive browser refreshes. The critical pattern is skipHydration: true on the store, with rehydrate() called after mount — this prevents the 'cart flicker' where server HTML shows an empty cart but client state has items.
+Zustand for the cart: the cart must persist across App Router navigations and survive browser refreshes. The critical pattern is skipHydration: true on the store, with rehydrate() called after mount, this prevents the 'cart flicker' where server HTML shows an empty cart but client state has items.
 
 TypeScript caught the PayFast signature bug before production: the PayfastPaymentData interface ensures every field passed to the signature generator is accounted for. A type error in the PayFast signature function would cause silent revenue loss. TypeScript strict mode on payment code costs nothing at build time; the same error in production costs revenue.`,
-      codeExample: `// Cart store — skipHydration pattern prevents SSR/client mismatch
+      codeExample: `// Cart store, skipHydration pattern prevents SSR/client mismatch
 // Without this: server renders empty cart, client rehydrates with items → layout shift
 
 export const useCartStore = create<CartStore>()(
@@ -662,32 +662,32 @@ export const useCartStore = create<CartStore>()(
     {
       name: 'mirembe-cart',
       storage: createJSONStorage(() => localStorage),
-      skipHydration: true, // Critical — prevents SSR/client cart flicker
+      skipHydration: true, // Critical, prevents SSR/client cart flicker
     }
-  )
+)
 );
 
-// Call rehydrate() after mount — never on the server
+// Call rehydrate() after mount, never on the server
 useEffect(() => { useCartStore.persist.rehydrate(); }, []);
 
-// PayFast signature — field ORDER matters; alphabetical sort BREAKS it
+// PayFast signature, field ORDER matters; alphabetical sort BREAKS it
 // This bug caused silent payment failures before the fix
 export function generateSignature(data: PayfastPaymentData, passphrase: string): string {
-  const params = Object.entries(data) // Insertion order — DO NOT .sort()
-    .filter(([, v]) => v !== '' && v !== null)
+  const params = Object.entries(data) // Insertion order, DO NOT .sort()
+    .filter(([v]) => v !== '' && v !== null)
     .map(([k, v]) => \`\${k}=\${encodeURIComponent(String(v)).replace(/%20/g, '+')}\`)
     .join('&');
   return md5(\`\${params}&passphrase=\${encodeURIComponent(passphrase)}\`);
 }`,
       codeLanguage: 'typescript',
-      codeLabel: 'Cart skipHydration + PayFast field-order signature — production bugs caught',
+      codeLabel: 'Cart skipHydration + PayFast field-order signature, production bugs caught',
       lessons: [
         'skipHydration: true on Zustand persist + rehydrate() after mount prevents the cart flicker in SSR/App Router applications',
-        'PayFast signature is field-ORDER sensitive — alphabetical sort breaks it silently; this is not documented prominently in PayFast docs',
+        'PayFast signature is field-ORDER sensitive, alphabetical sort breaks it silently; this is not documented prominently in PayFast docs',
         'Supabase over Firebase: PostgreSQL + RLS + signed Storage URLs solves product-order-delivery in one platform',
-        'PayFast over Stripe: ZAR native, EFT support, 60% SA market share — the correct payment gateway for the SA market',
+        'PayFast over Stripe: ZAR native, EFT support, 60% SA market share, the correct payment gateway for the SA market',
         'TypeScript strict mode on payment code: the type error that catches a PayFast bug costs nothing at build time',
-        'Arcjet composable middleware: bot detection + rate limiting in one API — less custom code, more security coverage',
+        'Arcjet composable middleware: bot detection + rate limiting in one API, less custom code, more security coverage',
       ],
     },
   },
@@ -699,14 +699,14 @@ export function generateSignature(data: PayfastPaymentData, passphrase: string):
     title: 'PoetryTube',
     tagline: 'Language-First Video Platform for African Spoken Word Poetry',
     description:
-      "A dedicated video platform for African spoken word poets — isiZulu, Sesotho, Luganda as first-class discovery dimensions. Live applause via Supabase Realtime turns individual viewing into collective experience. Built by a published poet who has lived the exact problem.",
+      "A dedicated video platform for African spoken word poets: isiZulu, Sesotho, Luganda as first-class discovery dimensions. Live applause via Supabase Realtime turns individual viewing into collective experience. Built by a published poet who has lived the exact problem.",
     category: 'Creative · Web App · Social Impact',
     status: 'Beta',
     year: '2025',
     problem:
       "YouTube's algorithm has no concept of spoken word poetry as a distinct cultural form. A poet performing in isiZulu has the same discoverability as a gaming livestream. African poets deserve a home built for them.",
     solution:
-      "Language-first content architecture: filter by language, style, country, and emotion. Live applause via Supabase Realtime broadcast — all connected viewers receive the increment simultaneously. Mux video for smooth streaming on SA mobile data.",
+      "Language-first content architecture: filter by language, style, country, and emotion. Live applause via Supabase Realtime broadcast, all connected viewers receive the increment simultaneously. Mux video for smooth streaming on SA mobile data.",
     techStack: [
       { name: 'Next.js 14', reason: 'SSR for content discovery SEO' },
       { name: 'TypeScript', reason: 'Type-safe content and user models' },
@@ -723,7 +723,7 @@ export function generateSignature(data: PayfastPaymentData, passphrase: string):
     liveUrl: 'https://poetry-tube.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/PoetryTube',
     images: [],
-    metaTitle: 'PoetryTube — Language-First Video Platform for African Poetry | Nandawula Regine',
+    metaTitle: 'PoetryTube · Language-First Video Platform for African Poetry | Nandawula Regine',
     metaDescription:
       'PoetryTube is a spoken word video platform with isiZulu, Sesotho, and Luganda discovery filters. Live applause via Supabase Realtime. Built by Nandawula Regine.',
     keywords: [
@@ -736,10 +736,10 @@ export function generateSignature(data: PayfastPaymentData, passphrase: string):
     buildJourney: {
       narrative: `PoetryTube was built from a personal injustice: YouTube's algorithm has no concept of spoken word poetry as a distinct cultural form. A poet performing in isiZulu has the same discoverability as a gaming livestream.
 
-PoetryTube treats language as a first-class discovery dimension — you can filter by language, style, country, and emotion. The live applause feature was the most technically complex component: when a viewer taps applause during a performance, a Supabase Realtime broadcast is sent to all connected clients watching that performance simultaneously. The applause counter increments in real time for everyone.
+PoetryTube treats language as a first-class discovery dimension: you can filter by language, style, country, and emotion. The live applause feature was the most technically complex component: when a viewer taps applause during a performance, a Supabase Realtime broadcast is sent to all connected clients watching that performance simultaneously. The applause counter increments in real time for everyone.
 
-That shared moment — a room filling with applause through a screen — changes the product from media consumption to live cultural event.`,
-      codeExample: `// Supabase Realtime — live applause during performances
+That shared moment, a room filling with applause through a screen, changes the product from media consumption to live cultural event.`,
+      codeExample: `// Supabase Realtime, live applause during performances
 // All viewers on the same performance receive the increment simultaneously
 
 import { createClient } from '@supabase/supabase-js';
@@ -767,11 +767,11 @@ function subscribeToApplause(performanceId: string, onApplause: () => void) {
     .subscribe();
 }`,
       codeLanguage: 'typescript',
-      codeLabel: 'Supabase Realtime — live applause broadcast',
+      codeLabel: 'Supabase Realtime, live applause broadcast',
       lessons: [
-        'Supabase Realtime presence channels are the right primitive for live collaborative features — not WebSockets from scratch',
+        'Supabase Realtime presence channels are the right primitive for live collaborative features, not WebSockets from scratch',
         'Language-first content architecture: language must be a discovery dimension, not a filter option',
-        'The most personal project is the most differentiated — biographical legitimacy cannot be engineered',
+        'The most personal project is the most differentiated, biographical legitimacy cannot be engineered',
         'Products built from injustice last',
       ],
     },
@@ -782,14 +782,14 @@ function subscribeToApplause(performanceId: string, onApplause: () => void) {
     title: 'True Access',
     tagline: 'Community-Verified Accessibility Database for 4M Disabled South Africans',
     description:
-      "Community-driven accessibility mapping platform for disabled users in South Africa. WCAG-compliant by design — accessibility-first development applied throughout. Weighted confidence scoring: recency and contributor trust improve the accuracy of community-sourced data.",
+      "Community-driven accessibility mapping platform for disabled users in South Africa. WCAG-compliant by design, accessibility-first development applied throughout. Weighted confidence scoring: recency and contributor trust improve the accuracy of community-sourced data.",
     category: 'Accessibility · Community Impact · Web App',
     status: 'Live',
     year: '2025',
     problem:
-      '4 million South Africans with disabilities have no verified accessibility database for public spaces. Existing resources are outdated, incomplete, or simply non-existent — creating daily barriers to independence.',
+      '4 million South Africans with disabilities have no verified accessibility database for public spaces. Existing resources are outdated, incomplete, or simply non-existent, creating daily barriers to independence.',
     solution:
-      'A community-verified accessibility scoring system with Mapbox GL JS spatial visualisation, weighted confidence scoring (recency + contributor trust), and WCAG-compliant UI. Co-founded — first multi-stakeholder technical collaboration.',
+      'A community-verified accessibility scoring system with Mapbox GL JS spatial visualisation, weighted confidence scoring (recency + contributor trust), and WCAG-compliant UI. Co-founded, first multi-stakeholder technical collaboration.',
     techStack: [
       { name: 'Next.js', reason: 'PWA support + SSR for performance' },
       { name: 'TypeScript', reason: 'Reliable geolocation data handling' },
@@ -801,12 +801,12 @@ function subscribeToApplause(performanceId: string, onApplause: () => void) {
       potential: '4M disabled South Africans',
       economy: 'Zero reliable accessibility data → verified database',
       problem: 'Daily barriers to independence and participation',
-      metric: 'WCAG-compliant by design — accessibility-first development',
+      metric: 'WCAG-compliant by design, accessibility-first development',
     },
     liveUrl: 'https://true-access-app.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/TrueAccApp',
     images: [],
-    metaTitle: 'True Access — Verified Accessibility Mapping for Disabled South Africans | Nandawula Regine',
+    metaTitle: 'True Access · Verified Accessibility Mapping for Disabled South Africans | Nandawula Regine',
     metaDescription:
       "True Access is a community-verified accessibility database for South Africa's 4M disabled people. WCAG-compliant, Mapbox-powered. Built by Nandawula Regine.",
     keywords: [
@@ -851,10 +851,10 @@ ORDER BY confidence_score DESC NULLS LAST;`,
       codeLanguage: 'sql',
       codeLabel: 'Weighted accessibility confidence scoring',
       lessons: [
-        'Accessibility compliance is a quality standard, not a feature — it improves the product for every user',
-        'Community-sourced data needs confidence scoring, not just averaging — recency and contributor trust should weight the score',
+        'Accessibility compliance is a quality standard, not a feature: it improves the product for every user',
+        'Community-sourced data needs confidence scoring, not just averaging, recency and contributor trust should weight the score',
         'Mapbox GL JS custom layers outperform Google Maps for accessibility-specific visual languages',
-        'Co-founding requires explicit technical alignment on architecture decisions — velocity requires governance',
+        'Co-founding requires explicit technical alignment on architecture decisions, velocity requires governance',
       ],
     },
   },
@@ -862,20 +862,20 @@ ORDER BY confidence_score DESC NULLS LAST;`,
   'cortex-hub': {
     slug: 'cortex-hub',
     title: 'Cortex Hub Booking',
-    tagline: 'PostgreSQL tsrange Logic — Zero Double-Bookings at Any Concurrency',
+    tagline: 'PostgreSQL tsrange Logic, Zero Double-Bookings at Any Concurrency',
     description:
-      'Booking platform for South African creative hubs. PostgreSQL tsrange overlap operator with GIST index prevents double-bookings under concurrent writes. First PayFast ITN webhook implementation in the portfolio — architectural ancestor of AdminOS.',
+      'Booking platform for South African creative hubs. PostgreSQL tsrange overlap operator with GIST index prevents double-bookings under concurrent writes. First PayFast ITN webhook implementation in the portfolio, architectural ancestor of AdminOS.',
     category: 'SaaS · Booking · SME Tools',
     status: 'Live',
     year: '2025',
     problem:
       'SA creative hubs run on WhatsApp and paper booking registers. The inevitable result: double bookings, lost revenue, and client disputes. A SELECT check before INSERT is not enough under concurrent writes.',
     solution:
-      'PostgreSQL tsrange type + GIST index + EXCLUDE constraint fires on INSERT if any confirmed booking overlaps the requested range — safe under any concurrency. PayFast ITN webhook verifies payment before confirming booking.',
+      'PostgreSQL tsrange type + GIST index + EXCLUDE constraint fires on INSERT if any confirmed booking overlaps the requested range, safe under any concurrency. PayFast ITN webhook verifies payment before confirming booking.',
     techStack: [
       { name: 'Next.js 14', reason: 'App Router for booking flow + PayFast webhook API routes' },
       { name: 'TypeScript', reason: 'Type-safe booking state machine' },
-      { name: 'Supabase', reason: 'PostgreSQL tsrange + GIST index — concurrent booking prevention' },
+      { name: 'Supabase', reason: 'PostgreSQL tsrange + GIST index, concurrent booking prevention' },
       { name: 'PayFast', reason: 'ITN webhook: payment verified before booking confirmed' },
       { name: 'Resend', reason: 'Booking confirmation emails' },
       { name: 'Tailwind CSS', reason: 'Clean booking UI' },
@@ -890,7 +890,7 @@ ORDER BY confidence_score DESC NULLS LAST;`,
     githubUrl: 'https://github.com/Nanda-Regine/Cortex-Hub-Booking',
     videoUrl: '/assets/project-screen-record/cortexhub-booking-system.mp4',
     images: [],
-    metaTitle: 'Cortex Hub Booking — PostgreSQL Concurrent Booking Prevention | Nandawula Regine',
+    metaTitle: 'Cortex Hub Booking · PostgreSQL Concurrent Booking Prevention | Nandawula Regine',
     metaDescription:
       'Cortex Hub Booking uses PostgreSQL tsrange overlap constraints to prevent double-bookings under concurrent writes. First PayFast ITN implementation in the portfolio. Built by Nandawula Regine.',
     keywords: [
@@ -903,7 +903,7 @@ ORDER BY confidence_score DESC NULLS LAST;`,
     buildJourney: {
       narrative: `Cortex Hub Booking solved a deceptively simple problem: is this space free at this time? The deception is in the edge cases. Between a user clicking 'Book' and the database writing the reservation, another user could have claimed the slot.
 
-A simple SELECT check before INSERT is not enough — in a concurrent system, two users can pass the check simultaneously and both write. The solution was PostgreSQL's tsrange overlap operator combined with a unique constraint. The tsrange type represents a time interval and the && operator checks for intersection — if any confirmed booking overlaps with the requested range, the constraint fires and the second INSERT is rejected.
+A simple SELECT check before INSERT is not enough, in a concurrent system, two users can pass the check simultaneously and both write. The solution was PostgreSQL's tsrange overlap operator combined with a unique constraint. The tsrange type represents a time interval and the && operator checks for intersection, if any confirmed booking overlaps with the requested range, the constraint fires and the second INSERT is rejected.
 
 This pattern was later deployed in VarsityOS (study room booking), AdminOS (appointment scheduling), and forms the basis of every calendar feature in the portfolio.`,
       codeExample: `-- Availability check: prevents double-booking with PostgreSQL tsrange
@@ -929,9 +929,9 @@ INSERT INTO bookings (space_id, user_id, start_time, end_time, status)
 VALUES ($1, $2, $3, $4, 'pending')
 RETURNING id;`,
       codeLanguage: 'sql',
-      codeLabel: 'PostgreSQL tsrange — concurrent booking prevention',
+      codeLabel: 'PostgreSQL tsrange, concurrent booking prevention',
       lessons: [
-        'Availability checking must happen at the database layer with a constraint — application-level checks are not safe under concurrency',
+        'Availability checking must happen at the database layer with a constraint, application-level checks are not safe under concurrency',
         'PostgreSQL tsrange + GIST index handles interval arithmetic better than any application code',
         'PayFast ITN webhook: the signature must be verified server-side before updating booking status',
         'Every manual WhatsApp booking message is a future AdminOS feature specification',
@@ -942,21 +942,21 @@ RETURNING id;`,
   'green-vault': {
     slug: 'green-vault',
     title: 'GreenVault eCommerce',
-    tagline: 'The Complete eCommerce Data Lifecycle — From Cart to Signed Download URL',
+    tagline: 'The Complete eCommerce Data Lifecycle · From Cart to Signed Download URL',
     description:
       "Complete eCommerce platform with the full digital goods delivery lifecycle: PayFast ITN → idempotent webhook handler → signed Supabase Storage URL (48-hour expiry) → Resend confirmation email. The earth-toned design system became the Mirembe Muse brand palette.",
     category: 'eCommerce · Full-Stack',
     status: 'Live',
     year: '2025',
     problem:
-      "SA sustainable products are scattered across informal sellers and Instagram pages. But GreenVault's real problem was engineering: digital goods delivery must be idempotent — PayFast can send the same ITN multiple times.",
+      "SA sustainable products are scattered across informal sellers and Instagram pages. But GreenVault's real problem was engineering: digital goods delivery must be idempotent, PayFast can send the same ITN multiple times.",
     solution:
       "Idempotency check on payment reference before processing. Signed Supabase Storage URLs with 48-hour expiry for digital download delivery. Earth-toned design system (forest green, terracotta, cream, warm amber) built for the SA sustainable market.",
     techStack: [
       { name: 'Next.js 14', reason: 'Performance + SEO for eCommerce, API routes for PayFast ITN' },
       { name: 'TypeScript', reason: 'Reliable payment and inventory logic' },
       { name: 'Supabase', reason: 'Product database + Storage for signed download URLs' },
-      { name: 'PayFast', reason: 'Native SA payment gateway — ITN webhook' },
+      { name: 'PayFast', reason: 'Native SA payment gateway, ITN webhook' },
       { name: 'Resend', reason: 'Order confirmation + download link emails' },
       { name: 'Tailwind CSS', reason: 'Earth-toned design system' },
     ],
@@ -970,7 +970,7 @@ RETURNING id;`,
     githubUrl: 'https://github.com/Nanda-Regine/GreenValut-eCommerce-store-demo',
     videoUrl: '/assets/project-screen-record/GreenVault.mp4',
     images: [],
-    metaTitle: 'GreenVault eCommerce — PayFast Idempotent Webhook + Signed Download URLs | Nandawula Regine',
+    metaTitle: 'GreenVault eCommerce · PayFast Idempotent Webhook + Signed Download URLs | Nandawula Regine',
     metaDescription:
       'GreenVault is a full eCommerce platform with idempotent PayFast ITN handling, signed Supabase Storage download URLs, and Resend email delivery. Built by Nandawula Regine.',
     keywords: [
@@ -984,10 +984,10 @@ RETURNING id;`,
     buildJourney: {
       narrative: `GreenVault was the most technically comprehensive foundation project: it implemented the complete eCommerce data lifecycle that now runs the Mirembe Muse Store.
 
-The hardest problem was digital goods delivery. When a customer pays for a digital product, the flow has to be: PayFast sends ITN → verify signature → mark order confirmed → generate a signed Supabase Storage URL with 48-hour expiry → send email via Resend. The entire chain must be atomic and idempotent — PayFast can send the same ITN multiple times, so the webhook handler must be safe to run repeatedly without creating duplicate orders or sending multiple emails.
+The hardest problem was digital goods delivery. When a customer pays for a digital product, the flow has to be: PayFast sends ITN → verify signature → mark order confirmed → generate a signed Supabase Storage URL with 48-hour expiry → send email via Resend. The entire chain must be atomic and idempotent, PayFast can send the same ITN multiple times, so the webhook handler must be safe to run repeatedly without creating duplicate orders or sending multiple emails.
 
 The earth-toned design system (forest green, terracotta, cream, warm amber) built for GreenVault became the Mirembe Muse brand palette.`,
-      codeExample: `// PayFast ITN webhook — idempotent handler
+      codeExample: `// PayFast ITN webhook, idempotent handler
 // Safe to run multiple times for the same payment reference
 
 export async function POST(request: Request) {
@@ -999,7 +999,7 @@ export async function POST(request: Request) {
   const isValid = await verifyPayFastSignature(params);
   if (!isValid) return new Response('Invalid signature', { status: 403 });
 
-  // 2. Idempotency check — skip if already processed
+  // 2. Idempotency check, skip if already processed
   const { data: existingOrder } = await supabase
     .from('orders')
     .select('id, status')
@@ -1028,10 +1028,10 @@ export async function POST(request: Request) {
   return new Response('OK', { status: 200 });
 }`,
       codeLanguage: 'typescript',
-      codeLabel: 'PayFast ITN handler — idempotent webhook pattern',
+      codeLabel: 'PayFast ITN handler, idempotent webhook pattern',
       lessons: [
-        'PayFast ITN handlers must be idempotent — the same notification can arrive 2-3 times',
-        'Signed Supabase Storage URLs are the correct pattern for digital goods delivery — not public URLs',
+        'PayFast ITN handlers must be idempotent, the same notification can arrive 2-3 times',
+        'Signed Supabase Storage URLs are the correct pattern for digital goods delivery, not public URLs',
         'The eCommerce order state machine (pending → confirmed → fulfilled → refunded) belongs in the database as a CHECK constraint, not application logic',
         'Earth-toned design systems (forest green, terracotta, cream) are inherently brand-appropriate for African wellness/sustainable commerce',
       ],
@@ -1043,16 +1043,16 @@ export async function POST(request: Request) {
     title: 'YouTube Clone',
     tagline: "Day One. July 13, 2025. The Foundation of Everything.",
     description:
-      "The very first project. YouTube's full UI in raw HTML and CSS — no framework, no API, no dependencies. Custom @CreativelyNanda thumbnails: poetry, code, lookbook, identity. The channel name was already there on day one.",
+      "The very first project. YouTube's full UI in raw HTML and CSS: no framework, no API, no dependencies. Custom @CreativelyNanda thumbnails: poetry, code, lookbook, identity. The channel name was already there on day one.",
     category: 'Foundation · Frontend · CSS',
     status: 'Completed',
     year: '2025',
     problem:
       'Before building WatchSankofa, you have to understand what you\'re improving upon. Every layout decision was studied: the sidebar hierarchy, the card grid, the metadata density.',
     solution:
-      'Full YouTube UI in raw HTML/CSS — no framework, no API. Custom thumbnails with the @CreativelyNanda channel identity already established. CSS Grid for the video card layout, Flexbox for component alignment.',
+      'Full YouTube UI in raw HTML/CSS · no framework, no API. Custom thumbnails with the @CreativelyNanda channel identity already established. CSS Grid for the video card layout, Flexbox for component alignment.',
     techStack: [
-      { name: 'HTML5', reason: 'Semantic component structure — no framework' },
+      { name: 'HTML5', reason: 'Semantic component structure, no framework' },
       { name: 'CSS3', reason: 'All layout and styling' },
       { name: 'CSS Grid', reason: 'Video card grid layout' },
       { name: 'Flexbox', reason: 'Component alignment' },
@@ -1068,9 +1068,9 @@ export async function POST(request: Request) {
     githubUrl: 'https://github.com/Nanda-Regine/CreativelyNanda-Youtube-clone',
     videoUrl: '/assets/project-screen-record/youtube-clone.mp4',
     images: [],
-    metaTitle: 'YouTube Clone — Day One. The Foundation. | Nandawula Regine',
+    metaTitle: 'YouTube Clone, Day One. The Foundation. | Nandawula Regine',
     metaDescription:
-      "Full YouTube UI in raw HTML/CSS. Custom @CreativelyNanda thumbnails. Built July 13, 2025 — the very first project. SheCodes Plus. By Nandawula Regine.",
+      "Full YouTube UI in raw HTML/CSS. Custom @CreativelyNanda thumbnails. Built July 13, 2025, the very first project. SheCodes Plus. By Nandawula Regine.",
     keywords: [
       'YouTube clone HTML CSS',
       'CSS Grid project',
@@ -1078,13 +1078,13 @@ export async function POST(request: Request) {
       'foundation project web development',
     ],
     buildJourney: {
-      narrative: `Built on July 13, 2025 — the very first day. Running locally at 127.0.0.1:5500 in pure HTML and CSS with no framework, no API, no dependencies.
+      narrative: `Built on July 13, 2025, the very first day. Running locally at 127.0.0.1:5500 in pure HTML and CSS with no framework, no API, no dependencies.
 
 The YouTube clone was not a tutorial exercise. It was UI reverse engineering conducted with a specific question in mind: what does YouTube get wrong for African creators? Every layout decision was studied: the sidebar hierarchy, the card grid, the metadata density.
 
 The custom thumbnails told the whole story before the story had been written: @CreativelyNanda, a poetry short film, a coding journey, a personal essay on identity, a style lookbook. The channel name was already there on day one.
 
-This is where everything started. This is the proof that fundamentals matter — the developer who can build YouTube's UI in raw CSS understands the web.`,
+This is where everything started. This is the proof that fundamentals matter, the developer who can build YouTube's UI in raw CSS understands the web.`,
       lessons: [
         'Fundamentals before frameworks: CSS Grid and Flexbox mastery enables every design system that comes after',
         'Clone to learn, not to copy: the YouTube clone is research for WatchSankofa',
@@ -1097,18 +1097,18 @@ This is where everything started. This is the proof that fundamentals matter —
   'weather-app': {
     slug: 'weather-app',
     title: 'MoodCast Weather App',
-    tagline: 'Original Poems for Every Weather Condition — and a Load Shedding Mood Card',
+    tagline: 'Original Poems for Every Weather Condition · and a Load Shedding Mood Card',
     description:
-      "SheCodes Plus weather app built by a published poet. Original poems for rain, sun, wind, clouds, storms. South Africa's load shedding mood card — candle rituals, battery-saving affirmations, a poem about sitting in the dark. The most-shared feature in testing.",
+      "SheCodes Plus weather app built by a published poet. Original poems for rain, sun, wind, clouds, storms. South Africa's load shedding mood card: candle rituals, battery-saving affirmations, a poem about sitting in the dark. The most-shared feature in testing.",
     category: 'Web App · API Integration · SheCodes Plus',
     status: 'Live',
     year: '2025',
     problem:
       "Weather apps give you data. What does a published poet build when she gets a weather brief? The standard tutorial project is a brief, not a destination.",
     solution:
-      "OpenWeatherMap API + Geolocation API for real-time data. Original poems written for each weather condition. South Africa load shedding mood card — converts national frustration into a moment of care. SheCodes Plus certified.",
+      "OpenWeatherMap API + Geolocation API for real-time data. Original poems written for each weather condition. South Africa load shedding mood card, converts national frustration into a moment of care. SheCodes Plus certified.",
     techStack: [
-      { name: 'HTML5', reason: 'Semantic markup — no framework' },
+      { name: 'HTML5', reason: 'Semantic markup, no framework' },
       { name: 'CSS3', reason: 'Atmospheric gradients, responsive design' },
       { name: 'Vanilla JavaScript', reason: 'API calls, DOM manipulation, geolocation' },
       { name: 'OpenWeatherMap API', reason: 'Real-time weather data' },
@@ -1123,7 +1123,7 @@ This is where everything started. This is the proof that fundamentals matter —
     liveUrl: 'https://my-weather-app-rho-lyart.vercel.app/',
     githubUrl: 'https://github.com/Nanda-Regine/my-weather-app',
     images: [],
-    metaTitle: 'MoodCast Weather App — Poems for Every Weather, Load Shedding Mood Card | Nandawula Regine',
+    metaTitle: 'MoodCast Weather App · Poems for Every Weather, Load Shedding Mood Card | Nandawula Regine',
     metaDescription:
       "SheCodes Plus weather app with original poems for every weather condition and a South Africa load shedding mood card. Built by Nandawula Regine.",
     keywords: [
@@ -1136,15 +1136,15 @@ This is where everything started. This is the proof that fundamentals matter —
     buildJourney: {
       narrative: `The SheCodes Plus curriculum required a weather app. The question was: what does a weather app built by a published poet look like?
 
-The technical implementation — API key, geolocation, fetch, parse, render — was the fastest part. The real work was the content library: original poems written for each weather condition, self-care rituals matched to each condition, and a South Africa-specific addition that no tutorial suggests — the load shedding mood card.
+The technical implementation (API key, geolocation, fetch, parse, render) was the fastest part. The real work was the content library: original poems written for each weather condition, self-care rituals matched to each condition, and a South Africa-specific addition that no tutorial suggests, the load shedding mood card.
 
 The load shedding card converts what every South African acknowledges as a frustration into a moment of care: candle rituals, battery-saving affirmations, a poem about sitting in the dark. It became the most-shared feature in user testing.
 
 The lesson: the standard project is the starting point, not the destination.`,
       lessons: [
-        "SheCodes Plus taught the fundamentals — the project taught the identity",
+        "SheCodes Plus taught the fundamentals, the project taught the identity",
         'The load shedding card is a product insight: products that acknowledge SA lived reality earn trust competitors cannot buy',
-        'The standard tutorial project is a brief, not a destination — the question is always: what would make this mine?',
+        'The standard tutorial project is a brief, not a destination, the question is always: what would make this mine?',
         'Original content (poems per weather condition) is a moat that technical skill alone cannot replicate',
       ],
     },
@@ -1153,9 +1153,9 @@ The lesson: the standard project is the starting point, not the destination.`,
   'netflix-clone': {
     slug: 'netflix-clone',
     title: 'Netflix Landing',
-    tagline: 'Pixel-Perfect Design Precision Training — SheCodes Plus',
+    tagline: 'Pixel-Perfect Design Precision Training · SheCodes Plus',
     description:
-      "Pixel-perfect CSS recreation of the Netflix landing page — a SheCodes Plus exercise in design precision. No source inspection. Forces understanding of how modern UIs are actually constructed. The discipline of visual accuracy in recreation translates directly to the discipline of visual accuracy in original design.",
+      "Pixel-perfect CSS recreation of the Netflix landing page, a SheCodes Plus exercise in design precision. No source inspection. Forces understanding of how modern UIs are actually constructed. The discipline of visual accuracy in recreation translates directly to the discipline of visual accuracy in original design.",
     category: 'Frontend · CSS · SheCodes Plus',
     status: 'Completed',
     year: '2025',
@@ -1180,19 +1180,19 @@ The lesson: the standard project is the starting point, not the destination.`,
     githubUrl: null,
     videoUrl: '/assets/project-screen-record/netflix-clone.mp4',
     images: [],
-    metaTitle: 'Netflix Landing Clone — CSS Design Precision Training | Nandawula Regine',
+    metaTitle: 'Netflix Landing Clone · CSS Design Precision Training | Nandawula Regine',
     metaDescription:
       'Pixel-perfect Netflix landing page clone. CSS Grid, Flexbox, pure CSS accordion. SheCodes Plus certified. By Nandawula Regine.',
     keywords: ['Netflix landing page clone', 'HTML CSS project', 'SheCodes Plus project', 'CSS Grid Flexbox'],
     buildJourney: {
-      narrative: `Pixel-perfect CSS recreation of the Netflix landing page — a SheCodes Plus exercise in design precision. The challenge: recreate exactly what you see without inspecting the source.
+      narrative: `Pixel-perfect CSS recreation of the Netflix landing page, a SheCodes Plus exercise in design precision. The challenge: recreate exactly what you see without inspecting the source.
 
 This forces understanding of how modern UIs are actually constructed: how Netflix achieves its card layout, how the hero gradient works, how the FAQ accordion is built in pure CSS.
 
 The discipline of visual accuracy in recreation translates directly to the discipline of visual accuracy in original design. Every pixel-perfect clone makes you a more precise original designer.`,
       lessons: [
         'Design precision training: if you can recreate it exactly, you understand it completely',
-        'CSS is a capability, not a stepping stone — the developer who knows it deeply builds faster in any framework',
+        'CSS is a capability, not a stepping stone, the developer who knows it deeply builds faster in any framework',
         'SheCodes Plus: where the foundations were built',
       ],
     },
@@ -1202,10 +1202,10 @@ The discipline of visual accuracy in recreation translates directly to the disci
 
   'womens-retreat': {
     slug: 'womens-retreat',
-    title: "Women's Retreat — Yellowwood Forest",
+    title: "Women's Retreat · Yellowwood Forest",
     tagline: 'Cinematic Landing Experience for a Luxury Wellness Retreat',
     description:
-      "Client project: an immersive single-page web experience for a women's wellness retreat in the Eastern Cape. Forest-first design — atmosphere before information. Trust-first conversion architecture for a trust-first market.",
+      "Client project: an immersive single-page web experience for a women's wellness retreat in the Eastern Cape. Forest-first design, atmosphere before information. Trust-first conversion architecture for a trust-first market.",
     category: 'Client Work · Front-End · Conversion Design',
     status: 'Live',
     year: '2025',
@@ -1214,20 +1214,20 @@ The discipline of visual accuracy in recreation translates directly to the disci
     solution:
       'A cinematic, single-page experience that leads with atmosphere over information. Full-bleed nature photography, layered serif typography that slows the reader, narrative content sequence that answers emotional questions before practical ones.',
     techStack: [
-      { name: 'HTML5', reason: 'Zero dependencies — site works flawlessly without maintenance' },
+      { name: 'HTML5', reason: 'Zero dependencies, site works flawlessly without maintenance' },
       { name: 'CSS3', reason: 'Full-bleed layouts, atmospheric gradients, scroll animations' },
-      { name: 'Vanilla JavaScript', reason: 'Minimal interactivity — the design does the work' },
+      { name: 'Vanilla JavaScript', reason: 'Minimal interactivity, the design does the work' },
     ],
     impact: {
       potential: "Women's wellness retreat market",
-      economy: 'Active retreat promotion — live site',
+      economy: 'Active retreat promotion, live site',
       problem: 'Trust-first conversion design for emotional markets',
       metric: 'Launched and used for live retreat promotion',
     },
     liveUrl: 'https://women-retreat-yellowwood-forest.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/women-retreat-yellowwood-forest',
     images: [],
-    metaTitle: "Women's Retreat Yellowwood Forest — Cinematic Web Experience | Nandawula Regine",
+    metaTitle: "Women's Retreat Yellowwood Forest · Cinematic Web Experience | Nandawula Regine",
     metaDescription:
       "Client project: cinematic landing page for a women's wellness retreat in the Eastern Cape. Forest-first design, trust-first conversion architecture. Built by Nandawula Regine.",
     keywords: [
@@ -1241,18 +1241,18 @@ The discipline of visual accuracy in recreation translates directly to the disci
 
 That feeling required working backwards from emotion to technical implementation: full-bleed photography served with optimal loading, layered typography using a serif display font that slows the reader down, and a narrative content sequence that answers emotional questions before practical ones.
 
-The lesson that stayed: design is an argument. Every visual decision argues for something — usually about the relationship between the brand and the visitor. This project's design argued: 'We see you. This is safe. You belong here.' Making that argument required understanding the audience's psychology before opening a code editor.`,
+The lesson that stayed: design is an argument. Every visual decision argues for something, usually about the relationship between the brand and the visitor. This project's design argued: 'We see you. This is safe. You belong here.' Making that argument required understanding the audience's psychology before opening a code editor.`,
       lessons: [
-        'Design is an argument — every visual decision argues for a relationship between brand and visitor',
-        'Emotional architecture first, technical implementation second — for trust-first markets',
-        'Zero dependencies is a feature for the right client — a static HTML site that works for 5 years is better than a React app that breaks when a dependency updates',
+        'Design is an argument, every visual decision argues for a relationship between brand and visitor',
+        'Emotional architecture first, technical implementation second, for trust-first markets',
+        'Zero dependencies is a feature for the right client, a static HTML site that works for 5 years is better than a React app that breaks when a dependency updates',
       ],
     },
   },
 
   'carpentry-business': {
     slug: 'carpentry-business',
-    title: 'Carpentry Business — Client Project',
+    title: 'Carpentry Business · Client Project',
     tagline: 'Portfolio-Forward Web Presence for an SA Trade Business',
     description:
       "Client project: a craft-first website for a South African carpentry and joinery business. Portfolio gallery above the fold, WhatsApp deep link CTA as primary conversion, zero dependencies for long-term client maintainability.",
@@ -1260,11 +1260,11 @@ The lesson that stayed: design is an argument. Every visual decision argues for 
     status: 'Live',
     year: '2025',
     problem:
-      "SA trade businesses — carpenters, joiners, furniture makers — are exceptional at their craft and invisible online. Word-of-mouth caps their growth at the size of their immediate network.",
+      "SA trade businesses (carpenters, joiners, furniture makers) are exceptional at their craft and invisible online. Word-of-mouth caps their growth at the size of their immediate network.",
     solution:
-      "Portfolio gallery above the fold — not the pitch, not pricing, the work. WhatsApp deep link CTA: wa.me/27xxx that converts immediately by meeting SA clients where they already communicate. Zero dependencies for maintenance-free longevity.",
+      "Portfolio gallery above the fold: not the pitch, not pricing, the work. WhatsApp deep link CTA: wa.me/27xxx that converts immediately by meeting SA clients where they already communicate. Zero dependencies for maintenance-free longevity.",
     techStack: [
-      { name: 'HTML5', reason: 'Zero dependencies — trade business owner cannot maintain a React app' },
+      { name: 'HTML5', reason: 'Zero dependencies, trade business owner cannot maintain a React app' },
       { name: 'CSS3', reason: 'Responsive gallery with aspect-ratio locks, lazy loading' },
       { name: 'Vanilla JavaScript', reason: 'WhatsApp deep link integration, image lazy load' },
     ],
@@ -1277,7 +1277,7 @@ The lesson that stayed: design is an argument. Every visual decision argues for 
     liveUrl: 'https://carpentary-os-demo.vercel.app/',
     githubUrl: 'https://github.com/Nanda-Regine/carpentart-os-demo',
     images: [],
-    metaTitle: 'Carpentry Business — Trade Services Website | Nandawula Regine',
+    metaTitle: 'Carpentry Business · Trade Services Website | Nandawula Regine',
     metaDescription:
       "Client project: portfolio-forward website for a South African carpentry business. WhatsApp-first conversion architecture. Built by Nandawula Regine.",
     keywords: [
@@ -1288,12 +1288,12 @@ The lesson that stayed: design is an argument. Every visual decision argues for 
     buildJourney: {
       narrative: `The carpentry project's most important decision was made before writing a line of code: the portfolio gallery goes above the fold. Not the pitch. Not the pricing. The work.
 
-In the South African trades market, the product sells itself — if you can see it. The WhatsApp CTA insight came from observing client communication patterns: SA clients in the SME market don't check email forms. They message on WhatsApp.
+In the South African trades market, the product sells itself, if you can see it. The WhatsApp CTA insight came from observing client communication patterns: SA clients in the SME market don't check email forms. They message on WhatsApp.
 
-A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts leads immediately by meeting them in the channel they already use. This became a rule: every SA client website should have a WhatsApp deep link as its primary CTA. It is now standard across all SME client work.`,
+A wa.me deep link (pre-populated with 'Hi, I saw your website') converts leads immediately by meeting them in the channel they already use. This became a rule: every SA client website should have a WhatsApp deep link as its primary CTA. It is now standard across all SME client work.`,
       lessons: [
         'Portfolio-forward layout: the craft goes above the fold in trade market websites',
-        'WhatsApp is the SA SME conversion CTA — wa.me deep links outperform contact forms',
+        'WhatsApp is the SA SME conversion CTA, wa.me deep links outperform contact forms',
         'Zero dependencies is a service quality feature for non-technical clients',
         'Client work seeds product rules: every WhatsApp CTA lesson eventually became AdminOS architecture',
       ],
@@ -1303,24 +1303,24 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
   'jarvisos': {
     slug: 'jarvisos',
     title: 'JarvisOS',
-    tagline: 'A 15-Wing Personal AI Operating System — The Most Architecturally Complex Thing I\'ve Built',
+    tagline: 'A 15-Wing Personal AI Operating System · The Most Architecturally Complex Thing I\'ve Built',
     description:
-      'Production personal AI operating system with 15 interconnected intelligence wings: CEO, Finance, Engineering, Marketing, Cycle (menstrual intelligence), Scholar, Corpus (RAG Q&A), Body, Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, and Crisis/Sankofa. 1,194 personal knowledge chunks indexed via Upstash Vector. Redis inter-wing signal protocol. Claude Sonnet routes complex reasoning; Haiku handles speed tasks — 85% cost reduction. Offline-first PWA. Built for active daily personal use.',
+      'Production personal AI operating system with 15 interconnected intelligence wings: CEO, Finance, Engineering, Marketing, Cycle (menstrual intelligence), Scholar, Corpus (RAG Q&A), Body, Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, and Crisis/Sankofa. 1,194 personal knowledge chunks indexed via Upstash Vector. Redis inter-wing signal protocol. Claude Sonnet routes complex reasoning; Haiku handles speed tasks, 85% cost reduction. Offline-first PWA. Built for active daily personal use.',
     category: 'AI/ML · Personal OS · SaaS Architecture',
     status: 'Live',
     year: '2026',
     problem:
-      'Running eight production apps, creative work, a wellness practice, and personal growth across disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution. No tool existed that unified personal intelligence — the kind that knows your business, your body, your creative output, and your financial state as one connected system.',
+      'Running eight production apps, creative work, a wellness practice, and personal growth across disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution. No tool existed that unified personal intelligence: the kind that knows your business, your body, your creative output, and your financial state as one connected system.',
     solution:
-      'A unified personal intelligence layer. Each of 15 wings handles one life domain and communicates with others via Redis pub/sub signal protocol — no direct wing-to-wing coupling. Corpus wing indexes 1,194 personal knowledge chunks via Upstash Vector RAG and answers document questions instantly. Inngest handles all long-running background jobs. Claude Sonnet for complex reasoning, Haiku for speed — 85% AI cost reduction via intelligent routing. Offline-first PWA with IndexedDB queue works through South African load-shedding.',
+      'A unified personal intelligence layer. Each of 15 wings handles one life domain and communicates with others via Redis pub/sub signal protocol, no direct wing-to-wing coupling. Corpus wing indexes 1,194 personal knowledge chunks via Upstash Vector RAG and answers document questions instantly. Inngest handles all long-running background jobs. Claude Sonnet for complex reasoning, Haiku for speed, 85% AI cost reduction via intelligent routing. Offline-first PWA with IndexedDB queue works through South African load-shedding.',
     techStack: [
       { name: 'Next.js 14 App Router', reason: 'Unified codebase for 15 wings + PWA offline shell' },
-      { name: 'Claude Sonnet + Haiku (model routing)', reason: '85% cost reduction — complex tasks to Sonnet, speed tasks to Haiku' },
-      { name: 'Upstash Vector (RAG)', reason: '1,194 personal knowledge chunks — Corpus wing document Q&A' },
-      { name: 'Upstash Redis (signal protocol)', reason: 'Wing-to-wing communication without direct coupling — distributed personal OS' },
-      { name: 'Inngest', reason: 'All long-running background jobs — wing sync, report generation' },
+      { name: 'Claude Sonnet + Haiku (model routing)', reason: '85% cost reduction, complex tasks to Sonnet, speed tasks to Haiku' },
+      { name: 'Upstash Vector (RAG)', reason: '1,194 personal knowledge chunks, Corpus wing document Q&A' },
+      { name: 'Upstash Redis (signal protocol)', reason: 'Wing-to-wing communication without direct coupling, distributed personal OS' },
+      { name: 'Inngest', reason: 'All long-running background jobs, wing sync, report generation' },
       { name: 'Supabase PostgreSQL + RLS', reason: 'Full audit trail, soft-delete, multi-wing data isolation' },
-      { name: 'PWA (offline-first)', reason: 'IndexedDB queue — full functionality during SA load-shedding' },
+      { name: 'PWA (offline-first)', reason: 'IndexedDB queue, full functionality during SA load-shedding' },
     ],
     impact: {
       potential: 'Daily active use across all 15 wings',
@@ -1330,7 +1330,7 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
     },
     githubUrl: 'https://github.com/Nanda-Regine/JarvisOS',
     images: [],
-    metaTitle: 'JarvisOS — 15-Wing Personal AI Operating System | Nandawula Regine',
+    metaTitle: 'JarvisOS · 15-Wing Personal AI Operating System | Nandawula Regine',
     metaDescription:
       'JarvisOS: a production personal AI OS with 15 interconnected intelligence wings, 1,194 RAG knowledge chunks, Redis signal protocol, and Claude model routing. Built by Nandawula Regine.',
     keywords: [
@@ -1344,16 +1344,16 @@ A wa.me deep link — pre-populated with 'Hi, I saw your website' — converts l
     buildJourney: {
       narrative: `JarvisOS started as a question: what if the tools for running my life understood each other?
 
-Phase 1 was the CEO wing — decision tracking, priority queuing, outcome logging. Within a week it was the most useful thing I'd built for myself. The Corpus wing (Phase 3) was the architectural inflection point: 1,194 personal knowledge chunks indexed into Upstash Vector. For the first time, I could ask my own documents questions and get instant, cited answers.
+Phase 1 was the CEO wing: decision tracking, priority queuing, outcome logging. Within a week it was the most useful thing I'd built for myself. The Corpus wing (Phase 3) was the architectural inflection point: 1,194 personal knowledge chunks indexed into Upstash Vector. For the first time, I could ask my own documents questions and get instant, cited answers.
 
-The hardest architectural decision was inter-wing communication. Each wing needed to know about the others — a Cycle wing event should update the Body wing, a Finance alert should surface in CEO decisions — but direct coupling would make the system impossible to maintain across 15 wings. Redis pub/sub became the answer. Wings publish signals; other wings subscribe. The system is distributed but coherent.
+The hardest architectural decision was inter-wing communication. Each wing needed to know about the others (a Cycle wing event should update the Body wing, a Finance alert should surface in CEO decisions) but direct coupling would make the system impossible to maintain across 15 wings. Redis pub/sub became the answer. Wings publish signals; other wings subscribe. The system is distributed but coherent.
 
 The 20-session UI rebuild in May–June 2026 was the longest continuous design sprint I've run. Every wing got its own palette, its own personality, its own touch target geometry. 12 custom palettes. 52px navigation targets. Mobile-first across all 15 wings. This is now the reference implementation for the entire Mirembe Muse design language.`,
       lessons: [
-        'Redis pub/sub as inter-system signal protocol — 15 wings communicate without direct coupling',
-        'Upstash Vector for personal RAG — 1,194 chunks, sub-100ms retrieval on personal knowledge',
+        'Redis pub/sub as inter-system signal protocol, 15 wings communicate without direct coupling',
+        'Upstash Vector for personal RAG: 1,194 chunks, sub-100ms retrieval on personal knowledge',
         'Model routing as cost architecture: Sonnet for complexity, Haiku for speed = 85% cost reduction',
-        'PWA with IndexedDB queue is non-negotiable for SA — load-shedding is a product requirement, not an edge case',
+        'PWA with IndexedDB queue is non-negotiable for SA, load-shedding is a product requirement, not an edge case',
         'Design systems at personal scale: 12 palettes, each wing a different emotional register',
       ],
     },
@@ -1364,21 +1364,21 @@ The 20-session UI rebuild in May–June 2026 was the longest continuous design s
     title: 'Sanyu Botanicals',
     tagline: 'Five Ancestral Lineages. One Hair Care Line. AI-Powered Personalisation.',
     description:
-      'African botanical wellness brand rooted in five clan lineages — Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Full e-commerce with PayFast. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Claude-powered hair consultation. Private AI hair journal (Angel loyalty members). Ingredient library with ancestral and scientific context. Angel loyalty programme: Seed, Bloom, Royal Angel — physical QR card unlocks digital AI journal.',
+      'African botanical wellness brand rooted in five clan lineages: Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Full e-commerce with PayFast. Three formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles. Claude-powered hair consultation. Private AI hair journal (Angel loyalty members). Ingredient library with ancestral and scientific context. Angel loyalty programme: Seed, Bloom, Royal Angel, physical QR card unlocks digital AI journal.',
     category: 'Wellness · E-Commerce · AI',
     status: 'Live',
     year: '2026',
     problem:
-      "African women carry generations of botanical knowledge their grandmothers trusted — but the products that exist either ignore it or price it in USD. The natural hair movement has been building momentum for a decade. Sanyu Botanicals is the product infrastructure that carries this forward: ancestral formulations, scientifically documented, accessible at South African price points.",
+      "African women carry generations of botanical knowledge their grandmothers trusted, but the products that exist either ignore it or price it in USD. The natural hair movement has been building momentum for a decade. Sanyu Botanicals is the product infrastructure that carries this forward: ancestral formulations, scientifically documented, accessible at South African price points.",
     solution:
       'A full e-commerce + AI experience built on the Mirembe Muse ancestral brand system. Claude-powered hair consultations recommend the right product from a full routine description. The private AI hair journal (Angel loyalty members only) learns from entries over time and surfaces personalised tips. An ingredient library explains every botanical in both ancestral and clinical terms. The Angel loyalty system deepens the relationship over time: physical QR card → digital AI journal activation.',
     techStack: [
       { name: 'Next.js 14 App Router', reason: 'E-commerce + editorial + AI consultation in one codebase' },
-      { name: 'Claude Sonnet (consultations)', reason: 'Hair consultation engine — recommends product from full routine description' },
-      { name: 'Claude Haiku (journal tips)', reason: 'Private AI journal tip generation — fast, cost-efficient for recurring use' },
-      { name: 'PayFast ZAR', reason: 'Native SA payment rails — no currency conversion friction for ZA customers' },
-      { name: 'Supabase PostgreSQL + RLS', reason: 'Orders, Angel loyalty tiers, hair journal entries — all soft-deleted' },
-      { name: 'Cloudinary', reason: 'Product image delivery — CDN-optimised for SA mobile data realities' },
+      { name: 'Claude Sonnet (consultations)', reason: 'Hair consultation engine, recommends product from full routine description' },
+      { name: 'Claude Haiku (journal tips)', reason: 'Private AI journal tip generation, fast, cost-efficient for recurring use' },
+      { name: 'PayFast ZAR', reason: 'Native SA payment rails, no currency conversion friction for ZA customers' },
+      { name: 'Supabase PostgreSQL + RLS', reason: 'Orders, Angel loyalty tiers, hair journal entries, all soft-deleted' },
+      { name: 'Cloudinary', reason: 'Product image delivery, CDN-optimised for SA mobile data realities' },
       { name: 'Resend', reason: 'Order confirmation, shipping updates, Angel loyalty milestone emails' },
     ],
     impact: {
@@ -1390,7 +1390,7 @@ The 20-session UI rebuild in May–June 2026 was the longest continuous design s
     liveUrl: 'https://sanyubotanicals.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/sanyu-botanicals',
     images: [],
-    metaTitle: 'Sanyu Botanicals — African Ancestral Hair Care with AI | Nandawula Regine',
+    metaTitle: 'Sanyu Botanicals · African Ancestral Hair Care with AI | Nandawula Regine',
     metaDescription:
       'Sanyu Botanicals: African botanical wellness brand rooted in 5 clan lineages. Claude-powered hair consultation, Angel loyalty QR cards, private AI hair journal. Built by Nandawula Regine.',
     keywords: [
@@ -1402,18 +1402,18 @@ The 20-session UI rebuild in May–June 2026 was the longest continuous design s
       'Sanyu Botanicals',
     ],
     buildJourney: {
-      narrative: `Sanyu Botanicals is the most personal brand in the portfolio. The five clan lineages — Nsenene (my grandmother's clan), Hlubi, Msimanga, Thabizolo, Tshawe — are not marketing copy. They are the actual ancestral framework the formulations are built from.
+      narrative: `Sanyu Botanicals is the most personal brand in the portfolio. The five clan lineages (Nsenene (my grandmother's clan), Hlubi, Msimanga, Thabizolo, Tshawe) are not marketing copy. They are the actual ancestral framework the formulations are built from.
 
-The hardest design decision was the Angel loyalty architecture. I wanted a system that connected the physical and digital worlds — a real card you hold, that unlocks something only you can access online. The QR card system: each Angel member gets a physical card with a unique QR code. Scanning it triggers authentication and unlocks the private AI hair journal. The journal remembers entries over time and surfaces personalised tips based on your documented routine.
+The hardest design decision was the Angel loyalty architecture. I wanted a system that connected the physical and digital worlds, a real card you hold, that unlocks something only you can access online. The QR card system: each Angel member gets a physical card with a unique QR code. Scanning it triggers authentication and unlocks the private AI hair journal. The journal remembers entries over time and surfaces personalised tips based on your documented routine.
 
-The hair consultation AI was built around one insight: most hair product recommendation engines ask "what's your hair type?" Sanyu asks "describe your full routine — what you use, in what order, how often." Claude reads the full routine context before recommending, which means the recommendations are actually useful.
+The hair consultation AI was built around one insight: most hair product recommendation engines ask "what's your hair type?" Sanyu asks "describe your full routine: what you use, in what order, how often." Claude reads the full routine context before recommending, which means the recommendations are actually useful.
 
-The ingredient library exists because I wanted every buyer to understand what they're putting in their hair in both ancestral and clinical terms. Not just "baobab oil" — but why this oil, from this region, has been used for centuries, and what the clinical documentation confirms.`,
+The ingredient library exists because I wanted every buyer to understand what they're putting in their hair in both ancestral and clinical terms. Not just "baobab oil", but why this oil, from this region, has been used for centuries, and what the clinical documentation confirms.`,
       lessons: [
         'Physical-digital loyalty architecture: a QR card in the real world unlocks a private AI journal in the digital one',
-        'Consultation AI works better with full context than with categorical inputs — "describe your routine" beats "pick your hair type"',
-        'Ancestral documentation is product differentiation — ingredient library as brand IP',
-        'Prompt caching on product context: Claude knows all three formulations before the consultation begins — faster, cheaper, more accurate',
+        'Consultation AI works better with full context than with categorical inputs"describe your routine" beats "pick your hair type"',
+        'Ancestral documentation is product differentiation, ingredient library as brand IP',
+        'Prompt caching on product context: Claude knows all three formulations before the consultation begins, faster, cheaper, more accurate',
       ],
     },
   },
@@ -1421,7 +1421,7 @@ The ingredient library exists because I wanted every buyer to understand what th
   'chanty-shuttle': {
     slug: 'chanty-shuttle',
     title: 'Transport Industry Digital Transformation',
-    tagline: 'How a South African Shuttle Operator Stopped Competing on Price — R34,000 Growth Package',
+    tagline: 'How a South African Shuttle Operator Stopped Competing on Price · R34,000 Growth Package',
     description:
       "Full digital transformation for a South African shuttle and transport operator. R34,000 Growth Package delivered: professional website, Google Business Profile setup, WhatsApp Business integration, local SEO, and a Vision Package roadmap for corporate affiliate channels.",
     category: 'Client Work · SME · Digital Transformation',
@@ -1432,8 +1432,8 @@ The ingredient library exists because I wanted every buyer to understand what th
     solution:
       "Growth Package: professional website with booking inquiry flow, Google Business Profile optimisation, WhatsApp Business integration, social media templates, and local SEO. Vision Package roadmap: booking automation, affiliate marketing system so satisfied corporate partners become a systematic referral channel.",
     techStack: [
-      { name: 'HTML5', reason: 'Fast, lightweight — transport clients book on mobile' },
-      { name: 'CSS3', reason: 'Credibility-first design — professional trust signals above fold' },
+      { name: 'HTML5', reason: 'Fast, lightweight, transport clients book on mobile' },
+      { name: 'CSS3', reason: 'Credibility-first design, professional trust signals above fold' },
       { name: 'Vanilla JavaScript', reason: 'WhatsApp booking inquiry integration' },
     ],
     impact: {
@@ -1445,7 +1445,7 @@ The ingredient library exists because I wanted every buyer to understand what th
     liveUrl: 'https://transport-shuttle-os.vercel.app',
     githubUrl: 'https://github.com/Nanda-Regine/Transport-shuttle-os',
     images: [],
-    metaTitle: 'Transport Industry Digital Transformation — SA Shuttle Service Case Study | Nandawula Regine',
+    metaTitle: 'Transport Industry Digital Transformation · SA Shuttle Service Case Study | Nandawula Regine',
     metaDescription:
       "R34,000 digital transformation for a South African shuttle and transport operator. Website, WhatsApp integration, Google Business, local SEO. Built by Nandawula Regine.",
     keywords: [
@@ -1454,18 +1454,18 @@ The ingredient library exists because I wanted every buyer to understand what th
       'SME digital transformation South Africa',
     ],
     buildJourney: {
-      narrative: `This transport industry engagement introduced the multi-tiered client model — the Growth Package and Vision Package structure that now defines all Mirembe Muse B2B work.
+      narrative: `This transport industry engagement introduced the multi-tiered client model, the Growth Package and Vision Package structure that now defines all Mirembe Muse B2B work.
 
 The Growth Package solved the immediate problem: establish professional credibility online. A transport operator with quality vehicles and reliable service was invisible to corporate buyers because their digital presence didn't match the standard of their actual service.
 
-The Vision Package roadmap identified the next problem: corporate clients and hotel partners who book regularly could become a systematic affiliate channel if the incentive structure was formalised. A referral link system — track, attribute, reward — turns satisfied clients into a distribution channel. This thinking later became the LemonSqueezy affiliate architecture for digital products.
+The Vision Package roadmap identified the next problem: corporate clients and hotel partners who book regularly could become a systematic affiliate channel if the incentive structure was formalised. A referral link system (track, attribute, reward) turns satisfied clients into a distribution channel. This thinking later became the LemonSqueezy affiliate architecture for digital products.
 
-The core insight: every manual process in a service business is a product specification waiting to happen. Client work doesn't just generate revenue — it generates the blueprint for what to build next.`,
+The core insight: every manual process in a service business is a product specification waiting to happen. Client work doesn't just generate revenue: it generates the blueprint for what to build next.`,
       lessons: [
         'Tiered pricing solves the SA SME budget reality: start where you are, grow into the next tier',
         'Corporate affiliate architecture: satisfied clients as a managed distribution channel',
         'R34,000 Growth Package: proof-of-concept for the Mirembe Muse B2B pricing model',
-        'Client delivery is product research — every manual process becomes a future automation feature spec',
+        'Client delivery is product research, every manual process becomes a future automation feature spec',
       ],
     },
   },
@@ -1818,7 +1818,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
               <div className="w-3 h-3 rounded-full bg-green-500" />
               <span className="text-[#8b949e] text-xs ml-2 font-mono">
-                README.md — {project.slug}
+                README.md, {project.slug}
               </span>
             </div>
             <div className="border border-[#30363d] rounded-lg overflow-hidden">
@@ -1833,7 +1833,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 ## Project Context
 **Category:** ${project.category}
 **Status:** ${project.status} · ${project.year}
-**Author:** Nandawula Regine Kabali-Kagwa — KuGompo City, South Africa
+**Author:** Nandawula Regine Kabali-Kagwa · KuGompo City, South Africa
 **Company:** Mirembe Muse (Pty) Ltd · Reg: 2026-005658
 
 ## Stack
@@ -1847,7 +1847,7 @@ ${project.techStack.map((t) => `${t.name.padEnd(30)} # ${t.reason}`).join('\n')}
 - Mobile-first, PWA-ready, offline-tolerant where connectivity is unreliable
 - PayFast integration for ZAR-native payments (no USD conversion)
 - SEO-optimised: metadata, JSON-LD, canonical URLs, sitemap
-- POPIA compliant — data minimisation + user consent by design
+- POPIA compliant: data minimisation + user consent by design
 
 ## Environment Variables
 \`\`\`env
@@ -1862,7 +1862,7 @@ RESEND_API_KEY=
 \`\`\`
 
 ## Links
-${project.liveUrl ? `- Live:   ${project.liveUrl}` : '- Live:   Coming soon — domain propagating'}
+${project.liveUrl ? `- Live:   ${project.liveUrl}` : '- Live: Coming soon, domain propagating'}
 ${project.githubUrl ? `- GitHub: ${project.githubUrl}` : '- GitHub: Private repository'}
 - Portfolio: https://creativelynanda.co.za/projects/${project.slug}
 

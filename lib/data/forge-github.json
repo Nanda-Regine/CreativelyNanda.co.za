@@ -261,7 +261,7 @@
       "repo": "Nanda-Regine/CreativelyNanda.co.za",
       "repoUrl": "https://github.com/Nanda-Regine/CreativelyNanda.co.za",
       "isPrivate": false,
-      "description": "Portfolio, AI chatbot & Notion template storefront — The Poet Who Codes. Next.js 14, multilingual, PayFast, Nanda AI assistant",
+      "description": "Portfolio, AI chatbot & Notion template storefront. The Poet Who Codes. Next.js 14, multilingual, PayFast, Nanda AI assistant",
       "live": "https://creativelynanda.co.za",
       "logo": null,
       "commits": 324,
@@ -371,7 +371,7 @@
       "repo": "Nanda-Regine/AdminOS",
       "repoUrl": "https://github.com/Nanda-Regine/AdminOS",
       "isPrivate": false,
-      "description": "AI business OS for SA SMEs — 5 specialist AI agents, WhatsApp-native, debt recovery automation, Xero invoicing",
+      "description": "AI business OS for SA SMEs: 5 specialist AI agents, WhatsApp-native, debt recovery automation, Xero invoicing",
       "live": "https://adminos.co.za",
       "logo": null,
       "commits": 214,
@@ -477,7 +477,7 @@
       "repo": "Nanda-Regine/campus-compass",
       "repoUrl": "https://github.com/Nanda-Regine/campus-compass",
       "isPrivate": true,
-      "description": "SA's first AI student OS — Nova AI companion, NSFAS budget tracker, study planner & crisis support for 11M South African students",
+      "description": "SA's first AI student OS: Nova AI companion, NSFAS budget tracker, study planner & crisis support for 11M South African students",
       "live": "https://varsityos.co.za",
       "logo": "varsity",
       "commits": 595,
@@ -589,7 +589,7 @@
       "repo": "Nanda-Regine/nanda-k53-drill-master",
       "repoUrl": "https://github.com/Nanda-Regine/nanda-k53-drill-master",
       "isPrivate": false,
-      "description": "Pass your SA K53 learner's licence first time — 600+ questions, 11 game modes, isiXhosa support, SM-2 spaced repetition. Free forever.",
+      "description": "Pass your SA K53 learner's licence first time: 600+ questions, 11 game modes, isiXhosa support, SM-2 spaced repetition. Free forever.",
       "live": "https://k53drillmaster.co.za",
       "logo": "k53",
       "commits": 129,
@@ -797,7 +797,7 @@
       "repo": "Nanda-Regine/StokvelOS",
       "repoUrl": "https://github.com/Nanda-Regine/StokvelOS",
       "isPrivate": false,
-      "description": "SA's first AI-powered stokvel management — AI meeting minutes, fraud detection, WhatsApp reminders for the R11B community savings market",
+      "description": "SA's first AI-powered stokvel management: AI meeting minutes, fraud detection, WhatsApp reminders for the R11B community savings market",
       "live": "https://stokvelos.co.za",
       "logo": null,
       "commits": 12,
@@ -1000,7 +1000,7 @@
       "repo": "Nanda-Regine/AfriFlix",
       "repoUrl": "https://github.com/Nanda-Regine/AfriFlix",
       "isPrivate": false,
-      "description": "African creator streaming platform — built for African filmmakers, musicians & storytellers",
+      "description": "African creator streaming platform, built for African filmmakers, musicians & storytellers",
       "live": "https://watchsankofa.co.za",
       "logo": null,
       "commits": 40,
@@ -1209,7 +1209,7 @@
       "repo": "Nanda-Regine/theselvesofus",
       "repoUrl": "https://github.com/Nanda-Regine/theselvesofus",
       "isPrivate": true,
-      "description": "The Selves of Us — literary media platform",
+      "description": "The Selves of Us, literary media platform",
       "live": "https://selves-of-us.vercel.app",
       "logo": null,
       "commits": 150,
@@ -1312,7 +1312,7 @@
       "title": "JarvisOS",
       "date": "2026-08-11",
       "sha": "e16a39e",
-      "subject": "fix(marketing): the Aug 8 audit tail — a capture that indexed nothing, and an onboard that never ran",
+      "subject": "fix(marketing): the Aug 8 audit tail, a capture that indexed nothing, and an onboard that never ran",
       "type": "fix",
       "score": 10
     },
@@ -1339,7 +1339,7 @@
       "title": "JarvisOS",
       "date": "2026-08-11",
       "sha": "02aa6ee",
-      "subject": "docs: the content library is built for SA's smallest platform — and the Mirembe 13-week plan",
+      "subject": "docs: the content library is built for SA's smallest platform, and the Mirembe 13-week plan",
       "type": "docs",
       "score": 7
     },
@@ -1375,7 +1375,7 @@
       "title": "JarvisOS",
       "date": "2026-08-09",
       "sha": "22acf91",
-      "subject": "fix(email): dead mirembe.co.za survived in 10 client-facing paths — and broke delivery",
+      "subject": "fix(email): dead mirembe.co.za survived in 10 client-facing paths, and broke delivery",
       "type": "fix",
       "score": 5
     },
@@ -1384,7 +1384,7 @@
       "title": "JarvisOS",
       "date": "2026-08-09",
       "sha": "138b2f4",
-      "subject": "fix(studio): soft delete for 6 collaborator tables — a team member could not undo",
+      "subject": "fix(studio): soft delete for 6 collaborator tables, a team member could not undo",
       "type": "fix",
       "score": 4
     },
@@ -1393,7 +1393,7 @@
       "title": "JarvisOS",
       "date": "2026-08-08",
       "sha": "cd3a8ca",
-      "subject": "fix(brands): four brand domains were DEAD — cards were printing URLs that do not resolve",
+      "subject": "fix(brands): four brand domains were DEAD, cards were printing URLs that do not resolve",
       "type": "fix",
       "score": 9
     },
@@ -1402,7 +1402,7 @@
       "title": "JarvisOS",
       "date": "2026-08-08",
       "sha": "168f333",
-      "subject": "fix(marketing): two invented claims were shipping — one as structured data on the live site",
+      "subject": "fix(marketing): two invented claims were shipping, one as structured data on the live site",
       "type": "fix",
       "score": 6
     },
@@ -1411,7 +1411,7 @@
       "title": "JarvisOS",
       "date": "2026-08-08",
       "sha": "1deee55",
-      "subject": "feat(magazine): 9:16 title cards — from broken placeholder to premium",
+      "subject": "feat(magazine): 9:16 title cards, from broken placeholder to premium",
       "type": "feat",
       "score": 4
     },
@@ -1420,7 +1420,7 @@
       "title": "JarvisOS",
       "date": "2026-08-07",
       "sha": "f02e47b",
-      "subject": "fix(magazine): copy-quality heuristic was flagging good copy — 40 false positives",
+      "subject": "fix(magazine): copy-quality heuristic was flagging good copy, 40 false positives",
       "type": "fix",
       "score": 7
     },
@@ -1438,7 +1438,7 @@
       "title": "JarvisOS",
       "date": "2026-08-07",
       "sha": "b8a597c",
-      "subject": "feat(magazine): contact-sheet critique tool — found the founder brands are swapped wholesale",
+      "subject": "feat(magazine): contact-sheet critique tool, found the founder brands are swapped wholesale",
       "type": "feat",
       "score": 4
     },
@@ -1447,7 +1447,7 @@
       "title": "Mirembe Muse",
       "date": "2026-08-03",
       "sha": "3825b34",
-      "subject": "fix(review): 4 issues from whole-site review — anchor CTA, stale 75, misattribution, downsell",
+      "subject": "fix(review): 4 issues from whole-site review, anchor CTA, stale 75, misattribution, downsell",
       "type": "fix",
       "score": 4
     },
@@ -1465,7 +1465,7 @@
       "title": "CreativelyNanda",
       "date": "2026-07-27",
       "sha": "01ed27e",
-      "subject": "fix(frontend): site-wide review fixes — broken images, mobile overflow, hydration, cover",
+      "subject": "fix(frontend): site-wide review fixes, broken images, mobile overflow, hydration, cover",
       "type": "fix",
       "score": 4
     },
@@ -1483,7 +1483,7 @@
       "title": "AdminOS",
       "date": "2026-07-20",
       "sha": "0cbf0fe",
-      "subject": "fix(invoices): repair the broken create API — it 400'd on every call",
+      "subject": "fix(invoices): repair the broken create API, it 400'd on every call",
       "type": "fix",
       "score": 4
     },
@@ -1492,7 +1492,7 @@
       "title": "AdminOS",
       "date": "2026-07-19",
       "sha": "99e8556",
-      "subject": "fix(build): EMP201 cast via unknown — unblocks the build (was red for 7 commits)",
+      "subject": "fix(build): EMP201 cast via unknown, unblocks the build (was red for 7 commits)",
       "type": "fix",
       "score": 4
     },
@@ -1501,7 +1501,7 @@
       "title": "AdminOS",
       "date": "2026-07-18",
       "sha": "ca0cedc",
-      "subject": "fix(expenses+stokvel): read the real tables — both pages were always empty",
+      "subject": "fix(expenses+stokvel): read the real tables, both pages were always empty",
       "type": "fix",
       "score": 6
     },
@@ -1519,7 +1519,7 @@
       "title": "AdminOS",
       "date": "2026-07-18",
       "sha": "30a6703",
-      "subject": "docs: BUILD_JOURNEY — Session 14 (DataTable + schema-drift sweep) + Session 15 (OS transformation)",
+      "subject": "docs: BUILD_JOURNEY, Session 14 (DataTable + schema-drift sweep) + Session 15 (OS transformation)",
       "type": "docs",
       "score": 4
     },
@@ -1528,7 +1528,7 @@
       "title": "AdminOS",
       "date": "2026-07-18",
       "sha": "81e446d",
-      "subject": "docs: all six domain cockpits shipped — every page is now a system",
+      "subject": "docs: all six domain cockpits shipped, every page is now a system",
       "type": "docs",
       "score": 4
     },
@@ -1537,7 +1537,7 @@
       "title": "AdminOS",
       "date": "2026-07-18",
       "sha": "d0dea2e",
-      "subject": "fix(people): lowWellness score type is non-null (filtered) — build fix",
+      "subject": "fix(people): lowWellness score type is non-null (filtered), build fix",
       "type": "fix",
       "score": 4
     },
@@ -1546,7 +1546,7 @@
       "title": "AdminOS",
       "date": "2026-07-18",
       "sha": "f78886b",
-      "subject": "chore(scripts): add audit_selects.mjs — exhaustive schema-drift checker",
+      "subject": "chore(scripts): add audit_selects.mjs, exhaustive schema-drift checker",
       "type": "chore",
       "score": 4
     },
@@ -1591,7 +1591,7 @@
       "title": "Mirembe Muse",
       "date": "2026-06-30",
       "sha": "7e11ac7",
-      "subject": "feat(status): live /status page — real reachability probes, never faked uptime (L2)",
+      "subject": "feat(status): live /status page, real reachability probes, never faked uptime (L2)",
       "type": "feat",
       "score": 9
     },
@@ -1645,7 +1645,7 @@
       "title": "K53 Drill Master",
       "date": "2026-06-23",
       "sha": "25b6acb",
-      "subject": "fix(signs): SARTSM dedup pass — remove 7 broken duplicate entries",
+      "subject": "fix(signs): SARTSM dedup pass, remove 7 broken duplicate entries",
       "type": "fix",
       "score": 4
     },
@@ -1654,7 +1654,7 @@
       "title": "K53 Drill Master",
       "date": "2026-06-23",
       "sha": "5ea4926",
-      "subject": "fix(signs): SARTSM rebuild batch 2 — dedupe loose-stones & drift",
+      "subject": "fix(signs): SARTSM rebuild batch 2, dedupe loose-stones & drift",
       "type": "fix",
       "score": 4
     },
@@ -1672,7 +1672,7 @@
       "title": "VarsityOS",
       "date": "2026-06-19",
       "sha": "ba9fa9a",
-      "subject": "fix(layout): sidebar offset broken on desktop — Tailwind can't resolve CSS vars",
+      "subject": "fix(layout): sidebar offset broken on desktop, Tailwind can't resolve CSS vars",
       "type": "fix",
       "score": 4
     },
@@ -1681,7 +1681,7 @@
       "title": "VarsityOS",
       "date": "2026-06-19",
       "sha": "20763db",
-      "subject": "fix(habits): streak stays at 1 — stale Supabase overwriting local check-in",
+      "subject": "fix(habits): streak stays at 1, stale Supabase overwriting local check-in",
       "type": "fix",
       "score": 4
     },
@@ -1690,7 +1690,7 @@
       "title": "AdminOS",
       "date": "2026-06-14",
       "sha": "71219d4",
-      "subject": "feat(mobile): offline read enhancements — cache warmer, network banner, smart stale times",
+      "subject": "feat(mobile): offline read enhancements, cache warmer, network banner, smart stale times",
       "type": "feat",
       "score": 4
     },
@@ -1699,7 +1699,7 @@
       "title": "CreativelyNanda",
       "date": "2026-06-13",
       "sha": "49e82e4",
-      "subject": "chore: data hygiene sweep — update all stale stats to June 2026 reality",
+      "subject": "chore: data hygiene sweep, update all stale stats to June 2026 reality",
       "type": "chore",
       "score": 4
     },
@@ -1708,7 +1708,7 @@
       "title": "AdminOS",
       "date": "2026-06-12",
       "sha": "3420aea",
-      "subject": "fix: production audit fixes — bucket name, dead code, wrong table",
+      "subject": "fix: production audit fixes, bucket name, dead code, wrong table",
       "type": "fix",
       "score": 4
     },
@@ -1717,7 +1717,7 @@
       "title": "VarsityOS",
       "date": "2026-06-12",
       "sha": "fd57d74",
-      "subject": "feat(tutoring): remove payment processing — platform is communication only",
+      "subject": "feat(tutoring): remove payment processing, platform is communication only",
       "type": "feat",
       "score": 4
     },
@@ -1735,7 +1735,7 @@
       "title": "AdminOS",
       "date": "2026-05-08",
       "sha": "826f3ac",
-      "subject": "fix: remove stale proxy.ts — conflicts with middleware.ts in Next.js 16",
+      "subject": "fix: remove stale proxy.ts, conflicts with middleware.ts in Next.js 16",
       "type": "fix",
       "score": 4
     },
@@ -1753,7 +1753,7 @@
       "title": "VarsityOS",
       "date": "2026-04-10",
       "sha": "f919cbb",
-      "subject": "fix: repair broken auth flows — login loop, password reset, missing logo",
+      "subject": "fix: repair broken auth flows, login loop, password reset, missing logo",
       "type": "fix",
       "score": 4
     },
@@ -1762,7 +1762,7 @@
       "title": "CreativelyNanda",
       "date": "2026-04-05",
       "sha": "51c7d49",
-      "subject": "feat: homepage navy — animated nebula blobs + grain drift",
+      "subject": "feat: homepage navy, animated nebula blobs + grain drift",
       "type": "feat",
       "score": 4
     },
@@ -1771,7 +1771,7 @@
       "title": "K53 Drill Master",
       "date": "2026-04-05",
       "sha": "0cd980d",
-      "subject": "fix: production bugs — PAYFAST_SANDBOX env var, stale fallback URL, sitemap",
+      "subject": "fix: production bugs, PAYFAST_SANDBOX env var, stale fallback URL, sitemap",
       "type": "fix",
       "score": 4
     },
@@ -1780,7 +1780,7 @@
       "title": "AdminOS",
       "date": "2026-03-19",
       "sha": "9b25395",
-      "subject": "feat(phase1): close broken loops — wellness, plan limits, language, realtime, PWA, error boundaries",
+      "subject": "feat(phase1): close broken loops, wellness, plan limits, language, realtime, PWA, error boundaries",
       "type": "feat",
       "score": 4
     },
@@ -1789,7 +1789,7 @@
       "title": "CreativelyNanda",
       "date": "2026-03-04",
       "sha": "0ceebec",
-      "subject": "fix: products page showing old data — images, cache, and stale DB rows",
+      "subject": "fix: products page showing old data, images, cache, and stale DB rows",
       "type": "fix",
       "score": 5
     },
@@ -1798,7 +1798,7 @@
       "title": "CreativelyNanda",
       "date": "2026-03-04",
       "sha": "7074bdd",
-      "subject": "fix: remove themeColor from metadata export — already in viewport export",
+      "subject": "fix: remove themeColor from metadata export, already in viewport export",
       "type": "fix",
       "score": 4
     },

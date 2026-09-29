@@ -122,7 +122,7 @@ export default function WordSearch() {
 
       <div className="w-full max-w-xs">
         <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#C9943A]">Find the garden’s words</p>
-        <p className="mb-4 mt-1 text-sm text-white/50">Drag across the letters — any direction.</p>
+        <p className="mb-4 mt-1 text-sm text-white/50">Drag across the letters, any direction.</p>
         <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
           {WORDS.map((w) => (
             <li key={w} className={`font-display text-lg italic transition-all ${found.has(w) ? 'text-[#C9943A] line-through opacity-60' : 'text-white/85'}`}>
@@ -131,7 +131,7 @@ export default function WordSearch() {
           ))}
         </ul>
         <div className="mt-5 h-6">
-          {flash && <p className="font-display text-lg italic text-[#E4572E]">“{flash.toLowerCase()}” — found.</p>}
+          {flash && <p className="font-display text-lg italic text-[#E4572E]">“{flash.toLowerCase()}”, found.</p>}
           {won && <p className="font-display text-xl italic text-[#C9943A]">Every word, gathered. 🌹</p>}
         </div>
         <button onClick={reset} className="mt-4 rounded-full border border-white/25 px-6 py-2.5 text-sm font-medium text-white transition-all hover:border-[#C9943A] hover:text-[#C9943A]">

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Back soon — CreativelyNanda',
+  title: 'Back soon · CreativelyNanda',
   robots: { index: false, follow: false },
 };
 
@@ -69,7 +69,7 @@ export default function Maintenance() {
             marginTop: 28,
           }}
         >
-          — Nandawula Regine · KuGompo City, South Africa
+          Nandawula Regine · KuGompo City, South Africa
         </p>
       </div>
     </div>

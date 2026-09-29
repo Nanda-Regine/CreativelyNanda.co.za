@@ -198,7 +198,7 @@ export const PurchaseConfirmationEmail = ({
 
                 {downloadLinks.map((link, index) => (
                   <Button key={index} style={downloadButton} href={link.url}>
-                    {link.name} — {t.downloadButton}
+                    {link.name} · {t.downloadButton}
                   </Button>
                 ))}
               </Section>
@@ -211,7 +211,7 @@ export const PurchaseConfirmationEmail = ({
                 <Text style={guideSectionText}>{t.guideDescription}</Text>
                 {guideLinks.map((link, index) => (
                   <Button key={index} style={guideButton} href={link.url}>
-                    {link.name} — {t.guideButton}
+                    {link.name} · {t.guideButton}
                   </Button>
                 ))}
               </Section>

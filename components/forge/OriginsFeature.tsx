@@ -193,14 +193,14 @@ export default function OriginsFeature() {
           <FadeUp delay={0.2}>
             <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.72)' }}>
               Before eight live applications. Before a registered company, before the commits
-              ran into four figures. There were these. Each one a targeted lesson — and each
+              ran into four figures. There were these. Each one a targeted lesson, and each
               lesson kept.
             </p>
           </FadeUp>
 
           <FadeUp delay={0.28}>
             <p className="mt-6 max-w-2xl font-display text-xl italic leading-relaxed md:text-2xl" style={{ color: 'rgb(var(--ink-rgb) / 0.6)' }}>
-              This is not a portfolio showcase. It is a build chronicle — the answer to the
+              This is not a portfolio showcase. It is a build chronicle, the answer to the
               question every technical interview eventually asks: <span className="t-head">where did you learn to build?</span>
             </p>
           </FadeUp>

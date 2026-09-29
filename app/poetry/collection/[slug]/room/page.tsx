@@ -11,7 +11,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const poem = getPoemBySlug(params.slug);
   if (!poem) return { title: 'The Reading Room · Inside Her Roses' };
   return {
-    title: `${poem.title} — The Reading Room · Nanda Regine`,
+    title: `${poem.title} · The Reading Room · Nanda Regine`,
     description: poem.excerpt,
     robots: { index: false, follow: true },
     alternates: { canonical: `/poetry/collection/${poem.slug}` },

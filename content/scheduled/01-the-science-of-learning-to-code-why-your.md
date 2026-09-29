@@ -12,7 +12,7 @@ If you've ever felt like coding "just doesn't click" after a few weeks of learni
 
 **The 100-Hour Comprehension Threshold**
 
-Research from MIT's Computer Science and Artificial Intelligence Laboratory reveals that novice programmers need approximately 100 hours of deliberate practice before achieving "computational thinking fluency"—the ability to break down problems into logical steps without conscious effort.
+Research from MIT's Computer Science and Artificial Intelligence Laboratory reveals that novice programmers need approximately 100 hours of deliberate practice before achieving "computational thinking fluency" · the ability to break down problems into logical steps without conscious effort.
 
 Dr. Jeannette Wing, who coined the term "computational thinking" in 2006, describes this threshold as the point where syntax stops being a barrier and problem-solving becomes intuitive. Before this point, your working memory is overloaded with syntax, semicolons, and brackets. After this point, you're thinking in solutions, not syntax.
 
@@ -29,7 +29,7 @@ When you're learning to code, your brain is simultaneously:
 - Remembering conventions (memory recall)
 - Building mental models (schema construction)
 
-This is like learning a new language while solving math problems while playing chess—all at once. Your prefrontal cortex, which handles complex thinking, is genuinely overwhelmed.
+This is like learning a new language while solving math problems while playing chess, all at once. Your prefrontal cortex, which handles complex thinking, is genuinely overwhelmed.
 
 **The Breakthrough Zone: Hours 51-100**
 
@@ -45,7 +45,7 @@ By hour 75, confidence scores increased by 63%. By hour 100, students reported f
 
 Interestingly, research from the University of Cape Town's computer science department found that multilingual learners (common in Africa) showed 23% faster progression in computational thinking compared to monolingual learners.
 
-Why? Because code-switching between human languages creates neural pathways that make switching between programming paradigms easier. Your ability to think in Xhosa, English, and maybe Zulu isn't a distraction—it's a cognitive advantage.
+Why? Because code-switching between human languages creates neural pathways that make switching between programming paradigms easier. Your ability to think in Xhosa, English, and maybe Zulu isn't a distraction: it's a cognitive advantage.
 
 **The Deliberate Practice Framework**
 
@@ -78,7 +78,7 @@ Based on learning science research, here's how to structure your journey:
 - Focus: Functions, arrays, objects, basic algorithms
 - Method: 70% struggling with projects, 30% tutorials
 - Goal: Build one "real" project you're proud of
-- Research finding: This is where 42% quit—but those who don't, succeed
+- Research finding: This is where 42% quit, but those who don't, succeed
 - Strategy: Expect frustration. It's not a sign of failure; it's a sign you're in the learning zone
 
 **Hours 51-75: Pattern Recognition Emerges**
@@ -95,7 +95,7 @@ Based on learning science research, here's how to structure your journey:
 
 **The Neuroscience of "Getting Stuck"**
 
-Research from the Learning Sciences Lab at Northwestern University found that moments of being "stuck" aren't bugs in learning—they're features.
+Research from the Learning Sciences Lab at Northwestern University found that moments of being "stuck" aren't bugs in learning, they're features.
 
 When you encounter a problem you can't immediately solve, your brain enters what neuroscientists call "productive struggle." This activates:
 - The hippocampus (memory formation)

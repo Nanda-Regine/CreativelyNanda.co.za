@@ -51,7 +51,7 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 const CONTENTS = [
   { num: 'I', title: 'Zero', line: 'July 2025. The first line of code.' },
   { num: 'II', title: 'The Sprint', line: 'Eight production apps in a single year.' },
-  { num: 'III', title: 'The Craft', line: 'What she builds now — RAG, multi-agent, model routing.' },
+  { num: 'III', title: 'The Craft', line: 'What she builds now: RAG, multi-agent, model routing.' },
   { num: 'IV', title: 'The Proof', line: 'Paying clients. Real production. Nothing staged.' },
   { num: 'V', title: 'The Foundation', line: 'Fifteen distinctions. The business brain under the code.' },
 ];
@@ -69,10 +69,10 @@ const ARC = [
 // The craft — what she builds now (from /ai-engineer CAPABILITIES, sharpened).
 const CRAFT = [
   { title: 'Multi-Agent Systems', body: 'Specialist agents with clear mandates, an Inngest async spine, and a Redis signal protocol so fifteen wings talk without stepping on each other.' },
-  { title: 'RAG + Vector Retrieval', body: 'Knowledge ingestion pipelines and document Q&A over Upstash Vector — 1,194 live chunks answering in production inside JarvisOS.' },
-  { title: 'Model Routing + Caching', body: 'Sonnet for reasoning, Haiku for speed, prompt caching on every static block. An 85% cost reduction, engineered — not hoped for.' },
+  { title: 'RAG + Vector Retrieval', body: 'Knowledge ingestion pipelines and document Q&A over Upstash Vector, 1,194 live chunks answering in production inside JarvisOS.' },
+  { title: 'Model Routing + Caching', body: 'Sonnet for reasoning, Haiku for speed, prompt caching on every static block. An 85% cost reduction, engineered, not hoped for.' },
   { title: 'Multi-Tenant Architecture', body: 'Supabase Postgres with Row-Level Security, soft-delete and immutable audit trails. One deployment, unlimited tenants, isolated by privilege.' },
-  { title: 'WhatsApp-Native AI', body: 'Meta WhatsApp Cloud API workflows — the channel Africa actually runs on — automating inbox, debt recovery and reporting inside AdminOS.' },
+  { title: 'WhatsApp-Native AI', body: 'Meta WhatsApp Cloud API workflows, the channel Africa actually runs on, automating inbox, debt recovery and reporting inside AdminOS.' },
   { title: 'Production TypeScript', body: "Strict mode, Zod at the edges, tsc --noEmit exits zero across every repo. The discipline is the point." },
 ];
 
@@ -93,10 +93,10 @@ const PROOF = PROOF_IDS
 
 // The Foundation — degree → code (from /education DEGREE_IN_CODE).
 const DEGREE_IN_CODE = [
-  { subject: 'Advanced Strategy', code: 'Eight-product horizontal architecture — one payment hub, six apps downstream.' },
-  { subject: 'Operations Management', code: 'AdminOS immutable audit log — UPDATE and DELETE revoked at the database privilege level.' },
+  { subject: 'Advanced Strategy', code: 'Eight-product horizontal architecture, one payment hub, six apps downstream.' },
+  { subject: 'Operations Management', code: 'AdminOS immutable audit log, UPDATE and DELETE revoked at the database privilege level.' },
   { subject: 'Business Ethics', code: 'POPIA compliance from day one. Soft delete only. Timestamps always UTC.' },
-  { subject: 'Financial Literacy', code: 'Per-tenant ZAR token budgets with 50% hourly spike detection — AI cost control in the data model.' },
+  { subject: 'Financial Literacy', code: 'Per-tenant ZAR token budgets with 50% hourly spike detection, AI cost control in the data model.' },
 ];
 
 // ── Small building blocks ───────────────────────────────────────────────────
@@ -182,7 +182,7 @@ export default function EngineerFeature() {
 
         <div className="relative z-20 flex h-full max-w-6xl mx-auto flex-col justify-end px-6 md:pl-16 pb-20">
           <FadeUp>
-            <Kicker>Issue 003 · A Career Feature · Byline — Herself</Kicker>
+            <Kicker>Issue 003 · A Career Feature · Byline · Herself</Kicker>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="font-display font-bold" style={{ fontSize: 'clamp(2.8rem, 8.5vw, 6.2rem)', lineHeight: 0.92, letterSpacing: '-0.01em', margin: '20px 0 0' }}>
@@ -191,7 +191,7 @@ export default function EngineerFeature() {
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="mt-7 max-w-xl font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.75)', fontSize: '1.15rem', lineHeight: 1.7 }}>
-              From a single line of code to a fifteen-wing AI operating system — in one year.
+              From a single line of code to a fifteen-wing AI operating system, in one year.
               The other half of the poet who codes, told the way it deserves to be told.
             </p>
           </FadeUp>
@@ -269,19 +269,19 @@ export default function EngineerFeature() {
         <Chapter
           num="I" title="Zero." kicker="Chapter I · July 2025"
           img="creativelynanda/nanda-portraits/nanda-green-1"
-          alt="Nanda in a sunlit garden — the woman before the engineer"
+          alt="Nanda in a sunlit garden · the woman before the engineer"
           accent="#FBBF24"
         >
           <p>There was a version of this story where it never started. No computer-science degree. No bootcamp cohort. No mentor down the hall. Just a business graduate in KuGompo City who opened an editor and typed the first line she&apos;d ever written.</p>
-          <p style={{ color: HEAD }}>She didn&apos;t come to code from theory. She came to it from <em>need</em> — the products in her head had nowhere to live until she could build them herself.</p>
+          <p style={{ color: HEAD }}>She didn&apos;t come to code from theory. She came to it from <em>need</em>, the products in her head had nowhere to live until she could build them herself.</p>
         </Chapter>
         {/* Pull quote */}
         <FadeUp>
           <blockquote className="mx-auto max-w-4xl px-6 pb-8 text-center">
             <p className="font-display italic" style={{ fontSize: 'clamp(1.7rem, 4.5vw, 2.9rem)', lineHeight: 1.3, color: HEAD }}>
-              &ldquo;I learned to speak in two tongues — the language of systems, and the language of longing.&rdquo;
+              &ldquo;I learned to speak in two tongues, the language of systems, and the language of longing.&rdquo;
             </p>
-            <p className="font-mono mt-4" style={{ color: GOLD_TEXT, fontSize: '12px', letterSpacing: '0.2em' }}>— N.R.K-K.</p>
+            <p className="font-mono mt-4" style={{ color: GOLD_TEXT, fontSize: '12px', letterSpacing: '0.2em' }}>N.R.K-K.</p>
           </blockquote>
         </FadeUp>
       </div>
@@ -295,7 +295,7 @@ export default function EngineerFeature() {
               Eight apps.<br /><span style={{ color: GOLD_TEXT }}>One year.</span>
             </h2>
             <p className="max-w-2xl font-light mb-14" style={{ color: 'rgb(var(--ink-rgb) / 0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
-              Not eight ideas. Eight <em>shipped</em>, production, paying-user applications — each a rung on a ladder that got steeper on purpose. Read it top to bottom: this is a year measured in deployments.
+              Not eight ideas. Eight <em>shipped</em>, production, paying-user applications, each a rung on a ladder that got steeper on purpose. Read it top to bottom: this is a year measured in deployments.
             </p>
           </FadeUp>
 
@@ -331,7 +331,7 @@ export default function EngineerFeature() {
           alt="Working from a hotel lobby between other commitments, laptop bag in hand"
           accent={GOLD}
         >
-          <p>The distance between the first chapter and this one is the whole point. She no longer builds pages — she builds <em>systems that think</em>: agents that route work between themselves, retrieval layers that answer from thousands of chunks, cost architectures that make production AI actually affordable in rands.</p>
+          <p>The distance between the first chapter and this one is the whole point. She no longer builds pages: she builds <em>systems that think</em>: agents that route work between themselves, retrieval layers that answer from thousands of chunks, cost architectures that make production AI actually affordable in rands.</p>
           <p style={{ color: HEAD }}>This is what &ldquo;I&apos;ve evolved&rdquo; looks like on paper.</p>
         </Chapter>
         <section className="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
@@ -381,7 +381,7 @@ export default function EngineerFeature() {
                   Not a portfolio.<br /><span style={{ color: GOLD_TEXT }}>A production record.</span>
                 </h2>
                 <p className="font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
-                  Every project below is live, self-funded, and carrying real users or real revenue. No demos. No mock data. The four here are the ones that best show the range — from a fifteen-wing personal OS to a universal mobile platform shipped in two days.
+                  Every project below is live, self-funded, and carrying real users or real revenue. No demos. No mock data. The four here are the ones that best show the range, from a fifteen-wing personal OS to a universal mobile platform shipped in two days.
                 </p>
               </div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-2xl" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.45)', border: '1px solid rgba(201,148,58,0.18)' }}>
@@ -431,7 +431,7 @@ export default function EngineerFeature() {
               The business brain<br /><span style={{ color: GOLD_TEXT, fontStyle: 'italic' }}>under the code.</span>
             </h2>
             <p className="max-w-2xl font-light mb-4" style={{ color: 'rgb(var(--ink-rgb) / 0.75)', fontSize: '1.1rem', lineHeight: 1.8 }}>
-              Three qualifications from Nelson Mandela University. <span style={{ color: HEAD }}>Fifteen distinctions.</span> People assume the engineering came first. It didn&apos;t — the strategy did. Every architectural decision has a business module in its DNA.
+              Three qualifications from Nelson Mandela University. <span style={{ color: HEAD }}>Fifteen distinctions.</span> People assume the engineering came first. It didn&apos;t, the strategy did. Every architectural decision has a business module in its DNA.
             </p>
           </FadeUp>
 

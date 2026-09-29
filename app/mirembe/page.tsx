@@ -32,7 +32,7 @@ const SERVICES = [
   {
     icon: '⬡',
     title: 'Full-Stack Development',
-    body: 'End-to-end web and mobile applications — from architecture to deployment. React, Next.js, TypeScript, Supabase, Claude API. Seven production apps shipped solo.',
+    body: 'End-to-end web and mobile applications, from architecture to deployment. React, Next.js, TypeScript, Supabase, Claude API. Seven production apps shipped solo.',
     accent: '#C1292E',
     shape: '48px 12px 48px 12px',
   },
@@ -53,7 +53,7 @@ const SERVICES = [
   {
     icon: '◇',
     title: 'Media & Publishing',
-    body: 'From poetry collections to Substack newsletters. Brand voice, editorial identity, content production — the infrastructure behind a message that lands.',
+    body: 'From poetry collections to Substack newsletters. Brand voice, editorial identity, content production, the infrastructure behind a message that lands.',
     accent: '#B8860B',
     shape: '12px 48px 12px 48px',
   },
@@ -255,7 +255,7 @@ export default function MirembePage() {
               UBUNTU AS ARCHITECTURE.
             </h2>
             <p className="text-white/75 text-lg leading-relaxed mb-8">
-              Ubuntu — &ldquo;I am because we are&rdquo; — is not philosophy at Mirembe Muse. It is embedded in
+              Ubuntu, &ldquo;I am because we are&rdquo;, is not philosophy at Mirembe Muse. It is embedded in
               the technical decisions. StokvelOS protects community savings because community built the wealth.
               AdminOS serves SMEs because an SME ecosystem sustains communities. VarsityOS supports students
               because their success strengthens the country. Every product in this portfolio is Ubuntu made digital.
@@ -279,7 +279,7 @@ export default function MirembePage() {
                   ['Products', '8+ live applications'],
                   ['Build time', '1 year from zero coding knowledge'],
                   ['Tech', 'Next.js · TypeScript · Supabase · Claude API · PayFast · Vercel'],
-                  ['Philosophy', 'Ubuntu — I am because we are'],
+                  ['Philosophy', 'Ubuntu, I am because we are'],
                 ].map(([k, v]) => (
                   <div key={k} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(201,148,58,0.6)', letterSpacing: '0.15em', minWidth: '180px', paddingTop: '2px' }}>
@@ -312,7 +312,7 @@ export default function MirembePage() {
               Mirembe.
             </p>
             <p className="text-[#4A3728] text-lg leading-relaxed max-w-xl">
-              In Luganda — the language of the Kabali-Kagwa clan — <strong>mirembe</strong> means peace.
+              In Luganda, the language of the Kabali-Kagwa clan<strong>mirembe</strong> means peace.
               Not the absence of struggle. The presence of wholeness. Every product built under this name
               carries that mandate: technology that restores, not extracts.
             </p>

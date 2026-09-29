@@ -46,7 +46,7 @@ export default function PoemWall() {
           The Wall
         </h1>
         <p className="mx-auto mt-6 max-w-xl font-light" style={{ color: 'rgba(10,15,44,0.7)', fontSize: '1.1rem', lineHeight: 1.7 }}>
-          Every poem the way it first lived — pinned to the wall, told
+          Every poem the way it first lived, pinned to the wall, told
           <span style={{ color: CHERRY }}> page by page</span>. Tap a card to turn through it.
         </p>
         <div className="mx-auto mt-8 h-px w-24" style={{ background: `${GOLD}` }} />

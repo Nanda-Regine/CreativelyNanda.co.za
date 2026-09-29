@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://creativelynanda.co.za/legal/privacy' },
   title: 'Privacy Policy | CreativelyNanda.co.za',
   description:
-    'Privacy Policy for CreativelyNanda.co.za — how we collect, use, and protect your personal information in compliance with the Protection of Personal Information Act (POPIA), No. 4 of 2013.',
+    'Privacy Policy for CreativelyNanda.co.za: how we collect, use, and protect your personal information in compliance with the Protection of Personal Information Act (POPIA), No. 4 of 2013.',
 };
 
 const EFFECTIVE_DATE = '5 April 2026';
@@ -72,7 +72,7 @@ export default function PrivacyPolicy() {
                 <ul className="mt-1 space-y-1 list-disc list-inside text-sm">
                   <li>Page view analytics via Vercel Analytics (aggregated, no personal identifiers stored)</li>
                   <li>Session identifiers used to track poem hearts/likes (stored locally and in our database)</li>
-                  <li>Standard server logs (IP address, browser type, pages visited) — retained for security purposes</li>
+                  <li>Standard server logs (IP address, browser type, pages visited), retained for security purposes</li>
                 </ul>
               </div>
             </div>

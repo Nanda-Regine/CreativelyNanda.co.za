@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://creativelynanda.co.za/legal/returns' },
   title: 'Refund & Returns Policy | CreativelyNanda.co.za',
   description:
-    'Refund and Returns Policy for digital products purchased on CreativelyNanda.co.za — in compliance with the Consumer Protection Act (CPA) and ECT Act.',
+    'Refund and Returns Policy for digital products purchased on CreativelyNanda.co.za, in compliance with the Consumer Protection Act (CPA) and ECT Act.',
 };
 
 const EFFECTIVE_DATE = '5 April 2026';
@@ -110,7 +110,7 @@ export default function ReturnsPolicy() {
             <p className="text-sm">We are unable to issue refunds in the following circumstances:</p>
             <ul className="mt-2 space-y-1 list-disc list-inside text-sm">
               <li>You have accessed, duplicated, or downloaded the Notion template and are simply requesting a refund due to change of mind.</li>
-              <li>You purchased the wrong product — please review product descriptions carefully before purchasing.</li>
+              <li>You purchased the wrong product, please review product descriptions carefully before purchasing.</li>
               <li>Technical difficulties on your side (e.g., incompatible software, lack of a Notion account).</li>
               <li>More than 30 days have elapsed since the date of purchase (unless the defect could not reasonably have been discovered sooner).</li>
             </ul>

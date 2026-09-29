@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     success: true,
-    message: 'Thank you — your poem has been planted. Nanda reads every one before it blooms in the garden.',
+    message: 'Thank you, your poem has been planted. Nanda reads every one before it blooms in the garden.',
   });
 }
 

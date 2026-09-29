@@ -81,7 +81,7 @@ export default function NandaAI() {
         "Her Notion systems are like traditional African architecture - everything has its place, everything serves the whole. 40-60% time saved? That's ancestral efficiency. 🏺",
         "15+ templates ranging from R150 to R499, each one a bridge from chaos to clarity, from overwhelm to flow. Beauty that functions, function that breathes.",
         "She doesn't just organize data; she orchestrates harmony. CRMs with soul, dashboards with purpose, project hubs that feel like home. 📊✨",
-        "Imagine systems so intuitive they feel like second nature. That's her gift—making the complex feel like coming home to yourself.",
+        "Imagine systems so intuitive they feel like second nature. That's her gift, making the complex feel like coming home to yourself.",
         "AI-generated docs meet human-centered design. Her Notion work is meditation in database form, everything aligned, everything intentional. 🧘🏾‍♀️",
         "From solopreneurs to teams,her templates adapt like water, powerful like earth. Productivity isn't about doing more; it's about flowing better.",
         "Each workspace designed with the care of a garden, the precision of a poet. See the Notion page for systems that actually spark joy. ✨"
@@ -251,7 +251,7 @@ export default function NandaAI() {
         "Passionate about African representation in tech,not as tokens, but as innovators, leaders, visionaries. She embodies that vision. 🌍👑",
         "Equal parts vulnerable and victorious. She writes about heartbreak and codes for hope. This is integration, not balance. 💝💻",
         "Warm like Ubuntu, ambitious like dawn. She believes in community over competition, legacy over likes. Real recognize real. 🌅",
-        "Loves learning—languages, frameworks, life lessons. Every experience is raw material for art or application. Growth mindset personified. 📚",
+        "Loves learning: languages, frameworks, life lessons. Every experience is raw material for art or application. Growth mindset personified. 📚",
         "She's the friend who celebrates your wins, the professional who delivers excellence, the creative who sees possibilities everywhere. That's her essence. ✨"
       ]
     },
@@ -263,9 +263,9 @@ export default function NandaAI() {
         "Her digital footprint spans platforms: career on LinkedIn, code on GitHub, culture everywhere else. Follow the light. 🌟",
         "Footer links are your portal,each platform reveals a different facet of the same diamond. Choose your view. 💎",
         "GitHub: her technical receipts. LinkedIn: her professional journey. Find her where your interest leads. All roads connect. 🛤️",
-        "Social links await at page bottom—but know this: she's most present in her work, most alive in her creations. Follow accordingly. 🦋",
+        "Social links await at page bottom, but know this: she's most present in her work, most alive in her creations. Follow accordingly. 🦋",
         "Connect on LinkedIn for opportunities, GitHub for inspiration, anywhere for community. She values authentic engagement. 🤝",
-        "Footer has the handles—but the real connection? That's in the Contact page. Digital follows are lovely; real conversations are sacred. 💬"
+        "Footer has the handles, but the real connection? That's in the Contact page. Digital follows are lovely; real conversations are sacred. 💬"
       ]
     },
 

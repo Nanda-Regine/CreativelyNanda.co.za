@@ -7,9 +7,9 @@ import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { portraitsForRoom, PAGE_BACKDROPS } from '@/lib/house-assets';
 
 export const metadata: Metadata = {
-  title: 'Sanyu Botanicals | African Botanical Wellness — Launching April 2026',
+  title: 'Sanyu Botanicals | African Botanical Wellness · Launching April 2026',
   description:
-    'Sanyu Botanicals — an African botanical wellness brand rooted in ancestral hair care wisdom and modern formulation. Launching April 2026 from Mirembe Muse (Pty) Ltd.',
+    'Sanyu Botanicals, an African botanical wellness brand rooted in ancestral hair care wisdom and modern formulation. Launching April 2026 from Mirembe Muse (Pty) Ltd.',
   keywords: [
     'Sanyu Botanicals',
     'African botanical hair care',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'African botanical wellness',
   ],
   openGraph: {
-    title: 'Sanyu Botanicals | African Botanical Wellness — Launching April 2026',
+    title: 'Sanyu Botanicals | African Botanical Wellness · Launching April 2026',
     description:
       'Where ancestral wisdom meets modern formulation. Sanyu Botanicals is launching April 2026.',
     images: ['/og-sanyu.jpg'],
@@ -53,7 +53,7 @@ const pillars = [
   {
     icon: Leaf,
     title: 'Ancestral Wisdom',
-    description: 'Rooted in five clan lineages — Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe. Each formula carries centuries of botanical knowledge.',
+    description: 'Rooted in five clan lineages: Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe. Each formula carries centuries of botanical knowledge.',
   },
   {
     icon: Sparkles,
@@ -168,7 +168,7 @@ export default function SanyuBotanicalsPage() {
               herbs and stories told in languages that hold your history.
             </p>
             <p className="text-cream/70 text-base leading-relaxed mb-10">
-              Sanyu Botanicals is built on five ancestral lineages — each gifting a principle
+              Sanyu Botanicals is built on five ancestral lineages, each gifting a principle
               to our formulations. We don&apos;t just make hair products. We make heirlooms.
             </p>
 
@@ -179,7 +179,7 @@ export default function SanyuBotanicalsPage() {
                   alt={p.alt}
                   side="left"
                   kicker="Where Sanyu was born"
-                  caption="It began with my own crown — the ritual of oils and patience that became a brand. The hair remembers what the hands were taught."
+                  caption="It began with my own crown, the ritual of oils and patience that became a brand. The hair remembers what the hands were taught."
                   accent="#C9943A"
                 />
               </div>

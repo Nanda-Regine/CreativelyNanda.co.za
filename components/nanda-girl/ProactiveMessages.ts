@@ -17,7 +17,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
     },
     {
       id: 'home-templates',
-      message: '6 Notion templates from R249 — instant delivery. Want to see them?',
+      message: '6 Notion templates from R249, instant delivery. Want to see them?',
       trigger: 'scroll',
       triggerValue: 40,
       sessionKey: 'home-templates',
@@ -40,7 +40,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
     },
     {
       id: 'about-apps',
-      message: '7 production apps in 9 months — want to see what I built?',
+      message: '7 production apps in 9 months, want to see what I built?',
       trigger: 'scroll',
       triggerValue: 50,
       sessionKey: 'about-apps',
@@ -72,7 +72,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
     },
     {
       id: 'consulting-price',
-      message: 'All pricing is transparent and listed on this page — no hidden fees.',
+      message: 'All pricing is transparent and listed on this page, no hidden fees.',
       trigger: 'scroll',
       triggerValue: 40,
       sessionKey: 'consulting-price',
@@ -88,7 +88,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
     },
     {
       id: 'ai-stack',
-      message: 'Claude API, Supabase, Next.js — production-grade, WhatsApp-native.',
+      message: 'Claude API, Supabase, Next.js, production-grade, WhatsApp-native.',
       trigger: 'scroll',
       triggerValue: 50,
       sessionKey: 'ai-stack',
@@ -97,7 +97,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
   '/products': [
     {
       id: 'products-bundle',
-      message: 'Buy The Student Stack or Creator Stack — save up to R149 on bundles!',
+      message: 'Buy The Student Stack or Creator Stack, save up to R149 on bundles!',
       trigger: 'time',
       triggerValue: 4,
       sessionKey: 'products-bundle',
@@ -113,14 +113,14 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
   '/mirembe': [
     {
       id: 'mirembe-name',
-      message: 'Mirembe means peace in Luganda — technology built with peace as the intention.',
+      message: 'Mirembe means peace in Luganda, technology built with peace as the intention.',
       trigger: 'time',
       triggerValue: 5,
       sessionKey: 'mirembe-name',
     },
     {
       id: 'mirembe-botanical',
-      message: 'The botanical line is coming — join the waitlist on this page! 🌿',
+      message: 'The botanical line is coming, join the waitlist on this page! 🌿',
       trigger: 'scroll',
       triggerValue: 70,
       sessionKey: 'mirembe-botanical',
@@ -129,7 +129,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
   '/poetry': [
     {
       id: 'poetry-book',
-      message: '"Inside Her Roses" — 82 poems on Amazon, Apple Books & Kobo. 🌹',
+      message: '"Inside Her Roses", 82 poems on Amazon, Apple Books & Kobo. 🌹',
       trigger: 'time',
       triggerValue: 4,
       sessionKey: 'poetry-book',
@@ -145,7 +145,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
   '/education': [
     {
       id: 'education-nmu',
-      message: '15 distinctions at Nelson Mandela University — without a single CS class.',
+      message: '15 distinctions at Nelson Mandela University, without a single CS class.',
       trigger: 'time',
       triggerValue: 4,
       sessionKey: 'education-nmu',
@@ -154,7 +154,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
   '/contact': [
     {
       id: 'contact-reply',
-      message: 'I respond to all serious enquiries within 24 hours. Go ahead — send it.',
+      message: 'I respond to all serious enquiries within 24 hours. Go ahead, send it.',
       trigger: 'time',
       triggerValue: 5,
       sessionKey: 'contact-reply',

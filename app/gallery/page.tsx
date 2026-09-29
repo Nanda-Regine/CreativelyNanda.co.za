@@ -30,7 +30,7 @@ type Family = { n: string; name: string; blurb: string; form: Form; images: Img[
 const FAMILIES: Family[] = [
   {
     n: '01', name: 'The Red Bodice', form: 'single',
-    blurb: 'She is the colour of her own roses, and she knows it. Warmth worn like armour — the softest thing in the room, and the surest.',
+    blurb: 'She is the colour of her own roses, and she knows it. Warmth worn like armour, the softest thing in the room, and the surest.',
     marginalia: 'This is where the whole house begins: a woman lit like a secret the afternoon can’t keep, unafraid of her own heat.',
     images: [
       { id: 'nanda-homepage-hero-image', alt: 'Red satin bodice in golden window light', cap: 'The hour the light chose her.' },
@@ -39,7 +39,7 @@ const FAMILIES: Family[] = [
   },
   {
     n: '02', name: 'Beadwork & Ceremony', form: 'mosaic',
-    blurb: 'A day when the whole self dresses up to be seen — the beadwork, the drum, the book held like a birthright. She does not perform her culture. She lives inside it.',
+    blurb: 'A day when the whole self dresses up to be seen: the beadwork, the drum, the book held like a birthright. She does not perform her culture. She lives inside it.',
     images: [
       { id: 'IMG_20250301_144326', alt: 'Seated on mosaic tiles in Xhosa regalia, holding the book', cap: 'Her book in her lap like a small crown.' },
       { id: 'IMG_20250301_145301', alt: 'Mid-dance at the arts festival', cap: 'Joy that forgot it was being watched.' },
@@ -67,7 +67,7 @@ const FAMILIES: Family[] = [
       { id: 'IMG_20250301_140820', alt: 'The wider TRU FM studio', cap: 'A quiet room, a loud arrival.' },
       { id: 'IMG_20250301_141702', alt: 'A group beneath the TRU FM backdrop', cap: 'The ones who came to hear.' },
       { id: 'radio/madiba-radio-1', alt: 'At the Madibaz Radio mixing desk', cap: 'Madibaz Radio. Faders up, and no way to take a sentence back.' },
-      { id: 'radio/madiba-radio-3', alt: 'Beneath the Madibaz Radio banner', cap: 'Connect. Inform. Engage. — and she did all three.' },
+      { id: 'radio/madiba-radio-3', alt: 'Beneath the Madibaz Radio banner', cap: 'Connect. Inform. Engage. and she did all three.' },
       { id: 'radio/madiba-radio-2', alt: 'Celebrating after the Madibaz Radio interview', cap: 'The exhale afterwards, which is its own kind of interview.' },
     ],
   },
@@ -92,7 +92,7 @@ const FAMILIES: Family[] = [
   },
   {
     n: '06', name: 'Cathedral of Trees', form: 'triptych-tall',
-    blurb: 'She lets the forest be bigger than her — head tipped back, breath held. The particular reverence of a woman who knows she is one green thing among many.',
+    blurb: 'She lets the forest be bigger than her, head tipped back, breath held. The particular reverence of a woman who knows she is one green thing among many.',
     images: [
       { id: 'IMG_20250928_110323', alt: 'Looking up into a towering indigenous canopy', cap: 'A whole cathedral, and no need to speak.' },
       { id: 'IMG_20250928_110308', alt: 'A small figure among giant trees', cap: 'Small on purpose. Humbled gladly.' },
@@ -110,7 +110,7 @@ const FAMILIES: Family[] = [
   },
   {
     n: '08', name: 'Garden of Bloom & Print', form: 'mosaic',
-    blurb: 'Turn the colour all the way up. Joy with nowhere to be — print and petal and a dress mid-spin, a woman laughing before anyone asked her to.',
+    blurb: 'Turn the colour all the way up. Joy with nowhere to be, print and petal and a dress mid-spin, a woman laughing before anyone asked her to.',
     images: [
       { id: 'IMG_20250101_163512', alt: 'Laughing under a green arbor in African print', cap: 'The laugh that gives the whole day away.' },
       { id: 'IMG_20251203_131034', alt: 'Barefoot, mid-dance in red', cap: 'Barefoot, mid-spin, answering to no music but her own.' },
@@ -118,7 +118,7 @@ const FAMILIES: Family[] = [
       { id: 'IMG_20241208_125820', alt: 'Red halter framed by golden-cane palm', cap: 'Framed by the garden like it planned her.' },
       { id: 'IMG_20250101_163515', alt: 'Poised in the arbor in a print co-ord', cap: 'Poised, then poised to move.' },
       { id: 'IMG_20251203_113828', alt: 'Red slip dress, animated on the lawn', cap: 'Mid-sentence, mid-delight.' },
-      { id: 'IMG-20260620-WA0050', alt: 'Graduation — magenta dress and gown with a bouquet', cap: 'The day the years paid out.' },
+      { id: 'IMG-20260620-WA0050', alt: 'Graduation · magenta dress and gown with a bouquet', cap: 'The day the years paid out.' },
     ],
   },
   {
@@ -135,7 +135,7 @@ const FAMILIES: Family[] = [
   },
   {
     n: '10', name: 'Forest Cabin', form: 'triptych',
-    blurb: 'A slow green afternoon that asks nothing of her. Skin and shade and a glass sweating in the heat — leisure as a form of self-possession.',
+    blurb: 'A slow green afternoon that asks nothing of her. Skin and shade and a glass sweating in the heat, leisure as a form of self-possession.',
     images: [
       { id: 'IMG_20250926_163119', alt: 'Centred in a sunlit forest clearing', cap: 'The clearing made a stage of itself.' },
       { id: 'IMG_20250926_161824', alt: 'A slow sip on a jungle deck', cap: 'Nowhere to be, and in no rush to leave it.' },
@@ -155,7 +155,7 @@ const FAMILIES: Family[] = [
   },
   {
     n: '12', name: 'The Maker’s Hours', form: 'single',
-    blurb: 'No audience, no gown — just the work. A screen’s glow, a notebook, the world spread out before her while she quietly makes it.',
+    blurb: 'No audience, no gown, just the work. A screen’s glow, a notebook, the world spread out before her while she quietly makes it.',
     marginalia: 'Between the ceremony and the syntax, this: an ordinary morning, and a woman building the thing you’ll later call effortless.',
     images: [
       { id: 'IMG_20260102_163300', alt: 'A laptop open by a garden swing, long shadows', cap: 'The office is a garden when you build it yourself.' },
@@ -164,7 +164,7 @@ const FAMILIES: Family[] = [
   },
   {
     n: '13', name: 'The Sea Remembers', form: 'filmstrip',
-    blurb: 'She keeps turning her back to the camera and facing the water instead. Not loneliness — devotion. To the horizon, to herself, to whatever the sea is keeping.',
+    blurb: 'She keeps turning her back to the camera and facing the water instead. Not loneliness, devotion. To the horizon, to herself, to whatever the sea is keeping.',
     images: [
       { id: 'IMG_20250614_171644', alt: 'On a sea wall at pastel dusk', cap: 'The hour the sea turns the colour of a bruise healing.' },
       { id: 'IMG_20241117_184647_1', alt: 'Running into a golden sunset', cap: 'Running toward the last of the light.' },
@@ -178,7 +178,7 @@ const FAMILIES: Family[] = [
   },
   {
     n: '14', name: 'Intimate Frames', form: 'oval-veiled',
-    blurb: 'The register kept for no one — a mirror, a red lip, the private confidence of a woman alone and entirely at home in it.',
+    blurb: 'The register kept for no one: a mirror, a red lip, the private confidence of a woman alone and entirely at home in it.',
     images: [
       { id: 'IMG_20251007_140324', alt: 'A boudoir mirror with pool light through the window', cap: 'Alone, and in excellent company.' },
       { id: 'IMG-20260620-WA0047', alt: 'A gilt mirror and a wicker peacock chair in golden light', cap: 'Gold on gold, and her the warmest thing.' },
@@ -210,7 +210,7 @@ export default function Gallery() {
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9, delay: 0.15 }}
           className="mx-auto max-w-2xl text-white/60 text-lg leading-relaxed font-light">
-          A decade of a woman photographed the way she lives — and read the way she’d want to be read.
+          A decade of a woman photographed the way she lives, and read the way she’d want to be read.
           Not a folder of pictures. A table of contents for a life.
         </motion.p>
         <div className="mx-auto mt-10 h-px w-16 bg-[#C9943A]/50" />
@@ -226,7 +226,7 @@ export default function Gallery() {
       {/* ── CLOSE ── */}
       <section className="relative z-10 px-6 pb-28 pt-10 text-center">
         <p className="mx-auto mb-9 max-w-2xl font-display text-3xl md:text-4xl italic leading-snug text-white/90">
-          Words, colour, rhythm and culture — all of it from the same hand.
+          Words, colour, rhythm and culture, all of it from the same hand.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link href="/poetry/collection" className="rounded-full bg-[#C1292E] px-8 py-4 font-semibold text-white transition-all hover:scale-105">
@@ -403,7 +403,7 @@ function FamilyBody({
           {!veilLifted && (
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
               <p className="mb-4 max-w-md font-display text-xl italic text-white/80">
-                A private register — intimate self-portraits. Lift the veil to look closer.
+                A private register, intimate self-portraits. Lift the veil to look closer.
               </p>
               <button onClick={() => setVeilLifted(true)}
                 className="rounded-full border border-[#C9943A]/60 px-7 py-3 text-sm font-medium text-[#C9943A] transition-all hover:bg-[#C9943A] hover:text-[#0A1128]">

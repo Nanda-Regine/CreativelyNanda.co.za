@@ -56,7 +56,7 @@ function CertificateImage({ c, sizes, priority = false }: { c: Credential; sizes
       >
         <Image
           src={c.image.src}
-          alt={`${c.title} — certificate issued by ${c.issuer} to Nandawula Kabali-Kagwa, ${formatCredentialDate(c.date)}`}
+          alt={`${c.title}, certificate issued by ${c.issuer} to Nandawula Kabali-Kagwa, ${formatCredentialDate(c.date)}`}
           fill
           sizes={sizes}
           priority={priority}
@@ -329,7 +329,7 @@ export default function HonoursHall() {
           <p className="mt-5 max-w-2xl text-[15px] font-light leading-[1.85]" style={{ color: 'rgba(245,239,214,0.62)' }}>
             Hung by weight, not by count: the three university qualifications above, then the path that
             taught her to code, then the cabinet of short courses. Lift any document off the wall to read
-            it in full — where the issuer offers verification, the seal links straight to it.
+            it in full, where the issuer offers verification, the seal links straight to it.
           </p>
         </Reveal>
 
@@ -373,7 +373,7 @@ export default function HonoursHall() {
             style={{ borderColor: 'rgba(201,148,58,0.25)', color: 'rgba(245,239,214,0.62)' }}
           >
             <span className="font-mono text-[9px] uppercase tracking-[0.25em]" style={{ color: '#5FD3E4' }}>In progress</span>
-            <span>FNB App Academy · University of Johannesburg Business School — hangs here when it is awarded.</span>
+            <span>FNB App Academy · University of Johannesburg Business School, hangs here when it is awarded.</span>
             <span aria-hidden className="transition-transform group-hover:translate-x-1" style={{ color: GOLD }}>↑</span>
           </a>
         </Reveal>

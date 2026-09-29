@@ -86,7 +86,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
         <RoomHeader
           kicker="A room in the Forge"
           title="The Workshop Floor"
-          standfirst="Every build, one dossier each — what the problem actually was, which decisions it forced, and what they cost."
+          standfirst="Every build, one dossier each, what the problem actually was, which decisions it forced, and what they cost."
           note={
             <>
               Not a portfolio grid. Each of these is a working system with a build journal behind it, and the
@@ -116,7 +116,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
               </h2>
               <p className="mt-4 text-[15px] font-light leading-relaxed" style={{ color: ink(0.62) }}>
                 Every figure in this wing is read from the GitHub API when the site is built and committed as
-                data, so the site never calls GitHub while serving a page — and so no number here can quietly go
+                data, so the site never calls GitHub while serving a page, and so no number here can quietly go
                 stale the way a hand-typed one does.
               </p>
               <div className="mt-8">
@@ -238,7 +238,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
           <FadeUp delay={0.15}>
             <p className="mt-10 max-w-2xl text-[13.5px] font-light leading-relaxed" style={{ color: ink(0.45) }}>
               One build is missing on purpose. Sankofa Sessions has a single section of journal behind it, and a
-              near-empty room reads as neglect rather than as honesty — it goes on the floor when it has been
+              near-empty room reads as neglect rather than as honesty: it goes on the floor when it has been
               written up properly, and not before.
             </p>
           </FadeUp>

@@ -53,13 +53,13 @@ export default function SpokenWordStage() {
             There is a difference between a poem read in silence and a poem said aloud.
           </p>
           <p className="text-lg leading-relaxed text-beige/70">
-            On the page, the reader keeps the time. On the stage, I do — the breath, the pause, the
+            On the page, the reader keeps the time. On the stage, I do, the breath, the pause, the
             word held one beat too long. That is where a poem stops being ink and becomes blood,
             where the room leans in and the silence between the lines begins to belong to everyone.
           </p>
           <blockquote className="border-l-2 pl-6 py-1" style={{ borderColor: '#C9A84C' }}>
             <p className="font-display text-3xl md:text-4xl italic leading-tight text-cream">
-              &ldquo;Some poems you read. Others you have to say out loud — in a room full of
+              &ldquo;Some poems you read. Others you have to say out loud, in a room full of
               strangers, until they are not strangers anymore.&rdquo;
             </p>
           </blockquote>
@@ -147,7 +147,7 @@ export default function SpokenWordStage() {
           className="max-w-3xl mx-auto text-center rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-md py-12 px-6"
         >
           <p className="font-display italic text-2xl md:text-3xl text-cream mb-6">
-            Every poem here was first a whisper on a page. Read them in their own quiet —
+            Every poem here was first a whisper on a page. Read them in their own quiet,
             then imagine them said aloud.
           </p>
           <Link href="/poetry/collection">

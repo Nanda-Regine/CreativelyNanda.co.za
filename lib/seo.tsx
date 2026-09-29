@@ -47,8 +47,8 @@ export const SAME_AS = [
  * page that sets its own — so createMetadata re-declares these on every page.
  */
 export const FEED_ALTERNATES = {
-  'application/rss+xml': [{ url: `${SITE_URL}/feed.xml`, title: 'Creatively Nanda — Essays & Field Notes' }],
-  'application/feed+json': [{ url: `${SITE_URL}/feed.json`, title: 'Creatively Nanda — Essays & Field Notes' }],
+  'application/rss+xml': [{ url: `${SITE_URL}/feed.xml`, title: 'Creatively Nanda · Essays & Field Notes' }],
+  'application/feed+json': [{ url: `${SITE_URL}/feed.json`, title: 'Creatively Nanda · Essays & Field Notes' }],
 };
 
 /** Point at the canonical Person. Use for every author, publisher and about. */
@@ -170,7 +170,7 @@ export function generatePersonJsonLd() {
     image: `${SITE_URL}/assets/professional/nanda-professional-2-transparent.png`,
     jobTitle: 'AI Engineer & Creative Technologist',
     description:
-      'Nandawula Regine Kabali-Kagwa is a Ugandan-South African poet and AI engineer based in KuGompo City (East London), Eastern Cape — author of the poetry collection Inside Her Roses and founder of Mirembe Muse (Pty) Ltd. She builds production AI systems — Claude agents, multi-agent architectures, WhatsApp automation and SaaS platforms — for African businesses, and writes, performs and publishes poetry rooted in Buganda and South African oral traditions.',
+      'Nandawula Regine Kabali-Kagwa is a Ugandan-South African poet and AI engineer based in KuGompo City (East London), Eastern Cape, author of the poetry collection Inside Her Roses and founder of Mirembe Muse (Pty) Ltd. She builds production AI systems (Claude agents, multi-agent architectures, WhatsApp automation and SaaS platforms) for African businesses, and writes, performs and publishes poetry rooted in Buganda and South African oral traditions.',
     worksFor: { '@type': 'Organization', name: 'Mirembe Muse (Pty) Ltd', url: 'https://mirembemuse.co.za' },
     alumniOf: {
       '@type': 'EducationalOrganization',

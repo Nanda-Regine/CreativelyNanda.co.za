@@ -60,7 +60,7 @@ export async function getAllProducts(): Promise<ProductCoverData[]> {
     }
 
     if (!data || data.length === 0) {
-      console.error('[products] Supabase returned empty — check that migration 007 was run and products have status=live');
+      console.error('[products] Supabase returned empty, check that migration 007 was run and products have status=live');
       return ALL_PRODUCTS;
     }
 

@@ -8,15 +8,15 @@ publishDate: 2024-03-01
 
 ### **The Integrated Self: Why Research Shows Wholeness Beats Compartmentalization**
 
-Western culture teaches us to compartmentalize: work self, home self, creative self, professional self—all separated into neat boxes.
+Western culture teaches us to compartmentalize: work self, home self, creative self, professional self · all separated into neat boxes.
 
 But emerging research in psychology, neuroscience, and organizational behavior reveals something profound: **The most successful, fulfilled people are integrated, not compartmentalized.**
 
-Let's examine why wholeness isn't weakness—it's wisdom.
+Let's examine why wholeness isn't weakness · it's wisdom.
 
 **The Compartmentalization Myth**
 
-For decades, professional development taught "work-life balance"—the idea that work and personal life are separate spheres you must carefully balance.
+For decades, professional development taught "work-life balance" · the idea that work and personal life are separate spheres you must carefully balance.
 
 Research from Harvard Business School's Organizational Behavior Unit tracked 10,000 professionals over 15 years:
 
@@ -127,9 +127,9 @@ Research from Stanford's d.school examined the "creative vs. professional" divid
 **Why?** Creative thinking informs professional work. Professional discipline scales creative output.
 
 **Example from my life:**
-- My poetry isn't a hobby—it's how I think through UX
-- My coding isn't separate from creativity—it's applied art
-- My business isn't divorced from values—it's values in action
+- My poetry isn't a hobby: it's how I think through UX
+- My coding isn't separate from creativity: it's applied art
+- My business isn't divorced from values, it's values in action
 
 **The Vulnerable Leadership Research**
 
@@ -162,7 +162,7 @@ Research from MIT Sloan School challenges the "leave family at home" mentality:
 - More empathy in leadership
 - Better work-life satisfaction
 
-**The finding:** Family responsibilities don't diminish professional capacity—they enhance different competencies.
+**The finding:** Family responsibilities don't diminish professional capacity, they enhance different competencies.
 
 **Note:** This isn't about blurring boundaries inappropriately. It's about not hiding essential parts of your identity.
 
@@ -240,9 +240,9 @@ Here's what decades of research conclusively show:
 
 **You perform best when you're authentically yourself everywhere.**
 
-Compartmentalization doesn't protect you—it exhausts you.
-Multiple identities don't make you professional—they make you fragmented.
-Hiding essential parts doesn't build credibility—it prevents connection.
+Compartmentalization doesn't protect you, it exhausts you.
+Multiple identities don't make you professional: they make you fragmented.
+Hiding essential parts doesn't build credibility: it prevents connection.
 
 **The most successful people are integrated, not compartmentalized.**
 

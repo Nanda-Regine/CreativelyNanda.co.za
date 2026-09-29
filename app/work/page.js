@@ -14,9 +14,9 @@ const workExperience = [
         period: 'September 2025 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd — 8 production applications, 3,000+ GitHub commits, 3+ paying clients. One year.',
+          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd: 8 production applications, 3,000+ GitHub commits, 3+ paying clients. One year.',
           'Digital Services vertical: AI engineering, full-stack development, multi-agent systems, Notion consulting',
-          'Wellness Brand vertical: Sanyu Botanicals — ancestral African hair care with AI-powered consultations and Angel loyalty programme',
+          'Wellness Brand vertical: Sanyu Botanicals, ancestral African hair care with AI-powered consultations and Angel loyalty programme',
           'Creative Studio vertical: Inside Her Roses (published poetry), mentorship, digital products',
           'Set technical architecture across 8 products spanning Next.js, Expo (iOS/Android/Web), Claude API, Supabase, Inngest, and Upstash Vector RAG',
           'Manage business compliance: CIPC registration, SARS, POPIA Registration No. 2026-005658',
@@ -25,15 +25,15 @@ const workExperience = [
         tech: ['Next.js', 'TypeScript', 'Expo SDK 52', 'Supabase', 'Anthropic Claude API', 'Upstash Vector', 'Inngest', 'PayFast', 'Paystack', 'Tailwind CSS', 'NativeWind', 'Vercel']
       },
       {
-        title: 'AI Systems Architect | JarvisOS — Personal AI OS',
+        title: 'AI Systems Architect | JarvisOS · Personal AI OS',
         period: 'January 2026 - Present',
         type: 'Self-Built',
         highlights: [
-          '15-wing personal AI operating system — the most architecturally complex project in the portfolio, built for personal daily use across every life domain',
+          '15-wing personal AI operating system, the most architecturally complex project in the portfolio, built for personal daily use across every life domain',
           'Intelligence Wings: CEO (decisions), Finance (cash flow), Engineering (build logs), Marketing (campaigns), Cycle (menstrual intelligence), Scholar (learning), Corpus (RAG Q&A), Body (health), Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, Crisis/Sankofa',
-          'RAG Architecture: Upstash Vector with 1,194 personal knowledge chunks — Corpus wing answers questions from ingested documents via semantic retrieval',
-          'Redis Signal Protocol: custom inter-wing pub/sub communication via Upstash Redis — 15 wings communicate without direct coupling, true event-driven architecture',
-          'Model Routing: Claude Sonnet for high-stakes reasoning wings (CEO, Corpus, Consulting), Haiku for speed tasks — 85% AI cost reduction without quality loss',
+          'RAG Architecture: Upstash Vector with 1,194 personal knowledge chunks, Corpus wing answers questions from ingested documents via semantic retrieval',
+          'Redis Signal Protocol: custom inter-wing pub/sub communication via Upstash Redis, 15 wings communicate without direct coupling, true event-driven architecture',
+          'Model Routing: Claude Sonnet for high-stakes reasoning wings (CEO, Corpus, Consulting), Haiku for speed tasks, 85% AI cost reduction without quality loss',
           'Offline-first PWA with IndexedDB queue for load-shedding resilience; Notion bidirectional sync; 11 South African languages; 12 custom wing-aware color palettes',
           'Inngest async queues for long-running jobs; 6+ months continuous active development; 327+ commits'
         ],
@@ -44,10 +44,10 @@ const workExperience = [
         period: 'April 2026 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Built an African botanical hair care brand from concept to live e-commerce in 6 weeks — rooted in 5 ancestral clan lineages: Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe',
-          'Three product formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles — ancestral botanical knowledge documented in both clinical and cultural terms',
+          'Built an African botanical hair care brand from concept to live e-commerce in 6 weeks, rooted in 5 ancestral clan lineages: Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe',
+          'Three product formulations: Signature Oil (R285), Hair Growth Balm (R245–R345), and bundles, ancestral botanical knowledge documented in both clinical and cultural terms',
           'AI hair consultation engine: Claude Sonnet recommends the right product from a full routine description, personalised to each customer',
-          'Angel loyalty programme: Seed → Bloom → Royal Angel tiers with a physical-digital QR card system — loyalty card triggers digital journal unlock',
+          'Angel loyalty programme: Seed → Bloom → Royal Angel tiers with a physical-digital QR card system, loyalty card triggers digital journal unlock',
           'Private AI-powered hair journal (Angel members only): Claude Haiku surfaces personalised tips from journal entries over time, learning the customer\'s hair journey',
           'Full e-commerce with PayFast ZAR, Supabase RLS multi-tenant, Cloudinary product image delivery, Resend transactional email flows, PostHog analytics'
         ],
@@ -58,9 +58,9 @@ const workExperience = [
         period: 'March 2026 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Architecting enterprise-grade AI operating systems for South African SMEs and community savings groups (stokvels) — R11B market with no digital infrastructure',
+          'Architecting enterprise-grade AI operating systems for South African SMEs and community savings groups (stokvels), R11B market with no digital infrastructure',
           'AdminOS: 6 specialist AI agents (Alex/inbox, Chase/debt-recovery, Care/wellness, Doc/document-intelligence, Insight/analytics, Pen/email-composer) with model routing and ZAR token cost controls',
-          'Multi-tenancy: Supabase RLS scopes every database query by tenant_id from JWT — two Supabase client instances, strict isolation, immutable audit log with UPDATE/DELETE revoked at privilege level',
+          'Multi-tenancy: Supabase RLS scopes every database query by tenant_id from JWT, two Supabase client instances, strict isolation, immutable audit log with UPDATE/DELETE revoked at privilege level',
           'Per-tenant AI economics: daily token budgets (25K trial → 2M enterprise), hourly spike detection at 50% threshold, abuse blocking, and async ZAR cost logging',
           '25 Inngest async functions: daily briefs, debt recovery sequences, wellness fan-outs, payroll distribution, onboarding sequences, contextual triggers',
           'WhatsApp-native via Meta Cloud API v19.0; Xero accounting integration; companion React Native mobile app (EAS build); load-shedding-aware PWA'
@@ -114,7 +114,7 @@ const workExperience = [
         period: 'June 2026 - Present',
         type: 'Co-Founded',
         highlights: [
-          'SA\'s first disability accessibility mapping platform — universal Expo app running iOS, Android, and Web from a single codebase serving 4.2 million South Africans with disabilities',
+          'SA\'s first disability accessibility mapping platform: universal Expo app running iOS, Android, and Web from a single codebase serving 4.2 million South Africans with disabilities',
           '7 complete build phases shipped in 2 days: maps, audits, profiles, business portal, shop, Paystack payments, offline mode + GeoJSON data export API',
           'SANS 10400-S compliance audit checklists with photo evidence; disability-profile-aware map filtering (8 disability types, 15+ filter combinations)',
           'B2B revenue flywheel: audit → compliance gap analysis → compliance product sales → featured listing (co-founder manufactures physical ramps)',
@@ -128,7 +128,7 @@ const workExperience = [
         period: 'August 2025 - September 2025',
         type: 'Client Project',
         highlights: [
-          'My first production deployment — a resource management and booking application for a tech hub environment',
+          'My first production deployment, a resource management and booking application for a tech hub environment',
           'Foundation Building: Transitioned from zero coding knowledge to shipping a functional, CRUD-based booking system within 8 weeks',
           'State Management: Learned the fundamentals of managing user sessions and real-time availability updates in a live production environment'
         ],
@@ -491,7 +491,7 @@ export default function Work() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-[#0A1128]/70 max-w-2xl leading-relaxed"
           >
-            From hospitality leadership to full-stack development — a journey of continuous 
+            From hospitality leadership to full-stack development: a journey of continuous 
             growth, systems thinking, and creative problem-solving.
           </motion.p>
 
@@ -662,7 +662,7 @@ export default function Work() {
                 Ready to Work Together?
               </h3>
               <p className="text-white/80 mb-8 max-w-lg mx-auto">
-                Whether you need full-stack development, Notion systems, or creative technology solutions — 
+                Whether you need full-stack development, Notion systems, or creative technology solutions, 
                 let's build something extraordinary.
               </p>
               <div className="flex flex-wrap justify-center gap-4">

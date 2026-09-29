@@ -22,7 +22,7 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 const SOCIALS = [
   { name: 'Instagram', href: 'https://www.instagram.com/creativelynanda/' },
   { name: 'Twitter / X', href: 'https://x.com/CreativelyNanda' },
-  { name: 'Substack — Sankofa Sessions', href: 'https://substack.com/@sankofasessions' },
+  { name: 'Substack · Sankofa Sessions', href: 'https://substack.com/@sankofasessions' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/' },
   { name: 'GitHub', href: 'https://github.com/Nanda-Regine' },
 ];
@@ -93,7 +93,7 @@ export default function Contact() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-white/60">
-            For poetry and performance, a collaboration, an invitation, or simply to say a line landed —
+            For poetry and performance, a collaboration, an invitation, or simply to say a line landed:
             this is where it starts.
           </p>
         </FadeUp>
@@ -123,7 +123,7 @@ export default function Contact() {
                 <div className="h-px w-full bg-[#C9943A]/20" />
                 <div>
                   <p className={labelCls}>Where I am</p>
-                  <p className="text-white/70">KuGompo City, Eastern Cape — South Africa.</p>
+                  <p className="text-white/70">KuGompo City, Eastern Cape, South Africa.</p>
                   <p className="text-sm text-white/40">And on stages, and online, wherever the words are needed.</p>
                 </div>
                 <div className="h-px w-full bg-[#C9943A]/20" />
@@ -140,7 +140,7 @@ export default function Contact() {
                 <div className="rounded-xl border border-[#C9943A]/25 bg-white/[0.03] p-5">
                   <p className="text-sm text-white/70">
                     Here for <span className="text-white">software, AI, or to work with me professionally?</span> That
-                    lives under my company —{' '}
+                    lives under my company, {' '}
                     <a href="https://mirembemuse.co.za" target="_blank" rel="noopener noreferrer" className="font-medium text-[#C9943A] underline underline-offset-2 hover:opacity-80">
                       Mirembe Muse ↗
                     </a>

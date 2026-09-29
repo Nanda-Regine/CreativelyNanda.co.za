@@ -21,7 +21,7 @@ const TICKER = [
   'MADIBAZ RADIO · TRU FM',
   'KUGOMPO CITY · SOUTH AFRICA',
   'A POET WHO CODES',
-  'MIREMBE MUSE — BUSINESS & TECH ↗',
+  'MIREMBE MUSE, BUSINESS & TECH ↗',
 ];
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`;
@@ -115,7 +115,7 @@ export default function CoverHero() {
           }}>
             <CldImage
               src="creativelynanda/nanda-portraits/nanda-homepage-hero-image"
-              alt="Nandawula Regine — natural afro haloed in golden light, red satin bodice"
+              alt="Nandawula Regine · natural afro haloed in golden light, red satin bodice"
               fill
               priority
               sizes="(max-width:768px) 100vw, 60vw"
@@ -134,9 +134,9 @@ export default function CoverHero() {
           <div className="hidden md:block" style={{ marginTop: 'auto', paddingTop: '16px' }}>
             <div style={{ width: '100%', height: '1px', background: 'rgba(201,148,58,0.2)', marginBottom: '10px' }} />
             <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '10.5px', fontStyle: 'italic', color: 'rgba(245,240,232,0.45)', lineHeight: 1.6, margin: '0 0 5px 0' }}>
-              &ldquo;she learned to speak<br />in two tongues —<br />code &amp; longing.&rdquo;
+              &ldquo;she learned to speak<br />in two tongues, <br />code &amp; longing.&rdquo;
             </p>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '7.5px', color: 'rgba(201,148,58,0.5)', letterSpacing: '0.18em', margin: 0 }}>— N.R.K-K.</p>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '7.5px', color: 'rgba(201,148,58,0.5)', letterSpacing: '0.18em', margin: 0 }}>N.R.K-K.</p>
           </div>
         </div>
 

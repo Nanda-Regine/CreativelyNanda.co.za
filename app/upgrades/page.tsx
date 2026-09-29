@@ -19,7 +19,7 @@ const APP_LABELS: Record<string, { name: string; accent: string; tagline: string
   watchsankofa: {
     name: 'WatchSankofa',
     accent: '#FF8C42',
-    tagline: 'The African-First Streaming Platform — 85% Creator Revenue Share',
+    tagline: 'The African-First Streaming Platform · 85% Creator Revenue Share',
   },
 };
 
@@ -150,7 +150,7 @@ function UpgradesContent() {
             marginRight: 'auto',
           }}
         >
-          Currently migrating to its permanent domain — check back shortly.
+          Currently migrating to its permanent domain, check back shortly.
         </p>
 
         {/* Tagline if available */}

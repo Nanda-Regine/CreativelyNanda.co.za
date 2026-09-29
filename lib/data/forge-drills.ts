@@ -51,12 +51,12 @@ export const DRILLS: Drill[] = [
   {
     scar: 'payfast-signature',
     symptom:
-      'Every checkout fails signature verification at the payment gateway. The form submits, the field values are right, the passphrase is set and trimmed. The hash simply never matches — not once, for any order.',
+      'Every checkout fails signature verification at the payment gateway. The form submits, the field values are right, the passphrase is set and trimmed. The hash simply never matches, not once, for any order.',
     trace:
       'The signature is an MD5 of the fields joined as key=value&key=value. The code builds that string from the same object it builds the form from.',
     options: [
       {
-        text: 'URL-encoding differs from the gateway’s — spaces as %20 where it expects +.',
+        text: 'URL-encoding differs from the gateway’s, spaces as %20 where it expects +.',
         why: 'A real trap with this gateway, and worth checking. But an encoding mismatch only bites on values that contain a space or a special character. This failed on every order, including ones with nothing to encode.',
       },
       {
@@ -66,7 +66,7 @@ export const DRILLS: Drill[] = [
       },
       {
         text: 'The hash is computed over the wrong character encoding.',
-        why: 'That would only diverge on non-ASCII characters — and a non-ASCII dash in an item name did cause the same symptom on a later build. Here it failed on plain ASCII orders too, so encoding can’t be the whole story.',
+        why: 'That would only diverge on non-ASCII characters, and a non-ASCII dash in an item name did cause the same symptom on a later build. Here it failed on plain ASCII orders too, so encoding can’t be the whole story.',
       },
     ],
   },
@@ -77,7 +77,7 @@ export const DRILLS: Drill[] = [
     symptom:
       'Four monitoring dashboards go quiet on the same afternoon: the health matrix reads “unknown”, alerts stop, the summaries go dormant. There is no error anywhere. Every background job is still running on schedule and reporting success.',
     trace:
-      'The health-check job had been writing about ninety-six rows a day. It dropped to zero in one minute — not a slope, a cliff. Earlier that same day, a second user account was created for a collaborator.',
+      'The health-check job had been writing about ninety-six rows a day. It dropped to zero in one minute, not a slope, a cliff. Earlier that same day, a second user account was created for a collaborator.',
     options: [
       {
         text: 'The job queue died and its failures were being swallowed.',
@@ -88,7 +88,7 @@ export const DRILLS: Drill[] = [
         why: 'The classic silent database failure, and a good first guess. But a rejected insert is an error on the insert, and there were no errors. These jobs never reached an insert. They found nothing to do and stopped.',
       },
       {
-        text: 'The workers find “the owner” by asking for the first user — and that list comes back newest-first.',
+        text: 'The workers find “the owner” by asking for the first user, and that list comes back newest-first.',
         correct: true,
         why: 'Correct by accident for eight months, while there was only one user. From the minute the collaborator existed, six workers resolved the wrong tenant, found no apps to monitor, and faithfully did nothing. The cliff’s timestamp is the account’s creation time.',
       },
@@ -103,7 +103,7 @@ export const DRILLS: Drill[] = [
   {
     scar: 'hydration-class',
     symptom:
-      'Minified React error 425 — a hydration mismatch — in production. It gets fixed. Months later it is back on a different page. Fixed again. Then site-wide again.',
+      'Minified React error 425, a hydration mismatch, in production. It gets fixed. Months later it is back on a different page. Fixed again. Then site-wide again.',
     trace:
       'The three fixes touched a footer, an inline style block, and a decorative component. They had no code in common.',
     options: [
@@ -129,7 +129,7 @@ export const DRILLS: Drill[] = [
     symptom:
       'The corpus that feeds this whole wing is smaller than it was last time. The ingest script exited 0, wrote a valid file, and printed a section count that looked plausible.',
     trace:
-      'One source — fifty-one kilobytes, an entire app’s journal — is absent from the output. The log has a line about it, at a level nobody reads.',
+      'One source (fifty-one kilobytes, an entire app’s journal) is absent from the output. The log has a line about it, at a level nobody reads.',
     options: [
       {
         text: 'Cloud sync truncated the file mid-write.',
@@ -153,7 +153,7 @@ export const DRILLS: Drill[] = [
     symptom:
       'A privacy filter over commit messages withholds 111 of 141 lines that passed every other check. Asked to print what it withheld, the first line it shows is `docs: journal + memory handoff for the alpha run`, filed under “names a person”.',
     trace:
-      'The person-name rule is `for [A-Z][a-z]+ [A-Z][a-z]+` — “for Firstname Surname”. It is compiled into one regex together with a dozen other rules.',
+      'The person-name rule is `for [A-Z][a-z]+ [A-Z][a-z]+`: “for Firstname Surname”. It is compiled into one regex together with a dozen other rules.',
     options: [
       {
         text: 'The filter is simply too strict. Loosen the thresholds.',

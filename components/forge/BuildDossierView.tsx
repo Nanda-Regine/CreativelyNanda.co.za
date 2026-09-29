@@ -171,7 +171,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
               What the constraint forced.
             </h2>
             <p className="mt-5 text-[15px] font-light leading-relaxed" style={{ color: ink(0.55) }}>
-              Each of these is a choice with a reason attached. The reason is the part worth reading — a stack
+              Each of these is a choice with a reason attached. The reason is the part worth reading, a stack
               list tells you what was used, and nothing at all about the judgment that put it there.
             </p>
           </FadeUp>
@@ -307,7 +307,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
           <FadeUp delay={0.12}>
             <p className="mt-12 border-t pt-6 text-[13px] font-light leading-relaxed" style={{ borderColor: ink(0.08), color: ink(0.42) }}>
               Written from <span style={{ color: ink(0.62) }}>{d.source}</span>. The dossier is composed from the
-              journal rather than quoted out of it — the raw sections stay behind the review gate described in{' '}
+              journal rather than quoted out of it, the raw sections stay behind the review gate described in{' '}
               <span className="font-mono text-[11.5px]">docs/THE_FORGE.md</span> §4, and every figure above is read
               from the GitHub API at build time.
             </p>

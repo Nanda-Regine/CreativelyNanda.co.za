@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Hire AI Engineer | Nandawula Regine Kabali-Kagwa — Claude API & Multi-Agent Systems',
+  title: 'Hire AI Engineer | Nandawula Regine Kabali-Kagwa · Claude API & Multi-Agent Systems',
   description:
-    'Hire Nandawula Regine — AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 8 live AI products including JarvisOS (15-wing personal OS) and AdminOS. 3,000+ commits. Paying clients. Remote-available from South Africa.',
+    'Hire Nandawula Regine: AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 8 live AI products including JarvisOS (15-wing personal OS) and AdminOS. 3,000+ commits. Paying clients. Remote-available from South Africa.',
   keywords: [
     // Hire-intent — what recruiters and tech leads type
     'hire AI engineer',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     'AI consulting Africa',
   ],
   openGraph: {
-    title: 'Hire AI Engineer | Nandawula Regine — Claude API & Multi-Agent Systems',
+    title: 'Hire AI Engineer | Nandawula Regine · Claude API & Multi-Agent Systems',
     description:
       'AI Engineer for hire. Custom Claude agents, multi-agent systems, production TypeScript. Available for remote engagements from KuGompo City, South Africa.',
     images: [{ url: 'https://creativelynanda.co.za/og-image.png', width: 1200, height: 630 }],
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 const CAPABILITIES = [
   {
     title: 'Claude API Integration',
-    body: 'Custom agents, prompt caching (85% cost reduction), model routing (Sonnet + Haiku), multi-agent architectures — built for production.',
+    body: 'Custom agents, prompt caching (85% cost reduction), model routing (Sonnet + Haiku), multi-agent architectures, built for production.',
   },
   {
     title: 'RAG + Vector Systems',
@@ -99,7 +99,7 @@ const DOSSIERS = [
     body: 'Custom Claude/OpenAI agents embedded in your product or business workflow.',
     zar: 'From R45,000',
     usd: '~$2,432 USD',
-    proven: '8 live apps — real clients — all production',
+    proven: '8 live apps, real clients, all production',
     signature: true,
   },
   {
@@ -165,7 +165,7 @@ export default function AIEngineerPage() {
             <div className="relative w-80 h-96">
               <Image
                 src="/assets/professional/nanda-coding.jpg"
-                alt="Nanda — AI Engineer"
+                alt="Nanda · AI Engineer"
                 fill
                 className="object-cover"
                 style={{ borderRadius: '8px 32px 8px 32px' }}
@@ -206,7 +206,7 @@ export default function AIEngineerPage() {
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase mb-6 font-sans">Built for the continent</p>
           <p className="font-display text-3xl md:text-4xl italic text-white/90 leading-relaxed">
-            I don&apos;t build for Silicon Valley and export to Africa. I build for the continent —
+            I don&apos;t build for Silicon Valley and export to Africa. I build for the continent,
             in the context of load shedding, PayFast, isiXhosa, stokvels, and NSFAS.
             Every architecture decision I make has been tested against South African infrastructure realities.
           </p>
@@ -282,7 +282,7 @@ export default function AIEngineerPage() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-display text-2xl md:text-3xl italic text-[#0A1128]">
-            8 live apps. JarvisOS — a 15-wing personal AI OS. Real paying clients.
+            8 live apps. JarvisOS, a 15-wing personal AI OS. Real paying clients.
             3,000+ commits. All self-funded. All production.
             This is what I build for clients.
           </p>

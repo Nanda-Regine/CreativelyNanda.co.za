@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Press Kit | Nandawula Regine Kabali-Kagwa — Creative Technologist & AI Engineer',
+  title: 'Press Kit | Nandawula Regine Kabali-Kagwa · Creative Technologist & AI Engineer',
   description:
     'Official press kit for Nandawula Regine Kabali-Kagwa. Bios, fast facts, speaking topics, media assets, and press inquiries for Africa\'s Creative Technologist and AI Engineer.',
   keywords: [
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     'women in tech South Africa',
   ],
   openGraph: {
-    title: 'Press Kit | Nandawula Regine — Africa\'s Creative Technologist',
+    title: 'Press Kit | Nandawula Regine · Africa\'s Creative Technologist',
     description:
-      'Official media resources for Nandawula Regine Kabali-Kagwa — AI Engineer, Published Poet, and Founder of Mirembe Muse.',
+      'Official media resources for Nandawula Regine Kabali-Kagwa: AI Engineer, Published Poet, and Founder of Mirembe Muse.',
     images: ['/og-press.jpg'],
     type: 'profile',
     url: 'https://creativelynanda.co.za/press',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Press Kit | Nandawula Regine',
-    description: 'Official media kit — bios, fast facts, speaking topics, and press resources.',
+    description: 'Official media kit: bios, fast facts, speaking topics, and press resources.',
     images: ['/og-press.jpg'],
   },
   alternates: {

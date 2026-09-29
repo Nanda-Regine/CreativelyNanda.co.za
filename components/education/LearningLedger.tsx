@@ -112,7 +112,7 @@ export default function LearningLedger({ series }: { series: LedgerSeries }) {
           She did not stop building to study. Here is the proof, week by week.
         </h2>
         <p className="mt-5 max-w-2xl text-[15px] font-light leading-[1.85]" style={{ color: '#4A3728' }}>
-          Each bar is one week of commits — {model.total.toLocaleString('en-US')} across the {series.repos} repositories
+          Each bar is one week of commits, {model.total.toLocaleString('en-US')} across the {series.repos} repositories
           the Forge measures, straight from GitHub. Each pin is a certificate from the Hall above. Hover or tab through
           the pins to read them.
         </p>
@@ -232,7 +232,7 @@ export default function LearningLedger({ series }: { series: LedgerSeries }) {
 
         <p className="mt-6 max-w-2xl border-l-2 pl-4 text-[12.5px] leading-[1.8]" style={{ borderColor: 'rgba(184,134,11,0.45)', color: 'rgba(74,55,40,0.8)' }}>
           Measured {formatCredentialDate(series.measuredAt)}. GitHub keeps 52 weeks of weekly activity, and the Forge
-          measures the production repositories — her earliest SheCodes projects live elsewhere. So the hatched stretch
+          measures the production repositories, her earliest SheCodes projects live elsewhere. So the hatched stretch
           is marked as unmeasured rather than drawn as weeks of nothing.
         </p>
       </div>

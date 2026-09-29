@@ -18,10 +18,10 @@ const contextSpeechBubbles: Record<string, string[]> = {
     "AI engineer · Published poet · Founder 👑",
   ],
   poetry: [
-    "Inside Her Roses — 82 poems of love & healing 🌹",
+    "Inside Her Roses, 82 poems of love & healing 🌹",
     "Featured on Gqeberha: The Empire! 📺",
     "Poetry is the algorithm of feeling...",
-    "Ask about my book — it's on Amazon!",
+    "Ask about my book: it's on Amazon!",
     "Each verse is a piece of my soul 💝",
   ],
   work: [
@@ -34,7 +34,7 @@ const contextSpeechBubbles: Record<string, string[]> = {
   about: [
     "AI Engineer · Poet · Founder 💫",
     "From Eastern Cape to Africa-first AI!",
-    "15 academic distinctions — ask me how!",
+    "15 academic distinctions, ask me how!",
     "I believe tech should amplify humanity",
     "First-generation entrepreneur 👑",
   ],
@@ -51,7 +51,7 @@ const contextSpeechBubbles: Record<string, string[]> = {
     "Remote-ready, globally minded 🌍",
   ],
   marketplace: [
-    "6 Notion templates — R249 to R449 🛍️",
+    "6 Notion templates, R249 to R449 🛍️",
     "Built for African students, creators & SMEs!",
     "SME Command Center is the most popular!",
     "Need help choosing? Ask me!",
@@ -59,13 +59,13 @@ const contextSpeechBubbles: Record<string, string[]> = {
   education: [
     "Nelson Mandela University graduate! 🎓",
     "15 distinctions across 3 degrees!",
-    "Self-taught engineer — first code June 2025!",
+    "Self-taught engineer, first code June 2025!",
     "I believe in learning everywhere 📚",
   ],
   default: [
     "Click me to chat! 💬",
     "7 apps. 6 months. Ask me how. ✨",
-    "Ask me anything — I'm here to help!",
+    "Ask me anything. I'm here to help!",
     "From poetry to AI, I've got answers!",
   ],
 };
@@ -75,19 +75,19 @@ const knowledgeBase = {
   greetings: {
     triggers: ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'howdy', 'hola', 'sup', 'yo', 'whats up', "what's up", 'sanibonani', 'sawubona', 'molweni'],
     responses: [
-      "Sawubona, radiant one! 🌅 I'm Nanda—Creative Technologist, poet, and dreamer. How may I illuminate your path today?",
+      "Sawubona, radiant one! 🌅 I'm Nanda: Creative Technologist, poet, and dreamer. How may I illuminate your path today?",
       "Sanibonani! Welcome to my digital home. I'm Nandawula Regine Kabali-Kagwa, but you can call me Nanda. What brings you here?",
       "Greetings, kindred soul! ✨ I'm a poet who codes and a coder who dreams. What wisdom do you seek?",
-      "Hey there, beautiful! 🌺 Like sunrise over KuGompo City, your presence brightens this space. I'm Nanda—let's chat!",
+      "Hey there, beautiful! 🌺 Like sunrise over KuGompo City, your presence brightens this space. I'm Nanda, let's chat!",
       "Molweni! Step into my world where tech meets African heartbeats, where poetry meets pixels. What can I help you with?",
-      "Hello, precious visitor! 💫 I'm Nanda—born from Eastern Cape soil, building dreams in code and verse. Ask me anything!",
+      "Hello, precious visitor! 💫 I'm Nanda, born from Eastern Cape soil, building dreams in code and verse. Ask me anything!",
     ]
   },
 
   identity: {
     triggers: ['who is nanda', 'about nanda', 'tell me about', 'who are you', 'introduce', 'what does she do', 'what do you do', 'about her', 'about you', 'your name', 'full name', 'background'],
     responses: [
-      "I'm Nandawula Regine Kabali-Kagwa—Creative Technologist, Published Poet, and Founder of Mirembe Muse. Based in KuGompo City, South Africa, I weave technology and creativity into experiences that matter. 🌍✨",
+      "I'm Nandawula Regine Kabali-Kagwa · Creative Technologist, Published Poet, and Founder of Mirembe Muse. Based in KuGompo City, South Africa, I weave technology and creativity into experiences that matter. 🌍✨",
       "I walk between worlds: the digital and the deeply human. A technologist whose hands build systems, a poet whose heart builds bridges. My roots are Ugandan and Zulu, my vision is global. 👑",
       "Poet • Developer • Dreamer. That's me in three words. I believe technology should amplify humanity, not replace it. Every line of code I write is a chance to make someone's day more beautiful.",
       "Born from Eastern Cape soil, I carry the ocean's resilience and the sky's limitless vision. I'm a first-generation entrepreneur building legacies through tech, poetry, and purpose. 🌊",
@@ -98,11 +98,11 @@ const knowledgeBase = {
   education: {
     triggers: ['education', 'study', 'degree', 'university', 'qualifications', 'certifications', 'school', 'learned', 'course', 'nmu', 'nelson mandela', 'diploma', 'certificate'],
     responses: [
-      "📚 Nelson Mandela University graduate here! Advanced Diploma in Business Management (NQF 7), Diploma in Management (NQF 6), and Higher Certificate in Business Management (NQF 5)—all completed with Distinction. 15 distinctions total across my studies!",
+      "📚 Nelson Mandela University graduate here! Advanced Diploma in Business Management (NQF 7), Diploma in Management (NQF 6), and Higher Certificate in Business Management (NQF 5), all completed with Distinction. 15 distinctions total across my studies!",
       "I earned 15 distinctions across four years at Nelson Mandela University and was featured on their official platform. Then I taught myself to code through SheCodes Plus, mastering React, JavaScript, and full-stack development. 🎓✨",
       "My education spans formal academia and self-taught mastery: NMU business degrees (all with distinction), SheCodes front-end certification, Google Digital Marketing, and AI courses from Great Learning. I believe in learning everywhere. 📖",
-      "From lecture halls to late-night coding sessions—I've done both! Business management from NMU gave me strategy; SheCodes and online platforms gave me technical superpowers. The real education? Experience and curiosity. 🌟",
-      "I was selected for NMU's prestigious leadership development program—mentorship, community engagement, entrepreneurship workshops. Combined with my tech certifications (SheCodes, Google, IDEO Human-Centered Design), I'm classically trained and self-forged. 💪🏾",
+      "From lecture halls to late-night coding sessions, I've done both! Business management from NMU gave me strategy; SheCodes and online platforms gave me technical superpowers. The real education? Experience and curiosity. 🌟",
+      "I was selected for NMU's prestigious leadership development program: mentorship, community engagement, entrepreneurship workshops. Combined with my tech certifications (SheCodes, Google, IDEO Human-Centered Design), I'm classically trained and self-forged. 💪🏾",
     ]
   },
 
@@ -112,8 +112,8 @@ const knowledgeBase = {
       "💻 My tech stack: React, Next.js, TypeScript, Tailwind CSS, Framer Motion on the frontend. Supabase, Node.js, REST APIs on the backend. OpenAI API for AI magic, Mapbox GL for mapping, and Notion for system architecture!",
       "I paint with React and Next.js, animate with Framer Motion, style with Tailwind. My databases sing in Supabase, my maps dance in Mapbox GL, and my chatbots think with OpenAI. Technical excellence with heart! 🎨",
       "Frontend to backend, I do it all: JavaScript ES6+, TypeScript, HTML5, CSS3, responsive design. Then Supabase for auth and databases, Python for scripting, Git for version control. Plus AI integration and prompt engineering! ✨",
-      "Beyond code, I architect Notion systems (15+ templates productized!), design AI-assisted workflows (60% faster development), and build custom GPT frameworks. I don't just code—I create ecosystems. 🚀",
-      "Skills that pay the bills: Full-stack web dev, Notion system architecture, AI chatbot development, digital marketing, workshop facilitation, and yes—poetry that moves souls. I'm a Renaissance woman for the digital age. 👑",
+      "Beyond code, I architect Notion systems (15+ templates productized!), design AI-assisted workflows (60% faster development), and build custom GPT frameworks. I don't just code. I create ecosystems. 🚀",
+      "Skills that pay the bills: Full-stack web dev, Notion system architecture, AI chatbot development, digital marketing, workshop facilitation, and yes, poetry that moves souls. I'm a Renaissance woman for the digital age. 👑",
     ]
   },
 
@@ -122,7 +122,7 @@ const knowledgeBase = {
     responses: [
       "My career arc: Sportsmans Warehouse at 19 (Sales → Receiving Clerk, 4 years) → Balkan Burger (Waitress → Manager, 2+ years, 22% waste reduction, 18% profitability increase) → first line of code in June 2025 → 7 production AI SaaS apps by March 2026. 💼",
       "From restaurant manager to AI engineer in under a year. At Balkan Burger I managed 15+ staff, wrote the operations manual, ran events for 100-500+ guests. Those systems-thinking skills are exactly what build scalable software. 🦋",
-      "The hospitality years taught pressure, precision, and people — three things that make a great engineer. Now I apply that same discipline to code. Every line asks: will this serve someone beautifully? 📈",
+      "The hospitality years taught pressure, precision, and people, three things that make a great engineer. Now I apply that same discipline to code. Every line asks: will this serve someone beautifully? 📈",
       "Six months of coding. Seven production apps. That's the timeline. The business degree taught strategy, the restaurant taught operations under pressure, the code was always going to be the third language. 🌱",
     ]
   },
@@ -130,11 +130,11 @@ const knowledgeBase = {
   poetry: {
     triggers: ['poetry', 'book', 'inside her roses', 'poems', 'writing', 'author', 'published', 'writer', 'poet', 'roses', 'verses', 'literary'],
     responses: [
-      "🌹 'Inside Her Roses'—my poetry collection published October 2021. 82 poems exploring love, identity, healing, and Black womanhood. Available on Amazon, Apple Books, Kobo, and major retailers worldwide!",
+      "🌹 'Inside Her Roses', my poetry collection published October 2021. 82 poems exploring love, identity, healing, and Black womanhood. Available on Amazon, Apple Books, Kobo, and major retailers worldwide!",
       "I was featured on South African TV series 'Gqeberha: The Empire' as a poet! Also interviewed on Madibaz Radio and TRU FM. My verses have reached thousands of hearts through screens and airwaves. 📺✨",
-      "Poetry is the algorithm of feeling. My collection spans six themes: Romance, Sensual, Life, Personal, Depth, and Empowering. Each poem excavates truth—vulnerability and victory in equal measure. 💝",
-      "I self-funded and organized my own book launch—crowdfunded, self-coordinated, fully executed. 100+ attendees, combined poetry workshop and dining experience. Main character energy before it was a trend! 🎉👑",
-      "Find my poetry on Wattpad (@NandaRegine), AllPoetry (@Nanda_Regine), Instagram (@nanda.regine), and PoemHunter. The roses in my title aren't just flowers—they're growth through pain, beauty despite thorns, blooming as resistance. 🌹",
+      "Poetry is the algorithm of feeling. My collection spans six themes: Romance, Sensual, Life, Personal, Depth, and Empowering. Each poem excavates truth, vulnerability and victory in equal measure. 💝",
+      "I self-funded and organized my own book launch: crowdfunded, self-coordinated, fully executed. 100+ attendees, combined poetry workshop and dining experience. Main character energy before it was a trend! 🎉👑",
+      "Find my poetry on Wattpad (@NandaRegine), AllPoetry (@Nanda_Regine), Instagram (@nanda.regine), and PoemHunter. The roses in my title aren't just flowers: they're growth through pain, beauty despite thorns, blooming as resistance. 🌹",
     ]
   },
 
@@ -143,18 +143,18 @@ const knowledgeBase = {
     responses: [
       "7 production AI SaaS apps live under Mirembe Muse 🚀: VarsityOS (student wellness), K53 Drill Master (learner's licence), StokvelOS (AI stokvel finance), AdminOS (5 AI agents for SMEs), WatchSankofa (African streaming), SankofaSessions (media publication), and CreativelyNanda.co.za (this site).",
       "VarsityOS tackles SA's 50% university dropout rate with 6 AI agents covering study, budget, meals, and crisis support. K53 Drill Master has 50+ paying subscribers and 4.8/5 rating with isiXhosa support. All built solo in 6 months. 💫",
-      "StokvelOS digitises R50 billion in African community finance — the first AI-native stokvel platform on the continent. AdminOS replaces 6 separate subscriptions with 5 AI agents for South African SMEs. Real problems. Real solutions. 🌍",
-      "WatchSankofa gives African creators 85% revenue share (vs Netflix's 7%). SankofaSessions is a media publication for founders. Plus 6 Notion templates and this portfolio — none of them demos, all in production with real users. 📱",
+      "StokvelOS digitises R50 billion in African community finance, the first AI-native stokvel platform on the continent. AdminOS replaces 6 separate subscriptions with 5 AI agents for South African SMEs. Real problems. Real solutions. 🌍",
+      "WatchSankofa gives African creators 85% revenue share (vs Netflix's 7%). SankofaSessions is a media publication for founders. Plus 6 Notion templates and this portfolio, none of them demos, all in production with real users. 📱",
     ]
   },
 
   mirembe: {
     triggers: ['mirembe', 'muse', 'business', 'company', 'startup', 'founder', 'enterprise', 'services offered'],
     responses: [
-      "Mirembe Muse (Pty) Ltd is incorporated — registered in South Africa since September 2025. 'Mirembe' means peace in Luganda (Kabali-Kagwa clan). 7 AI SaaS apps live, 6 Notion templates in the marketplace, and consulting open for engagements. 🌿",
-      "Mirembe Muse offers full-stack development, digital marketing, systems architecture, media publishing, and AI consulting. Not just a tech company — a complete digital partner for African businesses ready to scale. 💻",
-      "From R249 Notion templates to R45,000 AI integration projects — Mirembe Muse has a pathway for every stage. Built from KuGompo City, serving clients locally and internationally. 👑",
-      "The mission: Africa-first technology that restores, not extracts. Every product under Mirembe Muse asks — will this serve someone's actual life? That's Ubuntu in code. 🌍",
+      "Mirembe Muse (Pty) Ltd is incorporated, registered in South Africa since September 2025. 'Mirembe' means peace in Luganda (Kabali-Kagwa clan). 7 AI SaaS apps live, 6 Notion templates in the marketplace, and consulting open for engagements. 🌿",
+      "Mirembe Muse offers full-stack development, digital marketing, systems architecture, media publishing, and AI consulting. Not just a tech company, a complete digital partner for African businesses ready to scale. 💻",
+      "From R249 Notion templates to R45,000 AI integration projects, Mirembe Muse has a pathway for every stage. Built from KuGompo City, serving clients locally and internationally. 👑",
+      "The mission: Africa-first technology that restores, not extracts. Every product under Mirembe Muse asks, will this serve someone's actual life? That's Ubuntu in code. 🌍",
     ]
   },
 
@@ -162,16 +162,16 @@ const knowledgeBase = {
     triggers: ['services', 'offer', 'provide', 'help with', 'what services', 'work together', 'collaborate', 'hire', 'consulting', 'consult'],
     responses: [
       "Consulting services: AI Integration (from R45,000/project), Fractional AI Officer retainer (from R18,000/month), Business Automation & WhatsApp workflows (from R8,000/month). Email hello@creativelynanda.co.za to discuss. 🎯",
-      "Full-stack development, digital marketing strategy, systems architecture, AI agent orchestration, media publishing support — and 6 Notion templates ready to purchase immediately at /products. 💫",
-      "Whether you need an app built, your business automated, your marketing systematised, or your brand voice sharpened — I partner in vision, not just deliver deliverables. Let's talk at /consulting. 🤝",
-      "Value-based pricing. Milestone payments. Transparent communication. I don't do cheap — I do excellence that pays for itself. Start the conversation at hello@creativelynanda.co.za. 💰",
+      "Full-stack development, digital marketing strategy, systems architecture, AI agent orchestration, media publishing support, and 6 Notion templates ready to purchase immediately at /products. 💫",
+      "Whether you need an app built, your business automated, your marketing systematised, or your brand voice sharpened. I partner in vision, not just deliver deliverables. Let's talk at /consulting. 🤝",
+      "Value-based pricing. Milestone payments. Transparent communication. I don't do cheap. I do excellence that pays for itself. Start the conversation at hello@creativelynanda.co.za. 💰",
     ]
   },
 
   contact: {
     triggers: ['contact', 'email', 'reach', 'get in touch', 'connect', 'social', 'linkedin', 'github', 'instagram'],
     responses: [
-      "📧 Email: nandaregine@gmail.com—I typically respond within 24-48 hours because your dreams don't wait! Or use the Contact page for a structured inquiry.",
+      "📧 Email: nandaregine@gmail.com. I typically respond within 24-48 hours because your dreams don't wait! Or use the Contact page for a structured inquiry.",
       "Find me everywhere: LinkedIn (Nandawula Kabali-Kagwa), GitHub (Nanda-Regine), Instagram (@nanda.regine), Twitter (@creativelynanda), Medium, and Substack. The footer has all my links! 🔗",
       "I'm based in KuGompo City, South Africa but work with clients globally. Time zones are just numbers, geography is just coordinates. Great work transcends both! 🌐✨",
       "Currently open for: Web development projects, Notion consulting, AI integration work, speaking engagements, creative collaborations. Remote-ready, globally minded, culturally grounded. Let's connect! 🤝",
@@ -184,7 +184,7 @@ const knowledgeBase = {
     responses: [
       "⭐ Bojan Ivanovic (Balkan Burger Co-Founder): 'Nanda is a rare and extraordinary talent...directly driven growth, enhanced our turnover, and solidified our foundations for the future.'",
       "Zintle Joko calls me 'the best person I have ever worked with.' Nicole Carlisle says working under my management was 'incredible.' Amy Gajjar calls me 'an amazing leader with admirable attention to detail.' 💫",
-      "6+ LinkedIn recommendations paint the same picture: dedicated, creative, impactful. People don't just recommend my work—they celebrate my work ethic, energy, and ability to transform vision into reality! ✨",
+      "6+ LinkedIn recommendations paint the same picture: dedicated, creative, impactful. People don't just recommend my work: they celebrate my work ethic, energy, and ability to transform vision into reality! ✨",
       "Maqawe Mvume from Sportsmans Warehouse: 'Consistently impressed by exceptional work ethic and natural leadership. Sharp mind, quick problem-solving, reliability.' The receipts are all on LinkedIn! 📊",
       "When you consistently show up as magic, people remember. My testimonials are evidence of years of bringing whole self, delivering whole results. Excellence speaks through others! 👑",
     ]
@@ -193,10 +193,10 @@ const knowledgeBase = {
   location: {
     triggers: ['where', 'location', 'based', 'south africa', 'country', 'live', 'from', 'city', 'east london', 'eastern cape'],
     responses: [
-      "🌊 Based in KuGompo City, Eastern Cape, South Africa—where the Indian Ocean meets innovation! The Friendly City raising a formidable woman.",
+      "🌊 Based in KuGompo City, Eastern Cape, South Africa, where the Indian Ocean meets innovation! The Friendly City raising a formidable woman.",
       "South African roots, global reach. I carry Eastern Cape warmth to worldwide collaborations. PE taught me hospitality, the ocean taught me flow, now I bring both to remote work everywhere! 🇿🇦",
       "GPS coordinates: Eastern Cape. Spiritual coordinates: wherever great work is needed. I work with clients from Joburg to New York, Lagos to London. Geography is just coordinates! 🌍",
-      "From Nelson Mandela's homeland to your inbox. I'm locally grounded but internationally minded—the ocean taught me resilience, now I build software that flows just as beautifully. 🌅",
+      "From Nelson Mandela's homeland to your inbox. I'm locally grounded but internationally minded, the ocean taught me resilience, now I build software that flows just as beautifully. 🌅",
     ]
   },
 
@@ -205,18 +205,18 @@ const knowledgeBase = {
     responses: [
       "✨ My core philosophy: 'Technology should amplify humanity, not replace it.' Every interface is a conversation, every feature is a story, every line of code is a chance to make someone's day more beautiful.",
       "Three values guide me: Curiosity (every challenge is a classroom), Craft (excellence lives in details), Connection (tech is cold until humans touch it). Ubuntu in action! 🙏🏾",
-      "I believe in community over competition, legacy over likes. I'm passionate about African representation in tech—not as tokens, but as innovators, leaders, visionaries. We belong at the table. 👑",
-      "Words are code for the soul. Poetry is the algorithm of feeling. I merge technical precision with poetic freedom—left brain, right brain, whole heart. This is integration, not balance. 💝",
+      "I believe in community over competition, legacy over likes. I'm passionate about African representation in tech: not as tokens, but as innovators, leaders, visionaries. We belong at the table. 👑",
+      "Words are code for the soul. Poetry is the algorithm of feeling. I merge technical precision with poetic freedom: left brain, right brain, whole heart. This is integration, not balance. 💝",
     ]
   },
 
   fun: {
     triggers: ['fun fact', 'interesting', 'something cool', 'random', 'surprise me', 'fun', 'personal', 'hobbies'],
     responses: [
-      "🎉 Fun fact: I organized my own book launch—crowdfunded, self-coordinated, 100+ attendees! Main character energy before it was trendy.",
+      "🎉 Fun fact: I organized my own book launch, crowdfunded, self-coordinated, 100+ attendees! Main character energy before it was trendy.",
       "I write my best poetry at 3am when the world sleeps. Night owl by nature, creator by design. Also, I'm building AfriFlix to preserve spoken word culture digitally! 🌙✍🏾",
-      "First-generation entrepreneur in my family—not just building a business, building a blueprint. And yes, I earned 15 academic distinctions while teaching myself to code. Multitasking queen! 👑",
-      "I'm what happens when Ugandan heritage meets Zulu spirit meets Eastern Cape resilience. Equal parts vulnerable and victorious—I write about heartbreak AND code for hope. 💝💻",
+      "First-generation entrepreneur in my family, not just building a business, building a blueprint. And yes, I earned 15 academic distinctions while teaching myself to code. Multitasking queen! 👑",
+      "I'm what happens when Ugandan heritage meets Zulu spirit meets Eastern Cape resilience. Equal parts vulnerable and victorious. I write about heartbreak AND code for hope. 💝💻",
       "I was a volunteer First Aid Instructor with St John Ambulance, achieved Level 3 certification and promoted to Corporal. Helping people is in my DNA, whether through code or care! 🏥✨",
     ]
   },
@@ -225,7 +225,7 @@ const knowledgeBase = {
     triggers: ['thank', 'thanks', 'appreciate', 'helpful', 'great', 'awesome', 'cool', 'nice', 'amazing'],
     responses: [
       "Ubuntu says: I am because we are. Your gratitude is received with warmth! Anything else your heart seeks? 🙏🏾✨",
-      "Grateful to be of service, radiant one. Keep exploring—there's more magic in these pages. Visit the Poetry section or check out my Work! 💫",
+      "Grateful to be of service, radiant one. Keep exploring, there's more magic in these pages. Visit the Poetry section or check out my Work! 💫",
       "The pleasure is mutual, beloved. In helping you, I honor my vision of connection. What else can I share? 🌺",
       "Asante sana! Thank you for being here. Your curiosity is a gift. The Contact page awaits when you're ready to create something together! 📬",
       "You're so welcome! May your path be clear, your questions answered, your purpose fulfilled. Keep shining, keep creating! ✨",
@@ -235,7 +235,7 @@ const knowledgeBase = {
   pricing: {
     triggers: ['price', 'cost', 'rate', 'charge', 'how much', 'budget', 'pay', 'afford', 'quote'],
     responses: [
-      "Notion templates: R249–R499 — buy directly at /products. Consulting: AI Integration from R45,000/project, Fractional AI Officer from R18,000/month, Automation from R8,000/month. Value-based, milestone payments. 💰",
+      "Notion templates: R249–R499, buy directly at /products. Consulting: AI Integration from R45,000/project, Fractional AI Officer from R18,000/month, Automation from R8,000/month. Value-based, milestone payments. 💰",
       "Templates are the most accessible entry point: Writer's Sanctuary (R299), Creator's Studio (R399), Music Artist CC (R389), Varsity Engine (R279), High School Engine (R249), SME Command Center (R449). All at /products. 💎",
       "Custom projects start with a conversation, not a price tag. Email hello@creativelynanda.co.za with your brief and I'll tell you what's possible and what it takes. No fluff, just clarity. 📊",
     ]
@@ -244,10 +244,10 @@ const knowledgeBase = {
   chatbot: {
     triggers: ['chatbot', 'this ai', 'how do you work', 'are you ai', 'bot', 'artificial', 'who made you'],
     responses: [
-      "🤖 I'm Nanda's digital essence—AI built with intention, programmed with personality, infused with her spirit. Technology meets Ubuntu!",
+      "🤖 I'm Nanda's digital essence: AI built with intention, programmed with personality, infused with her spirit. Technology meets Ubuntu!",
       "I'm one of her creations: proof that chatbots don't have to be cold, that AI can carry culture, that tech can have heart. Built with React, powered by knowledge, animated by vision! 💝",
-      "Custom-built, culturally conscious, conversation-ready. I blend scripted knowledge with AI flexibility—like jazz, structure meets improvisation. This is Nanda's signature: tech that feels human. 🎵",
-      "I'm the welcome mat to her digital home. I know her story, her skills, her dreams. Ask me anything—about poetry, projects, pricing, or just life. I'm here to connect you with Nanda's world! 🏡",
+      "Custom-built, culturally conscious, conversation-ready. I blend scripted knowledge with AI flexibility, like jazz, structure meets improvisation. This is Nanda's signature: tech that feels human. 🎵",
+      "I'm the welcome mat to her digital home. I know her story, her skills, her dreams. Ask me anything: about poetry, projects, pricing, or just life. I'm here to connect you with Nanda's world! 🏡",
     ]
   },
 
@@ -255,7 +255,7 @@ const knowledgeBase = {
     triggers: ['notion', 'templates', 'productivity', 'workspace', 'systems', 'crm', 'dashboard', 'workflow'],
     responses: [
       "6 Notion templates live in the marketplace (R249–R449): Writer's Sanctuary, Creator's Studio, Music Artist Career Command Center, Varsity Academic Excellence, High School Academic Excellence, and SME Command Center. All at creativelynanda.co.za/products 📊",
-      "Each template is a full operating system — not just a page layout. Built for African students, creators, and SMEs who need structure that actually fits their lives. Systems that spark flow, not friction. 🏺",
+      "Each template is a full operating system, not just a page layout. Built for African students, creators, and SMEs who need structure that actually fits their lives. Systems that spark flow, not friction. 🏺",
       "The SME Command Center (R449) replaces fragmented tools with one cohesive workspace. The academic engines (R249–R279) are built for NSFAS students who need to manage study, budget, and wellness in one place. ✨",
     ]
   },
@@ -263,8 +263,8 @@ const knowledgeBase = {
   media: {
     triggers: ['tv', 'television', 'radio', 'interview', 'media', 'gqeberha', 'madiba', 'tru fm', 'press'],
     responses: [
-      "📺 I was featured on 'Gqeberha: The Empire'—South African TV series! My poetry reached thousands of living rooms. Also interviewed on Madibaz Radio and TRU FM discussing poetry, creativity, and entrepreneurship.",
-      "From stages to screens to airwaves—my voice has traveled! Poetry performances across Port Elizabeth and KuGompo City, radio conversations about creativity and business, television features. The art speaks! 🎤✨",
+      "📺 I was featured on 'Gqeberha: The Empire', South African TV series! My poetry reached thousands of living rooms. Also interviewed on Madibaz Radio and TRU FM discussing poetry, creativity, and entrepreneurship.",
+      "From stages to screens to airwaves, my voice has traveled! Poetry performances across Port Elizabeth and KuGompo City, radio conversations about creativity and business, television features. The art speaks! 🎤✨",
       "Media presence is part of the journey: in-depth radio conversations about the intersection of tech and creativity, TV features showcasing African voices, live poetry performances. The message must spread! 🌍",
     ]
   },
@@ -405,7 +405,7 @@ export function NandaAssistant() {
 
   // Chat state
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: "Sawubona! ✨ I'm Nanda — AI engineer, published poet, and founder of Mirembe Muse. I've shipped 7 production apps in 6 months and I'm building Africa-first technology. What would you like to know?" }
+    { role: 'assistant', content: "Sawubona! ✨ I'm Nanda: AI engineer, published poet, and founder of Mirembe Muse. I've shipped 7 production apps in 6 months and I'm building Africa-first technology. What would you like to know?" }
   ]);
   const [displayedSuggestions] = useState(() => getRandomSuggestions(5));
   const [input, setInput] = useState('');

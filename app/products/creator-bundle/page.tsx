@@ -27,8 +27,8 @@ export default function CreatorBundle() {
           </h2>
           <ul className="space-y-3 mb-6">
             {[
-              "The Writer's Sanctuary — R299",
-              "The Creator's Studio — R399",
+              "The Writer's Sanctuary, R299",
+              "The Creator's Studio, R399",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2 text-[#1A1A1A]">
                 <span className="text-[#C9A84C] font-bold">✓</span>
@@ -48,7 +48,7 @@ export default function CreatorBundle() {
         <p className="text-[#6B6B6B] text-sm mb-8 leading-relaxed">
           To purchase the bundle at the discounted rate, buy both templates individually and
           email <a href="mailto:hello@mirembemuse.co.za" className="text-[#C9A84C] hover:underline">hello@mirembemuse.co.za</a>{' '}
-          with your order numbers — we&apos;ll refund the difference immediately.
+          with your order numbers: we&apos;ll refund the difference immediately.
           <br /><br />
           Combined total if bought separately: R698. Bundle price: <strong>R549</strong>.
         </p>
@@ -58,13 +58,13 @@ export default function CreatorBundle() {
             href="/products/writers-sanctuary"
             className="px-6 py-3 bg-[#C9A84C] text-[#1A1A1A] rounded-lg font-semibold hover:bg-[#C9A84C]/90 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
           >
-            Buy Writer&apos;s Sanctuary — R299
+            Buy Writer&apos;s Sanctuary, R299
           </Link>
           <Link
             href="/products/creators-studio"
             className="px-6 py-3 border border-[#C9A84C]/40 text-[#1A1A1A] rounded-lg font-semibold hover:border-[#C9A84C] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C]"
           >
-            Buy Creator&apos;s Studio — R399
+            Buy Creator&apos;s Studio, R399
           </Link>
         </div>
       </div>

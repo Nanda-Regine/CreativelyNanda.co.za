@@ -45,9 +45,9 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: 'Nandawula Regine Kabali-Kagwa | Poet, Creative & Culture-Keeper — South Africa',
+  title: 'Nandawula Regine Kabali-Kagwa | Poet, Creative & Culture-Keeper · South Africa',
   description:
-    'Nandawula Regine Kabali-Kagwa — published poet (Inside Her Roses), performer and creative from KuGompo City, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimanga. For software, AI engineering and consulting, visit Mirembe Muse.',
+    'Nandawula Regine Kabali-Kagwa: published poet (Inside Her Roses), performer and creative from KuGompo City, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimanga. For software, AI engineering and consulting, visit Mirembe Muse.',
   keywords: [
     // Identity
     'Nandawula Regine Kabali-Kagwa',
@@ -155,13 +155,13 @@ export const metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Nandawula Regine Kabali-Kagwa — Creative Technologist & AI Engineer',
+        alt: 'Nandawula Regine Kabali-Kagwa · Creative Technologist & AI Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nandawula Regine | AI Engineer & Full-Stack Developer — South Africa',
+    title: 'Nandawula Regine | AI Engineer & Full-Stack Developer · South Africa',
     description:
       'AI Engineer building production Claude agents, multi-agent systems, and SaaS platforms. 7 live AI products. Remote-available. South Africa.',
     images: ['/og-image.png'],

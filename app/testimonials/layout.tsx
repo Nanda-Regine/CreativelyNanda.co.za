@@ -5,7 +5,7 @@ import { createMetadata } from '@/lib/seo';
 // page inherited the root layout's canonical and declared itself a duplicate
 // of the homepage.
 export const metadata: Metadata = createMetadata({
-  title: 'Testimonials — What People Say About Nanda',
+  title: 'Testimonials · What People Say About Nanda',
   description:
     'LinkedIn recommendations from the people who have worked with Nandawula Regine Kabali-Kagwa, and letters from the readers of her poetry who never met her.',
   path: '/testimonials',

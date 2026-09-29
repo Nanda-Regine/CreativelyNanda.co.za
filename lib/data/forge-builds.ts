@@ -101,21 +101,21 @@ export const BUILD_DOSSIERS: BuildDossier[] = [
     kicker: 'The personal operating system',
     accent: '#7B2FBE',
     standfirst:
-      'A private operating system for one person running eight businesses — twenty-seven wings, a few hundred background workers, and the only codebase here whose build journal is longer than the poetry.',
+      'A private operating system for one person running eight businesses: twenty-seven wings, a few hundred background workers, and the only codebase here whose build journal is longer than the poetry.',
     problem: [
       'The other builds each solve one problem for one audience. JarvisOS solves the problem of running all of them at once: eight brands, a studio, a shop, a clinic of half-finished ideas, and one person holding every thread. Nothing off the shelf models that, because the market for software that runs a one-woman conglomerate is one woman.',
-      'So the design constraint was never features. It was attention. A system that needs to be checked is another job; a system that speaks first is an assistant. Almost every architectural decision below is downstream of that — scheduled workers that surface things, a signal bus so one wing can know what another wing saw, and a morning brief that reads the night\'s output so she does not have to.',
+      'So the design constraint was never features. It was attention. A system that needs to be checked is another job; a system that speaks first is an assistant. Almost every architectural decision below is downstream of that: scheduled workers that surface things, a signal bus so one wing can know what another wing saw, and a morning brief that reads the night\'s output so she does not have to.',
     ],
     decisions: [
       {
         title: 'Route the model to the job, not to the best model available.',
         body:
-          'Body-wing AI — recovery alerts, daily summaries, routine chat — runs on Haiku only. That data is structured and formulaic; a frontier model would spend Sonnet money to reformat a number it was handed. Sonnet is reserved for the work that is actually reasoning: reviewing the day\'s real commits, mediating a judgment call, writing. Model choice is a cost architecture decision, and treating it as a quality setting is how AI bills get away from people.',
+          'Body-wing AI (recovery alerts, daily summaries, routine chat) runs on Haiku only. That data is structured and formulaic; a frontier model would spend Sonnet money to reformat a number it was handed. Sonnet is reserved for the work that is actually reasoning: reviewing the day\'s real commits, mediating a judgment call, writing. Model choice is a cost architecture decision, and treating it as a quality setting is how AI bills get away from people.',
       },
       {
         title: 'Wings talk through a signal bus, never through each other\'s tables.',
         body:
-          'Each wing publishes a small typed payload to a namespaced key and subscribes to the ones it cares about — the body wing emits a recovery score and consumes the cycle phase; the CEO morning brief reads both. Nothing reaches across into another wing\'s schema. Twenty-seven wings that queried each other directly would be a single wing with twenty-seven names, and the first schema change would take the whole thing down.',
+          'Each wing publishes a small typed payload to a namespaced key and subscribes to the ones it cares about, the body wing emits a recovery score and consumes the cycle phase; the CEO morning brief reads both. Nothing reaches across into another wing\'s schema. Twenty-seven wings that queried each other directly would be a single wing with twenty-seven names, and the first schema change would take the whole thing down.',
         code: `jarvis:signals:body:{userId}
   → { recovery_score, sleep_hours, training_sessions, alert, alert_advice }
 
@@ -125,7 +125,7 @@ jarvis:signals:cycle:{userId}
       {
         title: 'Derive the score in the open, so it can be argued with.',
         body:
-          'The recovery score is not a model output. It is a clamped sum of three contributions — heart-rate variability against personal baseline, sleep hours against a floor, self-reported quality — and it is written down as arithmetic. A number that tells you how your body is doing has to be inspectable, or you either believe it too much or stop reading it. The version that a model produces is more sophisticated and worth strictly less.',
+          'The recovery score is not a model output. It is a clamped sum of three contributions (heart-rate variability against personal baseline, sleep hours against a floor, self-reported quality) and it is written down as arithmetic. A number that tells you how your body is doing has to be inspectable, or you either believe it too much or stop reading it. The version that a model produces is more sophisticated and worth strictly less.',
         code: `baseline 50
 + hrv     : (hrv_ms / baseline_hrv - 1) × 25 , clamped ±25
 + sleep   : (sleep_hours - 6) × 5            , clamped ±15
@@ -135,7 +135,7 @@ final = clamp(sum, 0, 100)`,
       {
         title: 'Monitor the monitor.',
         body:
-          'One subscriber to the queue\'s own `function.failed` event covers every worker in the system at once, including the ones written after it, plus a six-hourly sweep over the heartbeat tables with a latch so a stuck job alerts once rather than forty times. This was not foresight. It was written the week after six workers went quiet for a month and nothing said anything — the scar is in the Scar Room, and this is the fix that came out of it.',
+          'One subscriber to the queue\'s own `function.failed` event covers every worker in the system at once, including the ones written after it, plus a six-hourly sweep over the heartbeat tables with a latch so a stuck job alerts once rather than forty times. This was not foresight. It was written the week after six workers went quiet for a month and nothing said anything, the scar is in the Scar Room, and this is the fix that came out of it.',
       },
     ],
     learned: [
@@ -152,17 +152,17 @@ final = clamp(sum, 0, 100)`,
       {
         claim: 'Seed data that looks like production data will eventually be read as production data.',
         why:
-          'A dashboard panel showed five rows of AI review output for weeks. They were seeds — no such review had ever run. Nobody lied; the fixture simply outlived the moment when everyone knew it was a fixture. Seeds need to be visibly fake or deleted before launch, and a panel with no real rows should say so rather than fill itself.',
+          'A dashboard panel showed five rows of AI review output for weeks. They were seeds, no such review had ever run. Nobody lied; the fixture simply outlived the moment when everyone knew it was a fixture. Seeds need to be visibly fake or deleted before launch, and a panel with no real rows should say so rather than fill itself.',
       },
       {
         claim: 'The cost of a system is the cost of understanding it six months later.',
         why:
-          'The dedup passes in this journal are mostly about a second copy of something — a legacy dashboard over the same tables, a hub page that re-implemented four dedicated pages inside itself. None of it was broken. All of it doubled the cost of every future change, which is the tax that eventually stops a solo build dead.',
+          'The dedup passes in this journal are mostly about a second copy of something, a legacy dashboard over the same tables, a hub page that re-implemented four dedicated pages inside itself. None of it was broken. All of it doubled the cost of every future change, which is the tax that eventually stops a solo build dead.',
       },
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase / Postgres', 'Inngest', 'Upstash Redis', 'Claude API', 'Vercel'],
     scars: ['four-dashboards', 'inspector-was-lying', 'deterministic-recorder', 'capture-scars'],
-    source: 'JarvisOS BUILD_JOURNEY.md — the diary, 145 sessions',
+    source: 'JarvisOS BUILD_JOURNEY.md, the diary, 145 sessions',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -175,25 +175,25 @@ final = clamp(sum, 0, 100)`,
     standfirst:
       'Multi-tenant business software for South African SMEs, built on the observation that the interface they already use every day is not a dashboard.',
     problem: [
-      'South African small businesses do not log in. They answer WhatsApp. Any back office that requires a browser session, a password and a habit is competing against a chat thread that is already open, and it loses. The dashboard still has to exist — somebody reconciles, somebody reads the numbers — but it is the back office of the back office.',
+      'South African small businesses do not log in. They answer WhatsApp. Any back office that requires a browser session, a password and a habit is competing against a chat thread that is already open, and it loses. The dashboard still has to exist (somebody reconciles, somebody reads the numbers) but it is the back office of the back office.',
       'That inverts the usual build. The webhook is the product surface. The web app is where the results are kept.',
     ],
     decisions: [
       {
         title: 'Tenant isolation belongs in the database, not in the application.',
         body:
-          'Every table carries a required tenant id and every policy checks it against the claim on the JWT. The audit log is append-only — no update or delete permission is granted to anyone. The point is the failure mode: with isolation in application code, one missing `where` clause in one handler leaks another business\'s data. With row-level security, that same bug returns an empty set. Multi-tenancy is the one place where being paranoid at the lowest layer is cheaper than being careful at every higher one.',
+          'Every table carries a required tenant id and every policy checks it against the claim on the JWT. The audit log is append-only, no update or delete permission is granted to anyone. The point is the failure mode: with isolation in application code, one missing `where` clause in one handler leaks another business\'s data. With row-level security, that same bug returns an empty set. Multi-tenancy is the one place where being paranoid at the lowest layer is cheaper than being careful at every higher one.',
       },
       {
         title: 'Give every step of the workflow its own timeout.',
         body:
-          'An inbound WhatsApp message walks nine steps — load tenant context, classify intent and sentiment and language, check the FAQ cache, check plan limits, generate, send, log. Each has its own budget, from two seconds for a Redis lookup to twenty for the model call. A single timeout over the whole chain tells you the chain was slow. Per-step budgets tell you which step, which is the difference between an alert and a diagnosis.',
+          'An inbound WhatsApp message walks nine steps: load tenant context, classify intent and sentiment and language, check the FAQ cache, check plan limits, generate, send, log. Each has its own budget, from two seconds for a Redis lookup to twenty for the model call. A single timeout over the whole chain tells you the chain was slow. Per-step budgets tell you which step, which is the difference between an alert and a diagnosis.',
         code: `whatsapp.inbound
-  loadTenantContext   5s   refresh prompt cache if > 24h old
-  classifyIntent      8s   intent + sentiment + language, in parallel
-  checkFAQCache       2s   Redis — answer instantly if cached
-  checkPlanLimits     3s   Redis counter — block AI if over quota
-  generateResponse   20s   Claude, cached system prompt`,
+  loadTenantContext 5s refresh prompt cache if > 24h old
+  classifyIntent 8s intent + sentiment + language, in parallel
+  checkFAQCache 2s Redis, answer instantly if cached
+  checkPlanLimits 3s Redis counter, block AI if over quota
+  generateResponse 20s Claude, cached system prompt`,
       },
       {
         title: 'Answer from cache before you answer from the model.',
@@ -203,7 +203,7 @@ final = clamp(sum, 0, 100)`,
       {
         title: 'Cost reduction is a feature with a number on it.',
         body:
-          'Prompt caching against a large stable tenant context — the business\'s services, tone, hours, policies — takes the per-message cost down by roughly the same order as the cache hit rate, and that is what makes a low monthly price arithmetically possible rather than aspirational. Pricing a product you have not costed is how SaaS businesses discover their unit economics in month four.',
+          'Prompt caching against a large stable tenant context (the business\'s services, tone, hours, policies) takes the per-message cost down by roughly the same order as the cache hit rate, and that is what makes a low monthly price arithmetically possible rather than aspirational. Pricing a product you have not costed is how SaaS businesses discover their unit economics in month four.',
       },
     ],
     learned: [
@@ -220,11 +220,11 @@ final = clamp(sum, 0, 100)`,
       {
         claim: 'A queue is not an optimisation, it is what makes a webhook honest.',
         why:
-          'A webhook has to acknowledge fast. Anything slower than the caller\'s patience — a model call, an outbound send, a write to three tables — has to happen after the acknowledgement or the platform starts retrying, and retries against non-idempotent work is how one message becomes four.',
+          'A webhook has to acknowledge fast. Anything slower than the caller\'s patience (a model call, an outbound send, a write to three tables) has to happen after the acknowledgement or the platform starts retrying, and retries against non-idempotent work is how one message becomes four.',
       },
     ],
     stack: ['Next.js 14 App Router', 'TypeScript', 'Supabase (RLS + Realtime)', 'Claude API', 'Upstash Redis', 'Inngest', 'Meta WhatsApp Cloud API', 'PayFast'],
-    source: 'AdminOS BUILD_JOURNEY.md — dossier + 18 dated sessions',
+    source: 'AdminOS BUILD_JOURNEY.md, dossier + 18 dated sessions',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -255,12 +255,12 @@ final = clamp(sum, 0, 100)`,
       {
         title: 'Meter the free tier in the counter, not the UI.',
         body:
-          'Ten free AI messages a month, enforced by a Redis counter checked before generation. Enforcing a limit in the interface means enforcing it nowhere — the API is the product surface for anyone who opens devtools, and a free tier that can be bypassed is a free product with extra steps.',
+          'Ten free AI messages a month, enforced by a Redis counter checked before generation. Enforcing a limit in the interface means enforcing it nowhere, the API is the product surface for anyone who opens devtools, and a free tier that can be bypassed is a free product with extra steps.',
       },
       {
         title: 'Correct the price on the page, in public, when it drifts.',
         body:
-          'Three separate commits in this repository exist only to make a published price match the tiers that actually exist — a tier that had been removed, a range that had gone stale. That is unglamorous and it is the job. A wrong price on a live page is not a content bug; it is a promise the system cannot keep.',
+          'Three separate commits in this repository exist only to make a published price match the tiers that actually exist, a tier that had been removed, a range that had gone stale. That is unglamorous and it is the job. A wrong price on a live page is not a content bug; it is a promise the system cannot keep.',
       },
     ],
     learned: [
@@ -281,7 +281,7 @@ final = clamp(sum, 0, 100)`,
       },
     ],
     stack: ['Next.js 14', 'TypeScript (strict)', 'Supabase (Postgres + RLS)', 'Claude API', 'Zustand', 'React Hook Form + Zod', 'Recharts', 'PayFast', 'Vercel'],
-    source: 'Campus Compass build journal — dossier, 54 sections',
+    source: 'Campus Compass build journal, dossier, 54 sections',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -302,7 +302,7 @@ final = clamp(sum, 0, 100)`,
       {
         title: 'No router. No state manager. No CSS framework.',
         body:
-          'Routing is a state string that swaps which game component is mounted. State is props plus localStorage. Styling is a theme object passed down. Each of those is a library that was considered and declined with a reason: fifty kilobytes for navigation on a single-page app, a global store for a codebase five people will ever touch, a build step for control over every pixel at 360 wide. The discipline is not minimalism for its own sake — it is that on this device the download is the user experience.',
+          'Routing is a state string that swaps which game component is mounted. State is props plus localStorage. Styling is a theme object passed down. Each of those is a library that was considered and declined with a reason: fifty kilobytes for navigation on a single-page app, a global store for a codebase five people will ever touch, a build step for control over every pixel at 360 wide. The discipline is not minimalism for its own sake: it is that on this device the download is the user experience.',
         code: `// the entire routing layer
 const [activeGame, setActiveGame] = useState(null);
 if (activeGame === 'gauntlet')
@@ -311,7 +311,7 @@ if (activeGame === 'gauntlet')
       {
         title: 'Synthesise the sound instead of shipping it.',
         body:
-          'Every tone is generated with the Web Audio API — no audio files, so no requests, no cache entries, and it works offline from the first launch. The correct-answer sound is a rising two-note sine wave with a tuned attack and decay, because a reward sound is heard fifty times in a session and the difference between rewarding and irritating is about thirty minutes of tuning. Note the detail that matters more than the waveform: the audio context is resumed on every call, because iOS and Chrome suspend it and a silently dead sound on first tap reads as a broken app.',
+          'Every tone is generated with the Web Audio API: no audio files, so no requests, no cache entries, and it works offline from the first launch. The correct-answer sound is a rising two-note sine wave with a tuned attack and decay, because a reward sound is heard fifty times in a session and the difference between rewarding and irritating is about thirty minutes of tuning. Note the detail that matters more than the waveform: the audio context is resumed on every call, because iOS and Chrome suspend it and a silently dead sound on first tap reads as a broken app.',
         code: `osc.frequency.setValueAtTime(660, now);
 osc.frequency.setValueAtTime(880, now + 0.08);
 gain.gain.linearRampToValueAtTime(0.18, now + 0.01);      // attack
@@ -320,10 +320,10 @@ gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28); // decay`,
       {
         title: 'Get the signs out of the official manual, not out of a drawing tool.',
         body:
-          'The first version used hand-drawn inline SVGs — zero requests, crisp at any density, and wrong. South African road signs are legally specified, and a Give Way that is slightly off shape teaches the wrong recognition. The pivot was to extract the real artwork from the official learner manual PDF, using the renderer\'s paint-operation count to tell actual signs from decorative page furniture, then serving them as small on-demand JPEGs cached by the service worker after first view.',
-        code: `Page  3 → images  10– 16 : Stop (R1.1), Yield (R2)
-Page  4 → images  17– 25 : No Entry, speed limits
-Page 22 → images 272–285 : warning — crossroads, junctions
+          'The first version used hand-drawn inline SVGs: zero requests, crisp at any density, and wrong. South African road signs are legally specified, and a Give Way that is slightly off shape teaches the wrong recognition. The pivot was to extract the real artwork from the official learner manual PDF, using the renderer\'s paint-operation count to tell actual signs from decorative page furniture, then serving them as small on-demand JPEGs cached by the service worker after first view.',
+        code: `Page 3 → images 10– 16 : Stop (R1.1), Yield (R2)
+Page 4 → images 17– 25 : No Entry, speed limits
+Page 22 → images 272–285 : warning, crossroads, junctions
 Page 26 → images 329–343 : pedestrian & traffic warnings`,
       },
       {
@@ -341,7 +341,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         claim: 'A dependency is a download before it is an abstraction.',
         why:
-          'The usual calculus — a library costs a little size and saves a lot of time — inverts when the user is on a metered connection and a mid-range handset. Both directions are engineering. Only one of them is a default.',
+          'The usual calculus, a library costs a little size and saves a lot of time, inverts when the user is on a metered connection and a mid-range handset. Both directions are engineering. Only one of them is a default.',
       },
       {
         claim: 'Animate the number the way a person counts it.',
@@ -351,11 +351,11 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         claim: 'When the content has a legal source, the content is a dependency.',
         why:
-          'Treating the official manual as the upstream — with a documented extraction procedure — turns "are these signs right?" from a matter of memory into a matter of re-running a script. Several later commits correct individual sign codes against the official chart. That is only possible because there is an official chart in the pipeline.',
+          'Treating the official manual as the upstream, with a documented extraction procedure, turns "are these signs right?" from a matter of memory into a matter of re-running a script. Several later commits correct individual sign codes against the official chart. That is only possible because there is an official chart in the pipeline.',
       },
     ],
     stack: ['React + Vite', 'JavaScript', 'Web Audio API', 'Service worker / PWA', 'Framer Motion', 'Supabase', 'PayFast'],
-    source: 'K53 Drill Master build journal — dossier, 60 sections',
+    source: 'K53 Drill Master build journal, dossier, 60 sections',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -366,44 +366,44 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     kicker: 'Rotating savings, made legible',
     accent: '#C9943A',
     standfirst:
-      'A stokvel is not a bank. It is a trust community with written rules — so the software\'s job is transparency, and most fraud dissolves before it becomes fraud.',
+      'A stokvel is not a bank. It is a trust community with written rules, so the software\'s job is transparency, and most fraud dissolves before it becomes fraud.',
     problem: [
-      'South Africa\'s stokvels — rotating savings groups — are run on WhatsApp threads, paper ledgers and shared spreadsheets. The chairperson tracks who paid, calculates penalties from a handwritten constitution, chases fifteen to thirty people individually, and settles disputes with no record to point at.',
+      'South Africa\'s stokvels, rotating savings groups, are run on WhatsApp threads, paper ledgers and shared spreadsheets. The chairperson tracks who paid, calculates penalties from a handwritten constitution, chases fifteen to thirty people individually, and settles disputes with no record to point at.',
       'The build was triggered by a specific failure: a teachers\' stokvel lost money because two members paid into a closed account, nobody reconciled, and three months passed before the gap was found. There was no audit trail, so there was no way to tell error from theft.',
-      'That framing set the product. The problem was never missing money. It was missing transparency — and those need different software.',
+      'That framing set the product. The problem was never missing money. It was missing transparency, and those need different software.',
     ],
     decisions: [
       {
         title: 'Read the constitution once with a model. Enforce it forever without one.',
         body:
-          'Each group uploads its own written constitution. A model reads it a single time and extracts the rules — contribution amounts, due dates, penalty schedules, payout order — into structured data. From then on enforcement is ordinary TypeScript running against those rules, with no model in the loop. The cost per transaction goes to effectively zero and, more importantly, enforcement becomes deterministic: the same input produces the same penalty every time, which is the only version a group will trust.',
+          'Each group uploads its own written constitution. A model reads it a single time and extracts the rules (contribution amounts, due dates, penalty schedules, payout order) into structured data. From then on enforcement is ordinary TypeScript running against those rules, with no model in the loop. The cost per transaction goes to effectively zero and, more importantly, enforcement becomes deterministic: the same input produces the same penalty every time, which is the only version a group will trust.',
       },
       {
         title: 'The members are not on the web app, and were never going to be.',
         body:
-          'The dashboard is used by the chairperson. Everyone else interacts entirely through WhatsApp — payments, loan requests, balance checks, disputes, proof-of-payment photographs — inside the application already on their phone. Building the web app first and discovering this is a common and expensive route to the same conclusion.',
+          'The dashboard is used by the chairperson. Everyone else interacts entirely through WhatsApp (payments, loan requests, balance checks, disputes, proof-of-payment photographs) inside the application already on their phone. Building the web app first and discovering this is a common and expensive route to the same conclusion.',
       },
       {
         title: 'Cache the constitution in the prompt, not just in the database.',
         body:
-          'The parts of the context that never change turn-to-turn — the constitution, the extracted rules, the member roster — sit in the prompt cache. The first message from a group in a window pays full price; everyone after that pays a fraction. In a thirty-member group that is the difference between a daily AI cost that kills the pricing and one that disappears into it.',
+          'The parts of the context that never change turn-to-turn (the constitution, the extracted rules, the member roster) sit in the prompt cache. The first message from a group in a window pays full price; everyone after that pays a fraction. In a thirty-member group that is the difference between a daily AI cost that kills the pricing and one that disappears into it.',
       },
       {
         title: 'Never trust the balance field.',
         body:
-          'The stored total is a cached number and cached numbers go wrong. Fraud detection ignores it completely and derives the balance from first principles — sum every confirmed contribution, subtract every paid payout — then compares. A divergence past both a relative and an absolute floor is a critical alert. Deriving the check from source truth rather than from the summary is the whole technique; it is also how a discrepancy gets caught in a day instead of a quarter.',
+          'The stored total is a cached number and cached numbers go wrong. Fraud detection ignores it completely and derives the balance from first principles (sum every confirmed contribution, subtract every paid payout) then compares. A divergence past both a relative and an absolute floor is a critical alert. Deriving the check from source truth rather than from the summary is the whole technique; it is also how a discrepancy gets caught in a day instead of a quarter.',
       },
       {
         title: 'Give the mediating agent a position, not a personality.',
         body:
-          'The dispute agent\'s instruction is not "be helpful". It is that it takes nobody\'s side and protects the group\'s trust — warm, respectful, ubuntu-centred. And before it says anything, an automated investigation compares the claim against the financial record. Most disputes are "I already paid", and most are settled by the records alone; the model\'s job is to explain what the ledger shows, not to adjudicate.',
+          'The dispute agent\'s instruction is not "be helpful". It is that it takes nobody\'s side and protects the group\'s trust: warm, respectful, ubuntu-centred. And before it says anything, an automated investigation compares the claim against the financial record. Most disputes are "I already paid", and most are settled by the records alone; the model\'s job is to explain what the ledger shows, not to adjudicate.',
       },
     ],
     learned: [
       {
         claim: 'Use a model to convert, not to operate.',
         why:
-          'The pattern that made this build affordable — parse the ambiguous human artefact once into structured rules, then run deterministic code against the structure — generalises to almost every "AI-powered" product with recurring per-user cost. Ask what is genuinely novel per transaction. Usually it is much less than the architecture assumes.',
+          'The pattern that made this build affordable (parse the ambiguous human artefact once into structured rules, then run deterministic code against the structure) generalises to almost every "AI-powered" product with recurring per-user cost. Ask what is genuinely novel per transaction. Usually it is much less than the architecture assumes.',
       },
       {
         claim: 'An audit trail is a social feature.',
@@ -413,11 +413,11 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         claim: 'A cached aggregate is a claim, and something has to check claims.',
         why:
-          'Any denormalised total will eventually diverge from the rows it summarises — a failed transaction, a partial rollback, a migration. Software that treats the summary as truth cannot detect this at all. The reconciliation job is not an optional extra; it is the thing that makes the summary safe to use.',
+          'Any denormalised total will eventually diverge from the rows it summarises: a failed transaction, a partial rollback, a migration. Software that treats the summary as truth cannot detect this at all. The reconciliation job is not an optional extra; it is the thing that makes the summary safe to use.',
       },
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase / Postgres', 'Claude API (prompt caching)', 'WhatsApp Business API', 'PayFast'],
-    source: 'StokvelOS build journal — dossier, 56 sections',
+    source: 'StokvelOS build journal, dossier, 56 sections',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -428,10 +428,10 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     kicker: 'Whether you can actually get in',
     accent: '#2A9D8F',
     standfirst:
-      'Venue accessibility in South Africa, assessed against the national standard by trained auditors — so that a disabled person can know before leaving home instead of phoning ahead.',
+      'Venue accessibility in South Africa, assessed against the national standard by trained auditors, so that a disabled person can know before leaving home instead of phoning ahead.',
     problem: [
       'Millions of disabled South Africans plan every outing around a single unknown: will I be able to get in, move around, and use the facilities? The available information is photographs and the phrase "wheelchair accessible", which one step, one narrow door or one missing toilet makes false.',
-      'The people who know are the people affected — but their knowledge lives in memory and group chats, unstructured and unsearchable. The build\'s bet is that this becomes useful the moment it is scored against something objective.',
+      'The people who know are the people affected, but their knowledge lives in memory and group chats, unstructured and unsearchable. The build\'s bet is that this becomes useful the moment it is scored against something objective.',
     ],
     decisions: [
       {
@@ -442,7 +442,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         title: 'Disability profile data is never logged, never in a URL, never in an error.',
         body:
-          'The most sensitive field in the system is the one that makes the product work — what a given user needs. It is excluded from logs, from query strings and from error messages by policy, not by review. Under POPIA that is a legal position; independent of POPIA it is the difference between an app disabled people will use and one they will not.',
+          'The most sensitive field in the system is the one that makes the product work, what a given user needs. It is excluded from logs, from query strings and from error messages by policy, not by review. Under POPIA that is a legal position; independent of POPIA it is the difference between an app disabled people will use and one they will not.',
       },
       {
         title: 'Accessibility is the product, so the interface is held to the product\'s standard.',
@@ -450,7 +450,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
           'Every screen carries explicit accessibility labels and roles and holds a 4.5:1 contrast floor. This is stated in the journal as non-negotiable and it is the only honest position available: the users are disabled people, and an inaccessible app about accessibility is a contradiction that no feature can outrun.',
       },
       {
-        title: 'Offline-first, data-light — because load shedding is real and mobile data is expensive.',
+        title: 'Offline-first, data-light · because load shedding is real and mobile data is expensive.',
         body:
           'Cached queries and offline map packs, lazy images, paginated lists, compressed uploads. The same pair of constraints that shapes VarsityOS shapes this: in this market, "assume connectivity" is not a simplification, it is a bug that only appears in the field.',
       },
@@ -459,7 +459,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         claim: 'The sensitive field is usually the one the product is about.',
         why:
-          'Privacy engineering is easy when the sensitive data is incidental. It gets real when the sensitive data is the core index. The answer is not to avoid holding it — it is to decide, up front and in writing, which surfaces it may cross: never a log, never a URL, never an error string.',
+          'Privacy engineering is easy when the sensitive data is incidental. It gets real when the sensitive data is the core index. The answer is not to avoid holding it, it is to decide, up front and in writing, which surfaces it may cross: never a log, never a URL, never an error string.',
       },
       {
         claim: 'One codebase for iOS, Android and web is a decision about maintenance capacity.',
@@ -468,7 +468,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       },
     ],
     stack: ['Expo Router (iOS + Android + Web)', 'TypeScript', 'Supabase', 'TanStack Query', 'Mapbox (offline packs)', 'PayFast'],
-    source: 'TrueAccess build journal — dossier, 25 sections',
+    source: 'TrueAccess build journal, dossier, 25 sections',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -479,9 +479,9 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     kicker: 'African film and music, on its own infrastructure',
     accent: '#8B1E3F',
     standfirst:
-      'A pan-African distribution platform for filmmakers, musicians and poets — built for the continent\'s connectivity, its languages and its crew-based creative culture rather than adapted to them.',
+      'A pan-African distribution platform for filmmakers, musicians and poets, built for the continent\'s connectivity, its languages and its crew-based creative culture rather than adapted to them.',
     problem: [
-      'The premise is a refusal: not a clone of a Western platform with African content poured into it. The assumptions that come free with those platforms — reliable bandwidth, solo-artist profiles, a handful of languages, a card on file — are each wrong here in a way that changes the schema.',
+      'The premise is a refusal: not a clone of a Western platform with African content poured into it. The assumptions that come free with those platforms (reliable bandwidth, solo-artist profiles, a handful of languages, a card on file) are each wrong here in a way that changes the schema.',
       'Crew-based creative culture is the clearest example. African music and film are made by collectives, and a data model with one creator per work cannot represent who made the thing. That is not a feature gap; it is the record being wrong.',
     ],
     decisions: [
@@ -493,28 +493,28 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         title: 'Move from single-shot calls to agents with memory and a schedule.',
         body:
-          'The first architecture was a request, a model call, a response, done. The second gives each concern a persistent agent with its own tools, its own trigger and its own tables to write — content intelligence on upload, discovery on feed refresh. The shift matters because the interesting work is not what a model can do in one turn; it is what accumulates when something runs on a schedule and remembers.',
+          'The first architecture was a request, a model call, a response, done. The second gives each concern a persistent agent with its own tools, its own trigger and its own tables to write, content intelligence on upload, discovery on feed refresh. The shift matters because the interesting work is not what a model can do in one turn; it is what accumulates when something runs on a schedule and remembers.',
       },
       {
         title: 'Model the crew, the collective and the listening room.',
         body:
-          'Comments with replies, an activity feed, creator notes between drops, listening rooms, live premieres, and pages that belong to a crew rather than a person. The journal argues each of these from how African audiences already gather — the activity feed because "someone you follow just dropped a track" is the highest-retention mechanic there is, the crew page because solo profiles miss the culture.',
+          'Comments with replies, an activity feed, creator notes between drops, listening rooms, live premieres, and pages that belong to a crew rather than a person. The journal argues each of these from how African audiences already gather, the activity feed because "someone you follow just dropped a track" is the highest-retention mechanic there is, the crew page because solo profiles miss the culture.',
       },
     ],
     learned: [
       {
         claim: 'Copying a platform copies its assumptions, and its assumptions are the expensive part.',
         why:
-          'The visible layer of a streaming product is a grid of thumbnails and it takes a week. What takes the year is rights, roles, payouts, offline behaviour and discovery — all of which encode who the platform thinks makes things and how. Those are the parts that have to be rebuilt for a different context, and they are the parts that look like they can be reused.',
+          'The visible layer of a streaming product is a grid of thumbnails and it takes a week. What takes the year is rights, roles, payouts, offline behaviour and discovery, all of which encode who the platform thinks makes things and how. Those are the parts that have to be rebuilt for a different context, and they are the parts that look like they can be reused.',
       },
       {
         claim: 'Write down who built it with you.',
         why:
-          'This journal keeps an explicit collaborators table naming the AI as an embedded engineering partner rather than a tool. Whatever position one takes on that framing, recording it is the honest move — the alternative is a body of work whose authorship is quietly ambiguous.',
+          'This journal keeps an explicit collaborators table naming the AI as an embedded engineering partner rather than a tool. Whatever position one takes on that framing, recording it is the honest move, the alternative is a body of work whose authorship is quietly ambiguous.',
       },
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase', 'Claude API', 'Vercel'],
-    source: 'AfriFlix / WatchSankofa build journal — dossier, 24 sections',
+    source: 'AfriFlix / WatchSankofa build journal, dossier, 24 sections',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -525,7 +525,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     kicker: 'Restaurant operations, front and back of house',
     accent: '#B4653A',
     standfirst:
-      'The only build on this floor made for somebody else\'s business — which is why the numbers are here and the commit messages are not.',
+      'The only build on this floor made for somebody else\'s business, which is why the numbers are here and the commit messages are not.',
     problem: [
       'A working restaurant with a kitchen, a floor, stock, shifts, food-safety obligations and a second location coming. Software for that either costs more than the business can justify or arrives as five tools that do not know about each other.',
       'This dossier is deliberately thinner than the others. It is a client\'s operation, and the split that governs this whole wing applies twice over: the method can be public, the business cannot.',
@@ -547,29 +547,29 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         title: 'Use a null scope to mean "everywhere".',
         body:
-          'A null location id marks a record as chain-wide, so one master set of menu items, recipes and suppliers is visible at every location while each site can still hold its own. Reads take the union of the current location and the global scope. The pattern is old and worth naming, because the alternative — copying the master set per location — is correct on the day it is written and wrong every day after.',
+          'A null location id marks a record as chain-wide, so one master set of menu items, recipes and suppliers is visible at every location while each site can still hold its own. Reads take the union of the current location and the global scope. The pattern is old and worth naming, because the alternative, copying the master set per location, is correct on the day it is written and wrong every day after.',
       },
       {
         title: 'Derive the forecast from tables that already exist.',
         body:
-          'The revenue outlook is a weighted confidence score over shifts, checklist completions and calendar events — three tables already being written for other reasons, no new migration, no new storage. Before adding a data source, check whether the signal is already in the building.',
+          'The revenue outlook is a weighted confidence score over shifts, checklist completions and calendar events, three tables already being written for other reasons, no new migration, no new storage. Before adding a data source, check whether the signal is already in the building.',
       },
       {
         title: 'Write tests for the pure functions that have already caused bugs.',
         body:
-          'The first suite deliberately targets the utilities with a history: timezone conversion behind past off-by-a-day and wrong-hour bugs, rank thresholds and progress caps, PIN hashing round-trips and malformed input. Not coverage for its own sake — the specific pure functions whose failures had already cost something. Integration tests against row-level security still need a test database, and that is written down as an open gap rather than quietly skipped.',
+          'The first suite deliberately targets the utilities with a history: timezone conversion behind past off-by-a-day and wrong-hour bugs, rank thresholds and progress caps, PIN hashing round-trips and malformed input. Not coverage for its own sake, the specific pure functions whose failures had already cost something. Integration tests against row-level security still need a test database, and that is written down as an open gap rather than quietly skipped.',
       },
     ],
     learned: [
       {
         claim: 'Put the invariant in the strongest layer that can hold it.',
         why:
-          'Generated columns, unique constraints and row-level security are all the same move — take a rule that application code is currently promising to keep, and make the database keep it instead. Every rule moved down is a class of bug that cannot be written.',
+          'Generated columns, unique constraints and row-level security are all the same move, take a rule that application code is currently promising to keep, and make the database keep it instead. Every rule moved down is a class of bug that cannot be written.',
       },
       {
         claim: 'The typed client will let you read a table it will not let you write.',
         why:
-          'Reading from an unregistered table can be cast past. Inserting cannot — the client validates the payload against the registered insert type and rejects excess properties. That asymmetry is easy to hit late, when the read path has been working for weeks and the first write fails.',
+          'Reading from an unregistered table can be cast past. Inserting cannot, the client validates the payload against the registered insert type and rejects excess properties. That asymmetry is easy to hit late, when the read path has been working for weeks and the first write fails.',
       },
       {
         claim: '"Zero tests" is a finding, not a confession.',
@@ -578,7 +578,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       },
     ],
     stack: ['Next.js App Router', 'TypeScript', 'Supabase / Postgres (RLS, generated columns)', 'Vitest', 'Server actions', 'Vercel'],
-    source: 'BB MotherShip build journal — diary + dossier, 95 sections',
+    source: 'BB MotherShip build journal, diary + dossier, 95 sections',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -590,21 +590,21 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     logo: 'sanyu-botanicals',
     accent: '#7A2F3A',
     standfirst:
-      'The only build on this floor with a factory — and the factory is a kitchen. Herbal balm and scalp serum, made by hand in small batches, with the software wrapped around the part that does not scale.',
+      'The only build on this floor with a factory, and the factory is a kitchen. Herbal balm and scalp serum, made by hand in small batches, with the software wrapped around the part that does not scale.',
     problem: [
       'Every other build here is software all the way down: the thing sold and the thing built are the same object. Sanyu is not. There is a stove, a whisk, dried herbs, a mixing bowl, jars that get filled one at a time, and a person whose hands are the bottleneck.',
-      'That inverts what the software is for. A storefront for a digital product exists to remove friction from an infinite supply. A storefront for a hand-made one exists to protect a finite supply — from over-ordering, from stock that says available when the shelf is empty, from a delivery promise that quietly assumes a warehouse.',
+      'That inverts what the software is for. A storefront for a digital product exists to remove friction from an infinite supply. A storefront for a hand-made one exists to protect a finite supply, from over-ordering, from stock that says available when the shelf is empty, from a delivery promise that quietly assumes a warehouse.',
     ],
     decisions: [
       {
         title: 'Photograph the making, not just the jar.',
         body:
-          'The product library leads with the whisk in the bowl, the herbs on the tray, the row of filled jars cooling on a counter — and only then the finished bottle held up in a garden. For a small-batch botanical the provenance is the product; a clean pack shot on white says nothing that a thousand identical brands are not also saying. It is a merchandising decision that happens to be made in a photo folder rather than in code, and it is the one that matters most.',
+          'The product library leads with the whisk in the bowl, the herbs on the tray, the row of filled jars cooling on a counter, and only then the finished bottle held up in a garden. For a small-batch botanical the provenance is the product; a clean pack shot on white says nothing that a thousand identical brands are not also saying. It is a merchandising decision that happens to be made in a photo folder rather than in code, and it is the one that matters most.',
       },
       {
         title: 'Trim every credential before you use it.',
         body:
-          'Three separate commits here exist to strip whitespace off a payment passphrase and off environment variables before signing. An invisible trailing space in a dashboard field produces a signature mismatch that looks exactly like a wrong key, and it costs an afternoon every time somebody meets it fresh. The same bug appears in the K53 and VarsityOS journals — so it is not a gateway quirk, it is what happens whenever a secret is copied by a human.',
+          'Three separate commits here exist to strip whitespace off a payment passphrase and off environment variables before signing. An invisible trailing space in a dashboard field produces a signature mismatch that looks exactly like a wrong key, and it costs an afternoon every time somebody meets it fresh. The same bug appears in the K53 and VarsityOS journals, so it is not a gateway quirk, it is what happens whenever a secret is copied by a human.',
       },
       {
         title: 'Lazy-initialise the mail client so a missing key cannot fail the build.',
@@ -614,7 +614,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         title: 'Send from the domain that is verified today, not the one that will be.',
         body:
-          'While DNS propagated for the new sending domain, order confirmations went out from an already-verified one. Unglamorous — and the alternative is a launch window in which every confirmation email lands silently in spam, which from the customer side is indistinguishable from never having sent it.',
+          'While DNS propagated for the new sending domain, order confirmations went out from an already-verified one. Unglamorous, and the alternative is a launch window in which every confirmation email lands silently in spam, which from the customer side is indistinguishable from never having sent it.',
       },
     ],
     learned: [
@@ -626,11 +626,11 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         claim: 'A brand with a real product photographs better than a brand with a real budget.',
         why:
-          'The strongest assets in this build were taken on a phone, in a kitchen and a garden, with no lighting kit. They work because the thing in frame is genuinely being made. Not an argument against production value — an argument that provenance outranks polish when the product is hand-made.',
+          'The strongest assets in this build were taken on a phone, in a kitchen and a garden, with no lighting kit. They work because the thing in frame is genuinely being made. Not an argument against production value, an argument that provenance outranks polish when the product is hand-made.',
       },
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase', 'PayFast', 'Resend', 'Cloudinary', 'Vercel'],
-    source: 'sanyubotanicals repository — commit history and the product library',
+    source: 'sanyubotanicals repository, commit history and the product library',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -644,19 +644,19 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     standfirst:
       'The other half of the split this whole wing is built around. Every outcome, case study and price lives there; every process, failure and half-finished idea lives here.',
     problem: [
-      'One person, several products, and two audiences who want incompatible things. A client evaluating a build wants outcomes, references and a price. A reader of this site wants the making — the wrong turns, the night something broke, the reasoning under a trade-off. Serve both from one site and it becomes a portfolio that is boasting and confessing at the same time, and neither audience believes it.',
+      'One person, several products, and two audiences who want incompatible things. A client evaluating a build wants outcomes, references and a price. A reader of this site wants the making: the wrong turns, the night something broke, the reasoning under a trade-off. Serve both from one site and it becomes a portfolio that is boasting and confessing at the same time, and neither audience believes it.',
       'So there are two buildings and one rule for which is which: if a page starts arguing for her, it belongs on Mirembe Muse. That rule is also why this dossier is short. The interesting thing about Mirembe is what it sells, and this is the wrong site to sell it on.',
     ],
     decisions: [
       {
         title: 'Two sites, one rule, no overlap.',
         body:
-          'Not two audiences on one site behind a filter, and not one site with a business section. Separate domains, separate deployments, separate databases. The cost is real — two of everything to maintain — and it buys the thing that matters: neither site has to hedge. A services page can make a claim without a poem beside it undercutting the register, and a postmortem can admit a month of blind monitoring without a prospective client reading it as a warning.',
+          'Not two audiences on one site behind a filter, and not one site with a business section. Separate domains, separate deployments, separate databases. The cost is real, two of everything to maintain, and it buys the thing that matters: neither site has to hedge. A services page can make a claim without a poem beside it undercutting the register, and a postmortem can admit a month of blind monitoring without a prospective client reading it as a warning.',
       },
       {
         title: 'The business routes redirect rather than duplicate.',
         body:
-          'When a page moved to the studio site it became a permanent redirect here, not a copy. Two live copies of the same claim diverge — one gets a price update and the other does not — and the stale one is invariably the one a search engine has already indexed.',
+          'When a page moved to the studio site it became a permanent redirect here, not a copy. Two live copies of the same claim diverge, one gets a price update and the other does not, and the stale one is invariably the one a search engine has already indexed.',
       },
       {
         title: 'Scope the database client to its own schema.',
@@ -666,14 +666,14 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         title: 'Publish a price only where it can be kept current.',
         body:
-          'A recurring class of commit in this repository corrects a published price that had drifted from the tier that actually exists — a range gone stale, a tier removed but still listed. A number repeated across a site is a promise repeated across a site, and only one copy ever gets updated.',
+          'A recurring class of commit in this repository corrects a published price that had drifted from the tier that actually exists, a range gone stale, a tier removed but still listed. A number repeated across a site is a promise repeated across a site, and only one copy ever gets updated.',
       },
     ],
     learned: [
       {
         claim: 'Two sites is a positioning decision that happens to have a hosting bill.',
         why:
-          'The temptation with limited time is one site with a "work" tab. It is cheaper and it is worse, because the register cannot change between tabs — the whole site ends up in the tone of whichever audience is more commercially urgent, which is always the client. Splitting is what lets this side be honest.',
+          'The temptation with limited time is one site with a "work" tab. It is cheaper and it is worse, because the register cannot change between tabs, the whole site ends up in the tone of whichever audience is more commercially urgent, which is always the client. Splitting is what lets this side be honest.',
       },
       {
         claim: 'A redirect is a maintenance decision before it is an SEO one.',
@@ -682,7 +682,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       },
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase (scoped schema)', 'PayFast', 'Resend', 'Vercel'],
-    source: 'MirembeApp repository — commit history; the split is specified in docs/THE_FORGE.md §0',
+    source: 'MirembeApp repository, commit history; the split is specified in docs/THE_FORGE.md §0',
   },
 
   // ───────────────────────────────────────────────────────────────────────────
@@ -693,16 +693,16 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     kicker: 'This house',
     accent: '#C21E56',
     standfirst:
-      'The site you are reading. A personal website that refused to be a brochure — and the only build whose bugs you can verify by looking around.',
+      'The site you are reading. A personal website that refused to be a brochure, and the only build whose bugs you can verify by looking around.',
     problem: [
       'The brief was a cultural destination rather than a portfolio: the credibility of a professional profile, the commerce of a shop, the storytelling of a craft marketplace, the community of a poetry site, the editorial standard of a magazine. That is an unreasonable list, and it shaped every technical decision after it.',
-      'It also produced the structural idea the whole site now runs on — rooms rather than pages. The poetry wing has nine. This wing is the answer to engineering having had one.',
+      'It also produced the structural idea the whole site now runs on, rooms rather than pages. The poetry wing has nine. This wing is the answer to engineering having had one.',
     ],
     decisions: [
       {
         title: 'PayFast over Stripe, on market grounds.',
         body:
-          'Stripe is the global default and the wrong choice here. PayFast is the dominant South African gateway, supports EFT and instant EFT — how people actually pay — and settles in rand without a conversion step. For an audience of South African students and small businesses, Stripe would have added friction and currency confusion to every checkout. The correct gateway is the one your buyers already trust, not the one with the best documentation.',
+          'Stripe is the global default and the wrong choice here. PayFast is the dominant South African gateway, supports EFT and instant EFT, how people actually pay, and settles in rand without a conversion step. For an audience of South African students and small businesses, Stripe would have added friction and currency confusion to every checkout. The correct gateway is the one your buyers already trust, not the one with the best documentation.',
       },
       {
         title: 'Framer Motion, chosen for the accessibility escape hatch.',
@@ -712,19 +712,19 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
       {
         title: 'The grain overlay is fixed, not sticky.',
         body:
-          'A one-word difference that decides whether the texture repaints on every scroll frame. This is the register the whole front end is built in — the film grain, the parchment, the gold rules are the point of the site, and they have to cost nothing.',
+          'A one-word difference that decides whether the texture repaints on every scroll frame. This is the register the whole front end is built in: the film grain, the parchment, the gold rules are the point of the site, and they have to cost nothing.',
       },
       {
         title: 'Publish the commit history rather than a claim about it.',
         body:
-          'The Commit Wall in this wing is measured from the GitHub API at build time and committed as data, so the site never calls GitHub while serving. The number is not typed into a paragraph, which means it cannot quietly go stale — the failure mode of every "over 1,000 commits" line on every portfolio.',
+          'The Commit Wall in this wing is measured from the GitHub API at build time and committed as data, so the site never calls GitHub while serving. The number is not typed into a paragraph, which means it cannot quietly go stale, the failure mode of every "over 1,000 commits" line on every portfolio.',
       },
     ],
     learned: [
       {
         claim: 'Hydration bugs on this site are a class, not a series of incidents.',
         why:
-          'React error 425 and 422 kept returning with different faces — a date rendered during render, an inline style block, a random value. Treating each as its own bug meant fixing it three times. Treating it as a class produced a rule: nothing that can differ between server and client may be evaluated during render.',
+          'React error 425 and 422 kept returning with different faces: a date rendered during render, an inline style block, a random value. Treating each as its own bug meant fixing it three times. Treating it as a class produced a rule: nothing that can differ between server and client may be evaluated during render.',
       },
       {
         claim: 'A build pipeline that excludes files will eventually exclude a file you need.',
@@ -739,7 +739,7 @@ Page 26 → images 329–343 : pedestrian & traffic warnings`,
     ],
     stack: ['Next.js 14 App Router', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'Cloudinary', 'PayFast', 'Resend', 'Vercel'],
     scars: ['payfast-signature', 'hydration-class', 'silent-corpus-loss', 'the-filter-that-deleted-the-room'],
-    source: 'CreativelyNanda build journal — dossier, 67 sections',
+    source: 'CreativelyNanda build journal, dossier, 67 sections',
   },
 ];
 

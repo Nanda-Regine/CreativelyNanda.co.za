@@ -4,7 +4,7 @@ import OriginsFeature from '@/components/forge/OriginsFeature';
 import { ORIGINS } from '@/lib/data/forge-origins';
 
 export const metadata: Metadata = {
-  title: 'Where It Started | The nine foundation projects — Nandawula Regine',
+  title: 'Where It Started | The nine foundation projects · Nandawula Regine',
   description:
     'The build chronicle behind a self-taught engineer: nine foundation projects, sequenced in six layers from raw HTML to real-time systems and payment webhooks. Each with its brief, its build, and the lesson kept.',
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Where It Started | The nine foundation projects',
     description:
-      'Nine projects, six layers, one sequence — the chronicle of how a poet learned to build. Each project ends on the lesson it taught.',
+      'Nine projects, six layers, one sequence, the chronicle of how a poet learned to build. Each project ends on the lesson it taught.',
     url: 'https://creativelynanda.co.za/forge/origins',
     type: 'article',
     images: [{ url: 'https://creativelynanda.co.za/og-image.png', width: 1200, height: 630 }],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 const JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Where It Started — the nine foundation projects',
+  name: 'Where It Started · the nine foundation projects',
   url: 'https://creativelynanda.co.za/forge/origins',
   isPartOf: { '@type': 'WebSite', name: 'CreativelyNanda', url: 'https://creativelynanda.co.za' },
   about: {

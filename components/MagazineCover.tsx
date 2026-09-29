@@ -43,47 +43,47 @@ export default function MagazineCover() {
           mismatch (React #425). Same fix as CoverHero. */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes nebula-gold {
-          0%   { transform: translate(0px, 0px) scale(1); }
-          33%  { transform: translate(30px, -20px) scale(1.08); }
-          66%  { transform: translate(-15px, 25px) scale(0.95); }
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -20px) scale(1.08); }
+          66% { transform: translate(-15px, 25px) scale(0.95); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
         @keyframes nebula-gold-2 {
-          0%   { transform: translate(0px, 0px) scale(1); }
-          25%  { transform: translate(-40px, 20px) scale(1.12); }
-          60%  { transform: translate(20px, -30px) scale(0.92); }
+          0% { transform: translate(0px, 0px) scale(1); }
+          25% { transform: translate(-40px, 20px) scale(1.12); }
+          60% { transform: translate(20px, -30px) scale(0.92); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
         @keyframes nebula-cherry {
-          0%   { transform: translate(0px, 0px) scale(1); }
-          40%  { transform: translate(-25px, 15px) scale(1.06); }
-          70%  { transform: translate(20px, -10px) scale(0.97); }
+          0% { transform: translate(0px, 0px) scale(1); }
+          40% { transform: translate(-25px, 15px) scale(1.06); }
+          70% { transform: translate(20px, -10px) scale(0.97); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
         @keyframes nebula-cherry-2 {
-          0%   { transform: translate(0px, 0px) scale(1); }
-          30%  { transform: translate(35px, -25px) scale(1.10); }
-          65%  { transform: translate(-20px, 30px) scale(0.94); }
+          0% { transform: translate(0px, 0px) scale(1); }
+          30% { transform: translate(35px, -25px) scale(1.10); }
+          65% { transform: translate(-20px, 30px) scale(0.94); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
         @keyframes nebula-float {
-          0%   { transform: translate(0px, 0px) scale(1); opacity: 1; }
-          50%  { transform: translate(15px, -35px) scale(1.15); opacity: 0.7; }
+          0% { transform: translate(0px, 0px) scale(1); opacity: 1; }
+          50% { transform: translate(15px, -35px) scale(1.15); opacity: 0.7; }
           100% { transform: translate(0px, 0px) scale(1); opacity: 1; }
         }
         @keyframes grain-drift {
-          0%   { backgroundPosition: 0px 0px; }
+          0% { backgroundPosition: 0px 0px; }
           100% { backgroundPosition: 300px 300px; }
         }
         @media (prefers-reduced-motion: reduce) {
-          [class*="mag-nebula"], .mag-grain-anim { animation: none !important; }
+          [class*="mag-nebula"].mag-grain-anim { animation: none !important; }
         }
         /* Mobile: clear the fixed nav */
         @media (max-width: 767px) {
           .mag-cover-section {
             padding-top: 84px;
           }
-          /* Widen photo zone on mobile — left col is narrower so give photo more room */
+          /* Widen photo zone on mobile, left col is narrower so give photo more room */
           .photo-container {
             left: 18% !important;
           }
@@ -472,7 +472,7 @@ export default function MagazineCover() {
               margin: '0 0 5px 0',
             }}>
               &ldquo;she learned to speak<br />
-              in two tongues —<br />
+              in two tongues, <br />
               code and longing.&rdquo;
             </p>
             <p style={{
@@ -481,7 +481,7 @@ export default function MagazineCover() {
               color: 'rgba(201,148,58,0.5)',
               letterSpacing: '0.18em',
               margin: 0,
-            }}>— N.R.K-K.</p>
+            }}>N.R.K-K.</p>
           </div>
         </div>
 
@@ -497,7 +497,7 @@ export default function MagazineCover() {
         }} className="photo-container">
           <Image
             src={PHOTO_FILENAME}
-            alt="Nandawula Regine Kabali-Kagwa — Creative Technologist, AI Engineer, Published Poet, Founder of Mirembe Muse"
+            alt="Nandawula Regine Kabali-Kagwa · Creative Technologist, AI Engineer, Published Poet, Founder of Mirembe Muse"
             fill
             priority
             style={{

@@ -37,7 +37,7 @@ export default function GamesPage() {
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9, delay: 0.15 }}
           className="mx-auto max-w-xl text-white/60 text-lg font-light leading-relaxed">
           Small, addictive ways to fall for words. For poets, aspiring writers, and anyone who has ever
-          loved a good line. No score to chase — just the pleasure of the language.
+          loved a good line. No score to chase, just the pleasure of the language.
         </motion.p>
 
         {/* tabs */}

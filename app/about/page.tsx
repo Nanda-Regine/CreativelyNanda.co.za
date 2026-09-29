@@ -109,7 +109,7 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-7 max-w-xl text-[16px] font-light leading-relaxed md:text-lg" style={{ color: 'rgba(251,248,243,0.85)' }}>
-              A woman who writes in roses and builds in code — from KuGompo City (formerly East London), out to
+              A woman who writes in roses and builds in code, from KuGompo City (formerly East London), out to
               the world, and always back to where she comes from.
             </p>
           </Reveal>
@@ -124,7 +124,7 @@ export default function About() {
               In her own words, more or less
             </p>
             <p className="mt-8 font-display italic leading-[1.35]" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.6rem)' }}>
-              She learned to speak in two tongues — the language of longing, and the language of systems. One she
+              She learned to speak in two tongues, the language of longing, and the language of systems. One she
               was born into. The other she taught herself, at a modest desk, until the screen answered back.
             </p>
           </Reveal>
@@ -149,7 +149,7 @@ export default function About() {
         >
           <p>
             Before the apps and the stages, there was a girl in KuGompo City who wrote things down. In 2021 she
-            gathered the truest of them into a debut collection — <em>Inside Her Roses</em> — poems on womanhood,
+            gathered the truest of them into a debut collection, <em>Inside Her Roses</em>, poems on womanhood,
             longing, healing, and the quiet ferocity of becoming.
           </p>
           <p>
@@ -178,14 +178,14 @@ export default function About() {
             <OffsetFigure
               image={FAMILY.festival.ids[0]}
               alt="Seated on the mosaic plaza in Xhosa regalia, holding the book"
-              caption="Nelson Mandela Bay Arts Festival — her book in her lap like a small crown."
+              caption="Nelson Mandela Bay Arts Festival, her book in her lap like a small crown."
               bleed="left"
               ratio="4 / 5"
             />
           }
         >
           <p>
-            Poetry, for her, was never only ink. It put on beadwork and found a microphone — spoken-word nights,
+            Poetry, for her, was never only ink. It put on beadwork and found a microphone: spoken-word nights,
             the Mandela Bay Arts Festival, five live performances across the Eastern Cape.
           </p>
           <p>
@@ -216,7 +216,7 @@ export default function About() {
             <OffsetFigure
               image={FAMILY.radio.ids[0]}
               alt="Seated in the TRU FM studio in Xhosa regalia"
-              caption="TRU FM — the morning her voice went out over the city."
+              caption="TRU FM, the morning her voice went out over the city."
               bleed="left"
               ratio="4 / 5"
             />
@@ -225,7 +225,7 @@ export default function About() {
           <p>
             Twice she has been asked into a room full of microphones and left there: <strong>TRU FM</strong> in
             the morning with the beadwork still on, and <strong>Madibaz Radio</strong> at the desk with the
-            faders up — <em>Connect. Inform. Engage.</em>
+            faders up, <em>Connect. Inform. Engage.</em>
           </p>
           <p>
             There is a particular vertigo the first time a stranger says your name on air. The poems leave the
@@ -261,11 +261,11 @@ export default function About() {
         >
           <p>
             Somewhere between the stages, she opened a laptop and refused to close it until it made sense. No
-            bootcamp, no shortcut — a home desk, a rainbow of errors, and a stubbornness inherited from a clan
+            bootcamp, no shortcut, a home desk, a rainbow of errors, and a stubbornness inherited from a clan
             whose motto calls its people <em>the pillar and the support-beam</em>.
           </p>
           <p>
-            What came out was a company — <span style={{ color: ink.ink }}>Mirembe Muse</span> — and, inside a
+            What came out was a company, <span style={{ color: ink.ink }}>Mirembe Muse</span>, and, inside a
             single year, eight production systems: AI tools, apps, real software for the continent, with paying
             clients to prove it. The poet had become an engineer without ever ceasing to be a poet.
           </p>
@@ -308,13 +308,13 @@ export default function About() {
           }
         >
           <p>
-            Ugandan father, Xhosa-Sotho mother, five ancestral clans — Nsenene, Hlubi, Msimanga, Thabizolo,
+            Ugandan father, Xhosa-Sotho mother, five ancestral clans, Nsenene, Hlubi, Msimanga, Thabizolo,
             Tshawe. Each one handed down a principle rather than an heirloom: lead through people, adapt and
             endure, heal at the root, build foundations that hold, share what you make.
           </p>
           <p>
             She has brewed the beer in the clay pot. She has stood at the top of Sani Pass in a Basotho blanket
-            with the whole country underneath her. These are not costumes she visits on a Sunday — they are the
+            with the whole country underneath her. These are not costumes she visits on a Sunday: they are the
             operating system underneath everything else on this website.
           </p>
           <Link
@@ -360,14 +360,14 @@ export default function About() {
             laughs at a table crowded with family.
           </p>
           <p>
-            Three nations gave her their names and their poetry. She is the one they appointed to remember — and
+            Three nations gave her their names and their poetry. She is the one they appointed to remember, and
             she remembers in verse, in colour, in code.
           </p>
         </Chapter>
 
         <div className="mx-auto max-w-3xl">
           <PullQuote accent={rose.accent} attribution="A reader she has never met">
-            What an incredible journey you chronicled here — a fascinating footprint from girlhood into
+            What an incredible journey you chronicled here, a fascinating footprint from girlhood into
             womanhood.
           </PullQuote>
           <Reveal>
@@ -387,7 +387,7 @@ export default function About() {
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <Reveal>
             <h2 className="font-display font-bold italic leading-tight text-white" style={{ fontSize: 'clamp(2rem, 6vw, 3.75rem)' }}>
-              Words, culture, code — all of it from the same hand.
+              Words, culture, code, all of it from the same hand.
             </h2>
             <div className="mt-10 flex flex-col flex-wrap justify-center gap-4 sm:flex-row">
               <Link href="/roots" className="rounded-full px-8 py-4 font-semibold text-white transition-transform hover:scale-105" style={{ background: '#C1292E' }}>

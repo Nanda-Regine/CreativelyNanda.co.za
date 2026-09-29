@@ -143,7 +143,7 @@ export default function MyGarden() {
             {next && (
               <p className="text-cream/45 text-sm mt-4">
                 {next.threshold - planted} more {next.threshold - planted === 1 ? 'poem' : 'poems'} to{' '}
-                <span className="text-cream/70">{next.label} {next.emoji}</span> — plant one in{' '}
+                <span className="text-cream/70">{next.label} {next.emoji}</span>, plant one in{' '}
                 <Link href="/poetry/community" className="text-cherry hover:text-cherry-dark">The Circle</Link>.
               </p>
             )}

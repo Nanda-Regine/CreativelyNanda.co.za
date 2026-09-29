@@ -11,7 +11,7 @@ const PROMPTS = [
   'I come from nine generations of',
   'Grief is only love with',
   'The sea keeps turning me toward',
-  'Some hungers are holy —',
+  'Some hungers are holy',
   'Before I had words, I had',
   'My name is a woman who',
   'Teach me to hold the thorn like',

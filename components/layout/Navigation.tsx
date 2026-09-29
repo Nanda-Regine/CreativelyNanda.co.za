@@ -28,7 +28,7 @@ const FORGE_ROOMS: Item[] = [
   { href: '/forge/origins', label: 'Where It Started', hint: 'The nine foundation projects' },
   { href: '/forge/floor', label: 'The Workshop Floor', hint: 'Every build, one dossier each' },
   { href: '/forge/scars', label: 'The Scar Room', hint: 'What broke, and why it was allowed to' },
-  { href: '/forge/dojo', label: 'The Dojo', hint: 'Real bugs as drills — find the cause' },
+  { href: '/forge/dojo', label: 'The Dojo', hint: 'Real bugs as drills, find the cause' },
   { href: '/forge/studio', label: 'The App Studio', hint: '100 real screens, three live products' },
   { href: '/forge/nights', label: 'The Long Night', hint: 'The diary, night by night' },
   { href: '/forge/commits', label: 'The Commit Wall', hint: 'A year of commits, as sentences' },
@@ -71,7 +71,7 @@ const SINGLES: Item[] = [
 type AppLink = { href: string; label: string; hint: string };
 
 const MIREMBE_APPS: AppLink[] = [
-  { href: 'https://mirembemuse.co.za', label: 'Mirembe Muse', hint: 'The studio — business & tech' },
+  { href: 'https://mirembemuse.co.za', label: 'Mirembe Muse', hint: 'The studio, business & tech' },
   { href: 'https://varsityos.co.za', label: 'VarsityOS', hint: 'The student operating system' },
   { href: 'https://k53drillmaster.co.za', label: 'K53 Drill Master', hint: 'Learner licence, drilled' },
   { href: 'https://sanyubotanicals.co.za', label: 'Sanyu Botanicals', hint: 'Skin, made deliberately' },

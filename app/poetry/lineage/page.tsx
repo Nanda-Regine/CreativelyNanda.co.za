@@ -53,7 +53,7 @@ export default function LineageRoom() {
             className="mt-6 max-w-2xl text-lg leading-relaxed drop-shadow-[0_1px_10px_rgba(0,0,0,0.55)]"
             style={{ color: 'rgba(245,239,214,0.86)' }}
           >
-            Before the poems, before the stage, before the code — there were the clans.
+            Before the poems, before the stage, before the code: there were the clans.
             I carry four royal houses in one body: a grasshopper from Buganda, and three
             crowns from the south. This is where the roses are rooted.
           </motion.p>
@@ -109,7 +109,7 @@ export default function LineageRoom() {
               kicker={i === 0 ? 'The line, still living' : 'Where we come from'}
               caption={
                 i === 0
-                  ? 'Nine generations I can name — and here, one lifting the next. My mother, and me.'
+                  ? 'Nine generations I can name, and here, one lifting the next. My mother, and me.'
                   : 'The soil is not a metaphor. It is a forest that remembers our name.'
               }
               accent="#C9A84C"

@@ -45,19 +45,19 @@ Profiles: ${SAME_AS.join(' · ')}
 - [Lineage](${u('/poetry/lineage')}): the traditions her poetry comes from
 - [The Poet Who Codes](${u('/poetry/poet-who-codes')}): where the writing and the engineering meet
 
-## Engineering — The Forge
-- [The Forge](${u('/forge')}): her engineering wing — build journals, postmortems, decisions with their reasoning
+## Engineering · The Forge
+- [The Forge](${u('/forge')}): her engineering wing, build journals, postmortems, decisions with their reasoning
 - [The Workshop Floor](${u('/forge/floor')}): ${BUILD_DOSSIERS.length} build dossiers
 ${BUILD_DOSSIERS.map((d) => `  - [${d.name}](${u(`/forge/floor/${d.slug}`)}): ${d.standfirst}`).join('\n')}
-- [The Scar Room](${u('/forge/scars')}): ${SCARS.length} real production incidents — what broke, the cause, the fix
-- [The Dojo](${u('/forge/dojo')}): ${DRILLS.length} debugging drills built from those incidents — diagnose the cause from the symptom
+- [The Scar Room](${u('/forge/scars')}): ${SCARS.length} real production incidents: what broke, the cause, the fix
+- [The Dojo](${u('/forge/dojo')}): ${DRILLS.length} debugging drills built from those incidents, diagnose the cause from the symptom
 - [The App Studio](${u('/forge/studio')}): ${SCREENS.length} real screenshots of her live products (VarsityOS, K53 Drill Master, Sanyu Botanicals) in phone frames
 - [The Long Night](${u('/forge/nights')}) and [the Commit Wall](${u('/forge/commits')}): her commit history, measured from GitHub
 - [The Engineer's Issue 003](${u('/engineer')}): a career feature
 
 ## Education and credentials
 - [The Honours Hall](${u('/education')}): qualifications and certificates, each viewable, with issuer verification links where offered
-${CREDENTIALS_BY_DATE.map((c) => `  - ${c.title} — ${c.issuer}, ${formatCredentialDate(c.date)}${c.verifyUrl ? ` (verify: ${c.verifyUrl})` : ''}`).join('\n')}
+${CREDENTIALS_BY_DATE.map((c) => `  - ${c.title} · ${c.issuer}, ${formatCredentialDate(c.date)}${c.verifyUrl ? ` (verify: ${c.verifyUrl})` : ''}`).join('\n')}
 
 ## Story
 - [About](${u('/about')})
@@ -66,7 +66,7 @@ ${CREDENTIALS_BY_DATE.map((c) => `  - ${c.title} — ${c.issuer}, ${formatCreden
 - [Testimonials](${u('/testimonials')})
 
 ## Writing (latest)
-${posts.length ? posts.map((p) => `- [${p.title}](${postUrl(p)}) — ${p.published_at.slice(0, 10)}`).join('\n') : '- See the feeds below.'}
+${posts.length ? posts.map((p) => `- [${p.title}](${postUrl(p)}) · ${p.published_at.slice(0, 10)}`).join('\n') : '- See the feeds below.'}
 
 Feeds: RSS ${u('/feed.xml')} · JSON Feed ${u('/feed.json')} · per imprint ${u('/feed/essays.xml')}, ${u('/feed/field-notes.xml')}
 

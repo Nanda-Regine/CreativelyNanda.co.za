@@ -61,7 +61,7 @@ export default function PetalEnding({ slug, doorway }: { slug: string; doorway: 
         {!petaled ? (
           <motion.div key="choose" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}>
             <p className="mb-2 font-display text-2xl italic text-cream/85">How did it leave you?</p>
-            <p className="mb-7 text-sm text-cream/45">Leave a petal — name the feeling it planted.</p>
+            <p className="mb-7 text-sm text-cream/45">Leave a petal, name the feeling it planted.</p>
             <div className="flex flex-wrap justify-center gap-3">
               {FEELINGS.map((f) => (
                 <button
@@ -110,7 +110,7 @@ export default function PetalEnding({ slug, doorway }: { slug: string; doorway: 
             className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.04] px-7 py-3 text-cream transition-all hover:border-[#C9A84C]/60 hover:bg-white/[0.08]"
           >
             <span className="font-display text-lg">Enter {doorway.room.label}</span>
-            <span className="text-cream/40 group-hover:text-cream/70">— {doorway.room.blurb}</span>
+            <span className="text-cream/40 group-hover:text-cream/70">· {doorway.room.blurb}</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         ) : doorway.nextPoem ? (

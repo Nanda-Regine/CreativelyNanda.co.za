@@ -73,7 +73,7 @@ export default function CommitWall({
         <RoomHeader
           kicker="A room in the Forge"
           title="The Commit Wall"
-          standfirst="Commit messages, read as sentences — because most of hers are."
+          standfirst="Commit messages, read as sentences, because most of hers are."
           note={
             <>
               {totalCommits} commits across twelve repositories. This wall holds {rows.length} of them: the ones
@@ -108,7 +108,7 @@ export default function CommitWall({
             </div>
             <p className="mt-4 text-[14px] font-light leading-relaxed" style={{ color: ink(0.55) }}>
               Commits per week, summed across every repository. Read from the GitHub API on {generatedAt} and
-              committed as data — the site does not call GitHub while serving a page, so this cannot fail in
+              committed as data, the site does not call GitHub while serving a page, so this cannot fail in
               production and cannot silently drift.
             </p>
           </FadeUp>
@@ -195,7 +195,7 @@ export default function CommitWall({
 
           {shown.length === 0 ? (
             <p className="py-16 text-center font-display text-xl italic" style={{ color: ink(0.5) }}>
-              Nothing on the wall from that build — its commit messages are labels, not sentences.
+              Nothing on the wall from that build: its commit messages are labels, not sentences.
             </p>
           ) : null}
         </div>
@@ -213,7 +213,7 @@ export default function CommitWall({
             </h2>
             <p className="mt-6 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.7) }}>
               So every line above passed the same gate as the build journals before it reached this page. A
-              credential shape drops the message entirely rather than redacting it — a subject line is one
+              credential shape drops the message entirely rather than redacting it, a subject line is one
               sentence and there is nothing left worth reading. A live security disclosure drops, because those
               applications are still running. A named individual drops. Ordinary engineering vocabulary does
               not: <span className="font-mono text-[13px]" style={{ color: ink(0.85) }}>RLS</span>,{' '}
@@ -227,7 +227,7 @@ export default function CommitWall({
               <a href="/forge/scars#the-filter-that-deleted-the-room" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 filter that was deleting the room
               </a>{' '}
-              was found — a regex that looked strict and was quietly discarding four out of every five good
+              was found, a regex that looked strict and was quietly discarding four out of every five good
               lines. A filter nobody can inspect is a filter nobody should trust.
             </p>
           </FadeUp>

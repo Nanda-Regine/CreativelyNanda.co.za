@@ -35,7 +35,7 @@ Students who learned with the intent to teach showed:
 - More activity in the hippocampus (long-term memory formation)
 - Better activation of the prefrontal cortex (deep understanding)
 
-The lead researcher, Dr. John Nestojko, explains: "When you prepare to teach, your brain organizes information differently. You're not just memorizing—you're creating a coherent knowledge structure."
+The lead researcher, Dr. John Nestojko, explains: "When you prepare to teach, your brain organizes information differently. You're not just memorizing: you're creating a coherent knowledge structure."
 
 **Why This Matters for Coding**
 
@@ -104,7 +104,7 @@ Real-world teaching reveals edge cases I missed
 
 **The Public Learning Strategy**
 
-Research from Stanford's learning sciences lab found that "learning in public"—sharing your learning journey publicly—produces superior results compared to private study.
+Research from Stanford's learning sciences lab found that "learning in public", sharing your learning journey publicly, produces superior results compared to private study.
 
 **Why:**
 
@@ -203,9 +203,9 @@ Every expert you admire became an expert the same way: by teaching others before
 
 The research validates what African oral tradition has known for millennia: **Knowledge multiplies when shared.**
 
-You don't lose understanding by teaching it—you deepen it.
-You don't dilute your expertise by explaining it simply—you strengthen it.
-You don't diminish your value by sharing freely—you increase it.
+You don't lose understanding by teaching it, you deepen it.
+You don't dilute your expertise by explaining it simply: you strengthen it.
+You don't diminish your value by sharing freely: you increase it.
 
 **Your Teaching Practice, Starting Today**
 

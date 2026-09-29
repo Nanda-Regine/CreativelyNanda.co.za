@@ -12,7 +12,7 @@ import { getCommitWall } from '@/lib/forge-data';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
 
 export const metadata = createMetadata({
-  title: 'The Commit Wall — a year of commit messages, read as sentences',
+  title: 'The Commit Wall · a year of commit messages, read as sentences',
   description:
     'Three thousand commits across twelve repositories, and the fraction of them that are sentences rather than labels. Measured from the GitHub API and committed as data, so no number on the page can quietly go stale.',
   path: '/forge/commits',

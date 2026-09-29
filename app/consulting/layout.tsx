@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Hire AI Engineer | Services & Pricing — Nandawula Regine',
+  title: 'Hire AI Engineer | Services & Pricing · Nandawula Regine',
   description:
-    'AI engineering services and transparent pricing from Nandawula Regine — Claude API integration, multi-agent systems, WhatsApp automation, SaaS builds, and fractional AI advisory. Remote-available. ZAR + USD pricing.',
+    'AI engineering services and transparent pricing from Nandawula Regine: Claude API integration, multi-agent systems, WhatsApp automation, SaaS builds, and fractional AI advisory. Remote-available. ZAR + USD pricing.',
   keywords: [
     // Hire-intent
     'hire AI engineer',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     'Mirembe Muse consulting',
   ],
   openGraph: {
-    title: 'Hire AI Engineer | Services & Pricing — Nandawula Regine',
+    title: 'Hire AI Engineer | Services & Pricing · Nandawula Regine',
     description:
       'Claude API agents, multi-agent systems, WhatsApp automation, SaaS builds. Transparent ZAR + USD pricing. Remote-available from South Africa.',
     url: 'https://creativelynanda.co.za/consulting',

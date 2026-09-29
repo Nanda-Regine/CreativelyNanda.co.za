@@ -113,7 +113,7 @@ export default function Marginalia({
             <div key={w.id} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
               <p className="text-cream/80">{w.body}</p>
               <p className="mt-2 text-xs text-cream/40">
-                — {w.author || 'Anonymous'}
+                · {w.author || 'Anonymous'}
                 {w.status === 'featured' && <span className="ml-2 text-[#C9A84C]">✦ featured</span>}
               </p>
             </div>

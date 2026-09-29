@@ -32,7 +32,7 @@ const c = {
 // The code-poem, rendered from tokens so no character fights the JSX parser.
 type Tok = { t: string; c?: string };
 const CODE_POEM: Tok[][] = [
-  [{ t: '/* Inside Her Roses — a poem, compiled */', c: c.comment }],
+  [{ t: '/* Inside Her Roses, a poem, compiled */', c: c.comment }],
   [],
   [{ t: 'const ', c: c.keyword }, { t: 'her = ' }, { t: 'new ', c: c.keyword }, { t: 'Woman', c: c.fn }, { t: '({' }],
   [{ t: '  from: ' }, { t: "'KuGompo City'", c: c.string }, { t: ',' }],
@@ -158,7 +158,7 @@ export default function PoetWhoCodes() {
           <FadeUp delay={0.22}>
             <p className="mt-7 max-w-2xl font-light text-lg leading-relaxed text-white/75">
               The language of longing, and the language of systems. Most people are told to choose.
-              I refused. The same hands that write the poem write the program — both are the act of
+              I refused. The same hands that write the poem write the program, both are the act of
               making meaning from symbols, and daring it to live.
             </p>
           </FadeUp>
@@ -181,7 +181,7 @@ export default function PoetWhoCodes() {
                 <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#C4566A]">The language of longing</p>
                 <p className="font-display text-xl leading-relaxed italic text-white/85 md:text-2xl">
                   Words are code for the soul.<br />
-                  Poetry is the algorithm of feeling —<br />
+                  Poetry is the algorithm of feeling, <br />
                   a syntax the heart already knows<br />
                   before the mind can compile it.
                 </p>
@@ -216,7 +216,7 @@ export default function PoetWhoCodes() {
           There was no bootcamp, no scholarship, no room full of people who looked like they belonged.
           There was a <span className="text-white">modest desk at home</span>, a headwrap against the
           afternoon, and the stubborn belief that a language could be learned the way any language is
-          learned — by staying up late with it until it answers back.
+          learned, by staying up late with it until it answers back.
         </p>
         <p>
           I taught myself the way I taught myself to write: reading everything, breaking things, listening
@@ -224,7 +224,7 @@ export default function PoetWhoCodes() {
           I compiled it myself.
         </p>
         <p className="text-white/90">
-          Under my company, <span className="text-[#E4572E]">Mirembe Muse</span>, that desk became a studio —
+          Under my company, <span className="text-[#E4572E]">Mirembe Muse</span>, that desk became a studio,
           eight production apps in a single year, and real, paying clients across the continent.
         </p>
       </Chapter>
@@ -272,7 +272,7 @@ export default function PoetWhoCodes() {
       >
         <p>
           I do not build inside a glass tower. I build from a camp chair on the grass, under a palm, with
-          the birds keeping their own version of uptime. The garden is not a break from the work — it is
+          the birds keeping their own version of uptime. The garden is not a break from the work: it is
           <span className="text-white"> where the work thinks clearest</span>.
         </p>
         <p>
@@ -281,7 +281,7 @@ export default function PoetWhoCodes() {
           named variables to birdsong.
         </p>
         <p className="text-white/90">
-          The lawn, the laptop, the long shadow of a swing — this is the whole office. It has never needed
+          The lawn, the laptop, the long shadow of a swing: this is the whole office. It has never needed
           to be anything grander.
         </p>
       </Chapter>
@@ -293,7 +293,7 @@ export default function PoetWhoCodes() {
           <FadeUp>
             <div className="mb-5 flex items-center gap-2 text-[#C9943A]">
               <Terminal className="h-4 w-4" />
-              <span className="font-mono text-xs uppercase tracking-[0.28em]">git log — a becoming</span>
+              <span className="font-mono text-xs uppercase tracking-[0.28em]">git log, a becoming</span>
             </div>
           </FadeUp>
           <div className="space-y-2 rounded-2xl border border-white/10 bg-[#080b1c]/80 p-6 font-mono text-sm">
@@ -330,7 +330,7 @@ export default function PoetWhoCodes() {
         <p>
           Poetry taught me cadence; the drums taught me structure you can feel before you can name it; the
           code taught me that a thing is only true once it runs. Three tongues, one throat. A loop, a line,
-          a bar — they are all just <em>timing</em>, and meaning arranged so it lands.
+          a bar: they are all just <em>timing</em>, and meaning arranged so it lands.
         </p>
       </Chapter>
 
@@ -377,7 +377,7 @@ export default function PoetWhoCodes() {
               <p className="mt-10 max-w-3xl font-display text-lg italic leading-relaxed text-white/75">
                 She does not separate the poet from the engineer. Both begin with an empty page and a
                 refusal to leave it empty. A poem is architecture you can feel; a codebase is a poem
-                that has to run. The soul is the same — only the syntax changes.
+                that has to run. The soul is the same, only the syntax changes.
               </p>
             </FadeUp>
           </div>
@@ -393,7 +393,7 @@ export default function PoetWhoCodes() {
               This is where the poems live.
             </p>
             <p className="mx-auto mb-10 max-w-xl text-white/65 leading-relaxed">
-              The apps, the AI, the business this same mind builds — the other tongue — live at
+              The apps, the AI, the business this same mind builds, the other tongue, live at
               Mirembe Muse. If you came for the engineer and the founder, follow the bridge.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">

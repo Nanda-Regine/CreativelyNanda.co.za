@@ -72,13 +72,13 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
         <RoomHeader
           kicker="A room in the Forge"
           title="The Long Night"
-          standfirst="The diary, newest first — every working session that has a date on it, in the order it happened."
+          standfirst="The diary, newest first, every working session that has a date on it, in the order it happened."
           note={
             <>
               Titles only. A session body is a work log written at two in the morning for a reader who already
               has all the context; a session title is a line she wrote on purpose. This room runs{' '}
               <span style={{ color: ink(0.8) }}>{span.from} to {span.to}</span> because that is where the dated
-              record runs — it is not where the work starts. The beginning is in{' '}
+              record runs: it is not where the work starts. The beginning is in{' '}
               <a href="/forge/origins" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 Where It Started
               </a>
@@ -206,7 +206,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
             </p>
             <p className="mt-6 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.68) }}>
               A further {undated} logged sessions carry no parseable date. They are not missing and they are not
-              hidden — they are the dossier journals, which are organised by phase rather than by night, and
+              hidden: they are the dossier journals, which are organised by phase rather than by night, and
               they are what the{' '}
               <a href="/forge/floor" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 Workshop Floor
@@ -215,7 +215,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
               date is worse than no date.
             </p>
             <p className="mt-5 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.68) }}>
-              Nor are the session bodies here. Every night below the title is a work log — abbreviations, table
+              Nor are the session bodies here. Every night below the title is a work log: abbreviations, table
               names, half-sentences, the occasional client. Publishing 219 of them would mean either reading all
               219 first or trusting a filter to do it, and the{' '}
               <a href="/forge/scars#the-filter-that-deleted-the-room" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>

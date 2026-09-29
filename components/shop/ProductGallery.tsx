@@ -54,7 +54,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
         <div className="w-1.5 h-12 rounded-full bg-gradient-to-b from-cherry to-navy" />
         <div>
           <h2 className="text-3xl font-display font-bold text-navy">Inside the Product</h2>
-          <p className="text-navy/50 text-sm mt-1">{validImages.length} screenshot{validImages.length !== 1 ? 's' : ''} — click any to enlarge</p>
+          <p className="text-navy/50 text-sm mt-1">{validImages.length} screenshot{validImages.length !== 1 ? 's' : ''}, click any to enlarge</p>
         </div>
       </div>
 

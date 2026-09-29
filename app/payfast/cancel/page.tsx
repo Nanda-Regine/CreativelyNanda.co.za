@@ -81,7 +81,7 @@ export default function PayFastCancelPage() {
 
         {/* Heading */}
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold text-white">No worries — you can try again</h1>
+          <h1 className="text-2xl font-bold text-white">No worries, you can try again</h1>
           <p className="text-white/60 text-sm leading-relaxed">
             Your payment was cancelled and nothing was charged.
             {config

@@ -44,7 +44,7 @@ const NMU_QUALS = [
     institution: 'Nelson Mandela University',
     year: '2021–2023',
     nqf: 'NQF Level 6',
-    significance: 'Three years of strategic operations — the layer below the code.',
+    significance: 'Three years of strategic operations, the layer below the code.',
     subjects: 'Strategy · Operations Management · Financial Management · Human Resource Management · Marketing Research · Business Ethics',
     connection: 'Operations management thinking is why every Mirembe Muse app has audit logging, rate limiting, and documented handoff protocols. This degree is the architecture under the architecture.',
     highlight: null,
@@ -55,9 +55,9 @@ const NMU_QUALS = [
     institution: 'Nelson Mandela University',
     year: '2024',
     nqf: 'NQF Level 7',
-    significance: 'The final academic layer — 15 distinctions across all three qualifications combined.',
+    significance: 'The final academic layer, 15 distinctions across all three qualifications combined.',
     subjects: 'Advanced Strategy · Research Methods · Entrepreneurship Development · Corporate Governance · International Business',
-    connection: 'Strategic management frameworks are directly embedded in how Mirembe Muse is structured — eight apps, three mobile apps, one infrastructure, horizontal productisation. This is the business brain behind the code.',
+    connection: 'Strategic management frameworks are directly embedded in how Mirembe Muse is structured: eight apps, three mobile apps, one infrastructure, horizontal productisation. This is the business brain behind the code.',
     highlight: '15 DISTINCTIONS',
     codeConnection: 'Advanced Strategy → 8-product horizontal architecture. Corporate Governance → per-tenant data isolation, RLS at privilege level.',
   },
@@ -116,7 +116,7 @@ const TECH_ARC = [
     date: '2026',
     milestone: 'Back into a classroom, on purpose',
     tech: 'JavaScript · React · GitHub · UX foundations · product launch',
-    what: 'FNB App Academy — University of Johannesburg Business School',
+    what: 'FNB App Academy, University of Johannesburg Business School',
     cert: 'In progress',
     accent: '#00A2B9',
   },
@@ -141,7 +141,7 @@ const TECH_ARC = [
 const FNB_ACADEMY = {
   kicker: 'Currently enrolled · 2026 cohort',
   title: 'FNB App Academy',
-  partner: 'University of Johannesburg — Johannesburg Business School Centre for Entrepreneurship',
+  partner: 'University of Johannesburg, Johannesburg Business School Centre for Entrepreneurship',
   blurb:
     'Free, online, nine weeks, twice a week. The 2026 intake is the first to run with UJ’s Business School, which co-developed the curriculum and provides the academic oversight, the entrepreneurship teaching and the employability support.',
   levels: [
@@ -153,7 +153,7 @@ const FNB_ACADEMY = {
     {
       n: 'II',
       name: 'Intermediate',
-      body: 'Working with dynamic data, and building TaskMate — a real task-management application rather than an exercise.',
+      body: 'Working with dynamic data, and building TaskMate, a real task-management application rather than an exercise.',
     },
     {
       n: 'III',
@@ -168,14 +168,14 @@ const FNB_ACADEMY = {
     ['R0', 'open and free, across the continent'],
   ],
   honest:
-    'The certificate is endorsed by the Johannesburg Business School Centre for Entrepreneurship. It is not currently an NQF qualification — unlike the three above it on this page — and it is listed here as what it is: a structured, industry-aligned programme she chose to sit after already shipping eight products.',
+    'The certificate is endorsed by the Johannesburg Business School Centre for Entrepreneurship. It is not currently an NQF qualification, unlike the three above it on this page, and it is listed here as what it is: a structured, industry-aligned programme she chose to sit after already shipping eight products.',
 };
 
 const DEGREE_IN_CODE = [
   {
     subject: 'Operations Management',
     degree: 'Diploma',
-    code: 'AdminOS immutable audit log — UPDATE and DELETE revoked at database privilege level, not application layer.',
+    code: 'AdminOS immutable audit log, UPDATE and DELETE revoked at database privilege level, not application layer.',
   },
   {
     subject: 'Financial Literacy',
@@ -185,12 +185,12 @@ const DEGREE_IN_CODE = [
   {
     subject: 'Advanced Strategy',
     degree: 'Adv. Diploma',
-    code: 'Eight-product horizontal architecture — one payment hub, one ITN webhook, six apps downstream.',
+    code: 'Eight-product horizontal architecture: one payment hub, one ITN webhook, six apps downstream.',
   },
   {
     subject: 'Human Resource Management',
     degree: 'Diploma',
-    code: 'AI agent delegation patterns — Alex owns inbox, Chase owns debt recovery, Care owns wellness. Clear mandates, zero overlap.',
+    code: 'AI agent delegation patterns: Alex owns inbox, Chase owns debt recovery, Care owns wellness. Clear mandates, zero overlap.',
   },
   {
     subject: 'Business Ethics',
@@ -200,7 +200,7 @@ const DEGREE_IN_CODE = [
   {
     subject: 'Entrepreneurship Development',
     degree: 'Adv. Diploma',
-    code: 'Mirembe Muse (Pty) Ltd — registered, POPIA-compliant, 8+ live products, 3+ paying clients, ZAR-native pricing.',
+    code: 'Mirembe Muse (Pty) Ltd: registered, POPIA-compliant, 8+ live products, 3+ paying clients, ZAR-native pricing.',
   },
 ];
 
@@ -211,7 +211,7 @@ const NUMBER_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Sev
 const certWord = NUMBER_WORDS[CREDENTIALS.length] ?? String(CREDENTIALS.length);
 
 const NMU_ARTICLE_BULLETS = [
-  'Featured in Nelson Mandela University communications — 135,000+ followers',
+  'Featured in Nelson Mandela University communications, 135,000+ followers',
   'Recognised for academic excellence across three consecutive qualifications',
   'Named as a graduand who found her calling while studying Business Management',
   'Cited as an example of the intersection between academic rigour and creative expression',
@@ -318,7 +318,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               <div className="col-span-2 md:col-span-1" style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
                 <Image
                   src="/assets/graduation/adv-dip-grad.jpg"
-                  alt="Nanda at Advanced Diploma graduation — Nelson Mandela University 2024"
+                  alt="Nanda at Advanced Diploma graduation · Nelson Mandela University 2024"
                   fill
                   style={{ objectFit: 'cover' }}
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -341,7 +341,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
                 <Image
                   src="/assets/graduation/diploma-grad.jpg"
-                  alt="Nanda at Diploma graduation — Nelson Mandela University 2023"
+                  alt="Nanda at Diploma graduation · Nelson Mandela University 2023"
                   fill
                   style={{ objectFit: 'cover' }}
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -448,7 +448,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
       <section className="relative z-10 py-20 px-6 max-w-5xl mx-auto">
         <FadeUp className="mb-10">
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#B8860B', letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 8px 0' }}>
-            I · The Hall &mdash; Formal Qualifications
+            I · The Hall · Formal Qualifications
           </p>
           <h2 className="font-display text-4xl font-bold text-[#0A1128]">
             Where systems thinking was built.
@@ -519,13 +519,13 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
                 &ldquo;Management graduand finds calling in writing&rdquo;
               </p>
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--gold-ink)', letterSpacing: '0.2em', margin: 0 }}>
-                — Nelson Mandela University · 135,000+ followers
+                Nelson Mandela University · 135,000+ followers
               </p>
             </div>
             <div className="space-y-3">
               {NMU_ARTICLE_BULLETS.map((b, i) => (
                 <div key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--gold-ink)', fontFamily: 'var(--font-mono)', fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>—</span>
+                  <span style={{ color: 'var(--gold-ink)', fontFamily: 'var(--font-mono)', fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>–</span>
                   <p style={{ fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: '14px', color: 'rgb(var(--ink-rgb) / 0.75)', margin: 0, lineHeight: 1.6 }}>
                     {b}
                   </p>
@@ -642,7 +642,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
                   WHAT IT BUILT
                 </p>
                 <p style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: '14px', fontStyle: 'italic', color: '#0A1128', margin: 0, lineHeight: 1.6 }}>
-                  The ability to hold the full picture: team, system, community, and consequence — simultaneously.
+                  The ability to hold the full picture: team, system, community, and consequence, simultaneously.
                 </p>
               </div>
             </div>
@@ -766,7 +766,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               Where the Degree Became Code
             </p>
             <h2 className="font-display text-4xl font-bold text-[#0A1128] mb-3">
-              Business school &mdash; architecture decisions.
+              Business school, architecture decisions.
             </h2>
             <p style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: '15px', fontStyle: 'italic', color: '#4A3728', maxWidth: '560px', lineHeight: 1.6, margin: 0 }}>
               Every subject that seemed abstract became a concrete decision in production code. Choose a module and follow its thread.
@@ -812,7 +812,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               The distinction between the two collapsed somewhere around my 200th commit.&rdquo;
             </p>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#B8860B', letterSpacing: '0.25em', textTransform: 'uppercase', marginTop: '24px' }}>
-              — Nandawula Regine Kabali-Kagwa
+              Nandawula Regine Kabali-Kagwa
             </p>
           </FadeUp>
         </div>

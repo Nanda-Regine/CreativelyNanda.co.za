@@ -8,13 +8,13 @@ export interface PreprogrammedResponse {
 export const preprogrammedResponses: PreprogrammedResponse[] = [
   {
     keywords: ['who', 'nanda', 'about'],
-    response: 'Nandawula Regine Kabali-Kagwa — AI engineer, published poet, and founder of Mirembe Muse (Pty) Ltd. Self-taught: wrote first line of code June 2025, shipped 7 production AI SaaS apps by March 2026. Built from KuGompo City, Eastern Cape.',
+    response: 'Nandawula Regine Kabali-Kagwa: AI engineer, published poet, and founder of Mirembe Muse (Pty) Ltd. Self-taught: wrote first line of code June 2025, shipped 7 production AI SaaS apps by March 2026. Built from KuGompo City, Eastern Cape.',
     category: 'about',
     followUp: 'What would you like to know more about?'
   },
   {
     keywords: ['poetry', 'poet', 'roses'],
-    response: 'Inside Her Roses (October 2021) — 82 poems on love, identity, and Black womanhood. Available on Amazon, Apple Books, and Kobo. Featured on the SA TV series "Gqeberha: The Empire" and interviewed on Madibaz Radio and TRU FM.',
+    response: 'Inside Her Roses (October 2021): 82 poems on love, identity, and Black womanhood. Available on Amazon, Apple Books, and Kobo. Featured on the SA TV series "Gqeberha: The Empire" and interviewed on Madibaz Radio and TRU FM.',
     category: 'poetry',
     followUp: 'Would you like to read a poem?'
   },
@@ -38,7 +38,7 @@ export const preprogrammedResponses: PreprogrammedResponse[] = [
   },
   {
     keywords: ['contact', 'reach', 'email'],
-    response: 'Email hello@creativelynanda.co.za — responses within 24 hours. Or use the Contact page for project briefs. LinkedIn, GitHub, Instagram, and Substack links are in the footer.',
+    response: 'Email hello@creativelynanda.co.za, responses within 24 hours. Or use the Contact page for project briefs. LinkedIn, GitHub, Instagram, and Substack links are in the footer.',
     category: 'contact',
     followUp: 'What would you like to discuss?'
   },

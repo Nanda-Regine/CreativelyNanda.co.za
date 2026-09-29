@@ -14,7 +14,7 @@ import { SCARS } from '@/lib/data/forge-scars';
 import corpus from '@/lib/data/forge-corpus.json';
 
 export const metadata = createMetadata({
-  title: 'The Long Night — the build diary, night by night',
+  title: 'The Long Night · the build diary, night by night',
   description:
     'The dated working diary of a solo engineer building eight products: every logged session, newest first, by its own title. Build-in-public as it actually happened rather than as it would be summarised afterwards.',
   path: '/forge/nights',
@@ -95,7 +95,7 @@ export default function LongNightPage() {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'The Long Night',
-      description: 'The dated build diary — every logged working session, newest first.',
+      description: 'The dated build diary, every logged working session, newest first.',
       url: `${SITE_URL}/forge/nights`,
       isPartOf: { '@type': 'WebSite', name: 'Creatively Nanda', url: SITE_URL },
       author: personRef(),

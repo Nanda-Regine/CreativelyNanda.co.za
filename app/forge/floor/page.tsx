@@ -13,7 +13,7 @@ import { getFloor, getFigures, getGithubTotals, getGithubLanguages, getCommitWal
 import { SCARS } from '@/lib/data/forge-scars';
 
 export const metadata = createMetadata({
-  title: 'The Workshop Floor — every build, one dossier each',
+  title: 'The Workshop Floor · every build, one dossier each',
   description:
     'Nine working systems, each with the problem it solved, the technical decisions the constraint forced, and what those decisions cost. Written from 99,000 words of build journal and measured against 3,000 commits.',
   path: '/forge/floor',
@@ -70,7 +70,7 @@ export default function WorkshopFloorPage() {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'The Workshop Floor',
-      description: 'Build dossiers for nine working software systems — the problem, the decisions, the cost.',
+      description: 'Build dossiers for nine working software systems: the problem, the decisions, the cost.',
       url: `${SITE_URL}/forge/floor`,
       isPartOf: { '@type': 'WebSite', name: 'Creatively Nanda', url: SITE_URL },
       // Each build is a real, reachable application. Declaring them as such is

@@ -242,7 +242,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
             <p className="mt-6 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.62) }}>
               Six workers resolved the wrong owner and reported success for a month. An ingest lost a whole
               journal to one timeout and wrote a smaller file without complaint. Neither raised an error,
-              because neither had failed — and a system that cannot tell the difference between doing nothing
+              because neither had failed, and a system that cannot tell the difference between doing nothing
               and having nothing to do is not monitored, however much monitoring is pointed at it. That is the
               only thing in this room that is worth generalising, and it took two separate expensive months to
               see it.

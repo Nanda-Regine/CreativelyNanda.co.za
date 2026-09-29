@@ -470,7 +470,7 @@ export default function Notion() {
                 <blockquote className="font-display text-xl md:text-2xl lg:text-3xl text-[#E8DCC4] leading-relaxed mb-6">
                   {quotes[currentQuote].text}
                 </blockquote>
-                <p className="text-[#C1292E] font-medium">— {quotes[currentQuote].author}</p>
+                <p className="text-[#C1292E] font-medium">· {quotes[currentQuote].author}</p>
                 
                 {/* Quote dots */}
                 <div className="flex justify-center gap-2 mt-6">

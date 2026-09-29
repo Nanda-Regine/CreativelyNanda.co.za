@@ -47,7 +47,7 @@ export async function sendPoemBloomedEmail({
       <p style="font-size:16px;line-height:1.7;color:rgba(245,239,214,0.82);margin:0 0 16px;">
         I read your poem <strong style="color:#F5EFD6;">&ldquo;${title}&rdquo;</strong> ${
           featured
-            ? 'and it stayed with me — so I&rsquo;ve featured it in the Guest Garden for everyone to find.'
+            ? 'and it stayed with me, so I&rsquo;ve featured it in the Guest Garden for everyone to find.'
             : 'and I&rsquo;ve planted it in the Guest Garden. It&rsquo;s live now for the whole circle to read.'
         }
       </p>
@@ -60,7 +60,7 @@ export async function sendPoemBloomedEmail({
         See it in the garden
       </a>
       <p style="font-size:15px;font-style:italic;color:#C9A84C;margin:34px 0 0;">
-        — Nanda Regine
+        Nanda Regine
       </p>
       <p style="font-size:11px;color:rgba(245,239,214,0.4);margin:8px 0 0;">
         Inside Her Roses · creativelynanda.co.za

@@ -13,9 +13,9 @@ import corpus from '@/lib/data/forge-corpus.json';
 import { getGithubTotals } from '@/lib/forge-data';
 
 export const metadata: Metadata = {
-  title: 'The Forge | The workshop behind the poems — Nandawula Regine',
+  title: 'The Forge | The workshop behind the poems · Nandawula Regine',
   description:
-    'A wing of the house where the code lives. Not a portfolio — a workshop: build journals, postmortems, the wrong turns and the nights something broke. Engineering as a creative medium.',
+    'A wing of the house where the code lives. Not a portfolio, a workshop: build journals, postmortems, the wrong turns and the nights something broke. Engineering as a creative medium.',
   keywords: [
     'build in public engineer',
     'engineering build journal',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Forge | The workshop behind the poems',
     description:
-      'The garden is where she writes. This is where she builds — drafts, wrong turns, and the reason things broke.',
+      'The garden is where she writes. This is where she builds: drafts, wrong turns, and the reason things broke.',
     url: 'https://creativelynanda.co.za/forge',
     type: 'website',
     images: [{ url: 'https://creativelynanda.co.za/og-image.png', width: 1200, height: 630 }],
@@ -50,7 +50,7 @@ const JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'The Forge',
-  description: 'The engineering wing of CreativelyNanda — build journals, postmortems and foundation projects.',
+  description: 'The engineering wing of CreativelyNanda, build journals, postmortems and foundation projects.',
   url: 'https://creativelynanda.co.za/forge',
   isPartOf: { '@type': 'WebSite', name: 'CreativelyNanda', url: 'https://creativelynanda.co.za' },
   about: {

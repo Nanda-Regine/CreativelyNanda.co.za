@@ -12,7 +12,7 @@ import { SCARS } from '@/lib/data/forge-scars';
 import { getFigures } from '@/lib/forge-data';
 
 export const metadata = createMetadata({
-  title: 'The Scar Room — what broke, and why the system allowed it',
+  title: 'The Scar Room · what broke, and why the system allowed it',
   description:
     'Nine postmortems from a year of shipping: what broke, how it was found, the actual root cause, the fix, and what the night cost. Including the pagination default that killed four dashboards for a month, and the signature bug that broke every payment.',
   path: '/forge/scars',
@@ -46,7 +46,7 @@ export default function ScarRoomPage() {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'The Scar Room',
-      description: 'Nine engineering postmortems — what broke, how it was found, the cause, the fix, the cost.',
+      description: 'Nine engineering postmortems: what broke, how it was found, the cause, the fix, the cost.',
       url: `${SITE_URL}/forge/scars`,
       isPartOf: { '@type': 'WebSite', name: 'Creatively Nanda', url: SITE_URL },
       author: personRef(),

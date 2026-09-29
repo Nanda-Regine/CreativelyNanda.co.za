@@ -92,7 +92,7 @@ export default function ReviewsAdminPage() {
     withRating: reviews.filter(r => r.rating).length,
     avgRating: reviews.filter(r => r.rating).length
       ? (reviews.reduce((s, r) => s + (r.rating || 0), 0) / reviews.filter(r => r.rating).length).toFixed(1)
-      : '—',
+      : '–',
   };
 
   return (
@@ -147,7 +147,7 @@ export default function ReviewsAdminPage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-3xl font-display font-bold text-navy mb-1">Blog Reviews</h1>
-              <p className="text-navy/60">All reader insights — you can delete or feature any review</p>
+              <p className="text-navy/60">All reader insights: you can delete or feature any review</p>
             </div>
           </div>
 

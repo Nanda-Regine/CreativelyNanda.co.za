@@ -12,7 +12,7 @@ For decades, career advice was simple: pick a lane, go deep, become an expert.
 
 Then 2020 happened. And millions of "experts" with singular income streams lost everything overnight.
 
-Meanwhile, portfolio career professionals—those with 3-5 diverse income streams—not only survived but thrived. Let's examine why the research now overwhelmingly favors diversification.
+Meanwhile, portfolio career professionals · those with 3-5 diverse income streams · not only survived but thrived. Let's examine why the research now overwhelmingly favors diversification.
 
 **The Stanford Study That Changed Career Theory**
 
@@ -23,7 +23,7 @@ In 2021, Stanford's Graduate School of Business published a 10-year longitudinal
 
 More striking: During economic downturns, portfolio careers showed 43% less income volatility.
 
-The lead researcher, Dr. Sarah Chen, concluded: "Career diversification isn't risk—it's risk management."
+The lead researcher, Dr. Sarah Chen, concluded: "Career diversification isn't risk · it's risk management."
 
 **Why Multiple Income Streams Outperform**
 
@@ -38,11 +38,11 @@ Example from my business:
 - When digital product sales slowed (January lull), client work pipeline grew
 - Physical products (hair oils) operate on completely different demand cycles
 
-**This isn't hustle—it's actuarial science applied to income.**
+**This isn't hustle: it's actuarial science applied to income.**
 
 **2. The Cross-Pollination Effect**
 
-Research from MIT's Sloan School of Management reveals what they call "skill arbitrage"—when expertise from one domain creates unfair advantages in another.
+Research from MIT's Sloan School of Management reveals what they call "skill arbitrage", when expertise from one domain creates unfair advantages in another.
 
 Their 2022 study found that professionals with 3+ income streams:
 - Innovate 67% more frequently
@@ -87,7 +87,7 @@ Results after 12 months:
 - Group B demonstrated 44% better problem-solving in novel situations
 - Group B reported 52% higher creative output
 
-**The implication:** Cognitive diversity from multiple income streams doesn't dilute expertise—it enhances adaptive intelligence.
+**The implication:** Cognitive diversity from multiple income streams doesn't dilute expertise, it enhances adaptive intelligence.
 
 **The African Context: Ubuntu Economics Validated**
 
@@ -153,12 +153,12 @@ Research Response: Oxford's Saïd Business School study found that portfolio pro
 Why? Forced prioritization, context switching recovery, and cross-domain problem-solving.
 
 **Objection 2: "You won't master anything"**
-Research Response: Anders Ericsson's deliberate practice research shows mastery requires 10,000 hours. But newer research from MIT shows you can achieve "professional competency" in 500-1,000 hours—enough to monetize effectively.
+Research Response: Anders Ericsson's deliberate practice research shows mastery requires 10,000 hours. But newer research from MIT shows you can achieve "professional competency" in 500-1,000 hours, enough to monetize effectively.
 
 You don't need mastery to create income. You need competency + positioning.
 
 **Objection 3: "African markets can't support this"**
-Research Response: World Bank data (2024) shows African digital economy growing at 8.3% annually—faster than global average (5.7%). African consumers spent $180 billion on digital services in 2024.
+Research Response: World Bank data (2024) shows African digital economy growing at 8.3% annually, faster than global average (5.7%). African consumers spent $180 billion on digital services in 2024.
 
 The market exists. The infrastructure is building. The opportunity is now.
 
@@ -202,7 +202,7 @@ Perhaps most compelling: A 2023 study from Wharton School of Business tracked we
 
 **The Holistic Truth**
 
-The research is conclusive: Portfolio careers aren't a trend—they're the future of sustainable wealth building, especially in unpredictable economies.
+The research is conclusive: Portfolio careers aren't a trend, they're the future of sustainable wealth building, especially in unpredictable economies.
 
 You're not "unfocused" for having multiple income streams. You're strategically diversified.
 
@@ -214,13 +214,13 @@ You're not "lacking commitment." You're creating optionality and resilience.
 
 African communities understood this for millennia: **Wealth flows through multiple channels, and the wise person builds many streams to their river.**
 
-Your grandmother who farmed, sold vegetables, and did catering? She was a portfolio entrepreneur. You're not inventing this model—you're digitizing ancestral wisdom.
+Your grandmother who farmed, sold vegetables, and did catering? She was a portfolio entrepreneur. You're not inventing this model: you're digitizing ancestral wisdom.
 
 **Your Portfolio Career Blueprint**
 
 Start today:
 1. **Audit your skills** (what can generate income immediately?)
-2. **Choose 3 complementary income streams** (not random—synergistic)
+2. **Choose 3 complementary income streams** (not random, synergistic)
 3. **Launch the first stream this quarter**
 4. **Add streams sequentially**, not simultaneously
 5. **Track metrics religiously** (what you measure, you can optimize)

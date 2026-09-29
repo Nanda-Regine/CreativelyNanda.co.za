@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { app: string } }):
   const { dossier: d, gh } = entry;
 
   return createMetadata({
-    title: `${d.name} — ${d.kicker}`,
+    title: `${d.name} · ${d.kicker}`,
     description: `${d.standfirst} ${d.decisions.length} technical decisions with their reasoning, and what they cost.`.slice(0, 300),
     path: `/forge/floor/${d.slug}`,
     ogType: 'article',
@@ -73,7 +73,7 @@ export default function BuildDossierPage({ params }: { params: { app: string } }
     {
       '@context': 'https://schema.org',
       '@type': 'TechArticle',
-      headline: `${d.name} — ${d.kicker}`,
+      headline: `${d.name} · ${d.kicker}`,
       description: d.standfirst,
       url: `${SITE_URL}/forge/floor/${d.slug}`,
       author: personRef(),

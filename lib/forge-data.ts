@@ -197,7 +197,7 @@ export function parseSessionDate(heading: string): string | null {
  * date stamped onto a good name; the room renders the date in its own column.
  */
 const MONTH_WORD = '(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\\.?';
-const DAY_RANGE = '\\d{1,2}(?:\\s*[–—/-]\\s*\\d{1,2})?';
+const DAY_RANGE = '\\d{1,2}(?:\\s*[–, /-]\\s*\\d{1,2})?';
 
 /**
  * The journals stamp dates onto headings in six different shapes, at both ends:
@@ -224,18 +224,18 @@ const HEADING_NOISE: RegExp[] = [
   // trailing parenthetical carrying a year
   /\s*\([^)]*20\d\d[^)]*\)\s*$/i,
   // trailing "— 10 Jul 2026" / "— 12–13 Jul 2026 (summary)"
-  new RegExp(`\\s*[—–·-]\\s*${DAY_RANGE}\\s+${MONTH_WORD}\\s+20\\d\\d${TAIL_NOTE}\\s*$`, 'i'),
+  new RegExp(`\\s*[–·-]\\s*${DAY_RANGE}\\s+${MONTH_WORD}\\s+20\\d\\d${TAIL_NOTE}\\s*$`, 'i'),
   // trailing "— Jul 16 2026" / "— July 29–30, 2026"
-  new RegExp(`\\s*[—–·-]\\s*${MONTH_WORD}\\s+${DAY_RANGE},?\\s+20\\d\\d${TAIL_NOTE}\\s*$`, 'i'),
+  new RegExp(`\\s*[–·-]\\s*${MONTH_WORD}\\s+${DAY_RANGE},?\\s+20\\d\\d${TAIL_NOTE}\\s*$`, 'i'),
   // trailing ISO
-  new RegExp(`\\s*[—–·-]\\s*20\\d\\d-\\d\\d-\\d\\d(?:[/–—-]\\d{1,2})?${TAIL_NOTE}\\s*$`),
+  new RegExp(`\\s*[–·-]\\s*20\\d\\d-\\d\\d-\\d\\d(?:[/–, -]\\d{1,2})?${TAIL_NOTE}\\s*$`),
   // leading "Session 12 — 2026-07-18 · " (the label goes too; it numbers nothing
   // a reader can use, and the room is already an ordered list)
   /^session\s+\d+\s*[—–·-]\s*20\d\d-\d\d-\d\d(?:[/–—-]\d{1,2})?\s*[—–·-]?\s*/i,
   // leading ISO
   /^20\d\d-\d\d-\d\d(?:[/–—-]\d{1,2})?\s*[—–·-]\s*/,
   // leading "Jul 16 2026 — "
-  new RegExp(`^${MONTH_WORD}\\s+${DAY_RANGE},?\\s+20\\d\\d\\s*[—–·-]\\s*`, 'i'),
+  new RegExp(`^${MONTH_WORD}\\s+${DAY_RANGE}?\\s+20\\d\\d\\s*[–·-]\\s*`, 'i'),
 ];
 
 function cleanHeading(h: string): string {

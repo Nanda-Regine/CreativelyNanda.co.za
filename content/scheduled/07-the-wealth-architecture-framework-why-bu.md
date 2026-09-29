@@ -257,7 +257,7 @@ Trading time for money is necessary. But trading equity for leverage is transfor
 
 Ubuntu philosophy teaches: **A rising tide lifts all boats.**
 
-Building wealth isn't about hoarding—it's about creating excess capacity that allows you to:
+Building wealth isn't about hoarding, it's about creating excess capacity that allows you to:
 - Employ others (job creation)
 - Mentor freely (time abundance)
 - Invest in community (resource sharing)

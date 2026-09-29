@@ -12,9 +12,9 @@ import { DRILLS } from '@/lib/data/forge-drills';
 import { SCAR_BY_SLUG } from '@/lib/data/forge-scars';
 
 export const metadata = createMetadata({
-  title: 'The Dojo — debugging drills from real production incidents',
+  title: 'The Dojo · debugging drills from real production incidents',
   description:
-    'Eight debugging drills built from real incidents: here is the symptom exactly as it arrived — what is the cause? Commit to a diagnosis, then see why every wrong answer was tempting. Pagination defaults, payment signatures, React hydration, regex flags.',
+    'Eight debugging drills built from real incidents: here is the symptom exactly as it arrived, what is the cause? Commit to a diagnosis, then see why every wrong answer was tempting. Pagination defaults, payment signatures, React hydration, regex flags.',
   path: '/forge/dojo',
   keywords: [
     'debugging exercises',
@@ -50,7 +50,7 @@ export default function DojoPage() {
     {
       '@context': 'https://schema.org',
       '@type': 'Quiz',
-      name: 'The Dojo — debugging drills from real incidents',
+      name: 'The Dojo · debugging drills from real incidents',
       description: 'Diagnose the root cause of real production incidents from their symptoms.',
       url: `${SITE_URL}/forge/dojo`,
       author: personRef(),

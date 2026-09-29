@@ -14,7 +14,7 @@ Then Range: Why Generalists Triumph in a Specialized World was published in 2019
 
 Nobel laureates, breakthrough innovators, and category-defining creators share one trait: they're multidisciplinary thinkers who integrate seemingly unrelated fields.
 
-Let's examine why being a poet who codes isn't a compromise—it's a competitive advantage.
+Let's examine why being a poet who codes isn't a compromise · it's a competitive advantage.
 
 **The Specialist Myth Debunked**
 
@@ -36,7 +36,7 @@ David Epstein's research examined thousands of elite performers and found a surp
 
 **The Medici Effect**
 
-Frans Johansson's research on breakthrough innovation identified what he calls the "Medici Effect"—major innovations happen at the intersection of disciplines.
+Frans Johansson's research on breakthrough innovation identified what he calls the "Medici Effect", major innovations happen at the intersection of disciplines.
 
 **He analyzed 100 years of breakthrough innovations:**
 
@@ -76,7 +76,7 @@ Research from Northwestern University's creative neuroscience lab reveals why mu
 
 **The Pattern Recognition Advantage**
 
-Research from MIT's Media Lab shows that pattern recognition—the foundation of innovation—improves dramatically with multidisciplinary experience.
+Research from MIT's Media Lab shows that pattern recognition, the foundation of innovation, improves dramatically with multidisciplinary experience.
 
 **Why:** Patterns in one domain often solve problems in another.
 
@@ -230,7 +230,7 @@ When tech contracts, I shift to creative work. When creative slows, I focus on b
 
 Here's what decades of research conclusively show:
 
-**The future belongs not to specialists or generalists, but to integrators—people who build bridges between domains and create value at intersections.**
+**The future belongs not to specialists or generalists, but to integrators, people who build bridges between domains and create value at intersections.**
 
 You don't need to choose between poet and coder. You need to become the poet-coder.
 

@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="font-display text-3xl font-bold text-cherry">Nanda</h3>
             <p className="text-beige/70 text-sm">
-              Poet, creative and culture-keeper — writing, performing, and making things
+              Poet, creative and culture-keeper, writing, performing, and making things
               beautiful from KuGompo City, South Africa.
             </p>
           </div>

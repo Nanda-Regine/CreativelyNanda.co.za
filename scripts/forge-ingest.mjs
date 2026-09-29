@@ -14,6 +14,7 @@
 // — see docs/THE_FORGE.md. This script only ever reads and classifies.
 
 import { scrubCredentials, isSensitive } from './lib/redact-credentials.mjs';
+import { dashlessDeep } from './lib/dashless.mjs';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -270,10 +271,11 @@ if (missing.length) {
 
 const outDir = join(ROOT, 'lib', 'data');
 if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, 'forge-corpus.json'), JSON.stringify({
+// House style: no em dashes in anything the site shows.
+writeFileSync(join(outDir, 'forge-corpus.json'), JSON.stringify(dashlessDeep({
   generatedFrom: SOURCES.length,
   entries: deduped,
-}, null, 2));
+}), null, 2));
 
 console.log(`\n═══ DEDUP ═══\n  ${corpus.length} parsed → ${deduped.length} kept · ${dropped.length} duplicates dropped`);
 const dupBySource = dropped.reduce((a, e) => ((a[e.source] = (a[e.source] || 0) + 1), a), {});

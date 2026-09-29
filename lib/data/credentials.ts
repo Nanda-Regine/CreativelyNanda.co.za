@@ -131,7 +131,7 @@ export const CREDENTIALS: Credential[] = [
     tier: 'course',
     credentialId: 'YXVMXKDC',
     verifyUrl: 'https://www.mygreatlearning.com/certificate/YXVMXKDC',
-    context: 'Distribution — the half of a product that is not the code.',
+    context: 'Distribution, the half of a product that is not the code.',
     image: { src: '/certificates/great-learning-affiliate-marketing.jpg', width: 1080, height: 759 },
     crop: { t: 1.5, b: 1 },
   },

@@ -10,7 +10,7 @@ publishDate: 2024-03-04
 
 Most people stop thinking at the first consequence. The best builders think three steps ahead.
 
-Research from leading strategy institutes shows that second-order thinking—considering the consequences of consequences—is the single strongest predictor of long-term success.
+Research from leading strategy institutes shows that second-order thinking · considering the consequences of consequences · is the single strongest predictor of long-term success.
 
 Let's examine the framework and build your second-order thinking capability.
 
@@ -30,7 +30,7 @@ Research from Carnegie Mellon's Decision Sciences department studied chess maste
 - Shape opponent's option space
 - Win rate: 87% vs. intermediates
 
-**The finding: Strategic superiority isn't about knowing more—it's about thinking deeper.**
+**The finding: Strategic superiority isn't about knowing more, it's about thinking deeper.**
 
 **The key insight:** Masters don't just think "If I do X, Y happens." They think "If I do X, Y happens, which causes Z, which changes the game to..."
 
@@ -222,7 +222,7 @@ Based on research from multiple strategy frameworks, here's the practical protoc
 
 **The Inversion Technique**
 
-Charlie Munger's research recommends "inversion"—thinking backwards from failure:
+Charlie Munger's research recommends "inversion", thinking backwards from failure:
 
 **Standard thinking:** "How do I succeed?"
 **Inversion:** "How would I definitely fail?"
@@ -265,7 +265,7 @@ You don't need to think that far ahead. But you do need to think past immediate 
 
 African proverb: **"When the roots are deep, there is no reason to fear the wind."**
 
-Second-order thinking is about roots—building foundations that withstand future storms you can't see yet.
+Second-order thinking is about roots, building foundations that withstand future storms you can't see yet.
 
 First-order thinking: Immediate profit
 Second-order thinking: Sustainable business

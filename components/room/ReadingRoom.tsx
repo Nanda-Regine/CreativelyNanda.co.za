@@ -217,7 +217,7 @@ export default function ReadingRoom({ poem }: { poem: Poem }) {
 
         {/* Attribution */}
         <div className="mt-12 border-t border-white/10 pt-6 text-right">
-          <p className="font-display text-xl italic" style={{ color: '#C9A84C' }}>— Nanda Regine</p>
+          <p className="font-display text-xl italic" style={{ color: '#C9A84C' }}>Nanda Regine</p>
           <p className="mt-1 text-sm text-cream/40">From &ldquo;Inside Her Roses&rdquo;</p>
         </div>
 

@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
       from: 'Creatively Nanda <hello@creativelynanda.co.za>',
       to: 'hello@creativelynanda.co.za',
       replyTo: email,
-      subject: `New Contact: ${subject || 'General enquiry'} — from ${name}`,
+      subject: `New Contact: ${subject || 'General enquiry'}, from ${name}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #0A1128;">
           <div style="background: linear-gradient(135deg, #0A1128, #1a2744); padding: 32px; border-radius: 16px 16px 0 0;">
@@ -67,12 +67,12 @@ export async function POST(req: NextRequest) {
           </div>
           <div style="background: #F5EFE6; padding: 32px; border-radius: 0 0 16px 16px; border: 1px solid #E8DCC4;">
             <p style="color: #0A1128; line-height: 1.8; font-size: 16px;">I've received your message and will get back to you within 24–48 hours.</p>
-            <p style="color: #0A1128; opacity: 0.7; line-height: 1.8;">Whether it's code, creativity, or collaboration — I'm looking forward to our conversation.</p>
+            <p style="color: #0A1128; opacity: 0.7; line-height: 1.8;">Whether it's code, creativity, or collaboration. I'm looking forward to our conversation.</p>
             <div style="background: white; border-radius: 12px; padding: 20px; margin: 24px 0; text-align: center;">
               <p style="color: #0A1128; opacity: 0.5; font-size: 12px; margin: 0 0 4px;">In the meantime, explore</p>
               <a href="https://creativelynanda.co.za/products" style="color: #C1292E; font-weight: bold; text-decoration: none;">Mirembe Muse Notion Templates →</a>
             </div>
-            <p style="color: #B8860B; font-style: italic; margin-top: 24px;">— Nanda</p>
+            <p style="color: #B8860B; font-style: italic; margin-top: 24px;">Nanda</p>
             <p style="color: #0A1128; opacity: 0.4; font-size: 11px; margin-top: 24px;">CreativelyNanda.co.za · KuGompo City, South Africa</p>
           </div>
         </div>
