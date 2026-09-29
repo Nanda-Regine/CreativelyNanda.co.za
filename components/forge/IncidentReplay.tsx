@@ -125,7 +125,7 @@ export default function IncidentReplay({
                     className="flex h-[31px] w-[31px] items-center justify-center rounded-full border font-mono text-[10px] transition-all duration-300"
                     style={{
                       borderColor: active || passed ? woundInk : ink(0.22),
-                      background: active ? wound : passed ? 'rgba(139,30,63,0.28)' : '#0A1128',
+                      background: active ? wound : passed ? 'rgba(139,30,63,0.14)' : 'var(--card)',
                       color: active ? '#fff' : passed ? woundInk : ink(0.45),
                       transform: active ? 'scale(1.12)' : 'scale(1)',
                     }}
@@ -134,7 +134,7 @@ export default function IncidentReplay({
                   </span>
                   <span
                     className="font-mono text-[9.5px] uppercase tracking-[0.18em] transition-colors md:text-[10px]"
-                    style={{ color: active ? '#fff' : s.key === 'cause' ? woundInk : ink(0.42) }}
+                    style={{ color: active ? 'rgb(var(--head-rgb))' : s.key === 'cause' ? woundInk : ink(0.42) }}
                   >
                     <span className="md:hidden">{s.short}</span>
                     <span className="hidden md:inline">{s.label}</span>

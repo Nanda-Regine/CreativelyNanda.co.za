@@ -15,6 +15,9 @@ const STORY: Item[] = [
   { href: '/about', label: 'About', hint: 'The woman' },
   { href: '/roots', label: 'Roots', hint: 'Three nations, nine generations' },
   { href: '/education', label: 'Education', hint: '15 distinctions' },
+  { href: '/testimonials', label: 'Testimonials', hint: 'What people say' },
+  { href: '/products', label: 'Marketplace', hint: 'Notion templates' },
+  { href: '/contact', label: 'Contact', hint: 'Reach her' },
 ];
 
 // The Forge — the engineering wing, sibling to Poetry. Only built rooms are
@@ -45,22 +48,19 @@ const POETRY_ROOMS: Item[] = [
   { href: '/poetry/my-garden', label: 'My Garden', hint: 'Your own plot' },
 ];
 
-// Everything else the studio makes and sells. Folding Gallery/Writing/Contact
-// in here is what pays for the fourth dropdown — the bar carries fewer top-level
-// items than it did before The Forge existed, not more.
-const STUDIO: Item[] = [
-  { href: '/gallery', label: 'Gallery', hint: 'The visual work' },
-  { href: '/blog', label: 'Writing', hint: 'Essays and articles' },
-  { href: '/products', label: 'Marketplace', hint: 'Notion templates' },
-  { href: '/testimonials', label: 'Testimonials', hint: 'What people say' },
-  { href: '/contact', label: 'Contact', hint: 'Reach her' },
-];
-
+// There used to be a fourth dropdown called "Studio" (Gallery, Writing,
+// Marketplace, Testimonials, Contact). It collided with the App Studio in the
+// Forge and lit up on /blog, which is not a studio. Gallery and the Press now
+// stand on the bar by name; the rest moved under Story.
 const GROUPS = [
   { label: 'Story', href: '/about', items: STORY },
   { label: 'Poetry', href: '/poetry', items: POETRY_ROOMS },
   { label: 'The Forge', href: '/forge', items: FORGE_ROOMS },
-  { label: 'Studio', href: '/gallery', items: STUDIO },
+];
+
+const SINGLES: Item[] = [
+  { href: '/gallery', label: 'Gallery', hint: 'The visual work' },
+  { href: '/blog', label: 'The Press', hint: 'Essays and field notes, in issues' },
 ];
 
 // The shipped products, hanging off the Mirembe Muse button — the business side
@@ -154,9 +154,13 @@ export default function Navigation() {
             </div>
           ))}
 
+          {SINGLES.map((s) => (
+            <NavLink key={s.href} href={s.href} label={s.label} pathname={pathname} />
+          ))}
+
           <CartIcon className="text-beige hover:text-cherry [&_svg]:text-beige [&_svg]:hover:text-cherry" />
           <LanguageSelector />
-          <PWAInstallButton variant="compact" />
+          {/* Install lives in the footer; the bar keeps only what a reader needs mid-page. */}
 
           {/* The gold button keeps its job — one click still lands on Mirembe
               Muse. Hovering reveals the apps underneath it rather than adding a
@@ -281,6 +285,9 @@ export default function Navigation() {
               </div>
             ))}
 
+            {SINGLES.map((s) => (
+              <MobileLink key={s.href} href={s.href} label={s.label} pathname={pathname} onClick={closeMobile} />
+            ))}
           </div>
 
           <div className="pt-4 border-t border-[#0A1128]/10 mt-auto space-y-3">
@@ -321,7 +328,8 @@ export default function Navigation() {
 }
 
 function NavLink({ href, label, pathname }: { href: string; label: string; pathname: string }) {
-  const active = pathname === href;
+  // A section stays lit on its sub-pages: /blog/writing is still the Press.
+  const active = href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
   return (
     <Link
       href={href}

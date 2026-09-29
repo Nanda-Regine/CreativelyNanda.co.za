@@ -21,11 +21,11 @@
  */
 
 import { useState, useMemo } from 'react';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
+import Stock from '@/components/ui/Stock';
+import { PhotoBleed } from '@/components/ui/Ground';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { track } from '@/lib/analytics';
-import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink } from './ForgeChrome';
+import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink, GOLD_INK } from './ForgeChrome';
 
 export interface WallRow {
   build: string;
@@ -67,10 +67,9 @@ export default function CommitWall({
   const peak = Math.max(1, ...activity);
 
   return (
-    <main className="min-h-screen" style={{ background: NAVY, color: '#F5F0E8' }}>
+    <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[74vh] items-end overflow-hidden px-6 pb-20 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash="#0A1128" intensity={0.86} veil={0.5} />
+      <PhotoBleed image="vault/044cd20df91d" ground="midnight" focus="50% 50%" from="bottom" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Commit Wall"
@@ -83,7 +82,7 @@ export default function CommitWall({
             </>
           }
         />
-      </section>
+      </PhotoBleed>
 
       <Figures items={figures} />
 
@@ -91,7 +90,7 @@ export default function CommitWall({
       <section className="px-6 py-16 md:py-20">
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-[1.4fr_1fr] md:gap-16">
           <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
               Fifty-two weeks
             </p>
             <div className="mt-6 flex h-20 items-end gap-[3px]" aria-hidden>
@@ -115,7 +114,7 @@ export default function CommitWall({
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
               By language
             </p>
             <ul className="mt-6 space-y-3">
@@ -123,7 +122,7 @@ export default function CommitWall({
                 <li key={l.name}>
                   <div className="flex items-baseline justify-between gap-4">
                     <span className="font-mono text-[12px]" style={{ color: ink(0.82) }}>{l.name}</span>
-                    <span className="font-mono text-[11px]" style={{ color: GOLD }}>{l.pct}%</span>
+                    <span className="font-mono text-[11px]" style={{ color: GOLD_INK }}>{l.pct}%</span>
                   </div>
                   <div className="mt-1.5 h-px w-full" style={{ background: ink(0.1) }}>
                     <div className="h-px" style={{ width: `${Math.max(1, l.pct)}%`, background: GOLD }} />
@@ -136,7 +135,7 @@ export default function CommitWall({
       </section>
 
       {/* ═══ THE WALL ════════════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 py-16 md:py-24">
+      <Stock paper="bone" className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-4xl">
           <FadeUp>
             <div className="flex flex-wrap items-center gap-2.5">
@@ -144,7 +143,7 @@ export default function CommitWall({
                 onClick={() => setFilter(null)}
                 className="rounded-full border px-4 py-2 font-mono text-[10.5px] uppercase tracking-[0.18em] transition-colors"
                 style={{
-                  borderColor: filter === null ? GOLD : 'rgba(245,240,232,0.14)',
+                  borderColor: filter === null ? GOLD : 'rgb(var(--ink-rgb) / 0.14)',
                   background: filter === null ? 'rgba(201,148,58,0.14)' : 'transparent',
                   color: filter === null ? GOLD : ink(0.55),
                 }}
@@ -162,7 +161,7 @@ export default function CommitWall({
                     }}
                     className="rounded-full border px-4 py-2 font-mono text-[10.5px] uppercase tracking-[0.18em] transition-colors"
                     style={{
-                      borderColor: on ? b.accent : 'rgba(245,240,232,0.14)',
+                      borderColor: on ? b.accent : 'rgb(var(--ink-rgb) / 0.14)',
                       background: on ? `${b.accent}22` : 'transparent',
                       color: on ? b.accent : ink(0.55),
                     }}
@@ -179,7 +178,7 @@ export default function CommitWall({
               <FadeUp key={`${r.sha}-${i}`} delay={Math.min(i * 0.02, 0.3)} y={14}>
                 <figure className="group border-l-2 pl-6 transition-colors" style={{ borderColor: `${r.accent}55` }}>
                   <blockquote>
-                    <p className="font-display text-xl italic leading-[1.45] text-white md:text-[1.6rem]">
+                    <p className="font-display text-xl italic leading-[1.45] t-head md:text-[1.6rem]">
                       {r.line}
                     </p>
                   </blockquote>
@@ -200,16 +199,16 @@ export default function CommitWall({
             </p>
           ) : null}
         </div>
-      </TexturedSection>
+      </Stock>
 
       {/* ═══ HOW THE WALL WAS BUILT ══════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
               How this wall was built
             </p>
-            <h2 className="mt-5 font-display text-2xl font-bold italic leading-tight text-white md:text-3xl">
+            <h2 className="mt-5 font-display text-2xl font-bold italic leading-tight t-head md:text-3xl">
               Nine of these repositories are private.
             </h2>
             <p className="mt-6 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.7) }}>
@@ -225,7 +224,7 @@ export default function CommitWall({
             <p className="mt-5 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.7) }}>
               {withheld} messages were withheld by a safety rule. The ingest can print every one of them with the
               rule that caught it, which is how the{' '}
-              <a href="/forge/scars#the-filter-that-deleted-the-room" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD }}>
+              <a href="/forge/scars#the-filter-that-deleted-the-room" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 filter that was deleting the room
               </a>{' '}
               was found — a regex that looked strict and was quietly discarding four out of every five good

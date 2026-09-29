@@ -417,6 +417,29 @@ export function NandaAssistant() {
     setMounted(true);
   }, []);
 
+  // Tuck the corner avatar away while the reader scrolls down, so it never sits
+  // on top of the words they are reading, and bring it back when they pause or
+  // scroll up. Only the minimized avatar tucks; an open chat never moves.
+  const [tucked, setTucked] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let last = window.scrollY;
+    let idle: ReturnType<typeof setTimeout> | undefined;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > last + 6) setTucked(true);
+      else if (y < last - 6) setTucked(false);
+      last = y;
+      clearTimeout(idle);
+      idle = setTimeout(() => setTucked(false), 1400);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(idle);
+    };
+  }, []);
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -549,7 +572,10 @@ export function NandaAssistant() {
   return (
     <>
       {/* Nanda Girl Character - Bottom Left */}
-      <div className="fixed bottom-4 left-4 z-40">
+      <div
+        className="fixed bottom-4 left-4 z-40 transition-all duration-500 ease-out"
+        style={tucked && isMinimized && !isChatOpen ? { transform: 'translateY(140%)', opacity: 0, pointerEvents: 'none' } : undefined}
+      >
         <AnimatePresence mode="wait">
           {isMinimized ? (
             <motion.button

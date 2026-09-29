@@ -1,10 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Stock from '@/components/ui/Stock';
+import { PhotoBleed } from '@/components/ui/Ground';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Github } from 'lucide-react';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { ORIGINS, LAYERS, THROUGHLINE, DEMO_GALLERY, type OriginProject } from '@/lib/data/forge-origins';
 
@@ -28,7 +28,7 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 
 function Kicker({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+    <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: 'var(--gold-ink)' }}>
       {children}
     </p>
   );
@@ -44,7 +44,7 @@ function Project({ p }: { p: OriginProject }) {
         <div className={`mb-7 flex items-baseline gap-5 ${flip ? 'md:flex-row-reverse md:text-right' : ''}`}>
           <span
             className="font-display text-5xl italic leading-none md:text-6xl"
-            style={{ color: 'rgba(201,148,58,0.55)' }}
+            style={{ color: 'var(--gold-ink)', opacity: 0.6 }}
           >
             {String(p.n).padStart(2, '0')}
           </span>
@@ -53,10 +53,10 @@ function Project({ p }: { p: OriginProject }) {
               Layer {p.layer} · {p.type}
               {p.built ? ` · ${p.built}` : ''}
             </Kicker>
-            <h2 className="mt-2 font-display text-3xl font-bold italic leading-[1.05] text-white md:text-5xl">
+            <h2 className="mt-2 font-display text-3xl font-bold italic leading-[1.05] t-head md:text-5xl">
               {p.title}
             </h2>
-            <p className="mt-2 font-display text-lg italic md:text-xl" style={{ color: 'rgba(245,240,232,0.55)' }}>
+            <p className="mt-2 font-display text-lg italic md:text-xl" style={{ color: 'rgb(var(--ink-rgb) / 0.55)' }}>
               {p.subtitle}
             </p>
           </div>
@@ -68,7 +68,7 @@ function Project({ p }: { p: OriginProject }) {
             <li
               key={s}
               className="rounded-full border px-3 py-1 font-mono text-[10.5px] tracking-wide"
-              style={{ borderColor: 'rgba(201,148,58,0.3)', color: 'rgba(245,240,232,0.62)' }}
+              style={{ borderColor: 'rgba(201,148,58,0.3)', color: 'rgb(var(--ink-rgb) / 0.62)' }}
             >
               {s}
             </li>
@@ -82,10 +82,10 @@ function Project({ p }: { p: OriginProject }) {
             ['The build', p.build],
           ] as const).map(([label, text]) => (
             <div key={label} className="md:col-span-1">
-              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: 'rgba(201,148,58,0.75)' }}>
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: 'var(--gold-ink)' }}>
                 {label}
               </p>
-              <p className="text-[15px] font-light leading-relaxed" style={{ color: 'rgba(245,240,232,0.72)' }}>
+              <p className="text-[15px] font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.72)' }}>
                 {text}
               </p>
             </div>
@@ -93,10 +93,10 @@ function Project({ p }: { p: OriginProject }) {
 
           {/* The lesson — the doorway line every card ends on */}
           <div className="md:col-span-1">
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: GOLD }}>
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: 'var(--gold-ink)' }}>
               The lesson
             </p>
-            <p className="font-display text-[17px] italic leading-relaxed md:text-lg" style={{ color: 'rgba(245,240,232,0.94)' }}>
+            <p className="font-display text-[17px] italic leading-relaxed md:text-lg" style={{ color: 'rgb(var(--ink-rgb) / 0.94)' }}>
               {p.lesson}
             </p>
           </div>
@@ -105,7 +105,7 @@ function Project({ p }: { p: OriginProject }) {
         {p.outcome && (
           <p
             className="mt-8 border-l-2 pl-5 font-display text-lg italic md:text-xl"
-            style={{ borderColor: GOLD, color: 'rgba(245,240,232,0.85)' }}
+            style={{ borderColor: GOLD, color: 'rgb(var(--ink-rgb) / 0.85)' }}
           >
             {p.outcome}
           </p>
@@ -117,8 +117,8 @@ function Project({ p }: { p: OriginProject }) {
             href={p.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] tracking-wide transition-colors hover:bg-white/5"
-            style={{ borderColor: 'rgba(245,240,232,0.22)', color: 'rgba(245,240,232,0.75)' }}
+            className="inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] tracking-wide transition-colors hover:bg-black/[0.04]"
+            style={{ borderColor: 'rgb(var(--ink-rgb) / 0.22)', color: 'rgb(var(--ink-rgb) / 0.75)' }}
           >
             <Github className="h-3.5 w-3.5" /> Source
           </a>
@@ -139,7 +139,7 @@ function Project({ p }: { p: OriginProject }) {
           {p.demo?.status === 'archived' && (
             <span
               className="inline-flex items-center gap-2 rounded-full border border-dashed px-4 py-2 font-mono text-[11px] tracking-wide"
-              style={{ borderColor: 'rgba(245,240,232,0.18)', color: 'rgba(245,240,232,0.4)' }}
+              style={{ borderColor: 'rgb(var(--ink-rgb) / 0.18)', color: 'rgb(var(--ink-rgb) / 0.4)' }}
             >
               Deployment archived
             </span>
@@ -152,8 +152,8 @@ function Project({ p }: { p: OriginProject }) {
               href={DEMO_GALLERY.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] tracking-wide transition-colors hover:bg-white/5"
-              style={{ borderColor: 'rgba(245,240,232,0.22)', color: 'rgba(245,240,232,0.75)' }}
+              className="inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] tracking-wide transition-colors hover:bg-black/[0.04]"
+              style={{ borderColor: 'rgb(var(--ink-rgb) / 0.22)', color: 'rgb(var(--ink-rgb) / 0.75)' }}
             >
               {DEMO_GALLERY.label} <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
@@ -166,16 +166,15 @@ function Project({ p }: { p: OriginProject }) {
 
 export default function OriginsFeature() {
   return (
-    <main className="min-h-screen" style={{ background: '#0A1128', color: CREAM }}>
+    <main className="stock-parchment min-h-screen">
       {/* ═══ THRESHOLD ═══════════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[88vh] items-end overflow-hidden px-6 pb-20 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash="#0A1128" intensity={0.9} veil={0.42} />
+      <PhotoBleed image="nanda-portraits/nanda-coding/IMG_20260102_163239" ground="midnight" focus="50% 60%" from="bottom" minH="88vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <div className="relative z-10 mx-auto w-full max-w-5xl">
           <FadeUp>
             <Link
               href="/forge"
-              className="mb-10 inline-flex items-center gap-2 text-sm transition-colors hover:text-white"
-              style={{ color: 'rgba(245,240,232,0.55)' }}
+              className="mb-10 inline-flex items-center gap-2 text-sm transition-colors hover:opacity-100"
+              style={{ color: 'rgb(var(--ink-rgb) / 0.55)' }}
             >
               <ArrowLeft className="h-4 w-4" /> Back to the Forge
             </Link>
@@ -186,13 +185,13 @@ export default function OriginsFeature() {
           </FadeUp>
 
           <FadeUp delay={0.12}>
-            <h1 className="mt-6 font-display text-6xl font-bold italic leading-[0.92] text-white md:text-8xl">
+            <h1 className="mt-6 font-display text-6xl font-bold italic leading-[0.92] t-head md:text-8xl">
               Where it<br />started.
             </h1>
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
+            <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.72)' }}>
               Before eight live applications. Before a registered company, before the commits
               ran into four figures. There were these. Each one a targeted lesson — and each
               lesson kept.
@@ -200,23 +199,23 @@ export default function OriginsFeature() {
           </FadeUp>
 
           <FadeUp delay={0.28}>
-            <p className="mt-6 max-w-2xl font-display text-xl italic leading-relaxed md:text-2xl" style={{ color: 'rgba(245,240,232,0.6)' }}>
+            <p className="mt-6 max-w-2xl font-display text-xl italic leading-relaxed md:text-2xl" style={{ color: 'rgb(var(--ink-rgb) / 0.6)' }}>
               This is not a portfolio showcase. It is a build chronicle — the answer to the
-              question every technical interview eventually asks: <span className="text-white">where did you learn to build?</span>
+              question every technical interview eventually asks: <span className="t-head">where did you learn to build?</span>
             </p>
           </FadeUp>
         </div>
-      </section>
+      </PhotoBleed>
 
       {/* ═══ THE LEARNING ARCHITECTURE ═══════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 py-24 md:py-28">
+      <Stock paper="bone" className="px-6 py-24 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <Kicker>The learning architecture</Kicker>
-            <h2 className="mt-4 max-w-3xl font-display text-3xl font-bold italic leading-tight text-white md:text-5xl">
+            <h2 className="mt-4 max-w-3xl font-display text-3xl font-bold italic leading-tight t-head md:text-5xl">
               The projects were not random. They were sequenced.
             </h2>
-            <p className="mt-6 max-w-2xl text-[15px] font-light leading-relaxed" style={{ color: 'rgba(245,240,232,0.65)' }}>
+            <p className="mt-6 max-w-2xl text-[15px] font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.65)' }}>
               Six layers, each built directly on the one before it. Read in order, the
               sequence is the argument.
             </p>
@@ -225,9 +224,9 @@ export default function OriginsFeature() {
           <ol className="mt-12 grid gap-px overflow-hidden rounded-2xl border md:grid-cols-2" style={{ borderColor: 'rgba(201,148,58,0.2)', background: 'rgba(201,148,58,0.18)' }}>
             {Object.entries(LAYERS).map(([n, label], i) => (
               <FadeUp key={n} delay={i * 0.05}>
-                <li className="flex h-full items-baseline gap-4 p-6" style={{ background: '#0A1128' }}>
-                  <span className="font-display text-2xl italic" style={{ color: GOLD }}>{n}</span>
-                  <span className="text-[15px] font-light leading-relaxed" style={{ color: 'rgba(245,240,232,0.8)' }}>
+                <li className="flex h-full items-baseline gap-4 p-6" style={{ background: 'var(--card)' }}>
+                  <span className="font-display text-2xl italic" style={{ color: 'var(--gold-ink)' }}>{n}</span>
+                  <span className="text-[15px] font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>
                     {label}
                   </span>
                 </li>
@@ -235,7 +234,7 @@ export default function OriginsFeature() {
             ))}
           </ol>
         </div>
-      </TexturedSection>
+      </Stock>
 
       {/* ═══ THE NINE ════════════════════════════════════════════════════════ */}
       <section className="relative px-6 py-24 md:py-32">
@@ -246,15 +245,15 @@ export default function OriginsFeature() {
         </div>
       </section>
 
-      {/* ═══ THE THROUGHLINE ═════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.marble} tone="wine" className="px-6 py-24 md:py-32">
+      {/* ═══ THE THROUGHLINE: the one cherry block on the page ═══════════════ */}
+      <Stock paper="cherry" className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-4xl">
           <FadeUp>
             <Kicker>The throughline</Kicker>
-            <h2 className="mt-4 font-display text-3xl font-bold italic leading-tight text-white md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold italic leading-tight t-head md:text-5xl">
               Nine principles that now govern every build.
             </h2>
-            <p className="mt-6 max-w-2xl text-[15px] font-light leading-relaxed" style={{ color: 'rgba(245,240,232,0.65)' }}>
+            <p className="mt-6 max-w-2xl text-[15px] font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.65)' }}>
               This is the intellectual property no repository can fully contain. It lives in
               the decisions made on every line written since.
             </p>
@@ -263,11 +262,11 @@ export default function OriginsFeature() {
           <ol className="mt-12 space-y-5">
             {THROUGHLINE.map((line, i) => (
               <FadeUp key={line} delay={i * 0.04}>
-                <li className="flex items-baseline gap-5 border-b pb-5" style={{ borderColor: 'rgba(245,240,232,0.09)' }}>
-                  <span className="font-mono text-[11px] tracking-widest" style={{ color: GOLD }}>
+                <li className="flex items-baseline gap-5 border-b pb-5" style={{ borderColor: 'rgb(var(--ink-rgb) / 0.09)' }}>
+                  <span className="font-mono text-[11px] tracking-widest" style={{ color: 'var(--gold-ink)' }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="font-display text-lg italic leading-relaxed md:text-xl" style={{ color: 'rgba(245,240,232,0.92)' }}>
+                  <span className="font-display text-lg italic leading-relaxed md:text-xl" style={{ color: 'rgb(var(--ink-rgb) / 0.92)' }}>
                     {line}
                   </span>
                 </li>
@@ -286,15 +285,15 @@ export default function OriginsFeature() {
               </Link>
               <Link
                 href="/poetry/poet-who-codes"
-                className="inline-flex items-center gap-2 rounded-full border px-6 py-3 font-mono text-[11px] uppercase tracking-widest transition-colors hover:bg-white/5"
-                style={{ borderColor: 'rgba(245,240,232,0.25)', color: 'rgba(245,240,232,0.8)' }}
+                className="inline-flex items-center gap-2 rounded-full border px-6 py-3 font-mono text-[11px] uppercase tracking-widest transition-colors hover:bg-black/[0.04]"
+                style={{ borderColor: 'rgb(var(--ink-rgb) / 0.25)', color: 'rgb(var(--ink-rgb) / 0.8)' }}
               >
                 The poet who codes
               </Link>
             </div>
           </FadeUp>
         </div>
-      </TexturedSection>
+      </Stock>
     </main>
   );
 }

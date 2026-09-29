@@ -18,14 +18,14 @@
  */
 
 import Link from 'next/link';
+import Stock from '@/components/ui/Stock';
+import { PhotoBleed } from '@/components/ui/Ground';
 import { ArrowUpRight, Lock, GitBranch, Calendar } from 'lucide-react';
 import { STUDIO_APPS } from '@/lib/data/app-screens';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import type { BuildDossier } from '@/lib/data/forge-builds';
 import { trackOutbound } from '@/lib/analytics';
-import { FadeUp, BrandMark, Doors, Artefact, Rule, GOLD, NAVY, ink } from './ForgeChrome';
+import { FadeUp, BrandMark, Doors, Artefact, Rule, GOLD, NAVY, ink, GOLD_INK, CARD } from './ForgeChrome';
 
 export interface DossierProps {
   dossier: BuildDossier;
@@ -51,17 +51,16 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
   const peak = Math.max(1, ...meta.activity);
 
   return (
-    <main className="min-h-screen" style={{ background: NAVY, color: '#F5F0E8' }}>
+    <main className="stock-parchment min-h-screen">
       {/* ═══ COVER ═══════════════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[78vh] items-end overflow-hidden px-6 pb-20 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash={NAVY} intensity={0.88} veil={0.5} />
+      <PhotoBleed image="vault/00b97803ad00" ground="midnight" focus="50% 50%" from="bottom" minH="78vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
 
         <div className="relative z-10 mx-auto w-full max-w-4xl">
           <FadeUp>
             <Link
               href="/forge/floor"
               className="font-mono text-[10.5px] uppercase tracking-[0.28em] transition-opacity hover:opacity-70"
-              style={{ color: GOLD }}
+              style={{ color: GOLD_INK }}
             >
               ← The Workshop Floor
             </Link>
@@ -71,7 +70,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
             <div className="mt-8 flex items-center gap-5">
               <BrandMark logo={d.logo} name={d.name} accent={d.accent} size={72} />
               <div>
-                <h1 className="font-display text-5xl font-bold italic leading-[0.95] text-white md:text-7xl">{d.name}</h1>
+                <h1 className="font-display text-5xl font-bold italic leading-[0.95] t-head md:text-7xl">{d.name}</h1>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.24em]" style={{ color: d.accent }}>
                   {d.kicker}
                 </p>
@@ -88,12 +87,12 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
           <FadeUp delay={0.24}>
             <dl className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 font-mono text-[10.5px] uppercase tracking-[0.16em]" style={{ color: ink(0.5) }}>
               <div className="flex items-center gap-1.5">
-                <GitBranch className="h-3 w-3" style={{ color: GOLD }} />
+                <GitBranch className="h-3 w-3" style={{ color: GOLD_INK }} />
                 <dd>{meta.commitsLabel} commits</dd>
               </div>
               {meta.span ? (
                 <div className="flex items-center gap-1.5">
-                  <Calendar className="h-3 w-3" style={{ color: GOLD }} />
+                  <Calendar className="h-3 w-3" style={{ color: GOLD_INK }} />
                   <dd>{meta.span}</dd>
                 </div>
               ) : null}
@@ -134,7 +133,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
             </FadeUp>
           ) : null}
         </div>
-      </section>
+      </PhotoBleed>
 
       {/* ═══ THE PROBLEM ═════════════════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-28">
@@ -162,13 +161,13 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
       </section>
 
       {/* ═══ THE DECISIONS ═══════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 py-20 md:py-28">
+      <Stock paper="bone" className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
               {d.decisions.length} decisions
             </p>
-            <h2 className="mt-4 font-display text-3xl font-bold italic leading-tight text-white md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold italic leading-tight t-head md:text-5xl">
               What the constraint forced.
             </h2>
             <p className="mt-5 text-[15px] font-light leading-relaxed" style={{ color: ink(0.55) }}>
@@ -185,7 +184,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
                     <span className="font-mono text-[11px] tracking-widest" style={{ color: d.accent }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="font-display text-2xl font-bold italic leading-snug text-white md:text-[1.75rem]">
+                    <h3 className="font-display text-2xl font-bold italic leading-snug t-head md:text-[1.75rem]">
                       {dec.title}
                     </h3>
                   </div>
@@ -202,14 +201,14 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
             ))}
           </ol>
         </div>
-      </TexturedSection>
+      </Stock>
 
       {/* ═══ WHAT GENERALISES ════════════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             <Rule label="What generalises" color={d.accent} />
-            <h2 className="mt-7 font-display text-3xl font-bold italic leading-tight text-white md:text-4xl">
+            <h2 className="mt-7 font-display text-3xl font-bold italic leading-tight t-head md:text-4xl">
               The part that survives the build.
             </h2>
           </FadeUp>
@@ -218,7 +217,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
             {d.learned.map((l) => (
               <FadeUp key={l.claim}>
                 <div className="border-l-2 pl-6" style={{ borderColor: `${d.accent}66` }}>
-                  <p className="font-display text-xl font-bold italic leading-snug text-white md:text-2xl">
+                  <p className="font-display text-xl font-bold italic leading-snug t-head md:text-2xl">
                     {l.claim}
                   </p>
                   <p className="mt-3 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.7) }}>
@@ -242,10 +241,10 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
               {scars.map((s) => (
                 <FadeUp key={s.slug}>
                   <Link href={`/forge/scars#${s.slug}`} className="group block">
-                    <div className="p-6 transition-colors group-hover:bg-[#12172f]" style={{ background: NAVY }}>
+                    <div className="p-6 transition-colors group-hover:bg-[var(--stock)]" style={{ background: CARD }}>
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="font-display text-lg italic text-white md:text-xl">{s.title}</h3>
-                        <ArrowUpRight className="h-4 w-4 shrink-0" style={{ color: '#C97A8C' }} />
+                        <h3 className="font-display text-lg italic t-head md:text-xl">{s.title}</h3>
+                        <ArrowUpRight className="h-4 w-4 shrink-0" style={{ color: 'var(--cherry-ink)' }} />
                       </div>
                       <p className="mt-2 text-[14px] font-light leading-relaxed" style={{ color: ink(0.58) }}>
                         {s.summary}
@@ -285,10 +284,10 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
                 Measured
               </h3>
               <dl className="mt-4 space-y-2 font-mono text-[12.5px]" style={{ color: ink(0.78) }}>
-                <div className="flex justify-between gap-4"><dt>commits</dt><dd style={{ color: GOLD }}>{meta.commitsLabel}</dd></div>
-                {meta.lastCommit ? <div className="flex justify-between gap-4"><dt>last commit</dt><dd style={{ color: GOLD }}>{meta.lastCommit}</dd></div> : null}
-                {meta.sections ? <div className="flex justify-between gap-4"><dt>journal sections</dt><dd style={{ color: GOLD }}>{meta.sections}</dd></div> : null}
-                {meta.nights ? <div className="flex justify-between gap-4"><dt>nights logged</dt><dd style={{ color: GOLD }}>{meta.nights}</dd></div> : null}
+                <div className="flex justify-between gap-4"><dt>commits</dt><dd style={{ color: GOLD_INK }}>{meta.commitsLabel}</dd></div>
+                {meta.lastCommit ? <div className="flex justify-between gap-4"><dt>last commit</dt><dd style={{ color: GOLD_INK }}>{meta.lastCommit}</dd></div> : null}
+                {meta.sections ? <div className="flex justify-between gap-4"><dt>journal sections</dt><dd style={{ color: GOLD_INK }}>{meta.sections}</dd></div> : null}
+                {meta.nights ? <div className="flex justify-between gap-4"><dt>nights logged</dt><dd style={{ color: GOLD_INK }}>{meta.nights}</dd></div> : null}
               </dl>
 
               {meta.activity.length ? (
@@ -320,15 +319,15 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
       <section className="px-6 pb-6">
         <div className="mx-auto flex max-w-3xl items-stretch justify-between gap-4">
           {neighbours.prev ? (
-            <Link href={`/forge/floor/${neighbours.prev.slug}`} className="group flex-1 rounded-xl border p-5 transition-colors hover:bg-[#0d1631]" style={{ borderColor: ink(0.1) }}>
+            <Link href={`/forge/floor/${neighbours.prev.slug}`} className="group flex-1 rounded-xl border p-5 transition-colors hover:bg-[var(--card)]" style={{ borderColor: ink(0.1) }}>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: ink(0.38) }}>Previous</p>
-              <p className="mt-1.5 font-display text-lg italic text-white">{neighbours.prev.name}</p>
+              <p className="mt-1.5 font-display text-lg italic t-head">{neighbours.prev.name}</p>
             </Link>
           ) : <span className="flex-1" />}
           {neighbours.next ? (
-            <Link href={`/forge/floor/${neighbours.next.slug}`} className="group flex-1 rounded-xl border p-5 text-right transition-colors hover:bg-[#0d1631]" style={{ borderColor: ink(0.1) }}>
+            <Link href={`/forge/floor/${neighbours.next.slug}`} className="group flex-1 rounded-xl border p-5 text-right transition-colors hover:bg-[var(--card)]" style={{ borderColor: ink(0.1) }}>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: ink(0.38) }}>Next</p>
-              <p className="mt-1.5 font-display text-lg italic text-white">{neighbours.next.name}</p>
+              <p className="mt-1.5 font-display text-lg italic t-head">{neighbours.next.name}</p>
             </Link>
           ) : <span className="flex-1" />}
         </div>
