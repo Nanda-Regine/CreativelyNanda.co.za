@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "The Creator Stack Bundle | Mirembe Muse",
   description:
     "Get The Writer's Sanctuary and The Creator's Studio for R549. Save R149.",
+  alternates: { canonical: 'https://creativelynanda.co.za/products/creator-bundle' },
 };
 
 export default function CreatorBundle() {

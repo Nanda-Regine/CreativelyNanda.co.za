@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'The Student Stack Bundle | Mirembe Muse',
   description:
     'Get both the Varsity Academic Excellence Engine and High School Academic Excellence Engine for R420. Save R108.',
+  alternates: { canonical: 'https://creativelynanda.co.za/products/student-bundle' },
 };
 
 export default function StudentBundle() {

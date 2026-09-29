@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
 import { POEMS } from '@/lib/poems-data';
-import { getFeedPosts, postUrl } from '@/lib/feeds';
+import { getAllPublishedPosts, postUrl } from '@/lib/feeds';
 
 // The essays and field notes are read from Supabase, so the sitemap is rebuilt
 // hourly rather than frozen at deploy time.
@@ -81,6 +81,7 @@ const POETRY: Entry[] = [
   { path: '/poetry/poet-who-codes', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/poetry/games', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/poetry/community', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/poetry/erasure', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/poetry/my-garden', changeFrequency: 'monthly', priority: 0.5 },
 ];
 
@@ -88,12 +89,18 @@ const STORY: Entry[] = [
   { path: '/roots', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/gallery', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/blog', changeFrequency: 'daily', priority: 0.8 },
+  { path: '/blog/writing', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/blog/dev', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/blog/business', changeFrequency: 'weekly', priority: 0.6 },
   { path: '/testimonials', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/sanyu', changeFrequency: 'monthly', priority: 0.5 },
 ];
 
 const SHOP: Entry[] = [
   { path: '/products', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/products/creator-bundle', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/products/student-bundle', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/notion', changeFrequency: 'monthly', priority: 0.5 },
   ...[
     'writers-sanctuary',
     'creators-studio',
@@ -131,6 +138,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly',
       priority: 0.6,
     })),
+    // Not the Reading Rooms: they canonicalise to the poem, and a sitemap lists
+    // canonical URLs only. Crawlers reach them through the link on each poem.
     ...STORY,
     ...SHOP,
     ...LEGAL,
@@ -141,9 +150,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // error, not a ranking opportunity.
   const live = entries.filter((e) => !REDIRECTED_TO_MIREMBE.includes(e.path as (typeof REDIRECTED_TO_MIREMBE)[number]));
 
-  // Essays and Field Notes (the imprints syndicated in the feeds), with their
+  // Every published post (Essays, Field Notes and the business archive), with
   // real modified dates rather than the build time.
-  const posts = await getFeedPosts(undefined, 500);
+  const posts = await getAllPublishedPosts();
 
   return [
     ...live.map((e) => ({

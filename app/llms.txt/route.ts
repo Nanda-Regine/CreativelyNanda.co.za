@@ -39,11 +39,14 @@ Profiles: ${SAME_AS.join(' · ')}
 
 ## Poetry
 - [The House of Roses](${u('/poetry')}): the poetry wing of the site
-- [The collection](${u('/poetry/collection')}): all ${POEMS.length} poems, readable in full
+- [The collection](${u('/poetry/collection')}): all ${POEMS.length} poems, readable in full. Each poem has an X-ray view (add #xray to its URL) that measures its craft from the text: refrains, rhyme scheme, anaphora, line-break hinges, pauses, alliteration and line shape. Each also opens in a Reading Room (\`/room\`) that reveals it line by line.
 - [The Poem Wall](${u('/poetry/wall')}): her Instagram poem carousels, page by page
 - [The Stage](${u('/poetry/stage')}): spoken-word performance
-- [Lineage](${u('/poetry/lineage')}): the traditions her poetry comes from
+- [Lineage](${u('/poetry/lineage')}): the four houses her poetry comes from (Nseenene of Buganda, amaTshawe, amaHlubi, Msimanga), each shown in its own cloth
 - [The Poet Who Codes](${u('/poetry/poet-who-codes')}): where the writing and the engineering meet
+- [The Circle](${u('/poetry/community')}): a community garden where readers write and share poems
+- [Poetry Games](${u('/poetry/games')}) and [the Erasure Studio](${u('/poetry/erasure')}): playful writing tools
+- [My Garden](${u('/poetry/my-garden')}): a private plot that grows as a reader reads, kept in their own browser
 
 ## Engineering · The Forge
 - [The Forge](${u('/forge')}): her engineering wing, build journals, postmortems, decisions with their reasoning
@@ -65,7 +68,11 @@ ${CREDENTIALS_BY_DATE.map((c) => `  - ${c.title} · ${c.issuer}, ${formatCredent
 - [Gallery](${u('/gallery')})
 - [Testimonials](${u('/testimonials')})
 
-## Writing (latest)
+## Writing
+- [The House of Roses Press](${u('/blog')}): her essays and field notes, published in numbered issues
+- [Essays](${u('/blog/writing')}) · [Field Notes](${u('/blog/dev')}) · [Business archive](${u('/blog/business')})
+
+Latest:
 ${posts.length ? posts.map((p) => `- [${p.title}](${postUrl(p)}) · ${p.published_at.slice(0, 10)}`).join('\n') : '- See the feeds below.'}
 
 Feeds: RSS ${u('/feed.xml')} · JSON Feed ${u('/feed.json')} · per imprint ${u('/feed/essays.xml')}, ${u('/feed/field-notes.xml')}

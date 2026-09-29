@@ -62,6 +62,27 @@ export async function getFeedPosts(imprint?: Imprint, limit = 50): Promise<FeedP
   return (data ?? []) as FeedPost[];
 }
 
+/**
+ * Every published post in every category, for the sitemap. The feeds carry only
+ * the imprints (Essays, Field Notes); the sitemap has to declare every page
+ * that is live, business posts included, or they are found late or never.
+ */
+export async function getAllPublishedPosts(limit = 1000): Promise<Pick<FeedPost, 'slug' | 'category' | 'published_at' | 'updated_at'>[]> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) return [];
+  const { data, error } = await createServerClient()
+    .from('blog_posts')
+    .select('slug,category,published_at,updated_at')
+    .eq('is_published', true)
+    .not('published_at', 'is', null)
+    .order('published_at', { ascending: false })
+    .limit(limit);
+  if (error) {
+    console.error('[feeds] blog_posts sitemap query failed:', error.message);
+    return [];
+  }
+  return data ?? [];
+}
+
 export const postUrl = (p: Pick<FeedPost, 'category' | 'slug'>) => `${SITE_URL}/blog/${p.category}/${p.slug}`;
 
 const imageUrl = (src: string | null) => (!src ? undefined : src.startsWith('http') ? src : `${SITE_URL}${src}`);

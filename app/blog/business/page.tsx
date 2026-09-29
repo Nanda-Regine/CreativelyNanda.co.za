@@ -95,17 +95,6 @@ export default function BusinessBlogPage() {
   const featuredArticle = filteredArticles[0];
   const otherArticles = filteredArticles.slice(1);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-parchment flex items-center justify-center">
-        <motion.div className="flex flex-col items-center gap-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className="w-12 h-12 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
-          <p className="text-navy/60">Loading articles...</p>
-        </motion.div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-parchment via-cream to-beige">
       <section className="relative py-24 px-4 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 overflow-hidden">
@@ -153,7 +142,13 @@ export default function BusinessBlogPage() {
 
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          {articles.length === 0 ? (
+          {/* The masthead above renders on the server; only the list waits for data. */}
+          {loading ? (
+            <div className="flex flex-col items-center gap-4 py-20">
+              <div className="w-12 h-12 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
+              <p className="text-navy/60">Loading articles...</p>
+            </div>
+          ) : articles.length === 0 ? (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-20">
               <TrendingUp className="w-16 h-16 text-emerald-300 mx-auto mb-4" />
               <h2 className="text-2xl font-display font-bold text-navy mb-2">Coming Soon</h2>
