@@ -25,6 +25,13 @@ export interface StudioApp {
   /** Source folder under /public. The files are not deployed; Cloudinary serves them. */
   folder: string;
   accent: string;
+  /** The accent darkened for TEXT on the app's light paper (the accent itself fails contrast there). */
+  accentInk: string;
+  /**
+   * The app's own tint of the house parchment. Every product section prints on
+   * paper, not on navy; the tint is how you can tell whose room you are in.
+   */
+  paper: string;
   live: string;
   /** Links to /forge/floor/[dossier]. */
   dossier: string;
@@ -46,6 +53,8 @@ export const STUDIO_APPS: StudioApp[] = [
     line: 'The operating system for South African student life. Study, money, career, safety, food and community, with Nova in the middle of it.',
     folder: 'varsiyos_app_screenshots',
     accent: '#2EC4B6',
+    accentInk: '#0B6B63',
+    paper: '#E5EEEA',
     live: 'https://varsityos.co.za',
     dossier: 'varsityos',
     cover: '174632',
@@ -56,6 +65,8 @@ export const STUDIO_APPS: StudioApp[] = [
     line: 'Learner’s licence drills for the phone people actually own. Real signs from the national manual, drilled until they stick.',
     folder: 'k53_and_sanyu_app_screenshots',
     accent: '#FFB81C',
+    accentInk: '#7A4E00',
+    paper: '#F1E6CB',
     live: 'https://k53drillmaster.co.za',
     dossier: 'k53-drill-master',
     cover: '173050',
@@ -66,6 +77,8 @@ export const STUDIO_APPS: StudioApp[] = [
     line: 'The storefront for a hand-made hair and scalp care line. Heritage copy, real product photography, ZAR checkout.',
     folder: 'k53_and_sanyu_app_screenshots',
     accent: '#C9943A',
+    accentInk: '#7A2233',
+    paper: '#F2E5DD',
     live: 'https://sanyubotanicals.co.za',
     dossier: 'sanyu',
     cover: '174028',

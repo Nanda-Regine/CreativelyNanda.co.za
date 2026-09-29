@@ -28,17 +28,18 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
+import Stock from '@/components/ui/Stock';
+import { PhotoBleed } from '@/components/ui/Ground';
 import Link from 'next/link';
 import { ArrowUpRight, Eye, RotateCcw, Check, X } from 'lucide-react';
 import { track } from '@/lib/analytics';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import type { Drill } from '@/lib/data/forge-drills';
-import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink } from './ForgeChrome';
+import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink, GOLD_INK } from './ForgeChrome';
 
-const RIGHT = '#8FC79A';
-const WRONG = '#D98C9F';
+// Printed on paper now, so the verdict colours are the deep ones.
+const RIGHT = '#2E7D4F';
+const WRONG = '#A3284F';
 const STORE = 'forge-dojo-v1';
 const LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
@@ -76,7 +77,7 @@ function Prose({ text }: { text: string }) {
     <>
       {parts.map((p, i) =>
         i % 2 ? (
-          <code key={i} className="rounded px-1.5 py-0.5 font-mono text-[0.86em]" style={{ background: 'rgba(201,148,58,0.12)', color: '#F0D9A8' }}>
+          <code key={i} className="rounded px-1.5 py-0.5 font-mono text-[0.86em]" style={{ background: 'rgba(201,148,58,0.12)', color: 'var(--gold-ink)' }}>
             {p}
           </code>
         ) : (
@@ -130,10 +131,9 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
   };
 
   return (
-    <main className="min-h-screen" style={{ background: NAVY, color: '#F5F0E8' }}>
+    <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[70vh] items-end overflow-hidden px-6 pb-20 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash="#0B1A1A" intensity={0.8} veil={0.56} />
+      <PhotoBleed image="vault/3dae812bfb55" ground="midnight" focus="40% 50%" from="bottom" minH="70vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Dojo"
@@ -145,12 +145,12 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
             </>
           }
         />
-      </section>
+      </PhotoBleed>
 
       <Figures items={figures} />
 
       {/* ═══ THE BELT — score and a way through ══════════════════════════════ */}
-      <div className="sticky top-16 z-20 border-b px-6 py-3 backdrop-blur-md md:top-20" style={{ borderColor: 'rgba(201,148,58,0.18)', background: 'rgba(10,17,40,0.86)' }}>
+      <div className="sticky top-16 z-20 border-b px-6 py-3 backdrop-blur-md md:top-20" style={{ borderColor: 'rgba(201,148,58,0.18)', background: 'color-mix(in srgb, var(--stock) 88%, transparent)' }}>
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
           <nav aria-label="Drills" className="flex items-center gap-1.5">
             {items.map((it, i) => {
@@ -176,7 +176,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
           <p className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: ink(0.55) }} aria-live="polite">
             {answered ? (
               <>
-                <span style={{ color: GOLD }}>{right}</span> of {answered} right
+                <span style={{ color: GOLD_INK }}>{right}</span> of {answered} right
               </>
             ) : (
               `${items.length} drills`
@@ -186,7 +186,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
       </div>
 
       {/* ═══ THE DRILLS ══════════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 py-16 md:py-24">
+      <Stock paper="bone" className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-3xl space-y-20 md:space-y-28">
           {items.map((it, i) => {
             const d = it.drill;
@@ -198,7 +198,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                 <span id={`drill-${i + 1}`} className="block scroll-mt-40" aria-hidden />
                 <FadeUp>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                    <span className="font-mono text-[11px] tracking-widest" style={{ color: GOLD }}>
+                    <span className="font-mono text-[11px] tracking-widest" style={{ color: GOLD_INK }}>
                       Drill {String(i + 1).padStart(2, '0')}
                     </span>
                     <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: ink(0.4) }}>
@@ -207,7 +207,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                   </div>
 
                   <h2 className="sr-only">Drill {i + 1}: the symptom</h2>
-                  <p className="mt-5 font-display text-2xl italic leading-[1.35] text-white md:text-[1.9rem]">
+                  <p className="mt-5 font-display text-2xl italic leading-[1.35] t-head md:text-[1.9rem]">
                     <Prose text={d.symptom} />
                   </p>
                 </FadeUp>
@@ -229,7 +229,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                         type="button"
                         onClick={() => setHints((h) => ({ ...h, [d.scar]: true }))}
                         className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] underline decoration-dotted underline-offset-4 transition-opacity hover:opacity-70"
-                        style={{ color: GOLD }}
+                        style={{ color: GOLD_INK }}
                       >
                         <Eye className="h-3.5 w-3.5" /> Read the trace first
                       </button>
@@ -254,10 +254,10 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                               onClick={() => answer(it, j)}
                               disabled={!!a}
                               aria-pressed={chosen}
-                              className="group flex w-full items-start gap-4 rounded-xl border p-4 text-left transition-colors enabled:hover:bg-[#121c3d] md:p-5"
+                              className="group flex w-full items-start gap-4 rounded-xl border p-4 text-left transition-colors enabled:hover:bg-black/[0.03] md:p-5"
                               style={{
                                 borderColor: tone ?? ink(a ? 0.08 : 0.16),
-                                background: tone ? `${tone}14` : 'rgba(255,255,255,0.02)',
+                                background: tone ? `${tone}12` : 'var(--card)',
                                 opacity: a && !tone ? 0.62 : 1,
                               }}
                             >
@@ -293,7 +293,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                       <Link
                         href={`/forge/scars#${d.scar}`}
                         className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] underline decoration-dotted underline-offset-4 hover:opacity-70"
-                        style={{ color: GOLD }}
+                        style={{ color: GOLD_INK }}
                       >
                         The full postmortem <ArrowUpRight className="h-3 w-3" />
                       </Link>
@@ -309,7 +309,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
             );
           })}
         </div>
-      </TexturedSection>
+      </Stock>
 
       {/* ═══ THE RESULT ══════════════════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-24">
@@ -317,10 +317,10 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
           <FadeUp>
             {done ? (
               <div className="rounded-2xl border p-8 md:p-10" style={{ borderColor: 'rgba(201,148,58,0.3)', background: 'rgba(201,148,58,0.05)' }}>
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em]" style={{ color: GOLD }}>
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em]" style={{ color: GOLD_INK }}>
                   The result
                 </p>
-                <p className="mt-4 font-display text-4xl font-bold italic text-white md:text-5xl">
+                <p className="mt-4 font-display text-4xl font-bold italic t-head md:text-5xl">
                   {right} of {items.length}
                 </p>
                 <p className="mt-4 max-w-xl text-[15px] font-light leading-[1.8]" style={{ color: ink(0.65) }}>

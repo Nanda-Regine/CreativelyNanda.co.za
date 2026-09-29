@@ -9,20 +9,23 @@
  * - **Journeys** answer the first. A real flow through a product, played like a
  *   story: one phone, one line of narration per screen, advancing on its own
  *   (unless the reader prefers reduced motion) and steerable by tap or key.
- * - **Anatomy** answers the second. One screen, read closely, with numbered
- *   pins on the parts that were decided. Where a build journal records the
- *   reason, the note says which one. It is the Forge's "decisions made visible"
- *   applied to pixels.
+ *   On the page they are laid out as a magazine contents spread: one lead
+ *   story large, the other four as a column beside it.
+ * - **Anatomy** answers the second. One screen, read closely. The active part
+ *   is lit and the rest of the screen dims; the numbered pins sit on the edge
+ *   of the phone on leader lines, so they never cover the words they explain.
+ *   Where a build journal records the reason, the note says which one.
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react';
 import { track } from '@/lib/analytics';
 import { ANATOMY, APP_BY_KEY, JOURNEYS, SCREEN_BY_ID, type Journey } from '@/lib/data/app-screens';
 import StudioPhone from './StudioPhone';
-import { FadeUp, GOLD, ink } from './ForgeChrome';
+import { FadeUp, GOLD, GOLD_INK, ink } from './ForgeChrome';
+import Stock from '@/components/ui/Stock';
 
 const STEP_MS = 6500;
 
@@ -32,59 +35,100 @@ const STEP_MS = 6500;
 
 export function Journeys() {
   const [open, setOpen] = useState<Journey | null>(null);
-  return (
-    <section className="px-6 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl">
-        <FadeUp>
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
-            Journeys
-          </p>
-          <h2 className="mt-3 max-w-3xl font-display text-4xl italic leading-tight text-white md:text-5xl">
-            Watch it being used.
-          </h2>
-          <p className="mt-4 max-w-2xl text-[15px] font-light leading-relaxed" style={{ color: ink(0.62) }}>
-            Five real flows, played screen by screen in the order a person moves through them.
-          </p>
-        </FadeUp>
+  const play = (j: Journey) => {
+    setOpen(j);
+    track('forge_studio_open', { app: j.app, chapter: `journey:${j.slug}` });
+  };
+  const [lead, ...rest] = JOURNEYS;
+  const leadApp = APP_BY_KEY[lead.app];
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {JOURNEYS.map((j, k) => {
-            const app = APP_BY_KEY[j.app];
-            const first = SCREEN_BY_ID[j.steps[0].id];
-            const second = SCREEN_BY_ID[j.steps[1].id];
-            return (
-              <FadeUp key={j.slug} delay={Math.min(k * 0.06, 0.24)} className="h-full">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setOpen(j);
-                    track('forge_studio_open', { app: j.app, chapter: `journey:${j.slug}` });
-                  }}
-                  className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border p-6 text-left transition-colors hover:bg-white/[0.03]"
-                  style={{ borderColor: `${app.accent}33`, background: `linear-gradient(160deg, ${app.accent}12, transparent 60%)` }}
-                >
-                  <div className="relative mb-6 flex h-[210px] items-end justify-center">
-                    <StudioPhone screen={second} width={112} accent={app.accent} className="absolute bottom-0 left-1/2 -translate-x-[82%] rotate-[-7deg] opacity-70 transition-transform duration-500 group-hover:-translate-x-[95%]" />
-                    <StudioPhone screen={first} width={120} accent={app.accent} className="relative z-10 translate-x-[12%] rotate-[4deg] transition-transform duration-500 group-hover:-translate-y-2" />
-                  </div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.24em]" style={{ color: app.accent }}>
-                    {app.name} · {j.steps.length} screens
+  return (
+    <Stock paper="parchment" className="px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+          <FadeUp>
+            <p className="kicker t-gold">Journeys</p>
+            <h2 className="display-l mt-4 max-w-2xl font-display italic t-head">Watch it being used.</h2>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <p className="max-w-xs font-display text-lg italic leading-relaxed t-ink md:text-right">
+              Five real flows, played screen by screen in the order a person moves through them.
+            </p>
+          </FadeUp>
+        </div>
+
+        <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-12">
+          {/* The lead story */}
+          <FadeUp className="lg:col-span-7">
+            <button type="button" onClick={() => play(lead)} className="group block w-full text-left">
+              <div className="shape-arch-soft relative flex h-[420px] items-end justify-center overflow-hidden md:h-[520px]" style={{ background: leadApp.paper }}>
+                <div aria-hidden className="absolute inset-0" style={{ background: `radial-gradient(70% 60% at 50% 70%, ${leadApp.accent}33, transparent 70%)` }} />
+                {[2, 0, 1].map((k, n) => {
+                  const sc = SCREEN_BY_ID[lead.steps[k]?.id];
+                  if (!sc) return null;
+                  const pos = [
+                    { x: '-78%', r: -8, s: 0.82, z: 1 },
+                    { x: '-50%', r: 0, s: 1, z: 3 },
+                    { x: '-22%', r: 8, s: 0.82, z: 2 },
+                  ][n];
+                  return (
+                    <div
+                      key={sc.id}
+                      className="absolute bottom-[-12%] left-1/2 transition-transform duration-700 ease-out group-hover:-translate-y-4"
+                      style={{ zIndex: pos.z, transform: `translateX(${pos.x}) rotate(${pos.r}deg) scale(${pos.s})`, transformOrigin: 'bottom center' }}
+                    >
+                      <StudioPhone screen={sc} width={220} accent={leadApp.accent} className="md:!w-[250px]" />
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="mt-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+                <div>
+                  <p className="kicker" style={{ color: leadApp.accentInk }}>
+                    The lead · {leadApp.name} · {lead.steps.length} screens
                   </p>
-                  <h3 className="mt-2 font-display text-2xl italic leading-snug text-white">{j.title}</h3>
-                  <p className="mt-2 text-[14px] font-light leading-relaxed" style={{ color: ink(0.6) }}>
-                    {j.line}
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-5 font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: GOLD }}>
-                    <Play className="h-3 w-3" /> Play the journey
-                  </span>
-                </button>
-              </FadeUp>
-            );
-          })}
+                  <h3 className="mt-3 font-display text-4xl italic leading-tight t-head md:text-5xl">{lead.title}</h3>
+                  <p className="mt-3 max-w-lg text-[15px] font-light leading-relaxed t-ink">{lead.line}</p>
+                </div>
+                <span className="inline-flex items-center gap-2.5 self-start rounded-full px-6 py-3 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#F5F0E8] transition-transform group-hover:-translate-y-0.5 md:self-end" style={{ background: '#0A1128' }}>
+                  <Play className="h-3.5 w-3.5" style={{ color: GOLD }} /> Play the journey
+                </span>
+              </div>
+            </button>
+          </FadeUp>
+
+          {/* The contents column */}
+          <ol className="border-t lg:col-span-5 lg:mt-10" style={{ borderColor: 'var(--rule)' }}>
+            {rest.map((j, k) => {
+              const app = APP_BY_KEY[j.app];
+              const first = SCREEN_BY_ID[j.steps[0].id];
+              return (
+                <li key={j.slug} className="border-b" style={{ borderColor: 'var(--rule)' }}>
+                  <FadeUp delay={Math.min(k * 0.06, 0.24)}>
+                    <button type="button" onClick={() => play(j)} className="group flex w-full items-center gap-6 py-6 text-left">
+                      <span className="relative block w-[74px] shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-3deg]">
+                        <StudioPhone screen={first} width={74} accent={app.accent} />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="kicker block" style={{ color: app.accentInk }}>
+                          {String(k + 2).padStart(2, '0')} · {app.name}
+                        </span>
+                        <span className="mt-2 block font-display text-2xl italic leading-snug t-head transition-transform duration-500 group-hover:translate-x-1">{j.title}</span>
+                        <span className="mt-1.5 block text-[14px] font-light leading-relaxed t-soft">{j.line}</span>
+                      </span>
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors group-hover:bg-[#0A1128] group-hover:text-[#F5F0E8]" style={{ borderColor: 'var(--rule)', color: ink(0.7) }}>
+                        <Play className="h-3.5 w-3.5" />
+                      </span>
+                    </button>
+                  </FadeUp>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </div>
-      {open ? <StoryPlayer journey={open} onClose={() => setOpen(null)} /> : null}
-    </section>
+      <AnimatePresence>{open ? <StoryPlayer key={open.slug} journey={open} onClose={() => setOpen(null)} /> : null}</AnimatePresence>
+    </Stock>
   );
 }
 
@@ -215,12 +259,16 @@ function StoryPlayer({ journey, onClose }: { journey: Journey; onClose: () => vo
 // Anatomy
 // ─────────────────────────────────────────────────────────────────────────────
 
+/** How far the numbered badges sit outside the phone, on their leader lines. */
+const REACH = 22;
+
 export function AnatomyRoom() {
   const [a, setA] = useState(0);
   const [pin, setPin] = useState(0);
   const item = ANATOMY[a];
   const screen = SCREEN_BY_ID[item.id];
   const app = APP_BY_KEY[screen.app];
+  const active = item.pins[pin];
 
   const choose = (k: number) => {
     setA(k);
@@ -228,97 +276,135 @@ export function AnatomyRoom() {
   };
 
   return (
-    <section className="border-y px-6 py-20 md:py-28" style={{ borderColor: 'rgba(201,148,58,0.16)', background: 'rgba(255,255,255,0.015)' }}>
+    <Stock paper="bone" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <FadeUp>
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
-            Anatomy
-          </p>
-          <h2 className="mt-3 max-w-3xl font-display text-4xl italic leading-tight text-white md:text-5xl">Read a screen closely.</h2>
-          <p className="mt-4 max-w-2xl text-[15px] font-light leading-relaxed" style={{ color: ink(0.62) }}>
-            Every screen is a stack of decisions. Tap a number to see one. Where the reason is written in a build journal, the note
+          <p className="kicker t-gold">Anatomy</p>
+          <h2 className="display-l mt-4 max-w-3xl font-display italic t-head">Read a screen closely.</h2>
+          <p className="mt-5 max-w-2xl text-[15px] font-light leading-relaxed t-ink">
+            Every screen is a stack of decisions. Choose a number and that part of the screen is lit. Where the reason is written in a build journal, the note
             says which.
           </p>
         </FadeUp>
 
-        {/* the six screens */}
-        <div role="tablist" aria-label="Screens to read" className="mt-10 flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {/* the six screens: wrapped, never clipped */}
+        <div role="tablist" aria-label="Screens to read" className="mt-10 flex flex-wrap gap-2">
           {ANATOMY.map((x, k) => {
             const sc = SCREEN_BY_ID[x.id];
             const ap = APP_BY_KEY[sc.app];
-            const active = k === a;
+            const on = k === a;
             return (
               <button
                 key={x.id}
                 role="tab"
-                aria-selected={active}
+                aria-selected={on}
                 type="button"
                 onClick={() => choose(k)}
-                className="shrink-0 rounded-full px-4 py-2 text-left font-mono text-[10px] uppercase tracking-[0.16em] transition-colors"
-                style={{ background: active ? `${ap.accent}22` : 'rgba(255,255,255,0.04)', color: active ? ap.accent : ink(0.55), boxShadow: active ? `inset 0 0 0 1px ${ap.accent}66` : 'none' }}
+                className="rounded-full border px-4 py-2 text-left font-mono text-[10px] uppercase tracking-[0.16em] transition-colors"
+                style={{ background: on ? '#0A1128' : 'transparent', color: on ? '#F5F0E8' : ink(0.6), borderColor: on ? '#0A1128' : 'var(--rule)' }}
               >
-                {ap.name.split(' ')[0]} · {x.title}
+                <span style={{ color: on ? ap.accent : ap.accentInk }}>{ap.name.split(' ')[0]}</span> · {x.title}
               </button>
             );
           })}
         </div>
 
-        <div className="mt-12 grid items-start gap-12 md:grid-cols-[minmax(0,340px)_1fr] md:gap-16">
-          <div className="mx-auto w-full max-w-[300px] md:sticky md:top-40">
-            <StudioPhone key={item.id} screen={screen} width={300} accent={app.accent} className="!w-full">
-              {item.pins.map((p, k) => (
-                <button
-                  key={k}
-                  type="button"
-                  onClick={() => setPin(k)}
-                  aria-label={`${k + 1}: ${p.title}`}
-                  className="absolute z-10 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full font-mono text-[11px] font-bold transition-transform hover:scale-110"
-                  style={{
-                    left: `${p.x}%`,
-                    top: `${p.y}%`,
-                    background: k === pin ? app.accent : 'rgba(5,7,15,0.82)',
-                    color: k === pin ? '#0A1128' : '#fff',
-                    boxShadow: `0 0 0 2px ${app.accent}, 0 0 0 ${k === pin ? 8 : 0}px ${app.accent}33`,
-                  }}
-                >
-                  {k + 1}
-                </button>
-              ))}
-            </StudioPhone>
-            <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: ink(0.4) }}>
+        <div className="mt-14 grid items-start gap-14 md:grid-cols-[minmax(0,360px)_1fr] md:gap-20">
+          <div className="mx-auto w-full max-w-[250px] md:sticky md:top-40 md:max-w-[290px]" style={{ marginRight: REACH + 30 }}>
+            <div className="relative">
+              <StudioPhone key={item.id} screen={screen} width={300} accent={app.accent} className="!w-full">
+                {/* The spotlight: the screen dims except where the active pin is. */}
+                <AnimatePresence>
+                  {active ? (
+                    <motion.span
+                      key={`${item.id}-${pin}`}
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.35 }}
+                      style={{
+                        background: 'rgba(7,11,28,0.6)',
+                        WebkitMaskImage: `radial-gradient(ellipse 34% 15% at ${active.x}% ${active.y}%, transparent 55%, black 100%)`,
+                        maskImage: `radial-gradient(ellipse 34% 15% at ${active.x}% ${active.y}%, transparent 55%, black 100%)`,
+                      }}
+                    />
+                  ) : null}
+                </AnimatePresence>
+                {item.pins.map((p, k) => (
+                  <span
+                    key={k}
+                    aria-hidden
+                    className="pointer-events-none absolute z-10 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    style={{ left: `${p.x}%`, top: `${p.y}%`, background: k === pin ? app.accent : '#F5F0E8', boxShadow: `0 0 0 2px ${k === pin ? '#0A1128' : app.accent}` }}
+                  >
+                    {k === pin ? <span className="absolute inset-0 animate-ping rounded-full" style={{ background: app.accent }} /> : null}
+                  </span>
+                ))}
+              </StudioPhone>
+
+              {/* Leader lines and badges live outside the screen's clip. The
+                  padding matches the bezel (3.5% of width, and CSS resolves
+                  vertical padding percentages against width too), so this box
+                  is exactly the screen. */}
+              <div className="pointer-events-none absolute inset-0" style={{ padding: '3.5%' }}>
+                <div className="relative h-full w-full">
+                  {item.pins.map((p, k) => {
+                    const on = k === pin;
+                    return (
+                      <div key={k} className="absolute" style={{ top: `${p.y}%`, left: `${p.x}%`, right: -REACH }}>
+                        <span className="absolute left-0 right-0 top-0 h-px transition-colors" style={{ background: on ? app.accentInk : 'rgba(10,17,40,0.22)' }} />
+                        <button
+                          type="button"
+                          onClick={() => setPin(k)}
+                          aria-label={`${k + 1}: ${p.title}`}
+                          aria-pressed={on}
+                          className="pointer-events-auto absolute right-0 top-0 flex h-7 w-7 -translate-y-1/2 translate-x-full items-center justify-center rounded-full font-mono text-[11px] font-bold transition-all"
+                          style={{ background: on ? '#0A1128' : '#FBF8F2', color: on ? '#F5F0E8' : '#0A1128', boxShadow: on ? `0 0 0 3px ${app.accent}` : '0 0 0 1px rgba(10,17,40,0.25)' }}
+                        >
+                          {k + 1}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            <p className="kicker mt-5 text-center t-soft">
               {app.name} · {screen.chapter}
             </p>
           </div>
 
-          <ol className="space-y-3">
+          <ol className="border-t" style={{ borderColor: 'var(--rule)' }}>
             {item.pins.map((p, k) => {
-              const active = k === pin;
+              const on = k === pin;
               return (
-                <li key={k}>
-                  <button
-                    type="button"
-                    onClick={() => setPin(k)}
-                    aria-expanded={active}
-                    className="flex w-full gap-5 rounded-xl border p-5 text-left transition-colors"
-                    style={{ borderColor: active ? `${app.accent}66` : ink(0.08), background: active ? `${app.accent}10` : 'transparent' }}
-                  >
-                    <span className="font-display text-3xl font-bold italic leading-none" style={{ color: active ? app.accent : ink(0.3) }}>
+                <li key={k} className="border-b" style={{ borderColor: 'var(--rule)' }}>
+                  <button type="button" onClick={() => setPin(k)} onMouseEnter={() => setPin(k)} onFocus={() => setPin(k)} aria-expanded={on} className="flex w-full gap-6 py-6 text-left">
+                    <span className="w-8 shrink-0 font-display text-4xl font-bold italic leading-none transition-colors" style={{ color: on ? app.accentInk : ink(0.22) }}>
                       {k + 1}
                     </span>
                     <span className="min-w-0">
-                      <span className="block font-display text-xl italic text-white">{p.title}</span>
-                      {active ? (
-                        <>
-                          <span className="mt-2 block text-[15px] font-light leading-relaxed" style={{ color: ink(0.72) }}>
-                            {p.note}
-                          </span>
-                          {p.source ? (
-                            <span className="mt-3 inline-block rounded-full px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.16em]" style={{ background: 'rgba(201,148,58,0.12)', color: GOLD }}>
-                              From the {p.source}
-                            </span>
-                          ) : null}
-                        </>
-                      ) : null}
+                      <span className="block font-display text-2xl italic leading-snug t-head">{p.title}</span>
+                      <AnimatePresence initial={false}>
+                        {on ? (
+                          <motion.span
+                            className="block overflow-hidden"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          >
+                            <span className="mt-3 block max-w-xl text-[15px] font-light leading-relaxed t-ink">{p.note}</span>
+                            {p.source ? (
+                              <span className="kicker mt-4 inline-block rounded-full px-3 py-1.5" style={{ background: 'rgba(201,148,58,0.14)', color: GOLD_INK }}>
+                                From the {p.source}
+                              </span>
+                            ) : null}
+                          </motion.span>
+                        ) : null}
+                      </AnimatePresence>
                     </span>
                   </button>
                 </li>
@@ -327,6 +413,6 @@ export function AnatomyRoom() {
           </ol>
         </div>
       </div>
-    </section>
+    </Stock>
   );
 }

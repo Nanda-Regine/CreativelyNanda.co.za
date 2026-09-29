@@ -24,19 +24,20 @@
  */
 
 import { useEffect, useRef } from 'react';
+import Stock from '@/components/ui/Stock';
+import { PhotoBleed } from '@/components/ui/Ground';
 import Link from 'next/link';
 import { ArrowUpRight, PenLine } from 'lucide-react';
 import { track } from '@/lib/analytics';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import type { Scar } from '@/lib/data/forge-scars';
-import { FadeUp, Figures, RoomHeader, Doors, Artefact, GOLD, NAVY, ink } from './ForgeChrome';
+import { FadeUp, Figures, RoomHeader, Doors, Artefact, GOLD, NAVY, ink, GOLD_INK, CARD } from './ForgeChrome';
 import IncidentReplay from './IncidentReplay';
 
 /** The room's own colour. Not the wing's gold — a scar is not a highlight. */
 const WOUND = '#8B1E3F';
-const WOUND_INK = '#D98C9F';
+/** The wound, as text: pink on navy, deep cherry on paper (app/stock.css). */
+const WOUND_INK = 'var(--cherry-ink)';
 
 const STEPS: { key: keyof Pick<Scar, 'broke' | 'found' | 'cause' | 'fix' | 'cost'>; label: string }[] = [
   { key: 'broke', label: 'What broke' },
@@ -92,10 +93,9 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
   useScarReadTracking(scars.map((s) => s.slug));
 
   return (
-    <main className="min-h-screen" style={{ background: NAVY, color: '#F5F0E8' }}>
+    <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[74vh] items-end overflow-hidden px-6 pb-20 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash="#160A16" intensity={0.82} veil={0.56} />
+      <PhotoBleed image="vault/12676734d8ed" ground="midnight" focus="50% 40%" from="bottom" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Scar Room"
@@ -107,7 +107,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
             </>
           }
         />
-      </section>
+      </PhotoBleed>
 
       <Figures items={figures} />
 
@@ -124,12 +124,12 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
               <FadeUp key={s.slug} delay={Math.min(i * 0.03, 0.24)}>
                 <li>
                   <a href={`#${s.slug}`} className="group block">
-                    <div className="flex items-baseline gap-5 p-5 transition-colors group-hover:bg-[#161a33] md:p-6" style={{ background: NAVY }}>
+                    <div className="flex items-baseline gap-5 p-5 transition-colors group-hover:bg-[var(--stock)] md:p-6" style={{ background: CARD }}>
                       <span className="font-mono text-[11px] tracking-widest" style={{ color: WOUND_INK }}>
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <div className="min-w-0 flex-1">
-                        <h2 className="font-display text-lg italic leading-snug text-white md:text-xl">{s.title}</h2>
+                        <h2 className="font-display text-lg italic leading-snug t-head md:text-xl">{s.title}</h2>
                         <p className="mt-1.5 text-[13.5px] font-light leading-relaxed" style={{ color: ink(0.55) }}>
                           {s.summary}
                         </p>
@@ -147,7 +147,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
       </section>
 
       {/* ═══ THE ENTRIES ═════════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="wine" className="px-6 py-16 md:py-24">
+      <Stock paper="bone" className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-3xl space-y-24 md:space-y-32">
           {scars.map((s, i) => (
             <article key={s.slug} id={s.slug} className="scroll-mt-28">
@@ -157,11 +157,11 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   {s.buildSlug ? (
-                    <Link href={`/forge/floor/${s.buildSlug}`} className="font-mono text-[10.5px] uppercase tracking-[0.2em] underline decoration-dotted underline-offset-4 transition-opacity hover:opacity-70" style={{ color: GOLD }}>
+                    <Link href={`/forge/floor/${s.buildSlug}`} className="font-mono text-[10.5px] uppercase tracking-[0.2em] underline decoration-dotted underline-offset-4 transition-opacity hover:opacity-70" style={{ color: GOLD_INK }}>
                       {s.build}
                     </Link>
                   ) : (
-                    <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: GOLD }}>
+                    <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: GOLD_INK }}>
                       {s.build}
                     </span>
                   )}
@@ -171,13 +171,13 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
                     </span>
                   ) : null}
                   {s.written ? (
-                    <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em]" style={{ background: 'rgba(201,148,58,0.12)', color: GOLD }}>
+                    <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em]" style={{ background: 'rgba(201,148,58,0.12)', color: GOLD_INK }}>
                       <PenLine className="h-2.5 w-2.5" /> written for this room
                     </span>
                   ) : null}
                 </div>
 
-                <h2 className="mt-5 font-display text-3xl font-bold italic leading-[1.08] text-white md:text-[2.75rem]">
+                <h2 className="mt-5 font-display text-3xl font-bold italic leading-[1.08] t-head md:text-[2.75rem]">
                   {s.title}
                 </h2>
               </FadeUp>
@@ -220,7 +220,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
               {!s.essay ? (
                 <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: ink(0.36) }}>
                   Think you could have found it?{' '}
-                  <Link href={`/forge/dojo#${s.slug}`} className="underline decoration-dotted underline-offset-4 transition-opacity hover:opacity-70" style={{ color: GOLD }}>
+                  <Link href={`/forge/dojo#${s.slug}`} className="underline decoration-dotted underline-offset-4 transition-opacity hover:opacity-70" style={{ color: GOLD_INK }}>
                     It&rsquo;s a drill in the Dojo
                   </Link>
                 </p>
@@ -230,7 +230,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
             </article>
           ))}
         </div>
-      </TexturedSection>
+      </Stock>
 
       {/* ═══ CLOSING NOTE ════════════════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-24">
@@ -250,7 +250,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <div className="mt-12 rounded-xl border p-6" style={{ borderColor: ink(0.1), background: 'rgba(255,255,255,0.02)' }}>
+            <div className="mt-12 rounded-xl border p-6" style={{ borderColor: ink(0.1), background: 'rgb(var(--ink-rgb) / 0.02)' }}>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: ink(0.4) }}>
                 On what is not here
               </p>
@@ -258,7 +258,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
                 The build journals hold sixty-five sections of security work that this room will never carry.
                 The applications are still running, and a detailed account of a hole that was closed is a map
                 for the copy that has not been updated. The essay above{' '}
-                <a href="#security-posture" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD }}>
+                <a href="#security-posture" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                   says what can honestly be said instead
                 </a>
                 : all of them were the same mistake, and the fix was always to move the rule down a layer.

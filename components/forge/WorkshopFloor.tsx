@@ -16,12 +16,12 @@
  */
 
 import Link from 'next/link';
+import Stock from '@/components/ui/Stock';
+import { PhotoBleed } from '@/components/ui/Ground';
 import { ArrowUpRight, Lock, GitBranch } from 'lucide-react';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { track } from '@/lib/analytics';
-import { FadeUp, Figures, RoomHeader, BrandMark, Doors, Rule, GOLD, NAVY, ink } from './ForgeChrome';
+import { FadeUp, Figures, RoomHeader, BrandMark, Doors, Rule, GOLD, NAVY, ink, GOLD_INK, CARD } from './ForgeChrome';
 
 export interface FloorCard {
   slug: string;
@@ -80,10 +80,9 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
   const totalWeeks = activity.filter((n) => n > 0).length;
 
   return (
-    <main className="min-h-screen" style={{ background: NAVY, color: '#F5F0E8' }}>
+    <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[72vh] items-end overflow-hidden px-6 pb-20 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash={NAVY} intensity={0.9} veil={0.46} />
+      <PhotoBleed image="nanda-portraits/nanda-coding/IMG_20260102_161137" ground="midnight" focus="50% 55%" from="bottom" minH="72vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Workshop Floor"
@@ -93,14 +92,14 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
               Not a portfolio grid. Each of these is a working system with a build journal behind it, and the
               dossier is written from that journal: the constraint, the decision, the reasoning, the thing that
               turned out to be wrong. Outcomes and engagements live at{' '}
-              <a href="https://mirembemuse.co.za" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD }}>
+              <a href="https://mirembemuse.co.za" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 Mirembe Muse
               </a>
               . This side is the making.
             </>
           }
         />
-      </section>
+      </PhotoBleed>
 
       <Figures items={figures} />
 
@@ -112,7 +111,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
           </FadeUp>
           <div className="mt-10 grid gap-12 md:grid-cols-[1.35fr_1fr] md:gap-16">
             <FadeUp>
-              <h2 className="font-display text-2xl font-bold italic leading-tight text-white md:text-3xl">
+              <h2 className="font-display text-2xl font-bold italic leading-tight t-head md:text-3xl">
                 A year of commits, by week
               </h2>
               <p className="mt-4 text-[15px] font-light leading-relaxed" style={{ color: ink(0.62) }}>
@@ -131,7 +130,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <h2 className="font-display text-2xl font-bold italic leading-tight text-white md:text-3xl">
+              <h2 className="font-display text-2xl font-bold italic leading-tight t-head md:text-3xl">
                 What it is written in
               </h2>
               <ul className="mt-6 space-y-3">
@@ -141,7 +140,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
                       <span className="font-mono text-[12px] tracking-wide" style={{ color: ink(0.82) }}>
                         {l.name}
                       </span>
-                      <span className="font-mono text-[11px]" style={{ color: GOLD }}>
+                      <span className="font-mono text-[11px]" style={{ color: GOLD_INK }}>
                         {l.pct}%
                       </span>
                     </div>
@@ -160,13 +159,13 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
       </section>
 
       {/* ═══ THE BUILDS ══════════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="navy" className="px-6 py-20 md:py-28">
+      <Stock paper="bone" className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
               The floor
             </p>
-            <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold italic leading-tight text-white md:text-5xl">
+            <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold italic leading-tight t-head md:text-5xl">
               {cards.length} builds, in order of how much of her year each one took.
             </h2>
           </FadeUp>
@@ -179,7 +178,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
                   className="group block"
                   onClick={() => track('forge_build_open', { build: c.slug, position: i + 1 })}
                 >
-                  <article className="relative p-7 transition-colors group-hover:bg-[#0d1631] md:p-9" style={{ background: NAVY }}>
+                  <article className="relative p-7 transition-colors group-hover:bg-[var(--stock)] md:p-9" style={{ background: CARD }}>
                     {/* the build's own colour, as a spine down the left edge */}
                     <span aria-hidden className="absolute inset-y-0 left-0 w-[3px]" style={{ background: c.accent }} />
 
@@ -188,7 +187,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
 
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                          <h3 className="font-display text-2xl font-bold italic text-white md:text-3xl">{c.name}</h3>
+                          <h3 className="font-display text-2xl font-bold italic t-head md:text-3xl">{c.name}</h3>
                           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: c.accent }}>
                             {c.kicker}
                           </span>
@@ -212,7 +211,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
 
                       <ArrowUpRight
                         className="hidden h-5 w-5 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 md:block"
-                        style={{ color: GOLD }}
+                        style={{ color: GOLD_INK }}
                       />
                     </div>
 
@@ -220,7 +219,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
                         a visitor, so it is stated rather than linked. */}
                     <div className="mt-6 flex flex-wrap items-center gap-4 border-t pt-4 font-mono text-[10.5px] uppercase tracking-[0.18em]" style={{ borderColor: ink(0.08) }}>
                       {c.live ? (
-                        <span style={{ color: GOLD }}>{c.live.replace(/^https?:\/\//, '')}</span>
+                        <span style={{ color: GOLD_INK }}>{c.live.replace(/^https?:\/\//, '')}</span>
                       ) : null}
                       {c.isPrivate ? (
                         <span className="flex items-center gap-1.5" style={{ color: ink(0.3) }}>
@@ -244,7 +243,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
             </p>
           </FadeUp>
         </div>
-      </TexturedSection>
+      </Stock>
 
       <Doors
         doors={[

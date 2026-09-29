@@ -54,7 +54,7 @@ export default function StudioPhone({
         padding: bezel,
         borderRadius: radius,
         background: 'linear-gradient(145deg, #2a2a33, #0c0c10 40%, #1b1b22)',
-        boxShadow: `0 0 0 1px rgba(255,255,255,0.08), 0 ${width * 0.12}px ${width * 0.3}px -${width * 0.08}px rgba(0,0,0,0.75), 0 0 ${width * 0.35}px -${width * 0.12}px ${accent}55`,
+        boxShadow: `0 0 0 1px rgba(255,255,255,0.08), 0 ${width * 0.12}px ${width * 0.3}px -${width * 0.08}px var(--phone-shadow), 0 0 ${width * 0.35}px -${width * 0.12}px ${accent}55`,
         ...style,
       }}
     >

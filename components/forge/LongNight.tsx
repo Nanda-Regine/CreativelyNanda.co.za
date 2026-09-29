@@ -27,11 +27,11 @@
  */
 
 import { useState, useMemo } from 'react';
-import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import RoomBackdrop from '@/components/room/RoomBackdrop';
+import Stock from '@/components/ui/Stock';
+import { PhotoBleed } from '@/components/ui/Ground';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { track } from '@/lib/analytics';
-import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink } from './ForgeChrome';
+import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink, GOLD_INK } from './ForgeChrome';
 
 export interface NightRow {
   date: string;
@@ -66,10 +66,9 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
   const total = shown.reduce((a, m) => a + m.nights.length, 0);
 
   return (
-    <main className="min-h-screen" style={{ background: NAVY, color: '#F5F0E8' }}>
+    <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <section className="relative -mt-20 flex min-h-[74vh] items-end overflow-hidden px-6 pb-20 pt-40">
-        <RoomBackdrop image={PAGE_BACKDROPS.forge} wash="#060A1C" intensity={0.8} veil={0.58} />
+      <PhotoBleed image="vault/2b43b4e14171" ground="midnight" focus="50% 35%" from="bottom" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Long Night"
@@ -80,7 +79,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
               has all the context; a session title is a line she wrote on purpose. This room runs{' '}
               <span style={{ color: ink(0.8) }}>{span.from} to {span.to}</span> because that is where the dated
               record runs — it is not where the work starts. The beginning is in{' '}
-              <a href="/forge/origins" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD }}>
+              <a href="/forge/origins" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 Where It Started
               </a>
               , in prose, because the first year has no machine-readable dates and a timeline that started here
@@ -88,7 +87,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
             </>
           }
         />
-      </section>
+      </PhotoBleed>
 
       <Figures items={figures} />
 
@@ -101,7 +100,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
                 onClick={() => setFilter(null)}
                 className="rounded-full border px-4 py-2 font-mono text-[10.5px] uppercase tracking-[0.18em] transition-colors"
                 style={{
-                  borderColor: filter === null ? GOLD : 'rgba(245,240,232,0.14)',
+                  borderColor: filter === null ? GOLD : 'rgb(var(--ink-rgb) / 0.14)',
                   background: filter === null ? 'rgba(201,148,58,0.14)' : 'transparent',
                   color: filter === null ? GOLD : ink(0.55),
                 }}
@@ -119,7 +118,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
                     }}
                     className="rounded-full border px-4 py-2 font-mono text-[10.5px] uppercase tracking-[0.18em] transition-colors"
                     style={{
-                      borderColor: on ? a.accent : 'rgba(245,240,232,0.14)',
+                      borderColor: on ? a.accent : 'rgb(var(--ink-rgb) / 0.14)',
                       background: on ? `${a.accent}22` : 'transparent',
                       color: on ? a.accent : ink(0.55),
                     }}
@@ -137,15 +136,15 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
       </section>
 
       {/* ═══ THE LEDGER ══════════════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.dark} tone="navy" className="px-6 py-16 md:py-20">
+      <Stock paper="bone" className="px-6 py-16 md:py-20">
         <div className="mx-auto max-w-4xl">
           {shown.map((m) => (
             <section key={m.month} className="mb-14 md:mb-16">
               <FadeUp>
-                <div className="sticky top-20 z-10 -mx-2 flex items-baseline gap-4 px-2 py-3 backdrop-blur-sm" style={{ background: 'rgba(10,17,40,0.86)' }}>
-                  <h2 className="font-display text-2xl font-bold italic text-white md:text-3xl">{m.month}</h2>
+                <div className="sticky top-20 z-10 -mx-2 flex items-baseline gap-4 px-2 py-3 backdrop-blur-sm" style={{ background: 'color-mix(in srgb, var(--stock) 88%, transparent)' }}>
+                  <h2 className="font-display text-2xl font-bold italic t-head md:text-3xl">{m.month}</h2>
                   <span className="h-px flex-1" style={{ background: 'rgba(201,148,58,0.22)' }} />
-                  <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: GOLD }}>
+                  <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: GOLD_INK }}>
                     {m.nights.length} {m.nights.length === 1 ? 'night' : 'nights'}
                   </span>
                 </div>
@@ -156,7 +155,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
                   <FadeUp key={`${n.date}-${n.title}`} delay={Math.min(i * 0.015, 0.2)} y={12}>
                     <li
                       className="group grid gap-x-5 gap-y-1 border-b py-4 md:grid-cols-[4.5rem_1fr_auto] md:items-baseline"
-                      style={{ borderColor: 'rgba(245,240,232,0.07)' }}
+                      style={{ borderColor: 'rgb(var(--ink-rgb) / 0.07)' }}
                     >
                       <time
                         dateTime={n.date}
@@ -169,7 +168,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
                       <h3
                         className={
                           n.headline
-                            ? 'font-display text-lg font-bold italic leading-snug text-white md:text-xl'
+                            ? 'font-display text-lg font-bold italic leading-snug t-head md:text-xl'
                             : 'text-[15px] font-light leading-snug'
                         }
                         style={n.headline ? undefined : { color: ink(0.78) }}
@@ -196,20 +195,20 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
             </p>
           ) : null}
         </div>
-      </TexturedSection>
+      </Stock>
 
       {/* ═══ WHAT IS NOT HERE ════════════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
               What is not on this page
             </p>
             <p className="mt-6 text-[15.5px] font-light leading-[1.85]" style={{ color: ink(0.68) }}>
               A further {undated} logged sessions carry no parseable date. They are not missing and they are not
               hidden — they are the dossier journals, which are organised by phase rather than by night, and
               they are what the{' '}
-              <a href="/forge/floor" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD }}>
+              <a href="/forge/floor" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 Workshop Floor
               </a>{' '}
               is written from. Putting them on a timeline would mean inventing dates for them, and an invented
@@ -219,7 +218,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
               Nor are the session bodies here. Every night below the title is a work log — abbreviations, table
               names, half-sentences, the occasional client. Publishing 219 of them would mean either reading all
               219 first or trusting a filter to do it, and the{' '}
-              <a href="/forge/scars#the-filter-that-deleted-the-room" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD }}>
+              <a href="/forge/scars#the-filter-that-deleted-the-room" className="underline decoration-dotted underline-offset-4 hover:opacity-80" style={{ color: GOLD_INK }}>
                 filter has already been caught
               </a>{' '}
               getting that judgment badly wrong in both directions.

@@ -19,7 +19,7 @@ const TICKER = [
   'UMQOMBOTHI & INK',
   'THE ROSE, THE STAGE, THE CODE',
   'MADIBAZ RADIO · TRU FM',
-  'EAST LONDON · SOUTH AFRICA',
+  'KUGOMPO CITY · SOUTH AFRICA',
   'A POET WHO CODES',
   'MIREMBE MUSE — BUSINESS & TECH ↗',
 ];
@@ -90,7 +90,7 @@ export default function CoverHero() {
         </h1>
         <div style={{ width: '96px', flexShrink: 0, textAlign: 'right' }}>
           <span style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: '8px', letterSpacing: '0.18em', color: 'rgba(245,240,232,0.5)', textTransform: 'uppercase', lineHeight: 1.8, display: 'block' }}>
-            EAST LONDON<br />SOUTH AFRICA
+            KUGOMPO CITY<br />SOUTH AFRICA
           </span>
         </div>
       </div>
@@ -102,11 +102,16 @@ export default function CoverHero() {
         <div className="cover-photo" style={{ position: 'absolute', top: '4%', bottom: '4%', left: '50%', transform: 'translateX(-50%)', width: 'clamp(260px, 36vw, 430px)', zIndex: 10, pointerEvents: 'none' }}>
           {/* warm halo behind her, so the oval glows off the navy */}
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(34% 46% at 50% 46%, rgba(228,87,46,0.20) 0%, rgba(194,30,86,0.10) 48%, transparent 72%)', mixBlendMode: 'screen' }} />
-          {/* elliptical mask — solid over her, feathering to transparent at the edges */}
+          {/* elliptical mask — solid over her, feathering to transparent at the edges.
+              A second, top-down mask is intersected with it: the ellipse alone let the
+              pale wall above her head through as a light column (2026-09-29), so the
+              top of the frame now dissolves into the nebula before her hair begins. */}
           <div style={{
             position: 'absolute', inset: 0,
-            WebkitMaskImage: 'radial-gradient(ellipse 42% 80% at 50% 46%, #000 46%, rgba(0,0,0,0.55) 66%, transparent 86%)',
-            maskImage: 'radial-gradient(ellipse 42% 80% at 50% 46%, #000 46%, rgba(0,0,0,0.55) 66%, transparent 86%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 42% 80% at 50% 46%, #000 46%, rgba(0,0,0,0.55) 66%, transparent 86%), linear-gradient(180deg, transparent 14%, #000 46%)',
+            WebkitMaskComposite: 'source-in',
+            maskImage: 'radial-gradient(ellipse 42% 80% at 50% 46%, #000 46%, rgba(0,0,0,0.55) 66%, transparent 86%), linear-gradient(180deg, transparent 14%, #000 46%)',
+            maskComposite: 'intersect',
           }}>
             <CldImage
               src="creativelynanda/nanda-portraits/nanda-homepage-hero-image"
