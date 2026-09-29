@@ -21,8 +21,16 @@ export const GOLD = '#C9943A';
 export const NAVY = '#0A1128';
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Ink at a given strength on the navy ground. */
-export const ink = (a: number) => `rgba(245,240,232,${a})`;
+/**
+ * Ink at a given strength, on whatever paper the section is printed on.
+ * Reads `--ink-rgb` from the house stock (app/stock.css): cream on navy, navy
+ * on parchment. Outside any stock it falls back to the :root navy values.
+ */
+export const ink = (a: number) => `rgb(var(--ink-rgb) / ${a})`;
+/** Gold for TEXT. Deepens on light paper, where #C9943A fails contrast. */
+export const GOLD_INK = 'var(--gold-ink)';
+/** The card surface for the current paper. */
+export const CARD = 'var(--card)';
 
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -79,7 +87,7 @@ export function RoomHeader({
         <Link
           href="/forge"
           className="group inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.28em] transition-opacity hover:opacity-70"
-          style={{ color: GOLD }}
+          style={{ color: GOLD_INK }}
         >
           <ArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
           The Forge
@@ -93,7 +101,7 @@ export function RoomHeader({
       </FadeUp>
 
       <FadeUp delay={0.12}>
-        <h1 className="mt-5 font-display text-5xl font-bold italic leading-[0.92] text-white md:text-8xl">
+        <h1 className="mt-5 font-display text-5xl font-bold italic leading-[0.92] t-head md:text-8xl">
           {title}
         </h1>
       </FadeUp>
@@ -137,7 +145,7 @@ export function Figures({ items }: { items: { value: string; label: string }[] }
       <div className={`mx-auto grid max-w-5xl gap-8 grid-cols-2 ${items.length >= 5 ? 'md:grid-cols-5' : 'md:grid-cols-4'}`}>
         {items.map((f, i) => (
           <FadeUp key={f.label} delay={i * 0.05}>
-            <p className="font-display text-4xl font-bold italic md:text-5xl" style={{ color: GOLD }}>
+            <p className="font-display text-4xl font-bold italic md:text-5xl" style={{ color: GOLD_INK }}>
               {f.value}
             </p>
             <p className="mt-2 font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em]" style={{ color: ink(0.5) }}>
@@ -198,7 +206,7 @@ export function BrandMark({
   return (
     <span
       className="block shrink-0 overflow-hidden rounded-full"
-      style={{ width: size, height: size, border: `1px solid ${GOLD}66`, boxShadow: `0 0 0 3px ${NAVY}` }}
+      style={{ width: size, height: size, border: `1px solid ${GOLD}66`, boxShadow: '0 0 0 3px var(--stock)' }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={`${name} logo`} width={size} height={size} loading="lazy" className="h-full w-full object-cover" />
@@ -218,7 +226,7 @@ export function Doors({ doors }: { doors: { href: string; label: string; line: s
     <section className="px-6 pb-28 pt-4">
       <div className="mx-auto max-w-5xl">
         <FadeUp>
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD }}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
             Where next
           </p>
         </FadeUp>
@@ -236,10 +244,10 @@ export function Doors({ doors }: { doors: { href: string; label: string; line: s
                 // as a pile of pages.
                 onClick={() => track('forge_room_enter', { room: d.href, from: 'doors' })}
               >
-                <div className="flex h-full flex-col p-7 transition-colors group-hover:bg-[#0d1631]" style={{ background: NAVY }}>
+                <div className="flex h-full flex-col p-7 transition-transform duration-500 group-hover:-translate-y-1" style={{ background: CARD }}>
                   <div className="mb-3 flex items-center justify-between gap-3">
-                    <h3 className="font-display text-xl italic text-white">{d.label}</h3>
-                    <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: GOLD }} />
+                    <h3 className="font-display text-xl italic t-head">{d.label}</h3>
+                    <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: GOLD_INK }} />
                   </div>
                   <p className="text-sm font-light leading-relaxed" style={{ color: ink(0.62) }}>
                     {d.line}
@@ -259,7 +267,7 @@ export function Doors({ doors }: { doors: { href: string; label: string; line: s
 /** A block of source or artefact. Scrolls itself so the page never does. */
 export function Artefact({ children, label }: { children: string; label?: string }) {
   return (
-    <figure className="my-7 overflow-hidden rounded-xl border" style={{ borderColor: 'rgba(201,148,58,0.22)', background: 'rgba(0,0,0,0.28)' }}>
+    <figure className="stock-navy my-7 overflow-hidden rounded-xl border" style={{ borderColor: 'rgba(201,148,58,0.22)' }}>
       {label ? (
         <figcaption
           className="border-b px-5 py-2.5 font-mono text-[9.5px] uppercase tracking-[0.22em]"

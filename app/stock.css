@@ -1,0 +1,177 @@
+/*
+ * HOUSE STOCK: the paper a section is printed on.
+ *
+ * The site's cohesion is four materials, the ones the Press already prints on:
+ *
+ *   parchment   textured beige. THE PAGE. Most of every room lives here.
+ *   bone        near-white. Breathing room: indexes, doors, quiet spreads.
+ *   navy        the ink, used as a band: a masthead, a stage, one feature.
+ *   cherry      the pulse. At most one block per page.
+ *
+ * Gold is the leaf on all four. It is never a paper.
+ *
+ * A section declares its stock with a class, and every colour inside it reads
+ * from these variables. That is the whole trick: a component written once looks
+ * right on any paper, so a room can alternate stocks without a second copy of
+ * any component. `:root` carries the navy values because the overlays (the
+ * stage, the story player) are portalled to <body> and are always dark.
+ *
+ * Budget, measured by scripts in C:/pw/navy.mjs: navy <= 40% of any page.
+ */
+
+:root {
+  --stock: #0a1128;
+  --ink-rgb: 245 240 232;
+  --head-rgb: 255 255 255;
+  --gold-ink: #c9943a;
+  --cherry-ink: #e0467c;
+  --rule: rgb(201 148 58 / 0.2);
+  --card: #0d1631;
+  --card-edge: rgb(201 148 58 / 0.18);
+  --shadow: 0 30px 60px -30px rgb(0 0 0 / 0.7);
+  --phone-shadow: rgb(0 0 0 / 0.75);
+}
+
+.stock-parchment,
+.stock-bone,
+.stock-navy,
+.stock-cherry {
+  background-color: var(--stock);
+  color: rgb(var(--ink-rgb) / 0.85);
+}
+
+.stock-parchment {
+  --stock: #f3ecdf;
+  --ink-rgb: 26 26 46;
+  --head-rgb: 10 17 40;
+  --gold-ink: #8f6418;
+  --cherry-ink: #b01a4f;
+  --rule: rgb(10 17 40 / 0.12);
+  --card: #fbf8f2;
+  --card-edge: rgb(10 17 40 / 0.1);
+  --shadow: 0 30px 60px -32px rgb(58 38 12 / 0.35);
+  --phone-shadow: rgb(70 45 12 / 0.42);
+  color-scheme: light;
+}
+
+.stock-bone {
+  --stock: #fbf8f2;
+  --ink-rgb: 26 26 46;
+  --head-rgb: 10 17 40;
+  --gold-ink: #8f6418;
+  --cherry-ink: #b01a4f;
+  --rule: rgb(10 17 40 / 0.1);
+  --card: #f3ecdf;
+  --card-edge: rgb(10 17 40 / 0.08);
+  --shadow: 0 30px 60px -32px rgb(58 38 12 / 0.3);
+  --phone-shadow: rgb(70 45 12 / 0.38);
+  color-scheme: light;
+}
+
+.stock-navy {
+  --stock: #0a1128;
+  --ink-rgb: 245 240 232;
+  --head-rgb: 255 255 255;
+  --gold-ink: #d6a44a;
+  --cherry-ink: #e0467c;
+  --rule: rgb(201 148 58 / 0.2);
+  --card: #0d1631;
+  --card-edge: rgb(201 148 58 / 0.18);
+  --shadow: 0 30px 60px -30px rgb(0 0 0 / 0.7);
+  --phone-shadow: rgb(0 0 0 / 0.75);
+  color-scheme: dark;
+}
+
+.stock-cherry {
+  --stock: #7a1236;
+  --ink-rgb: 250 238 240;
+  --head-rgb: 255 250 245;
+  --gold-ink: #f2c77a;
+  --cherry-ink: #ffd1de;
+  --rule: rgb(242 199 122 / 0.28);
+  --card: #6a0f2f;
+  --card-edge: rgb(242 199 122 / 0.22);
+  --shadow: 0 30px 60px -30px rgb(40 0 12 / 0.7);
+  --phone-shadow: rgb(30 0 8 / 0.7);
+  color-scheme: dark;
+}
+
+/* Text that follows the paper. */
+.t-head { color: rgb(var(--head-rgb)); }
+.t-ink { color: rgb(var(--ink-rgb) / 0.78); }
+.t-soft { color: rgb(var(--ink-rgb) / 0.55); }
+.t-gold { color: var(--gold-ink); }
+.t-cherry { color: var(--cherry-ink); }
+
+/* The paper itself: the Press marble under a cream veil, and grain on top.
+   Applied by <Stock texture>. The image URL is set inline by the component. */
+.stock-texture {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+}
+.stock-veil { position: absolute; inset: 0; z-index: -1; }
+.stock-parchment .stock-veil { background: var(--veil, linear-gradient(180deg, rgb(245 238 225 / 0.9), rgb(236 225 204 / 0.93))); }
+.stock-bone .stock-veil { background: rgb(251 248 242 / 0.95); }
+.stock-navy .stock-veil { background: linear-gradient(180deg, rgb(10 17 40 / 0.9), rgb(10 17 40 / 0.94)); }
+.stock-cherry .stock-veil { background: linear-gradient(160deg, rgb(122 18 54 / 0.9), rgb(92 10 38 / 0.93)); }
+
+.stock-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+}
+.stock-parchment .stock-grain,
+.stock-bone .stock-grain { opacity: 0.2; mix-blend-mode: multiply; }
+
+/* ── Shapes: the asymmetry kit ────────────────────────────────────────────
+   A magazine never stacks rectangles. These cut the edges of a section or a
+   figure so one spread slides under the next. */
+.edge-slant { clip-path: polygon(0 3.2vw, 100% 0, 100% 100%, 0 100%); margin-top: -3.2vw; padding-top: calc(3.2vw + var(--edge-pad, 0px)); }
+.edge-slant-r { clip-path: polygon(0 0, 100% 3.2vw, 100% 100%, 0 100%); margin-top: -3.2vw; padding-top: calc(3.2vw + var(--edge-pad, 0px)); }
+.edge-foot-slant { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.2vw), 0 100%); }
+.shape-arch { border-radius: 999px 999px 18px 18px; }
+.shape-arch-soft { border-radius: 42% 42% 14px 14px / 28% 28% 14px 14px; }
+.shape-leaf { border-radius: 64% 12px 64% 12px; }
+
+/* ── Motion: scroll-driven, no JavaScript ─────────────────────────────────
+   Browsers that support scroll timelines animate these as the element crosses
+   the viewport. Everyone else sees the finished state. Reduced motion always
+   sees the finished state. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sd-rise {
+      animation: sd-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    .sd-drift {
+      animation: sd-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    .sd-unveil {
+      animation: sd-unveil linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+  }
+}
+@keyframes sd-rise { from { opacity: 0; transform: translateY(48px); } to { opacity: 1; transform: none; } }
+@keyframes sd-drift { from { transform: translateY(6%); } to { transform: translateY(-6%); } }
+@keyframes sd-unveil { from { clip-path: inset(18% 12% 18% 12% round 24px); opacity: 0.4; } to { clip-path: inset(0 0 0 0 round 0); opacity: 1; } }
+
+/* Fluid display type. One scale for every hero on the site. */
+.display-xxl { font-size: clamp(3.2rem, 9vw, 9rem); line-height: 0.88; letter-spacing: -0.02em; }
+.display-xl { font-size: clamp(2.6rem, 6.4vw, 6.2rem); line-height: 0.92; letter-spacing: -0.015em; }
+.display-l { font-size: clamp(2.1rem, 4.4vw, 4rem); line-height: 1; }
+.kicker { font-family: var(--font-mono), monospace; font-size: 10.5px; letter-spacing: 0.32em; text-transform: uppercase; }
+
+/* Outline numerals, for chapter marks. */
+.numeral-outline { color: transparent; -webkit-text-stroke: 1.2px var(--numeral, var(--gold-ink)); }

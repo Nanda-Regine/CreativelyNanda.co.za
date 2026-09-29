@@ -1,4 +1,5 @@
 import './globals.css';
+import './stock.css';
 import { Cormorant_Garamond, Manrope, Bebas_Neue, DM_Sans, IBM_Plex_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
