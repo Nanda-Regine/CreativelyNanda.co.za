@@ -68,7 +68,7 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
   return (
     <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <PhotoBleed image="vault/2b43b4e14171" ground="midnight" focus="50% 35%" from="bottom" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
+      <PhotoBleed image="vault/2b43b4e14171" ground="midnight" focus="50% 35%" from="left" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Long Night"

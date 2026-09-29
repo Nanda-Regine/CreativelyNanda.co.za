@@ -45,22 +45,23 @@ function Screening({ film, onClose }: { film: Film; onClose: () => void }) {
 }
 
 function Tile({ film, lead, onPlay }: { film: Film; lead?: boolean; onPlay: () => void }) {
+  // The covers are her own title cards, so the caption sits under the frame,
+  // never on top of the title already printed in it.
   return (
-    <button type="button" onClick={onPlay} className="group relative block w-full overflow-hidden text-left" aria-label={`Play: ${film.title}`}>
-      <div className={`relative overflow-hidden ${lead ? 'aspect-[4/3]' : 'aspect-[16/10]'}`}>
+    <button type="button" onClick={onPlay} className={`group flex w-full flex-col text-left ${lead ? 'md:h-full' : ''}`} aria-label={`Play: ${film.title}`}>
+      <span className={`relative block w-full overflow-hidden ${lead ? 'aspect-[4/3] md:aspect-auto md:min-h-0 md:flex-1' : 'aspect-[16/10]'}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={film.cover} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <img src={film.cover} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         <span className={`absolute flex items-center justify-center rounded-full bg-[#C21E56] text-white shadow-xl transition-transform duration-500 group-hover:scale-110 ${lead ? 'bottom-6 right-6 h-16 w-16' : 'bottom-3 right-3 h-10 w-10'}`}>
           <Play className={lead ? 'ml-1 h-6 w-6' : 'ml-0.5 h-4 w-4'} />
         </span>
-        <span className={`absolute left-0 ${lead ? 'bottom-6 left-6' : 'bottom-3 left-3'}`}>
-          <span className="kicker block" style={{ color: '#E7B45C', fontSize: lead ? 10.5 : 9 }}>
-            {film.kind}
-          </span>
-          <span className={`mt-1 block font-display italic text-white ${lead ? 'text-3xl md:text-4xl' : 'text-lg'}`}>{film.title}</span>
+      </span>
+      <span className="mt-3 flex items-baseline gap-3">
+        <span className="kicker" style={{ color: '#E7B45C', fontSize: 9.5 }}>
+          {film.kind}
         </span>
-      </div>
+        <span className={`font-display italic text-[#F5F0E8] ${lead ? 'text-2xl md:text-3xl' : 'text-lg'}`}>{film.title}</span>
+      </span>
     </button>
   );
 }
@@ -70,11 +71,11 @@ export default function StageReel({ films }: { films: Film[] }) {
   const [lead, ...rest] = films;
   return (
     <>
-      <div className="grid gap-5 md:grid-cols-12 md:gap-6">
-        <div className="md:col-span-7">
+      <div className="grid gap-8 md:grid-cols-12 md:gap-6">
+        <div className="md:col-span-7 md:flex">
           <Tile film={lead} lead onPlay={() => setOpen(lead)} />
         </div>
-        <div className="grid grid-cols-2 gap-5 md:col-span-5 md:grid-cols-1 md:gap-4">
+        <div className="grid grid-cols-2 gap-6 md:col-span-5 md:grid-cols-1 md:gap-5">
           {rest.slice(0, 3).map((f) => (
             <Tile key={f.id} film={f} onPlay={() => setOpen(f)} />
           ))}

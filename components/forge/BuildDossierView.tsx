@@ -53,7 +53,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
   return (
     <main className="stock-parchment min-h-screen">
       {/* ═══ COVER ═══════════════════════════════════════════════════════════ */}
-      <PhotoBleed image="vault/00b97803ad00" ground="midnight" focus="50% 50%" from="bottom" minH="78vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
+      <PhotoBleed image="vault/00b97803ad00" ground="midnight" focus="50% 50%" from="left" minH="78vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
 
         <div className="relative z-10 mx-auto w-full max-w-4xl">
           <FadeUp>

@@ -133,7 +133,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
   return (
     <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <PhotoBleed image="vault/3dae812bfb55" ground="midnight" focus="40% 50%" from="bottom" minH="70vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
+      <PhotoBleed image="vault/3dae812bfb55" ground="midnight" focus="40% 50%" from="left" minH="70vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Dojo"

@@ -69,7 +69,7 @@ export default function CommitWall({
   return (
     <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <PhotoBleed image="vault/044cd20df91d" ground="midnight" focus="50% 50%" from="bottom" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
+      <PhotoBleed image="vault/044cd20df91d" ground="midnight" focus="50% 50%" from="left" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Commit Wall"

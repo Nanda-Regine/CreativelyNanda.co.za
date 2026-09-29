@@ -168,7 +168,7 @@ export default function OriginsFeature() {
   return (
     <main className="stock-parchment min-h-screen">
       {/* ═══ THRESHOLD ═══════════════════════════════════════════════════════ */}
-      <PhotoBleed image="nanda-portraits/nanda-coding/IMG_20260102_163239" ground="midnight" focus="50% 60%" from="bottom" minH="88vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
+      <PhotoBleed image="nanda-portraits/nanda-coding/IMG_20260102_163239" ground="midnight" focus="50% 60%" from="left" minH="88vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <div className="relative z-10 mx-auto w-full max-w-5xl">
           <FadeUp>
             <Link

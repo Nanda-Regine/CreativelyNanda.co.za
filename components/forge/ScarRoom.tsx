@@ -95,7 +95,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
   return (
     <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <PhotoBleed image="vault/12676734d8ed" ground="midnight" focus="50% 40%" from="bottom" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
+      <PhotoBleed image="vault/12676734d8ed" ground="midnight" focus="50% 40%" from="left" minH="74vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Scar Room"

@@ -82,7 +82,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
   return (
     <main className="stock-parchment min-h-screen">
       {/* ═══ HEADER ══════════════════════════════════════════════════════════ */}
-      <PhotoBleed image="nanda-portraits/nanda-coding/IMG_20260102_161137" ground="midnight" focus="50% 55%" from="bottom" minH="72vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
+      <PhotoBleed image="nanda-portraits/nanda-coding/IMG_20260102_161137" ground="midnight" focus="50% 55%" from="left" minH="72vh" className="stock-navy -mt-20 px-6 pb-20 pt-40">
         <RoomHeader
           kicker="A room in the Forge"
           title="The Workshop Floor"
