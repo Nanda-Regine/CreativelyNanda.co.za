@@ -58,7 +58,8 @@ export default function Contact() {
     }
   };
 
-  const inputCls = 'w-full rounded-lg border border-white/15 bg-[#0d1330] px-4 py-3 text-white placeholder-white/25 outline-none transition-colors focus:border-[#C9943A]/60';
+  // Paper fields: the page prints on parchment now, so the inputs are bone, not navy slabs.
+  const inputCls = 'w-full rounded-lg border border-[#0A1128]/15 bg-[#FBF8F2] px-4 py-3 text-[#0A1128] placeholder-[#0A1128]/35 outline-none transition-colors focus:border-[#C21E56]/60';
   const labelCls = 'mb-2 block font-mono text-[10px] uppercase tracking-[0.25em] text-[#C9943A]';
 
   return (

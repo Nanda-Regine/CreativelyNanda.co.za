@@ -55,7 +55,7 @@ export default function FinishTheLine() {
           onChange={(e) => setLine(e.target.value)}
           rows={3}
           placeholder="…finish it in your own hand"
-          className="mt-4 w-full resize-none rounded-lg border border-white/15 bg-[#0d1330] p-4 font-display text-xl italic text-white/90 outline-none transition-colors placeholder:text-white/25 focus:border-[#C9943A]/60"
+          className="mt-4 w-full resize-none rounded-lg border border-[#0A1128]/15 bg-[#FBF8F2] p-4 font-display text-xl italic text-[#0A1128] outline-none transition-colors placeholder:text-[#0A1128]/30 focus:border-[#C21E56]/60"
         />
         <div className="mt-4 flex gap-3">
           <button onClick={keep} className="rounded-full bg-[#C1292E] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:scale-105">

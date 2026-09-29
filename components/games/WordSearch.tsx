@@ -94,7 +94,7 @@ export default function WordSearch() {
   return (
     <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-center">
       <div
-        className="select-none touch-none rounded-xl bg-[#0d1330] p-2 ring-1 ring-[#C9943A]/25 shadow-2xl"
+        className="select-none touch-none rounded-xl bg-[#FBF8F2] p-2 ring-1 ring-[#C9943A]/35 shadow-[0_30px_60px_-32px_rgba(58,38,12,0.35)]"
         style={{ display: 'grid', gridTemplateColumns: `repeat(${SIZE}, minmax(0,1fr))` }}
         onPointerLeave={() => { if (start) finish(); }}
       >
@@ -110,7 +110,7 @@ export default function WordSearch() {
                 onPointerEnter={() => { if (start) setCur([r, c]); }}
                 onPointerUp={finish}
                 className={`flex aspect-square w-7 items-center justify-center text-[13px] font-semibold transition-colors sm:w-9 sm:text-base md:w-10
-                  ${isFound ? 'rounded-full bg-[#C9943A] text-[#0A1128]' : isSel ? 'rounded-full bg-[#C1292E] text-white' : 'text-white/80'}`}
+                  ${isFound ? 'rounded-full bg-[#C9943A] text-[#0A1128]' : isSel ? 'rounded-full bg-[#C1292E] text-[#FBF8F2]' : 'text-white/80'}`}
                 style={{ cursor: 'pointer', fontFamily: 'var(--font-mono, monospace)' }}
               >
                 {letter}

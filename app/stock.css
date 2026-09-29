@@ -212,6 +212,10 @@
 .paper-remap .text-white\/85, .paper-remap .text-beige\/85, .paper-remap .text-cream\/85 { color: rgb(var(--ink-rgb) / 0.85); }
 .paper-remap .text-white\/90, .paper-remap .text-beige\/90, .paper-remap .text-cream\/90 { color: rgb(var(--ink-rgb) / 0.90); }
 .paper-remap .text-white\/95, .paper-remap .text-beige\/95, .paper-remap .text-cream\/95 { color: rgb(var(--ink-rgb) / 0.95); }
+/* A filled colour button keeps its white label on any paper (0,3,0 beats the remap). */
+.paper-remap .bg-\[\#C1292E\].text-white,
+.paper-remap .bg-\[\#C21E56\].text-white,
+.paper-remap .bg-cherry.text-white { color: #fff; }
 
 /* Text laid directly over a photograph: light ink, no background. Use where
    .stock-navy would paint a solid navy slab over the image (hover captions,
