@@ -184,34 +184,34 @@
    photograph wrapped in .stock-navy they still resolve light: the nearest
    paper decides, not the rule. Specificity (0,2,0) beats Tailwind's (0,1,0). */
 .paper-remap .text-white,
-.paper-remap .text-[#F5F0E8],
+.paper-remap .text-\[\#F5F0E8\],
 .paper-remap .text-beige,
 .paper-remap .text-cream { color: rgb(var(--head-rgb)); }
-.paper-remap .text-[#C9943A] { color: var(--gold-ink); }
-.paper-remap .bg-[#0A1128] { background-color: var(--stock); }
-.paper-remap .bg-white/[0.02],
-.paper-remap .bg-white/[0.03],
-.paper-remap .bg-white/[0.04],
-.paper-remap .bg-white/5 { background-color: rgb(var(--ink-rgb) / 0.035); }
-.paper-remap .border-white/10,
-.paper-remap .border-white/15,
-.paper-remap .border-white/20,
-.paper-remap .border-white/25 { border-color: var(--rule); }
-.paper-remap .text-white/25, .paper-remap .text-beige/25, .paper-remap .text-cream/25 { color: rgb(var(--ink-rgb) / 0.25); }
-.paper-remap .text-white/30, .paper-remap .text-beige/30, .paper-remap .text-cream/30 { color: rgb(var(--ink-rgb) / 0.30); }
-.paper-remap .text-white/35, .paper-remap .text-beige/35, .paper-remap .text-cream/35 { color: rgb(var(--ink-rgb) / 0.35); }
-.paper-remap .text-white/40, .paper-remap .text-beige/40, .paper-remap .text-cream/40 { color: rgb(var(--ink-rgb) / 0.40); }
-.paper-remap .text-white/45, .paper-remap .text-beige/45, .paper-remap .text-cream/45 { color: rgb(var(--ink-rgb) / 0.45); }
-.paper-remap .text-white/50, .paper-remap .text-beige/50, .paper-remap .text-cream/50 { color: rgb(var(--ink-rgb) / 0.50); }
-.paper-remap .text-white/55, .paper-remap .text-beige/55, .paper-remap .text-cream/55 { color: rgb(var(--ink-rgb) / 0.55); }
-.paper-remap .text-white/60, .paper-remap .text-beige/60, .paper-remap .text-cream/60 { color: rgb(var(--ink-rgb) / 0.60); }
-.paper-remap .text-white/65, .paper-remap .text-beige/65, .paper-remap .text-cream/65 { color: rgb(var(--ink-rgb) / 0.65); }
-.paper-remap .text-white/70, .paper-remap .text-beige/70, .paper-remap .text-cream/70 { color: rgb(var(--ink-rgb) / 0.70); }
-.paper-remap .text-white/75, .paper-remap .text-beige/75, .paper-remap .text-cream/75 { color: rgb(var(--ink-rgb) / 0.75); }
-.paper-remap .text-white/80, .paper-remap .text-beige/80, .paper-remap .text-cream/80 { color: rgb(var(--ink-rgb) / 0.80); }
-.paper-remap .text-white/85, .paper-remap .text-beige/85, .paper-remap .text-cream/85 { color: rgb(var(--ink-rgb) / 0.85); }
-.paper-remap .text-white/90, .paper-remap .text-beige/90, .paper-remap .text-cream/90 { color: rgb(var(--ink-rgb) / 0.90); }
-.paper-remap .text-white/95, .paper-remap .text-beige/95, .paper-remap .text-cream/95 { color: rgb(var(--ink-rgb) / 0.95); }
+.paper-remap .text-\[\#C9943A\] { color: var(--gold-ink); }
+.paper-remap .bg-\[\#0A1128\] { background-color: var(--stock); }
+.paper-remap .bg-white\/\[0\.02\],
+.paper-remap .bg-white\/\[0\.03\],
+.paper-remap .bg-white\/\[0\.04\],
+.paper-remap .bg-white\/5 { background-color: rgb(var(--ink-rgb) / 0.035); }
+.paper-remap .border-white\/10,
+.paper-remap .border-white\/15,
+.paper-remap .border-white\/20,
+.paper-remap .border-white\/25 { border-color: var(--rule); }
+.paper-remap .text-white\/25, .paper-remap .text-beige\/25, .paper-remap .text-cream\/25 { color: rgb(var(--ink-rgb) / 0.25); }
+.paper-remap .text-white\/30, .paper-remap .text-beige\/30, .paper-remap .text-cream\/30 { color: rgb(var(--ink-rgb) / 0.30); }
+.paper-remap .text-white\/35, .paper-remap .text-beige\/35, .paper-remap .text-cream\/35 { color: rgb(var(--ink-rgb) / 0.35); }
+.paper-remap .text-white\/40, .paper-remap .text-beige\/40, .paper-remap .text-cream\/40 { color: rgb(var(--ink-rgb) / 0.40); }
+.paper-remap .text-white\/45, .paper-remap .text-beige\/45, .paper-remap .text-cream\/45 { color: rgb(var(--ink-rgb) / 0.45); }
+.paper-remap .text-white\/50, .paper-remap .text-beige\/50, .paper-remap .text-cream\/50 { color: rgb(var(--ink-rgb) / 0.50); }
+.paper-remap .text-white\/55, .paper-remap .text-beige\/55, .paper-remap .text-cream\/55 { color: rgb(var(--ink-rgb) / 0.55); }
+.paper-remap .text-white\/60, .paper-remap .text-beige\/60, .paper-remap .text-cream\/60 { color: rgb(var(--ink-rgb) / 0.60); }
+.paper-remap .text-white\/65, .paper-remap .text-beige\/65, .paper-remap .text-cream\/65 { color: rgb(var(--ink-rgb) / 0.65); }
+.paper-remap .text-white\/70, .paper-remap .text-beige\/70, .paper-remap .text-cream\/70 { color: rgb(var(--ink-rgb) / 0.70); }
+.paper-remap .text-white\/75, .paper-remap .text-beige\/75, .paper-remap .text-cream\/75 { color: rgb(var(--ink-rgb) / 0.75); }
+.paper-remap .text-white\/80, .paper-remap .text-beige\/80, .paper-remap .text-cream\/80 { color: rgb(var(--ink-rgb) / 0.80); }
+.paper-remap .text-white\/85, .paper-remap .text-beige\/85, .paper-remap .text-cream\/85 { color: rgb(var(--ink-rgb) / 0.85); }
+.paper-remap .text-white\/90, .paper-remap .text-beige\/90, .paper-remap .text-cream\/90 { color: rgb(var(--ink-rgb) / 0.90); }
+.paper-remap .text-white\/95, .paper-remap .text-beige\/95, .paper-remap .text-cream\/95 { color: rgb(var(--ink-rgb) / 0.95); }
 
 /* Text laid directly over a photograph: light ink, no background. Use where
    .stock-navy would paint a solid navy slab over the image (hover captions,

@@ -1123,3 +1123,74 @@ leave the laptop. The source folders are git-ignored.
   use, and why it is like that. The screens were the easy part.
 - **`trackOutbound()` returns a handler.** Wrapped in an arrow function it records nothing and throws
   nothing. Caught on review, in this room's own first draft.
+
+## 25. The house stock: paper, not navy (2026-09-29)
+
+A design review found the site had drifted to navy. Measured on production
+(`C:/pw/navy.mjs` samples the painted background down every page): half the
+public pages were 75 to 100% navy, including every Forge room, `/engineer`,
+`/gallery`, `/roots`, `/poetry/stage` and `/games`. Nanda: *"we have a great
+cohesive system with navy, textured beige, cherry and gold, where did that magic
+go?"* The Press, merged the same day, still had it, so it became the model.
+
+### The system: `app/stock.css` + `components/ui/Stock.tsx`
+Four papers, and gold as leaf on all of them:
+- **parchment**, textured beige, the page (the Press marble under a cream veil, grain on top)
+- **bone**, near-white, breathing room
+- **navy**, a band: a masthead, a stage, one feature
+- **cherry**, the pulse, one block per page
+
+A section declares its paper with a class and every colour inside reads CSS
+variables (`--ink-rgb`, `--head-rgb`, `--gold-ink`, `--card`, `--rule`), so one
+component looks right on any paper. The Forge's `ink()` / `GOLD_INK` / `CARD` read
+them too. Also in the kit: slants, arches and leaf shapes, outline numerals, one
+fluid display scale, and scroll-driven reveals (`animation-timeline: view()`,
+progressive, off under reduced motion).
+
+Two helpers for legacy pages: **`paper-remap`** makes literal light utilities
+(`text-white/70`, `text-[#F5F0E8]`, `text-beige`, `text-[#C9943A]`) read from the
+paper, and because the values go through variables they stay light inside a
+`.stock-navy` band; **`.on-photo`** gives light ink with no background, for
+captions and lightboxes laid on a photograph.
+
+### What moved
+- **App Studio:** navy masthead only; the fan spreads and leans toward the
+  pointer; journeys as a contents spread; anatomy on bone with a spotlight and
+  pins on leader lines outside the screen; each product on its own tint of
+  parchment (`paper`, `accentInk` in `lib/data/app-screens.ts`); strips start
+  on the text column (`scroll-padding`); the tapped phone flies into the stage
+  and back (Framer `layoutId`).
+- **Forge rooms:** each opens on its own photograph at full strength (they all
+  shared one backdrop under an 85% navy wash); bodies on parchment and bone.
+- **Home:** asymmetric paper spreads after the cover; one navy feature; cherry close.
+- **Cover:** KuGompo City; a top-down mask stops the wall above the portrait
+  showing as a light column. Composition untouched.
+- **/poetry:** rebuilt as a server page (it was the first template, and a client
+  component that sent crawlers an empty shell). Rooms index with a photograph
+  that follows the pointer, the book on bone, stage and radio as the navy band,
+  readers pinned to parchment, cherry close. The poem count is measured.
+- **Roots, Poet Who Codes, Games, Gallery, Contact, Stage, Engineer, Education's
+  featured article:** onto paper; photo washes changed from navy tints to
+  neutral black pockets.
+- **Nav:** the "Studio" dropdown is gone (it collided with the App Studio and lit
+  up on the Press). Gallery and The Press stand on the bar; Testimonials,
+  Marketplace and Contact moved under Story; Install left the bar.
+- **Assistant avatar:** tucks away while you scroll down, returns when you pause.
+
+### Process change
+Nanda asked for every change to go straight to `main` and be checked on the live
+site. PR #15 was merged, and this work shipped as five commits on `main`.
+
+### What was learned
+- **A colour system that lives in literals cannot be re-themed.** 193 hard-coded
+  navy and cream values in the Forge alone. Variables per section turned a
+  thirty-page repaint into a class per section.
+- **`overflow: hidden` breaks `position: sticky` inside it; `overflow: clip` does
+  not.** The Stock wrapper uses clip so the App Studio switcher still sticks.
+- **Snap scrolling ignores padding.** A strip padded onto the text column still
+  snapped its first card to x = 0 until `scroll-padding` matched the padding.
+- **A remap must resolve late.** Mapping `text-white` to a variable, not to navy,
+  is what keeps white text white inside a navy band nested in a parchment page.
+- **Smooth scrolling fools samplers.** `scroll-behavior: smooth` on `html` made
+  `window.scrollTo` animate, so the first navy audit sampled only the top of each
+  page. Use `behavior: 'instant'`.
