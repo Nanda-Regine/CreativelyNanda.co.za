@@ -358,7 +358,6 @@ export default function ProductDetailClient({
 
       {/* ── FEATURES ── */}
       {features.length > 0 && (
-        {/* On cherry: the balance rule (navy, beige and cherry in equal measure). */}
         <section style={{ background: '#7A1236', padding: 'clamp(56px, 8vw, 96px) 24px', position: 'relative', overflow: 'hidden' }}>
           <div style={{
             position: 'absolute', inset: 0,
