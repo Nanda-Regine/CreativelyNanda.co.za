@@ -118,7 +118,7 @@ export default function TestimonialsPage() {
       </TexturedSection>
 
       {/* ── FEATURED QUOTE — Bojan ───────────────────────────────────────── */}
-      <section className="relative z-10 py-20 px-6">
+      <section className="relative z-10 py-20 px-6" style={{ background: '#7A1236' }}>
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}

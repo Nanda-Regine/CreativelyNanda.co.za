@@ -173,7 +173,7 @@ export default function Roots() {
       </section>
 
       {/* ═══ III. THE SCATTERED KINGDOM — amaHlubi / Msimanga ═══════════════════ */}
-      <section className="stock-bone relative px-6 py-24 md:py-28">
+      <section className="stock-cherry relative px-6 py-24 md:py-28">
         <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 mx-auto max-w-5xl">
           <FadeUp>

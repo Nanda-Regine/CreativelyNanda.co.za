@@ -94,8 +94,8 @@ export default async function ImprintIndex({ category }: { category: string }) {
               </p>
             </Stock>
           ) : null}
-          {/* The close: back to the whole press, on navy. */}
-          <Stock paper="navy" className="px-6 py-14">
+          {/* The close: back to the whole press, on cherry. */}
+          <Stock paper="cherry" className="px-6 py-14">
             <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4">
               <p className="t-ink font-display text-xl italic">Every imprint, every issue, in one place.</p>
               <Link href="/blog" className="t-gold inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.3em] hover:opacity-70">
