@@ -67,7 +67,7 @@ export default function SpokenWordStage() {
       </section>
 
       {/* Performance videos */}
-      <section className="px-6 pb-20">
+      <section className="stock-cherry px-6 py-20">
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 gap-6">
           {PERFORMANCES.map((p, i) => (
             <motion.button
@@ -116,7 +116,7 @@ export default function SpokenWordStage() {
       </section>
 
       {/* Stills */}
-      <section className="px-6 pb-24">
+      <section className="stock-navy px-6 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
             <span className="text-gold text-sm font-medium tracking-[0.3em] uppercase">In beadwork & light</span>
@@ -139,7 +139,7 @@ export default function SpokenWordStage() {
       </section>
 
       {/* Closing */}
-      <TexturedSection texture={TEXTURES.marble} tone="navy" className="stock-navy px-6 pb-24 pt-4">
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="stock-cherry px-6 pb-24 pt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -235,7 +235,7 @@ export default function EngineerFeature() {
       </section>
 
       {/* ══ IN THIS ISSUE — the contents page ══════════════════════════════════ */}
-      <section id="contents" className="stock-bone relative z-10 px-6 py-24 md:py-28">
+      <section id="contents" className="stock-cherry relative z-10 px-6 py-24 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
@@ -287,7 +287,7 @@ export default function EngineerFeature() {
       </div>
 
       {/* ══ CHAPTER II — THE SPRINT (arc timeline) ═════════════════════════════ */}
-      <section id="chapter-II" className="stock-bone relative z-10 px-6 py-20 md:py-28">
+      <section id="chapter-II" className="stock-navy relative z-10 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <Kicker color={CHERRY}>Chapter II · The Sprint</Kicker>
@@ -371,7 +371,7 @@ export default function EngineerFeature() {
       </TexturedSection>
 
       {/* ══ CHAPTER IV — THE PROOF ═════════════════════════════════════════════ */}
-      <section id="chapter-IV" className="stock-bone relative z-10 px-6 py-20 md:py-28">
+      <section id="chapter-IV" className="stock-cherry relative z-10 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <FadeUp>
             <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 items-center mb-16">

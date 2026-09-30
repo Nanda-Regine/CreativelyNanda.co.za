@@ -115,7 +115,7 @@ export default function PoetryPage() {
       </Stock>
 
       {/* ═══ THE BOOK ═════════════════════════════════════════════════════════ */}
-      <Stock paper="bone" className="px-6 py-24 md:py-32">
+      <Stock paper="cherry" className="px-6 py-24 md:py-32">
         <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-12">
           <div className="relative md:col-span-6">
             {/* the box of books, with the cover set over its corner */}

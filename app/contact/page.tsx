@@ -193,7 +193,7 @@ export default function Contact() {
       </section>
 
       {/* ── CLOSE ── */}
-      <section className="stock-bone relative z-10 px-6 pb-28 pt-16 text-center">
+      <section className="stock-navy relative z-10 px-6 pb-28 pt-16 text-center">
         <FadeUp>
           <p className="mx-auto max-w-xl font-display text-2xl md:text-3xl italic leading-relaxed text-white/90">
             Bring a clear thought and an honest word. That&apos;s always where the good things start.

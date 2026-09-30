@@ -230,7 +230,7 @@ export default function PoetWhoCodes() {
       </Chapter>
 
       {/* ═══ THE POEM, COMPILED — code-as-poetry moment ══════════════════════════ */}
-      <section className="stock-bone relative px-6 py-20 md:py-24">
+      <section className="stock-cherry relative px-6 py-20 md:py-24">
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 mx-auto max-w-3xl">
           <FadeUp>
@@ -385,7 +385,7 @@ export default function PoetWhoCodes() {
       </section>
 
       {/* ═══ BRIDGE TO MIREMBE MUSE ══════════════════════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="stock-navy relative px-6 py-24">
+      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="stock-cherry relative px-6 py-24">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.3em] text-[#C9943A]">The systems have their own home</p>

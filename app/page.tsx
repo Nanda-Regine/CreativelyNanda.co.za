@@ -112,7 +112,7 @@ export default function Home() {
       </Stock>
 
       {/* ═══ III. THE BOOK: bone, the cover tilted over a cherry leaf ═════════ */}
-      <Stock paper="bone" className="px-6 py-24 md:py-32">
+      <Stock paper="cherry" className="px-6 py-24 md:py-32">
         <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-12">
           <FadeUp className="relative flex justify-center md:col-span-5">
             <div aria-hidden className="shape-leaf absolute inset-x-6 inset-y-[-8%] md:inset-x-0" style={{ background: '#7A1236' }} />

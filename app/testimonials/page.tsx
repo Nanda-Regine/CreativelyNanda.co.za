@@ -149,8 +149,8 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* ── RECOMMENDATIONS GRID ─────────────────────────────────────────── */}
-      <section className="relative z-10 pb-24 px-6">
+      {/* ── RECOMMENDATIONS GRID: on navy (the balance rule) ─────────────── */}
+      <section className="relative z-10 py-24 px-6" style={{ background: '#0A1128' }}>
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -159,7 +159,7 @@ export default function TestimonialsPage() {
             className="flex items-center gap-6 mb-12"
           >
             <div className="w-12 h-px bg-[#C1292E]" />
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0A1128]">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#F5F0E8]">
               All <span className="text-[#C1292E]">Recommendations</span>
             </h2>
           </motion.div>

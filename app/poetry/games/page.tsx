@@ -25,7 +25,7 @@ export default function GamesPage() {
       <div className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-[#C9943A]/10 blur-3xl" />
 
       {/* header */}
-      <section className="relative z-10 px-6 pt-36 pb-10 text-center">
+      <section className="stock-navy relative z-10 -mt-20 px-6 pt-48 pb-16 text-center">
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="font-mono text-xs tracking-[0.35em] uppercase text-[#C9943A] mb-5">
           The play room

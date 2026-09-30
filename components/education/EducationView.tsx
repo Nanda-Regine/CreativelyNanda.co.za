@@ -293,7 +293,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
       </section>
 
       {/* ── GRADUATION GALLERY ────────────────────────────────────────── */}
-      <section className="relative z-10 bg-[#0D1020] py-0 overflow-hidden">
+      <section className="relative z-10 bg-[#7A1236] py-0 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
 
         {/* Label */}
@@ -554,7 +554,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
       </section>
 
       {/* ── FNB APP ACADEMY · 2026 ───────────────────────────────────── */}
-      <section id="fnb-app-academy" className="relative z-10 overflow-hidden px-6 py-20" style={{ background: '#07242B' }}>
+      <section id="fnb-app-academy" className="relative z-10 overflow-hidden px-6 py-20" style={{ background: '#0A1128' }}>
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
         {/* an off-axis wash, so the section is not another flat band */}
         <div
@@ -651,23 +651,23 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
       </section>
 
       {/* ── TECH EVOLUTION ARC ───────────────────────────────────────── */}
-      <section className="relative z-10 bg-[#050810] py-20 px-6 overflow-hidden">
+      <section className="relative z-10 bg-[#7A1236] py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: GRAIN }} />
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '16vw', color: 'rgba(123,47,190,0.04)', lineHeight: 1, userSelect: 'none', position: 'absolute', right: '-2vw', top: '50%', transform: 'translateY(-50%)' }}>
+          <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '16vw', color: 'rgba(242,199,122,0.04)', lineHeight: 1, userSelect: 'none', position: 'absolute', right: '-2vw', top: '50%', transform: 'translateY(-50%)' }}>
             CODE
           </span>
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
           <FadeUp>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#7B2FBE', letterSpacing: '0.35em', textTransform: 'uppercase', margin: '0 0 8px 0' }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#F2C77A', letterSpacing: '0.35em', textTransform: 'uppercase', margin: '0 0 8px 0' }}>
               The Code Arc · Jul 2025 → Jun 2026
             </p>
             <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(40px, 6vw, 72px)', color: '#FFFFFF', lineHeight: 0.95, letterSpacing: '0.02em', margin: '0 0 8px 0' }}>
               ONE YEAR.
             </h2>
-            <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(40px, 6vw, 72px)', color: '#7B2FBE', lineHeight: 0.95, letterSpacing: '0.02em', margin: '0 0 24px 0' }}>
+            <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(40px, 6vw, 72px)', color: '#F2C77A', lineHeight: 0.95, letterSpacing: '0.02em', margin: '0 0 24px 0' }}>
               SIX TECHNOLOGY JUMPS.
             </h2>
             <p style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: '16px', fontStyle: 'italic', color: 'rgba(245,240,232,0.55)', margin: '0 0 40px 0', maxWidth: '560px', lineHeight: 1.6 }}>
@@ -680,7 +680,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
             {/* Connecting line */}
             <div style={{
               position: 'absolute', top: '12px', left: '12px', right: '12px', height: '1px',
-              background: 'linear-gradient(to right, #FBBF24, #4A90D9, #10B981, #C9943A, #C1292E, #7B2FBE)',
+              background: 'linear-gradient(to right, #FBBF24, #4A90D9, #10B981, #C9943A, #C1292E, #F2C77A)',
               zIndex: 0, minWidth: 'calc(100% - 24px)',
             }} />
 
@@ -739,8 +739,8 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               </p>
               {['8+ live apps', '3,000+ commits', '15 AI wings (JarvisOS)', '3+ paying clients', 'Mirembe Muse (Pty) Ltd'].map((tag) => (
                 <span key={tag} style={{
-                  background: 'rgba(123,47,190,0.1)', border: '1px solid rgba(123,47,190,0.25)',
-                  color: '#7B2FBE', fontFamily: 'var(--font-mono)', fontSize: '9px',
+                  background: 'rgba(242,199,122,0.1)', border: '1px solid rgba(242,199,122,0.25)',
+                  color: '#F2C77A', fontFamily: 'var(--font-mono)', fontSize: '9px',
                   letterSpacing: '0.1em', padding: '4px 10px', borderRadius: '2px',
                 }}>
                   {tag}

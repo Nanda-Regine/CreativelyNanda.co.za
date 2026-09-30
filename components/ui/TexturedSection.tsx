@@ -33,8 +33,10 @@ export const TEXTURES = {
 // Tonal veils — strong enough that the texture is atmosphere, not competition.
 const TONES: Record<string, string> = {
   navy: 'linear-gradient(180deg, rgba(10,17,40,0.92) 0%, rgba(10,17,40,0.95) 100%)',
-  rose: 'linear-gradient(180deg, rgba(36,16,33,0.88) 0%, rgba(10,17,40,0.93) 100%)',
-  wine: 'linear-gradient(160deg, rgba(20,16,42,0.90) 0%, rgba(36,16,33,0.90) 55%, rgba(10,17,40,0.94) 100%)',
+  // rose and wine were near-navy purples, so every "cherry" block read as navy.
+  // Since the balance rule (2026-09-29) they are the house cherry (#7A1236).
+  rose: 'linear-gradient(180deg, rgba(122,18,54,0.88) 0%, rgba(106,15,47,0.93) 100%)',
+  wine: 'linear-gradient(160deg, rgba(122,18,54,0.9) 0%, rgba(110,16,50,0.9) 55%, rgba(96,12,42,0.94) 100%)',
   cream: 'linear-gradient(180deg, rgba(245,240,232,0.93) 0%, rgba(232,220,196,0.95) 100%)',
   parchment: 'linear-gradient(180deg, rgba(234,224,204,0.92) 0%, rgba(216,203,172,0.95) 100%)',
 };

@@ -10,8 +10,10 @@ export const metadata: Metadata = {
 
 export default function CreatorBundle() {
   return (
-    <main className="min-h-screen bg-[#FAFAF8] pt-32 pb-24 px-6">
-      <div className="max-w-2xl mx-auto text-center">
+    // A beige card on a navy page, closing on cherry (the balance rule).
+    <main className="min-h-screen">
+      <div className="bg-[#0A1128] px-4 pb-20 pt-32 md:px-6">
+      <div className="mx-auto max-w-2xl rounded-sm bg-[#FAFAF8] px-6 py-14 text-center shadow-2xl md:px-12">
         <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">
           Best Value Bundle
         </p>
@@ -68,6 +70,13 @@ export default function CreatorBundle() {
             Buy Creator&apos;s Studio, R399
           </Link>
         </div>
+      </div>
+      </div>
+      <div className="bg-[#7A1236] px-6 py-16 text-center">
+        <p className="font-display text-xl italic text-[#FAEEF0]">Every template, one shop.</p>
+        <Link href="/products" className="mt-4 inline-block font-mono text-[11px] uppercase tracking-[0.3em] text-[#F2C77A] hover:opacity-70">
+          See them all &rarr;
+        </Link>
       </div>
     </main>
   );

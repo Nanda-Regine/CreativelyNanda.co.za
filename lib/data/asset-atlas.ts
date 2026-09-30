@@ -62,11 +62,14 @@ export type Ground = {
 export const GROUND = {
   parchment: { bg: '#F5F0E8', ink: '#1A1A2E', accent: '#C21E56', from: 'the blush-and-cherry botanical cards she already uses for performances and radio' },
   bone:      { bg: '#EFE9E1', ink: '#22201D', accent: '#B4653A', from: 'the terracotta wall behind the beer brewing; Basotho ochre' },
-  studio:    { bg: '#0E3B3E', ink: '#F2EDE4', accent: '#E8590C', from: 'the TRU FM studio, teal walls, orange station branding' },
-  cobalt:    { bg: '#123A8A', ink: '#F4F7FF', accent: '#F5C518', from: 'the Nelson Mandela Bay Arts Festival step-and-repeat' },
+  // 2026-09-29: the balance rule (navy, beige and cherry in equal measure)
+  // re-points the off-palette grounds to the house papers. Names are kept so
+  // no page breaks; the colours are the house stock's (app/stock.css).
+  studio:    { bg: '#0A1128', ink: '#F5F0E8', accent: '#D6A44A', from: 'the TRU FM studio, now printed on house navy' },
+  cobalt:    { bg: '#7A1236', ink: '#FAEEF0', accent: '#F2C77A', from: 'the Arts Festival stage, now printed on house cherry' },
   garden:    { bg: '#14361F', ink: '#F1F5EC', accent: '#E8B4C8', from: 'bougainvillea against green, the magenta/green pairing that recurs everywhere' },
-  rose:      { bg: '#2A0E1A', ink: '#F7EDF1', accent: '#C21E56', from: 'Inside Her Roses on deep red roses' },
-  ink:       { bg: '#12131A', ink: '#EDEDF2', accent: '#7B2FBE', from: 'the RGB-lit coding photographs, magenta, teal and green ambient on a dark room' },
+  rose:      { bg: '#7A1236', ink: '#FAEEF0', accent: '#F2C77A', from: 'Inside Her Roses, on house cherry' },
+  ink:       { bg: '#7A1236', ink: '#FAEEF0', accent: '#F2C77A', from: 'the coding photographs, on house cherry' },
   midnight:  { bg: '#0A1128', ink: '#F5F0E8', accent: '#C9943A', from: 'the existing house navy, kept, but as ONE ground among seven' },
 } as const satisfies Record<string, Ground>;
 

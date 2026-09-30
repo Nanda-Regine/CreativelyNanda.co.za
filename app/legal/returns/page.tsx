@@ -17,7 +17,7 @@ const EMAIL = 'hello@creativelynanda.co.za';
 
 export default function ReturnsPolicy() {
   return (
-    <main className="pt-28 pb-20 px-6">
+    <main className="px-6 py-16 md:px-12 md:py-20">
       <div className="max-w-3xl mx-auto">
 
         {/* Header */}

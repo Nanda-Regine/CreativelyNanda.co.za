@@ -240,7 +240,7 @@ export default function Roots() {
       </section>
 
       {/* ═══ CLOSE — the introduction, made whole ══════════════════════════════ */}
-      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="stock-navy px-6 py-28">
+      <TexturedSection texture={TEXTURES.regalNavy} tone="rose" className="stock-cherry px-6 py-28">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <FadeUp>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-8">And so, the introduction</p>

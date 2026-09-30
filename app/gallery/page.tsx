@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
+import Stock, { rhythm } from '@/components/ui/Stock';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 /**
@@ -217,14 +218,17 @@ export default function Gallery() {
       </TexturedSection>
 
       {/* ── FAMILIES ── */}
-      <div className="relative z-10 pb-10">
-        {FAMILIES.map((fam) => (
-          <FamilySection key={fam.n} fam={fam} open={open} veilLifted={veilLifted} setVeilLifted={setVeilLifted} />
+      <div className="relative z-10">
+        {FAMILIES.map((fam, i) => (
+          // Each family on its own band, cherry / beige / navy in turn (the balance rule).
+          <Stock as="div" key={fam.n} paper={rhythm(i, 2)} className="paper-remap">
+            <FamilySection fam={fam} open={open} veilLifted={veilLifted} setVeilLifted={setVeilLifted} />
+          </Stock>
         ))}
       </div>
 
       {/* ── CLOSE ── */}
-      <section className="relative z-10 px-6 pb-28 pt-10 text-center">
+      <section className="stock-navy relative z-10 px-6 pb-28 pt-20 text-center">
         <p className="mx-auto mb-9 max-w-2xl font-display text-3xl md:text-4xl italic leading-snug text-white/90">
           Words, colour, rhythm and culture, all of it from the same hand.
         </p>
