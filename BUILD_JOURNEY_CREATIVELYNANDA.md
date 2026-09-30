@@ -1260,3 +1260,53 @@ changes. Both Forge ingest scripts now run their output through it.
   exact-match edits that assume `\n` fail quietly; normalise first.
 - **A page-level `redirect()` is not a redirect to a crawler** when the page is
   statically rendered: it answered 200. Redirects belong in `next.config.js`.
+
+## 27. Equal thirds: navy, beige and cherry on every page (2026-09-29/30)
+
+Nanda's rule: the site's colours are **an equal balance of navy, beige and
+cherry, none more than the others.** It replaces §25's "navy is a band, cherry
+is one pulse". Measured first (`C:/pw/balance.mjs` samples the painted
+background down each page and reports the three shares): after §25 almost
+every page was 80 to 100% beige and cherry was under 5% nearly everywhere.
+
+### How it was done
+- **`rhythm(i)`** in `components/ui/Stock.tsx`: beige, navy, cherry, in turn.
+  Long runs print one item per band: every scar, drill, origin project and
+  dossier decision; the Long Night in bands of twelve nights; the Commit Wall in
+  bands of eight; the App Studio by chapter; the Gallery by image family; the
+  Press by issue.
+- **Essays** split at each chapter (`h2`), each chapter on the next paper,
+  full-bleed behind the reading column (`app/press.css`, chapter bands). The
+  Press inks follow the paper; the receipt stays a light slip, code stays dark,
+  the contents card stays cream.
+- **Two near-navy lies fixed.** `TexturedSection`'s `rose` and `wine` tones and
+  the old `cobalt`, `studio`, `ink` and `rose` grounds were dark purples and teals,
+  so blocks meant as cherry measured as navy. They now print house cherry or navy.
+- **`ink-remap`** (stock.css), the mirror of `paper-remap`: dark text utilities on
+  light-era pages read from the paper, and light cards inside a dark band keep
+  dark inks. Used on /notion.
+- Colours that vanished on the new papers now follow the paper: Dojo verdicts
+  (`--right-ink`, `--wrong-ink`), app accents as dots beside paper gold, Rule
+  labels, inverted-ink buttons.
+
+### Measured after (navy / beige / cherry)
+/forge 31/32/31 · dossiers 32/32/35 · /engineer 33/32/35 · /forge/origins
+31/31/38 · /forge/nights 35/37/28 · essays about 29/40/30 · /poetry 29/40/31 ·
+/poetry/games 38/32/30 · /about 24/33/40 · home 42/27/30. Legal is a beige sheet
+on a two-tone desk (the sampler reads gradients as their first colour; visually
+half and half).
+
+### Not done, on purpose
+- **Sanyu** keeps its own botanical green: it is a separate brand.
+- **The painted rooms** (the collection, each poem, Lineage, the Circle, the
+  Reading Room) sit on mood paintings, which read cherry and navy with little
+  beige, and the Circle's marble is orange and teal. Changing those is a design
+  decision for Nanda, not a colour swap.
+- The cover is untouched (review-first).
+
+### What was learned
+- **A JSX comment inside `{cond && ( … )}` makes two children** and breaks the
+  build. It reached a push because the gate was a grep, not an exit code. The
+  gate is now: commit only if `tsc` reports exactly the 15 known errors.
+- **Name the tone for what it paints.** "wine" that renders navy is how a page
+  of cherry intentions measures 0% cherry.
