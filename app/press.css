@@ -443,3 +443,52 @@ ol.press-list { list-style: decimal; }
   .press-h2 { font-size: 1.8rem; }
   .press-quote { font-size: 1.25rem; }
 }
+
+/* ── chapter bands ───────────────────────────────────────────────
+ * The balance rule (Nanda, 2026-09-29): navy, beige and cherry in equal
+ * measure on every page. A long essay is one reading field, so each chapter
+ * (split at its h2) is printed on the next paper in turn: beige, navy,
+ * cherry. The band's paper bleeds to the edges of the window behind the
+ * reading column; the column itself does not move.
+ */
+.press-band {
+  position: relative;
+  isolation: isolate;
+  padding-block: 3.5rem;
+}
+.press-band::before {
+  content: '';
+  position: absolute;
+  inset: 0 -100vw;
+  z-index: -1;
+  background: var(--stock);
+}
+.press-band:first-child { padding-top: 0; }
+
+/* On the dark papers the reading inks follow the paper. */
+.stock-navy .press-body,
+.stock-cherry .press-body {
+  --p-navy: rgb(var(--head-rgb));
+  --p-gold: var(--gold-ink);
+  --p-cherry: var(--cherry-ink);
+  --p-rose: var(--cherry-ink);
+  --p-ink: rgb(var(--ink-rgb) / 0.88);
+  --p-soft: rgb(var(--ink-rgb) / 0.64);
+  --p-rule: rgb(var(--ink-rgb) / 0.16);
+  --p-green: var(--right-ink);
+}
+.stock-navy .press-code,
+.stock-cherry .press-code { background: rgb(0 0 0 / 0.34); }
+.stock-navy .press-code-inline,
+.stock-cherry .press-code-inline { background: rgb(255 255 255 / 0.08); }
+
+/* The receipt is its own slip of light paper on every band. */
+.stock-navy .press-receipt,
+.stock-cherry .press-receipt {
+  --p-navy: #0a1128;
+  --p-gold: #8f6418;
+  --p-cherry: #c1292e;
+  --p-ink: rgba(10, 17, 40, 0.84);
+  --p-soft: rgba(10, 17, 40, 0.58);
+  --p-rule: rgba(10, 17, 40, 0.12);
+}

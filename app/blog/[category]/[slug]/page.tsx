@@ -22,6 +22,7 @@ import { getPressPost, getRevisions, imprintNameFor, wordCount } from '@/lib/pre
 import { renderPress } from '@/lib/press-render';
 import { issueFor, issueLabel, PRESS_NAME, PRESS_SHORT, STUDIO_CATEGORIES } from '@/lib/data/press-issues';
 import { SITE_URL } from '@/lib/seo';
+import { rhythm } from '@/components/ui/Stock';
 import '../../../press.css';
 
 export const revalidate = 3600;
@@ -30,6 +31,8 @@ const NAVY = '#0A1128';
 const GOLD = '#C9943A';
 const ROSE = '#6B0F20';
 const CREAM = '#F5F0E8';
+/** The house cherry paper (app/stock.css .stock-cherry). */
+const CHERRY_PAPER = '#7A1236';
 
 const fmt = (d: string) =>
   new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
@@ -54,13 +57,16 @@ export default async function PressArticlePage({
   const revisions = getRevisions(post);
   const url = `${SITE_URL}/blog/${post.category}/${post.slug}`;
   const published = post.published_at ?? post.created_at;
+  // The piece, split at each chapter so every chapter prints on the next paper
+  // in turn: beige, navy, cherry (the balance rule; app/press.css, chapter bands).
+  const chapters = html.split(/(?=<div class="press-chapter"|<h2 )/).filter((c) => c.trim());
 
   return (
-    <div className="relative min-h-screen" style={{ background: CREAM }}>
+    <div className="relative min-h-screen overflow-x-clip" style={{ background: CREAM }}>
       <ReadingProgress />
 
       {/* ═══ THE OPENING ═══════════════════════════════════════════════════ */}
-      <header className="relative -mt-20 overflow-hidden" style={{ background: NAVY }}>
+      <header className="relative -mt-20 overflow-hidden" style={{ background: CHERRY_PAPER }}>
         {post.cover_image ? (
           <div className="absolute inset-0">
             <Image src={post.cover_image} alt="" fill priority sizes="100vw" className="object-cover" />
@@ -68,7 +74,7 @@ export default async function PressArticlePage({
         ) : null}
         <div
           className="absolute inset-0"
-          style={{ background: `linear-gradient(to top, ${NAVY} 6%, ${NAVY}d9 40%, ${ROSE}55 80%, ${NAVY}66)` }}
+          style={{ background: `linear-gradient(to top, ${CHERRY_PAPER} 6%, ${CHERRY_PAPER}d9 40%, ${NAVY}55 80%, ${CHERRY_PAPER}66)` }}
         />
         <div className="relative z-10 mx-auto flex min-h-[74vh] max-w-4xl flex-col justify-end px-6 pb-14 pt-36">
           <Link
@@ -125,7 +131,11 @@ export default async function PressArticlePage({
                 </p>
               ) : null}
 
-              <div className="press-body" dangerouslySetInnerHTML={{ __html: html }} />
+              {chapters.map((c, i) => (
+                <div key={i} className={`press-band stock-${rhythm(i)}`}>
+                  <div className="press-body" dangerouslySetInnerHTML={{ __html: c }} />
+                </div>
+              ))}
 
               {/* ─── Colophon ─── */}
               <footer className="mt-16 border-t pt-8" style={{ borderColor: `${NAVY}26` }}>
@@ -181,7 +191,8 @@ export default async function PressArticlePage({
             <div className="hidden xl:block" aria-hidden />
 
             <aside className="hidden lg:block">
-              <div className="sticky top-28 space-y-9">
+              {/* Its own cream card: the chapter bands pass behind this column. */}
+              <div className="sticky top-28 space-y-9 rounded-sm p-5" style={{ background: CREAM, boxShadow: '0 12px 40px -18px rgba(10,17,40,0.45)' }}>
                 {toc.length > 1 ? (
                   <nav aria-label="In this piece">
                     <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em]" style={{ color: `${NAVY}99` }}>

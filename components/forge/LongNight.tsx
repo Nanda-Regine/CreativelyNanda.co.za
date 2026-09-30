@@ -33,6 +33,9 @@ import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { track } from '@/lib/analytics';
 import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink, GOLD_INK } from './ForgeChrome';
 
+/** Nights per band of the ledger. */
+const BAND = 12;
+
 export interface NightRow {
   date: string;
   /** Precomputed on the server — nothing here formats a date. */
@@ -64,6 +67,14 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
 
   const accentFor = (app: string) => apps.find((a) => a.name === app)?.accent ?? GOLD;
   const total = shown.reduce((a, m) => a + m.nights.length, 0);
+  const bands = shown.flatMap((m) =>
+    Array.from({ length: Math.ceil(m.nights.length / BAND) }, (_, part) => ({
+      month: m.month,
+      part,
+      total: m.nights.length,
+      nights: m.nights.slice(part * BAND, (part + 1) * BAND),
+    })),
+  );
 
   return (
     <main className="stock-parchment min-h-screen">
@@ -136,22 +147,27 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
       </section>
 
       {/* ═══ THE LEDGER ══════════════════════════════════════════════════════ */}
-      {/* Each month on its own band: cherry, beige, navy in turn (the balance rule). */}
-          {shown.map((m, mi) => (
-            <Stock key={m.month} paper={rhythm(mi, 2)} className="px-6 py-14 md:py-16">
+      {/* The ledger in bands of up to BAND nights, cherry / beige / navy in turn,
+          so one heavy month cannot paint the page one colour (the balance rule).
+          A month that runs over a band continues on the next paper. */}
+          {bands.map((b, bi) => (
+            <Stock key={`${b.month}-${b.part}`} paper={rhythm(bi, 2)} className="px-6 py-14 md:py-16">
             <section className="mx-auto max-w-4xl">
               <FadeUp>
                 <div className="sticky top-20 z-10 -mx-2 flex items-baseline gap-4 px-2 py-3 backdrop-blur-sm" style={{ background: 'color-mix(in srgb, var(--stock) 88%, transparent)' }}>
-                  <h2 className="font-display text-2xl font-bold italic t-head md:text-3xl">{m.month}</h2>
+                  <h2 className="font-display text-2xl font-bold italic t-head md:text-3xl">
+                    {b.month}
+                    {b.part > 0 ? <span className="ml-3 font-mono text-[10.5px] font-normal not-italic uppercase tracking-[0.2em]" style={{ color: ink(0.45) }}>continued</span> : null}
+                  </h2>
                   <span className="h-px flex-1" style={{ background: 'rgba(201,148,58,0.22)' }} />
                   <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: GOLD_INK }}>
-                    {m.nights.length} {m.nights.length === 1 ? 'night' : 'nights'}
+                    {b.part === 0 ? `${b.total} ${b.total === 1 ? 'night' : 'nights'}` : ''}
                   </span>
                 </div>
               </FadeUp>
 
               <ol className="mt-5">
-                {m.nights.map((n, i) => (
+                {b.nights.map((n, i) => (
                   <FadeUp key={`${n.date}-${n.title}`} delay={Math.min(i * 0.015, 0.2)} y={12}>
                     <li
                       className="group grid gap-x-5 gap-y-1 border-b py-4 md:grid-cols-[4.5rem_1fr_auto] md:items-baseline"

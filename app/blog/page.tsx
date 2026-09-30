@@ -18,11 +18,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Mail } from 'lucide-react';
-import TexturedSection from '@/components/ui/TexturedSection';
-
-// TEXTURES lives in a client module, so a server page cannot read it; the id is
-// repeated here (red-gold ink marble).
-const MARBLE = 'creativelynanda/backgrounds/download-29';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PressSearch, SubscribeForm, type SearchItem } from '@/components/press/PressClient';
 import { getPressCards, type PressCard } from '@/lib/press';
 import { CURRENT_ISSUE, IMPRINTS, ISSUES, issueLabel, PRESS_NAME, STUDIO_CATEGORIES, type Issue } from '@/lib/data/press-issues';
@@ -110,17 +106,17 @@ export default async function PressFrontPage() {
       </header>
 
       {/* ═══ ON THE STANDS ═════════════════════════════════════════════════ */}
-      <section className="px-6 py-16 md:py-24">
+      <Stock paper="parchment" className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 flex items-end gap-6">
-            <span className="font-display font-bold italic leading-[0.8]" style={{ fontSize: 'clamp(4.5rem, 12vw, 9rem)', color: GOLD }}>
+            <span className="font-display font-bold italic leading-[0.8]" style={{ fontSize: 'clamp(4.5rem, 12vw, 9rem)', color: 'var(--gold-ink)' }}>
               {String(onStands.number).padStart(3, '0')}
             </span>
             <div className="pb-2">
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: CHERRY }}>
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: 'var(--cherry-ink)' }}>
                 On the stands
               </p>
-              <h2 className="mt-2 font-display text-3xl italic md:text-5xl" style={{ color: NAVY }}>
+              <h2 className="mt-2 font-display text-3xl italic md:text-5xl" style={{ color: 'rgb(var(--head-rgb))' }}>
                 {onStands.title}
               </h2>
             </div>
@@ -138,18 +134,18 @@ export default async function PressFrontPage() {
                 )}
               </div>
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: CHERRY }}>
+                <p className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: 'var(--cherry-ink)' }}>
                   The lead · {lead.imprintName}
                 </p>
-                <h3 className="mt-4 font-display leading-[1.04]" style={{ fontSize: 'clamp(2.1rem, 4.4vw, 3.5rem)', color: NAVY }}>
+                <h3 className="mt-4 font-display leading-[1.04]" style={{ fontSize: 'clamp(2.1rem, 4.4vw, 3.5rem)', color: 'rgb(var(--head-rgb))' }}>
                   {lead.title}
                 </h3>
                 {lead.excerpt ? (
-                  <p className="mt-5 font-display text-xl italic leading-relaxed" style={{ color: `${NAVY}b3` }}>
+                  <p className="mt-5 font-display text-xl italic leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.72)' }}>
                     {lead.excerpt}
                   </p>
                 ) : null}
-                <span className="mt-7 inline-flex items-center gap-2 border-b pb-1 font-mono text-xs uppercase tracking-[0.3em]" style={{ color: NAVY, borderColor: GOLD }}>
+                <span className="mt-7 inline-flex items-center gap-2 border-b pb-1 font-mono text-xs uppercase tracking-[0.3em]" style={{ color: 'rgb(var(--head-rgb))', borderColor: GOLD }}>
                   Read it <ArrowUpRight className="h-4 w-4" style={{ color: GOLD }} />
                 </span>
               </div>
@@ -160,34 +156,33 @@ export default async function PressFrontPage() {
 
           {contents.length ? (
             <div className="mt-16">
-              <p className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: `${NAVY}80` }}>
+              <p className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: 'rgb(var(--ink-rgb) / 0.52)' }}>
                 Also in this issue
               </p>
               <Contents pieces={contents} />
             </div>
           ) : null}
         </div>
-      </section>
+      </Stock>
 
-      {/* ═══ THE BACK ISSUES ═══════════════════════════════════════════════ */}
-      <TexturedSection texture={MARBLE} tone="cream" className="px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-6xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: CHERRY }}>
-            The back issues
-          </p>
-          <div className="mt-10 space-y-20">
-            {backIssues.map((i) => {
+      {/* ═══ THE BACK ISSUES: each on its own band, cherry / beige / navy in
+          turn (the balance rule, Stock.tsx) ══════════════════════════════════ */}
+            {backIssues.map((i, bi) => {
               const pieces = inIssue(i);
               return (
-                <article key={i.number} id={`issue-${i.number}`} className="scroll-mt-28 grid gap-8 md:grid-cols-[13rem_1fr] md:gap-12">
+                <Stock key={i.number} paper={rhythm(bi, 2)} className="px-6 py-16 md:py-20">
+                {bi === 0 ? (
+                  <p className="t-cherry mx-auto mb-10 max-w-6xl font-mono text-[11px] uppercase tracking-[0.35em]">The back issues</p>
+                ) : null}
+                <article id={`issue-${i.number}`} className="mx-auto grid max-w-6xl scroll-mt-28 gap-8 md:grid-cols-[13rem_1fr] md:gap-12">
                   <div>
-                    <span className="block font-display font-bold italic leading-[0.8]" style={{ fontSize: '5.5rem', color: `${GOLD}` }}>
+                    <span className="block font-display font-bold italic leading-[0.8]" style={{ fontSize: '5.5rem', color: 'var(--gold-ink)' }}>
                       {String(i.number).padStart(3, '0')}
                     </span>
-                    <h3 className="mt-3 font-display text-2xl italic leading-tight" style={{ color: NAVY }}>
+                    <h3 className="mt-3 font-display text-2xl italic leading-tight" style={{ color: 'rgb(var(--head-rgb))' }}>
                       {i.title}
                     </h3>
-                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.24em]" style={{ color: `${NAVY}80` }}>
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.24em]" style={{ color: 'rgb(var(--ink-rgb) / 0.52)' }}>
                       {i.dated}{pieces.length ? ` · ${pieces.length} ${pieces.length === 1 ? 'piece' : 'pieces'}` : ''}
                     </p>
                   </div>
@@ -196,27 +191,25 @@ export default async function PressFrontPage() {
                     {pieces.length ? <Contents pieces={pieces} /> : null}
                   </div>
                 </article>
+                </Stock>
               );
             })}
-          </div>
-        </div>
-      </TexturedSection>
 
       {/* ═══ THE HOUSE RULES + WHAT ELSE IS KEPT HERE ══════════════════════ */}
-      <section className="px-6 py-20">
+      <Stock paper="navy" className="px-6 py-20">
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
           <div>
             <p className="font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: GOLD }}>
               How this press works
             </p>
-            <p className="mt-4 font-display text-2xl italic leading-relaxed" style={{ color: NAVY }}>
+            <p className="mt-4 font-display text-2xl italic leading-relaxed" style={{ color: 'rgb(var(--head-rgb))' }}>
               Every piece is filed in the issue its date falls in. Every number in a field note should be traceable to the code
               it describes.
             </p>
           </div>
           {studio.length ? (
-            <div className="self-end border-l-2 pl-6" style={{ borderColor: `${NAVY}1a` }}>
-              <p className="text-[15px] leading-relaxed" style={{ color: `${NAVY}99` }}>
+            <div className="self-end border-l-2 pl-6" style={{ borderColor: 'var(--rule)' }}>
+              <p className="text-[15px] leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.62)' }}>
                 Also kept here, so their links keep working:{' '}
                 {Object.entries(STUDIO_CATEGORIES).map(([cat, s], k) => {
                   const n = studio.filter((p) => p.category === cat).length;
@@ -224,14 +217,14 @@ export default async function PressFrontPage() {
                   return (
                     <span key={cat}>
                       {k ? ' and ' : ''}
-                      <Link href={s.href} className="underline decoration-dotted underline-offset-4" style={{ color: ROSE }}>
+                      <Link href={s.href} className="underline decoration-dotted underline-offset-4" style={{ color: 'var(--cherry-ink)' }}>
                         {n} {s.name.toLowerCase()}
                       </Link>
                     </span>
                   );
                 })}
                 . The business writing belongs to{' '}
-                <a href="https://mirembemuse.co.za" className="underline decoration-dotted underline-offset-4" style={{ color: ROSE }}>
+                <a href="https://mirembemuse.co.za" className="underline decoration-dotted underline-offset-4" style={{ color: 'var(--cherry-ink)' }}>
                   Mirembe Muse
                 </a>
                 .
@@ -239,10 +232,10 @@ export default async function PressFrontPage() {
             </div>
           ) : null}
         </div>
-      </section>
+      </Stock>
 
       {/* ═══ LETTERS ═══════════════════════════════════════════════════════ */}
-      <TexturedSection texture={MARBLE} tone="wine" className="relative px-6 py-24 md:py-28">
+      <Stock paper="cherry" className="relative px-6 py-24 md:py-28">
         <div className="relative z-10 mx-auto max-w-2xl text-center">
           <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-full border" style={{ borderColor: `${GOLD}66`, background: `${GOLD}12` }}>
             <Mail className="h-6 w-6" style={{ color: GOLD }} />
@@ -250,15 +243,15 @@ export default async function PressFrontPage() {
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.4em]" style={{ color: GOLD }}>
             Subscribe to the press
           </p>
-          <h2 className="mb-6 font-display leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.1rem)', color: CREAM }}>
+          <h2 className="mb-6 font-display leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.1rem)', color: 'rgb(var(--head-rgb))' }}>
             Each new issue, <span className="italic" style={{ color: GOLD }}>delivered by hand.</span>
           </h2>
-          <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed" style={{ color: `${CREAM}b3` }}>
+          <p className="mx-auto mb-10 max-w-lg text-base leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.72)' }}>
             One email when an issue is published. Nothing in between.
           </p>
           <SubscribeForm />
         </div>
-      </TexturedSection>
+      </Stock>
     </div>
   );
 }
@@ -266,30 +259,30 @@ export default async function PressFrontPage() {
 /** A magazine contents list: number, imprint, title, standfirst, date. */
 function Contents({ pieces }: { pieces: PressCard[] }) {
   return (
-    <ol className="border-t" style={{ borderColor: `${NAVY}26` }}>
+    <ol className="border-t" style={{ borderColor: 'var(--rule)' }}>
       {pieces.map((p, k) => (
         <li key={p.slug}>
-          <Link href={href(p)} className="group grid grid-cols-[2.5rem_1fr] gap-4 border-b py-6 md:grid-cols-[3rem_8rem_1fr_7rem] md:gap-6" style={{ borderColor: `${NAVY}14` }}>
-            <span className="font-display text-2xl italic" style={{ color: GOLD }}>
+          <Link href={href(p)} className="group grid grid-cols-[2.5rem_1fr] gap-4 border-b py-6 md:grid-cols-[3rem_8rem_1fr_7rem] md:gap-6" style={{ borderColor: 'var(--rule)' }}>
+            <span className="font-display text-2xl italic" style={{ color: 'var(--gold-ink)' }}>
               {pad(k + 1)}
             </span>
-            <span className="hidden pt-2 font-mono text-[10px] uppercase tracking-[0.22em] md:block" style={{ color: CHERRY }}>
+            <span className="hidden pt-2 font-mono text-[10px] uppercase tracking-[0.22em] md:block" style={{ color: 'var(--cherry-ink)' }}>
               {p.imprintName}
             </span>
             <span>
-              <span className="block font-display text-xl leading-snug transition-colors group-hover:text-[#6B0F20] md:text-2xl" style={{ color: NAVY }}>
+              <span className="block font-display text-xl leading-snug transition-colors group-hover:opacity-70 md:text-2xl" style={{ color: 'rgb(var(--head-rgb))' }}>
                 {p.title}
               </span>
               {p.excerpt ? (
-                <span className="mt-1.5 block text-[14px] leading-relaxed line-clamp-2" style={{ color: `${NAVY}99` }}>
+                <span className="mt-1.5 block text-[14px] leading-relaxed line-clamp-2" style={{ color: 'rgb(var(--ink-rgb) / 0.62)' }}>
                   {p.excerpt}
                 </span>
               ) : null}
-              <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] md:hidden" style={{ color: `${NAVY}66` }}>
+              <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] md:hidden" style={{ color: 'rgb(var(--ink-rgb) / 0.45)' }}>
                 {p.imprintName} · {fmt(p.published_at)}
               </span>
             </span>
-            <span className="hidden pt-2 text-right font-mono text-[10px] uppercase tracking-[0.18em] md:block" style={{ color: `${NAVY}66` }}>
+            <span className="hidden pt-2 text-right font-mono text-[10px] uppercase tracking-[0.18em] md:block" style={{ color: 'rgb(var(--ink-rgb) / 0.45)' }}>
               {fmt(p.published_at)}
             </span>
           </Link>
@@ -307,13 +300,13 @@ function FeatureStrip({ feature, compact = false }: { feature: NonNullable<Issue
       style={{ borderColor: `${GOLD}66`, background: `${GOLD}0d`, borderRadius: 2 }}
     >
       <span>
-        <span className="block font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: CHERRY }}>
+        <span className="block font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: 'var(--cherry-ink)' }}>
           The feature
         </span>
-        <span className="mt-1 block font-display text-2xl italic" style={{ color: NAVY }}>
+        <span className="mt-1 block font-display text-2xl italic" style={{ color: 'rgb(var(--head-rgb))' }}>
           {feature.title}
         </span>
-        <span className="mt-1 block text-[14px]" style={{ color: `${NAVY}99` }}>
+        <span className="mt-1 block text-[14px]" style={{ color: 'rgb(var(--ink-rgb) / 0.62)' }}>
           {feature.line}
         </span>
       </span>
