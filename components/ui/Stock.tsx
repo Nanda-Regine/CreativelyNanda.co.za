@@ -3,7 +3,11 @@
  *
  *   <Stock paper="parchment">…</Stock>              textured beige, the page
  *   <Stock paper="navy" edge="slant">…</Stock>       a navy band sliding under
- *   <Stock paper="cherry" as="aside">…</Stock>       the one pulse on a page
+ *   <Stock paper="cherry" as="aside">…</Stock>       the cherry band
+ *
+ * THE BALANCE RULE (Nanda, 2026-09-29): navy, beige and cherry in EQUAL
+ * measure on every page, none more than the others. Long runs of sections or
+ * list items rotate with rhythm(i); measure with C:/pw/balance.mjs.
  *
  * Everything inside reads its colours from the paper (see app/stock.css), so
  * `t-head`, `t-ink`, `t-gold` and the Forge's `ink()` are correct on any stock.
@@ -13,6 +17,12 @@
 import { cldImg } from '@/lib/cloudinary';
 
 export type Paper = 'parchment' | 'bone' | 'navy' | 'cherry';
+
+/** The house rhythm: beige, navy, cherry, in turn. */
+export const RHYTHM: readonly Paper[] = ['parchment', 'navy', 'cherry'];
+
+/** The paper for the i-th band in a run. `start` shifts where the run begins. */
+export const rhythm = (i: number, start = 0): Paper => RHYTHM[(i + start) % RHYTHM.length];
 
 /** The Press marble. Under the cream veil it reads as laid paper, not stone. */
 export const PAPER_TEXTURE = 'creativelynanda/backgrounds/download-29';

@@ -21,11 +21,14 @@
  */
 
 import { useState, useMemo } from 'react';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PhotoBleed } from '@/components/ui/Ground';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { track } from '@/lib/analytics';
 import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink, GOLD_INK } from './ForgeChrome';
+
+/** Quotes per band on the wall. */
+const WALL_BAND = 8;
 
 export interface WallRow {
   build: string;
@@ -87,7 +90,7 @@ export default function CommitWall({
       <Figures items={figures} />
 
       {/* ═══ THE YEAR + LANGUAGES ════════════════════════════════════════════ */}
-      <section className="px-6 py-16 md:py-20">
+      <Stock paper="cherry" className="px-6 py-16 md:py-20">
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-[1.4fr_1fr] md:gap-16">
           <FadeUp>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
@@ -132,10 +135,10 @@ export default function CommitWall({
             </ul>
           </FadeUp>
         </div>
-      </section>
+      </Stock>
 
       {/* ═══ THE WALL ════════════════════════════════════════════════════════ */}
-      <Stock paper="bone" className="px-6 py-16 md:py-24">
+      <section className="px-6 pt-16 md:pt-20">
         <div className="mx-auto max-w-4xl">
           <FadeUp>
             <div className="flex flex-wrap items-center gap-2.5">
@@ -172,10 +175,17 @@ export default function CommitWall({
               })}
             </div>
           </FadeUp>
+        </div>
+      </section>
 
-          <div className="mt-12 space-y-7">
-            {shown.map((r, i) => (
-              <FadeUp key={`${r.sha}-${i}`} delay={Math.min(i * 0.02, 0.3)} y={14}>
+      {/* The wall in bands of eight, navy / cherry / beige in turn (the balance rule). */}
+      {Array.from({ length: Math.ceil(shown.length / WALL_BAND) }, (_, ci) => shown.slice(ci * WALL_BAND, (ci + 1) * WALL_BAND)).map((band, ci) => (
+        <Stock key={ci} paper={rhythm(ci, 1)} className="px-6 py-14 md:py-16">
+          <div className="mx-auto max-w-4xl space-y-7">
+            {band.map((r, j) => {
+              const i = ci * WALL_BAND + j;
+              return (
+              <FadeUp key={`${r.sha}-${i}`} delay={Math.min(j * 0.02, 0.3)} y={14}>
                 <figure className="group border-l-2 pl-6 transition-colors" style={{ borderColor: `${r.accent}55` }}>
                   <blockquote>
                     <p className="font-display text-xl italic leading-[1.45] t-head md:text-[1.6rem]">
@@ -183,23 +193,27 @@ export default function CommitWall({
                     </p>
                   </blockquote>
                   <figcaption className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.16em]" style={{ color: ink(0.38) }}>
-                    <span style={{ color: r.accent, opacity: 0.85 }}>{r.title}</span>
+                    <span className="inline-flex items-center gap-1.5" style={{ color: GOLD_INK }}>
+                      <span aria-hidden className="h-1.5 w-1.5 rounded-full" style={{ background: r.accent }} />
+                      {r.title}
+                    </span>
                     <span>{r.when}</span>
                     {r.prefix ? <span>{r.prefix}</span> : null}
                     <span style={{ color: ink(0.24) }}>{r.sha}</span>
                   </figcaption>
                 </figure>
               </FadeUp>
-            ))}
+              );
+            })}
           </div>
+        </Stock>
+      ))}
 
-          {shown.length === 0 ? (
-            <p className="py-16 text-center font-display text-xl italic" style={{ color: ink(0.5) }}>
-              Nothing on the wall from that build: its commit messages are labels, not sentences.
-            </p>
-          ) : null}
-        </div>
-      </Stock>
+      {shown.length === 0 ? (
+        <p className="px-6 py-16 text-center font-display text-xl italic" style={{ color: ink(0.5) }}>
+          Nothing on the wall from that build: its commit messages are labels, not sentences.
+        </p>
+      ) : null}
 
       {/* ═══ HOW THE WALL WAS BUILT ══════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-24">

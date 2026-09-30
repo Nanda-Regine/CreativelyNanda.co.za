@@ -29,6 +29,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import Ground, { PhotoBleed, groundTokens } from '@/components/ui/Ground';
+import Stock from '@/components/ui/Stock';
 import { Reveal, OffsetFigure, BigFigure, PullQuote, Rule, MarginNote, VideoTile } from '@/components/ui/Editorial';
 import { FAMILY } from '@/lib/data/asset-atlas';
 import { THROUGHLINE } from '@/lib/data/forge-origins';
@@ -58,7 +59,6 @@ export interface ForgeStats {
 export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
   const garden = groundTokens('garden');
   const bone = groundTokens('bone');
-  const ink = groundTokens('ink');
   const parchment = groundTokens('parchment');
   const midnight = groundTokens('midnight');
 
@@ -127,8 +127,9 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
         </div>
       </Ground>
 
-      {/* ═══ WHERE THE WORK HAPPENS — photographs carry this section ═════════ */}
-      <Ground ground="ink" className="px-6 py-24 pb-16 md:py-32 md:pb-20">
+      {/* ═══ WHERE THE WORK HAPPENS: photographs carry this section, on cherry
+          (it was the near-black "ink" ground; the balance rule, Stock.tsx) ═══ */}
+      <Stock paper="cherry" className="px-6 py-24 pb-16 md:py-32 md:pb-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
@@ -143,13 +144,13 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
 
             <div className="relative md:col-span-6 md:col-start-7 md:pt-20">
               <Reveal>
-                <Rule label="Where it happens" accent={ink.accent} />
-                <h2 className="mt-7 font-display font-bold italic leading-[1.05]" style={{ fontSize: 'clamp(2rem, 5vw, 3.4rem)' }}>
+                <Rule label="Where it happens" accent="var(--gold-ink)" />
+                <h2 className="t-head mt-7 font-display font-bold italic leading-[1.05]" style={{ fontSize: 'clamp(2rem, 5vw, 3.4rem)' }}>
                   There is no studio.
                 </h2>
               </Reveal>
               <Reveal delay={0.08}>
-                <p className="mt-6 text-[16px] font-light leading-[1.85]" style={{ color: `${ink.ink}B8` }}>
+                <p className="mt-6 text-[16px] font-light leading-[1.85]" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>
                   Eight products, three thousand commits, and not one of them written in an office. The photographs
                   on this page are the actual working conditions: a laptop on a camp chair in the middle of a lawn,
                   a stoep with a view of a fountain, a hotel lobby between other things, a printer and a notebook at
@@ -157,14 +158,14 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
                 </p>
               </Reveal>
               <Reveal delay={0.14}>
-                <p className="mt-5 text-[16px] font-light leading-[1.85]" style={{ color: `${ink.ink}B8` }}>
+                <p className="mt-5 text-[16px] font-light leading-[1.85]" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>
                   It matters because it is the constraint the whole practice is shaped around. Load shedding is not
                   a translation string here. Mobile data has a price. A build that assumes a stable desk and a fast
                   line is a build for somewhere else.
                 </p>
               </Reveal>
 
-              <MarginNote accent={ink.accent} side="right">
+              <MarginNote accent="var(--gold-ink)" side="right">
                 Every number in this wing is measured from the repositories at build time, never typed into a
                 sentence and left to drift.
               </MarginNote>
@@ -194,7 +195,7 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
             </div>
           </div>
         </div>
-      </Ground>
+      </Stock>
 
       {/* ═══ THE PRINCIPLES — a spread on parchment ══════════════════════════ */}
       <Ground ground="parchment" className="px-6 py-24 md:py-32" edge="slant-reverse">

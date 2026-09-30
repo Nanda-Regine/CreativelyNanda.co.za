@@ -3,10 +3,10 @@
  *
  * The site's cohesion is four materials, the ones the Press already prints on:
  *
- *   parchment   textured beige. THE PAGE. Most of every room lives here.
- *   bone        near-white. Breathing room: indexes, doors, quiet spreads.
- *   navy        the ink, used as a band: a masthead, a stage, one feature.
- *   cherry      the pulse. At most one block per page.
+ *   parchment   textured beige, the page's light ground.
+ *   bone        near-white. Breathing room: counts with beige.
+ *   navy        the ink.
+ *   cherry      the pulse.
  *
  * Gold is the leaf on all four. It is never a paper.
  *
@@ -16,7 +16,8 @@
  * any component. `:root` carries the navy values because the overlays (the
  * stage, the story player) are portalled to <body> and are always dark.
  *
- * Budget, measured by scripts in C:/pw/navy.mjs: navy <= 40% of any page.
+ * Balance (Nanda, 2026-09-29): navy, beige and cherry in EQUAL measure on every
+ * page, none more than the others. Measured by C:/pw/balance.mjs.
  */
 
 :root {
@@ -25,6 +26,8 @@
   --head-rgb: 255 255 255;
   --gold-ink: #c9943a;
   --cherry-ink: #e0467c;
+  --right-ink: #8fc79a;
+  --wrong-ink: #f0a0b8;
   --rule: rgb(201 148 58 / 0.2);
   --card: #0d1631;
   --card-edge: rgb(201 148 58 / 0.18);
@@ -46,6 +49,8 @@
   --head-rgb: 10 17 40;
   --gold-ink: #8f6418;
   --cherry-ink: #b01a4f;
+  --right-ink: #2e7d4f;
+  --wrong-ink: #a3284f;
   --rule: rgb(10 17 40 / 0.12);
   --card: #fbf8f2;
   --card-edge: rgb(10 17 40 / 0.1);
@@ -60,6 +65,8 @@
   --head-rgb: 10 17 40;
   --gold-ink: #8f6418;
   --cherry-ink: #b01a4f;
+  --right-ink: #2e7d4f;
+  --wrong-ink: #a3284f;
   --rule: rgb(10 17 40 / 0.1);
   --card: #f3ecdf;
   --card-edge: rgb(10 17 40 / 0.08);
@@ -74,6 +81,8 @@
   --head-rgb: 255 255 255;
   --gold-ink: #d6a44a;
   --cherry-ink: #e0467c;
+  --right-ink: #8fc79a;
+  --wrong-ink: #f0a0b8;
   --rule: rgb(201 148 58 / 0.2);
   --card: #0d1631;
   --card-edge: rgb(201 148 58 / 0.18);
@@ -88,6 +97,8 @@
   --head-rgb: 255 250 245;
   --gold-ink: #f2c77a;
   --cherry-ink: #ffd1de;
+  --right-ink: #b8e6c0;
+  --wrong-ink: #ffd1de;
   --rule: rgb(242 199 122 / 0.28);
   --card: #6a0f2f;
   --card-edge: rgb(242 199 122 / 0.22);

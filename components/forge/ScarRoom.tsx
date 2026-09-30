@@ -24,7 +24,7 @@
  */
 
 import { useEffect, useRef } from 'react';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PhotoBleed } from '@/components/ui/Ground';
 import Link from 'next/link';
 import { ArrowUpRight, PenLine } from 'lucide-react';
@@ -112,7 +112,7 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
       <Figures items={figures} />
 
       {/* ═══ THE INDEX ═══════════════════════════════════════════════════════ */}
-      <section className="px-6 py-16 md:py-20">
+      <Stock paper="cherry" className="px-6 py-16 md:py-20">
         <div className="mx-auto max-w-4xl">
           <FadeUp>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: WOUND_INK }}>
@@ -144,13 +144,14 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
             ))}
           </ol>
         </div>
-      </section>
+      </Stock>
 
-      {/* ═══ THE ENTRIES ═════════════════════════════════════════════════════ */}
-      <Stock paper="bone" className="px-6 py-16 md:py-24">
-        <div className="mx-auto max-w-3xl space-y-24 md:space-y-32">
-          {scars.map((s, i) => (
-            <article key={s.slug} id={s.slug} className="scroll-mt-28">
+      {/* ═══ THE ENTRIES ═════════════════════════════════════════════════════
+          Each scar on its own band, beige / navy / cherry in turn, so a long
+          room keeps the house balance (Stock.tsx, the balance rule). */}
+      {scars.map((s, i) => (
+        <Stock key={s.slug} paper={rhythm(i)} className="px-6 py-16 md:py-24">
+            <article id={s.slug} className="mx-auto max-w-3xl scroll-mt-28">
               <FadeUp>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   <span className="font-mono text-[11px] tracking-widest" style={{ color: WOUND_INK }}>
@@ -225,12 +226,9 @@ export default function ScarRoom({ scars, figures }: { scars: Scar[]; figures: {
                   </Link>
                 </p>
               ) : null}
-
-              <div className="mt-14 h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(139,30,63,0.5), rgba(139,30,63,0))' }} />
             </article>
-          ))}
-        </div>
-      </Stock>
+        </Stock>
+      ))}
 
       {/* ═══ CLOSING NOTE ════════════════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-24">

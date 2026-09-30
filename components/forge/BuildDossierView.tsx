@@ -18,7 +18,7 @@
  */
 
 import Link from 'next/link';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PhotoBleed } from '@/components/ui/Ground';
 import { ArrowUpRight, Lock, GitBranch, Calendar } from 'lucide-react';
 import { STUDIO_APPS } from '@/lib/data/app-screens';
@@ -136,7 +136,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
       </PhotoBleed>
 
       {/* ═══ THE PROBLEM ═════════════════════════════════════════════════════ */}
-      <section className="px-6 py-20 md:py-28">
+      <Stock paper="cherry" className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             <Rule label="The problem" color={d.accent} />
@@ -158,10 +158,12 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
             ))}
           </div>
         </div>
-      </section>
+      </Stock>
 
-      {/* ═══ THE DECISIONS ═══════════════════════════════════════════════════ */}
-      <Stock paper="bone" className="px-6 py-20 md:py-28">
+      {/* ═══ THE DECISIONS ═══════════════════════════════════════════════════
+          The heading on beige, then each decision on its own band, beige /
+          navy / cherry in turn (the balance rule, Stock.tsx). */}
+      <Stock paper="parchment" className="px-6 pt-20 md:pt-28">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
@@ -175,13 +177,16 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
               list tells you what was used, and nothing at all about the judgment that put it there.
             </p>
           </FadeUp>
+        </div>
+      </Stock>
 
-          <ol className="mt-14 space-y-14">
+          <div>
             {d.decisions.map((dec, i) => (
-              <FadeUp key={dec.title} delay={0.04}>
-                <li>
+              <Stock key={dec.title} as="div" paper={rhythm(i)} className="px-6 py-14 md:py-16">
+              <FadeUp delay={0.04}>
+                <article className="mx-auto max-w-3xl">
                   <div className="flex items-baseline gap-4">
-                    <span className="font-mono text-[11px] tracking-widest" style={{ color: d.accent }}>
+                    <span className="font-mono text-[11px] tracking-widest" style={{ color: GOLD_INK }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <h3 className="font-display text-2xl font-bold italic leading-snug t-head md:text-[1.75rem]">
@@ -196,15 +201,14 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
                       <Artefact>{dec.code}</Artefact>
                     </div>
                   ) : null}
-                </li>
+                </article>
               </FadeUp>
+              </Stock>
             ))}
-          </ol>
-        </div>
-      </Stock>
+          </div>
 
       {/* ═══ WHAT GENERALISES ════════════════════════════════════════════════ */}
-      <section className="px-6 py-20 md:py-28">
+      <Stock paper="cherry" className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             <Rule label="What generalises" color={d.accent} />
@@ -228,7 +232,7 @@ export default function BuildDossierView({ dossier: d, meta, scars, neighbours }
             ))}
           </div>
         </div>
-      </section>
+      </Stock>
 
       {/* ═══ SCARS ═══════════════════════════════════════════════════════════ */}
       {scars.length ? (

@@ -43,7 +43,7 @@ export function Journeys() {
   const leadApp = APP_BY_KEY[lead.app];
 
   return (
-    <Stock paper="parchment" className="px-6 py-24 md:py-32">
+    <Stock paper="navy" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <FadeUp>
@@ -84,13 +84,13 @@ export function Journeys() {
               </div>
               <div className="mt-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
                 <div>
-                  <p className="kicker" style={{ color: leadApp.accentInk }}>
+                  <p className="kicker" style={{ color: GOLD_INK }}>
                     The lead · {leadApp.name} · {lead.steps.length} screens
                   </p>
                   <h3 className="mt-3 font-display text-4xl italic leading-tight t-head md:text-5xl">{lead.title}</h3>
                   <p className="mt-3 max-w-lg text-[15px] font-light leading-relaxed t-ink">{lead.line}</p>
                 </div>
-                <span className="inline-flex items-center gap-2.5 self-start rounded-full px-6 py-3 font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#F5F0E8] transition-transform group-hover:-translate-y-0.5 md:self-end" style={{ background: '#0A1128' }}>
+                <span className="inline-flex items-center gap-2.5 self-start rounded-full px-6 py-3 font-mono text-[10.5px] uppercase tracking-[0.2em] transition-transform group-hover:-translate-y-0.5 md:self-end" style={{ background: 'rgb(var(--head-rgb))', color: 'var(--stock)' }}>
                   <Play className="h-3.5 w-3.5" style={{ color: GOLD }} /> Play the journey
                 </span>
               </div>
@@ -110,13 +110,13 @@ export function Journeys() {
                         <StudioPhone screen={first} width={74} accent={app.accent} />
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="kicker block" style={{ color: app.accentInk }}>
+                        <span className="kicker block" style={{ color: GOLD_INK }}>
                           {String(k + 2).padStart(2, '0')} · {app.name}
                         </span>
                         <span className="mt-2 block font-display text-2xl italic leading-snug t-head transition-transform duration-500 group-hover:translate-x-1">{j.title}</span>
                         <span className="mt-1.5 block text-[14px] font-light leading-relaxed t-soft">{j.line}</span>
                       </span>
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors group-hover:bg-[#0A1128] group-hover:text-[#F5F0E8]" style={{ borderColor: 'var(--rule)', color: ink(0.7) }}>
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors group-hover:bg-[rgb(var(--head-rgb))] group-hover:text-[var(--stock)]" style={{ borderColor: 'var(--rule)', color: ink(0.7) }}>
                         <Play className="h-3.5 w-3.5" />
                       </span>
                     </button>
@@ -276,7 +276,7 @@ export function AnatomyRoom() {
   };
 
   return (
-    <Stock paper="bone" className="px-6 py-24 md:py-32">
+    <Stock paper="cherry" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <FadeUp>
           <p className="kicker t-gold">Anatomy</p>
@@ -301,9 +301,9 @@ export function AnatomyRoom() {
                 type="button"
                 onClick={() => choose(k)}
                 className="rounded-full border px-4 py-2 text-left font-mono text-[10px] uppercase tracking-[0.16em] transition-colors"
-                style={{ background: on ? '#0A1128' : 'transparent', color: on ? '#F5F0E8' : ink(0.6), borderColor: on ? '#0A1128' : 'var(--rule)' }}
+                style={{ background: on ? 'rgb(var(--head-rgb))' : 'transparent', color: on ? 'var(--stock)' : ink(0.6), borderColor: on ? 'rgb(var(--head-rgb))' : 'var(--rule)' }}
               >
-                <span style={{ color: on ? ap.accent : ap.accentInk }}>{ap.name.split(' ')[0]}</span> · {x.title}
+                <span style={{ color: on ? 'inherit' : GOLD_INK }}>{ap.name.split(' ')[0]}</span> · {x.title}
               </button>
             );
           })}
@@ -354,7 +354,7 @@ export function AnatomyRoom() {
                     const on = k === pin;
                     return (
                       <div key={k} className="absolute" style={{ top: `${p.y}%`, left: `${p.x}%`, right: -REACH }}>
-                        <span className="absolute left-0 right-0 top-0 h-px transition-colors" style={{ background: on ? app.accentInk : 'rgba(10,17,40,0.22)' }} />
+                        <span className="absolute left-0 right-0 top-0 h-px transition-colors" style={{ background: on ? 'rgb(var(--head-rgb))' : ink(0.22) }} />
                         <button
                           type="button"
                           onClick={() => setPin(k)}
@@ -382,7 +382,7 @@ export function AnatomyRoom() {
               return (
                 <li key={k} className="border-b" style={{ borderColor: 'var(--rule)' }}>
                   <button type="button" onClick={() => setPin(k)} onMouseEnter={() => setPin(k)} onFocus={() => setPin(k)} aria-expanded={on} className="flex w-full gap-6 py-6 text-left">
-                    <span className="w-8 shrink-0 font-display text-4xl font-bold italic leading-none transition-colors" style={{ color: on ? app.accentInk : ink(0.22) }}>
+                    <span className="w-8 shrink-0 font-display text-4xl font-bold italic leading-none transition-colors" style={{ color: on ? GOLD_INK : ink(0.22) }}>
                       {k + 1}
                     </span>
                     <span className="min-w-0">

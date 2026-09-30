@@ -27,7 +27,7 @@
  */
 
 import { useState, useMemo } from 'react';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PhotoBleed } from '@/components/ui/Ground';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import { track } from '@/lib/analytics';
@@ -136,10 +136,10 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
       </section>
 
       {/* ═══ THE LEDGER ══════════════════════════════════════════════════════ */}
-      <Stock paper="bone" className="px-6 py-16 md:py-20">
-        <div className="mx-auto max-w-4xl">
-          {shown.map((m) => (
-            <section key={m.month} className="mb-14 md:mb-16">
+      {/* Each month on its own band: cherry, beige, navy in turn (the balance rule). */}
+          {shown.map((m, mi) => (
+            <Stock key={m.month} paper={rhythm(mi, 2)} className="px-6 py-14 md:py-16">
+            <section className="mx-auto max-w-4xl">
               <FadeUp>
                 <div className="sticky top-20 z-10 -mx-2 flex items-baseline gap-4 px-2 py-3 backdrop-blur-sm" style={{ background: 'color-mix(in srgb, var(--stock) 88%, transparent)' }}>
                   <h2 className="font-display text-2xl font-bold italic t-head md:text-3xl">{m.month}</h2>
@@ -177,9 +177,10 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
                       </h3>
 
                       <span
-                        className="justify-self-start font-mono text-[9.5px] uppercase tracking-[0.16em] md:justify-self-end"
-                        style={{ color: accentFor(n.app), opacity: 0.75 }}
+                        className="inline-flex items-center gap-1.5 justify-self-start font-mono text-[9.5px] uppercase tracking-[0.16em] md:justify-self-end"
+                        style={{ color: GOLD_INK }}
                       >
+                        <span aria-hidden className="h-1.5 w-1.5 rounded-full" style={{ background: accentFor(n.app) }} />
                         {n.app}
                       </span>
                     </li>
@@ -187,15 +188,14 @@ export default function LongNight({ months, apps, figures, span, undated }: Long
                 ))}
               </ol>
             </section>
+            </Stock>
           ))}
 
           {shown.length === 0 ? (
-            <p className="py-16 text-center font-display text-xl italic" style={{ color: ink(0.5) }}>
+            <p className="px-6 py-16 text-center font-display text-xl italic" style={{ color: ink(0.5) }}>
               No nights under that build.
             </p>
           ) : null}
-        </div>
-      </Stock>
 
       {/* ═══ WHAT IS NOT HERE ════════════════════════════════════════════════ */}
       <section className="px-6 py-20 md:py-24">

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PhotoBleed } from '@/components/ui/Ground';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Github } from 'lucide-react';
@@ -39,7 +39,7 @@ function Project({ p }: { p: OriginProject }) {
 
   return (
     <FadeUp className="relative">
-      <article className="relative mx-auto max-w-5xl border-t pt-12 md:pt-16" style={{ borderColor: 'rgba(201,148,58,0.22)' }}>
+      <article className="relative mx-auto max-w-5xl">
         {/* number + layer rail */}
         <div className={`mb-7 flex items-baseline gap-5 ${flip ? 'md:flex-row-reverse md:text-right' : ''}`}>
           <span
@@ -237,15 +237,14 @@ export default function OriginsFeature() {
       </Stock>
 
       {/* ═══ THE NINE ════════════════════════════════════════════════════════ */}
-      <section className="relative px-6 py-24 md:py-32">
-        <div className="space-y-20 md:space-y-28">
-          {ORIGINS.map((p) => (
-            <Project key={p.slug} p={p} />
-          ))}
-        </div>
-      </section>
+      {/* Each project on its own band, cherry / beige / navy in turn (the balance rule). */}
+      {ORIGINS.map((p, i) => (
+        <Stock key={p.slug} paper={rhythm(i, 2)} className="px-6 py-20 md:py-24">
+          <Project p={p} />
+        </Stock>
+      ))}
 
-      {/* ═══ THE THROUGHLINE: the one cherry block on the page ═══════════════ */}
+      {/* ═══ THE THROUGHLINE ════════════════════════════════════════════════ */}
       <Stock paper="cherry" className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-4xl">
           <FadeUp>

@@ -16,7 +16,7 @@
  */
 
 import Link from 'next/link';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PhotoBleed } from '@/components/ui/Ground';
 import { ArrowUpRight, Lock, GitBranch } from 'lucide-react';
 import { PAGE_BACKDROPS } from '@/lib/house-assets';
@@ -104,7 +104,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
       <Figures items={figures} />
 
       {/* ═══ THE YEAR ════════════════════════════════════════════════════════ */}
-      <section className="px-6 py-20 md:py-24">
+      <Stock paper="cherry" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <Rule label="Measured, not stated" />
@@ -156,10 +156,10 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
             </FadeUp>
           </div>
         </div>
-      </section>
+      </Stock>
 
       {/* ═══ THE BUILDS ══════════════════════════════════════════════════════ */}
-      <Stock paper="bone" className="px-6 py-20 md:py-28">
+      <Stock paper="parchment" className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-5xl">
           <FadeUp>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
@@ -178,7 +178,9 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
                   className="group block"
                   onClick={() => track('forge_build_open', { build: c.slug, position: i + 1 })}
                 >
-                  <article className="relative p-7 transition-colors group-hover:bg-[var(--stock)] md:p-9" style={{ background: CARD }}>
+                  {/* Each card on its own paper, navy / cherry / beige in turn: a
+                      patchwork that keeps the house balance (Stock.tsx). */}
+                  <article className={`stock-${rhythm(i, 1)} relative p-7 transition-colors group-hover:bg-[var(--stock)] md:p-9`} style={{ background: CARD }}>
                     {/* the build's own colour, as a spine down the left edge */}
                     <span aria-hidden className="absolute inset-y-0 left-0 w-[3px]" style={{ background: c.accent }} />
 
@@ -188,7 +190,7 @@ export default function WorkshopFloor({ cards, figures, languages, activity, gen
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                           <h3 className="font-display text-2xl font-bold italic t-head md:text-3xl">{c.name}</h3>
-                          <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: c.accent }}>
+                          <span className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: GOLD_INK }}>
                             {c.kicker}
                           </span>
                         </div>

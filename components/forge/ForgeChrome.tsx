@@ -16,6 +16,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, ArrowLeft } from 'lucide-react';
 import { track } from '@/lib/analytics';
+import Stock, { type Paper } from '@/components/ui/Stock';
 
 export const GOLD = '#C9943A';
 export const NAVY = '#0A1128';
@@ -221,9 +222,16 @@ export function BrandMark({
  * dead end — the House of Roses rule that a poem ends on a doorway word, kept
  * on this side of the house too.
  */
-export function Doors({ doors }: { doors: { href: string; label: string; line: string }[] }) {
+export function Doors({
+  doors,
+  paper = 'navy',
+}: {
+  doors: { href: string; label: string; line: string }[];
+  /** The doors close every room on their own band (the balance rule, Stock.tsx). */
+  paper?: Paper;
+}) {
   return (
-    <section className="px-6 pb-28 pt-4">
+    <Stock paper={paper} className="px-6 pb-28 pt-16">
       <div className="mx-auto max-w-5xl">
         <FadeUp>
           <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: GOLD_INK }}>
@@ -258,7 +266,7 @@ export function Doors({ doors }: { doors: { href: string; label: string; line: s
           ))}
         </div>
       </div>
-    </section>
+    </Stock>
   );
 }
 
@@ -291,7 +299,9 @@ export function Rule({ label, color = GOLD }: { label?: string; color?: string }
     <div className="flex items-center gap-4">
       <span className="h-px w-10 shrink-0" style={{ background: color }} />
       {label ? (
-        <span className="font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color }}>
+        // The label reads the paper's gold; the accent stays on the lines, so a
+        // build's own colour can never vanish into a cherry or navy band.
+        <span className="font-mono text-[10.5px] uppercase tracking-[0.3em]" style={{ color: GOLD_INK }}>
           {label}
         </span>
       ) : null}

@@ -37,7 +37,7 @@ import { STUDIO_APPS, SCREENS, APP_BY_KEY, chaptersOf, type AppKey, type Screen,
 import StudioPhone, { screenSrc } from './StudioPhone';
 import { Journeys, AnatomyRoom } from './StudioDeep';
 import { FadeUp, GOLD, GOLD_INK, EASE, Doors, ink } from './ForgeChrome';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 
 const FLY = { duration: 0.62, ease: EASE };
 
@@ -476,12 +476,13 @@ export default function AppStudio({ figures }: { figures: { value: string; label
             </div>
 
             {mode === 'screening' ? (
-              <div className="mt-16 space-y-20">
+              <div className="mt-16">
+                {/* Each chapter on its own band, navy / cherry / beige in turn (the balance rule). */}
                 {chapters.map((c, ci) => {
                   const cs = screens.filter((s) => s.chapter === c);
                   return (
-                    <div key={`${appKey}-${c}`}>
-                      <div className="mx-auto mb-7 flex max-w-6xl items-end gap-5 border-t px-6 pt-6" style={{ borderColor: 'var(--rule)' }}>
+                    <Stock as="div" key={`${appKey}-${c}`} paper={rhythm(ci, 1)} className="py-14 md:py-16" style={rhythm(ci, 1) === 'parchment' ? paperVars(app) : { ['--numeral' as string]: 'var(--gold-ink)' }}>
+                      <div className="mx-auto mb-7 flex max-w-6xl items-end gap-5 px-6">
                         <span className="numeral-outline font-display text-6xl font-bold italic leading-[0.8] md:text-7xl">{String(ci + 1).padStart(2, '0')}</span>
                         <div className="pb-1">
                           <h3 className="font-display text-3xl italic leading-none t-head md:text-4xl">{c}</h3>
@@ -491,7 +492,7 @@ export default function AppStudio({ figures }: { figures: { value: string; label
                         </div>
                       </div>
                       <Filmstrip screens={cs} app={app} hiddenId={open ? open.opener : null} onOpen={openScreen} />
-                    </div>
+                    </Stock>
                   );
                 })}
               </div>
@@ -537,15 +538,13 @@ export default function AppStudio({ figures }: { figures: { value: string; label
           </AnimatePresence>
         </LayoutGroup>
 
-        <Stock paper="bone" className="pt-16">
-          <Doors
-            doors={[
-              { href: '/forge/floor', label: 'The Workshop Floor', line: 'The dossier behind each of these builds.' },
-              { href: '/forge/scars', label: 'The Scar Room', line: 'What broke while they were being made.' },
-              { href: '/forge', label: 'The Forge', line: 'Back to the threshold.' },
-            ]}
-          />
-        </Stock>
+        <Doors
+          doors={[
+            { href: '/forge/floor', label: 'The Workshop Floor', line: 'The dossier behind each of these builds.' },
+            { href: '/forge/scars', label: 'The Scar Room', line: 'What broke while they were being made.' },
+            { href: '/forge', label: 'The Forge', line: 'Back to the threshold.' },
+          ]}
+        />
       </main>
     </MotionConfig>
   );

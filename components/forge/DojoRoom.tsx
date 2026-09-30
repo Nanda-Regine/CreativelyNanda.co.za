@@ -28,7 +28,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import { PhotoBleed } from '@/components/ui/Ground';
 import Link from 'next/link';
 import { ArrowUpRight, Eye, RotateCcw, Check, X } from 'lucide-react';
@@ -37,9 +37,10 @@ import { PAGE_BACKDROPS } from '@/lib/house-assets';
 import type { Drill } from '@/lib/data/forge-drills';
 import { FadeUp, Figures, RoomHeader, Doors, GOLD, NAVY, ink, GOLD_INK } from './ForgeChrome';
 
-// Printed on paper now, so the verdict colours are the deep ones.
-const RIGHT = '#2E7D4F';
-const WRONG = '#A3284F';
+// The verdict colours follow the paper (app/stock.css): deep on beige, light on
+// navy and cherry, because the drills now rotate through all three.
+const RIGHT = 'var(--right-ink)';
+const WRONG = 'var(--wrong-ink)';
 const STORE = 'forge-dojo-v1';
 const LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
@@ -164,7 +165,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                   className="flex h-6 w-6 items-center justify-center rounded-full border font-mono text-[9px] transition-transform hover:scale-110"
                   style={{
                     borderColor: a ? (ok ? RIGHT : WRONG) : ink(0.22),
-                    background: a ? (ok ? 'rgba(143,199,154,0.18)' : 'rgba(217,140,159,0.16)') : 'transparent',
+                    background: a ? `color-mix(in srgb, ${ok ? RIGHT : WRONG} 16%, transparent)` : 'transparent',
                     color: a ? (ok ? RIGHT : WRONG) : ink(0.5),
                   }}
                 >
@@ -186,15 +187,15 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
       </div>
 
       {/* ═══ THE DRILLS ══════════════════════════════════════════════════════ */}
-      <Stock paper="bone" className="px-6 py-16 md:py-24">
-        <div className="mx-auto max-w-3xl space-y-20 md:space-y-28">
+      {/* Each drill on its own band, beige / navy / cherry in turn (the balance rule). */}
           {items.map((it, i) => {
             const d = it.drill;
             const a = answers[d.scar];
             const hint = hints[d.scar] || a?.hinted;
             const ok = a && d.options[a.choice]?.correct;
             return (
-              <article key={d.scar} id={d.scar} className="scroll-mt-40">
+              <Stock key={d.scar} paper={rhythm(i)} className="px-6 py-16 md:py-24">
+              <article id={d.scar} className="mx-auto max-w-3xl scroll-mt-40">
                 <span id={`drill-${i + 1}`} className="block scroll-mt-40" aria-hidden />
                 <FadeUp>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -257,7 +258,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                               className="group flex w-full items-start gap-4 rounded-xl border p-4 text-left transition-colors enabled:hover:bg-black/[0.03] md:p-5"
                               style={{
                                 borderColor: tone ?? ink(a ? 0.08 : 0.16),
-                                background: tone ? `${tone}12` : 'var(--card)',
+                                background: tone ? `color-mix(in srgb, ${tone} 8%, var(--card))` : 'var(--card)',
                                 opacity: a && !tone ? 0.62 : 1,
                               }}
                             >
@@ -306,13 +307,12 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
                   </div>
                 ) : null}
               </article>
+              </Stock>
             );
           })}
-        </div>
-      </Stock>
 
       {/* ═══ THE RESULT ══════════════════════════════════════════════════════ */}
-      <section className="px-6 py-20 md:py-24">
+      <Stock paper="cherry" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-3xl">
           <FadeUp>
             {done ? (
@@ -345,7 +345,7 @@ export default function DojoRoom({ items, figures }: { items: DojoItem[]; figure
             )}
           </FadeUp>
         </div>
-      </section>
+      </Stock>
 
       <Doors
         doors={[
