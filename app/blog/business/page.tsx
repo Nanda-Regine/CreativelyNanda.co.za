@@ -97,26 +97,26 @@ export default function BusinessBlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-parchment via-cream to-beige">
-      <section className="relative py-24 px-4 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-400/20 rounded-full blur-2xl" />
+      <section className="relative py-24 px-4 bg-[#0A1128] overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#C1292E]/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#C9943A]/15 rounded-full blur-2xl" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-emerald-200 hover:text-white mb-8 transition-colors">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-[#F5F0E8]/70 hover:text-white mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4" />
             All Articles
           </Link>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-6 shadow-lg">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#7A1236] text-[#FAEEF0] rounded-full text-sm font-medium mb-6 shadow-lg">
               <TrendingUp className="w-4 h-4" />
               Business
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-6">
               Business{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-200">Insights</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9943A] to-[#F2C77A]">Insights</span>
             </h1>
-            <p className="text-lg md:text-xl text-emerald-100 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-[#F5F0E8]/75 max-w-2xl mx-auto leading-relaxed">
               Entrepreneurship, freelancing, and lessons from building a sustainable creative business in South Africa.
             </p>
 
@@ -127,7 +127,7 @@ export default function BusinessBlogPage() {
                 placeholder="Search business articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-cream rounded-full text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 shadow-lg"
+                className="w-full pl-12 pr-4 py-4 bg-cream rounded-full text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-[#C9943A]/50 shadow-lg"
               />
             </div>
           </motion.div>
@@ -145,15 +145,15 @@ export default function BusinessBlogPage() {
           {/* The masthead above renders on the server; only the list waits for data. */}
           {loading ? (
             <div className="flex flex-col items-center gap-4 py-20">
-              <div className="w-12 h-12 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
+              <div className="w-12 h-12 border-4 border-[#7A1236]/20 border-t-[#7A1236] rounded-full animate-spin" />
               <p className="text-navy/60">Loading articles...</p>
             </div>
           ) : articles.length === 0 ? (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-20">
-              <TrendingUp className="w-16 h-16 text-emerald-300 mx-auto mb-4" />
+              <TrendingUp className="w-16 h-16 text-[#C9943A] mx-auto mb-4" />
               <h2 className="text-2xl font-display font-bold text-navy mb-2">Coming Soon</h2>
               <p className="text-navy/60 max-w-md mx-auto">Business articles are on their way. Check back soon.</p>
-              <Link href="/blog" className="inline-flex items-center gap-2 mt-6 text-emerald-600 hover:text-emerald-700 font-medium">
+              <Link href="/blog" className="inline-flex items-center gap-2 mt-6 text-[#B01A4F] hover:text-[#7A1236] font-medium">
                 <ArrowLeft className="w-4 h-4" />
                 Browse all articles
               </Link>
@@ -162,7 +162,7 @@ export default function BusinessBlogPage() {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
               <Search className="w-12 h-12 text-navy/20 mx-auto mb-4" />
               <p className="text-navy/60">No articles found matching &ldquo;{searchQuery}&rdquo;</p>
-              <button onClick={() => setSearchQuery('')} className="mt-4 text-emerald-600 hover:underline">Clear search</button>
+              <button onClick={() => setSearchQuery('')} className="mt-4 text-[#B01A4F] hover:underline">Clear search</button>
             </motion.div>
           ) : (
             <>
@@ -185,6 +185,14 @@ export default function BusinessBlogPage() {
             </>
           )}
         </div>
+      </section>
+
+      {/* The close, on cherry (the balance rule): where this writing now lives. */}
+      <section className="bg-[#7A1236] px-4 py-20 text-center">
+        <p className="font-display text-2xl italic text-[#FAEEF0] md:text-3xl">The business writing has moved to its own house.</p>
+        <a href="https://mirembemuse.co.za" className="mt-6 inline-block font-mono text-[11px] uppercase tracking-[0.3em] text-[#F2C77A] hover:opacity-70">
+          Read it at Mirembe Muse &rarr;
+        </a>
       </section>
     </div>
   );

@@ -358,7 +358,8 @@ export default function ProductDetailClient({
 
       {/* ── FEATURES ── */}
       {features.length > 0 && (
-        <section style={{ background: '#0A1128', padding: 'clamp(56px, 8vw, 96px) 24px', position: 'relative', overflow: 'hidden' }}>
+        {/* On cherry: the balance rule (navy, beige and cherry in equal measure). */}
+        <section style={{ background: '#7A1236', padding: 'clamp(56px, 8vw, 96px) 24px', position: 'relative', overflow: 'hidden' }}>
           <div style={{
             position: 'absolute', inset: 0,
             backgroundImage: GRAIN_SVG, backgroundSize: '300px 300px',
@@ -469,7 +470,7 @@ export default function ProductDetailClient({
 
       {/* ── RELATED ── */}
       {relatedProducts.length > 0 && (
-        <section style={{ background: '#F5EFE6', padding: 'clamp(56px, 8vw, 96px) 24px' }}>
+        <section style={{ background: '#0A1128', padding: 'clamp(56px, 8vw, 96px) 24px' }}>
           <div className="max-w-6xl mx-auto">
             <FadeUp>
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '40px' }}>
@@ -477,7 +478,7 @@ export default function ProductDetailClient({
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#C9943A', marginBottom: '8px' }}>
                     Also from the store
                   </p>
-                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 700, color: '#0A1128', margin: 0 }}>
+                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 700, color: '#F5F0E8', margin: 0 }}>
                     You might also like.
                   </h2>
                 </div>
@@ -485,7 +486,7 @@ export default function ProductDetailClient({
                   href="/products"
                   style={{
                     fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.18em',
-                    textTransform: 'uppercase', color: '#C1292E', textDecoration: 'none',
+                    textTransform: 'uppercase', color: '#D6A44A', textDecoration: 'none',
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                   }}
                 >

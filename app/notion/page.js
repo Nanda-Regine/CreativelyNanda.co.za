@@ -358,7 +358,8 @@ export default function Notion() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4]">
+    // ink-remap + section papers: navy, beige and cherry in equal measure.
+    <div className="ink-remap min-h-screen bg-gradient-to-br from-[#E8DCC4] via-[#F5EFE6] to-[#E8DCC4]">
       {/* Texture overlay */}
       <div 
         className="fixed inset-0 pointer-events-none opacity-[0.15]"
@@ -372,7 +373,7 @@ export default function Notion() {
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#B8860B]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       {/* ===== HERO SECTION ===== */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 overflow-hidden">
+      <section className="stock-navy relative -mt-20 pt-52 pb-16 md:pt-60 md:pb-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Editorial header */}
           <motion.div 
@@ -448,7 +449,7 @@ export default function Notion() {
       </section>
 
       {/* ===== QUOTE SECTION ===== */}
-      <section className="relative py-12 md:py-16 px-6">
+      <section className="stock-parchment relative py-12 md:py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -491,7 +492,7 @@ export default function Notion() {
       </section>
 
       {/* ===== THE CAUSE, IMPACT, SOLUTION ===== */}
-      <section className="relative py-16 md:py-24 px-6">
+      <section className="stock-cherry relative py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <motion.div 
@@ -613,7 +614,7 @@ export default function Notion() {
       </section>
 
       {/* ===== TEMPLATE CATEGORIES ===== */}
-      <section className="relative py-16 md:py-24 px-6">
+      <section className="stock-parchment relative py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <motion.div 
@@ -644,7 +645,7 @@ export default function Notion() {
       </section>
 
       {/* ===== COMING SOON: SAAS ===== */}
-      <section className="relative py-16 md:py-24 px-6">
+      <section className="stock-navy relative py-16 md:py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -734,7 +735,7 @@ export default function Notion() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="relative py-16 md:py-24 px-6">
+      <section className="stock-cherry relative py-16 md:py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

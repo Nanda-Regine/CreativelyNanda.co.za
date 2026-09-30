@@ -228,6 +228,35 @@
 .paper-remap .bg-\[\#C21E56\].text-white,
 .paper-remap .bg-cherry.text-white { color: #fff; }
 
+/* The mirror image: `ink-remap`, for pages written for a light page (text-navy,
+   text-[#0A1128]…) that now take navy and cherry bands under the balance rule.
+   Inside a .stock-parchment or .stock-bone band they resolve dark as before. */
+.ink-remap .text-navy,
+.ink-remap .text-\[\#0A1128\] { color: rgb(var(--head-rgb)); }
+.ink-remap .text-navy\/20 { color: rgb(var(--ink-rgb) / 0.2); }
+.ink-remap .text-navy\/40 { color: rgb(var(--ink-rgb) / 0.4); }
+.ink-remap .text-navy\/50,
+.ink-remap .text-\[\#0A1128\]\/50 { color: rgb(var(--ink-rgb) / 0.5); }
+.ink-remap .text-navy\/60,
+.ink-remap .text-\[\#0A1128\]\/60 { color: rgb(var(--ink-rgb) / 0.6); }
+.ink-remap .text-\[\#0A1128\]\/70 { color: rgb(var(--ink-rgb) / 0.7); }
+.ink-remap .text-navy\/80 { color: rgb(var(--ink-rgb) / 0.8); }
+.ink-remap .border-navy\/10,
+.ink-remap .border-navy\/15 { border-color: var(--rule); }
+.ink-remap .bg-navy\/5 { background-color: rgb(var(--ink-rgb) / 0.05); }
+.ink-remap .text-\[\#C1292E\] { color: var(--cherry-ink); }
+.ink-remap .text-\[\#B8860B\] { color: var(--gold-ink); }
+/* A light card inside a dark band is its own small page: dark inks again. */
+.ink-remap .bg-white,
+.ink-remap .bg-white\/80,
+.ink-remap .bg-cream {
+  --ink-rgb: 26 26 46;
+  --head-rgb: 10 17 40;
+  --gold-ink: #8f6418;
+  --cherry-ink: #b01a4f;
+  --rule: rgb(10 17 40 / 0.12);
+}
+
 /* Text laid directly over a photograph: light ink, no background. Use where
    .stock-navy would paint a solid navy slab over the image (hover captions,
    lightboxes, overlays). Pair with an explicit text class, because colour

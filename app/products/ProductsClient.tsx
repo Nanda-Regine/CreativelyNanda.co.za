@@ -171,7 +171,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
 
       {/* Products — parchment texture */}
       <section
-        className="py-16 px-6"
+        className="overflow-hidden py-16 px-6"
         style={{
           backgroundColor: '#faf7f2',
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`,
@@ -213,7 +213,13 @@ export default function ProductsClient({ products }: ProductsClientProps) {
                 <CategorySection category="Creative" products={creativeProducts} />
               )}
               {studentProducts.length > 0 && (
-                <CategorySection category="Student" products={studentProducts} />
+                // A full-bleed cherry band behind the student shelf (the balance rule).
+                <div className="relative py-14">
+                  <div aria-hidden className="absolute inset-y-0 -left-[100vw] -right-[100vw] bg-[#7A1236]" />
+                  <div className="relative">
+                    <CategorySection category="Student" products={studentProducts} dark />
+                  </div>
+                </div>
               )}
               {businessProducts.length > 0 && (
                 <CategorySection category="Business" products={businessProducts} />
@@ -224,7 +230,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
       </section>
 
       {/* Bottom CTA */}
-      <TexturedSection texture={TEXTURES.marble} tone="navy" className="py-16 px-6 text-center">
+      <TexturedSection texture={TEXTURES.marble} tone="wine" className="py-16 px-6 text-center">
         <div className="max-w-2xl mx-auto">
           <p className="text-beige/50 text-sm tracking-widest uppercase mb-3">Nanda Marketplace</p>
           <h2 className="text-3xl font-display font-bold text-beige mb-4">
@@ -242,7 +248,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
   );
 }
 
-function CategorySection({ category, products }: { category: string; products: ProductCoverData[] }) {
+function CategorySection({ category, products, dark = false }: { category: string; products: ProductCoverData[]; dark?: boolean }) {
   const theme = getShopTheme(category);
   const icons: Record<string, React.ComponentType<{ className?: string }>> = {
     Student: GraduationCap,
@@ -259,10 +265,10 @@ function CategorySection({ category, products }: { category: string; products: P
           <Icon className="w-4.5 h-4.5 text-white" />
         </div>
         <div>
-          <h2 className="text-xl font-display font-bold text-navy">{theme.name}</h2>
-          <p className="text-xs text-navy/50">{theme.description}</p>
+          <h2 className={`text-xl font-display font-bold ${dark ? 'text-[#FAEEF0]' : 'text-navy'}`}>{theme.name}</h2>
+          <p className={`text-xs ${dark ? 'text-[#FAEEF0]/70' : 'text-navy/50'}`}>{theme.description}</p>
         </div>
-        <span className="ml-auto text-xs text-navy/35">{products.length} template{products.length !== 1 ? 's' : ''}</span>
+        <span className={`ml-auto text-xs ${dark ? 'text-[#FAEEF0]/60' : 'text-navy/35'}`}>{products.length} template{products.length !== 1 ? 's' : ''}</span>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

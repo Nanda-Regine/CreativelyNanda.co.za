@@ -33,21 +33,23 @@ export default function PoemWall() {
   const poem = active !== null ? POEM_WALL[active] : null;
 
   return (
-    <main className="relative min-h-screen" style={{ background: 'radial-gradient(120% 80% at 50% -10%, #EAE0CC 0%, #E4D8BE 45%, #D8CBAC 100%)' }}>
+    // The balance rule: the pinned pages are the beige, laid on a navy gallery
+    // wall, with the room's name and its close on cherry.
+    <main className="relative min-h-screen" style={{ background: 'radial-gradient(120% 80% at 50% 0%, #16204a 0%, #0A1128 55%, #070d20 100%)' }}>
       {/* plaster grain */}
       <div className="fixed inset-0 z-0 pointer-events-none" style={{ backgroundImage: GRAIN, opacity: 0.16, mixBlendMode: 'multiply' }} />
 
       {/* ── header ─────────────────────────────────────────────── */}
-      <header className="relative z-10 px-6 pt-28 pb-10 text-center">
-        <p className="font-mono uppercase mb-4" style={{ color: CHERRY, fontSize: '11px', letterSpacing: '0.34em' }}>
+      <header className="relative z-10 -mt-20 mb-14 px-6 pt-48 pb-14 text-center" style={{ background: '#7A1236' }}>
+        <p className="font-mono uppercase mb-4" style={{ color: '#F2C77A', fontSize: '11px', letterSpacing: '0.34em' }}>
           The House of Roses · A Room
         </p>
-        <h1 className="font-display font-bold italic" style={{ color: NAVY, fontSize: 'clamp(2.8rem, 8vw, 5.5rem)', lineHeight: 0.95 }}>
+        <h1 className="font-display font-bold italic" style={{ color: '#FFFAF5', fontSize: 'clamp(2.8rem, 8vw, 5.5rem)', lineHeight: 0.95 }}>
           The Wall
         </h1>
-        <p className="mx-auto mt-6 max-w-xl font-light" style={{ color: 'rgba(10,15,44,0.7)', fontSize: '1.1rem', lineHeight: 1.7 }}>
+        <p className="mx-auto mt-6 max-w-xl font-light" style={{ color: 'rgba(250,238,240,0.8)', fontSize: '1.1rem', lineHeight: 1.7 }}>
           Every poem the way it first lived, pinned to the wall, told
-          <span style={{ color: CHERRY }}> page by page</span>. Tap a card to turn through it.
+          <span style={{ color: '#F2C77A' }}> page by page</span>. Tap a card to turn through it.
         </p>
         <div className="mx-auto mt-8 h-px w-24" style={{ background: `${GOLD}` }} />
       </header>
@@ -59,6 +61,13 @@ export default function PoemWall() {
             <PinnedCard key={p.id} poem={p} index={i} onOpen={() => setActive(i)} />
           ))}
         </div>
+      </section>
+
+      <section className="relative z-10 px-6 py-16 text-center" style={{ background: '#7A1236' }}>
+        <p className="font-display text-2xl italic" style={{ color: '#FAEEF0' }}>Every poem here is also in the collection, to read in full.</p>
+        <Link href="/poetry/collection" className="mt-5 inline-block font-mono text-[11px] uppercase tracking-[0.3em] hover:opacity-70" style={{ color: '#F2C77A' }}>
+          The collection &rarr;
+        </Link>
       </section>
 
       {/* ── the reader ─────────────────────────────────────────── */}
