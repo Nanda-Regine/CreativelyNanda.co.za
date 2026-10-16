@@ -36,7 +36,11 @@ Thumbs.db
 tsconfig.tsbuildinfo
 
 # Claude Code config
-.claude/
+.claude/*
+# Exception: dev team kit is version-controlled (local settings stay ignored)
+!.claude/agents/
+!.claude/commands/
+!.claude/settings.json
 .clauderc
 CLAUDE.md
 CLAUDERC_MASTER_BUILD_DOCUMENT.md
