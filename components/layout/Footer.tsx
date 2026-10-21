@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Linkedin, Github, Twitter, Instagram, Mail } from 'lucide-react';
 import { PWAInstallButton } from '@/components/ui';
+import OptInForm from '@/components/ui/OptInForm';
 
 const SOCIALS = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/', icon: Linkedin },
@@ -83,6 +84,10 @@ export default function Footer() {
               <PWAInstallButton variant="footer" />
             </div>
           </div>
+        </div>
+
+        <div className="mb-12 border-t border-beige/10 pt-10">
+          <OptInForm source="cn_footer" compact />
         </div>
 
         {/* POPIA Badge */}

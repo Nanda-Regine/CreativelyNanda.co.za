@@ -17,6 +17,7 @@ import { CldImage } from 'next-cloudinary';
 import AmbientVideo from '@/components/media/AmbientVideo';
 import CoverHero from '@/components/home/CoverHero';
 import Stock from '@/components/ui/Stock';
+import OptInForm from '@/components/ui/OptInForm';
 import { cldVideo, cldVideoPoster } from '@/lib/cloudinary';
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -323,6 +324,11 @@ export default function Home() {
             </div>
           </FadeUp>
         </div>
+      </Stock>
+
+      {/* IX. BUILDER NOTES: newsletter opt-in */}
+      <Stock paper="bone" className="px-6 py-16 md:py-24">
+        <OptInForm source="cn_home" />
       </Stock>
     </main>
   );
