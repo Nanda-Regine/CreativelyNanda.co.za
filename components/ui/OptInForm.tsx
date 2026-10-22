@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import Link from 'next/link';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
@@ -123,7 +124,8 @@ export default function OptInForm({
             {sending ? 'Sending...' : 'Subscribe'}
           </button>
           <p className="text-xs opacity-75">
-            By subscribing you agree to receive emails from Nanda / CreativelyNanda. Unsubscribe any time.
+            By subscribing you agree to receive emails from Nanda / CreativelyNanda. Unsubscribe any time. See our{' '}
+            <Link href="/legal/privacy" className="underline">privacy policy</Link>.
           </p>
         </form>
       )}
