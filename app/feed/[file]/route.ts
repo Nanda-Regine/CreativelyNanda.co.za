@@ -10,7 +10,8 @@ export function generateStaticParams() {
   return (Object.keys(IMPRINTS) as Imprint[]).flatMap((imprint) => FORMATS.map((ext) => ({ file: `${imprint}.${ext}` })));
 }
 
-export async function GET(_req: Request, { params }: { params: { file: string } }) {
+export async function GET(_req: Request, { params: paramsPromise }: { params: Promise<{ file: string }> }) {
+  const params = await paramsPromise;
   const [imprint, ext] = params.file.split('.') as [Imprint, (typeof FORMATS)[number]];
   if (!(imprint in IMPRINTS) || !FORMATS.includes(ext)) return new Response('Not found', { status: 404 });
   const posts = await getFeedPosts(imprint);

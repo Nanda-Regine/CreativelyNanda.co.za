@@ -16,8 +16,9 @@ function getSupabase() {
 
 export async function POST(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   if (!isSupabaseConfigured()) {
     return NextResponse.json({ success: false, viewCount: 0, sessionId: '' });
   }

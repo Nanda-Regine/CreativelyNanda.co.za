@@ -1476,9 +1476,10 @@ The core insight: every manual process in a service business is a product specif
 // ============================================================
 
 export async function generateMetadata(
-  { params }: { params: { slug: string } },
+  { params: paramsPromise }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
+  const params = await paramsPromise;
   const project = projects[params.slug];
   if (!project) return { title: 'Project Not Found' };
 
@@ -1517,7 +1518,8 @@ const statusColors: Record<string, string> = {
   Upgrading: 'bg-blue-500/20 text-blue-300 border border-blue-500/30',
 };
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = await paramsPromise;
   const project = projects[params.slug];
   if (!project) notFound();
 

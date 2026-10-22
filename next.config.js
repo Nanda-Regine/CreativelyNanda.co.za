@@ -59,13 +59,10 @@ const nextConfig = {
     domains: ['localhost', 'creativelynanda.co.za', 'bemgnttmaqpmsaosdisc.supabase.co'],
     formats: ['image/avif', 'image/webp'],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Only remove console.log in production — keep console.error/warn for Vercel logs
+  // Only remove console.log in production — keep console.error/warn for Workers logs
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production'
       ? { exclude: ['error', 'warn'] }

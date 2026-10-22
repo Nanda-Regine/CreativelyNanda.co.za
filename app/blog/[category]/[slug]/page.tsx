@@ -38,12 +38,14 @@ const fmt = (d: string) =>
   new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 export default async function PressArticlePage({
-  params,
-  searchParams,
+  params: paramsPromise,
+  searchParams: searchParamsPromise,
 }: {
-  params: { category: string; slug: string };
-  searchParams: { preview?: string };
+  params: Promise<{ category: string; slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
 }) {
+  const params = await paramsPromise;
+  const searchParams = await searchParamsPromise;
   const post = await getPressPost(params.slug, searchParams.preview === '1');
   if (!post) notFound();
   if (post.category !== params.category) permanentRedirect(`/blog/${post.category}/${post.slug}`);

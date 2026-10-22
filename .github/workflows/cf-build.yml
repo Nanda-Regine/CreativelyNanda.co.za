@@ -1,0 +1,62 @@
+# Cloudflare Workers build + staging deploy. Builds with OpenNext in GitHub (never on the laptop).
+# Deploys to workers.dev ONLY (wrangler.jsonc has no routes / custom domain until cutover).
+# Deploy runs only when CLOUDFLARE_API_TOKEN (the scoped Workers token) is set.
+name: cf-build
+on:
+  push:
+    branches: [feat/cloudflare-workers]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      # NEXT_PUBLIC_* are inlined at build time (public values, stored as GH secrets)
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME }}
+      NEXT_PUBLIC_PAYFAST_SANDBOX: ${{ secrets.NEXT_PUBLIC_PAYFAST_SANDBOX }}
+      NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
+      NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
+      NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+      NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+      NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
+      NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+      NEXT_PUBLIC_FIREBASE_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_VAPID_KEY }}
+      NEXT_PUBLIC_APP_VERSION: ${{ github.sha }}
+      HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      # Mirror .vercelignore: videos are served from Cloudinary, the poem archive too.
+      # Keeps the static assets well under the Workers per-file and total limits.
+      - name: Drop assets that Vercel also excluded
+        run: |
+          find public -type f -name '*.mp4' -delete
+          rm -rf public/assets/poem-instagram
+      - run: npx opennextjs-cloudflare build
+      - name: Worker size (dry run, gzip gate 9 MiB)
+        run: |
+          set -euo pipefail
+          rm -rf .wrangler-dryrun
+          npx wrangler deploy --dry-run --outdir .wrangler-dryrun
+          total=0
+          while IFS= read -r -d '' f; do
+            size=$(gzip -9 -c "$f" | wc -c); total=$((total + size))
+          done < <(find .wrangler-dryrun -type f ! -name '*.map' ! -name 'README.md' ! -name 'wrangler.json' -print0)
+          echo "Gzipped Worker size: ${total} bytes ($((total / 1024)) KiB)"
+          echo "### Worker bundle size: gzip **$((total / 1024)) KiB** (limit 10240 KiB)" >> "$GITHUB_STEP_SUMMARY"
+          [ "$total" -le 9437184 ] || { echo "::error::Worker over 9 MiB gzipped"; exit 1; }
+          echo "Static assets: $(find .open-next/assets -type f | wc -l) files, $(du -sm .open-next/assets | cut -f1) MiB"
+      - name: Deploy to workers.dev (staging)
+        if: ${{ env.HAS_TOKEN == 'true' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx opennextjs-cloudflare deploy

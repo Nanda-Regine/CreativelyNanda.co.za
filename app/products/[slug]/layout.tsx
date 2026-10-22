@@ -42,10 +42,11 @@ async function getProductReviews(slug: string) {
 }
 
 export async function generateMetadata({
-  params,
+  params: paramsPromise,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const params = await paramsPromise;
   const productData = await getProductBySlug(params.slug);
 
   if (!productData) {
@@ -80,11 +81,12 @@ export async function generateMetadata({
 
 export default async function ProductDetailLayout({
   children,
-  params,
+  params: paramsPromise,
 }: {
   children: React.ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await paramsPromise;
   const productData = await getProductBySlug(params.slug);
 
   if (!productData) return <>{children}</>;

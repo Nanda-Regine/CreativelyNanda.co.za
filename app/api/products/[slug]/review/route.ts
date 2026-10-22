@@ -24,8 +24,9 @@ async function resolveProduct(supabase: ReturnType<typeof createServerClient>, s
 
 export async function POST(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   if (!isSupabaseConfigured()) {
     return NextResponse.json({ error: 'Database not configured' }, { status: 503 });
   }
@@ -95,8 +96,9 @@ export async function POST(
 // Get approved reviews for a product
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   if (!isSupabaseConfigured()) {
     return NextResponse.json([]);
   }
