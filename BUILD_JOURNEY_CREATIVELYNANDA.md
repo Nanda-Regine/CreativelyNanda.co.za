@@ -1310,3 +1310,10 @@ half and half).
   gate is now: commit only if `tsc` reports exactly the 15 known errors.
 - **Name the tone for what it paints.** "wine" that renders navy is how a page
   of cherry intentions measures 0% cherry.
+
+---
+
+## Oct 23 2026: Cloudflare Workers staging (branch `feat/cloudflare-workers`)
+- Plan: Next 16 + OpenNext, staging on workers.dev, no cutover. Done: CI green, staging https://creativelynanda-staging.mirembemuse.workers.dev, 36 Worker secrets copied from Vercel production, 17 NEXT_PUBLIC_* as GitHub build secrets.
+- Parity curl vs Vercel: home, about, blog, poetry, products, contact, legal, feed, llms, manifest, redirects, 404, admin gate, 14 API routes all match status + title. Worker 5.25 MiB gzip.
+- Cutover runbook: `docs/migration/cutover-runbook.md`. Next: owner OK for cutover.

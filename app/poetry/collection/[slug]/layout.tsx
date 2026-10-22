@@ -8,10 +8,11 @@ import {
 import { getPoemBySlug } from '@/lib/poems-data';
 
 export async function generateMetadata({
-  params,
+  params: paramsPromise,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const params = await paramsPromise;
   const poem = getPoemBySlug(params.slug);
 
   if (!poem) {
@@ -31,13 +32,14 @@ export async function generateMetadata({
   });
 }
 
-export default function PoemDetailLayout({
+export default async function PoemDetailLayout({
   children,
-  params,
+  params: paramsPromise,
 }: {
   children: React.ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await paramsPromise;
   const poem = getPoemBySlug(params.slug);
 
   if (!poem) return <>{children}</>;

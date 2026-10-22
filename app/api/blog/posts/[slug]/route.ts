@@ -9,8 +9,9 @@ function isSupabaseConfigured() {
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   // Fallback to seed data if Supabase not configured
   if (!isSupabaseConfigured()) {
     const seedPost = blogPosts.find(p => p.slug === params.slug);

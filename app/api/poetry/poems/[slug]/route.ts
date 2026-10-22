@@ -3,8 +3,9 @@ import { createServerClient } from '@/lib/supabase/server';
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   const supabase = createServerClient();
 
   // Get poem with approved roses (reviews)
