@@ -1,11 +1,12 @@
 // creativelynanda.co.za on Cloudflare Workers via @opennextjs/cloudflare.
 // Secrets are set with `wrangler secret put` / bulk only. Never put them here.
 //
-// STAGING ONLY until the owner approves cutover: workers.dev, NO routes / custom domain,
-// NO cron triggers (this site has no crons). Cutover = add routes (docs/migration/cutover-runbook.md).
+// PRODUCTION = top level (Worker `creativelynanda`, zone routes added at cutover via the API,
+// see docs/migration/cutover-runbook.md). STAGING = env.staging (workers.dev only).
+// NO cron triggers anywhere (this site has no crons).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "creativelynanda-staging",
+  "name": "creativelynanda",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-10-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -15,8 +16,8 @@
   // Site talks mostly to Supabase (remote DB): run the Worker near it.
   "placement": { "mode": "smart" },
   "triggers": { "crons": [] },
-  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "creativelynanda-staging" }],
-  "r2_buckets": [{ "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "creativelynanda-inc-cache-staging" }],
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "creativelynanda" }],
+  "r2_buckets": [{ "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "creativelynanda-inc-cache" }],
   "durable_objects": {
     "bindings": [
       { "name": "NEXT_CACHE_DO_QUEUE", "class_name": "DOQueueHandler" },
@@ -24,5 +25,22 @@
     ]
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DOQueueHandler", "DOShardedTagCache"] }],
-  "images": { "binding": "IMAGES" }
+  "images": { "binding": "IMAGES" },
+
+  "env": {
+    "staging": {
+      "name": "creativelynanda-staging",
+      "workers_dev": true,
+      "triggers": { "crons": [] },
+      "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "creativelynanda-staging" }],
+      "r2_buckets": [{ "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "creativelynanda-inc-cache-staging" }],
+      "durable_objects": {
+        "bindings": [
+          { "name": "NEXT_CACHE_DO_QUEUE", "class_name": "DOQueueHandler" },
+          { "name": "NEXT_TAG_CACHE_DO_SHARDED", "class_name": "DOShardedTagCache" }
+        ]
+      },
+      "images": { "binding": "IMAGES" }
+    }
+  }
 }
