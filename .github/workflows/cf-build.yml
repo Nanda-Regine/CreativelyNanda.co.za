@@ -25,6 +25,11 @@ jobs:
       NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
       NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
       NEXT_PUBLIC_FIREBASE_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_VAPID_KEY }}
+      # Build-time ONLY placeholders: some routes construct SDK clients at module scope, which Next evaluates
+      # while collecting page data. The real values are Worker secrets read at runtime (never inlined).
+      OPENAI_API_KEY: build-placeholder
+      RESEND_API_KEY: re_build_placeholder
+      SUPABASE_SERVICE_ROLE_KEY: build-placeholder
       NEXT_PUBLIC_APP_VERSION: ${{ github.sha }}
       HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
