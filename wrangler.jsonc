@@ -26,6 +26,8 @@
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DOQueueHandler", "DOShardedTagCache"] }],
   "images": { "binding": "IMAGES" },
+  // Workers Rate Limiting. namespace_id must be unique across the account (5101/5102 Sanyu, 5201/5202 Mirembe).
+  "ratelimits": [{ "name": "RL_10_60", "namespace_id": "5301", "simple": { "limit": 10, "period": 60 } }],
 
   "env": {
     "staging": {
@@ -40,7 +42,8 @@
           { "name": "NEXT_TAG_CACHE_DO_SHARDED", "class_name": "DOShardedTagCache" }
         ]
       },
-      "images": { "binding": "IMAGES" }
+      "images": { "binding": "IMAGES" },
+      "ratelimits": [{ "name": "RL_10_60", "namespace_id": "5302", "simple": { "limit": 10, "period": 60 } }]
     }
   }
 }

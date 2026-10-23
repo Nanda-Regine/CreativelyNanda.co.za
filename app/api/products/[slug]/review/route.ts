@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { guardPublicForm } from '@/lib/form-guard';
 import { createAdminClient, createServerClient } from '@/lib/supabase/server';
 
 function isSupabaseConfigured() {
@@ -33,7 +34,10 @@ export async function POST(
 
   const supabase = getSupabase();
   const body = await request.json();
-  const { authorName, content, rating } = body;
+  const { authorName, content, rating, turnstileToken } = body;
+
+  const blocked = await guardPublicForm(request, 'product-review', turnstileToken);
+  if (blocked) return blocked;
 
   if (!authorName || !content) {
     return NextResponse.json({ error: 'Name and review are required' }, { status: 400 });

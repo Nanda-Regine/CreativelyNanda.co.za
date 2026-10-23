@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTurnstile } from '@/components/ui/Turnstile';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, MessageCircle, Send, CheckCircle, User, ThumbsUp } from 'lucide-react';
 import type { Testimonial } from '@/types/database';
@@ -14,6 +15,7 @@ export function ProductReviews({ slug, productName }: ProductReviewsProps) {
   const [reviews, setReviews] = useState<Testimonial[]>([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [tsToken, tsWidget, tsReset] = useTurnstile();
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
@@ -59,8 +61,9 @@ export function ProductReviews({ slug, productName }: ProductReviewsProps) {
       const res = await fetch(`/api/products/${slug}/review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken: tsToken }),
       });
+      tsReset();
 
       const data = await res.json();
 
@@ -171,6 +174,7 @@ export function ProductReviews({ slug, productName }: ProductReviewsProps) {
                 onSubmit={handleSubmit}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-navy/5"
               >
+                {tsWidget}
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient, createServerClient } from '@/lib/supabase/server';
+import { guardPublicForm } from '@/lib/form-guard';
 
 function getSupabase() {
   try {
@@ -19,6 +20,9 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
+
+  const blocked = await guardPublicForm(request, 'guest-poem', body.turnstileToken);
+  if (blocked) return blocked;
 
   const title = typeof body.title === 'string' ? body.title.trim() : '';
   const content = typeof body.content === 'string' ? body.content.trim() : '';

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
+import { allowRequest } from '@/lib/rate-limit';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -10,6 +11,10 @@ const supabase = createClient(
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
+  // No UI in this repo posts here (external callers), so rate limit only; Turnstile would break them.
+  if (!(await allowRequest(req, 'form', 'waitlist'))) {
+    return NextResponse.json({ error: 'Too many requests. Please wait a moment.' }, { status: 429 });
+  }
   try {
     const { email, source = 'mirembe-botanical' } = await req.json();
 

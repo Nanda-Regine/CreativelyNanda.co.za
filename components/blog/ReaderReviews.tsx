@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTurnstile } from '@/components/ui/Turnstile';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, MessageCircle, Send, CheckCircle, User } from 'lucide-react';
 import type { BlogReview } from '@/types/database';
@@ -14,6 +15,7 @@ export function ReaderReviews({ slug, initialReviews = [] }: ReaderReviewsProps)
   const [reviews, setReviews] = useState<BlogReview[]>(initialReviews);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [tsToken, tsWidget, tsReset] = useTurnstile();
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
@@ -45,8 +47,9 @@ export function ReaderReviews({ slug, initialReviews = [] }: ReaderReviewsProps)
       const res = await fetch(`/api/blog/posts/${slug}/review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken: tsToken }),
       });
+      tsReset();
 
       const data = await res.json();
 
@@ -123,6 +126,7 @@ export function ReaderReviews({ slug, initialReviews = [] }: ReaderReviewsProps)
               onSubmit={handleSubmit}
               className="bg-gradient-to-br from-cream to-beige/50 rounded-2xl p-6 border border-navy/5"
             >
+              {tsWidget}
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}

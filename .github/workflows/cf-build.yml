@@ -26,6 +26,9 @@ jobs:
       NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
       NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
       NEXT_PUBLIC_FIREBASE_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_VAPID_KEY }}
+      # Cloudflare Web Analytics beacon + Turnstile site key (public, inlined at build; components render nothing when unset)
+      NEXT_PUBLIC_CF_BEACON_TOKEN: ${{ secrets.NEXT_PUBLIC_CF_BEACON_TOKEN }}
+      NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
       # Build-time ONLY placeholders: some routes construct SDK clients at module scope, which Next evaluates
       # while collecting page data. The real values are Worker secrets read at runtime (never inlined).
       OPENAI_API_KEY: build-placeholder

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTurnstile } from '@/components/ui/Turnstile';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { CldImage } from 'next-cloudinary';
@@ -39,6 +40,7 @@ const SUBJECT_OPTIONS = [
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [tsToken, tsWidget, tsReset] = useTurnstile();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,8 +50,9 @@ export default function Contact() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken: tsToken }),
       });
+      tsReset();
       if (!res.ok) throw new Error('Failed');
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -156,6 +159,7 @@ export default function Contact() {
               <h2 className="font-display text-3xl font-bold italic text-white">Send a message</h2>
               <p className="mb-7 mt-1 text-sm text-white/45">Every real one gets a real reply.</p>
               <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                {tsWidget}
                 <div>
                   <label htmlFor="c-name" className={labelCls}>Name *</label>
                   <input id="c-name" type="text" required value={formData.name}

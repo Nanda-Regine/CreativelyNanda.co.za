@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
+import { allowRequest } from '@/lib/rate-limit';
 export const dynamic = 'force-dynamic';
 
 const openai = new OpenAI({
@@ -16,6 +17,10 @@ const ratelimit = new Ratelimit({
 
 export async function POST(req: Request) {
   try {
+    // Workers Rate Limiting binding first (cheap, edge-local); Upstash limiter below stays as the global backstop.
+    if (!(await allowRequest(req, 'chat', 'chat'))) {
+      return NextResponse.json({ error: 'Too many requests. Please wait a moment.' }, { status: 429 });
+    }
     const ip = req.headers.get('x-forwarded-for') ?? 'anonymous';
     const { success } = await ratelimit.limit(ip);
     if (!success) {

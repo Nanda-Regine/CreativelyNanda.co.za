@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { guardPublicForm } from '@/lib/form-guard';
 import { createAdminClient, createServerClient } from '@/lib/supabase/server';
 import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
 
@@ -50,7 +51,10 @@ export async function POST(
   const supabase = getSupabase();
 
   const body = await request.json();
-  const { authorName, authorEmail, content, rating } = body;
+  const { authorName, authorEmail, content, rating, turnstileToken } = body;
+
+  const blocked = await guardPublicForm(request, 'blog-review', turnstileToken);
+  if (blocked) return blocked;
 
   if (!authorName || !content) {
     return NextResponse.json(

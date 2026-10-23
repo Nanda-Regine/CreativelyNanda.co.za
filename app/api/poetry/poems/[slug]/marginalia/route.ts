@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient, createServerClient } from '@/lib/supabase/server';
 import { POEMS } from '@/lib/poems-data';
+import { allowRequest } from '@/lib/rate-limit';
 
 // Marginalia — line-anchored whispers left by readers in the Annotated depth
 // mode. Public ones become collective art; the most-whispered line glows.
@@ -35,6 +36,10 @@ async function resolvePoem(supabase: ReturnType<typeof createServerClient>, slug
 
 export async function POST(request: Request, { params: paramsPromise }: { params: Promise<{ slug: string }> }) {
   const params = await paramsPromise;
+  // Inline one-line whispers: rate limit only (a widget per line would hurt the reading flow).
+  if (!(await allowRequest(request, 'form', 'marginalia'))) {
+    return NextResponse.json({ error: 'Too many whispers. Please wait a moment.' }, { status: 429 });
+  }
   const supabase = getSupabase();
   const body = await request.json().catch(() => ({}));
   const { lineIndex, body: text, author, sessionId, isAnonymous } = body ?? {};

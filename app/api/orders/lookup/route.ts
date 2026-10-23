@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/server';
+import { guardPublicForm } from '@/lib/form-guard';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+    const blocked = await guardPublicForm(request, 'orders-lookup', body.turnstileToken);
+    if (blocked) return blocked;
     const email = (body.email || '').trim().toLowerCase();
 
     if (!email || !email.includes('@')) {
