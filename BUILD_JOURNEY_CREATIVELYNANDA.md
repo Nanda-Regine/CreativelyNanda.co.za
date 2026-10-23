@@ -1317,3 +1317,30 @@ half and half).
 - Plan: Next 16 + OpenNext, staging on workers.dev, no cutover. Done: CI green, staging https://creativelynanda-staging.mirembemuse.workers.dev, 36 Worker secrets copied from Vercel production, 17 NEXT_PUBLIC_* as GitHub build secrets.
 - Parity curl vs Vercel: home, about, blog, poetry, products, contact, legal, feed, llms, manifest, redirects, 404, admin gate, 14 API routes all match status + title. Worker 5.25 MiB gzip.
 - Cutover runbook: `docs/migration/cutover-runbook.md`. Next: owner OK for cutover.
+
+## Oct 23 2026: LIVE on Cloudflare Workers (cutover)
+
+Owner: "do creativelynanda.co.za cutover and full migration".
+
+**Setup**
+- Production Worker `creativelynanda`. The wrangler config has production at the top level; staging moved to `env.staging`.
+- R2 bucket `creativelynanda-inc-cache`.
+- 52 secrets copied from Vercel production in-process:
+  - JARVIS_WEBHOOK_SECRET came from the Jarvis project (it is sensitive on this one).
+  - MAINTENANCE_MODE is left unset (= off). Live pages show no maintenance, so this matches production.
+  - LEMONSQUEEZY_API_KEY is unused in code.
+- Merged to `main`. CI run 39875222990: 5,251 KiB gzip.
+
+**Checks before the routes went on** (workers.dev against the live site): 14 paths gave the same status and title. The sitemap is identical except for the per-request lastmod.
+
+**Cutover:** routes added for the apex and www. No DNS change.
+
+**Live checks**
+- Everything is served by the Worker, with no Vercel headers.
+- Canonical = apex.
+- Home loads in 0.53 s.
+- 21 requests, 0 errors in the first minutes.
+
+**Rollback:** delete the 2 routes. Vercel is untouched underneath.
+
+**Not yet verified:** admin login and uploads, real form submits (they send email), and a PayFast sandbox ITN. No live app notifies this site any more; they all use the Jarvis hub.

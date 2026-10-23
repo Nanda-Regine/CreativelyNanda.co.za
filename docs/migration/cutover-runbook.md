@@ -1,6 +1,12 @@
 # creativelynanda.co.za: Vercel to Cloudflare Workers
 
-Status (Oct 23 2026): STAGING ONLY. Worker `creativelynanda-staging` at https://creativelynanda-staging.mirembemuse.workers.dev. No routes, no crons, no DNS changes. Cutover needs the owner's explicit OK.
+Status: **LIVE ON WORKERS since 2026-10-23 ~02:05 SAST** (owner: "do creativelynanda.co.za cutover and full migration").
+- Production Worker `creativelynanda`: 52 secrets from Vercel prod, R2 `creativelynanda-inc-cache`.
+- Routes: `creativelynanda.co.za/*` (id d427845e) and `www.creativelynanda.co.za/*` (id c792ae3d).
+- `main` deploys production. `feat/cloudflare-workers` deploys staging (`creativelynanda-staging`).
+- Vercel stays live until ~2026-11-06, then the owner removes it.
+
+The sections below are the original plan, kept for reference.
 
 ## What changed
 - Next 14 to 16 (webpack build, next-pwa), React 19, OpenNext for Cloudflare, `wrangler.jsonc`, `open-next.config.ts`, `.github/workflows/cf-build.yml` (build in GitHub only, 9 MiB gzip gate).
