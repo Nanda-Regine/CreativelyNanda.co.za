@@ -410,3 +410,21 @@ If we capture students at Year 1 and keep them through graduation, we own the mo
 
 *Last updated: 2026-04-03*
 *Built with love for South African students*
+
+---
+
+## Phase 9: Cloudflare Workers (October 2026)
+
+VarsityOS moved from Vercel to Cloudflare Workers on **22 October 2026 (23:13 SAST)**, as part of moving every Mirembe Muse app to one edge platform.
+
+**The upgrade underneath:** the Cloudflare adapter (OpenNext) supports only current Next versions, so the app went from **Next 14 to Next 16** with React 19. The interesting failures:
+- `ssr: false` dynamic imports are not allowed in Server Components. Two heavy client widgets (the Procrastination Profiler and the Tour wizard) moved behind small client wrappers.
+- `cookies()` became async. The Supabase server helper called `.getAll()` on a Promise, and every authenticated page returned 500 on staging. The fix awaits `cookies()` inside the cookie hooks, so the factory stays synchronous and **269 call sites didn't change**.
+
+**Rate limiting rebuilt on the platform:** the Upstash Redis limiter was replaced by a **Durable Object rate limiter**, with exact global counters and any window, including the daily AI caps. That's one less external service and one less bill.
+
+**Size:** the Worker is 6.7 MB gzipped, under the 10 MB limit. That covers 141 API routes plus Sentry.
+
+**Cutover:** two Worker routes on the existing domain, with no DNS change. Vercel stays underneath as an instant rollback for 14 days. Payments run through the Mirembe hub (Paystack). After cutover, a no-op probe confirmed the hub's forwards land on the Worker with the right shared secret.
+
+*Last updated: 2026-10-23*

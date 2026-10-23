@@ -574,3 +574,23 @@ Get the product launch-ready: marketing landing page, analytics stack, Google ve
 - PostHog tokens hardcoded in HTML (they are client-side public tokens, same as GTM)
 - PayFast/Resend/Arcjet/Sentry auth tokens kept server-side only, documented in env.example
 | Pricing | Free / R29 / R69 / R149 |
+
+---
+
+## Phase 17-18: Cloudflare Workers + a payment bug the move surfaced (October 2026)
+
+**Why:** K53 had paying subscribers and real traffic. The domain was already on Cloudflare but was proxied in front of Vercel, so every request crossed two edges. Moving to Cloudflare Workers takes out a hop, and the app is now served from Cloudflare's Johannesburg edge.
+
+**The key decision: payment code does not change.** K53 is a Vite single-page app with 7 small serverless functions: checkout, PayFast ITN, Paystack webhook, verify, claim, cancel and health. Rather than rewrite them, a small adapter runs the original Vercel-style `(req, res)` handlers unchanged inside the Worker. The PayFast form body is parsed with `URLSearchParams`, which keeps field order, so the md5 signature matches exactly as it did on Vercel.
+
+**Cutover (22 Oct 2026, 22:27 SAST):** two Worker routes on the existing domain, with no DNS change. Before switching, staging was compared side by side with live: same bytes for pages, the service worker, robots and sitemap; the same Paystack redirect; bad-signature ITNs ignored; unsigned webhooks refused. One gap only showed up live. Static assets answered apex requests before the Worker code ran, so the apex-to-www redirect didn't fire. `run_worker_first` fixed it within the hour.
+
+**The bug the audit found (Phase 18):** while proving payments after the move, the PayFast handler turned out to call "invite user" for every payment. Supabase refuses to invite an email that already has an account, so a **returning buyer paid and got nothing**: the handler threw before it extended their access. It also never set `status`, so a customer who had cancelled stayed cancelled after paying again. The fix:
+- Look the subscriber up first.
+- Extend their access on top of any time they have left.
+- Fall back to a magic link to resolve existing accounts.
+- Reactivate the status.
+
+Five `node:test` cases now run in CI before every deploy.
+
+**Lesson:** a migration is the best audit you'll get. Proving the new platform forces you to trace every money path end to end, and that's where silent bugs live.
