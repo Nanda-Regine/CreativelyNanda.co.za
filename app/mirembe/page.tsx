@@ -69,12 +69,12 @@ const PROOF = [
 const APPS = [
   { name: 'JarvisOS', tag: '15-wing AI OS · RAG', href: '', upgrading: true },
   { name: 'AdminOS', tag: 'BizTech · AI Agents', href: 'https://adminos.co.za', upgrading: false },
-  { name: 'VarsityOS', tag: 'EdTech · AI', href: 'https://campus-compass-phi.vercel.app', upgrading: false },
-  { name: 'K53 Drill Master', tag: 'GovTech · SaaS', href: 'https://nanda-k53-drill-master.vercel.app', upgrading: false },
+  { name: 'VarsityOS', tag: 'EdTech · AI', href: 'https://varsityos.co.za', upgrading: false },
+  { name: 'K53 Drill Master', tag: 'GovTech · SaaS', href: 'https://www.k53drillmaster.co.za', upgrading: false },
   { name: 'StokvelOS', tag: 'FinTech · AI', href: 'https://stokvelos.co.za', upgrading: true },
   { name: 'WatchSankofa', tag: 'Media · Streaming', href: 'https://watchsankofa.co.za', upgrading: true },
-  { name: 'Sanyu Botanicals', tag: 'Wellness · E-Commerce', href: 'https://sanyubotanicals.vercel.app', upgrading: false },
-  { name: 'True Access', tag: 'AccessTech · Mobile', href: 'https://true-access-app.vercel.app', upgrading: false },
+  { name: 'Sanyu Botanicals', tag: 'Wellness · E-Commerce', href: 'https://sanyubotanicals.co.za', upgrading: false },
+  { name: 'True Access', tag: 'AccessTech · Mobile', href: 'https://trueaccess.co.za', upgrading: false },
   { name: 'CreativelyNanda.co.za', tag: 'Portfolio · Product', href: 'https://creativelynanda.co.za', upgrading: false },
 ];
 

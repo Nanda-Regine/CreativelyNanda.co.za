@@ -77,7 +77,7 @@ export const ORIGINS: OriginProject[] = [
     layer: 1,
     stack: ['HTML5', 'CSS3', 'Vanilla JavaScript'],
     github: 'https://github.com/Nanda-Regine/women-retreat-yellowwood-forest',
-    demo: { url: 'https://women-retreat-yellowwood-forest.vercel.app/', status: 'live' },
+    demo: { url: 'https://retreat.creativelynanda.co.za/', status: 'live' },
     brief:
       'A wellness retreat operator in the Eastern Cape needed a digital presence that could do what a personal recommendation does: make a potential guest feel safe before she had met anyone. The audience would not book anything they could not trust.',
     build:
@@ -144,7 +144,7 @@ export const ORIGINS: OriginProject[] = [
     layer: 3,
     stack: ['Next.js', 'TypeScript', 'Supabase', 'PayFast', 'Resend', 'Tailwind CSS'],
     github: 'https://github.com/Nanda-Regine/Cortex-Hub-Booking',
-    demo: { url: 'https://cortex-hub-booking-5e35.vercel.app/', status: 'live' },
+    demo: { url: 'https://cortex.creativelynanda.co.za/', status: 'live' },
     brief:
       'Shared workspaces and creative hubs in South Africa are managed via WhatsApp and paper registers. Double bookings happen, revenue leaks, no-shows go unmanaged. A real booking system exists for hotels and airlines, why not for creative hubs?',
     build:
@@ -161,7 +161,7 @@ export const ORIGINS: OriginProject[] = [
     layer: 4,
     stack: ['Next.js', 'TypeScript', 'Supabase', 'PayFast', 'Resend', 'Tailwind CSS'],
     github: 'https://github.com/Nanda-Regine/GreenValut-eCommerce-store-demo',
-    demo: { url: 'https://green-valut-e-commerce-store-demo.vercel.app/', status: 'live' },
+    demo: { url: 'https://greenvault.creativelynanda.co.za/', status: 'live' },
     brief:
       'South African sustainable products (natural hair care, organic food, ethical textiles) are scattered and underrepresented digitally. GreenVault was built to demonstrate a curated, values-aligned African eco-commerce platform, and to solve the full stack: catalogue, cart, checkout, payment, digital delivery.',
     build:
@@ -178,7 +178,7 @@ export const ORIGINS: OriginProject[] = [
     layer: 4,
     stack: ['Next.js', 'TypeScript', 'Supabase', 'Mux', 'Tailwind CSS'],
     github: 'https://github.com/Nanda-Regine/PoetryTube',
-    demo: { url: 'https://poetry-tube.vercel.app/', status: 'live' },
+    demo: { url: 'https://poetrytube.creativelynanda.co.za/', status: 'live' },
     brief:
       'YouTube has no concept of spoken word as a distinct cultural form. Its algorithm cannot surface a performance in isiZulu or Luganda to the audiences who speak those languages, and has no incentive to care. Poets who build audiences there succeed despite the platform, not because of it. This one is personal.',
     build:
@@ -195,7 +195,7 @@ export const ORIGINS: OriginProject[] = [
     layer: 5,
     stack: ['Next.js', 'TypeScript', 'Mapbox GL JS', 'Supabase', 'Tailwind CSS'],
     github: 'https://github.com/Nanda-Regine/TrueAccApp',
-    demo: { url: 'https://true-access-app.vercel.app/', status: 'live' },
+    demo: { url: 'https://trueaccess.co.za/', status: 'live' },
     brief:
       'Four million South Africans live with disabilities, and there is no comprehensive, community-verified accessibility database for South African public spaces. TrueAccApp was built to create one.',
     build:
