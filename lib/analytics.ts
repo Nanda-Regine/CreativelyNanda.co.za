@@ -38,6 +38,8 @@ export type ForgeEvent =
   | 'forge_dojo_complete'   // every drill in the Dojo has been answered
   | 'forge_studio_app'      // a product was chosen in the App Studio
   | 'forge_studio_open'     // a screen was opened on the App Studio stage
+  | 'evidence_slide'        // a pitch-deck slide was reached (slide index only)
+  | 'evidence_arch_node'    // an architecture node was opened (node id only)
   | 'forge_filter'          // a build filter was used on nights / commits
   | 'forge_live_app_click'  // someone left for one of the live products
   | 'forge_repo_click'      // someone went to a repository

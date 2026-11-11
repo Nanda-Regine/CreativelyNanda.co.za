@@ -1,0 +1,142 @@
+[
+  {
+    "id": "adminos-142417",
+    "chapter": "The promise",
+    "caption": "The landing page says it in one line: your whole business, one workspace. A WhatsApp chase from the Chase agent is the proof on the right.",
+    "alt": "AdminOS landing page headline reading Your whole business. One workspace., beside a WhatsApp conversation where the Chase agent follows up an unpaid invoice.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-142536",
+    "chapter": "The promise",
+    "caption": "Six agents with names and jobs. Alex answers customers, Chase recovers debt, Care watches team wellbeing.",
+    "alt": "Cards for the Alex, Chase and Care AI agents, each with a small live example of its work.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-142724",
+    "chapter": "The promise",
+    "caption": "Langa is the business mentor. It reads your own numbers before it advises.",
+    "alt": "The Langa AI business mentor chat, answering a question about cash flow using the business's collection rate.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-142929",
+    "chapter": "Every morning",
+    "caption": "The Command Center. One screen: what is stuck, what needs a decision, how the goals are moving.",
+    "alt": "AdminOS Command Center showing R22,031 stuck in collections and a list of decisions waiting.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-143028",
+    "chapter": "Get paid",
+    "caption": "Cash Cockpit. What you are owed, how old it is, and who to chase first.",
+    "alt": "Cash Cockpit with net position, amount owed to you and an aging pipeline of overdue invoices.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-143753",
+    "chapter": "Get paid",
+    "caption": "The invoice register. Status, amount outstanding and recovery stage on every line.",
+    "alt": "Invoice register table listing contacts, amounts, due dates and status.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-143849",
+    "chapter": "Get paid",
+    "caption": "Bank statement reconcile. Upload a CSV, see a payment matched to its invoice, confirm with one tap.",
+    "alt": "Bank and Reconciliation screen with an uploaded statement line matched to an invoice for confirmation.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-143822",
+    "chapter": "Know the numbers",
+    "caption": "A 90-day cash forecast, labelled as an estimate, with the runway in days.",
+    "alt": "Cashflow screen with a 90-day forecast chart and a cash runway figure.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-145139",
+    "chapter": "Know the numbers",
+    "caption": "The health score, broken into six dimensions so a founder can see which one to fix.",
+    "alt": "Business Health screen with an overall score of 85 out of 100 and a radar chart of six dimensions.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-143937",
+    "chapter": "Know the numbers",
+    "caption": "Accountant reports. Pick a month and hand over a clean pack: income statement, VAT201 working paper, journal.",
+    "alt": "Accountant Reports screen listing downloadable reports for a chosen month.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-144951",
+    "chapter": "Stay compliant",
+    "caption": "The compliance calendar. Each SARS and CIPC obligation, its due date, and the penalty for missing it.",
+    "alt": "Compliance Calendar showing overdue tax obligations with the penalty that applies to each.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-145114",
+    "chapter": "Stay compliant",
+    "caption": "A POPIA register of what personal data is held, why, for how long, and who can see it.",
+    "alt": "POPIA compliance centre with a register of data categories, legal basis, retention and access.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-145024",
+    "chapter": "Stay compliant",
+    "caption": "Licences and permits, with expiry tracking so a lapse never arrives as a surprise.",
+    "alt": "Licences and Permits screen listing licences with expiry dates and status.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-144021",
+    "chapter": "Run the business",
+    "caption": "The WhatsApp inbox. Conversations tagged by sentiment and status, with one-tap Draft reply and Summarise helpers.",
+    "alt": "Inbox listing customer WhatsApp conversations with sentiment tags, and AI helper buttons under the reply box.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-144101",
+    "chapter": "Run the business",
+    "caption": "Reach. A broadcast composer that checks consent before it sends.",
+    "alt": "New campaign form for a WhatsApp broadcast, with an audience selector and a consent notice.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-144213",
+    "chapter": "Run the business",
+    "caption": "Ops Cockpit. Stock below reorder level, today's bookings and open tasks in one view.",
+    "alt": "Ops Cockpit highlighting two products at or below reorder level.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-144726",
+    "chapter": "Run the business",
+    "caption": "Tasks as a board. Urgent and overdue work is pushed to the top, not buried.",
+    "alt": "Task board with To do, In progress, In review and Done columns and urgency banners.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-144306",
+    "chapter": "Run the business",
+    "caption": "Supplier scorecard with B-BBEE level and ownership, because procurement in South Africa asks.",
+    "alt": "Suppliers screen with counts of B-BBEE rated, women-owned and youth-owned suppliers.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-145338",
+    "chapter": "AI drafts, the owner decides",
+    "caption": "Autonomy settings. For each action the owner picks Auto, Draft or Off. Firm and money-moving actions default to Draft or Off.",
+    "alt": "Autonomy settings listing actions such as invoice reminders and final demands, each with Auto, Draft and Off options.",
+    "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-145401",
+    "chapter": "Built for South Africa",
+    "caption": "Load-shedding status, rand exchange rates and a phone-number validator, built in because the local context is the point.",
+    "alt": "Integrations screen showing a load-shedding status, ZAR exchange rates and a phone number validator.",
+    "reviewed": "2026-11-10"
+  }
+]

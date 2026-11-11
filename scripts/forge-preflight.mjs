@@ -51,7 +51,11 @@ const TARGETS = [
   'scripts/forge-ingest.mjs',
   'scripts/forge-curate.mjs',
   'docs/THE_FORGE.md',
-  ...fs.readdirSync(path.join(ROOT, 'components/forge')).map((f) => `components/forge/${f}`),
+  ...fs
+    .readdirSync(path.join(ROOT, 'components/forge'), { recursive: true })
+    .map((f) => String(f).split(path.sep).join('/'))
+    .filter((f) => /\.(tsx?|jsx?)$/.test(f))
+    .map((f) => `components/forge/${f}`),
 ];
 
 /**
