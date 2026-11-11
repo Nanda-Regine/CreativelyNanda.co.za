@@ -8,7 +8,7 @@
  *  - dates are pre-formatted strings (asOfLabel) so render is hydration-safe
  */
 
-export type EvidenceApp = 'adminos' | 'jarvis';
+export type EvidenceApp = 'adminos' | 'jarvis' | 'sanyu';
 
 export type ClaimStatus = 'verified' | 'self-reported' | 'pending-source' | 'retired';
 

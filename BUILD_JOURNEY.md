@@ -54,6 +54,11 @@ Every image was reviewed on contact sheets. Every video was reviewed by keyframe
 - **Wording rule from this:** ICSA's own post says "Supporting Partner"; the programme page lists Mirembe Muse under "Banking Innovator". Use ICSA's published words and say "listed as Banking Innovator in the programme".
 - Reviewers' names are deliberately not recorded in this public file.
 
+### Evidence Wing: Sanyu Botanicals case file and R2 upload script (Nov 11 2026)
+- **Built:** /forge/cases/sanyu. 21 real screens of the live shop (plus the Amazon.co.za listing), six slides, a customer's first week, six architecture nodes, four decision cards, five dated claims from the product truth file (25 tables, 52 migrations, 8 stock procedures, 60 s sync, 4,000+ Pargo points). Stated plainly as the founder's own brand. No prices in the copy; storefront framework not named because no source states it.
+- **R2 upload:** scripts/evidence/upload-r2.mjs creates the bucket and uploads images only (never the lossless masters), reading the Cloudflare key inside its own process and printing no secrets. First run blocked: the account token has IP address filtering on and the owner's current IP is not on it (Cloudflare error 9109). Needs the token edited, or a new R2-only token. No Cloudflare change has been made.
+- **Lesson:** an apostrophe inside a single-quoted claim string broke the dev compile; esbuild-check data files after bulk edits.
+
 ### Evidence Wing: Jarvis OS case file (Nov 11 2026)
 - **Built:** /forge/cases/jarvis. 37 real screens across the dashboard and 8 wings, six slides, a Mon to Fri journey, nine architecture nodes, five decision cards, a proof wall, and a new clickable WingMap (pick a wing, see its room name, purpose and real screen). Facts from EMPIRE_ARCHITECTURE.md and PRODUCT_TRUTH_2026.md, six dated claims (27 wings, about 687 routes, 254 workers, 405 tables, $25 a day AI cap, executions 90k to about 20k).
 - **Code generalised for more apps:** EvidenceApp type, per-app journey title, optional liveUrl (Jarvis is private), multi-folder derivative build, app-aware analytics, one new event (evidence_wing_pick).
