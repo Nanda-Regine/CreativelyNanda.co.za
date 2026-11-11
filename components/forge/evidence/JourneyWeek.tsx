@@ -92,7 +92,7 @@ export default function JourneyWeek({ stops, title }: { stops: JourneyStop[]; ti
                       className="mt-4 inline-block rounded-sm border px-2 py-1 font-mono text-[11px] uppercase tracking-[0.18em]"
                       style={{ borderColor: ink(0.35), color: ink(0.8) }}
                     >
-                      Sample data
+                      {s.sampleData ? 'Sample data' : 'Live screen'}
                     </p>
                   </div>
                   <div

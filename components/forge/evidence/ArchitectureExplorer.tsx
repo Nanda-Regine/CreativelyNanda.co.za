@@ -47,7 +47,7 @@ interface Placed {
   w: number;
 }
 
-export default function ArchitectureExplorer({ nodes, title }: { nodes: ArchNode[]; title: string }) {
+export default function ArchitectureExplorer({ nodes, title, app = 'adminos' }: { nodes: ArchNode[]; title: string; app?: string }) {
   const [openId, setOpenId] = useState<string | null>(null);
   const opener = useRef<Element | null>(null);
 
@@ -97,7 +97,7 @@ export default function ArchitectureExplorer({ nodes, title }: { nodes: ArchNode
     }
     opener.current = el;
     setOpenId(id);
-    track('evidence_arch_node', { app: 'adminos', node: id });
+    track('evidence_arch_node', { app, node: id });
   }
 
   function close() {

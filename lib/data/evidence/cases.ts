@@ -1,8 +1,10 @@
 import type { CaseFile, EvidenceApp } from './types';
 import { ADMINOS_CASE } from './adminos/case';
+import { JARVIS_CASE } from './jarvis/case';
 
 export const CASES: Record<EvidenceApp, CaseFile> = {
   adminos: ADMINOS_CASE,
+  jarvis: JARVIS_CASE,
 };
 
 export function getCase(app: string): CaseFile | undefined {

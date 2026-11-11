@@ -24,15 +24,16 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const WORK = process.env.EVIDENCE_WORK || 'C:/Users/nanda/evidence-work';
 
-/** app key -> folder under <WORK>/shots */
+/** app key -> folders under <WORK>/shots (an app may span several, e.g. Jarvis wings) */
 const FOLDERS = {
-  adminos: 'adminos-screenshots',
-  amanda: 'amanda-screenshots',
-  ecdc: 'ecdc-screenshots',
-  'green-diaspora': 'green-diaspora-screenshots',
-  isd: 'isd-screenshots',
-  sanyu: 'sanyu-screenshots',
-  selves: 'theselvesofus-screenshots',
+  adminos: ['adminos-screenshots'],
+  amanda: ['amanda-screenshots'],
+  ecdc: ['ecdc-screenshots'],
+  'green-diaspora': ['green-diaspora-screenshots'],
+  isd: ['isd-screenshots'],
+  sanyu: ['sanyu-screenshots'],
+  jarvis: ['jarvis-dashboard', 'jarvis-ceo-wing', 'jarvis-finance-wing', 'jarvis-cycle-wing', 'jarvis-body-wing', 'jarvis-marketing-wing', 'jarvis-engineering-wing', 'jarvis-sanctuary-wing', 'jarvis-scholar-wing'],
+  selves: ['theselvesofus-screenshots'],
 };
 
 const WIDTHS = [480, 960, 1366];
@@ -73,15 +74,18 @@ for (const [id, rects] of Object.entries(redactions)) {
   }
 }
 
-const srcDir = path.join(WORK, 'shots', FOLDERS[app]);
+const srcDirs = FOLDERS[app].map((f) => path.join(WORK, 'shots', f));
 const outDir = path.join(WORK, 'out', app);
 const devDir = path.join(ROOT, 'public', 'evidence-dev', app);
 
 /** screen id is "<app>-<HHMMSS>"; the source file is <date>_<HHMMSS>.png */
 function sourceFor(id) {
   const hhmmss = id.slice(app.length + 1);
-  const hit = fs.readdirSync(srcDir).find((f) => f.endsWith(`_${hhmmss}.png`));
-  return hit ? path.join(srcDir, hit) : null;
+  for (const dir of srcDirs) {
+    const hit = fs.readdirSync(dir).find((f) => f.endsWith(`_${hhmmss}.png`));
+    if (hit) return path.join(dir, hit);
+  }
+  return null;
 }
 
 function ff(argv, opts = {}) {
@@ -123,7 +127,7 @@ console.log(`${flag('dry') ? 'DRY RUN: ' : ''}${app}: ${screens.length} listed s
 
 for (const s of screens) {
   const src = sourceFor(s.id);
-  if (!src) die(`source image for "${s.id}" not found in ${srcDir}`);
+  if (!src) die(`source image for "${s.id}" not found in ${srcDirs.join(', ')}`);
   const { w, h } = probe(src);
   const rects = redactions[s.id];
   console.log(`  ${s.id}  ${w}x${h}${rects ? `  REDACTED x${rects.length}` : ''}`);

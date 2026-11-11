@@ -54,6 +54,13 @@ Every image was reviewed on contact sheets. Every video was reviewed by keyframe
 - **Wording rule from this:** ICSA's own post says "Supporting Partner"; the programme page lists Mirembe Muse under "Banking Innovator". Use ICSA's published words and say "listed as Banking Innovator in the programme".
 - Reviewers' names are deliberately not recorded in this public file.
 
+### Evidence Wing: Jarvis OS case file (Nov 11 2026)
+- **Built:** /forge/cases/jarvis. 37 real screens across the dashboard and 8 wings, six slides, a Mon to Fri journey, nine architecture nodes, five decision cards, a proof wall, and a new clickable WingMap (pick a wing, see its room name, purpose and real screen). Facts from EMPIRE_ARCHITECTURE.md and PRODUCT_TRUTH_2026.md, six dated claims (27 wings, about 687 routes, 254 workers, 405 tables, $25 a day AI cap, executions 90k to about 20k).
+- **Code generalised for more apps:** EvidenceApp type, per-app journey title, optional liveUrl (Jarvis is private), multi-folder derivative build, app-aware analytics, one new event (evidence_wing_pick).
+- **Checked:** page renders (200), wing map works by click at 360 and 1280 px, no console errors, no broken images, content gate clean.
+- **Caveat:** screens were chosen from contact sheets, so captions stay qualitative and quote no figures read off a screen.
+- **Next:** Sanyu, then Green Diaspora, ISD, ECDC, Amanda, Selves of Us.
+
 ### Evidence Wing: prices, consent, render proven (Nov 11 2026)
 - **Owner decisions:** AdminOS screenshots are all demo data; Jarvis screens show nothing sensitive; people in the photos have consented and the school children's faces do not show. Redaction work for these is dropped.
 - **Pricing resolved:** read from adminos.co.za (#pricing): Solo, Grow, Operate, Scale, Partner plus four add-ons, no setup fee, 14-day trial. The older R2,500+ list is retired. Annual billing left out: the site says both "save 2 months" and "15% on negotiated Scale and Partner contracts".

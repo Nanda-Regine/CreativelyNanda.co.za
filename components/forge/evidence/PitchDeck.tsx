@@ -31,7 +31,7 @@ const KEY_STEP: Record<string, number | 'home' | 'end'> = {
   End: 'end',
 };
 
-export default function PitchDeck({ slides, title }: { slides: Slide[]; title: string }) {
+export default function PitchDeck({ slides, title, app = 'adminos' }: { slides: Slide[]; title: string; app?: string }) {
   const scroller = useRef<HTMLDivElement>(null);
   const slideEls = useRef<(HTMLElement | null)[]>([]);
   const lastTracked = useRef(0);
@@ -59,8 +59,8 @@ export default function PitchDeck({ slides, title }: { slides: Slide[]; title: s
   useEffect(() => {
     if (index === lastTracked.current) return;
     lastTracked.current = index;
-    track(SLIDE_EVENT, { app: 'adminos', slide: index });
-  }, [index]);
+    track(SLIDE_EVENT, { app, slide: index });
+  }, [index, app]);
 
   const goTo = useCallback(
     (i: number) => {

@@ -7,6 +7,7 @@ import type { CaseFile } from '../types';
  */
 export const ADMINOS_CASE: CaseFile = {
   app: 'adminos',
+  journeyTitle: 'A week with Thabo',
   name: 'AdminOS',
   promise:
     'One screen instead of five apps, for a South African founder who needs to get paid, stay compliant and know the numbers.',

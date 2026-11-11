@@ -28,7 +28,7 @@ export default function DeskFrame({ screenId, path, tilt = false, priority = fal
   if (!entry || !screen) return null;
 
   const app = screenId.split('-')[0];
-  const shownPath = path ?? `${app}.co.za`;
+  const shownPath = path ?? (app === 'jarvis' ? 'Jarvis OS, owner login' : `${app}.co.za`);
   const webp = entry.widths.map((w) => `${screenUrl(screenId, w, 'webp')} ${w}w`).join(', ');
   const avif = entry.avif.map((w) => `${screenUrl(screenId, w, 'avif')} ${w}w`).join(', ');
   const largest = entry.widths[entry.widths.length - 1];

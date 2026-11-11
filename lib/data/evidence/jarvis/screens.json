@@ -1,0 +1,261 @@
+[
+  {
+    "id": "jarvis-154221",
+    "chapter": "The front door",
+    "caption": "The daily check-in: energy out of ten, a few feeling words, hours slept. Every wing reads it, so the rest of the system knows what kind of day this is.",
+    "alt": "Jarvis OS home screen asking how are you today, with an energy scale from one to ten, feeling words and sleep fields.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-154328",
+    "chapter": "The front door",
+    "caption": "The wing grid: every room of the OS at a glance, with a command queue of open, urgent, overdue and due-today tasks underneath.",
+    "alt": "Jarvis OS wing status grid showing a tile for each wing, with open, urgent, overdue and today task counts below.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-154524",
+    "chapter": "The front door",
+    "caption": "Ops Manuals: Jarvis writes the playbook for each wing, one plan per wing, refreshed on demand.",
+    "alt": "Jarvis OS Ops Manuals page listing generated playbooks for strategy, finance, consulting and marketing, each with an update button.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-154555",
+    "chapter": "The front door",
+    "caption": "The tool directory: oracle, quick capture, mirror, load shedding planner, energy budget and more, grouped by what they are for.",
+    "alt": "Jarvis OS tool directory grouped under foresight, self and capacity, with named tools in each group.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-154622",
+    "chapter": "Growth",
+    "caption": "The Growth Desk: today's client-acquisition actions in order, the closest deadline first.",
+    "alt": "Jarvis OS Growth Desk showing a ranked list of today's actions with the first one marked as finishing today.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-154751",
+    "chapter": "Growth",
+    "caption": "The Opportunity Scanner: tenders, funding, investors and awards, scored, with this week's three to chase.",
+    "alt": "Jarvis OS Opportunity Scanner listing this week's three opportunities and counters for active opportunities, funding, competition and accelerators.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-154922",
+    "chapter": "Growth",
+    "caption": "Applications: what is being applied for, how ready each one is, and what happens next.",
+    "alt": "Jarvis OS Applications page with counters for preparing, ready and submitted, and a progress bar on a fellowship application.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-160415",
+    "chapter": "CEO",
+    "caption": "The CEO Command Centre: the empire in one header, with logged wins and a list of cross-wing alerts below.",
+    "alt": "CEO Command Centre header with a row of logged wins and navigation tabs for pipeline, clients, board, calendar and chat.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-160624",
+    "chapter": "CEO",
+    "caption": "The morning brief: today's focus, shaped by the day's check-in, plus market intelligence relevant to the business.",
+    "alt": "CEO morning brief with a focus paragraph and a list of market intelligence items.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-160932",
+    "chapter": "CEO",
+    "caption": "The living business plan: vision, mission and a 14-day execution target that the system keeps current.",
+    "alt": "CEO living business plan page showing vision, mission and an execution target section.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-161527",
+    "chapter": "Finance",
+    "caption": "Wealth Architecture: a wing for money, with a win logged for compliant, up-to-date books.",
+    "alt": "Finance wing home titled Wealth Architecture with one logged win and suggested next actions.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-161625",
+    "chapter": "Finance",
+    "caption": "The income waterfall: money allocated by rule into operating, tax reserve, joy and investment before it is spent.",
+    "alt": "Finance waterfall allocation bars splitting income into operating, tax reserve, joy and investment.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-161911",
+    "chapter": "Finance",
+    "caption": "The VAT tracker: output and input VAT for the period, and what is claimable.",
+    "alt": "Finance VAT tracker showing output VAT, input VAT and claimable amounts for November 2026.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-162255",
+    "chapter": "Cycle",
+    "caption": "Moon Oracle: the cycle wing, with each logged day kept as a win.",
+    "alt": "Cycle wing home titled Moon Oracle with a row of logged cycle days.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-162419",
+    "chapter": "Cycle",
+    "caption": "The current phase, energy and mood on one card, and what each phase suits for training, finance and creative work.",
+    "alt": "Cycle wing phase card showing the menstrual phase, day two, energy and mood, with phase-matched suggestions.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-162811",
+    "chapter": "Marketing",
+    "caption": "The Creative Director: eight brands, one electric intelligence, with logged wins across the brands.",
+    "alt": "Marketing wing home titled Creative Director with a row of scheduled-content wins.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-162854",
+    "chapter": "Marketing",
+    "caption": "Marketing Command: generate content, video scripts, a visual vault and a preview before anything is published.",
+    "alt": "Marketing Command page with tiles for generating content, video scripts, a visual vault and preview before publish.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-163057",
+    "chapter": "Marketing",
+    "caption": "The strategy view: one plan per launch, with the goal, the open loop and the next step.",
+    "alt": "Marketing strategy page showing a launch plan titled The Tease with a goal and next steps.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-163153",
+    "chapter": "Marketing",
+    "caption": "The Content Studio: pick the brands and channels, and the batch is generated for each.",
+    "alt": "Content Studio showing selectable brands and channels with a batch status panel.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-163729",
+    "chapter": "Marketing",
+    "caption": "The publishing dashboard: approve, schedule and publish across every brand and platform from one queue.",
+    "alt": "Publishing dashboard with filters for brand and platform and an approved post in the queue.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-163813",
+    "chapter": "Marketing",
+    "caption": "The content calendar: a month of posts across all brands, one coloured dot per brand.",
+    "alt": "Content calendar for November 2026 with coloured dots per day and a list of posts on the right.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-200752",
+    "chapter": "Body",
+    "caption": "The Athlete: HRV-synced, cycle-aware training, with each session logged as a win.",
+    "alt": "Body wing home titled The Athlete with a row of logged training sessions.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-201218",
+    "chapter": "Body",
+    "caption": "The SA Foods Database: South African traditional and local foods with their nutrition.",
+    "alt": "Body wing SA Foods Database listing local foods with protein, carbohydrate and calorie figures.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-163959",
+    "chapter": "Engineering",
+    "caption": "The Architect: engineering wins logged as they happen, and what is happening in engineering right now.",
+    "alt": "Engineering wing home titled The Architect with logged wins and a live status panel.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-164048",
+    "chapter": "Engineering",
+    "caption": "The control room: reliability, delivery, build, intelligence and security tools grouped in one place.",
+    "alt": "Engineering control room with groups for reliability, delivery, build, intelligence and security and a feed of recent commits.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-164412",
+    "chapter": "Engineering",
+    "caption": "The sprint board: tasks by sprint, with progress across all of them.",
+    "alt": "Engineering sprint board showing task totals and a progress bar.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-164510",
+    "chapter": "Engineering",
+    "caption": "Core Web Vitals: a synthetic speed check across the live apps.",
+    "alt": "Engineering Core Web Vitals page with a table of apps and their speed measurements.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-164613",
+    "chapter": "Engineering",
+    "caption": "Performance intelligence: a seven-day health analysis and the DORA delivery metrics.",
+    "alt": "Engineering performance page with an uptime ring and DORA metrics for deploy frequency, change failure rate and recovery.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-164751",
+    "chapter": "Engineering",
+    "caption": "The dependency scanner: every package across every app checked for known vulnerabilities, per app.",
+    "alt": "Engineering dependency CVE scanner with package totals and a bar chart of vulnerabilities per app.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-165249",
+    "chapter": "Engineering",
+    "caption": "Golden Bricks: reusable patterns extracted from the apps, searchable, so a solved problem stays solved.",
+    "alt": "Engineering Golden Bricks library with a searchable list of reusable code patterns.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-165322",
+    "chapter": "Engineering",
+    "caption": "The AI Lab: what the AI calls cost, by day and by model.",
+    "alt": "Engineering AI Lab cost dashboard with total spend, call count and a daily spend chart.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-165810",
+    "chapter": "Sanctuary",
+    "caption": "The Muse: the creative wing, with new writing logged as it is made.",
+    "alt": "Sanctuary wing home titled The Muse with a row of recently written pieces.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-165917",
+    "chapter": "Sanctuary",
+    "caption": "The Poetry Chamber: six rooms for the poem, from the word vault to the sketch studio.",
+    "alt": "Sanctuary poetry chamber showing six named rooms for writing poems.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-170256",
+    "chapter": "Sanctuary",
+    "caption": "The Writing Lab: six sensory exercises, each with a lesson first.",
+    "alt": "Sanctuary Writing Lab showing six writing exercises.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-194252",
+    "chapter": "Scholar",
+    "caption": "The Librarian: a fragment vault of everything worth keeping, with new fragments logged as wins.",
+    "alt": "Scholar wing home titled The Librarian with a row of saved fragments.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-194726",
+    "chapter": "Scholar",
+    "caption": "The CEO book curriculum: tracks of books, with progress through each one.",
+    "alt": "Scholar CEO book curriculum showing tracks and lesson progress.",
+    "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-195231",
+    "chapter": "Scholar",
+    "caption": "The Language Studio: a Luganda lesson that teaches the grammar through a sentence about herself.",
+    "alt": "Scholar language studio lesson in Luganda with the phrase and its English translation.",
+    "reviewed": "2026-11-11"
+  }
+]

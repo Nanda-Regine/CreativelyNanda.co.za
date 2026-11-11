@@ -8,7 +8,7 @@
  *  - dates are pre-formatted strings (asOfLabel) so render is hydration-safe
  */
 
-export type EvidenceApp = 'adminos';
+export type EvidenceApp = 'adminos' | 'jarvis';
 
 export type ClaimStatus = 'verified' | 'self-reported' | 'pending-source' | 'retired';
 
@@ -49,9 +49,10 @@ export interface JourneyStop {
   title: string;
   body: string;
   screen: string;
-  /** a sample-data figure shown with the stop. Always sample data. */
+  /** a figure shown with the stop. */
   figure?: string;
-  sampleData: true;
+  /** true: invented sample data (labelled as such). false: the owner's own live screen. */
+  sampleData: boolean;
 }
 
 export type ArchLayer = 'clients' | 'edge' | 'data' | 'ai' | 'jobs' | 'ops';
@@ -91,13 +92,26 @@ export interface VideoChapter {
   t: number;
 }
 
+/** one room of a multi-part product, shown in the clickable WingMap */
+export interface Wing {
+  id: string;
+  name: string;
+  /** the room's own name inside the product, e.g. 'The Architect' */
+  room: string;
+  what: string;
+  screen: string;
+}
+
 export interface CaseFile {
   app: EvidenceApp;
+  /** heading above the journey section, e.g. 'A week with Thabo' */
+  journeyTitle: string;
+  wings?: Wing[];
   name: string;
   /** one line, no price */
   promise: string;
-  /** https only */
-  liveUrl: string;
+  /** https only. Omitted for private products with no public site. */
+  liveUrl?: string;
   status: { label: 'Live'; asOfLabel: string };
   paper: PaperName;
   accent: string;

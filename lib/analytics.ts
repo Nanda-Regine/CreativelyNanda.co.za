@@ -40,6 +40,7 @@ export type ForgeEvent =
   | 'forge_studio_open'     // a screen was opened on the App Studio stage
   | 'evidence_slide'        // a pitch-deck slide was reached (slide index only)
   | 'evidence_arch_node'    // an architecture node was opened (node id only)
+  | 'evidence_wing_pick'    // a wing was picked on the wing map (wing id only)
   | 'forge_filter'          // a build filter was used on nights / commits
   | 'forge_live_app_click'  // someone left for one of the live products
   | 'forge_repo_click'      // someone went to a repository

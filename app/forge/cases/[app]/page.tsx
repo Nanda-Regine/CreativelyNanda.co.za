@@ -13,6 +13,7 @@ import PitchDeck from '@/components/forge/evidence/PitchDeck';
 import JourneyWeek from '@/components/forge/evidence/JourneyWeek';
 import ArchitectureExplorer from '@/components/forge/evidence/ArchitectureExplorer';
 import DecisionCards from '@/components/forge/evidence/DecisionCards';
+import WingMap from '@/components/forge/evidence/WingMap';
 import PriceLadder from '@/components/forge/evidence/PriceLadder';
 import ProofWall from '@/components/forge/evidence/ProofWall';
 import { ClaimFigure, ClaimsFootnote } from '@/components/forge/evidence/ClaimFigure';
@@ -66,19 +67,25 @@ export default function CasePage({ params }: { params: { app: string } }) {
             <div className="mt-12">
               <DeskStack screenIds={c.heroScreens} />
             </div>
-            <a
-              href={c.liveUrl}
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex min-h-[44px] items-center underline underline-offset-4"
-            >
-              Open the live product
-            </a>
+            {c.liveUrl ? (
+              <a
+                href={c.liveUrl}
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex min-h-[44px] items-center underline underline-offset-4"
+              >
+                Open the live product
+              </a>
+            ) : (
+              <p className="mt-8 text-sm italic" style={{ color: 'rgb(var(--ink-rgb) / 0.75)' }}>
+                Private product: owner login only. These are its real screens.
+              </p>
+            )}
           </div>
         </Stock>
 
         <Stock paper="bone" texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-5xl">
-            <PitchDeck slides={c.slides} title={`${c.name} pitch`} />
+            <PitchDeck slides={c.slides} title={`${c.name} pitch`} app={c.app} />
           </div>
         </Stock>
 
@@ -88,15 +95,23 @@ export default function CasePage({ params }: { params: { app: string } }) {
           </div>
         </Stock>
 
+        {c.wings?.length ? (
+          <Stock paper={c.paper} texture={false} className="px-6 py-16">
+            <div className="mx-auto max-w-6xl">
+              <WingMap wings={c.wings} title="Walk the wings" app={c.app} />
+            </div>
+          </Stock>
+        ) : null}
+
         <Stock paper="bone" texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-6xl">
-            <JourneyWeek stops={c.journey} title="A week with Thabo" />
+            <JourneyWeek stops={c.journey} title={c.journeyTitle} />
           </div>
         </Stock>
 
         <Stock paper={c.paper} texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-6xl">
-            <ArchitectureExplorer nodes={c.arch} title={`How ${c.name} is built`} />
+            <ArchitectureExplorer nodes={c.arch} title={`How ${c.name} is built`} app={c.app} />
             {footIds.length ? <ClaimsFootnote ids={footIds} /> : null}
           </div>
         </Stock>
