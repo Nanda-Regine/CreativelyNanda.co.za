@@ -6,7 +6,7 @@
  *   node scripts/evidence/upload-r2.mjs --apps adminos,jarvis --dry
  *   node scripts/evidence/upload-r2.mjs --apps adminos,jarvis   # create bucket if missing, upload
  *
- * Secrets: reads CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID (or CF_ equivalents) from the shell or .env.local
+ * Secrets: reads CLOUDFLARE_R2_TOKEN (preferred, R2-only) or CLOUDFLARE_API_TOKEN, and CLOUDFLARE_ACCOUNT_ID (or CF_ equivalents) from the shell or .env.local
  * INSIDE this process. Values are never printed, never written anywhere, never sent anywhere but api.cloudflare.com.
  * Only *.webp and *.avif are uploaded. The lossless *.master.png files never leave the work folder.
  * Nothing is deleted. Uploads are idempotent (same key, same bytes).
@@ -37,7 +37,8 @@ function loadEnv() {
 loadEnv();
 
 const pick = (...names) => names.map((n) => [n, process.env[n]]).find(([, v]) => v);
-const tok = pick('CLOUDFLARE_API_TOKEN', 'CF_API_TOKEN', 'CLOUDFLARE_TOKEN');
+// a narrow R2-only token wins over the account-wide one
+const tok = pick('CLOUDFLARE_R2_TOKEN', 'CLOUDFLARE_API_TOKEN', 'CF_API_TOKEN', 'CLOUDFLARE_TOKEN');
 const acc = pick('CLOUDFLARE_ACCOUNT_ID', 'CF_ACCOUNT_ID', 'CLOUDFLARE_ACCOUNT');
 console.log(`token variable: ${tok ? tok[0] + ' (found)' : 'NOT FOUND'}`);
 console.log(`account id variable: ${acc ? acc[0] + ' (found)' : 'NOT FOUND'}`);
