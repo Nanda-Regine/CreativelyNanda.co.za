@@ -92,6 +92,12 @@ const nextConfig = {
     // the canonical creative URLs stay /poetry/collection to preserve SEO.
     { source: '/library', destination: '/poetry/collection', permanent: false },
     { source: '/library/:slug', destination: '/poetry/collection/:slug', permanent: false },
+    // The shop lives at /products. Common guesses land there instead of a 404.
+    { source: '/marketplace', destination: '/products', permanent: false },
+    { source: '/marketplace/:slug', destination: '/products/:slug', permanent: false },
+    { source: '/shop', destination: '/products', permanent: false },
+    { source: '/shop/:slug', destination: '/products/:slug', permanent: false },
+    { source: '/store', destination: '/products', permanent: false },
   ],
   // Cloudflare-compatible security headers
   headers: async () => [

@@ -79,6 +79,6 @@ export function getContextFromPath(pathname: string): NandaGirlContext {
   if (pathname.startsWith('/notion')) return 'notion';
   if (pathname.startsWith('/contact')) return 'contact';
   if (pathname.startsWith('/blog')) return 'blog';
-  if (pathname.startsWith('/marketplace')) return 'marketplace';
+  if (pathname.startsWith('/products') || pathname.startsWith('/marketplace')) return 'marketplace';
   return 'default';
 }
