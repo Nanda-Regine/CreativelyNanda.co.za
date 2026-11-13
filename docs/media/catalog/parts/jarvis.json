@@ -1,0 +1,3937 @@
+[
+ {
+  "id": "jarvis-dashboard-154221",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154221.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.83,
+  "description": "The daily check-in: energy out of ten, a few feeling words, hours slept. Every wing reads it, so the rest of the system knows what kind of day this is.",
+  "patterns": [
+   "form",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154328",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154328.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.73,
+  "description": "The wing grid: every room of the OS at a glance, with a command queue of open, urgent, overdue and due-today tasks underneath.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "origin-story"
+  ],
+  "notes": "hero candidate: shows all wings at once"
+ },
+ {
+  "id": "jarvis-dashboard-154524",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154524.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.94,
+  "description": "Ops Manuals: Jarvis writes the playbook for each wing, one plan per wing, refreshed on demand.",
+  "patterns": [
+   "list",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154555",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154555.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.83,
+  "description": "The tool directory: oracle, quick capture, mirror, load shedding planner, energy budget and more, grouped by what they are for.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154622",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154622.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.88,
+  "description": "The Growth Desk: today's client-acquisition actions in order, the closest deadline first.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Names real funders and registrations being applied for; confirm before publishing.",
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154652",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154652.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.9,
+  "description": "Intelligence Feed: news scored for relevance, with a regulatory alert banner.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154720",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154720.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.99,
+  "description": "Intelligence Feed article cards, each with why-it-matters and a suggested next move.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154751",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154751.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "The Opportunity Scanner: tenders, funding, investors and awards, scored, with this week's three to chase.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154825",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154825.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.92,
+  "description": "Funding and opportunity cards with deadlines, fit notes and pursue or skip actions.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Names real funders and amounts being applied for.",
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-154922",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 154922.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.83,
+  "description": "Applications: what is being applied for, how ready each one is, and what happens next.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-dashboard-155008",
+  "path": "public/app-graphics/jarvis-dashboard/Screenshot 2026-11-10 155008.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "dashboard",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "Demand Radar: public requests for work with suggested replies.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Lists posted jobs from named outside clients and platforms.",
+  "quality": 2,
+  "story": "The front door of Jarvis OS: one daily check-in that every wing reads.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-ceo-160415",
+  "path": "public/app-graphics/jarvis-ceo-wing/Screenshot 2026-11-10 160415.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "ceo",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.19,
+  "description": "The CEO Command Centre: the empire in one header, with logged wins and a list of cross-wing alerts below.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Win cards mention named organisations and clients.",
+  "quality": 4,
+  "story": "A CEO wing that turns the day check-in into a brief, a plan and a calendar.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-ceo-160524",
+  "path": "public/app-graphics/jarvis-ceo-wing/Screenshot 2026-11-10 160524.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "ceo",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.19,
+  "description": "The CEO Command Centre header with logged wins and a cross-wing alert (near duplicate).",
+  "patterns": [
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Win cards mention named organisations and clients.",
+  "quality": 2,
+  "story": "A CEO wing that turns the day check-in into a brief, a plan and a calendar.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "near duplicate of 160415",
+  "duplicate_of": "jarvis-ceo-160415"
+ },
+ {
+  "id": "jarvis-ceo-160624",
+  "path": "public/app-graphics/jarvis-ceo-wing/Screenshot 2026-11-10 160624.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "ceo",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.2,
+  "description": "The morning brief: today's focus, shaped by the day's check-in, plus market intelligence relevant to the business.",
+  "patterns": [
+   "ai-chat",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Brief text refers to a personal cycle day.",
+  "quality": 4,
+  "story": "A CEO wing that turns the day check-in into a brief, a plan and a calendar.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-ceo-160655",
+  "path": "public/app-graphics/jarvis-ceo-wing/Screenshot 2026-11-10 160655.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "ceo",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.18,
+  "description": "The CEO operations launcher: a grid of tools for clients, pipeline, OKRs and more.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A CEO wing that turns the day check-in into a brief, a plan and a calendar.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-ceo-160807",
+  "path": "public/app-graphics/jarvis-ceo-wing/Screenshot 2026-11-10 160807.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "ceo",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.99,
+  "description": "Morning Brief detail page with a regenerate button and focus list.",
+  "patterns": [
+   "ai-chat",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Brief text refers to a personal cycle day.",
+  "quality": 3,
+  "story": "A CEO wing that turns the day check-in into a brief, a plan and a calendar.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-ceo-160932",
+  "path": "public/app-graphics/jarvis-ceo-wing/Screenshot 2026-11-10 160932.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "ceo",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "The living business plan: vision, mission and a 14-day execution target that the system keeps current.",
+  "patterns": [
+   "content-editor",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A CEO wing that turns the day check-in into a brief, a plan and a calendar.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-ceo-161034",
+  "path": "public/app-graphics/jarvis-ceo-wing/Screenshot 2026-11-10 161034.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "ceo",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.95,
+  "description": "The CEO calendar with a connected Google Calendar and a month grid.",
+  "patterns": [
+   "calendar"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A CEO wing that turns the day check-in into a brief, a plan and a calendar.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-finance-161527",
+  "path": "public/app-graphics/jarvis-finance-wing/Screenshot 2026-11-10 161527.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "finance",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.05,
+  "description": "Wealth Architecture: a wing for money, with a win logged for compliant, up-to-date books.",
+  "patterns": [
+   "dashboard",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Money amounts for her own business are readable (vendor and totals).",
+  "quality": 3,
+  "story": "A money wing that allocates income by rule and keeps tax in view.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-finance-161625",
+  "path": "public/app-graphics/jarvis-finance-wing/Screenshot 2026-11-10 161625.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "finance",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.92,
+  "description": "The income waterfall: money allocated by rule into operating, tax reserve, joy and investment before it is spent.",
+  "patterns": [
+   "money",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Money amounts for her own business are readable (vendor and totals).",
+  "quality": 4,
+  "story": "A money wing that allocates income by rule and keeps tax in view.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-finance-161654",
+  "path": "public/app-graphics/jarvis-finance-wing/Screenshot 2026-11-10 161654.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "finance",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.97,
+  "description": "Finance tool launcher with a ledger feed of recent entries.",
+  "patterns": [
+   "list",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Money amounts for her own business are readable (vendor and totals).",
+  "quality": 3,
+  "story": "A money wing that allocates income by rule and keeps tax in view.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-finance-161810",
+  "path": "public/app-graphics/jarvis-finance-wing/Screenshot 2026-11-10 161810.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "finance",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.75,
+  "description": "Transactions list with totals in, out and net, filtered by business and personal.",
+  "patterns": [
+   "list",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Money amounts for her own business are readable (vendor and totals).",
+  "quality": 3,
+  "story": "A money wing that allocates income by rule and keeps tax in view.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-finance-161911",
+  "path": "public/app-graphics/jarvis-finance-wing/Screenshot 2026-11-10 161911.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "finance",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.04,
+  "description": "The VAT tracker: output and input VAT for the period, and what is claimable.",
+  "patterns": [
+   "money",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Money amounts for her own business are readable (vendor and totals).",
+  "quality": 3,
+  "story": "A money wing that allocates income by rule and keeps tax in view.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-finance-162031",
+  "path": "public/app-graphics/jarvis-finance-wing/Screenshot 2026-11-10 162031.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "finance",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.98,
+  "description": "Giving and Impact page with empty totals and quick links.",
+  "patterns": [
+   "empty-state",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "A money wing that allocates income by rule and keeps tax in view.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-finance-162114",
+  "path": "public/app-graphics/jarvis-finance-wing/Screenshot 2026-11-10 162114.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "finance",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.07,
+  "description": "Investor Relations page with no investor configured and an empty history.",
+  "patterns": [
+   "empty-state",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "A money wing that allocates income by rule and keeps tax in view.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-cycle-162255",
+  "path": "public/app-graphics/jarvis-cycle-wing/Screenshot 2026-11-10 162255.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "cycle",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.93,
+  "description": "Moon Oracle: the cycle wing, with each logged day kept as a win.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Cycle and wellbeing values are readable.",
+  "quality": 3,
+  "story": "A cycle-aware wing so work and training follow the body, not fight it.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-cycle-162419",
+  "path": "public/app-graphics/jarvis-cycle-wing/Screenshot 2026-11-10 162419.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "cycle",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "The current phase, energy and mood on one card, and what each phase suits for training, finance and creative work.",
+  "patterns": [
+   "dashboard",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Cycle and wellbeing values are readable.",
+  "quality": 4,
+  "story": "A cycle-aware wing so work and training follow the body, not fight it.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-cycle-162508",
+  "path": "public/app-graphics/jarvis-cycle-wing/Screenshot 2026-11-10 162508.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "cycle",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.86,
+  "description": "Today's supplements checklist and training notes.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Personal supplement and health routine is readable.",
+  "quality": 2,
+  "story": "A cycle-aware wing so work and training follow the body, not fight it.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-cycle-162601",
+  "path": "public/app-graphics/jarvis-cycle-wing/Screenshot 2026-11-10 162601.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "cycle",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.88,
+  "description": "Energy, mood and training charted over time with phase guidance and a nutrition log field.",
+  "patterns": [
+   "report",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Cycle and wellbeing values are readable.",
+  "quality": 3,
+  "story": "A cycle-aware wing so work and training follow the body, not fight it.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-body-200752",
+  "path": "public/app-graphics/jarvis-body-wing/Screenshot 2026-11-10 200752.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "body",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.85,
+  "description": "The Athlete: HRV-synced, cycle-aware training, with each session logged as a win.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A training wing that adapts to recovery and cycle phase.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-body-200850",
+  "path": "public/app-graphics/jarvis-body-wing/Screenshot 2026-11-10 200850.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "body",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.09,
+  "description": "Train with video: a grid of workout video thumbnails from an outside fitness channel.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": true,
+   "count": "2-5",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": true
+  },
+  "consent": "needs-check",
+  "sensitivity": "review",
+  "sensitivity_reason": "Third-party instructor thumbnails with identifiable faces; rights not ours.",
+  "quality": 2,
+  "story": "A training wing that adapts to recovery and cycle phase.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-body-200949",
+  "path": "public/app-graphics/jarvis-body-wing/Screenshot 2026-11-10 200949.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "body",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.87,
+  "description": "UV safety, a recovery score and a phase-matched restorative programme.",
+  "patterns": [
+   "detail",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Recovery score and cycle phase are readable.",
+  "quality": 3,
+  "story": "A training wing that adapts to recovery and cycle phase.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-body-201031",
+  "path": "public/app-graphics/jarvis-body-wing/Screenshot 2026-11-10 201031.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "body",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.88,
+  "description": "Body wing launcher with a 12-week periodisation plan.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A training wing that adapts to recovery and cycle phase.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-body-201218",
+  "path": "public/app-graphics/jarvis-body-wing/Screenshot 2026-11-10 201218.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "body",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.94,
+  "description": "The SA Foods Database: South African traditional and local foods with their nutrition.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A training wing that adapts to recovery and cycle phase.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "social"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-162811",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 162811.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.88,
+  "description": "The Creative Director: eight brands, one electric intelligence, with logged wins across the brands.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-162854",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 162854.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.81,
+  "description": "Marketing Command: generate content, video scripts, a visual vault and a preview before anything is published.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-162934",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 162934.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.79,
+  "description": "Publishing stats with a hand-finish post queue ready to copy and mark posted.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter"
+  ],
+  "notes": "shows the human approve step"
+ },
+ {
+  "id": "jarvis-marketing-163057",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 163057.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.97,
+  "description": "The strategy view: one plan per launch, with the goal, the open loop and the next step.",
+  "patterns": [
+   "detail",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-163153",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 163153.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "The Content Studio: pick the brands and channels, and the batch is generated for each.",
+  "patterns": [
+   "form",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-163238",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 163238.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "The Daily Desk: a posting streak and a long-form draft ready to review.",
+  "patterns": [
+   "content-editor",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-163442",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 163442.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.83,
+  "description": "TikTok content pack with video formats and a generator.",
+  "patterns": [
+   "content-editor",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-163545",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 163545.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.63,
+  "description": "Dev Platforms: an AI article generator and platform tabs.",
+  "patterns": [
+   "content-editor",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-163729",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 163729.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.96,
+  "description": "The publishing dashboard: approve, schedule and publish across every brand and platform from one queue.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-marketing-163813",
+  "path": "public/app-graphics/jarvis-marketing-wing/Screenshot 2026-11-10 163813.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "marketing",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.82,
+  "description": "The content calendar: a month of posts across all brands, one coloured dot per brand.",
+  "patterns": [
+   "calendar"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "One creative director for every brand: generate, approve and publish from one place.",
+  "rooms": [
+   "screen-library",
+   "newsletter",
+   "case-file"
+  ],
+  "notes": "hero candidate"
+ },
+ {
+  "id": "jarvis-engineering-163959",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 163959.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.09,
+  "description": "The Architect: engineering wins logged as they happen, and what is happening in engineering right now.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-164048",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 164048.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.1,
+  "description": "The control room: reliability, delivery, build, intelligence and security tools grouped in one place.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-164412",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 164412.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "The sprint board: tasks by sprint, with progress across all of them.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-164510",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 164510.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.1,
+  "description": "Core Web Vitals: a synthetic speed check across the live apps.",
+  "patterns": [
+   "report",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-164613",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 164613.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.21,
+  "description": "Performance intelligence: a seven-day health analysis and the DORA delivery metrics.",
+  "patterns": [
+   "report",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-164751",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 164751.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.09,
+  "description": "The dependency scanner: every package across every app checked for known vulnerabilities, per app.",
+  "patterns": [
+   "report",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-164904",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 164904.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.16,
+  "description": "Guided Curriculum: a stack taught from the ground up, one lesson at a time.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-165019",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 165019.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.2,
+  "description": "Workshops: lessons written from her own repos at beginner, intermediate and advanced levels.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-165249",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 165249.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.94,
+  "description": "Golden Bricks: reusable patterns extracted from the apps, searchable, so a solved problem stays solved.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-165322",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 165322.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.06,
+  "description": "The AI Lab: what the AI calls cost, by day and by model.",
+  "patterns": [
+   "report",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-165414",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 165414.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.07,
+  "description": "Load Testing: a form to run a smoke test against an app, with recent runs.",
+  "patterns": [
+   "form",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-engineering-165513",
+  "path": "public/app-graphics/jarvis-engineering-wing/Screenshot 2026-11-10 165513.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "engineering",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.19,
+  "description": "Multi-Repo Intelligence: shared packages and version divergences across the apps.",
+  "patterns": [
+   "report",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "An engineering wing that watches the apps and keeps solved problems solved.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-165810",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 165810.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.97,
+  "description": "The Muse: the creative wing, with new writing logged as it is made.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": "hero candidate"
+ },
+ {
+  "id": "jarvis-sanctuary-165837",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 165837.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "Creative Sanctuary: counts of poems, pieces and words, with the rule that the poet leads and the AI follows.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-165917",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 165917.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "The Poetry Chamber: six rooms for the poem, from the word vault to the sketch studio.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-170035",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 170035.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "Sanctuary rooms list including journal, dream vault and writing projects in progress.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-170158",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 170158.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "The Writing Room: a list of pieces with word counts and status.",
+  "patterns": [
+   "list",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-170256",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 170256.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.03,
+  "description": "The Writing Lab: six sensory exercises, each with a lesson first.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": "hero candidate for The Study"
+ },
+ {
+  "id": "jarvis-sanctuary-170435",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 170435.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.02,
+  "description": "The Five Senses Sprint exercise with its learn-it-first lesson.",
+  "patterns": [
+   "detail",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-170646",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 170646.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.02,
+  "description": "The Zoom Lens exercise: one scene written three ways.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-170743",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 170743.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.96,
+  "description": "The Style Imitation exercise with a lesson on borrowing rhythm, not content.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-172427",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 172427.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.98,
+  "description": "The Cliche Killers exercise with a lesson on fresh imagery.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-172609",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 172609.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.95,
+  "description": "The Specificity Upgrade exercise: replace vague emotion words with concrete detail.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-172738",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 172738.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.03,
+  "description": "The Dialogue Lab: a lesson on subtext with an example scene.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-172946",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 172946.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1,
+  "description": "The Poetry Room: a list of poems by form and status with counts.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-173141",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 173141.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.96,
+  "description": "The Poetry Dojo: twelve techniques to practise, with session counts.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-173237",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 173237.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.74,
+  "description": "The Word Vault: one word owned per day, with etymology and a craft prompt.",
+  "patterns": [
+   "detail",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-173522",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 173522.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.15,
+  "description": "Daily Sparks: a writing prompt of the day with a ten-minute timer.",
+  "patterns": [
+   "detail",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-173803",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 173803.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.08,
+  "description": "The Sketch Studio: learn from video, with drawing tutorials grouped by skill.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-193425",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 193425.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.16,
+  "description": "The Novel House: manuscripts with word counts and progress.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-194041",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 194041.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.79,
+  "description": "A roster of specialist guides across psychology, coaching and wellbeing.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-sanctuary-194135",
+  "path": "public/app-graphics/jarvis-sanctuary-wing/Screenshot 2026-11-10 194135.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "sanctuary",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "The Style Lab: paste prose for a craft analysis.",
+  "patterns": [
+   "form",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A creative wing where the poet leads and the AI follows.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-194252",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194252.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.11,
+  "description": "The Librarian: a fragment vault of everything worth keeping, with new fragments logged as wins.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "case-file"
+  ],
+  "notes": "hero candidate"
+ },
+ {
+  "id": "jarvis-scholar-194339",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194339.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.3,
+  "description": "An emergence report: themes and cross-domain synthesis written from saved fragments.",
+  "patterns": [
+   "report",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-194442",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194442.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.06,
+  "description": "Bookworm curriculum: reading tracks with progress bars.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-194606",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194606.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.08,
+  "description": "The Scholar tool launcher: fragments, synthesis, languages and book rooms.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-194726",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194726.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.11,
+  "description": "The CEO book curriculum: tracks of books, with progress through each one.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-194751",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194751.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.1,
+  "description": "A curriculum track expanded to show books and lesson progress.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-194916",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194916.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.22,
+  "description": "Intelligence Elite: a daily brief with a key insight and a news feed.",
+  "patterns": [
+   "report",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-194958",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 194958.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.09,
+  "description": "Intelligence Elite weekly brief with trending topics.",
+  "patterns": [
+   "report",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195131",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195131.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.81,
+  "description": "The Language Studio: study days, vocab due, and today's lesson, cards and chat.",
+  "patterns": [
+   "dashboard",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195146",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195146.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.73,
+  "description": "Language progress across four languages with a skill bar for each.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195231",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195231.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.76,
+  "description": "The Language Studio: a Luganda lesson that teaches the grammar through a sentence about herself.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "case-file",
+   "newsletter"
+  ],
+  "notes": "hero candidate for The Study"
+ },
+ {
+  "id": "jarvis-scholar-195303",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195303.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.8,
+  "description": "A French lesson on formal greetings with example dialogue.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195344",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195344.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.77,
+  "description": "An Afrikaans lesson on numbers with example sentences.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195436",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195436.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.81,
+  "description": "A Mandarin lesson on tones with example phrases.",
+  "patterns": [
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195529",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195529.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.72,
+  "description": "French vocabulary review list with due markers.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195749",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195749.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.95,
+  "description": "The Bookworm Reading Room: a library, curriculum and recall hub with category chips.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195808",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195808.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.96,
+  "description": "Bookworm Reading Room with the first shelf of books and daily practices.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": "near duplicate of 195749",
+  "duplicate_of": "jarvis-scholar-195749"
+ },
+ {
+  "id": "jarvis-scholar-195838",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195838.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.9,
+  "description": "Reading shelf for builders and tech with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-195927",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 195927.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.9,
+  "description": "Reading shelf for spirit and consciousness with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200013",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200013.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "Reading shelf for body and brain with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200033",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200033.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.95,
+  "description": "Reading shelf for the African canon with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200102",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200102.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.94,
+  "description": "The writer's shelf with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200130",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200130.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.96,
+  "description": "Reading shelf for mind and healing with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200156",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200156.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.9,
+  "description": "Reading shelf for elite etiquette with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200230",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200230.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.94,
+  "description": "Reading shelf titled The Royal with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Adult-themed book titles; not suitable for a school audience.",
+  "quality": 2,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200252",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200252.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.96,
+  "description": "Reading shelf on feminine power with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Adult-themed book titles; not suitable for a school audience.",
+  "quality": 2,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200334",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200334.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "Reading shelf on boundaries and power with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Adult-themed book titles; not suitable for a school audience.",
+  "quality": 2,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200412",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200412.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.92,
+  "description": "Reading shelf on money mindset with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200453",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200453.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "Reading shelf on the long game and strategy with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200520",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200520.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.94,
+  "description": "Reading shelf on negotiation with a daily practice per book.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study"
+  ],
+  "notes": null
+ },
+ {
+  "id": "jarvis-scholar-200652",
+  "path": "public/app-graphics/jarvis-scholar-wing/Screenshot 2026-11-10 200652.png",
+  "kind": "screenshot",
+  "product": "jarvis",
+  "jarvis_wing": "scholar",
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.22,
+  "description": "A writing profile: a voice fingerprint and trajectory analysed from Nanda's own writing.",
+  "patterns": [
+   "report",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A knowledge wing where reading, languages and fragments compound into daily practice.",
+  "rooms": [
+   "screen-library",
+   "the-study",
+   "newsletter",
+   "case-file"
+  ],
+  "notes": "shows the system reading her own work back to her"
+ }
+]

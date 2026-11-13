@@ -1,0 +1,3790 @@
+[
+ {
+  "id": "app-adminos-142417",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142417.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.72,
+  "description": "Landing page headline 'Your whole business. One workspace.' beside a WhatsApp exchange where the Chase agent follows up an unpaid invoice.",
+  "patterns": [
+   "landing",
+   "mobile"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "One workspace for a small business, with an AI agent doing the awkward chasing.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room",
+   "social",
+   "mirembe"
+  ],
+  "notes": "Hero candidate for AdminOS. Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-142536",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142536.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.4,
+  "description": "Landing page section '6 agents. Always on.' with cards for the Alex, Chase and Care AI agents, each with a small live example.",
+  "patterns": [
+   "landing",
+   "ai-chat"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Six named AI agents, each with one job.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "social"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-142559",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142559.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.38,
+  "description": "Landing page cards for the Doc, Insight and Pen agents: document intelligence, daily business insight and content drafting.",
+  "patterns": [
+   "landing",
+   "ai-chat"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The rest of the agent team: documents, insight, writing.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Pairs with app-adminos-142536."
+ },
+ {
+  "id": "app-adminos-142628",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142628.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.55,
+  "description": "Landing page feature grid titled 'A complete business OS', six cards covering employee OS, business academy, operations, compliance, intelligence and community.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "What 'complete business OS' actually covers.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-142658",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142658.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.49,
+  "description": "Landing page section 'Your numbers, contextualised' showing a health score, a 90-day cash forecast and a valuation estimate card.",
+  "patterns": [
+   "landing",
+   "dashboard",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Numbers explained against the business's own sector and stage.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-142724",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142724.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.37,
+  "description": "Landing page section 'Langa: your AI business mentor' with a sample chat about cash flow and a list of what Langa knows.",
+  "patterns": [
+   "landing",
+   "ai-chat"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A mentor that reads your own numbers before it advises.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "social"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-142749",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142749.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.42,
+  "description": "Landing page section 'Extend your OS with add-ons' showing paid add-on cards for calls, broadcasts, client portal and languages.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Add-ons priced per month, switch on only what you need.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-142826",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142826.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.57,
+  "description": "Landing page section 'Built by African women. For African businesses.' with local-context stats and a list of South Africa-specific features.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Built for South African conditions, not adapted from foreign tools.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-142929",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 142929.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.66,
+  "description": "Command Center dashboard: a greeting, a stuck-in-collections headline figure, a decisions-needed list, quarterly goals and vital signs.",
+  "patterns": [
+   "dashboard",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "One screen to start the day: what is stuck, what needs a decision.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room"
+  ],
+  "notes": "Hero candidate for AdminOS product shots. Demo data."
+ },
+ {
+  "id": "app-adminos-143011",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143011.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.62,
+  "description": "Analytics page with conversation volume, request types, customer sentiment and debt ageing panels.",
+  "patterns": [
+   "dashboard",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Business analytics tied to the WhatsApp conversations.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Chart area mostly empty; supporting only."
+ },
+ {
+  "id": "app-adminos-143028",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143028.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.76,
+  "description": "Cash Cockpit: a steady-cash banner, three headline money figures and a collections pipeline aged by bucket.",
+  "patterns": [
+   "dashboard",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "What you are owed, how old it is, who to chase first.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room"
+  ],
+  "notes": "Strong money screen. Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-143753",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143753.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.81,
+  "description": "Invoice register table with status, outstanding amount and recovery stage per line, plus summary tiles.",
+  "patterns": [
+   "list",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Every invoice with its recovery stage.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-143822",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143822.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.77,
+  "description": "Cashflow page with a 90-day forecast chart, headline cash figures and a runway score.",
+  "patterns": [
+   "dashboard",
+   "money",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A forecast labelled as an estimate, with runway in days.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-143849",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143849.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.8,
+  "description": "Bank and reconciliation page: an uploaded statement shows a payment matched to an invoice, with a confirm-matches button.",
+  "patterns": [
+   "money",
+   "list",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Upload a statement, confirm a match with one tap.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-143908",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143908.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.79,
+  "description": "Expense claims page with pending approval queue, totals and recently processed claims.",
+  "patterns": [
+   "list",
+   "money",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Staff expense claims approved in one place.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-143937",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143937.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.78,
+  "description": "Accountant Reports page: pick a month and download report cards such as income statement, VAT working paper, journal and AR ageing.",
+  "patterns": [
+   "report",
+   "money",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A clean month-end pack for the accountant.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-143957",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 143957.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.79,
+  "description": "Sales Cockpit showing a go-cold-leads banner, pipeline value and a respond-first panel.",
+  "patterns": [
+   "dashboard",
+   "empty-state"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Leads that have gone quiet, surfaced for a nudge.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144021",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144021.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.83,
+  "description": "WhatsApp inbox with a conversation list tagged by sentiment and status, a thread, and one-tap Draft reply and Summarise helpers.",
+  "patterns": [
+   "ai-chat",
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A shared WhatsApp inbox with AI helpers.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "social"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-144040",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144040.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.84,
+  "description": "Contacts CRM list with outstanding balance, type and sentiment columns and summary tiles.",
+  "patterns": [
+   "list",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Customers and suppliers with what they owe.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144101",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144101.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.84,
+  "description": "Reach: new broadcast campaign composer with an audience selector and a consent notice.",
+  "patterns": [
+   "form",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Broadcasts that check consent before sending.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-144132",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144132.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.81,
+  "description": "New automation sequence form with a trigger choice and a step builder for timed WhatsApp messages.",
+  "patterns": [
+   "form",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Multi-step follow-up sequences.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144152",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144152.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.83,
+  "description": "Pen email studio: compose form with tone, email type and language options beside an empty generated-email panel.",
+  "patterns": [
+   "form",
+   "ai-chat",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "An AI writing studio in several languages.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144213",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144213.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.71,
+  "description": "Ops Cockpit: reorder-level banner, low-stock, stock value, bookings and open-task tiles, and today's schedule.",
+  "patterns": [
+   "dashboard",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Stock, bookings and tasks in one view.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-144234",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144234.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.7,
+  "description": "Calendar page showing a month grid with bookings, tax dues and compliance deadlines.",
+  "patterns": [
+   "calendar"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Deadlines and bookings on one calendar.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144306",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144306.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.71,
+  "description": "Suppliers page with a scorecard of B-BBEE level and ownership tiles and a filterable supplier table.",
+  "patterns": [
+   "list",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Supplier scorecard with B-BBEE level, because procurement here asks.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-144333",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144333.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.77,
+  "description": "Suppliers list scrolled to the table with category, B-BBEE level, ownership, terms and contact columns.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "Detail view of the supplier table.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Near-duplicate of app-adminos-144306 (scroll position differs).",
+  "duplicate_of": "app-adminos-144306"
+ },
+ {
+  "id": "app-adminos-144706",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144706.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.72,
+  "description": "Inventory page with low-stock alert banner, stock value tiles and a product table.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Low-stock alerts before a stockout.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144726",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144726.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.71,
+  "description": "Tasks as a four-column board with an urgent and overdue banner pinned above.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Tasks as a board, urgent work first.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-144742",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144742.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.73,
+  "description": "Documents upload area with file-type tiles and a goal tracker with progress bars.",
+  "patterns": [
+   "form",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Documents and goals together.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144759",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144759.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.8,
+  "description": "People Cockpit: approvals-waiting banner, headcount tiles, approvals list and quick actions.",
+  "patterns": [
+   "dashboard",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Approvals for leave and expenses in one queue.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144818",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144818.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.88,
+  "description": "Staff page with a team wellness heatmap and staff cards showing leave balance and wellness score.",
+  "patterns": [
+   "list",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Team wellbeing visible alongside staff records.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Demo staff and demo wellness data."
+ },
+ {
+  "id": "app-adminos-144838",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144838.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.89,
+  "description": "Team page with attendance tiles and a grid of team member cards showing check-in status.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Who is in today.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144901",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144901.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.5,
+  "description": "New SOP modal over a dimmed page: title, category and content fields and an acknowledgement toggle.",
+  "patterns": [
+   "form",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "Write a standard operating procedure and require sign-off.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144922",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144922.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.85,
+  "description": "Governance Cockpit: compliance-deadlines banner, health, contracts and valuation tiles, and a deadlines list.",
+  "patterns": [
+   "dashboard",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Compliance deadlines surfaced before a penalty lands.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144935",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144935.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.92,
+  "description": "Contracts page with status tiles and a table of contracts with value, status and dates.",
+  "patterns": [
+   "list",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Contracts and who has signed.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-144951",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 144951.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.9,
+  "description": "Compliance calendar: next-obligation banner, overdue and due-soon tiles and an obligations table.",
+  "patterns": [
+   "calendar",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Each SARS and CIPC obligation with the penalty for missing it.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-145008",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145008.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.03,
+  "description": "Compliance calendar obligations list scrolled, showing repeat cycle, status and penalty notes per row.",
+  "patterns": [
+   "list",
+   "calendar"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Recurring tax and payroll obligations with penalties.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Continuation of app-adminos-144951."
+ },
+ {
+  "id": "app-adminos-145024",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145024.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.92,
+  "description": "Licences and permits page with expiry-tracking tiles and a table of licences with expiry dates and status.",
+  "patterns": [
+   "list",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Licence expiry tracking so a lapse is never a surprise.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-145041",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145041.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.93,
+  "description": "Safety incidents register with filter bar, summary tiles and a table of incident dates and types.",
+  "patterns": [
+   "list",
+   "admin",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Workplace incident register for COIDA reporting.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-145057",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145057.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "Employment equity page: reporting-year form with workforce counts by group and a regulation notice.",
+  "patterns": [
+   "form",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "EEA reporting made fill-in-the-blanks.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-145114",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145114.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.84,
+  "description": "POPIA Compliance Centre with a personal-information register: category, why held, retention and who can access.",
+  "patterns": [
+   "list",
+   "report",
+   "settings"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A POPIA register of what data is held and why.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-145139",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145139.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "Business Health page with an overall score ring, six dimension scores and a radar chart.",
+  "patterns": [
+   "dashboard",
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A health score broken into six dimensions.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room",
+   "social"
+  ],
+  "notes": "Hero candidate for the numbers story. Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-145201",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145201.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.84,
+  "description": "Langa AI business mentor chat opening state with suggested starter questions.",
+  "patterns": [
+   "ai-chat",
+   "empty-state"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "The mentor, ready to be asked.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-145230",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145230.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.71,
+  "description": "Announcements page with a create-announcement form and an empty list.",
+  "patterns": [
+   "form",
+   "content-editor",
+   "empty-state"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "Staff announcements.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-145251",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145251.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.82,
+  "description": "Community feed with category chips and a single help request post.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "A peer community inside the product.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-145318",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145318.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.82,
+  "description": "Stokvel page with an empty state and a create-group button.",
+  "patterns": [
+   "empty-state",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 2,
+  "story": "Stokvel groups inside a business workspace.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Empty state; supporting only."
+ },
+ {
+  "id": "app-adminos-145338",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145338.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.77,
+  "description": "Autonomy settings: for each action the owner picks Auto, Draft or Off, grouped under Money and Operations.",
+  "patterns": [
+   "settings"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "The owner stays in control of what the AI may do alone.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-adminos-145401",
+  "path": "public/app-graphics/adminos-screenshots/Screenshot 2026-11-10 145401.png",
+  "kind": "screenshot",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.79,
+  "description": "Integrations page showing load-shedding status, weather, rand exchange rates and a phone-number validator.",
+  "patterns": [
+   "settings",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "South African context built in: load-shedding and the rand.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Reviewed caption in lib/data/evidence/adminos."
+ },
+ {
+  "id": "app-sanyu-193300",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-09-30 193300.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-09-30",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.38,
+  "description": "Amazon.co.za search results for the brand name showing the oil and balm listings with prices and a sale countdown banner.",
+  "patterns": [
+   "list",
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "The product is real and found on a major marketplace by searching the brand.",
+  "rooms": [
+   "case-file",
+   "press-room",
+   "social"
+  ],
+  "notes": "Capture dated 30 Sep 2026, earlier than the rest. Marketplace screenshot, not the product site. Reviewed caption in lib/data/evidence/sanyu."
+ },
+ {
+  "id": "app-sanyu-152614",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 152614.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.34,
+  "description": "Home page lead: the Signature Oil, Hair Growth Balm and Ritual Duo shown as three product panels with prices.",
+  "patterns": [
+   "landing",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "Three products, one ritual.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room",
+   "social"
+  ],
+  "notes": "Hero candidate."
+ },
+ {
+  "id": "app-sanyu-152725",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 152725.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.04,
+  "description": "Home page section 'Two minutes. Three movements.' explaining warm, feed, seal on a light parchment ground.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "The method is part of the product.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-152823",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 152823.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.33,
+  "description": "Home page section 'Every compound answers for itself' with a mosaic of botanical ingredient photographs on a dark brown ground.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Ingredients shown with the compound that does the work.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-152921",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 152921.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.36,
+  "description": "Home page section 'From the soil to the strand' with macro images of a molecule model, plant stems and an oil drop.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "From plant to molecule to follicle.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153002",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153002.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.06,
+  "description": "Home page brand-name section explaining the Luganda origin of the name Sanyu, on a light ground.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The name comes from Luganda and means joy.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153040",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153040.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.1,
+  "description": "Home page section 'The ritual continues' with three dark cards for the Angel Circle portal: botanical intelligence, journal and the Ascent.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "An Angel Card in every order opens a private portal.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153138",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153138.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.21,
+  "description": "Shop landing with a photo hero, ingredient filter chips and the heading 'Complete the practice'.",
+  "patterns": [
+   "landing",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Small batches, hand-packed, filtered by ingredient.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153229",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153229.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.43,
+  "description": "Shop sets view: three set products with prices and stock status in a dark card grid.",
+  "patterns": [
+   "list",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "The sets, side by side with stock shown.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153255",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153255.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.37,
+  "description": "Shop single-product view: the balm in two sizes and the signature oil, each with price and an add-to-cart button.",
+  "patterns": [
+   "list",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Single products in the shop.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153313",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153313.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.62,
+  "description": "Shop photography strip of jars and bottles outdoors, in packaging and on a woven basket.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Real photography, no synthetic textures.",
+  "rooms": [
+   "case-file",
+   "social"
+  ],
+  "notes": "Strong photo-led screen."
+ },
+ {
+  "id": "app-sanyu-153338",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153338.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.34,
+  "description": "Ritual Duo product page with gallery thumbnails, price, savings, what is in the set and how to use it.",
+  "patterns": [
+   "detail",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "What is in the set and how to use it.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153411",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153411.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.32,
+  "description": "Balm Pair product page with a live count of jars left in the batch and an add-to-cart bar.",
+  "patterns": [
+   "detail",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A real batch count: the scarcity is real.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153442",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153442.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.35,
+  "description": "Oil Duo product page: two bottles, price, batch count and add-to-cart.",
+  "patterns": [
+   "detail",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "One to keep and one to give.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153515",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153515.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.26,
+  "description": "Hair Growth Balm product page with a hand-held jar photograph, size options and the Chebe story.",
+  "patterns": [
+   "detail",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "Chebe from the Lake Chad basin, in a jar.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "social"
+  ],
+  "notes": "Hero candidate for a product story."
+ },
+ {
+  "id": "app-sanyu-153538",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153538.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.42,
+  "description": "Signature Oil product page with a bottle in foliage, price and how-to-use steps.",
+  "patterns": [
+   "detail",
+   "money"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Cold-pressed oil with usage steps.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153552",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153552.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.62,
+  "description": "Ingredients page hero 'Every ingredient is a decision' over a collage of botanical photographs.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Botanicals chosen by tradition and clinical evidence.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153613",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153613.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.43,
+  "description": "Ingredients grid with cards for chebe, black cumin and castor oil, each with a one-line benefit.",
+  "patterns": [
+   "list",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Each ingredient with what it does.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153629",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153629.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.34,
+  "description": "Ingredients grid scrolled to hemp seed, olive, fenugreek, hibiscus, clove and rosemary cards.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The supporting cast of botanicals.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-sanyu-153705",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153705.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.48,
+  "description": "Our Story page opening with a quote over a spice-and-botanicals photograph.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "The founder's story starts with a line, not a logo.",
+  "rooms": [
+   "case-file",
+   "social",
+   "origin-story"
+  ],
+  "notes": "Quote overlay is good for social crops."
+ },
+ {
+  "id": "app-sanyu-153745",
+  "path": "public/app-graphics/sanyu-screenshots/Screenshot 2026-11-10 153745.png",
+  "kind": "screenshot",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.23,
+  "description": "Journal index with three article cards, each with a small portrait photograph of Black hair care or head wraps.",
+  "patterns": [
+   "list",
+   "content-editor"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Writing on African hair oils and wash-day ritual.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Small stock-style model photos; faces not the subject. Treated as clear."
+ },
+ {
+  "id": "app-greendiaspora-140212",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 140212.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.06,
+  "description": "Forum landing hero: 'Green Diaspora Forum 2026' over an aerial photograph of Belize City at sunset, with dates and venue.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "The event platform Mirembe Muse built for a forum in Belize.",
+  "rooms": [
+   "case-file",
+   "press-room",
+   "the-road",
+   "social",
+   "mirembe"
+  ],
+  "notes": "Hero candidate. Landscape cover."
+ },
+ {
+  "id": "app-greendiaspora-140248",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 140248.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.48,
+  "description": "Watch-live section 'Cannot be in Belize? Be in the room anyway' with a three-day schedule showing times across four cities.",
+  "patterns": [
+   "landing",
+   "calendar"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Remote attendees get the same schedule in their own time zone.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-greendiaspora-140328",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 140328.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.83,
+  "description": "Section 'A gateway for global collaboration' with an infographic of the forum's Belize focus areas.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Why Belize, and five focus areas.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-greendiaspora-140437",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 140437.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.6,
+  "description": "Programme preview 'Three days in Belize City' with day cards listing sessions and times.",
+  "patterns": [
+   "landing",
+   "calendar",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Three days of programme at a glance.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-greendiaspora-140525",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 140525.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.67,
+  "description": "Speakers strip of circular headshots with roles, above a 'Three days of working together' feature row.",
+  "patterns": [
+   "landing",
+   "list"
+  ],
+  "people": {
+   "present": true,
+   "count": "6+",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": true
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Headshots of named third-party speakers; confirm consent before large use.",
+  "quality": 3,
+  "story": "The people on the programme.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Headshots of public speakers published on the live site; small. Check speaker consent before using large."
+ },
+ {
+  "id": "app-greendiaspora-140636",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 140636.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.63,
+  "description": "Partners and sponsors logo wall on a pale green ground.",
+  "patterns": [
+   "landing",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Who stood behind the forum.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Third-party logos; fine for context, check logo usage if cropped for ads."
+ },
+ {
+  "id": "app-greendiaspora-140717",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 140717.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.81,
+  "description": "Closing call to action 'One people. One purpose.' above a dark footer with host and contact blocks.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Footer may show organiser contact details at full size; crop out before publishing.",
+  "quality": 3,
+  "story": "The forum's closing invitation.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Footer carries organiser contact details that may be readable at full size."
+ },
+ {
+  "id": "app-greendiaspora-141633",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 141633.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.81,
+  "description": "Organiser forum control room overview: a dark header card with check-in and pledge buttons and a how-this-works strip.",
+  "patterns": [
+   "dashboard",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A control room for organisers on event day.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Left nav shows the signed-in admin's name (Nanda only)."
+ },
+ {
+  "id": "app-greendiaspora-141719",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 141719.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.79,
+  "description": "Organiser overview scrolled to 'Today at the door' tiles for arrivals, no-shows, walk-ins and devices.",
+  "patterns": [
+   "dashboard",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Door numbers on the day.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-greendiaspora-141804",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 141804.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.7,
+  "description": "Organiser overview showing needs-you-now alerts, working groups by theme and a pledge pipeline.",
+  "patterns": [
+   "dashboard",
+   "admin",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "What needs a decision, and pledges moving from promise to proof.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-greendiaspora-141909",
+  "path": "public/app-graphics/green-diaspora-screenshots/Screenshot 2026-11-10 141909.png",
+  "kind": "screenshot",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.91,
+  "description": "Organiser 'Build record' page with deliverable, milestone and decision counters and an explanatory strip.",
+  "patterns": [
+   "dashboard",
+   "report",
+   "admin"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A plain record of what was built and what is still open.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-selvesofus-151157",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151157.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.96,
+  "description": "Home page hero with the platform's logo mark, a mirror quote in serif italics and archive buttons on a dark grey ground.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A literary platform for human-written stories.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room",
+   "social"
+  ],
+  "notes": "Hero candidate."
+ },
+ {
+  "id": "app-selvesofus-151216",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151216.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.49,
+  "description": "Featured story card pairing an underwater coral photograph with a bold serif headline on black.",
+  "patterns": [
+   "landing",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Featured story as a magazine cover tile.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-selvesofus-151241",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151241.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.26,
+  "description": "Recent stories grid with two photo cards: two smiling children, and party ribbons and confetti.",
+  "patterns": [
+   "list"
+  ],
+  "people": {
+   "present": true,
+   "count": "2-5",
+   "nanda": "no",
+   "children": true,
+   "faces_identifiable": true
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Card image shows two children's faces; likely stock but unverified.",
+  "quality": 3,
+  "story": "Poetry and people stories as cards.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Photo of two children with faces visible (a card image on the live site). Do not use large or alone."
+ },
+ {
+  "id": "app-selvesofus-151312",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151312.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.93,
+  "description": "Mirrors page with reader reflections on a dark curtain-like ground.",
+  "patterns": [
+   "list",
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Readers write back to the stories.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-selvesofus-151336",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151336.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.99,
+  "description": "Why human writing still matters: a manifesto paragraph on a dark floral ground with an archive button.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "A stance against AI-generated content.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Text-led, strong for quote cards."
+ },
+ {
+  "id": "app-selvesofus-151352",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151352.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.2,
+  "description": "Letters from the Selves of Us: a weekly prompt card, most-read panel and reader reflections over a textured light ground.",
+  "patterns": [
+   "landing",
+   "list",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "A weekly writing prompt and reader replies.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-selvesofus-151418",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151418.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.07,
+  "description": "Letters section with the 'I am, because we are' Ubuntu pledge and a read-or-contribute call to action.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Ubuntu as the platform's promise.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-selvesofus-151524",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151524.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.87,
+  "description": "Meet Keneilwe: an AI-powered guide chat panel answering a question about community stories.",
+  "patterns": [
+   "ai-chat",
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "An AI guide that knows the archive.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-selvesofus-151545",
+  "path": "public/app-graphics/theselvesofus-screenshots/Screenshot 2026-11-10 151545.png",
+  "kind": "screenshot",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 1.04,
+  "description": "Footer on a dark ribbed 3D ground with the mission quote, navigation and a newsletter signup.",
+  "patterns": [
+   "landing",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "The footer as a closing statement.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-amanda-150828",
+  "path": "public/app-graphics/amanda-screenshots/Screenshot 2026-11-10 150828.png",
+  "kind": "screenshot",
+  "product": "amanda",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.95,
+  "description": "Chef portfolio hero: name headline over a dark plated-food photograph, role line and explore and order buttons.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "A personal brand site for a head chef and patissier.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "social"
+  ],
+  "notes": "Hero candidate. Client site (Mirembe Muse build)."
+ },
+ {
+  "id": "app-amanda-150851",
+  "path": "public/app-graphics/amanda-screenshots/Screenshot 2026-11-10 150851.png",
+  "kind": "screenshot",
+  "product": "amanda",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.73,
+  "description": "About section with a bio, skill tags and a close-up portrait photograph of the chef.",
+  "patterns": [
+   "landing",
+   "detail"
+  ],
+  "people": {
+   "present": true,
+   "count": "1",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": true
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Identifiable close-up of a third-party client; confirm she is happy for it to be used outside her own site.",
+  "quality": 3,
+  "story": "The chef introduced in her own words.",
+  "rooms": [
+   "screen-library"
+  ],
+  "notes": "Close-up face portrait of a real private individual (the site owner). Consent covered by Nov 11 decision, but confirm before using large."
+ },
+ {
+  "id": "app-amanda-150907",
+  "path": "public/app-graphics/amanda-screenshots/Screenshot 2026-11-10 150907.png",
+  "kind": "screenshot",
+  "product": "amanda",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.35,
+  "description": "Portfolio opening 'The Work Speaks for Itself' with a Fine Dining chapter heading on a dark navy ground.",
+  "patterns": [
+   "landing",
+   "list"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Twenty dishes in three chapters.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-isd-142141",
+  "path": "public/app-graphics/isd-screenshots/Screenshot 2026-11-10 142141.png",
+  "kind": "screenshot",
+  "product": "isd",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.28,
+  "description": "Membership platform hero: 'One number. Every business, verified and tender-ready.' with a sample membership number card and a verify field.",
+  "patterns": [
+   "landing",
+   "form"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "One verified number carries a business into every tender.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room",
+   "speaking"
+  ],
+  "notes": "Hero candidate. Sample number is an illustration. Platform shown at DiBETSA (see Report-Back PDF)."
+ },
+ {
+  "id": "app-isd-142208",
+  "path": "public/app-graphics/isd-screenshots/Screenshot 2026-11-10 142208.png",
+  "kind": "screenshot",
+  "product": "isd",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.17,
+  "description": "Section 'Four systems hold a piece. ISD holds the thread.' with four source cards and a dark one-verified-record panel.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Joining the registers a contractor already lives in.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-isd-142238",
+  "path": "public/app-graphics/isd-screenshots/Screenshot 2026-11-10 142238.png",
+  "kind": "screenshot",
+  "product": "isd",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.21,
+  "description": "Opportunity engine section 'From here is a tender to you are ready to win it' with six steps and a sample tender card.",
+  "patterns": [
+   "landing",
+   "detail"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 4,
+  "story": "Matching members to tenders and nudging before deadlines.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": "Card is marked as an illustration, not live data."
+ },
+ {
+  "id": "app-ecdc-153856",
+  "path": "public/app-graphics/ecdc-screenshots/Screenshot 2026-11-10 153856.png",
+  "kind": "screenshot",
+  "product": "ecdc",
+  "jarvis_wing": null,
+  "event": "ecdc-export-symposium",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.23,
+  "description": "Symposium accountability platform hero: 'Pledge to proof. Accountability built in.' with total-pledged, commitments, delivered and investor tiles.",
+  "patterns": [
+   "landing",
+   "dashboard"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 5,
+  "story": "Every pledge made at the symposium logged, tracked and provable.",
+  "rooms": [
+   "screen-library",
+   "case-file",
+   "press-room",
+   "the-road"
+  ],
+  "notes": "Hero candidate."
+ },
+ {
+  "id": "app-ecdc-153919",
+  "path": "public/app-graphics/ecdc-screenshots/Screenshot 2026-11-10 153919.png",
+  "kind": "screenshot",
+  "product": "ecdc",
+  "jarvis_wing": null,
+  "event": "ecdc-export-symposium",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1366x768",
+  "duration_s": null,
+  "size_mb": 0.18,
+  "description": "Statistics band with three headline figures and a 'A stale number is a real-world risk' paragraph and quote.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "clear",
+  "sensitivity_reason": null,
+  "quality": 3,
+  "story": "Why a pledge must be traceable to evidence.",
+  "rooms": [
+   "screen-library",
+   "case-file"
+  ],
+  "notes": null
+ },
+ {
+  "id": "app-adminos-recording",
+  "path": "public/app-graphics/adminos-screenshots/adminos-screen-recording.mp4",
+  "kind": "recording",
+  "product": "adminos",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1440x900",
+  "duration_s": 390.6,
+  "size_mb": 21.02,
+  "description": "Silent screen recording of a walk through the AdminOS dashboard: Command Center, getting started, analytics, invoices, a cash sale, cash flow, bank reconcile, payroll, sales, inbox, reach, sequences, calendar, inventory, tasks, documents, team, compliance, employment equity, board pack, community, integrations.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Full-screen capture: shows the browser tab strip, bookmarks and Windows taskbar. Needs cropping or a trim before publishing.",
+  "quality": 3,
+  "story": "Watch the product run, page by page, on demo data.",
+  "rooms": [
+   "watch-it-run",
+   "case-file"
+  ],
+  "notes": "NO audio track and NO event interview found in this file: it opens on the Command Center (a small screen-recorder widget shows for about the first 3 s). Trim start at about 4 s. Keyframes approx every 16 s, positions +-8 s. Several pages show loading skeletons (about 184, 264, 296, 312, 376 s): avoid those. Suggested chapter cuts: Command Center to Getting Started 4-45 s; Money 'invoices, cash sale, bank reconcile' 45-100 s (best 30-60 s clip: 56-100); Inbox and sales 120-155 s; Operations 'calendar, inventory, tasks' 196-245 s; Team and compliance 265-330 s. Browser tab strip and taskbar visible: crop before publishing."
+ },
+ {
+  "id": "app-sanyu-recording",
+  "path": "public/app-graphics/sanyu-screenshots/sanyu-screen-recording.mp4",
+  "kind": "recording",
+  "product": "sanyu",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1440x900",
+  "duration_s": 381.6,
+  "size_mb": 39.89,
+  "description": "Silent screen recording of a walk through the Sanyu Botanicals site: home, ritual, science, shop, a product page, reviews, ingredient pages (hibiscus, rosemary), our story, and journal articles.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Full-screen capture: shows the browser tab strip, bookmarks and Windows taskbar. Needs cropping or a trim before publishing.",
+  "quality": 4,
+  "story": "Watch the brand site run, from first scroll to a journal article.",
+  "rooms": [
+   "watch-it-run",
+   "case-file"
+  ],
+  "notes": "Keyframes approx every 16 s, positions +-8 s. Suggested chapter cuts: Home and the ritual 5-50 s; The science 50-80 s; Shop to Ritual Duo product page 85-130 s (best 30-60 s clip); Ingredient pages, hibiscus and rosemary 135-200 s; Our Story with jars and production 225-285 s; Journal article 310-360 s. A loading blank around 290-300 s. Browser chrome and taskbar visible: crop before publishing."
+ },
+ {
+  "id": "app-greendiaspora-recording",
+  "path": "public/app-graphics/green-diaspora-screenshots/greendiaspora-screen-recording.mp4",
+  "kind": "recording",
+  "product": "green-diaspora",
+  "jarvis_wing": null,
+  "event": "green-diaspora-belize",
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1440x900",
+  "duration_s": 130.9,
+  "size_mb": 10.12,
+  "description": "Silent screen recording of the Green Diaspora Forum site: hero, programme, speakers, closing call to action, the handbook, and the attendee portal sign-in state.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "hold",
+  "sensitivity_reason": "Final seconds show a readable personal email address on the attendee portal screen; trim before 115 s and crop browser chrome.",
+  "quality": 3,
+  "story": "Watch an event platform run, from landing page to attendee portal.",
+  "rooms": [
+   "watch-it-run",
+   "case-file",
+   "the-road"
+  ],
+  "notes": "Keyframes approx every 13 s, positions +-6 s. Suggested chapter cuts: Landing and watch-live 0-45 s; Programme timeline and speakers 50-95 s (best 30-60 s clip: 45-90); Handbook 'getting started' 100-115 s. HOLD the last ~15 s (about 115-131 s): the attendee portal sign-in screen shows a readable personal email address. Browser chrome and taskbar visible: crop before publishing."
+ },
+ {
+  "id": "app-selvesofus-recording",
+  "path": "public/app-graphics/theselvesofus-screenshots/theselvesofus-screen-recording.mp4",
+  "kind": "recording",
+  "product": "selves-of-us",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1440x900",
+  "duration_s": 133,
+  "size_mb": 13.83,
+  "description": "Silent screen recording of The Selves of Us site: home, featured quote, reader reflections, footer, stories grid, a Healing category page, an article, a poem page, the Keneilwe AI guide and the letters page.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Full-screen capture: shows the browser tab strip, bookmarks and Windows taskbar. Needs cropping or a trim before publishing.",
+  "quality": 3,
+  "story": "Watch a literary platform run, from cover to a poem to the AI guide.",
+  "rooms": [
+   "watch-it-run",
+   "case-file"
+  ],
+  "notes": "Keyframes approx every 13 s, positions +-6 s. Suggested chapter cuts: Home, quote, reflections 0-45 s; Stories grid and Healing category 50-80 s; Article reading and the poem page 80-105 s; Keneilwe AI guide chat 105-125 s (best 30-60 s clip: 75-125). Story photographs include small faces on cards. Browser chrome and taskbar visible: crop before publishing."
+ },
+ {
+  "id": "app-amanda-recording",
+  "path": "public/app-graphics/amanda-screenshots/amanda-screen-recording.mp4",
+  "kind": "recording",
+  "product": "amanda",
+  "jarvis_wing": null,
+  "event": null,
+  "place": null,
+  "date": "2026-11-10",
+  "date_source": "filename",
+  "orientation": "landscape",
+  "resolution": "1440x900",
+  "duration_s": 99.2,
+  "size_mb": 16.97,
+  "description": "Silent screen recording of the chef portfolio site: about section, a carousel of plated dishes, event catering packages, an enquiry form, experience timeline and contact section.",
+  "patterns": [
+   "landing"
+  ],
+  "people": {
+   "present": true,
+   "count": "1",
+   "nanda": "no",
+   "children": false,
+   "faces_identifiable": true
+  },
+  "consent": "covered-nov11",
+  "sensitivity": "review",
+  "sensitivity_reason": "Opens on an identifiable close-up portrait and ends on a contact section with an email and phone; trim to 10-90 s and crop browser chrome.",
+  "quality": 3,
+  "story": "Watch a client's personal brand site run, dish by dish, to a booking form.",
+  "rooms": [
+   "watch-it-run",
+   "case-file"
+  ],
+  "notes": "Keyframes approx every 10 s, positions +-5 s. Suggested chapter cuts: Dish carousel 10-50 s (best 30-60 s clip: 10-50); Catering packages and enquiry form 55-90 s. Avoid 0-10 s (close-up portrait) and 92-99 s (contact details visible). Browser chrome and taskbar visible: crop before publishing."
+ },
+ {
+  "id": "app-mirembe-report-back-pdf",
+  "path": "public/app-graphics/Mirembe-Muse-Johannesburg-Report-Back.pdf",
+  "kind": "document",
+  "product": "mirembe",
+  "jarvis_wing": null,
+  "event": "other:founding-circle-report-back",
+  "place": "Johannesburg",
+  "date": "2026-11-09",
+  "date_source": "content",
+  "orientation": "portrait",
+  "resolution": "unknown",
+  "duration_s": null,
+  "size_mb": 2.81,
+  "description": "A designed report-back to the Founding Circle supporters on the Johannesburg season: two stages, the ISD platform numbers, two FNB entries, a community book project and an international forum.",
+  "patterns": [
+   "report"
+  ],
+  "people": {
+   "present": false,
+   "count": "0",
+   "nanda": "unknown",
+   "children": false,
+   "faces_identifiable": false
+  },
+  "consent": "needs-check",
+  "sensitivity": "hold",
+  "sensitivity_reason": "Names the Founding Circle supporters and other named individuals; hold the file, retell the content freely.",
+  "quality": 4,
+  "story": "A thank-you ledger: how a small circle of backers carried the company from two Johannesburg stages to two continents.",
+  "rooms": [
+   "press-room",
+   "the-road",
+   "speaking",
+   "origin-story"
+  ],
+  "notes": "About 9-10 pages. Sections and stories (no person names): (1) Cover: 'Johannesburg & beyond', four headline numbers (2 stages, 240 SMEs on the ISD platform, 2 FNB entries, 2 continents). (2) Thank-you letter to the Founding Circle (11 backers) and the names page. (3) Connected Africa Summit: Banking Innovator listing in the official programme, the stand earned by building the organiser's events app. (4) DiBETSA: the ISD membership platform shown live, the partner's background and One Million Lightbulbs programme, why the pairing matters. (5) The numbers: ISD members, active rate, membership numbers issued, applications and members by province (data from the live admin dashboard, 9 Nov 2026, 18:46 SAST); next step is bank partnerships. (6) FNB App of the Year 2026: VarsityOS and AdminOS entries; the problems AdminOS solves; 'a product in production' proof numbers; hackathon panel feedback. (7) The poet in the work: Stories of Us, an Eastern Cape storytelling anthology in partnership with the National Arts Council. (8) Beyond Johannesburg: Green Diaspora Forum in Belize (event partner) and the ICSA events platform in build. (9) What your support started: five next steps. (10) The season in numbers and closing thanks. Pairs with app-isd-*, app-adminos-*, app-greendiaspora-* screens. Date 2026-11-09 inferred from the report's 'Mon 9 Nov 2026' dashboard timestamp; document itself undated."
+ }
+]

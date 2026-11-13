@@ -74,3 +74,6 @@ march_update.md
 
 # Evidence Wing local dev derivatives
 /public/evidence-dev/
+
+# audience panel screenshots (reports in docs/audience are kept)
+.audience-shots/
