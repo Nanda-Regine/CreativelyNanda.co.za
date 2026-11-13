@@ -66,7 +66,8 @@ async function bloom(
   };
 }
 
-export async function POST(request: Request, { params }: { params: { slug: string } }) {
+export async function POST(request: Request, { params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
   const body = await request.json().catch(() => ({}));
   const { sessionId, feeling } = body ?? {};
@@ -97,7 +98,8 @@ export async function POST(request: Request, { params }: { params: { slug: strin
   return NextResponse.json({ success: true, ...result });
 }
 
-export async function DELETE(request: Request, { params }: { params: { slug: string } }) {
+export async function DELETE(request: Request, { params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
   const body = await request.json().catch(() => ({}));
   const { sessionId } = body ?? {};
@@ -117,7 +119,8 @@ export async function DELETE(request: Request, { params }: { params: { slug: str
   return NextResponse.json({ success: true, ...result });
 }
 
-export async function GET(request: Request, { params }: { params: { slug: string } }) {
+export async function GET(request: Request, { params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
   const sessionId = new URL(request.url).searchParams.get('sessionId');
 

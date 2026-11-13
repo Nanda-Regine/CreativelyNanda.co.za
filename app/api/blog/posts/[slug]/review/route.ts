@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { guardPublicForm } from '@/lib/form-guard';
 import { createAdminClient, createServerClient } from '@/lib/supabase/server';
 import { blogPosts as seedPosts } from '@/scripts/seed-blog-posts';
 
@@ -40,8 +41,9 @@ async function resolvePost(supabase: ReturnType<typeof createServerClient>, slug
 
 export async function POST(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   if (!isSupabaseConfigured()) {
     return NextResponse.json({ error: 'Database not configured' }, { status: 503 });
   }
@@ -49,7 +51,10 @@ export async function POST(
   const supabase = getSupabase();
 
   const body = await request.json();
-  const { authorName, authorEmail, content, rating } = body;
+  const { authorName, authorEmail, content, rating, turnstileToken } = body;
+
+  const blocked = await guardPublicForm(request, 'blog-review', turnstileToken);
+  if (blocked) return blocked;
 
   if (!authorName || !content) {
     return NextResponse.json(
@@ -110,8 +115,9 @@ export async function POST(
 // Get approved reviews for a post
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   if (!isSupabaseConfigured()) {
     return NextResponse.json([]);
   }

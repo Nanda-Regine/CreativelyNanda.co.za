@@ -5,10 +5,11 @@ import ProductDetailClient from './ProductDetailClient';
 export const dynamic = 'force-dynamic';
 
 export default async function ProductDetailPage({
-  params,
+  params: paramsPromise,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await paramsPromise;
   const productData = await getProductBySlug(params.slug);
 
   if (!productData) {

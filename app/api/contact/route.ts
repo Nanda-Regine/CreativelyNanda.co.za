@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { guardPublicForm } from '@/lib/form-guard';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -14,7 +15,10 @@ function esc(str: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, subject, message } = await req.json();
+    const { name, email, subject, message, turnstileToken } = await req.json();
+
+    const blocked = await guardPublicForm(req, 'contact', turnstileToken);
+    if (blocked) return blocked;
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });

@@ -9,7 +9,8 @@ import ReadingRoom from '@/components/room/ReadingRoom';
 // result instead of seeing duplicate content. (Until 2026-09-29 it was also
 // noindex, which with a canonical sends mixed signals.)
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata({ params: paramsPromise }: { params: Promise<{ slug: string }> }): Metadata {
+  const params = await paramsPromise;
   const poem = getPoemBySlug(params.slug);
   if (!poem) return { title: 'The Reading Room · Inside Her Roses' };
   return {
@@ -19,7 +20,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function RoomPage({ params }: { params: { slug: string } }) {
+export default async function RoomPage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const params = await paramsPromise;
   const poem = getPoemBySlug(params.slug);
   if (!poem) notFound();
   return <ReadingRoom poem={poem} />;

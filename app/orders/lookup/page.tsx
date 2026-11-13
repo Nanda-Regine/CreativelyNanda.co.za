@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTurnstile } from '@/components/ui/Turnstile';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Search, ExternalLink, ArrowLeft, Mail, ShoppingBag, Loader2 } from 'lucide-react';
@@ -21,6 +22,7 @@ interface LookupOrder {
 
 export default function OrderLookupPage() {
   const [email, setEmail] = useState('');
+  const [tsToken, tsWidget, tsReset] = useTurnstile();
   const [orders, setOrders] = useState<LookupOrder[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -35,8 +37,9 @@ export default function OrderLookupPage() {
       const res = await fetch('/api/orders/lookup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, turnstileToken: tsToken }),
       });
+      tsReset();
 
       const data = await res.json();
 
@@ -85,6 +88,7 @@ export default function OrderLookupPage() {
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="mb-6">
+            {tsWidget}
             <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
               Email address
             </label>

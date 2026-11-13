@@ -324,7 +324,7 @@ export const PROJECTS: Project[] = [
       "South Africa's first verifiable, audited, real-world disability accessibility database. B2B flywheel closes the loop between audit and revenue: compliance products sold directly to non-compliant businesses. Data licensing revenue stream (GeoJSON API) ready for World Bank / municipality contracts. 7 phases shipped in 2 days, the fastest full-stack mobile build in the portfolio.",
     status: 'live',
     category: 'client',
-    liveUrl: 'https://true-access-app.vercel.app',
+    liveUrl: 'https://trueaccess.co.za',
     githubUrl: 'https://github.com/Nanda-Regine/TrueAccApp',
     stack: [
       { category: 'Mobile', items: ['Expo SDK 52', 'Expo Router v4', 'iOS + Android + Web (universal)', 'NativeWind v4 + Tailwind CSS'] },

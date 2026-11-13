@@ -18,6 +18,7 @@
  */
 
 import { useEffect, useState } from 'react'
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { CheckCircle, ArrowLeft, ExternalLink, Loader2 } from 'lucide-react'
 
@@ -68,7 +69,7 @@ const APP_CONFIGS: Record<string, {
 
 const REDIRECT_DELAY = 4 // seconds
 
-export default function PayFastReturnPage() {
+function PayFastReturnPageInner() {
   const searchParams = useSearchParams()
   const appKey = searchParams.get('app') ?? ''
   const config = APP_CONFIGS[appKey] ?? null // null = no known app (dashboard fallback)
@@ -188,4 +189,8 @@ export default function PayFastReturnPage() {
       </p>
     </div>
   )
+}
+
+export default function PayFastReturnPage() {
+  return (<Suspense fallback={null}><PayFastReturnPageInner /></Suspense>);
 }

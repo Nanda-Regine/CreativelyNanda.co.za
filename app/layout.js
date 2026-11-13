@@ -2,7 +2,7 @@ import './globals.css';
 import './stock.css';
 import { Cormorant_Garamond, Manrope, Bebas_Neue, DM_Sans, IBM_Plex_Mono } from 'next/font/google';
 import Script from 'next/script';
-import { Analytics } from '@vercel/analytics/next';
+import { CloudflareAnalytics } from '@/components/analytics/CloudflareAnalytics';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import NandaAssistant from '@/components/NandaAssistant';
@@ -246,7 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gtag('config', 'G-D6T4LD5XDE');
           `}
         </Script>
-        <Analytics />
+        <CloudflareAnalytics />
               <script src="/mm-feedback.js" data-app="creativelynanda" defer></script>
       </body>
     </html>

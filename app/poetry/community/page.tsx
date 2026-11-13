@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTurnstile } from '@/components/ui/Turnstile';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui';
@@ -41,6 +42,7 @@ export default function TheCircle() {
 
   const [form, setForm] = useState({ title: '', content: '', name: '', email: '', isAnonymous: false });
   const [submitting, setSubmitting] = useState(false);
+  const [tsToken, tsWidget, tsReset] = useTurnstile();
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -89,8 +91,10 @@ export default function TheCircle() {
           authorEmail: form.email,
           isAnonymous: form.isAnonymous,
           sessionId,
+          turnstileToken: tsToken,
         }),
       });
+      tsReset();
       const data = await res.json();
       if (res.ok) {
         setMessage(data.message);
@@ -323,6 +327,7 @@ export default function TheCircle() {
               </motion.div>
             ) : (
               <motion.form key="form" onSubmit={submit} className="space-y-4" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                {tsWidget}
                 <div>
                   <label className="block text-sm text-cream/70 mb-1.5">Title</label>
                   <input

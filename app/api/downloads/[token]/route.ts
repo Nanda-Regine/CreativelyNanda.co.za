@@ -13,8 +13,9 @@ import { validateDownloadToken, generateSignedUrl, incrementDownloadCount } from
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { token: string } },
+  { params: paramsPromise }: { params: Promise<{ token: string }> },
 ) {
+  const params = await paramsPromise;
   const { token } = params;
 
   if (!token) {

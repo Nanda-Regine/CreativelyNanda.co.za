@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { guardPublicForm } from '@/lib/form-guard';
 import { createServerClient } from '@/lib/supabase/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
-    const { email } = await req.json();
+    const { email, turnstileToken } = await req.json();
+
+    const blocked = await guardPublicForm(req, 'subscribe', turnstileToken);
+    if (blocked) return blocked;
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: 'Valid email required' }, { status: 400 });

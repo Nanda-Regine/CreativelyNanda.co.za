@@ -18,7 +18,8 @@ export function generateStaticParams() {
   return BUILD_DOSSIERS.map((d) => ({ app: d.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { app: string } }): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: { params: Promise<{ app: string }> }): Promise<Metadata> {
+  const params = await paramsPromise;
   const entry = getFloorEntry(params.app);
   if (!entry) return createMetadata({ title: 'Not found', description: 'No such build.', path: `/forge/floor/${params.app}`, noIndex: true });
 
@@ -43,7 +44,8 @@ export async function generateMetadata({ params }: { params: { app: string } }):
   });
 }
 
-export default function BuildDossierPage({ params }: { params: { app: string } }) {
+export default async function BuildDossierPage({ params: paramsPromise }: { params: Promise<{ app: string }> }) {
+  const params = await paramsPromise;
   const entry = getFloorEntry(params.app);
   if (!entry) notFound();
 

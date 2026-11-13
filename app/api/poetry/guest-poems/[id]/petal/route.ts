@@ -18,7 +18,8 @@ async function countPetals(supabase: ReturnType<typeof createServerClient>, gues
 }
 
 // Count + whether this session has left a petal.
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params: paramsPromise }: { params: Promise<{ id: string }> }) {
+  const params = await paramsPromise;
   const { searchParams } = new URL(request.url);
   const sessionId = searchParams.get('sessionId');
   const supabase = getSupabase();
@@ -38,7 +39,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
 }
 
 // Leave a petal.
-export async function POST(request: Request, { params }: { params: { id: string } }) {
+export async function POST(request: Request, { params: paramsPromise }: { params: Promise<{ id: string }> }) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
   const { sessionId } = await request.json().catch(() => ({ sessionId: null }));
   if (!sessionId) return NextResponse.json({ error: 'Session ID required' }, { status: 400 });
@@ -58,7 +60,8 @@ export async function POST(request: Request, { params }: { params: { id: string 
 }
 
 // Take a petal back.
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params: paramsPromise }: { params: Promise<{ id: string }> }) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
   const { sessionId } = await request.json().catch(() => ({ sessionId: null }));
   if (!sessionId) return NextResponse.json({ error: 'Session ID required' }, { status: 400 });

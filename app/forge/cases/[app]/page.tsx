@@ -24,7 +24,8 @@ export function generateStaticParams() {
   return CASE_LIST.map((c) => ({ app: c.app }));
 }
 
-export function generateMetadata({ params }: { params: { app: string } }) {
+export async function generateMetadata({ params: paramsPromise }: { params: Promise<{ app: string }> }) {
+  const params = await paramsPromise;
   const c = getCase(params.app);
   return createMetadata({
     title: c ? `${c.name}: the case file` : 'Case file',
@@ -34,7 +35,8 @@ export function generateMetadata({ params }: { params: { app: string } }) {
   });
 }
 
-export default function CasePage({ params }: { params: { app: string } }) {
+export default async function CasePage({ params: paramsPromise }: { params: Promise<{ app: string }> }) {
+  const params = await paramsPromise;
   const c = getCase(params.app);
   if (!c) notFound();
 

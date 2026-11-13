@@ -77,3 +77,9 @@ march_update.md
 
 # audience panel screenshots (reports in docs/audience are kept)
 .audience-shots/
+
+# Cloudflare / OpenNext build output
+.open-next/
+.wrangler/
+.dev.vars
+cloudflare-env.d.ts

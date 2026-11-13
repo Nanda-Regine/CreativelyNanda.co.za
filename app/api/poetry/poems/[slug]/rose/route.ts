@@ -38,8 +38,9 @@ async function resolvePoem(supabase: ReturnType<typeof createServerClient>, slug
 
 export async function POST(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
 
   const body = await request.json();
@@ -104,8 +105,9 @@ export async function POST(
 // Get approved roses for a poem
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
 
   const poem = await resolvePoem(supabase, params.slug);

@@ -34,8 +34,9 @@ async function syncHeartCount(supabase: ReturnType<typeof createServerClient>, p
 
 export async function POST(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
 
   const body = await request.json().catch(() => ({}));
@@ -107,8 +108,9 @@ export async function POST(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   const supabase = getSupabase();
 
   const body = await request.json().catch(() => ({}));
@@ -153,8 +155,9 @@ export async function DELETE(
 // Check if user has hearted
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   const { searchParams } = new URL(request.url);
   const sessionId = searchParams.get('sessionId');
 

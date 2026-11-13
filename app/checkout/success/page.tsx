@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -24,7 +25,7 @@ interface OrderData {
   items?: OrderItem[];
 }
 
-export default function CheckoutSuccessPage() {
+function CheckoutSuccessPageInner() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('order_id');
   const trackedRef = useRef(false);
@@ -252,4 +253,8 @@ export default function CheckoutSuccessPage() {
       </motion.div>
     </div>
   );
+}
+
+export default function CheckoutSuccessPage() {
+  return (<Suspense fallback={null}><CheckoutSuccessPageInner /></Suspense>);
 }

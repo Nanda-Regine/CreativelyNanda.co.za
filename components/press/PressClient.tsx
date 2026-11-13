@@ -6,6 +6,7 @@
  */
 
 import { useMemo, useState } from 'react';
+import { useTurnstile } from '@/components/ui/Turnstile';
 import Link from 'next/link';
 import { Search, ArrowRight } from 'lucide-react';
 
@@ -75,6 +76,7 @@ export function PressSearch({ items }: { items: SearchItem[] }) {
 
 export function SubscribeForm() {
   const [email, setEmail] = useState('');
+  const [tsToken, tsWidget, tsReset] = useTurnstile();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const submit = async (e: React.FormEvent) => {
@@ -85,8 +87,9 @@ export function SubscribeForm() {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, turnstileToken: tsToken }),
       });
+      tsReset();
       if (!res.ok) throw new Error();
       setStatus('success');
       setEmail('');
@@ -105,6 +108,7 @@ export function SubscribeForm() {
 
   return (
     <form onSubmit={submit}>
+      {tsWidget}
       <div className="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
         <label className="sr-only" htmlFor="press-email">
           Email address

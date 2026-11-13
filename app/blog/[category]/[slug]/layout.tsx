@@ -9,7 +9,8 @@ import {
 import { getPressPost, imprintNameFor } from '@/lib/press';
 import { issueFor, issueLabel, PRESS_NAME, PRESS_SHORT, STUDIO_CATEGORIES } from '@/lib/data/press-issues';
 
-export async function generateMetadata({ params }: { params: { category: string; slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: { params: Promise<{ category: string; slug: string }> }): Promise<Metadata> {
+  const params = await paramsPromise;
   const post = await getPressPost(params.slug);
 
   if (!post) {
@@ -35,11 +36,12 @@ export async function generateMetadata({ params }: { params: { category: string;
 
 export default async function BlogPostLayout({
   children,
-  params,
+  params: paramsPromise,
 }: {
   children: React.ReactNode;
-  params: { category: string; slug: string };
+  params: Promise<{ category: string; slug: string }>;
 }) {
+  const params = await paramsPromise;
   const post = await getPressPost(params.slug);
   if (!post) return <>{children}</>;
 

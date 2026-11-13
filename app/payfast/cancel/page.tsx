@@ -16,6 +16,7 @@
  */
 
 import { useEffect, useState } from 'react'
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { XCircle, ArrowLeft, Loader2 } from 'lucide-react'
 
@@ -35,7 +36,7 @@ const APP_CONFIGS: Record<string, {
 
 const REDIRECT_DELAY = 6 // seconds — give more time to reconsider
 
-export default function PayFastCancelPage() {
+function PayFastCancelPageInner() {
   const searchParams = useSearchParams()
   const appKey = searchParams.get('app') ?? ''
   const config = APP_CONFIGS[appKey] ?? null
@@ -147,4 +148,8 @@ export default function PayFastCancelPage() {
       </div>
     </div>
   )
+}
+
+export default function PayFastCancelPage() {
+  return (<Suspense fallback={null}><PayFastCancelPageInner /></Suspense>);
 }

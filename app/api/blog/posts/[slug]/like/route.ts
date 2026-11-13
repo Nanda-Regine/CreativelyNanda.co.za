@@ -65,8 +65,9 @@ async function syncLikeCount(supabase: ReturnType<typeof createServerClient>, po
 
 export async function POST(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   if (!isSupabaseConfigured()) {
     return NextResponse.json({ success: false, likeCount: 0 });
   }
@@ -121,8 +122,9 @@ export async function POST(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   if (!isSupabaseConfigured()) {
     return NextResponse.json({ success: false, likeCount: 0 });
   }
@@ -166,8 +168,9 @@ export async function DELETE(
 // Check if user has liked
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params: paramsPromise }: { params: Promise<{ slug: string }> }
 ) {
+  const params = await paramsPromise;
   const { searchParams } = new URL(request.url);
   const sessionId = searchParams.get('sessionId');
 

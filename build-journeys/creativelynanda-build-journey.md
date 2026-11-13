@@ -467,6 +467,31 @@ The root layout renders a single `application/ld+json` script containing a `@gra
 
 ---
 
+## 12b. Moving to Cloudflare Workers (October 2026)
+
+In October 2026 the site moved off Vercel and onto Cloudflare Workers, as part of moving every Mirembe Muse app to one edge platform. The DNS was already on Cloudflare. Before the move every request went through two edges: Cloudflare, then Vercel. Now Cloudflare serves the site directly, Johannesburg included.
+
+### The upgrade underneath
+The Cloudflare adapter (OpenNext) no longer supports Next 14, so the move started with an upgrade from **Next 14 to Next 16** and **React 19**:
+- Route `params` and `searchParams` are Promises in Next 16. 43 route handlers and pages were converted.
+- Three client pages that read the URL (`checkout/success`, `payfast/cancel`, `payfast/return`) are now wrapped in `Suspense`, which Next 16 requires for `useSearchParams`.
+- The Open Graph image dropped `runtime = 'edge'`. On Workers, everything already runs at the edge.
+
+### How it runs now
+- **Production Worker `creativelynanda`**, plus a separate staging Worker that is never on the real domain.
+- Page cache in **R2**. Revalidation runs on **Durable Objects**: a queue plus a sharded tag cache.
+- **Smart Placement**, so the Worker runs close to Supabase.
+- Builds run in **GitHub Actions** only, never on the laptop. A size gate fails any build over 9 MiB gzipped; the Worker is about 5.1 MiB.
+- Pushing `main` deploys production. The migration branch deploys staging.
+
+### A bug the move exposed
+The sitemap and robots file looked wrong on staging. The cause was the old `next-sitemap` postbuild step. It wrote static `sitemap.xml` and `robots.txt` files into `public/`, and those silently overrode the real `app/sitemap.ts` and `app/robots.ts`. Removing the postbuild step made the two platforms byte-identical (180 URLs).
+
+### The cutover
+Before any real traffic moved, the production Worker was compared with the live Vercel site on 14 paths: pages, feeds, the Open Graph image and API routes, including unsigned payment calls that must be rejected. Status codes and titles matched on all of them. The switch itself was two Worker routes on the existing domain. No DNS change, and rollback is deleting those two routes. Vercel stays live underneath for 14 days as a fallback.
+
+---
+
 ## 13. What Was Learned
 
 Building this project from a basic portfolio to a full-stack commerce platform in under a year produced several lessons:
@@ -485,4 +510,10 @@ Building this project from a basic portfolio to a full-stack commerce platform i
 
 ---
 
-*This document was generated on 2026-03-28 and reflects the state of the codebase at that point. It should be updated as major new features are added.*
+**Migrate in two moves, not one.** Move the code first (the framework upgrade, proven on a staging copy), then move the traffic (two routes, instantly reversible). If the platform swap and the traffic swap happen in a single step, you can't tell which one broke.
+
+**Static files can shadow the real thing.** A forgotten build step wrote a stale sitemap that overrode the live one for months. Compare the outputs of both platforms byte for byte before trusting a migration.
+
+---
+
+*This document was generated on 2026-03-28 and last updated on 2026-10-23 (section 12b: the move to Cloudflare Workers). It should be updated as major new features are added.*
