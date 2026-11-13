@@ -1,5 +1,14 @@
 # CreativelyNanda.co.za — Build Journey
 
+## Evidence Wing goes live on Cloudflare (Nov 13 2026)
+
+**Goal:** get the three case files (AdminOS, Jarvis, Sanyu) from a local branch onto the live site, with their screenshots.
+- **Found:** this folder was 10 commits behind GitHub. The whole Oct 23 move to Cloudflare Workers (Next 16 + OpenNext) had never been pulled, and the Evidence Wing was built on the old Next 14 base. Merged it in; one `.gitignore` conflict (kept both sides); `/forge/cases/[app]` moved to Next 16's async `params`.
+- **Deploy lanes:** push `main` deploys production; push `feat/cloudflare-workers` deploys staging (creativelynanda-staging workers.dev). CI builds on GitHub. The build ignores type errors, so `tsc` runs locally: 19 errors, all pre-existing from the CF move, none in this work (baseline was 15).
+- **Images:** the screenshots lived only in the git-ignored `public/evidence-dev/`, so staging showed 404s. Uploaded 390 web derivatives (14 MB, never the lossless masters) to R2 bucket `creativelynanda-media` with the backup R2 token, and Nanda connected `media.creativelynanda.co.za` in the dashboard (no API token had DNS rights, and DNS changes are owner-run). The build sets `NEXT_PUBLIC_EVIDENCE_MEDIA_BASE` to that domain.
+- **Proven, staging then production:** 15 key pages return 200; all 140 case-file images load (AdminOS 45, Jarvis 50, Sanyu 45), zero broken; case pages are noindex and not in the sitemap.
+- **Open:** `/marketplace` and `/shop` return 404 on the live site (older than this change). Remaining case files (Green Diaspora, ISD, ECDC, Amanda, Selves of Us) wait on the public-screens decision. Next build: panel change 1 (text-first paint).
+
 ## Thinking-cap session: the audience panel, staying longer, community, and Jarvis as the kitchen (Nov 12 2026)
 
 **Goal:** step back and ask what would take the site to a whole other level. This session built one tool (the audience panel), ran it against the live site, and produced a plan of record for engagement, community, edtech, the newsletter and the blog. Nothing in the app was changed. Everything below is planned, not built, unless marked otherwise.
