@@ -28,6 +28,7 @@
  */
 
 import { useRef } from 'react';
+import AmbientVideo from '@/components/media/AmbientVideo';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -257,9 +258,10 @@ export function PullQuote({ children, attribution, accent }: { children: React.R
 }
 
 /**
- * A looping muted video tile. Autoplay is `playsInline` + `muted` so iOS allows
- * it, and `preload="none"` with a poster so a page of these does not cost a
- * visitor on mobile data several megabytes before they scroll — this audience
+ * A looping muted video tile, built on AmbientVideo: the poster paints first and
+ * the clip only loads near the viewport on a good connection (never on Data
+ * Saver or 3G), so a page of these does not cost a visitor on mobile data
+ * several megabytes before they scroll. (`autoPlay` ignored `preload="none"`.) This audience
  * pays for that data, and the whole K53 build is an argument about it.
  */
 export function VideoTile({
@@ -283,16 +285,7 @@ export function VideoTile({
 
   return (
     <figure className={`relative overflow-hidden rounded-sm ${className}`} style={{ aspectRatio: ratio }}>
-      <video
-        className="h-full w-full object-cover"
-        src={src}
-        poster={posterUrl}
-        muted
-        loop
-        playsInline
-        autoPlay
-        preload="none"
-      />
+      <AmbientVideo src={src} poster={posterUrl} alt={label ?? ''} />
       {label ? (
         <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white">
           {label}

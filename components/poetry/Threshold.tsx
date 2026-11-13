@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { MOODS, getPoemsByMood } from '@/lib/poems-data';
@@ -57,38 +58,28 @@ export default function Threshold() {
 
       <div className="max-w-6xl mx-auto w-full">
         {/* Kicker */}
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-4 mb-6"
-        >
+        <div className="hero-rise flex items-center gap-4 mb-6">
           <div className="w-14 h-px bg-[var(--ancestral-gold,#C9A84C)]" />
           <span className="text-[var(--ancestral-gold,#C9A84C)] text-xs font-medium tracking-[0.35em] uppercase font-mono">
             Inside Her Roses · The Garden
           </span>
-        </motion.div>
+        </div>
 
         {/* The question */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ease: [0.22, 1, 0.36, 1] }}
-          className="font-display italic text-4xl sm:text-5xl lg:text-6xl text-cream font-light leading-[1.05] max-w-3xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)]"
-          style={{ color: '#F5EFD6' }}
+        <h1
+          className="hero-rise font-display italic text-4xl sm:text-5xl lg:text-6xl text-cream font-light leading-[1.05] max-w-3xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)]"
+          style={{ color: '#F5EFD6', '--d': '0.05s' } as CSSProperties}
         >
           How does your heart<br />arrive today?
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
-          className="mt-5 text-base sm:text-lg text-cream/70 max-w-xl"
-          style={{ color: 'rgba(245,239,214,0.72)' }}
+        <p
+          className="hero-rise mt-5 text-base sm:text-lg text-cream/70 max-w-xl"
+          style={{ color: 'rgba(245,239,214,0.72)', '--d': '0.15s' } as CSSProperties}
         >
           Choose a feeling. I&rsquo;ll open the poems that meet you there, and wash
           the whole garden in that light.
-        </motion.p>
+        </p>
 
         {/* Mood doors */}
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -99,14 +90,13 @@ export default function Threshold() {
             return (
               <motion.button
                 key={m.key}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                initial={false}
                 whileHover={{ y: -6 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => chooseMood(m.key)}
                 aria-pressed={isActive}
-                className={`group relative flex min-h-[150px] flex-col justify-end overflow-hidden rounded-2xl p-4 text-left border transition-all duration-300 ${
+                style={{ '--d': `${0.1 + i * 0.05}s` } as CSSProperties}
+                className={`hero-rise group relative flex min-h-[150px] flex-col justify-end overflow-hidden rounded-2xl p-4 text-left border transition-all duration-300 ${
                   isActive
                     ? 'border-[#C9A84C]/70 shadow-2xl ring-1 ring-[#C9A84C]/50'
                     : 'border-white/12 hover:border-white/35 shadow-lg'

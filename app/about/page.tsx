@@ -26,6 +26,7 @@
  * eleven other places the site had it wrong.
  */
 
+import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import Ground, { PhotoBleed, groundTokens } from '@/components/ui/Ground';
 import { Reveal, OffsetFigure, PullQuote, Rule, VideoTile, StackedPair } from '@/components/ui/Editorial';
@@ -92,27 +93,25 @@ export default function About() {
         className="-mt-20 pt-28"
       >
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-24">
-          <Reveal>
-            <p className="font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: '#FFD9A0' }}>
-              Poet · Performer · The poet who codes
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h1
-              className="mt-6 font-display font-bold italic leading-[0.9]"
-              style={{ fontSize: 'clamp(3rem, 11vw, 7.5rem)', color: '#FBF8F3', textShadow: '0 2px 40px rgba(0,0,0,0.4)' }}
-            >
-              Nandawula
-              <br />
-              Regine
-            </h1>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-7 max-w-xl text-[16px] font-light leading-relaxed md:text-lg" style={{ color: 'rgba(251,248,243,0.85)' }}>
-              A woman who writes in roses and builds in code, from KuGompo City (formerly East London), out to
-              the world, and always back to where she comes from.
-            </p>
-          </Reveal>
+          {/* hero text is CSS-animated so it paints before JavaScript loads */}
+          <p className="hero-rise font-mono text-[11px] uppercase tracking-[0.35em]" style={{ color: '#FFD9A0' }}>
+            Poet · Performer · The poet who codes
+          </p>
+          <h1
+            className="hero-rise mt-6 font-display font-bold italic leading-[0.9]"
+            style={{ fontSize: 'clamp(3rem, 11vw, 7.5rem)', color: '#FBF8F3', textShadow: '0 2px 40px rgba(0,0,0,0.4)', '--d': '0.1s' } as CSSProperties}
+          >
+            Nandawula
+            <br />
+            Regine
+          </h1>
+          <p
+            className="hero-rise mt-7 max-w-xl text-[16px] font-light leading-relaxed md:text-lg"
+            style={{ color: 'rgba(251,248,243,0.85)', '--d': '0.2s' } as CSSProperties}
+          >
+            A woman who writes in roses and builds in code, from KuGompo City (formerly East London), out to
+            the world, and always back to where she comes from.
+          </p>
         </div>
       </PhotoBleed>
 

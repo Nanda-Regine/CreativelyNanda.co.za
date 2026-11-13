@@ -126,6 +126,19 @@ html {
   }
 }
 
+/* Text-first hero entrance (audience panel, Nov 2026). Pure CSS, so hero words
+   are in the HTML and start rising at first paint, not after JavaScript loads.
+   Stagger with style={{ '--d': '0.1s' }}. Reduced motion is handled above. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-rise {
+  /* backwards, not both: once finished it lets go, so hover motion still works */
+  animation: hero-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--d, 0s);
+}
+
 @layer utilities {
   /* Text utilities */
   .text-balance {

@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
@@ -32,19 +33,16 @@ export default function Roots() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 38%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0) 85%)' }} />
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: GRAIN }} />
         <div className="relative z-10 flex h-full max-w-5xl mx-auto flex-col justify-end px-6 pb-24">
-          <FadeUp>
-            <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-[#C9943A] mb-6">Three nations · Nine generations · One voice</p>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="font-display text-white font-bold italic leading-[0.92] text-6xl md:text-8xl">Roots</h1>
-          </FadeUp>
-          <FadeUp delay={0.2}>
+          {/* hero text is CSS-animated so it paints before JavaScript loads */}
+          <p className="hero-rise font-mono text-[11px] tracking-[0.35em] uppercase text-[#C9943A] mb-6">Three nations · Nine generations · One voice</p>
+          <h1 className="hero-rise font-display text-white font-bold italic leading-[0.92] text-6xl md:text-8xl" style={{ '--d': '0.1s' } as CSSProperties}>Roots</h1>
+          <div className="hero-rise" style={{ '--d': '0.2s' } as CSSProperties}>
             <p className="mt-7 max-w-2xl font-light text-white/70 text-lg leading-relaxed">
               In Buganda you are never only yourself. To introduce yourself, you must name your father, his
               father, your clan, its totem, its motto, identity spoken aloud as genealogy. This is that
               introduction, made in full.
             </p>
-          </FadeUp>
+          </div>
         </div>
       </section>
 

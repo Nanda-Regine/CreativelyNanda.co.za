@@ -1,9 +1,11 @@
 'use client';
+import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import TexturedSection, { TEXTURES } from '@/components/ui/TexturedSection';
-import { cldVideo } from '@/lib/cloudinary';
+import { cldVideo, cldVideoPoster } from '@/lib/cloudinary';
+import AmbientVideo from '@/components/media/AmbientVideo';
 import { CREDENTIALS } from '@/lib/data/credentials';
 import HonoursHall from '@/components/education/HonoursHall';
 import LearningLedger, { type LedgerSeries } from '@/components/education/LearningLedger';
@@ -250,28 +252,29 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
           </span>
         </div>
         <div className="max-w-5xl mx-auto relative z-10">
-          <FadeUp>
+          {/* hero text is CSS-animated so it paints before JavaScript loads */}
+          <div className="hero-rise">
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: '#C9943A', letterSpacing: '0.35em', textTransform: 'uppercase', margin: '0 0 16px 0' }}>
               Nelson Mandela University · 2020–2024
             </p>
-          </FadeUp>
-          <FadeUp delay={0.1}>
+          </div>
+          <div className="hero-rise" style={{ "--d": "0.1s" } as CSSProperties}>
             <h1 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(52px, 10vw, 112px)', color: '#FFFFFF', lineHeight: 0.9, letterSpacing: '0.02em', margin: '0 0 4px 0' }}>
               THE EDUCATION
             </h1>
             <h1 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(52px, 10vw, 112px)', color: '#C9943A', lineHeight: 0.9, letterSpacing: '0.02em', margin: '0 0 20px 0' }}>
               THAT BUILT THE ENGINEER
             </h1>
-          </FadeUp>
-          <FadeUp delay={0.2}>
+          </div>
+          <div className="hero-rise" style={{ "--d": "0.2s" } as CSSProperties}>
             <p style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: 'clamp(16px, 2vw, 20px)', fontStyle: 'italic', color: 'rgba(245,240,232,0.7)', maxWidth: '600px', lineHeight: 1.6, margin: '0 0 36px 0' }}>
               &ldquo;Three qualifications. {certWord} certificates. One year of code.
               And an ancestral knowing that none of this was coincidence.&rdquo;
             </p>
-          </FadeUp>
+          </div>
 
           {/* Stats strip */}
-          <FadeUp delay={0.3}>
+          <div className="hero-rise" style={{ "--d": "0.3s" } as CSSProperties}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0', borderTop: '1px solid rgba(201,148,58,0.2)' }}>
               {[
                 { v: '15', l: 'Distinctions' },
@@ -288,7 +291,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
                 </div>
               ))}
             </div>
-          </FadeUp>
+          </div>
         </div>
       </section>
 
@@ -417,18 +420,11 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
         <FadeUp delay={0.2}>
           <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: '6px', maxWidth: '1160px', margin: '0 auto', padding: '0 24px 48px' }}>
             {[
-              { src: cldVideo('graduation/diploma-graduation'), label: 'Diploma Graduation · NQF Level 6 · 2023' },
-              { src: cldVideo('graduation/adv-diploma-graduation'), label: 'Advanced Diploma Graduation · NQF Level 7 · 2024' },
-            ].map(({ src, label }) => (
-              <div key={src} style={{ position: 'relative', borderRadius: '2px', overflow: 'hidden', background: '#050810' }}>
-                <video
-                  src={src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  style={{ width: '100%', display: 'block', maxHeight: '260px', objectFit: 'cover' }}
-                />
+              { id: 'graduation/diploma-graduation', label: 'Diploma Graduation · NQF Level 6 · 2023' },
+              { id: 'graduation/adv-diploma-graduation', label: 'Advanced Diploma Graduation · NQF Level 7 · 2024' },
+            ].map(({ id, label }) => (
+              <div key={id} style={{ position: 'relative', height: '260px', borderRadius: '2px', overflow: 'hidden', background: '#050810' }}>
+                <AmbientVideo src={cldVideo(id)} poster={cldVideoPoster(id, 2, 800)} alt={label} />
                 <div style={{
                   position: 'absolute', bottom: 0, left: 0, right: 0,
                   background: 'linear-gradient(to top, rgba(10,15,44,0.92) 0%, transparent 70%)',
