@@ -30,7 +30,7 @@ function loadEnv() {
   const f = path.join(ROOT, '.env.local');
   if (!fs.existsSync(f)) return;
   for (const line of fs.readFileSync(f, 'utf8').split(/\r?\n/)) {
-    const m = line.match(/^\s*(?:export\s+)?((?:CLOUDFLARE|CF)_[A-Z0-9_]+)\s*=\s*(.*)\s*$/);
+    const m = line.match(/^\s*(?:export\s+)?((?:CLOUDFLARE|CF)_[A-Z0-9_]+|BACKUP_R2_TOKEN)\s*=\s*(.*)\s*$/);
     if (m && !(m[1] in process.env)) process.env[m[1]] = m[2].replace(/^['"]|['"]$/g, '');
   }
 }
@@ -38,7 +38,7 @@ loadEnv();
 
 const pick = (...names) => names.map((n) => [n, process.env[n]]).find(([, v]) => v);
 // a narrow R2-only token wins over the account-wide one
-const tok = pick('CLOUDFLARE_R2_TOKEN', 'CLOUDFLARE_API_TOKEN', 'CF_API_TOKEN', 'CLOUDFLARE_TOKEN');
+const tok = pick('CLOUDFLARE_R2_TOKEN', 'BACKUP_R2_TOKEN', 'CLOUDFLARE_API_TOKEN', 'CF_API_TOKEN', 'CLOUDFLARE_TOKEN');
 const acc = pick('CLOUDFLARE_ACCOUNT_ID', 'CF_ACCOUNT_ID', 'CLOUDFLARE_ACCOUNT');
 console.log(`token variable: ${tok ? tok[0] + ' (found)' : 'NOT FOUND'}`);
 console.log(`account id variable: ${acc ? acc[0] + ' (found)' : 'NOT FOUND'}`);

@@ -29,6 +29,8 @@ jobs:
       # Cloudflare Web Analytics beacon + Turnstile site key (public, inlined at build; components render nothing when unset)
       NEXT_PUBLIC_CF_BEACON_TOKEN: ${{ secrets.NEXT_PUBLIC_CF_BEACON_TOKEN }}
       NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+      # Evidence Wing screenshots: public R2 bucket creativelynanda-media behind its custom domain (public value)
+      NEXT_PUBLIC_EVIDENCE_MEDIA_BASE: https://media.creativelynanda.co.za
       # Build-time ONLY placeholders: some routes construct SDK clients at module scope, which Next evaluates
       # while collecting page data. The real values are Worker secrets read at runtime (never inlined).
       OPENAI_API_KEY: build-placeholder
