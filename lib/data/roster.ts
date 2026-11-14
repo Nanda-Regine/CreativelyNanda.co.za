@@ -100,19 +100,19 @@ export const ROSTER: RosterApp[] = [
   {
     key: 'bbmothership', name: 'BB MotherShip', relationship: 'client', status: 'live', band: 'client', order: 8,
     line: 'A restaurant OS: floor operations, staff training modules and the systems behind service.',
-    host: 'Client platform', access: 'login',
+    liveUrl: 'https://bbmothership.creativelynanda.co.za/login', host: 'bbmothership.creativelynanda.co.za', access: 'login',
     paper: '#F3E7D8', accent: '#D9822B', accentInk: '#7A4210', cover: { kind: 'plate' }, dossier: 'bb-mothership',
   },
   {
     key: 'icsa', name: 'ICSA Summit OS', relationship: 'client', status: 'live', band: 'client', order: 9,
     line: 'An OS with seven portals to run multiple summits: delegates, sponsors, team and every moving part between.',
-    host: 'Client platform', access: 'login',
+    liveUrl: 'https://icsa-summit.mirembemuse.co.za', host: 'icsa-summit.mirembemuse.co.za', access: 'login',
     paper: '#E6E9F2', accent: '#5B6FD6', accentInk: '#2B3A8A', cover: { kind: 'plate' },
   },
   {
     key: 'ecdc', name: 'ECDC Symposium', relationship: 'client', status: 'live', band: 'client', order: 10,
     line: 'Event management, commitment accountability and investor matchmaking for the Eastern Cape.',
-    host: 'Client platform', access: 'login',
+    liveUrl: 'https://ecdc.mirembemuse.co.za', host: 'ecdc.mirembemuse.co.za', access: 'login',
     paper: '#E4EDEF', accent: '#2C8EA3', accentInk: '#145565', cover: { kind: 'plate' },
   },
   {
