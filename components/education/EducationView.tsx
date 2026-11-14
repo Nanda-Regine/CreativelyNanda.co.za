@@ -59,7 +59,7 @@ const NMU_QUALS = [
     nqf: 'NQF Level 7',
     significance: 'The final academic layer, 15 distinctions across all three qualifications combined.',
     subjects: 'Advanced Strategy · Research Methods · Entrepreneurship Development · Corporate Governance · International Business',
-    connection: 'Strategic management frameworks are directly embedded in how Mirembe Muse is structured: eight apps, three mobile apps, one infrastructure, horizontal productisation. This is the business brain behind the code.',
+    connection: 'Strategic management frameworks are directly embedded in how Mirembe Muse is structured: sixteen apps, three mobile apps, one infrastructure, horizontal productisation. This is the business brain behind the code.',
     highlight: '15 DISTINCTIONS',
     codeConnection: 'Advanced Strategy → 8-product horizontal architecture. Corporate Governance → per-tenant data isolation, RLS at privilege level.',
   },
@@ -170,7 +170,7 @@ const FNB_ACADEMY = {
     ['R0', 'open and free, across the continent'],
   ],
   honest:
-    'The certificate is endorsed by the Johannesburg Business School Centre for Entrepreneurship. It is not currently an NQF qualification, unlike the three above it on this page, and it is listed here as what it is: a structured, industry-aligned programme she chose to sit after already shipping eight products.',
+    'The certificate is endorsed by the Johannesburg Business School Centre for Entrepreneurship. It is not currently an NQF qualification, unlike the three above it on this page, and it is listed here as what it is: a structured, industry-aligned programme she chose to sit after already shipping sixteen products.',
 };
 
 const DEGREE_IN_CODE = [
@@ -202,7 +202,7 @@ const DEGREE_IN_CODE = [
   {
     subject: 'Entrepreneurship Development',
     degree: 'Adv. Diploma',
-    code: 'Mirembe Muse (Pty) Ltd: registered, POPIA-compliant, 8+ live products, multiple paying clients, ZAR-native pricing.',
+    code: 'Mirembe Muse (Pty) Ltd: registered, POPIA-compliant, 16 live apps, multiple paying clients, ZAR-native pricing.',
   },
 ];
 
@@ -733,7 +733,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(245,240,232,0.35)', letterSpacing: '0.1em', margin: 0 }}>
                 RESULT:
               </p>
-              {['8+ live apps', '5,000+ commits', '27 AI wings (JarvisOS)', 'Multiple paying clients', 'Mirembe Muse (Pty) Ltd'].map((tag) => (
+              {['16 live apps', '5,000+ commits', '27 AI wings (JarvisOS)', 'Multiple paying clients', 'Mirembe Muse (Pty) Ltd'].map((tag) => (
                 <span key={tag} style={{
                   background: 'rgba(242,199,122,0.1)', border: '1px solid rgba(242,199,122,0.25)',
                   color: '#F2C77A', fontFamily: 'var(--font-mono)', fontSize: '9px',
@@ -827,7 +827,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               ONE YEAR.
             </h2>
             <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(52px, 10vw, 100px)', color: '#C9943A', lineHeight: 0.9, letterSpacing: '0.02em', margin: '0 0 4px 0' }}>
-              EIGHT APPLICATIONS.
+              SIXTEEN APPLICATIONS.
             </h2>
             <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(52px, 10vw, 100px)', color: '#FFFFFF', lineHeight: 0.9, letterSpacing: '0.02em', margin: '0 0 28px 0' }}>
               ONE VISION.

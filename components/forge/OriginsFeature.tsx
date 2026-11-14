@@ -192,7 +192,7 @@ export default function OriginsFeature() {
 
           <FadeUp delay={0.2}>
             <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.72)' }}>
-              Before eight live applications. Before a registered company, before the commits
+              Before sixteen live applications. Before a registered company, before the commits
               ran into four figures. There were these. Each one a targeted lesson, and each
               lesson kept.
             </p>

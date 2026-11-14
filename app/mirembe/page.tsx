@@ -32,7 +32,7 @@ const SERVICES = [
   {
     icon: '⬡',
     title: 'Full-Stack Development',
-    body: 'End-to-end web and mobile applications, from architecture to deployment. React, Next.js, TypeScript, Supabase, Claude API. Seven production apps shipped solo.',
+    body: 'End-to-end web and mobile applications, from architecture to deployment. React, Next.js, TypeScript, Supabase, Claude API. Sixteen live apps shipped solo.',
     accent: '#C1292E',
     shape: '48px 12px 48px 12px',
   },
@@ -121,7 +121,7 @@ export default function MirembePage() {
           <FadeUp delay={0.2}>
             <p className="font-display text-xl md:text-2xl italic text-[#B8860B] leading-relaxed max-w-2xl mb-10">
               Full-stack engineer · Digital strategist · Systems architect · Media publisher.
-              One founder. Eight apps. Africa-first infrastructure.
+              One founder. Sixteen apps. Africa-first infrastructure.
             </p>
           </FadeUp>
 
@@ -206,10 +206,10 @@ export default function MirembePage() {
           <FadeUp className="mb-10">
             <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase font-sans mb-3">The proof</p>
             <h2 className="font-display text-4xl font-bold text-white">
-              Eight apps. One founder. Two years.
+              Sixteen apps. One founder. Two years.
             </h2>
             <p className="text-white/50 mt-3 max-w-xl text-sm leading-relaxed">
-              Each app solves a real African problem. All built solo. All in production. None of them demos. Under two years from zero coding knowledge to eight live applications.
+              Each app solves a real African problem. All built solo. All in production. None of them demos. Under two years from zero coding knowledge to sixteen live applications.
             </p>
           </FadeUp>
 

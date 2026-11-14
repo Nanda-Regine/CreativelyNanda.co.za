@@ -8,7 +8,7 @@ export interface PreprogrammedResponse {
 export const preprogrammedResponses: PreprogrammedResponse[] = [
   {
     keywords: ['who', 'nanda', 'about'],
-    response: 'Nandawula Regine Kabali-Kagwa: AI engineer, published poet, and founder of Mirembe Muse (Pty) Ltd. Self-taught: wrote first line of code June 2025, shipped 7 production AI SaaS apps by March 2026. Built from KuGompo City, Eastern Cape.',
+    response: 'Nandawula Regine Kabali-Kagwa: AI engineer, published poet, and founder of Mirembe Muse (Pty) Ltd. Self-taught: wrote first line of code June 2025, has shipped 16 live apps since. Built from KuGompo City, Eastern Cape.',
     category: 'about',
     followUp: 'What would you like to know more about?'
   },
@@ -26,7 +26,7 @@ export const preprogrammedResponses: PreprogrammedResponse[] = [
   },
   {
     keywords: ['projects', 'technical', 'code', 'apps'],
-    response: '7 production AI SaaS apps: VarsityOS, K53 Drill Master, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, and CreativelyNanda.co.za. All built solo in under two years. 300+ active users. None of them demos.',
+    response: '16 live apps, including VarsityOS, K53 Drill Master, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, and CreativelyNanda.co.za. All built solo in under two years. 300+ active users. None of them demos.',
     category: 'work',
     followUp: 'Which app would you like to know more about?'
   },

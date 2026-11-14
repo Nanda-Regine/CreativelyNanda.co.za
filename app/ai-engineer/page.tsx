@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Hire AI Engineer | Nandawula Regine Kabali-Kagwa · Claude API & Multi-Agent Systems',
   description:
-    'Hire Nandawula Regine: AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 8 live AI products including JarvisOS (27-wing personal OS) and AdminOS. 5,000+ commits. Paying clients. Remote-available from South Africa.',
+    'Hire Nandawula Regine: AI Engineer specialising in Claude API agents, multi-agent systems, and production TypeScript. 16 live AI products including JarvisOS (27-wing personal OS) and AdminOS. 5,000+ commits. Paying clients. Remote-available from South Africa.',
   keywords: [
     // Hire-intent — what recruiters and tech leads type
     'hire AI engineer',
@@ -99,7 +99,7 @@ const DOSSIERS = [
     body: 'Custom Claude/OpenAI agents embedded in your product or business workflow.',
     zar: 'From R45,000',
     usd: '~$2,432 USD',
-    proven: '8 live apps, real clients, all production',
+    proven: '16 live apps, real clients, all production',
     signature: true,
   },
   {
@@ -282,7 +282,7 @@ export default function AIEngineerPage() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-display text-2xl md:text-3xl italic text-[#0A1128]">
-            8 live apps. JarvisOS, a 27-wing personal AI OS. Real paying clients.
+            16 live apps. JarvisOS, a 27-wing personal AI OS. Real paying clients.
             5,000+ commits. All self-funded. All production.
             This is what I build for clients.
           </p>

@@ -123,7 +123,7 @@ const knowledgeBase = {
       "My career arc: Sportsmans Warehouse at 19 (Sales → Receiving Clerk, 4 years) → Balkan Burger (Waitress → Manager, 2+ years, 22% waste reduction, 18% profitability increase) → first line of code in June 2025 → 7 production AI SaaS apps by March 2026. 💼",
       "From restaurant manager to AI engineer in under a year. At Balkan Burger I managed 15+ staff, wrote the operations manual, ran events for 100-500+ guests. Those systems-thinking skills are exactly what build scalable software. 🦋",
       "The hospitality years taught pressure, precision, and people, three things that make a great engineer. Now I apply that same discipline to code. Every line asks: will this serve someone beautifully? 📈",
-      "Six months of coding. Seven production apps. That's the timeline. The business degree taught strategy, the restaurant taught operations under pressure, the code was always going to be the third language. 🌱",
+      "Under two years of coding. Sixteen live apps. That's the timeline. The business degree taught strategy, the restaurant taught operations under pressure, the code was always going to be the third language. 🌱",
     ]
   },
 
@@ -374,7 +374,7 @@ const BotGirl = ({ mood = 'happy' }: { mood: string }) => {
 
 const suggestions = [
   "Who is Nanda? 👑",
-  "Tell me about your 7 apps 🚀",
+  "Tell me about your 16 apps 🚀",
   "Inside Her Roses 🌹",
   "Consulting & pricing 💰",
   "Work experience 💼",

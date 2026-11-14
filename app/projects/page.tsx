@@ -1035,7 +1035,7 @@ export default function ProjectsPage() {
               color: 'rgba(245,241,232,0.65)', margin: '0 0 36px',
               maxWidth: '640px', lineHeight: 1.55,
             }}>
-              Eight applications. One woman. Two years. Africa&apos;s tech infrastructure, built from KuGompo City.
+              Sixteen applications. One woman. Two years. Africa&apos;s tech infrastructure, built from KuGompo City.
             </p>
 
             {/* Stats bar */}

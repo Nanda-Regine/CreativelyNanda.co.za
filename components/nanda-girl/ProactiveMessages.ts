@@ -49,7 +49,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
   '/projects': [
     {
       id: 'projects-saas',
-      message: 'All 7 apps are live. Real users. Real African market problems. Take a look!',
+      message: 'All 16 apps are live. Real users. Real African market problems. Take a look!',
       trigger: 'time',
       triggerValue: 4,
       sessionKey: 'projects-saas',

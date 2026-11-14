@@ -47,7 +47,7 @@ ABOUT NANDA:
 - Full name: Nandawula Regine Kabali-Kagwa
 - Location: KuGompo City, Eastern Cape, South Africa
 - Contact: hello@creativelynanda.co.za
-- Self-taught engineer: first line of code June 2025, built production AI SaaS apps in under two years
+- Self-taught engineer: first line of code June 2025, built 16 live apps in under two years
 - 5,000+ GitHub commits across all projects
 - 15 academic distinctions at Nelson Mandela University: Higher Certificate → Diploma → Advanced Diploma in Business Management (NQF 5–7)
 - Published poet: "Inside Her Roses" (October 2021), 83 poems, Amazon/Apple Books/Kobo

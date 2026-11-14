@@ -42,7 +42,7 @@ const ROOMS: { name: string; line: string; href?: string }[] = [
   { name: 'The App Studio', line: 'A hundred real screens from three live products. Pick one up.', href: '/forge/studio' },
   { name: 'The Long Night', line: 'The diary. Night by night, newest first.', href: '/forge/nights' },
   { name: 'The Commit Wall', line: 'A year of commit messages, read as sentences.', href: '/forge/commits' },
-  { name: 'The Making', line: 'The career feature, zero to eight live products in a year.', href: '/engineer' },
+  { name: 'The Making', line: 'The career feature, zero to sixteen live apps in under two years.', href: '/engineer' },
   { name: 'The Poet Who Codes', line: 'The doorway between this wing and the garden.', href: '/poetry/poet-who-codes' },
   { name: 'The Bench', line: 'Live vitals, apps breathing, deploys landing.' },
 ];
@@ -151,7 +151,7 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
               </Reveal>
               <Reveal delay={0.08}>
                 <p className="mt-6 text-[16px] font-light leading-[1.85]" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>
-                  Eight products, three thousand commits, and not one of them written in an office. The photographs
+                  Sixteen apps, five thousand commits, and not one of them written in an office. The photographs
                   on this page are the actual working conditions: a laptop on a camp chair in the middle of a lawn,
                   a stoep with a view of a fountain, a hotel lobby between other things, a printer and a notebook at
                   an hour when nobody replies to anything.

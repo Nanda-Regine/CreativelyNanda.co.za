@@ -54,7 +54,7 @@ const COMMITS: [string, string][] = [
   ['r0se55', 'fix: stopped waiting for permission to bloom'],
   ['ub0ntu', 'refactor: I am because we are'],
   ['n1ght7', 'perf: wrote the poem before the world confirmed it'],
-  ['bu1ld1', 'ship: eight apps, two years, one woman'],
+  ['bu1ld1', 'ship: sixteen apps, two years, one woman'],
 ];
 
 // The soul layer — the range beneath the code (the details live at Mirembe).
@@ -225,7 +225,7 @@ export default function PoetWhoCodes() {
         </p>
         <p className="text-white/90">
           Under my company, <span className="text-[#E4572E]">Mirembe Muse</span>, that desk became a studio,
-          eight production apps in a single year, and real, paying clients across the continent.
+          sixteen live apps in under two years, and real, paying clients across the continent.
         </p>
       </Chapter>
 

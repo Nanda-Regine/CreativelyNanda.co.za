@@ -50,7 +50,7 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 // ── Content ─────────────────────────────────────────────────────────────────
 const CONTENTS = [
   { num: 'I', title: 'Zero', line: 'July 2025. The first line of code.' },
-  { num: 'II', title: 'The Sprint', line: 'Eight production apps in a single year.' },
+  { num: 'II', title: 'The Sprint', line: 'Sixteen live apps in under two years.' },
   { num: 'III', title: 'The Craft', line: 'What she builds now: RAG, multi-agent, model routing.' },
   { num: 'IV', title: 'The Proof', line: 'Paying clients. Real production. Nothing staged.' },
   { num: 'V', title: 'The Foundation', line: 'Fifteen distinctions. The business brain under the code.' },
@@ -221,7 +221,7 @@ export default function EngineerFeature() {
         {/* coverlines, right rail — desktop */}
         <div className="absolute right-6 top-0 bottom-0 z-20 hidden lg:flex flex-col justify-center gap-6 text-right" style={{ width: '150px' }}>
           {[
-            ['Two years', '8 LIVE APPS'],
+            ['Two years', '16 LIVE APPS'],
             ['5,000+', 'COMMITS'],
             ['Fifteen', 'DISTINCTIONS'],
           ].map(([a, b]) => (
@@ -292,7 +292,7 @@ export default function EngineerFeature() {
           <FadeUp>
             <Kicker color={CHERRY}>Chapter II · The Sprint</Kicker>
             <h2 className="font-display font-bold" style={{ fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', lineHeight: 1, margin: '14px 0 10px' }}>
-              Eight apps.<br /><span style={{ color: GOLD_TEXT }}>Two years.</span>
+              Sixteen apps.<br /><span style={{ color: GOLD_TEXT }}>Two years.</span>
             </h2>
             <p className="max-w-2xl font-light mb-14" style={{ color: 'rgb(var(--ink-rgb) / 0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
               Not eight ideas. Eight <em>shipped</em>, production, paying-user applications, each a rung on a ladder that got steeper on purpose. Read it top to bottom: this is a year measured in deployments.

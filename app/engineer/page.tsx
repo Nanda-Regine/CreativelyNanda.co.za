@@ -5,7 +5,7 @@ import EngineerFeature from '@/components/engineer/EngineerFeature';
 export const metadata: Metadata = {
   title: 'The Making of an Engineer | Nandawula Regine · From Zero to a 15-Wing AI OS',
   description:
-    'A career feature: how Nandawula Regine Kabali-Kagwa went from her first line of code in July 2025 to eight live AI products and a 27-wing personal AI operating system in under two years. Multi-agent systems, RAG, model routing, and the fifteen distinctions underneath it all.',
+    'A career feature: how Nandawula Regine Kabali-Kagwa went from her first line of code in July 2025 to sixteen live apps and a 27-wing personal AI operating system in under two years. Multi-agent systems, RAG, model routing, and the fifteen distinctions underneath it all.',
   keywords: [
     'Nandawula Regine engineer',
     'self-taught AI engineer',
@@ -48,7 +48,7 @@ const JSON_LD = {
     name: 'Nandawula Regine Kabali-Kagwa',
     jobTitle: 'AI Engineer',
     description:
-      'Self-taught AI engineer and founder of Mirembe Muse. Built eight live AI products and a 27-wing personal AI operating system within two years of writing her first line of code.',
+      'Self-taught AI engineer and founder of Mirembe Muse. Built sixteen live apps and a 27-wing personal AI operating system within two years of writing her first line of code.',
     url: 'https://creativelynanda.co.za/engineer',
     worksFor: { '@type': 'Organization', name: 'Mirembe Muse (Pty) Ltd' },
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'Nelson Mandela University' },

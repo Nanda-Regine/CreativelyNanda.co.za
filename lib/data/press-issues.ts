@@ -76,7 +76,7 @@ export const ISSUES: Issue[] = [
   },
   {
     number: 2,
-    title: 'Eight Apps, Two Years',
+    title: 'Sixteen Apps, Two Years',
     dated: 'June 2026',
     from: '2026-05-01',
     to: '2026-06-30',
@@ -90,7 +90,7 @@ export const ISSUES: Issue[] = [
     feature: {
       href: '/engineer',
       title: 'The Making of an Engineer',
-      line: 'A career feature in five chapters. Zero to eight live products in a year.',
+      line: 'A career feature in five chapters. Zero to sixteen live apps in under two years.',
     },
   },
   {

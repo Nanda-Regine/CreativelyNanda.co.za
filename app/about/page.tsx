@@ -265,7 +265,7 @@ export default function About() {
           </p>
           <p>
             What came out was a company, <span style={{ color: ink.ink }}>Mirembe Muse</span>, and, inside a
-            single year, eight production systems: AI tools, apps, real software for the continent, with paying
+            under two years, sixteen live systems: AI tools, apps, real software for the continent, with paying
             clients to prove it. The poet had become an engineer without ever ceasing to be a poet.
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-3">

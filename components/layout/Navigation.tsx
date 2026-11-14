@@ -32,7 +32,7 @@ const FORGE_ROOMS: Item[] = [
   { href: '/forge/studio', label: 'The App Studio', hint: '100 real screens, three live products' },
   { href: '/forge/nights', label: 'The Long Night', hint: 'The diary, night by night' },
   { href: '/forge/commits', label: 'The Commit Wall', hint: 'A year of commits, as sentences' },
-  { href: '/engineer', label: 'The Making', hint: 'Zero to eight apps in a year' },
+  { href: '/engineer', label: 'The Making', hint: 'Zero to sixteen apps in under two years' },
   { href: '/poetry/poet-who-codes', label: 'The Poet Who Codes', hint: 'Two tongues, one mind' },
 ];
 
