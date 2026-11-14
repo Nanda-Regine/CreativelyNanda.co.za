@@ -94,7 +94,7 @@ export const ROSTER: RosterApp[] = [
   {
     key: 'selves', name: 'The Selves of Us', relationship: 'client', status: 'live', band: 'client', order: 7,
     line: 'A literary media platform with AI features and a full editorial workflow.',
-    host: 'Client platform', access: 'login',
+    liveUrl: 'https://www.theselvesofus.com', host: 'theselvesofus.com', access: 'login',
     paper: '#F0E4EA', accent: '#B0486E', accentInk: '#7A2447', cover: { kind: 'plate' },
   },
   {
@@ -118,31 +118,31 @@ export const ROSTER: RosterApp[] = [
   {
     key: 'isd', name: 'ISD Membership', relationship: 'client', status: 'live', band: 'client', order: 11,
     line: 'A digital membership platform with governed data infrastructure.',
-    host: 'Client platform', access: 'login',
+    liveUrl: 'https://www.isd-membership-platform.co.za', host: 'isd-membership-platform.co.za', access: 'login',
     paper: '#E9ECE2', accent: '#6E8B3D', accentInk: '#3C5018', cover: { kind: 'plate' },
   },
   {
     key: 'greendiaspora', name: 'Green Diaspora', relationship: 'client', status: 'live', band: 'client', order: 12,
     line: 'Event management for the Green Diaspora Forum: pledge ledger, matchmaking, check-in and impact.',
-    host: 'Client platform', access: 'login',
+    liveUrl: 'https://greendiaspora.mirembemuse.co.za', host: 'greendiaspora.mirembemuse.co.za', access: 'login',
     paper: '#E3EEE6', accent: '#2E9B5E', accentInk: '#125A31', cover: { kind: 'plate' },
   },
   {
     key: 'amanda', name: 'Amanda Ibezim', relationship: 'client', status: 'live', band: 'client', order: 13,
     line: 'A portfolio and booking site for a head chef and pâtissier: fine dining, pâtisserie, events and catering.',
-    host: 'Client website', access: 'public',
+    liveUrl: 'https://amanda.mirembemuse.co.za', host: 'amanda.mirembemuse.co.za', access: 'public',
     paper: '#F4E8E0', accent: '#C0704A', accentInk: '#7A3A1C', cover: { kind: 'plate' },
   },
   {
     key: 'trueaccess', name: 'True Access', relationship: 'co-founded', status: 'live', band: 'client', order: 14,
     line: 'An accessibility-mapping platform Nanda co-founded and built, run together with its founding partner.',
-    host: 'Co-founded platform', access: 'login',
+    liveUrl: 'https://trueaccess.co.za', host: 'trueaccess.co.za', access: 'login',
     paper: '#E8E6F0', accent: '#7A5BD0', accentInk: '#46298F', cover: { kind: 'plate' }, dossier: 'trueaccess',
   },
   {
     key: 'taektwo', name: 'Taek Two Studios', relationship: 'venture', status: 'live', band: 'client', order: 15,
     line: 'A media studio that sits under Mirembe Muse: its public website and the founder’s operations cockpit.',
-    host: 'Venture website', access: 'public',
+    liveUrl: 'https://taektwo.co.za', host: 'taektwo.co.za', access: 'public',
     paper: '#EDE7DA', accent: '#B8892B', accentInk: '#6E4F0C', cover: { kind: 'plate' },
   },
   // Internal
