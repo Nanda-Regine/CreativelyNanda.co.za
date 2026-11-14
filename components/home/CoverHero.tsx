@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
+import { track, trackOutbound } from '@/lib/analytics';
 
 /**
  * CoverHero — the CreativelyNanda magazine cover.
@@ -24,7 +26,15 @@ const TICKER = [
   'MIREMBE MUSE, BUSINESS & TECH ↗',
 ];
 
-const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`;
+type Door = { id: string; label: string; href: string; external?: boolean; business?: boolean };
+
+const DOORS: readonly Door[] = [
+  { id: 'poems', label: 'Read the poems', href: '/poetry' },
+  { id: 'forge', label: 'See the Forge', href: '/forge' },
+  { id: 'business', label: 'Business? Mirembe Muse →', href: 'https://mirembemuse.co.za', external: true, business: true },
+];
+
+const GRAIN =`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`;
 
 export default function CoverHero() {
   return (
@@ -62,6 +72,20 @@ export default function CoverHero() {
           .cover-photo{ width:74% !important; }
           .cover-portrait{ object-position:center 54%; }
         }
+        /* The plain line and three doors: a slim band above the ticker. */
+        .cover-doors{ position:relative; z-index:40; flex-shrink:0; padding:10px 12px 12px 30px; text-align:center;
+          background:linear-gradient(180deg, rgba(10,15,44,0) 0%, rgba(10,15,44,0.92) 38%, #0A0F2C 100%); margin-top:-28px; }
+        .cover-plain{ font-family:var(--font-cormorant), serif; font-size:clamp(17px,2.4vw,22px); font-weight:600; color:#F5F0E8; margin:0 0 8px; line-height:1.25; }
+        .cover-plain span{ font-style:italic; font-weight:400; color:rgba(245,240,232,0.78); }
+        .cover-doors ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:8px 10px; }
+        .cover-door{ display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 16px;
+          font-family:var(--font-mono, monospace); font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+          color:#F5F0E8; border:1px solid rgba(201,148,58,0.7); text-decoration:none; transition:background .2s, color .2s; }
+        .cover-door:hover{ background:rgba(201,148,58,0.16); }
+        .cover-door--biz{ background:#C9943A; color:#0A0F2C; border-color:#C9943A; font-weight:600; }
+        .cover-door--biz:hover{ background:#E0AC52; }
+        .cover-door:focus-visible{ outline:2px solid #F5F0E8; outline-offset:3px; }
+        @media (max-width:420px){ .cover-plain span{ display:block; } .cover-door{ padding:0 12px; letter-spacing:0.12em; } }
       ` }} />
 
       {/* ── ATMOSPHERE: warm nebula over navy (the canvas) ── */}
@@ -172,13 +196,29 @@ export default function CoverHero() {
           </p>
         </div>
 
-        {/* mobile descriptor */}
-        <div className="md:hidden" style={{ position: 'absolute', bottom: '54px', left: 0, right: 0, textAlign: 'center', zIndex: 25, padding: '0 84px' }}>
-          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '12px', fontStyle: 'italic', color: 'rgba(245,240,232,0.75)', margin: 0 }}>
-            Poet · Performer · Founder
-          </p>
-        </div>
       </div>
+
+      {/* ── THE PLAIN LINE + THREE DOORS ──
+          Audience panel, change 2: the cover must say who she is in plain words
+          and show where to go. Poet leads; business gets one visible button. */}
+      <nav aria-label="Where to start" className="cover-doors">
+        <p className="cover-plain">Poet. AI engineer. <span>Writing from KuGompo City.</span></p>
+        <ul>
+          {DOORS.map((d) => (
+            <li key={d.id}>
+              {d.external ? (
+                <a href={d.href} className={`cover-door${d.business ? ' cover-door--biz' : ''}`} onClick={trackOutbound(d.href, 'mirembe_handoff', { from: 'cover' })}>
+                  {d.label}
+                </a>
+              ) : (
+                <Link href={d.href} className="cover-door" onClick={() => track('cover_door', { door: d.id })}>
+                  {d.label}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {/* ── TICKER ── */}
       <div style={{ position: 'relative', zIndex: 40, background: '#C9943A', height: '30px', overflow: 'hidden', display: 'flex', alignItems: 'center', flexShrink: 0 }}>

@@ -47,6 +47,8 @@ export type ForgeEvent =
   // ── Poetry ──
   | 'poem_xray_open'        // X-ray was switched on for a poem
   | 'poem_xray_device'      // a device was chosen inside the X-ray
+  // ── Home ──
+  | 'cover_door'            // a door on the cover was taken (door id only)
   // ── Cross-site ──
   | 'mirembe_handoff'       // the business hand-off to mirembemuse was taken
   | 'outbound_click';

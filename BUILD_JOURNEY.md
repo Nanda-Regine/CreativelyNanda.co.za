@@ -1,5 +1,15 @@
 # CreativelyNanda.co.za — Build Journey
 
+## Panel changes 1 and 2: a lighter first paint, and a cover that says who she is (Nov 13 to 14 2026)
+
+**Goal:** fix where the audience panel (Nov 12) said the site loses people: the first screen is slow and does not say who she is in plain words.
+- **Change 1, text-first paint (`c45474a`, Nov 13):** the five app icons were one 172 KB JPEG copied five times (about 0.5 MB on every page); now real PNGs at their true sizes (under 1 KB to 77 KB). AmbientVideo shows its poster first and loads video only near the viewport, never on Save-Data, 2G or 3G. Hero text on /poetry/collection, /roots, /about and /education animates with CSS, so it shows before JavaScript. GTM and gtag load last.
+- **Shop links (`71116de`, Nov 13):** /marketplace, /shop and /store now redirect to the shop at /products (they returned 404 on the live site). The site companion knows where the shop is.
+- **Change 2, the plain line and three doors (Nov 14):** a slim band above the gold ticker on every screen size reads "Poet. AI engineer. Writing from KuGompo City." with three doors: *Read the poems* (/poetry), *See the Forge* (/forge) and a gold *Business? Mirembe Muse →*. It replaces the mobile-only "Poet · Performer · Founder" line. The rest of the cover is unchanged. Doors are 44 px tall and wrap at 360 px. One new analytics event, `cover_door` (door id only); the business door uses the existing `mirembe_handoff`. Together these give the first "second-door rate" number for the home page.
+- **Checked:** esbuild syntax on both files. **Not yet checked:** type-check, the 360/768/1280 render and the console. The laptop had 0.3 GB of free memory, so these run on the staging deploy instead of locally.
+- **Housekeeping:** the Nov 10 to 11 "Not done" and "Not verified" notes below were overtaken by the Nov 13 launch. The Evidence Wing is live.
+- **Next:** panel change 3 (one fact sheet for both sites). It needs Nanda's true values for the inconsistencies listed on Nov 12.
+
 ## Evidence Wing goes live on Cloudflare (Nov 13 2026)
 
 **Goal:** get the three case files (AdminOS, Jarvis, Sanyu) from a local branch onto the live site, with their screenshots.
