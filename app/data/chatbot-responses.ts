@@ -26,7 +26,7 @@ export const preprogrammedResponses: PreprogrammedResponse[] = [
   },
   {
     keywords: ['projects', 'technical', 'code', 'apps'],
-    response: '16 live apps, including VarsityOS, K53 Drill Master, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, and CreativelyNanda.co.za. All built solo in under two years. 300+ active users. None of them demos.',
+    response: '16 live apps, including VarsityOS, K53 Drill Master, StokvelOS, AdminOS, Sanyu Botanicals, and CreativelyNanda.co.za. WatchSankofa and SankofaSessions are still in development. All built solo in under two years. 300+ active users. None of them demos.',
     category: 'work',
     followUp: 'Which app would you like to know more about?'
   },

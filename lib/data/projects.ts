@@ -283,7 +283,7 @@ export const PROJECTS: Project[] = [
       'African creator infrastructure. Full streaming, authentication, content management, creator profiles, discovery, and community tools. Built mobile-first, low-bandwidth optimised, designed from day one for the continent.',
     impact:
       "The only streaming platform built specifically for African creators and African audiences. Cinematic design system expressing Africa's visual language. Renamed from AfriFlix to WatchSankofa, deeper cultural alignment.",
-    status: 'live',
+    status: 'building',
     category: 'media',
     liveUrl: 'https://watchsankofa.co.za',
     githubUrl: 'https://github.com/Nanda-Regine/AfriFlix',

@@ -141,7 +141,7 @@ const knowledgeBase = {
   projects: {
     triggers: ['projects', 'portfolio', 'what has she built', 'work samples', 'applications', 'apps', 'built', 'created', 'true access', 'saas', 'varsityos', 'k53', 'stokvelos', 'adminos', 'watchsankofa'],
     responses: [
-      "7 production AI SaaS apps live under Mirembe Muse 🚀: VarsityOS (student wellness), K53 Drill Master (learner's licence), StokvelOS (AI stokvel finance), AdminOS (5 AI agents for SMEs), WatchSankofa (African streaming), SankofaSessions (media publication), and CreativelyNanda.co.za (this site).",
+      "16 live apps under Mirembe Muse 🚀, including VarsityOS (student wellness), K53 Drill Master (learner's licence), StokvelOS (AI stokvel finance), AdminOS (5 AI agents for SMEs), WatchSankofa (African streaming, in development), SankofaSessions (media publication, in development), and CreativelyNanda.co.za (this site).",
       "VarsityOS tackles SA's 50% university dropout rate with 6 AI agents covering study, budget, meals, and crisis support. K53 Drill Master has 50+ paying subscribers and 4.8/5 rating with isiXhosa support. All built solo in 6 months. 💫",
       "StokvelOS digitises R50 billion in African community finance, the first AI-native stokvel platform on the continent. AdminOS replaces 6 separate subscriptions with 5 AI agents for South African SMEs. Real problems. Real solutions. 🌍",
       "WatchSankofa gives African creators 85% revenue share (vs Netflix's 7%). SankofaSessions is a media publication for founders. Plus 6 Notion templates and this portfolio, none of them demos, all in production with real users. 📱",
