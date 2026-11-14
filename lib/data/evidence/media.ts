@@ -24,6 +24,7 @@ export function mediaBase(): string {
 
 /** screen id 'adminos-142417', width 960, format 'webp' -> '<base>/adminos/adminos-142417-960.webp' */
 export function screenUrl(id: string, width: number, format: 'webp' | 'avif' = 'webp'): string {
-  const app = id.split('-')[0];
+  // The folder is everything before the LAST hyphen (the id is '<key>-<HHMMSS>'), so a key may never be cut short.
+  const app = id.slice(0, id.lastIndexOf('-'));
   return `${mediaBase()}/${app}/${id}-${width}.${format}`;
 }

@@ -294,7 +294,7 @@ function Stage({ screens, index, openerId, onClose, onGo }: { screens: Screen[];
 
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function AppStudio({ figures }: { figures: { value: string; label: string }[] }) {
+export default function AppStudio({ figures, shelf, liveCount }: { figures: { value: string; label: string }[]; shelf: React.ReactNode; liveCount: number }) {
   const [appKey, setAppKey] = useState<AppKey>('varsityos');
   const [mode, setMode] = useState<'screening' | 'wall'>('screening');
   const [open, setOpen] = useState<{ index: number; opener: string } | null>(null);
@@ -340,7 +340,7 @@ export default function AppStudio({ figures }: { figures: { value: string; label
                 </h1>
               </FadeUp>
               <FadeUp delay={0.16}>
-                <p className="mt-7 max-w-md font-display text-xl italic leading-relaxed t-ink md:text-2xl">A hundred real screens from three live products. Pick one up.</p>
+                <p className="mt-7 max-w-md font-display text-xl italic leading-relaxed t-ink md:text-2xl">{liveCount} live products on the shelf, a hundred real screens on the floor. Pick one up.</p>
               </FadeUp>
               <FadeUp delay={0.24}>
                 {/* The index: the three products, as a contents list rather than buttons. */}
@@ -386,6 +386,9 @@ export default function AppStudio({ figures }: { figures: { value: string; label
             </p>
           </div>
         </Stock>
+
+        {/* ═══ THE SHELF: every live product, by relationship (server-rendered) ═══ */}
+        {shelf}
 
         {/* ═══ WHAT IT IS LIKE TO USE, AND WHY IT IS LIKE THAT ════════════════ */}
         <Journeys />

@@ -1,4 +1,4 @@
-/** /forge/cases - cover of the Evidence Wing. Unlisted and noindex until launch. */
+/** /forge/cases - cover of the Evidence Wing. Public and indexed (14 Nov 2026). */
 import Link from 'next/link';
 import { createMetadata } from '@/lib/seo';
 import { CASE_LIST } from '@/lib/data/evidence/cases';
@@ -8,7 +8,6 @@ export const metadata = createMetadata({
   title: 'Case files',
   description: 'Case files with the evidence behind each product.',
   path: '/forge/cases',
-  noIndex: true,
 });
 
 export default function CasesPage() {

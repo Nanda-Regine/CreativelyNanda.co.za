@@ -23,6 +23,7 @@ const PRICE_FILES = new Set([
 
 function walk(dir, out = []) {
   if (!fs.existsSync(dir)) return out;
+  if (fs.statSync(dir).isFile()) return [dir];
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
     if (e.isDirectory()) walk(p, out);
@@ -90,6 +91,8 @@ export function scanRoot(root) {
     ['lib/data/evidence', { inData: true, inComponents: false }],
     ['components/forge/evidence', { inData: false, inComponents: true }],
     ['app/forge/cases', { inData: false, inComponents: false }],
+    ['lib/data/roster.ts', { inData: false, inComponents: false }],
+    ['components/forge/studio', { inData: false, inComponents: true }],
   ];
   const results = [];
   for (const [rel, flags] of dirs) {

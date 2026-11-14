@@ -15,6 +15,7 @@ import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
 import { SCARS } from '@/lib/data/forge-scars';
 import { DRILLS } from '@/lib/data/forge-drills';
 import { SCREENS } from '@/lib/data/app-screens';
+import { LIVE } from '@/lib/data/roster';
 import { getFeedPosts, postUrl } from '@/lib/feeds';
 
 export const revalidate = 3600;
@@ -54,7 +55,8 @@ Profiles: ${SAME_AS.join(' · ')}
 ${BUILD_DOSSIERS.map((d) => `  - [${d.name}](${u(`/forge/floor/${d.slug}`)}): ${d.standfirst}`).join('\n')}
 - [The Scar Room](${u('/forge/scars')}): ${SCARS.length} real production incidents: what broke, the cause, the fix
 - [The Dojo](${u('/forge/dojo')}): ${DRILLS.length} debugging drills built from those incidents, diagnose the cause from the symptom
-- [The App Studio](${u('/forge/studio')}): ${SCREENS.length} real screenshots of her live products (VarsityOS, K53 Drill Master, Sanyu Botanicals) in phone frames
+- [The App Studio](${u('/forge/studio')}): the shelf of all ${LIVE.length} live Mirembe Muse products labelled by relationship, plus ${SCREENS.length} real screenshots of VarsityOS, K53 Drill Master and Sanyu Botanicals in phone frames
+- [Case files](${u('/forge/cases')}): the evidence behind AdminOS, JarvisOS and Sanyu Botanicals
 - [The Long Night](${u('/forge/nights')}) and [the Commit Wall](${u('/forge/commits')}): her commit history, measured from GitHub
 - [The Engineer's Issue 003](${u('/engineer')}): a career feature
 

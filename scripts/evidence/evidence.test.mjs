@@ -211,34 +211,24 @@ describe('Case file integrity', () => {
   });
 });
 
-describe('Route indexed / in sitemap: routes are private', () => {
-  test('every app/forge/cases page sets noIndex: true', () => {
+describe('Case files are public (14 Nov 2026): indexed, in the sitemap, linked from the shelf', () => {
+  test('no app/forge/cases page sets noIndex', () => {
     const pages = walk(P('app', 'forge', 'cases')).filter((f) => /[\\/]page\.(tsx|ts|jsx|js)$/.test(f));
     assert.ok(pages.length >= 2, `expected index and [app] pages, found ${pages.length}`);
     for (const f of pages) {
-      assert.match(fs.readFileSync(f, 'utf8'), /noIndex:\s*true/, `${path.relative(ROOT, f)} lacks noIndex: true`);
+      assert.doesNotMatch(fs.readFileSync(f, 'utf8'), /noIndex:s*true/, `${path.relative(ROOT, f)} still sets noIndex`);
     }
   });
 
-  test('sitemap and navigation do not mention /forge/cases', () => {
-    const sm = fs.readdirSync(P('app')).filter((f) => /^sitemap\./.test(f));
+  test('the sitemap lists /forge/cases', () => {
+    const sm = fs.readdirSync(P('app')).filter((f) => /^sitemap./.test(f));
     assert.ok(sm.length > 0, 'app/sitemap.* not found');
-    for (const f of sm) assert.ok(!fs.readFileSync(P('app', f), 'utf8').includes('/forge/cases'), `${f} lists /forge/cases`);
-    const nav = fs.readFileSync(mustExist(P('components', 'layout', 'Navigation.tsx')), 'utf8');
-    assert.ok(!nav.includes('/forge/cases'), 'Navigation.tsx links /forge/cases');
+    assert.ok(sm.some((f) => fs.readFileSync(P('app', f), 'utf8').includes('/forge/cases')), 'sitemap does not list /forge/cases');
   });
 
-  test('no inbound links to /forge/cases from app/, components/ or lib/ outside the wing itself', () => {
-    const skip = [P('app', 'forge', 'cases'), P('components', 'forge', 'evidence')];
-    const offenders = [];
-    for (const dir of [P('app'), P('components'), P('lib')]) {
-      for (const f of walk(dir)) {
-        if (skip.some((s) => f.startsWith(s + path.sep))) continue;
-        if (!/\.(tsx?|jsx?|mjs|json|mdx?)$/.test(f)) continue;
-        if (fs.readFileSync(f, 'utf8').includes('/forge/cases')) offenders.push(path.relative(ROOT, f));
-      }
-    }
-    assert.deepEqual(offenders, []);
+  test('every case file links back to /forge/studio', () => {
+    const page = fs.readFileSync(mustExist(P('app', 'forge', 'cases', '[app]', 'page.tsx')), 'utf8');
+    assert.ok(page.includes('/forge/studio'), 'case page has no link back to /forge/studio');
   });
 });
 

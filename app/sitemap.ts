@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
+import { CASE_LIST } from '@/lib/data/evidence/cases';
 import { POEMS } from '@/lib/poems-data';
 import { getAllPublishedPosts, postUrl } from '@/lib/feeds';
 
@@ -126,6 +127,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // to the Workshop Floor cannot leave its page undeclared.
     ...BUILD_DOSSIERS.map((d): Entry => ({
       path: `/forge/floor/${d.slug}`,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    })),
+    // Case files went public on 14 Nov 2026.
+    { path: '/forge/cases', changeFrequency: 'monthly', priority: 0.8 },
+    ...CASE_LIST.map((c): Entry => ({
+      path: `/forge/cases/${c.app}`,
       changeFrequency: 'monthly',
       priority: 0.8,
     })),

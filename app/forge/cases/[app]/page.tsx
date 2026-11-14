@@ -1,9 +1,10 @@
 /**
  * /forge/cases/[app] - the Evidence Wing case file.
- * Unlisted: noindex, not in the sitemap, not in the nav. Plan: docs/plans/evidence-wing-adminos.md
+ * Public and indexed (14 Nov 2026), in the sitemap. Plan: docs/plans/evidence-wing-adminos.md, docs/plans/app-studio-v2.md
  */
 import { notFound } from 'next/navigation';
-import { createMetadata, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import Link from 'next/link';
+import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL, personRef } from '@/lib/seo';
 import { CASE_LIST, getCase } from '@/lib/data/evidence/cases';
 import { CLAIMS } from '@/lib/data/evidence/claims';
 import Stock from '@/components/ui/Stock';
@@ -31,7 +32,6 @@ export async function generateMetadata({ params: paramsPromise }: { params: Prom
     title: c ? `${c.name}: the case file` : 'Case file',
     description: c ? c.promise : 'Case file',
     path: `/forge/cases/${params.app}`,
-    noIndex: true,
   });
 }
 
@@ -47,17 +47,34 @@ export default async function CasePage({ params: paramsPromise }: { params: Prom
   return (
     <>
       <JsonLd
-        data={generateBreadcrumbJsonLd([
-          { name: 'Home', path: '' },
-          { name: 'The Forge', path: '/forge' },
-          { name: c.name, path: `/forge/cases/${c.app}` },
-        ])}
+        data={[
+          generateBreadcrumbJsonLd([
+            { name: 'Home', path: '' },
+            { name: 'The Forge', path: '/forge' },
+            { name: 'Case files', path: '/forge/cases' },
+            { name: c.name, path: `/forge/cases/${c.app}` },
+          ]),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: c.name,
+            description: c.promise,
+            url: `${SITE_URL}/forge/cases/${c.app}`,
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Web',
+            creator: personRef(),
+            ...(c.liveUrl ? { sameAs: c.liveUrl } : {}),
+          },
+        ]}
       />
       <main>
         <Stock paper={c.paper} texture={false} className="px-6 py-16 md:py-24">
           <div className="mx-auto max-w-6xl">
             <p className="text-xs uppercase tracking-[0.25em]" style={{ color: 'var(--gold-ink)' }}>
-              Case file / {c.status.label} as of {c.status.asOfLabel}
+              <Link href="/forge/studio" prefetch={false} className="inline-flex min-h-[44px] items-center underline underline-offset-4">
+                The App Studio
+              </Link>{' '}
+              / Case file / {c.status.label} as of {c.status.asOfLabel}
             </p>
             <h1 className="font-display mt-4 text-5xl md:text-7xl">{c.name}</h1>
             <p className="font-display mt-4 max-w-2xl text-xl italic md:text-2xl">{c.promise}</p>

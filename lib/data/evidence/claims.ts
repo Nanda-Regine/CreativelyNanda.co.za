@@ -168,6 +168,15 @@ export const CLAIMS: Claim[] = [
     source: 'JarvisOS product truth file, Sanyu evidence from direct repo reads',
     status: 'self-reported',
   },
+  {
+    id: 'studio.live-count',
+    value: '17',
+    label: 'live products, labelled by relationship',
+    asOf: '2026-11-14',
+    asOfLabel: '14 Nov 2026',
+    source: 'mirembemuse.co.za portfolio roster',
+    status: 'verified',
+  },
 ];
 
 export const CLAIM_BY_ID: Record<string, Claim> = Object.fromEntries(CLAIMS.map((c) => [c.id, c]));
