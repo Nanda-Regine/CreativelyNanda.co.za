@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
     description:
       'Production personal AI operating system with 15 interconnected intelligence wings: CEO (decisions), Finance (cash flow), Engineering (build logs), Marketing (campaigns), Cycle (menstrual intelligence), Scholar (learning), Corpus (RAG Q&A), Body (health), Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, and Crisis/Sankofa. Built entirely for personal use, and proof of what the architecture can do.',
     problem:
-      'Running a multi-product company, shipping across 16 live apps, managing creative work, health, and personal growth with disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution.',
+      'Running a multi-product company, shipping across 17 live apps, managing creative work, health, and personal growth with disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution.',
     solution:
       'A unified intelligence layer. Each wing handles one life domain and talks to others via Redis signal protocol. Claude Sonnet routes complex reasoning; Haiku handles speed tasks, 85% cost reduction. Corpus answers questions from 1,194 personal knowledge chunks via Upstash Vector RAG. Inngest queues long-running jobs. Offline-first PWA means it works in load-shedding.',
     impact:
@@ -399,7 +399,7 @@ export const PROJECTS: Project[] = [
     name: 'The Origin Projects',
     tagline: 'Where it started: zero knowledge, first commit.',
     description:
-      'freeCodeCamp certification projects, the HTML/CSS/JavaScript foundation that preceded 16 live applications. Responsive web design, JavaScript algorithms, front-end React libraries. Built mid-2025 from absolute zero.',
+      'freeCodeCamp certification projects, the HTML/CSS/JavaScript foundation that preceded 17 live applications. Responsive web design, JavaScript algorithms, front-end React libraries. Built mid-2025 from absolute zero.',
     problem:
       'The real problem: Could someone with zero coding background teach themselves to build production software in under a year? These projects were the first answer.',
     solution:
@@ -425,7 +425,7 @@ export const PROJECTS: Project[] = [
       { label: 'Starting point', value: 'Zero' },
       { label: 'Time to first SaaS', value: '3 months' },
       { label: 'Certifications earned', value: '3+' },
-      { label: 'This led to', value: '16 live apps' },
+      { label: 'This led to', value: '17 live apps' },
     ],
     accentColor: '#7A9E7E',
     buildDuration: 'Mid-2025 → Sep 2025 · 3 months to first React project',

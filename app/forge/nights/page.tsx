@@ -16,7 +16,7 @@ import corpus from '@/lib/data/forge-corpus.json';
 export const metadata = createMetadata({
   title: 'The Long Night · the build diary, night by night',
   description:
-    'The dated working diary of a solo engineer building sixteen products: every logged session, newest first, by its own title. Build-in-public as it actually happened rather than as it would be summarised afterwards.',
+    'The dated working diary of a solo engineer building seventeen products: every logged session, newest first, by its own title. Build-in-public as it actually happened rather than as it would be summarised afterwards.',
   path: '/forge/nights',
   keywords: [
     'build in public diary',

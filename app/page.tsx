@@ -265,12 +265,12 @@ export default function Home() {
               From zero to a twenty-seven-wing AI OS.
             </h2>
             <p className="mt-7 max-w-lg text-lg font-light leading-[1.8] t-ink">
-              She wrote her first line of code in July 2025. In under two years: sixteen live apps, a personal operating system with twenty-seven intelligence wings,
+              She wrote her first line of code in July 2025. In under two years: seventeen live apps, a personal operating system with twenty-seven intelligence wings,
               and real paying clients. This is the engineer&apos;s issue.
             </p>
             <div className="mt-9 flex flex-wrap gap-x-10 gap-y-4 border-t pt-7" style={{ borderColor: 'var(--rule)' }}>
               {[
-                ['16', 'Live apps'],
+                ['17', 'Live apps'],
                 ['5,000+', 'Commits'],
                 ['15', 'Distinctions'],
               ].map(([v, l]) => (

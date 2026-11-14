@@ -4,7 +4,7 @@ import { createMetadata } from '@/lib/seo';
 export const metadata: Metadata = createMetadata({
   title: 'Projects | Nandawula Regine Kabali-Kagwa · AI Engineer South Africa',
   description:
-    'Explore 16 live apps built by Nandawula Regine Kabali-Kagwa, from StokvelOS to K53 Drill Master. African-first engineering from KuGompo City, South Africa. 5,000+ GitHub commits.',
+    'Explore 17 live apps built by Nandawula Regine Kabali-Kagwa, from StokvelOS to K53 Drill Master. African-first engineering from KuGompo City, South Africa. 5,000+ GitHub commits.',
   path: '/projects',
   keywords: [
     'African developer projects',

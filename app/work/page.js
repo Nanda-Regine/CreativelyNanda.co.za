@@ -14,7 +14,7 @@ const workExperience = [
         period: 'September 2025 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd: 16 live applications, 5,000+ GitHub commits, multiple paying clients. Two years.',
+          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd: 17 live applications, 5,000+ GitHub commits, multiple paying clients. Two years.',
           'Digital Services vertical: AI engineering, full-stack development, multi-agent systems, Notion consulting',
           'Wellness Brand vertical: Sanyu Botanicals, ancestral African hair care with AI-powered consultations and Angel loyalty programme',
           'Creative Studio vertical: Inside Her Roses (published poetry), mentorship, digital products',
