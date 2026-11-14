@@ -52,7 +52,7 @@ export const CATEGORIES = [
 
 // ── Moods: the emotional "door" into the garden ──────────────────────────────
 // Each mood maps to one or more categories, so browsing by feeling works
-// across all 85 poems today — no per-poem tagging required. A poem may still
+// across all 83 poems today — no per-poem tagging required. A poem may still
 // override its mood via `Poem.mood`. `wash` drives the ambient colour-theming.
 export type MoodKey =
   | 'longing' | 'desire' | 'wonder' | 'reflection' | 'solace' | 'fire';

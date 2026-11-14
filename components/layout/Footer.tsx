@@ -88,7 +88,7 @@ export default function Footer() {
         {/* POPIA Badge */}
         <div className="border-t border-beige/10 pt-4 mb-4 flex flex-wrap items-center gap-2">
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: '#8A9E7A', letterSpacing: '0.1em' }}>
-            🛡 POPIA Compliant · Registration No. 2026-005658
+            🛡 POPIA Compliant · Information Regulator Reg. No. 2026-005658
           </span>
           <span className="text-beige/20 text-xs">·</span>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: '#8A9E7A', letterSpacing: '0.08em' }}>
@@ -103,7 +103,7 @@ export default function Footer() {
               © {currentYear} Mirembe Muse (Pty) Ltd · KuGompo City, South Africa
             </p>
             <p className="text-beige/40 text-[10px] mt-1.5" style={{ letterSpacing: '0.08em' }}>
-              Nseenene · AmaTshawe · AmaHlubi · Msimanga · Thabizolo
+              Nseenene · amaTshawe · amaHlubi · Msimanga · Thabizolo
             </p>
           </div>
 

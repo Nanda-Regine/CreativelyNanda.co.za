@@ -87,7 +87,7 @@ export default function LineageRoom() {
           </div>
           <div className="mt-10 mx-auto w-16 h-px" style={{ background: 'rgba(201,168,76,0.5)' }} />
           <p className="mt-6 text-cream/50 text-sm font-mono tracking-wide">
-            My totem is Nsenene. I carry my great-grandmother&rsquo;s name.
+            My totem is Nseenene. I carry a name the clan has carried for generations.
           </p>
         </div>
       </section>
@@ -109,7 +109,7 @@ export default function LineageRoom() {
               kicker={i === 0 ? 'The line, still living' : 'Where we come from'}
               caption={
                 i === 0
-                  ? 'Nine generations I can name, and here, one lifting the next. My mother, and me.'
+                  ? 'Generations, and here, one lifting the next. My mother, and me.'
                   : 'The soil is not a metaphor. It is a forest that remembers our name.'
               }
               accent="#C9A84C"

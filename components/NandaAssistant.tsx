@@ -11,14 +11,14 @@ import { contextImages, getContextFromPath } from './nanda-girl/types';
 // Context-aware speech bubbles for different pages
 const contextSpeechBubbles: Record<string, string[]> = {
   home: [
-    "7 AI apps. 6 months. KuGompo City. 🚀",
+    "AI apps, built in KuGompo City. 🚀",
     "I'm a poet who codes & a coder who dreams!",
     "Ask me about the journey!",
     "Need something built? Let's chat!",
     "AI engineer · Published poet · Founder 👑",
   ],
   poetry: [
-    "Inside Her Roses, 82 poems of love & healing 🌹",
+    "Inside Her Roses, 83 poems of love & healing 🌹",
     "Featured on Gqeberha: The Empire! 📺",
     "Poetry is the algorithm of feeling...",
     "Ask about my book: it's on Amazon!",
@@ -28,7 +28,7 @@ const contextSpeechBubbles: Record<string, string[]> = {
     "7 production AI SaaS apps live! 💼",
     "Next.js · TypeScript · Claude API · Supabase",
     "Africa's first AI-native stokvel platform!",
-    "3,000+ GitHub commits and growing",
+    "5,000+ GitHub commits and growing",
     "Tech with soul, code with purpose ✨",
   ],
   about: [
@@ -64,7 +64,7 @@ const contextSpeechBubbles: Record<string, string[]> = {
   ],
   default: [
     "Click me to chat! 💬",
-    "7 apps. 6 months. Ask me how. ✨",
+    "Two years of building. Ask me how. ✨",
     "Ask me anything. I'm here to help!",
     "From poetry to AI, I've got answers!",
   ],
@@ -130,7 +130,7 @@ const knowledgeBase = {
   poetry: {
     triggers: ['poetry', 'book', 'inside her roses', 'poems', 'writing', 'author', 'published', 'writer', 'poet', 'roses', 'verses', 'literary'],
     responses: [
-      "🌹 'Inside Her Roses', my poetry collection published October 2021. 82 poems exploring love, identity, healing, and Black womanhood. Available on Amazon, Apple Books, Kobo, and major retailers worldwide!",
+      "🌹 'Inside Her Roses', my poetry collection published October 2021. 83 poems exploring love, identity, healing, and Black womanhood. Available on Amazon, Apple Books, Kobo, and major retailers worldwide!",
       "I was featured on South African TV series 'Gqeberha: The Empire' as a poet! Also interviewed on Madibaz Radio and TRU FM. My verses have reached thousands of hearts through screens and airwaves. 📺✨",
       "Poetry is the algorithm of feeling. My collection spans six themes: Romance, Sensual, Life, Personal, Depth, and Empowering. Each poem excavates truth, vulnerability and victory in equal measure. 💝",
       "I self-funded and organized my own book launch: crowdfunded, self-coordinated, fully executed. 100+ attendees, combined poetry workshop and dining experience. Main character energy before it was a trend! 🎉👑",
@@ -405,7 +405,7 @@ export function NandaAssistant() {
 
   // Chat state
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: "Sawubona! ✨ I'm Nanda: AI engineer, published poet, and founder of Mirembe Muse. I've shipped 7 production apps in 6 months and I'm building Africa-first technology. What would you like to know?" }
+    { role: 'assistant', content: "Sawubona! ✨ I'm Nanda: AI engineer, published poet, and founder of Mirembe Muse. I've shipped production apps in under two years and I'm building Africa-first technology. What would you like to know?" }
   ]);
   const [displayedSuggestions] = useState(() => getRandomSuggestions(5));
   const [input, setInput] = useState('');

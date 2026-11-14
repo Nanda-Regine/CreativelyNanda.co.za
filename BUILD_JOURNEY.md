@@ -1,5 +1,16 @@
 # CreativelyNanda.co.za — Build Journey
 
+## Fact check, family privacy on /roots, metadata and robots (Nov 14 2026)
+
+**Goal:** one true value for every fact the panel found in conflict, and the paternal family's names off the public site.
+- **Nanda's answers:** the book was published in 2021 and the company founded in 2025 (cover "EST. 2021" is the book, so it stays). 83 poems. Building time is "under two years" (first code was July 2025, so "two years" is said as "under two years"). Multiple paying clients, no number. 2026-005658 is her **Information Regulator** number, not a company registration, and is now labelled that way. Nandawula, not Nnandawula. amaHlubi (and amaTshawe, to match). East London in the Mirembe Muse footer (that is the mirembemuse repo, not done here).
+- **Family privacy (owner decision):** the Buganda house now works like the amaTshawe and Msimanga houses: clan, totem, motto, praise and public clan history only. Removed from /roots, /poetry/lineage, the homepage line and the research notes: her father, grandfather, great-grandfather, six earlier ancestors, the line, stem and sub-lineage names and their villages, and the Sir Apolo Kagwa link. The Kiganda introduction is rewritten at clan level. **These names are still in the public repo's git history.** Removing them from history needs a force-push, which is Nanda's call.
+- **Measured, 14 Nov 2026:** GitHub counts about 5,000 commits on default branches across her repos (about 4,960 by repo, 5,050 on the contributions graph); work on feature branches is not counted, which is why her own figure is near 6,000. The site says **5,000+** everywhere. The Forge data was refreshed (12 repos, 4,249 commits, first commit 16 Oct 2025); the `.env.local` GitHub token had expired, so `forge-github.mjs` now also accepts a token from the environment (`GITHUB_TOKEN=$(gh auth token)`). JarvisOS is described with **27 wings** wherever the copy means today; dated milestones ("Jun 2026: 15-wing OS") stay as history.
+- **Metadata:** site title, description, Open Graph and Twitter now say "Poet & AI Engineer" (they said "AI Engineer & Full-Stack Developer, 7 live AI products" while the cover said poet). "Nine documented generations across four nations" is gone from the site and /about descriptions; /roots metadata no longer lists Apolo Kagwa.
+- **robots.txt:** added Amazonbot, DuckAssistBot, MistralAI-User and GoogleOther to the named AI crawlers, kept `/evidence-dev/` out, dropped the non-standard `host` line.
+- **Open:** the live app count. Every page still says 7 or 8 until Nanda confirms the list. A shared fact file for both sites is still to build.
+- **Checked:** esbuild syntax on all 31 changed code files, Forge preflight (one old warning in an untouched file). Type-check and visual render were not run locally (low memory).
+
 ## Panel changes 1 and 2: a lighter first paint, and a cover that says who she is (Nov 13 to 14 2026)
 
 **Goal:** fix where the audience panel (Nov 12) said the site loses people: the first screen is slow and does not say who she is in plain words.

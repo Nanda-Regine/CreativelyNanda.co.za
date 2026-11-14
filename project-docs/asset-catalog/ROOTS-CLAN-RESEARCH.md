@@ -79,13 +79,13 @@ a delicacy and a seasonal harvest in Buganda.
    spoken aloud. ([BeingAfrican](https://beingafrican.org/culture-panel/clans-and-totems-in-buganda-culture/))
 
 ### Unverified / needs Nanda to confirm
-- **"Kabombola," "Kyakasuku," "Segoma in Kayenje," "Kayenje–Butambala," "Nsiisi–Busujju"** as the
+- **"[family name]," "[family name]," "[family name] in [family name]," "[family name]–Butambala," "Nsiisi–Busujju"** as the
   specific family lineage seats. *Partially anchored:* **Busujju** and **Butambala** are confirmed
   historic Buganda counties (amasaza), and **Nsiisi in Busujju** appears in Nseenene clan tradition
   as where the ancestor **Kalibbala** settled — so "Nsiisi–Busujju" is consistent with the record.
   Sources: [Buganda Counties](https://buganda.or.ug/counties/),
   [africanculture1](https://africanculture1.blogspot.com/2019/08/nsenene-grasshoper-clan.html).
-  **However, "Kabombola," "Kyakasuku," "Segoma," and "Kayenje" could not be verified online** as
+  **However, "[family name]," "[family name]," "[family name]," and "[family name]" could not be verified online** as
   named places or as the family's specific sub-lineage (enju/mutuba). These read as authentic
   family-transmitted lineage detail that simply isn't published — treat as oral-family record, not
   web-verifiable. Ask Nanda / family elders to confirm spellings and which is a place vs. a person.
@@ -269,16 +269,16 @@ a delicacy and a seasonal harvest in Buganda.
   kwanjula centres on formally naming and joining two lineages.
   Source: [Harusi Hub — Kwanjula guide](https://blog.harusihub.com/post/kwanjula-guide-uganda/)
 
-**Editorial use:** The family's introduction — *"I come from the line of Kabombola who reigns from
-Kyakasuku…"* — is a real *form* (naming your ancestor and his seat is exactly how it's done). The
-**form is verified and culturally authentic**; the **specific names** in it (Kabombola, Kyakasuku)
+**Editorial use:** The family's introduction — *"I come from the line of [family name] who reigns from
+[family name]…"* — is a real *form* (naming your ancestor and his seat is exactly how it's done). The
+**form is verified and culturally authentic**; the **specific names** in it ([family name], [family name])
 fall under the Unverified note in §1. It is safe and accurate to present the *practice* of
 introducing yourself by naming your ancestral line and seat as genuine Buganda custom.
 
 ### Unverified / needs Nanda to confirm
-- The specific content of the family's introduction (the named ancestor **Kabombola** and seat
-  **Kyakasuku**) — authentic-sounding oral-family record, not web-verifiable. Confirm spellings and
-  whether Kabombola is an ancestor and Kyakasuku his place.
+- The specific content of the family's introduction (the named ancestor **[family name]** and seat
+  **[family name]**) — authentic-sounding oral-family record, not web-verifiable. Confirm spellings and
+  whether [family name] is an ancestor and [family name] his place.
 
 ---
 
@@ -319,5 +319,5 @@ introducing yourself by naming your ancestral line and seat as genuine Buganda c
 - **Do not assert direct personal descent** from Sir Apolo Kagwa, from Kabaka Kimera, or from King
   Tshawe unless Nanda confirms it. It is both accurate and powerful to say the family *carries the
   names and clans of* these houses — which is verifiable — without claiming a documented bloodline.
-- The family-specific place/ancestor names (Kabombola, Kyakasuku, Segoma, Kayenje) are treated here
+- The family-specific place/ancestor names ([family name], [family name], [family name], [family name]) are treated here
   as trusted oral-family record; keep them, but attribute them to family memory, not to a source.

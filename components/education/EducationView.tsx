@@ -202,7 +202,7 @@ const DEGREE_IN_CODE = [
   {
     subject: 'Entrepreneurship Development',
     degree: 'Adv. Diploma',
-    code: 'Mirembe Muse (Pty) Ltd: registered, POPIA-compliant, 8+ live products, 3+ paying clients, ZAR-native pricing.',
+    code: 'Mirembe Muse (Pty) Ltd: registered, POPIA-compliant, 8+ live products, multiple paying clients, ZAR-native pricing.',
   },
 ];
 
@@ -268,7 +268,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
           </div>
           <div className="hero-rise" style={{ "--d": "0.2s" } as CSSProperties}>
             <p style={{ fontFamily: 'var(--font-display, Georgia, serif)', fontSize: 'clamp(16px, 2vw, 20px)', fontStyle: 'italic', color: 'rgba(245,240,232,0.7)', maxWidth: '600px', lineHeight: 1.6, margin: '0 0 36px 0' }}>
-              &ldquo;Three qualifications. {certWord} certificates. One year of code.
+              &ldquo;Three qualifications. {certWord} certificates. Two years of code.
               And an ancestral knowing that none of this was coincidence.&rdquo;
             </p>
           </div>
@@ -733,7 +733,7 @@ export default function EducationView({ ledger }: { ledger: LedgerSeries }) {
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'rgba(245,240,232,0.35)', letterSpacing: '0.1em', margin: 0 }}>
                 RESULT:
               </p>
-              {['8+ live apps', '3,000+ commits', '15 AI wings (JarvisOS)', '3+ paying clients', 'Mirembe Muse (Pty) Ltd'].map((tag) => (
+              {['8+ live apps', '5,000+ commits', '27 AI wings (JarvisOS)', 'Multiple paying clients', 'Mirembe Muse (Pty) Ltd'].map((tag) => (
                 <span key={tag} style={{
                   background: 'rgba(242,199,122,0.1)', border: '1px solid rgba(242,199,122,0.25)',
                   color: '#F2C77A', fontFamily: 'var(--font-mono)', fontSize: '9px',

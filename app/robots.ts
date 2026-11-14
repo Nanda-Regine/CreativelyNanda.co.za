@@ -7,7 +7,9 @@ import { MetadataRoute } from 'next';
 // Pages that must stay out of search (PayFast return/cancel, order lookup,
 // /upgrades, /maintenance) are NOT disallowed here on purpose: they carry a
 // noindex meta tag, and a crawler can only obey noindex on a page it may fetch.
-const PRIVATE = ['/admin/', '/api/', '/checkout/', '/orders/'];
+// /evidence-dev/ is a local build folder for case-file screens; the live site serves
+// them from media.creativelynanda.co.za, so a stray copy is never crawled.
+const PRIVATE = ['/admin/', '/api/', '/checkout/', '/orders/', '/evidence-dev/'];
 
 // Named so the welcome is explicit, and survives any future tightening of '*'.
 const AI_CRAWLERS = [
@@ -25,6 +27,10 @@ const AI_CRAWLERS = [
   'CCBot',
   'Meta-ExternalAgent',
   'cohere-ai',
+  'Amazonbot',
+  'DuckAssistBot',
+  'MistralAI-User',
+  'GoogleOther',
 ];
 
 export default function robots(): MetadataRoute.Robots {
@@ -34,6 +40,5 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: AI_CRAWLERS, allow: '/', disallow: PRIVATE },
     ],
     sitemap: 'https://creativelynanda.co.za/sitemap.xml',
-    host: 'https://creativelynanda.co.za',
   };
 }

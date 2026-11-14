@@ -13,7 +13,7 @@ const TICKER_ITEMS = [
   'NMU ALUMNI',
   'PUBLISHED POET',
   'MIREMBE MUSE',
-  '3,000+ GITHUB COMMITS',
+  '5,000+ GITHUB COMMITS',
   'JARVISOS · 15-WING AI OPERATING SYSTEM',
   'EAST LONDON · SOUTH AFRICA',
   'PAYING CLIENTS · REAL IMPACT',
@@ -420,7 +420,7 @@ export default function MagazineCover() {
               margin: 0,
               lineHeight: 1.4,
             }}>
-              One year.<br />Zero to pro.
+              Two years.<br />Zero to pro.
             </p>
           </div>
 
@@ -553,7 +553,7 @@ export default function MagazineCover() {
             margin: 0,
             lineHeight: 1.4,
           }}>
-            NMU Alumni.<br />3,000+ commits.
+            NMU Alumni.<br />5,000+ commits.
           </p>
           <p style={{
             fontFamily: 'var(--font-mono)',

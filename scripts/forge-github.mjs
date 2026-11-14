@@ -179,7 +179,10 @@ const BUILDS = [
 // HTTP
 // ─────────────────────────────────────────────────────────────────────────────
 function readToken() {
-  const env = fs.readFileSync(path.join(ROOT, '.env.local'), 'utf8');
+  // An environment token wins, so a run can use `GITHUB_TOKEN=$(gh auth token)`
+  // when the .env.local token has expired. Never printed either way.
+  if (process.env.GITHUB_TOKEN) return process.env.GITHUB_TOKEN.trim();
+  const env =fs.readFileSync(path.join(ROOT, '.env.local'), 'utf8');
   const m = env.match(/^GITHUB_TOKEN=(.*)$/m);
   if (!m) throw new Error('GITHUB_TOKEN missing from .env.local');
   return m[1].trim().replace(/^["']|["']$/g, '');

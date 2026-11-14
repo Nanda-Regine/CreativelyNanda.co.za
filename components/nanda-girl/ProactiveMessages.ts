@@ -40,7 +40,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
     },
     {
       id: 'about-apps',
-      message: '7 production apps in 9 months, want to see what I built?',
+      message: 'Production apps built in under two years, want to see what I built?',
       trigger: 'scroll',
       triggerValue: 50,
       sessionKey: 'about-apps',
@@ -129,7 +129,7 @@ export const PROACTIVE_MESSAGES: Record<string, ProactiveMessage[]> = {
   '/poetry': [
     {
       id: 'poetry-book',
-      message: '"Inside Her Roses", 82 poems on Amazon, Apple Books & Kobo. 🌹',
+      message: '"Inside Her Roses", 83 poems on Amazon, Apple Books & Kobo. 🌹',
       trigger: 'time',
       triggerValue: 4,
       sessionKey: 'poetry-book',

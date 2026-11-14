@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'jarvisos',
     name: 'JarvisOS',
-    tagline: 'A 15-wing personal AI operating system. The most complex thing I\'ve built.',
+    tagline: 'A 27-wing personal AI operating system. The most complex thing I\'ve built.',
     description:
       'Production personal AI operating system with 15 interconnected intelligence wings: CEO (decisions), Finance (cash flow), Engineering (build logs), Marketing (campaigns), Cycle (menstrual intelligence), Scholar (learning), Corpus (RAG Q&A), Body (health), Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, and Crisis/Sankofa. Built entirely for personal use, and proof of what the architecture can do.',
     problem:
@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
     solution:
       'A unified intelligence layer. Each wing handles one life domain and talks to others via Redis signal protocol. Claude Sonnet routes complex reasoning; Haiku handles speed tasks, 85% cost reduction. Corpus answers questions from 1,194 personal knowledge chunks via Upstash Vector RAG. Inngest queues long-running jobs. Offline-first PWA means it works in load-shedding.',
     impact:
-      'Active daily use across all 15 wings. The most architecturally sophisticated project in the portfolio: proof of multi-agent, multi-context, multi-tenant system design at scale. 6+ months of continuous active development.',
+      'Active daily use across all 27 wings. The most architecturally sophisticated project in the portfolio: proof of multi-agent, multi-context, multi-tenant system design at scale. 6+ months of continuous active development.',
     status: 'live',
     category: 'saas',
     githubUrl: 'https://github.com/Nanda-Regine/JarvisOS',
@@ -403,7 +403,7 @@ export const PROJECTS: Project[] = [
     problem:
       'The real problem: Could someone with zero coding background teach themselves to build production software in under a year? These projects were the first answer.',
     solution:
-      'Systematic curriculum progression. Every certification project shipped and submitted. No shortcuts. The discipline learned here became the discipline that shipped 7 apps in 9 months.',
+      'Systematic curriculum progression. Every certification project shipped and submitted. No shortcuts. The discipline learned here became the discipline that shipped the apps that followed.',
     impact:
       'Every line of production code in all 7 apps traces back to this foundation. The origin story that makes the full journey extraordinary.',
     status: 'live',

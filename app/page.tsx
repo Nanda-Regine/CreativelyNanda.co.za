@@ -193,12 +193,12 @@ export default function Home() {
             <p className="kicker t-cherry">IV · The line</p>
             <p className="kicker mt-6 t-gold">Nseenene · Tshawe · Hlubi · Msimanga · Thabizolo</p>
             <h2 className="display-l mt-5 font-display italic t-head">Nine generations documented. Three nations. One woman making her art in KuGompo City.</h2>
-            <p className="mt-6 text-[14px] italic t-soft">Kabali-Kagwa · Kabombola · Kayenje–Butambala · Nsiisi–Busujju</p>
+            <p className="mt-6 text-[14px] italic t-soft">Clan, totem, motto and praise. The family keeps its own names.</p>
 
             <dl className="mt-10 border-t" style={{ borderColor: 'var(--rule)' }}>
               {[
                 ['Ggwe Mpagi, ggwe Luwaga; Nakimera muka Ssuuna.', 'Nseenene clan motto · Buganda Kingdom'],
-                ['Msimanga · Thabizolo · Nonkosi · Mlotshwa · Ngelengele', 'Msimanga clan praises · AmaHlubi'],
+                ['Msimanga · Thabizolo · Nonkosi · Mlotshwa · Ngelengele', 'Msimanga clan praises · amaHlubi'],
               ].map(([line, source]) => (
                 <div key={source} className="border-b py-5" style={{ borderColor: 'var(--rule)' }}>
                   <dt className="font-display text-xl italic t-head">{line}</dt>
@@ -262,16 +262,16 @@ export default function Home() {
           <FadeUp className="md:col-span-6 md:col-start-1 md:row-start-1">
             <p className="kicker t-gold">VI · The other half of the story</p>
             <h2 className="display-xl mt-5 font-display font-bold italic t-head">
-              From zero to a fifteen-wing AI OS.
+              From zero to a twenty-seven-wing AI OS.
             </h2>
             <p className="mt-7 max-w-lg text-lg font-light leading-[1.8] t-ink">
-              She wrote her first line of code in July 2025. One year later: eight live AI products, a personal operating system with fifteen intelligence wings,
+              She wrote her first line of code in July 2025. In under two years: eight live AI products, a personal operating system with twenty-seven intelligence wings,
               and real paying clients. This is the engineer&apos;s issue.
             </p>
             <div className="mt-9 flex flex-wrap gap-x-10 gap-y-4 border-t pt-7" style={{ borderColor: 'var(--rule)' }}>
               {[
                 ['8', 'Live apps'],
-                ['3,000+', 'Commits'],
+                ['5,000+', 'Commits'],
                 ['15', 'Distinctions'],
               ].map(([v, l]) => (
                 <div key={l}>

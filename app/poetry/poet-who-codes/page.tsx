@@ -54,7 +54,7 @@ const COMMITS: [string, string][] = [
   ['r0se55', 'fix: stopped waiting for permission to bloom'],
   ['ub0ntu', 'refactor: I am because we are'],
   ['n1ght7', 'perf: wrote the poem before the world confirmed it'],
-  ['bu1ld1', 'ship: eight apps, one year, one woman'],
+  ['bu1ld1', 'ship: eight apps, two years, one woman'],
 ];
 
 // The soul layer — the range beneath the code (the details live at Mirembe).

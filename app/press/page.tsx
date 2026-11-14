@@ -65,7 +65,7 @@ const achievements = [
   },
   {
     icon: Zap,
-    text: '3,000+ GitHub Commits · Solo Developer · SheCodes Certified Full-Stack Developer',
+    text: '5,000+ GitHub Commits · Solo Developer · SheCodes Certified Full-Stack Developer',
     color: 'from-gold to-amber-400',
     bg: 'bg-yellow-500/8',
     accent: '#B8860B',
@@ -121,7 +121,7 @@ const mediaMentions = [
 const speakingTopics = [
   {
     title: 'Building AI-Powered Products in Africa',
-    description: 'How I built 8 production applications in one year (with limited resources, from KuGompo City, South Africa) and turned them into revenue-generating products serving African communities.',
+    description: 'How I built 8 production applications in under two years (with limited resources, from KuGompo City, South Africa) and turned them into revenue-generating products serving African communities.',
     audiences: ['Tech conferences', 'Startup events', 'Developer meetups'],
     color: '#C1292E',
   },
@@ -152,11 +152,11 @@ const speakingTopics = [
 ];
 
 const bios = {
-  short: `Nandawula Regine Kabali-Kagwa is a Creative Technologist, Published Poet, and Founder of Mirembe Muse (Pty) Ltd. In one year, she built 8 production AI applications serving African entrepreneurs, students, and communities, while honoring her Ugandan-Xhosa heritage. She codes. She writes poetry. She builds businesses. She refuses to choose.`,
+  short: `Nandawula Regine Kabali-Kagwa is a Creative Technologist, Published Poet, and Founder of Mirembe Muse (Pty) Ltd. In under two years, she built 8 production AI applications serving African entrepreneurs, students, and communities, while honoring her Ugandan-Xhosa heritage. She codes. She writes poetry. She builds businesses. She refuses to choose.`,
 
   medium: `Nandawula Regine Kabali-Kagwa is a South African Creative Technologist building at the intersection of code, culture, and creativity. Born to Ugandan and Xhosa-Sotho heritage, she carries five clan lineages that inform her Ubuntu-centered approach to technology.
 
-A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda built 8 production AI applications in one year, including JarvisOS (a 15-wing personal AI operating system), AdminOS (multi-agent AI for SA SMEs), Sanyu Botanicals (ancestral hair care brand with AI consultations), and True Access (SA's first disability accessibility mapping platform, co-founded). 3,000+ GitHub commits. 3+ paying clients.
+A Master Gen AI Professional with an Advanced Diploma in Business Management (NQF 7, 15 distinctions) from Nelson Mandela University, Nanda built 8 production AI applications in under two years, including JarvisOS (a 27-wing personal AI operating system), AdminOS (multi-agent AI for SA SMEs), Sanyu Botanicals (ancestral hair care brand with AI consultations), and True Access (SA's first disability accessibility mapping platform, co-founded). 5,000+ GitHub commits. Multiple paying clients.
 
 Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqeberha: The Empire, she has performed at 5 live spoken word events across the Eastern Cape.`,
 
@@ -164,9 +164,9 @@ Her published poetry collection "Inside Her Roses" was featured on Showmax's Gqe
 
 Born to a Ugandan father and Xhosa-Sotho mother, Nanda carries the wisdom of five ancestral clans: Nsenene, Hlubi, Msimanga, Thabizolo, and Tshawe. Each lineage gifted her a principle: lead through people, adapt and endure, heal at the root, build unshakeable foundations, share what you create. These aren't abstract values; they're the operating system behind every line of code she writes.
 
-After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in KuGompo City. In one year from her first line of code, she shipped 8 production AI applications, accumulated 3,000+ GitHub commits, and built a company with paying clients, all while performing her poetry at 5 live events across the Eastern Cape.
+After earning an Advanced Diploma in Business Management (NQF 7) from Nelson Mandela University with 15 academic distinctions, Nanda taught herself full-stack development from her home in KuGompo City. In under two years from her first line of code, she shipped 8 production AI applications, accumulated 5,000+ GitHub commits, and built a company with paying clients, all while performing her poetry at 5 live events across the Eastern Cape.
 
-Her work spans the full stack: multi-agent AI systems (AdminOS (6 specialist agents, per-tenant ZAR token budgets, 25 Inngest async functions), personal AI operating systems (JarvisOS) 15 wings, 1,194 RAG knowledge chunks, Redis inter-wing signal protocol), mobile apps (True Access (iOS/Android/Web, co-founded, SANS 10400-S compliance), and product brands (Sanyu Botanicals) ancestral botanical hair care with AI-powered consultations and Angel loyalty programme).
+Her work spans the full stack: multi-agent AI systems (AdminOS (6 specialist agents, per-tenant ZAR token budgets, 25 Inngest async functions), personal AI operating systems (JarvisOS) 27 wings, 1,194 RAG knowledge chunks, Redis inter-wing signal protocol), mobile apps (True Access (iOS/Android/Web, co-founded, SANS 10400-S compliance), and product brands (Sanyu Botanicals) ancestral botanical hair care with AI-powered consultations and Angel loyalty programme).
 
 Certified in Master Gen AI Professional, Prompt Engineering, Graphic Design, and Digital Marketing, she specialises in Claude API integration, multi-agent architecture, and production TypeScript, with every system load-shedding-aware and ZAR-native by default.
 
@@ -264,7 +264,7 @@ export default function PressPage() {
           <div className="flex flex-wrap justify-center gap-8 mb-10">
             {[
               { value: '8+', label: 'Live Apps' },
-              { value: '3,000+', label: 'GitHub Commits' },
+              { value: '5,000+', label: 'GitHub Commits' },
               { value: '3+', label: 'Paying Clients' },
               { value: '15', label: 'Distinctions' },
             ].map((s) => (
@@ -545,7 +545,7 @@ export default function PressPage() {
               { label: 'Projects', href: '/projects', desc: '8+ live apps, AI, mobile & brand', color: '#C1292E' },
               { label: 'Poetry', href: '/poetry', desc: '"Inside Her Roses" collection', color: '#D4A574' },
               { label: 'Shop', href: '/products', desc: 'Mirembe Muse Notion templates', color: '#10B981' },
-              { label: 'GitHub', href: 'https://github.com/Nanda-Regine', desc: '3,000+ commits', color: '#F59E0B' },
+              { label: 'GitHub', href: 'https://github.com/Nanda-Regine', desc: '5,000+ commits', color: '#F59E0B' },
             ].map((link) => (
               <Link
                 key={link.label}

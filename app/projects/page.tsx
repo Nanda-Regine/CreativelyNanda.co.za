@@ -39,15 +39,15 @@ const PROJECTS: ProjectCard[] = [
   {
     slug: 'jarvisos',
     name: 'JarvisOS',
-    tagline: 'A 15-wing personal AI operating system. The most complex thing I\'ve built.',
+    tagline: 'A 27-wing personal AI operating system. The most complex thing I\'ve built.',
     status: 'Live',
     problem: 'Running 8 products, creative work, health, and personal growth with disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution.',
     impact: [
       '15 interconnected intelligence wings: CEO, Finance, Corpus RAG, Cycle, Body, Sanyu, Crisis/Sankofa, and 8 more',
       '1,194 personal knowledge chunks indexed via Upstash Vector, Corpus wing answers questions from your own documents',
-      'Redis inter-wing signal protocol: 15 wings publish/subscribe without direct coupling, distributed architecture on a personal OS',
+      'Redis inter-wing signal protocol: 27 wings publish/subscribe without direct coupling, distributed architecture on a personal OS',
     ],
-    hardThing: 'Redis pub/sub so 15 wings communicate without direct coupling, and a crisis detection system that routes to SADAG before anything else fires.',
+    hardThing: 'Redis pub/sub so 27 wings communicate without direct coupling, and a crisis detection system that routes to SADAG before anything else fires.',
     metrics: [
       { label: 'Intelligence wings', value: '15' },
       { label: 'RAG knowledge chunks', value: '1,194' },
@@ -930,7 +930,7 @@ function TechEvolutionBar() {
             fontFamily: 'var(--font-display, Georgia, serif)', fontSize: '12px',
             fontStyle: 'italic', color: 'rgba(245,241,232,0.35)',
           }}>
-            One year. Zero to 15-wing AI OS.
+            Two years. Zero to 27-wing AI OS.
           </span>
         </div>
 
@@ -1035,7 +1035,7 @@ export default function ProjectsPage() {
               color: 'rgba(245,241,232,0.65)', margin: '0 0 36px',
               maxWidth: '640px', lineHeight: 1.55,
             }}>
-              Eight applications. One woman. One year. Africa&apos;s tech infrastructure, built from KuGompo City.
+              Eight applications. One woman. Two years. Africa&apos;s tech infrastructure, built from KuGompo City.
             </p>
 
             {/* Stats bar */}
@@ -1043,8 +1043,8 @@ export default function ProjectsPage() {
               {[
                 { v: '18+', l: 'Portfolio Projects' },
                 { v: '8+', l: 'Live Apps' },
-                { v: '3,000+', l: 'GitHub Commits' },
-                { v: '1 Year', l: 'Zero → Production' },
+                { v: '5,000+', l: 'GitHub Commits' },
+                { v: '2 Years', l: 'Zero → Production' },
               ].map(({ v, l }, i) => (
                 <div key={l} style={{
                   padding: 'clamp(10px, 2vw, 16px) clamp(12px, 3vw, 28px)',
@@ -1130,7 +1130,7 @@ export default function ProjectsPage() {
             fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: '12px',
             color: 'rgba(26,26,46,0.7)', margin: '0 0 3px',
           }}>
-            <strong>POPIA Compliant</strong> · Registration No: 2026-005658 · Date: 2026-04-03
+            <strong>POPIA Compliant</strong> · Information Regulator Reg. No: 2026-005658 · Date: 2026-04-03
           </p>
           <p style={{
             fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(201,148,58,0.6)', margin: 0,

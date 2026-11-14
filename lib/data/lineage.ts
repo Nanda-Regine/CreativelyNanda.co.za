@@ -44,9 +44,9 @@ export const LINEAGES: Lineage[] = [
     },
     accent: '#C9943A',
     title: 'Nseenene Clan · Buganda Kingdom',
-    subtitle: 'Uganda · Nine Generations',
+    subtitle: 'Uganda · The grasshopper clan',
     body:
-      'My father is Timothy Nkata Kabali-Kagwa. His father was Frobisher. Before him: Temuteo Mwebe Kaggwa, Mafumu, Muwemba, Lubinga, Sekalongo, Kanyala. Nine generations I can name. We are of the Nseenene Clan, the grasshopper, one of 52 clans of the Buganda Kingdom. Our role in the palace was to milk the Kabaka’s cows. My great-grandmother was Nandawula. A doctor of great means. I carry her name.',
+      'We are of the Nseenene Clan, the grasshopper, one of the 52 clans of the Buganda Kingdom. Our role in the palace was to milk the Kabaka’s cows. The clan remembers its beginning as a migration down from Mugamba Hill, and among its founders a sister, Nandawula, a woman remembered by name in a line that counts itself through fathers. Her name was carried down the generations, and I carry it now. The names of my own line are spoken at home, the way a family keeps them.',
     details: [
       ['Totem', 'Nseenene (Grasshopper)'],
       ['Clan head', 'Omutaka Kalibbala'],
@@ -64,13 +64,13 @@ export const LINEAGES: Lineage[] = [
       source: 'https://commons.wikimedia.org/wiki/File:D%C3%A9tail_de_costume_Umbhaco,_Afrique_du_Sud,_collection_priv%C3%A9e_de_Ariane_Mawaffo.jpg',
     },
     accent: '#C1292E',
-    title: 'AmaTshawe · Xhosa Nation',
+    title: 'amaTshawe · Xhosa Nation',
     subtitle: 'Eastern Cape · Oldest Royal House in South Africa',
     body:
-      'On my mother’s side flows AmaTshawe, the founding dynasty of the Xhosa nation, established before 1600 CE. Tshawe defeated his brother Cirha to unify the Xhosa clans. Every Xhosa king descends from him. His kingdom stretched from the Mbhashe River to the Gamtoos River. The royal bloodline: Tshawe → Ngcwangu → Sikhomo → Togu → Ngconde → Tshiwo → Phalo → to Hintsa, murdered by British colonial forces in 1835.',
+      'On my mother’s side flows amaTshawe, the founding dynasty of the Xhosa nation, established before 1600 CE. Tshawe defeated his brother Cirha to unify the Xhosa clans. Every Xhosa king descends from him. His kingdom stretched from the Mbhashe River to the Gamtoos River. The royal bloodline: Tshawe → Ngcwangu → Sikhomo → Togu → Ngconde → Tshiwo → Phalo → to Hintsa, murdered by British colonial forces in 1835.',
     details: [
       ['Nation', 'amaXhosa'],
-      ['Isiduko', 'AmaTshawe'],
+      ['Isiduko', 'amaTshawe'],
       ['Territory', 'Eastern Cape'],
     ],
   },
@@ -84,7 +84,7 @@ export const LINEAGES: Lineage[] = [
       source: 'https://commons.wikimedia.org/wiki/File:Brown_shweshwe.jpg',
     },
     accent: '#7A9E7E',
-    title: 'AmaHlubi · The Ancient Nation',
+    title: 'amaHlubi · The Ancient Nation',
     subtitle: 'Traced to Kenya · 900–1300 CE',
     body:
       'I am also amaHlubi, one of the oldest Bantu nations on the continent, traced to the Samburu people of present-day Kenya. Settled in the Drakensberg mountains, they were so formidable that Shaka’s amaZulu kept peace treaties with them. The Mfecane shattered the nation like glass. The fragments landed in the Eastern Cape. My people were among them, absorbed into Xhosa language and custom, but never fully erased. The amaHlubi do not disappear. They migrate. They endure. They rebuild.',
@@ -105,7 +105,7 @@ export const LINEAGES: Lineage[] = [
     },
     accent: '#C9943A',
     title: 'Msimanga · oThabizolo',
-    subtitle: 'AmaHlubi Royal Branch · Drakensberg',
+    subtitle: 'amaHlubi Royal Branch · Drakensberg',
     body:
       'And I am Msimanga. oThabizolo. The praise name means: the ones who were happy the day before. My ancestor Msimanga, son of King Busobengwe of the amaHlubi, celebrated the night before the throne was to be named, certain of being chosen. His father named Mthimkhulu I instead. Msimanga built AmaShwabada from that moment. He became the Establisher. The name Msimanga itself means: to confirm, to strengthen, to make firm. I understand this story. I build before the world confirms it is possible. I celebrate what I am building. And then I build it anyway.',
     praises:
@@ -115,16 +115,13 @@ export const LINEAGES: Lineage[] = [
 ];
 
 // The Kiganda self-introduction (Okwʼeyanjula) — how a Muganda names their line.
-// Verbatim from Nanda's family record.
+// Clan level only, like the amaTshawe and Msimanga houses: no family names,
+// no family places. Owner decision, 14 Nov 2026. The family's own line stays private.
 export const KIGANDA_INTRODUCTION = [
-  'I am Nandawula Nkata Kabali-Kagwa.',
-  'Muwala of Timothy Nkata Kabali-Kagwa, of Johannesburg.',
-  'Grandchild of Frobisher Kabali-Kagwa, of Makindye Ssabaggabo, Wakiso.',
-  'Great-grandchild of Temuteo Mwebe Kaggwa, resting in Kira, Namugongo.',
-  'Of Mafumu, of Muwemba, of Lubinga, of Sekalongo, of Kanyala.',
-  'My line (Olunyiriri) is of Kabombola, from Kyakasuku, Lwamagwa, Kooki.',
-  'My stem (Omutuba) is of Segoma, in Kayenje, Butambala.',
-  'My sub-lineage (Ssiga) is of Kajubi, in Bujubi.',
-  'My totem is Nsenene. My segment (Akabbiro) is Nabangogoma.',
+  'I am Nandawula Regine Kabali-Kagwa.',
+  'Muwala of the Nseenene, the grasshopper clan of Buganda.',
+  'Of a line my family names at home, and keeps there.',
+  'My totem is Nseenene.',
   'Our clan leader is Kalibbala, who reigns from Nsiisi in Busujju.',
+  'Our motto: Ggwe Mpagi, ggwe Luwaga; Nakimera muka Ssuuna.',
 ];

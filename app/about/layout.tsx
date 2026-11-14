@@ -4,7 +4,7 @@ import { createMetadata } from '@/lib/seo';
 export const metadata: Metadata = createMetadata({
   title: 'About Nandawula Regine · Poet, Creative & Culture-Keeper',
   description:
-    'Nandawula Regine Kabali-Kagwa: published poet (Inside Her Roses), performer and creative from KuGompo City, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimanga.',
+    'Nandawula Regine Kabali-Kagwa: poet and AI engineer from KuGompo City (East London), South Africa. Author of Inside Her Roses (2021) and a performer, of the Nseenene of Buganda, the amaTshawe and the amaHlubi Msimanga.',
   path: '/about',
   keywords: [
     'Nandawula Regine Kabali-Kagwa',
@@ -18,8 +18,8 @@ export const metadata: Metadata = createMetadata({
     'African woman poet',
     'spoken word Eastern Cape',
     'Nseenene clan Buganda',
-    'AmaTshawe Xhosa',
-    'AmaHlubi',
+    'amaTshawe Xhosa',
+    'amaHlubi',
     'Msimanga Thabizolo',
     'Kabali-Kagwa lineage',
     'KuGompo City South Africa poet',

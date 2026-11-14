@@ -68,7 +68,7 @@ const ARC = [
 
 // The craft — what she builds now (from /ai-engineer CAPABILITIES, sharpened).
 const CRAFT = [
-  { title: 'Multi-Agent Systems', body: 'Specialist agents with clear mandates, an Inngest async spine, and a Redis signal protocol so fifteen wings talk without stepping on each other.' },
+  { title: 'Multi-Agent Systems', body: 'Specialist agents with clear mandates, an Inngest async spine, and a Redis signal protocol so twenty-seven wings talk without stepping on each other.' },
   { title: 'RAG + Vector Retrieval', body: 'Knowledge ingestion pipelines and document Q&A over Upstash Vector, 1,194 live chunks answering in production inside JarvisOS.' },
   { title: 'Model Routing + Caching', body: 'Sonnet for reasoning, Haiku for speed, prompt caching on every static block. An 85% cost reduction, engineered, not hoped for.' },
   { title: 'Multi-Tenant Architecture', body: 'Supabase Postgres with Row-Level Security, soft-delete and immutable audit trails. One deployment, unlimited tenants, isolated by privilege.' },
@@ -78,7 +78,7 @@ const CRAFT = [
 
 const NUMBERS = [
   { value: '8', label: 'Live production apps' },
-  { value: '3,000+', label: 'GitHub commits' },
+  { value: '5,000+', label: 'GitHub commits' },
   { value: '1,194', label: 'RAG knowledge chunks' },
   { value: '15', label: 'JarvisOS intelligence wings' },
   { value: '15', label: 'Academic distinctions' },
@@ -191,7 +191,7 @@ export default function EngineerFeature() {
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="mt-7 max-w-xl font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.75)', fontSize: '1.15rem', lineHeight: 1.7 }}>
-              From a single line of code to a fifteen-wing AI operating system, in one year.
+              From a single line of code to a twenty-seven-wing AI operating system, in under two years.
               The other half of the poet who codes, told the way it deserves to be told.
             </p>
           </FadeUp>
@@ -221,8 +221,8 @@ export default function EngineerFeature() {
         {/* coverlines, right rail — desktop */}
         <div className="absolute right-6 top-0 bottom-0 z-20 hidden lg:flex flex-col justify-center gap-6 text-right" style={{ width: '150px' }}>
           {[
-            ['One year', '8 LIVE APPS'],
-            ['3,000+', 'COMMITS'],
+            ['Two years', '8 LIVE APPS'],
+            ['5,000+', 'COMMITS'],
             ['Fifteen', 'DISTINCTIONS'],
           ].map(([a, b]) => (
             <div key={b}>
@@ -292,7 +292,7 @@ export default function EngineerFeature() {
           <FadeUp>
             <Kicker color={CHERRY}>Chapter II · The Sprint</Kicker>
             <h2 className="font-display font-bold" style={{ fontSize: 'clamp(2.4rem, 6vw, 3.8rem)', lineHeight: 1, margin: '14px 0 10px' }}>
-              Eight apps.<br /><span style={{ color: GOLD_TEXT }}>One year.</span>
+              Eight apps.<br /><span style={{ color: GOLD_TEXT }}>Two years.</span>
             </h2>
             <p className="max-w-2xl font-light mb-14" style={{ color: 'rgb(var(--ink-rgb) / 0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
               Not eight ideas. Eight <em>shipped</em>, production, paying-user applications, each a rung on a ladder that got steeper on purpose. Read it top to bottom: this is a year measured in deployments.
@@ -381,7 +381,7 @@ export default function EngineerFeature() {
                   Not a portfolio.<br /><span style={{ color: GOLD_TEXT }}>A production record.</span>
                 </h2>
                 <p className="font-light" style={{ color: 'rgb(var(--ink-rgb) / 0.72)', fontSize: '1.08rem', lineHeight: 1.8 }}>
-                  Every project below is live, self-funded, and carrying real users or real revenue. No demos. No mock data. The four here are the ones that best show the range, from a fifteen-wing personal OS to a universal mobile platform shipped in two days.
+                  Every project below is live, self-funded, and carrying real users or real revenue. No demos. No mock data. The four here are the ones that best show the range, from a twenty-seven-wing personal OS to a universal mobile platform shipped in two days.
                 </p>
               </div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-2xl" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.45)', border: '1px solid rgba(201,148,58,0.18)' }}>

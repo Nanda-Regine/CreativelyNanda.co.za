@@ -1312,9 +1312,9 @@ A wa.me deep link (pre-populated with 'Hi, I saw your website') converts leads i
     problem:
       'Running eight production apps, creative work, a wellness practice, and personal growth across disconnected tools creates catastrophic cognitive overhead. Every context switch costs execution. No tool existed that unified personal intelligence: the kind that knows your business, your body, your creative output, and your financial state as one connected system.',
     solution:
-      'A unified personal intelligence layer. Each of 15 wings handles one life domain and communicates with others via Redis pub/sub signal protocol, no direct wing-to-wing coupling. Corpus wing indexes 1,194 personal knowledge chunks via Upstash Vector RAG and answers document questions instantly. Inngest handles all long-running background jobs. Claude Sonnet for complex reasoning, Haiku for speed, 85% AI cost reduction via intelligent routing. Offline-first PWA with IndexedDB queue works through South African load-shedding.',
+      'A unified personal intelligence layer. Each of 27 wings handles one life domain and communicates with others via Redis pub/sub signal protocol, no direct wing-to-wing coupling. Corpus wing indexes 1,194 personal knowledge chunks via Upstash Vector RAG and answers document questions instantly. Inngest handles all long-running background jobs. Claude Sonnet for complex reasoning, Haiku for speed, 85% AI cost reduction via intelligent routing. Offline-first PWA with IndexedDB queue works through South African load-shedding.',
     techStack: [
-      { name: 'Next.js 14 App Router', reason: 'Unified codebase for 15 wings + PWA offline shell' },
+      { name: 'Next.js 14 App Router', reason: 'Unified codebase for 27 wings + PWA offline shell' },
       { name: 'Claude Sonnet + Haiku (model routing)', reason: '85% cost reduction, complex tasks to Sonnet, speed tasks to Haiku' },
       { name: 'Upstash Vector (RAG)', reason: '1,194 personal knowledge chunks, Corpus wing document Q&A' },
       { name: 'Upstash Redis (signal protocol)', reason: 'Wing-to-wing communication without direct coupling, distributed personal OS' },
@@ -1323,7 +1323,7 @@ A wa.me deep link (pre-populated with 'Hi, I saw your website') converts leads i
       { name: 'PWA (offline-first)', reason: 'IndexedDB queue, full functionality during SA load-shedding' },
     ],
     impact: {
-      potential: 'Daily active use across all 15 wings',
+      potential: 'Daily active use across all 27 wings',
       economy: 'Most architecturally sophisticated project in the portfolio',
       problem: 'Cognitive overhead from running 8 apps across disconnected tools',
       metric: '1,194 RAG chunks, 85% AI cost reduction, 6+ months active development',
@@ -1346,11 +1346,11 @@ A wa.me deep link (pre-populated with 'Hi, I saw your website') converts leads i
 
 Phase 1 was the CEO wing: decision tracking, priority queuing, outcome logging. Within a week it was the most useful thing I'd built for myself. The Corpus wing (Phase 3) was the architectural inflection point: 1,194 personal knowledge chunks indexed into Upstash Vector. For the first time, I could ask my own documents questions and get instant, cited answers.
 
-The hardest architectural decision was inter-wing communication. Each wing needed to know about the others (a Cycle wing event should update the Body wing, a Finance alert should surface in CEO decisions) but direct coupling would make the system impossible to maintain across 15 wings. Redis pub/sub became the answer. Wings publish signals; other wings subscribe. The system is distributed but coherent.
+The hardest architectural decision was inter-wing communication. Each wing needed to know about the others (a Cycle wing event should update the Body wing, a Finance alert should surface in CEO decisions) but direct coupling would make the system impossible to maintain across 27 wings. Redis pub/sub became the answer. Wings publish signals; other wings subscribe. The system is distributed but coherent.
 
-The 20-session UI rebuild in May–June 2026 was the longest continuous design sprint I've run. Every wing got its own palette, its own personality, its own touch target geometry. 12 custom palettes. 52px navigation targets. Mobile-first across all 15 wings. This is now the reference implementation for the entire Mirembe Muse design language.`,
+The 20-session UI rebuild in May–June 2026 was the longest continuous design sprint I've run. Every wing got its own palette, its own personality, its own touch target geometry. 12 custom palettes. 52px navigation targets. Mobile-first across all 27 wings. This is now the reference implementation for the entire Mirembe Muse design language.`,
       lessons: [
-        'Redis pub/sub as inter-system signal protocol, 15 wings communicate without direct coupling',
+        'Redis pub/sub as inter-system signal protocol, 27 wings communicate without direct coupling',
         'Upstash Vector for personal RAG: 1,194 chunks, sub-100ms retrieval on personal knowledge',
         'Model routing as cost architecture: Sonnet for complexity, Haiku for speed = 85% cost reduction',
         'PWA with IndexedDB queue is non-negotiable for SA, load-shedding is a product requirement, not an edge case',

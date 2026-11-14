@@ -47,13 +47,13 @@ ABOUT NANDA:
 - Full name: Nandawula Regine Kabali-Kagwa
 - Location: KuGompo City, Eastern Cape, South Africa
 - Contact: hello@creativelynanda.co.za
-- Self-taught engineer: first line of code June 2025, built 8+ production AI SaaS apps in one year
-- 3,000+ GitHub commits across all projects
+- Self-taught engineer: first line of code June 2025, built production AI SaaS apps in under two years
+- 5,000+ GitHub commits across all projects
 - 15 academic distinctions at Nelson Mandela University: Higher Certificate → Diploma → Advanced Diploma in Business Management (NQF 5–7)
-- Published poet: "Inside Her Roses" (October 2021), 82 poems, Amazon/Apple Books/Kobo
+- Published poet: "Inside Her Roses" (October 2021), 83 poems, Amazon/Apple Books/Kobo
 - Featured on SA TV series "Gqeberha: The Empire"; interviews on Madibaz Radio and TRU FM
 - Ugandan-Xhosa heritage; five ancestral clan lineages (Nsenene, Hlubi, Msimanga, Thabizolo, Tshawe)
-- POPIA registered information officer since 2025, registration 2026-005658
+- Registered with the Information Regulator (POPIA), registration 2026-005658. Mirembe Muse (Pty) Ltd founded 2025
 
 SKILLS & EXPERTISE:
 - AI Engineering: Claude API (Anthropic), multi-agent systems, RAG + Upstash Vector, prompt caching (85% cost reduction), Redis signal protocol, Inngest async queues
@@ -64,7 +64,7 @@ SKILLS & EXPERTISE:
 - Digital Marketing: SEO, content strategy, brand identity
 
 PUBLISHED WORK:
-- "Inside Her Roses": 82 poems on love, healing, Black womanhood, identity
+- "Inside Her Roses": 83 poems on love, healing, Black womanhood, identity
 - Self-organised book launch, 100+ attendees
 - Interviewed on Madibaz Radio and TRU FM; featured on "Gqeberha: The Empire" TV
 
@@ -73,11 +73,11 @@ MIREMBE MUSE (Pty) Ltd:
 - "Mirembe" = peace in Luganda (ancestral clan language)
 - 8+ production apps + 6 Notion templates
 - Mission: Africa-first technology that restores, not extracts
-- 3+ paying clients as of June 2026
+- Multiple paying clients
 - POPIA compliant, registered 2026-005658
 
 THE 8+ PRODUCTION APPS (all built by Nanda, all live):
-1. JarvisOS, 15-wing personal AI operating system. CEO, Finance, Engineering, Marketing, Cycle (menstrual intelligence), Scholar, Corpus (RAG Q&A), Body, Sanyu, Client Portal, UX Intelligence, Docs, Consulting, Autobiography, Crisis/Sankofa. 1,194 knowledge chunks via Upstash Vector. Redis wing-to-wing signal protocol. Claude Sonnet + Haiku model routing (85% cost reduction). Offline-first PWA. 6+ months active development. The most architecturally complex project in the portfolio. (Private, personal use only)
+1. JarvisOS, 27-wing personal AI operating system. CEO, Finance, Engineering, Marketing, Cycle (menstrual intelligence), Scholar, Corpus (RAG Q&A), Body, Sanyu, Client Portal, UX Intelligence, Docs, Consulting, Autobiography, Crisis/Sankofa. 1,194 knowledge chunks via Upstash Vector. Redis wing-to-wing signal protocol. Claude Sonnet + Haiku model routing (85% cost reduction). Offline-first PWA. 6+ months active development. The most architecturally complex project in the portfolio. (Private, personal use only)
 2. VarsityOS / Campus Compass, AI student companion for SA's 50%+ dropout rate. 200+ active users in beta. 6 specialist Claude agents. Crisis detection surfaces SADAG + Lifeline SA. PWA, offline-capable for 3G. https://varsityos.co.za
 3. K53 Drill Master, Adaptive learner's licence prep. SM-2 spaced repetition (same algorithm as Anki). isiXhosa support without a library (40KB saved). 50+ paying users. 4.8/5 rating. Phase 0 shipped in 1 day. https://k53drillmaster.co.za
 4. StokvelOS, Africa's first AI-native stokvel management platform. Digitises R50B+ community savings. AI fraud detection. Monthly AI governance reports. WhatsApp reminders. https://stokvelos.co.za
@@ -100,7 +100,7 @@ WORK HISTORY:
 - Balkan Burger: Waitress → Team Leader → Manager, 2+ years. Authored full operations manual, 22% waste reduction, 18% profitability increase, 4.8/5 customer satisfaction
 - June 2025: First line of code (SheCodes Plus).
 - September 2025: First production app (Cortex Hub Booking). Mirembe Muse incorporated.
-- Jan–Jun 2026: 8 apps built in 6 months. 3,000+ commits.
+- Jan–Jun 2026: 8 apps built in 6 months.
 
 CONSULTING SERVICES & PRICING:
 - AI Integration: From R45,000/project

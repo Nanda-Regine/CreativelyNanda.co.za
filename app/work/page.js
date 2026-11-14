@@ -14,12 +14,12 @@ const workExperience = [
         period: 'September 2025 - Present',
         type: 'Self-Employed',
         highlights: [
-          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd: 8 production applications, 3,000+ GitHub commits, 3+ paying clients. One year.',
+          'Founder and Technical Lead of Mirembe Muse (Pty) Ltd: 8 production applications, 5,000+ GitHub commits, multiple paying clients. Two years.',
           'Digital Services vertical: AI engineering, full-stack development, multi-agent systems, Notion consulting',
           'Wellness Brand vertical: Sanyu Botanicals, ancestral African hair care with AI-powered consultations and Angel loyalty programme',
           'Creative Studio vertical: Inside Her Roses (published poetry), mentorship, digital products',
           'Set technical architecture across 8 products spanning Next.js, Expo (iOS/Android/Web), Claude API, Supabase, Inngest, and Upstash Vector RAG',
-          'Manage business compliance: CIPC registration, SARS, POPIA Registration No. 2026-005658',
+          'Manage business compliance: CIPC registration, SARS, Information Regulator (POPIA) Reg. No. 2026-005658',
           'Building in public, shipping production-grade software while documenting the process for Africa\'s next generation of builders'
         ],
         tech: ['Next.js', 'TypeScript', 'Expo SDK 52', 'Supabase', 'Anthropic Claude API', 'Upstash Vector', 'Inngest', 'PayFast', 'Paystack', 'Tailwind CSS', 'NativeWind', 'Vercel']
@@ -29,10 +29,10 @@ const workExperience = [
         period: 'January 2026 - Present',
         type: 'Self-Built',
         highlights: [
-          '15-wing personal AI operating system, the most architecturally complex project in the portfolio, built for personal daily use across every life domain',
+          '27-wing personal AI operating system, the most architecturally complex project in the portfolio, built for personal daily use across every life domain',
           'Intelligence Wings: CEO (decisions), Finance (cash flow), Engineering (build logs), Marketing (campaigns), Cycle (menstrual intelligence), Scholar (learning), Corpus (RAG Q&A), Body (health), Sanyu (wellness), Client Portal, UX Intelligence, Docs, Consulting, Autobiography, Crisis/Sankofa',
           'RAG Architecture: Upstash Vector with 1,194 personal knowledge chunks, Corpus wing answers questions from ingested documents via semantic retrieval',
-          'Redis Signal Protocol: custom inter-wing pub/sub communication via Upstash Redis, 15 wings communicate without direct coupling, true event-driven architecture',
+          'Redis Signal Protocol: custom inter-wing pub/sub communication via Upstash Redis, 27 wings communicate without direct coupling, true event-driven architecture',
           'Model Routing: Claude Sonnet for high-stakes reasoning wings (CEO, Corpus, Consulting), Haiku for speed tasks, 85% AI cost reduction without quality loss',
           'Offline-first PWA with IndexedDB queue for load-shedding resilience; Notion bidirectional sync; 11 South African languages; 12 custom wing-aware color palettes',
           'Inngest async queues for long-running jobs; 6+ months continuous active development; 327+ commits'

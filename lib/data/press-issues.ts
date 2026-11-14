@@ -76,7 +76,7 @@ export const ISSUES: Issue[] = [
   },
   {
     number: 2,
-    title: 'Eight Apps, One Year',
+    title: 'Eight Apps, Two Years',
     dated: 'June 2026',
     from: '2026-05-01',
     to: '2026-06-30',

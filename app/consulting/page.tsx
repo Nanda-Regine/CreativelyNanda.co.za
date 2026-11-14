@@ -795,7 +795,7 @@ export default function ConsultingPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}>
             {[
-              { heading: '7 production AI apps', proof: 'Built solo in 9 months: VarsityOS, K53, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, CreativelyNanda.', accent: '#C1292E' },
+              { heading: '7 production AI apps', proof: 'Built solo in under two years: VarsityOS, K53, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, CreativelyNanda.', accent: '#C1292E' },
               { heading: 'Africa-first engineering', proof: 'WhatsApp-native, PayFast-integrated, RLS-secured, load-shedding-aware. Built from inside the context.', accent: '#B8860B' },
               { heading: 'The poet who codes', proof: 'Published author of Inside Her Roses. The only AI engineer writing system architecture and sonnets in the same week.', accent: '#2D4A22' },
             ].map((c, i) => (

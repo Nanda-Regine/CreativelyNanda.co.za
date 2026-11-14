@@ -61,13 +61,13 @@ const SERVICES = [
 
 const PROOF = [
   { label: '8+', sub: 'Production apps' },
-  { label: '3,000+', sub: 'GitHub commits' },
+  { label: '5,000+', sub: 'GitHub commits' },
   { label: '6', sub: 'Notion templates live' },
   { label: '3', sub: 'Consecutive qualifications' },
 ];
 
 const APPS = [
-  { name: 'JarvisOS', tag: '15-wing AI OS · RAG', href: '', upgrading: true },
+  { name: 'JarvisOS', tag: '27-wing AI OS · RAG', href: '', upgrading: true },
   { name: 'AdminOS', tag: 'BizTech · AI Agents', href: 'https://adminos.co.za', upgrading: false },
   { name: 'VarsityOS', tag: 'EdTech · AI', href: 'https://varsityos.co.za', upgrading: false },
   { name: 'K53 Drill Master', tag: 'GovTech · SaaS', href: 'https://www.k53drillmaster.co.za', upgrading: false },
@@ -206,10 +206,10 @@ export default function MirembePage() {
           <FadeUp className="mb-10">
             <p className="text-[#B8860B] text-xs tracking-[0.3em] uppercase font-sans mb-3">The proof</p>
             <h2 className="font-display text-4xl font-bold text-white">
-              Eight apps. One founder. One year.
+              Eight apps. One founder. Two years.
             </h2>
             <p className="text-white/50 mt-3 max-w-xl text-sm leading-relaxed">
-              Each app solves a real African problem. All built solo. All in production. None of them demos. One year from zero coding knowledge to eight live applications.
+              Each app solves a real African problem. All built solo. All in production. None of them demos. Under two years from zero coding knowledge to eight live applications.
             </p>
           </FadeUp>
 

@@ -14,7 +14,7 @@ export const preprogrammedResponses: PreprogrammedResponse[] = [
   },
   {
     keywords: ['poetry', 'poet', 'roses'],
-    response: 'Inside Her Roses (October 2021): 82 poems on love, identity, and Black womanhood. Available on Amazon, Apple Books, and Kobo. Featured on the SA TV series "Gqeberha: The Empire" and interviewed on Madibaz Radio and TRU FM.',
+    response: 'Inside Her Roses (October 2021): 83 poems on love, identity, and Black womanhood. Available on Amazon, Apple Books, and Kobo. Featured on the SA TV series "Gqeberha: The Empire" and interviewed on Madibaz Radio and TRU FM.',
     category: 'poetry',
     followUp: 'Would you like to read a poem?'
   },
@@ -26,7 +26,7 @@ export const preprogrammedResponses: PreprogrammedResponse[] = [
   },
   {
     keywords: ['projects', 'technical', 'code', 'apps'],
-    response: '7 production AI SaaS apps: VarsityOS, K53 Drill Master, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, and CreativelyNanda.co.za. All built solo in 6 months. 300+ active users. None of them demos.',
+    response: '7 production AI SaaS apps: VarsityOS, K53 Drill Master, StokvelOS, AdminOS, WatchSankofa, SankofaSessions, and CreativelyNanda.co.za. All built solo in under two years. 300+ active users. None of them demos.',
     category: 'work',
     followUp: 'Which app would you like to know more about?'
   },

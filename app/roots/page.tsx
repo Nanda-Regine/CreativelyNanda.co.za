@@ -38,9 +38,9 @@ export default function Roots() {
           <h1 className="hero-rise font-display text-white font-bold italic leading-[0.92] text-6xl md:text-8xl" style={{ '--d': '0.1s' } as CSSProperties}>Roots</h1>
           <div className="hero-rise" style={{ '--d': '0.2s' } as CSSProperties}>
             <p className="mt-7 max-w-2xl font-light text-white/70 text-lg leading-relaxed">
-              In Buganda you are never only yourself. To introduce yourself, you must name your father, his
-              father, your clan, its totem, its motto, identity spoken aloud as genealogy. This is that
-              introduction, made in full.
+              In Buganda you are never only yourself. To introduce yourself, you name your clan, its totem,
+              its motto, identity spoken aloud as genealogy. This is that introduction, told house by house.
+              The names of my own family stay with my family.
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function Roots() {
                   The clan remembers its beginning as a migration. <span className="text-white">Kiroboozi</span>,
                   a herdsman on the slopes of Mugamba Hill, had three children who drove their cattle down
                   through Bwera into Ggomba: Buyonga, Kalibbala, and their sister,
-                  <span className="text-[#E4572E]"> Nnandawula</span>. A woman remembered by name in a line
+                  <span className="text-[#E4572E]"> Nandawula</span>. A woman remembered by name in a line
                   that counts itself through fathers. Her name did not end. It was carried, and carried, and
                   given again, until it arrived here, spelled the way I spell it.
                 </p>
@@ -76,10 +76,7 @@ export default function Roots() {
                   Through Buyonga's daughter <span className="text-white">Wannyana</span>, mother of
                   <span className="text-white"> Kabaka Kimera</span>, the third king of Buganda, the clan is
                   woven into the founding of a throne, which is why our praise still calls on
-                  <em> Nakimera</em>, of Kimera. And the name I carry, <span className="text-white">Kagwa</span>,
-                  is the name of <span className="text-white">Sir Apolo Kagwa</span>, Katikkiro of Buganda for
-                  thirty-six years, regent to a child-king, and the first man to write our history down so it
-                  could not be lost. The colossus of Buganda.
+                  <em> Nakimera</em>, of Kimera.
                 </p>
               </div>
               <div className="rounded-2xl border border-[#C9943A]/25 bg-white/[0.03] p-7">
@@ -97,8 +94,8 @@ export default function Roots() {
                   <div className="flex justify-between"><dt className="text-white/45">Seats</dt><dd className="text-white/80">Kisozi · Lweza, Busujju</dd></div>
                 </dl>
                 <p className="mt-6 text-white/50 text-[13px] leading-relaxed italic">
-                  And in our own telling: I come from the line of Kabombola, who reigns from Kyakasuku; from
-                  Segoma in Kayenje. Names the internet does not keep, only the family does.
+                  The names of my own line are spoken at home, not here. Like every house on this page, it is
+                  named by its totem, its motto and its praise.
                 </p>
               </div>
             </div>
@@ -129,7 +126,7 @@ export default function Roots() {
         <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-5xl flex-col justify-center px-6 py-24">
           <FadeUp>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C9943A] mb-3">House II · amaXhosa, South Africa</p>
-            <h2 className="font-display text-4xl md:text-6xl font-bold mb-2">AmaTshawe</h2>
+            <h2 className="font-display text-4xl md:text-6xl font-bold mb-2">amaTshawe</h2>
             <p className="font-display text-xl md:text-2xl italic text-white/70 mb-8">The founding royal house</p>
           </FadeUp>
           <FadeUp delay={0.1}>
@@ -248,7 +245,7 @@ export default function Roots() {
               I am the one they appointed to remember, and I remember in verse.
             </p>
             <p className="mt-8 font-mono text-[11px] tracking-[0.28em] uppercase text-white/40">
-              Nseenene · AmaTshawe · Msimanga · Nine generations documented
+              Nseenene · amaTshawe · Msimanga · Three nations, one voice
             </p>
             <div className="mx-auto my-10 h-px w-16 bg-[#C9943A]/50" />
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
@@ -263,8 +260,8 @@ export default function Roots() {
         </div>
         <p className="relative z-10 mx-auto mt-16 max-w-2xl text-center text-[11px] leading-relaxed text-white/30">
           Clan histories drawn from the Buganda Kingdom, South African History Online, the Ulwazi Programme,
-          and family record. Verified histories and praise-poetry; the family's own line and names are held
-          as family memory.
+          and family record. Clan histories and praise-poetry only; the family's own line and names are kept
+          private.
         </p>
       </TexturedSection>
     </main>

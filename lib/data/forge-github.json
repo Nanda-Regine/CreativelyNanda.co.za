@@ -1,54 +1,59 @@
 {
-  "generatedAt": "2026-08-11",
+  "generatedAt": "2026-11-14",
   "generatedBy": "scripts/forge-github.mjs",
   "note": "Measured from the GitHub API at build time and committed. Vercel never calls GitHub. Commit subjects are published only from repos flagged wall:true, and every line passed the credential/sensitivity/private-matter gate in scripts/lib/redact-credentials.mjs.",
   "totals": {
     "repos": 12,
-    "commits": 3098,
+    "commits": 4249,
     "liveApps": 12,
-    "codeBytes": 43166269,
-    "weeksLogged": 19,
-    "wallLines": 57,
+    "codeBytes": 56516332,
+    "weeksLogged": 29,
+    "wallLines": 78,
     "earliestCommit": "2025-10-16"
   },
   "gate": {
     "credential": 0,
-    "security": 4,
-    "private": 37,
-    "chore": 86,
-    "score": 2793,
-    "withheld": 41,
-    "unremarkable": 2879
+    "security": 6,
+    "private": 52,
+    "chore": 111,
+    "score": 3413,
+    "withheld": 58,
+    "unremarkable": 3524
   },
   "languages": [
     {
       "name": "TypeScript",
-      "bytes": 38045066,
-      "pct": 88.1
+      "bytes": 50378255,
+      "pct": 89.1
     },
     {
       "name": "JavaScript",
-      "bytes": 3329908,
-      "pct": 7.7
+      "bytes": 3797667,
+      "pct": 6.7
     },
     {
       "name": "PLpgSQL",
-      "bytes": 956097,
-      "pct": 2.2
+      "bytes": 1465960,
+      "pct": 2.6
     },
     {
       "name": "CSS",
-      "bytes": 488036,
-      "pct": 1.1
+      "bytes": 524611,
+      "pct": 0.9
     },
     {
       "name": "HTML",
-      "bytes": 340323,
-      "pct": 0.8
+      "bytes": 340707,
+      "pct": 0.6
     },
     {
       "name": "Shell",
-      "bytes": 5539,
+      "bytes": 6359,
+      "pct": 0
+    },
+    {
+      "name": "Dockerfile",
+      "bytes": 1473,
       "pct": 0
     },
     {
@@ -67,34 +72,44 @@
       "repoUrl": "https://github.com/Nanda-Regine/JarvisOS",
       "isPrivate": true,
       "description": null,
-      "live": "https://jarvis.mirembemuse.co.za",
+      "live": "https://jarvis-os-wine.vercel.app",
       "logo": null,
-      "commits": 950,
+      "commits": 1620,
       "firstCommit": "2026-05-08",
-      "lastCommit": "2026-08-11",
+      "lastCommit": "2026-11-13",
       "createdAt": "2026-05-08",
-      "sizeKb": 42810,
+      "sizeKb": 1458314,
       "topics": [],
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 18937907,
-          "pct": 97.2
+          "bytes": 28609181,
+          "pct": 96.8
         },
         {
           "name": "JavaScript",
-          "bytes": 267959,
-          "pct": 1.4
+          "bytes": 504731,
+          "pct": 1.7
         },
         {
           "name": "PLpgSQL",
-          "bytes": 158968,
-          "pct": 0.8
+          "bytes": 306809,
+          "pct": 1
         },
         {
           "name": "CSS",
-          "bytes": 121954,
-          "pct": 0.6
+          "bytes": 122924,
+          "pct": 0.4
+        },
+        {
+          "name": "Dockerfile",
+          "bytes": 1473,
+          "pct": 0
+        },
+        {
+          "name": "Shell",
+          "bytes": 820,
+          "pct": 0
         }
       ],
       "activity": [
@@ -122,34 +137,34 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        35,
-        90,
-        63,
-        71,
-        27,
-        56,
-        59,
-        91,
-        93,
-        111,
-        71,
-        96,
-        43,
-        32
+        17,
+        67,
+        73,
+        82,
+        39,
+        42,
+        53,
+        55,
+        122,
+        104,
+        99,
+        101,
+        32,
+        41,
+        32,
+        3,
+        62,
+        29,
+        77,
+        50,
+        48,
+        24,
+        39,
+        5,
+        117,
+        82,
+        53,
+        72
       ],
       "defaultBranch": "master"
     },
@@ -164,26 +179,26 @@
       "description": null,
       "live": "https://mirembemuse.co.za",
       "logo": "mirembe",
-      "commits": 327,
+      "commits": 382,
       "firstCommit": "2026-06-18",
-      "lastCommit": "2026-08-11",
+      "lastCommit": "2026-10-24",
       "createdAt": "2026-06-27",
-      "sizeKb": 64025,
+      "sizeKb": 62885,
       "topics": [],
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 2308481,
-          "pct": 97.2
+          "bytes": 2506565,
+          "pct": 97.3
         },
         {
           "name": "CSS",
-          "bytes": 30700,
+          "bytes": 32275,
           "pct": 1.3
         },
         {
           "name": "PLpgSQL",
-          "bytes": 18263,
+          "bytes": 19938,
           "pct": 0.8
         },
         {
@@ -228,27 +243,27 @@
         0,
         0,
         0,
+        48,
+        26,
+        139,
+        21,
+        30,
+        45,
+        1,
+        16,
+        19,
+        0,
+        1,
+        0,
+        0,
+        15,
         0,
         0,
         0,
+        4,
+        16,
+        1,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        74,
-        75,
-        64,
-        35,
-        44,
-        17,
-        17,
         0
       ],
       "defaultBranch": "master"
@@ -264,11 +279,11 @@
       "description": "Portfolio, AI chatbot & Notion template storefront. The Poet Who Codes. Next.js 14, multilingual, PayFast, Nanda AI assistant",
       "live": "https://creativelynanda.co.za",
       "logo": null,
-      "commits": 324,
+      "commits": 398,
       "firstCommit": "2026-01-14",
-      "lastCommit": "2026-08-08",
+      "lastCommit": "2026-11-14",
       "createdAt": "2026-01-14",
-      "sizeKb": 916777,
+      "sizeKb": 922201,
       "topics": [
         "ai-chatbot",
         "multilingual",
@@ -283,23 +298,23 @@
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 2190365,
-          "pct": 89.3
+          "bytes": 2930358,
+          "pct": 88.7
         },
         {
           "name": "JavaScript",
-          "bytes": 220725,
-          "pct": 9
+          "bytes": 301089,
+          "pct": 9.1
         },
         {
           "name": "PLpgSQL",
           "bytes": 36372,
-          "pct": 1.5
+          "pct": 1.1
         },
         {
           "name": "CSS",
-          "bytes": 6092,
-          "pct": 0.2
+          "bytes": 34088,
+          "pct": 1
         },
         {
           "name": "HTML",
@@ -316,50 +331,50 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         7,
         4,
         8,
-        60,
-        13,
+        33,
+        40,
         5,
         4,
-        37,
-        3,
+        25,
+        15,
         0,
-        46,
+        15,
+        31,
         37,
         0,
         0,
         0,
         0,
         1,
-        3,
-        5,
+        6,
+        2,
         0,
         0,
         19,
         2,
         0,
         0,
-        0,
-        28,
-        16,
+        7,
+        25,
+        12,
         26,
-        0
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32,
+        0,
+        2,
+        9,
+        1,
+        0,
+        11
       ],
       "defaultBranch": "main"
     },
@@ -374,11 +389,11 @@
       "description": "AI business OS for SA SMEs: 5 specialist AI agents, WhatsApp-native, debt recovery automation, Xero invoicing",
       "live": "https://adminos.co.za",
       "logo": null,
-      "commits": 214,
+      "commits": 354,
       "firstCommit": "2026-03-18",
-      "lastCommit": "2026-07-22",
+      "lastCommit": "2026-11-12",
       "createdAt": "2026-03-18",
-      "sizeKb": 4644,
+      "sizeKb": 45838,
       "topics": [
         "claude-api",
         "nextjs",
@@ -394,23 +409,23 @@
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 2135550,
-          "pct": 87.8
-        },
-        {
-          "name": "PLpgSQL",
-          "bytes": 155889,
-          "pct": 6.4
+          "bytes": 2976220,
+          "pct": 83.9
         },
         {
           "name": "JavaScript",
-          "bytes": 124180,
-          "pct": 5.1
+          "bytes": 351998,
+          "pct": 9.9
+        },
+        {
+          "name": "PLpgSQL",
+          "bytes": 200606,
+          "pct": 5.7
         },
         {
           "name": "CSS",
-          "bytes": 16635,
-          "pct": 0.7
+          "bytes": 17800,
+          "pct": 0.5
         }
       ],
       "activity": [
@@ -431,39 +446,39 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        32,
+        22,
+        10,
         0,
         0,
         0,
         8,
-        8,
-        7,
+        15,
         10,
         0,
         2,
         0,
         0,
-        20,
-        0,
+        7,
+        13,
         0,
         6,
         0,
-        113,
-        8,
+        5,
+        116,
+        0,
+        0,
+        4,
+        37,
+        4,
+        0,
+        0,
+        16,
+        0,
+        0,
+        45,
+        1,
+        0,
+        33,
         0,
         0
       ],
@@ -480,11 +495,11 @@
       "description": "SA's first AI student OS: Nova AI companion, NSFAS budget tracker, study planner & crisis support for 11M South African students",
       "live": "https://varsityos.co.za",
       "logo": "varsity",
-      "commits": 595,
+      "commits": 664,
       "firstCommit": "2026-03-01",
-      "lastCommit": "2026-08-03",
+      "lastCommit": "2026-11-12",
       "createdAt": "2026-03-01",
-      "sizeKb": 11323,
+      "sizeKb": 12657,
       "topics": [
         "ai",
         "claude-api",
@@ -501,27 +516,27 @@
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 5815431,
-          "pct": 94.6
+          "bytes": 5904672,
+          "pct": 92.9
         },
         {
           "name": "PLpgSQL",
-          "bytes": 252346,
-          "pct": 4.1
+          "bytes": 367822,
+          "pct": 5.8
         },
         {
           "name": "CSS",
           "bytes": 59502,
-          "pct": 1
+          "pct": 0.9
         },
         {
           "name": "JavaScript",
-          "bytes": 19974,
-          "pct": 0.3
+          "bytes": 22488,
+          "pct": 0.4
         },
         {
           "name": "HTML",
-          "bytes": 53,
+          "bytes": 1169,
           "pct": 0
         }
       ],
@@ -541,42 +556,42 @@
         0,
         0,
         0,
+        5,
+        7,
+        15,
+        21,
+        22,
+        29,
+        44,
+        65,
+        10,
+        6,
+        3,
+        18,
+        5,
         0,
+        30,
+        199,
         0,
+        25,
+        8,
+        47,
+        18,
+        10,
+        8,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        12,
         0,
         0,
         0,
         5,
+        12,
+        1,
+        17,
         0,
-        7,
-        36,
-        13,
-        9,
-        73,
-        36,
-        38,
-        4,
-        3,
-        15,
-        11,
-        0,
-        0,
-        129,
-        100,
-        0,
-        27,
-        27,
-        40,
-        11,
-        11,
+        14,
+        6,
+        2,
         0
       ],
       "defaultBranch": "main"
@@ -592,11 +607,11 @@
       "description": "Pass your SA K53 learner's licence first time: 600+ questions, 11 game modes, isiXhosa support, SM-2 spaced repetition. Free forever.",
       "live": "https://k53drillmaster.co.za",
       "logo": "k53",
-      "commits": 129,
+      "commits": 137,
       "firstCommit": "2026-02-27",
-      "lastCommit": "2026-07-29",
+      "lastCommit": "2026-11-12",
       "createdAt": "2026-02-26",
-      "sizeKb": 14517,
+      "sizeKb": 15651,
       "topics": [
         "drivers-license",
         "javascript",
@@ -609,18 +624,18 @@
       "languages": [
         {
           "name": "JavaScript",
-          "bytes": 2243034,
-          "pct": 92.7
+          "bytes": 2151546,
+          "pct": 92.1
         },
         {
           "name": "HTML",
-          "bytes": 156084,
-          "pct": 6.4
+          "bytes": 154120,
+          "pct": 6.6
         },
         {
           "name": "PLpgSQL",
-          "bytes": 17596,
-          "pct": 0.7
+          "bytes": 27603,
+          "pct": 1.2
         },
         {
           "name": "TypeScript",
@@ -648,24 +663,11 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        13,
-        0,
+        5,
+        8,
         12,
-        7,
+        1,
+        6,
         0,
         2,
         0,
@@ -673,18 +675,31 @@
         0,
         0,
         0,
-        0,
-        3,
+        2,
+        1,
         0,
         0,
         9,
-        8,
-        29,
+        37,
         6,
-        30,
+        21,
+        9,
+        9,
         1,
-        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         1,
+        1,
+        3,
+        0,
+        1,
+        0,
+        2,
+        0,
         0
       ],
       "defaultBranch": "main"
@@ -698,24 +713,24 @@
       "repoUrl": "https://github.com/Nanda-Regine/BB-MotherShip-Deluxe",
       "isPrivate": true,
       "description": null,
-      "live": "https://bbmothership.creativelynanda.co.za",
+      "live": "https://bb-mothership-deluxe.vercel.app",
       "logo": null,
-      "commits": 93,
+      "commits": 97,
       "firstCommit": "2026-06-07",
-      "lastCommit": "2026-08-03",
+      "lastCommit": "2026-10-24",
       "createdAt": "2026-05-27",
-      "sizeKb": 20117,
+      "sizeKb": 20130,
       "topics": [],
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 1775503,
-          "pct": 94.7
+          "bytes": 1777212,
+          "pct": 92.2
         },
         {
           "name": "PLpgSQL",
-          "bytes": 83698,
-          "pct": 4.5
+          "bytes": 134270,
+          "pct": 7
         },
         {
           "name": "CSS",
@@ -724,7 +739,7 @@
         },
         {
           "name": "JavaScript",
-          "bytes": 3216,
+          "bytes": 4339,
           "pct": 0.2
         },
         {
@@ -763,28 +778,28 @@
         0,
         0,
         0,
+        30,
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        16,
+        46,
         0,
         0,
         1,
-        29,
         0,
         0,
-        3,
-        37,
-        22,
         0,
-        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
         0
       ],
       "defaultBranch": "main"
@@ -857,23 +872,23 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         7,
         0,
-        0,
         5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -906,34 +921,34 @@
       "repoUrl": "https://github.com/Nanda-Regine/sanyubotanicals",
       "isPrivate": true,
       "description": null,
-      "live": "https://sanyubotanicals.co.za",
+      "live": "https://sanyubotanicals.vercel.app",
       "logo": "sanyu",
-      "commits": 149,
+      "commits": 216,
       "firstCommit": "2026-05-22",
-      "lastCommit": "2026-07-27",
+      "lastCommit": "2026-11-12",
       "createdAt": "2026-05-24",
-      "sizeKb": 215014,
+      "sizeKb": 571216,
       "topics": [],
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 1227049,
-          "pct": 97.3
-        },
-        {
-          "name": "JavaScript",
-          "bytes": 13310,
-          "pct": 1.1
+          "bytes": 1454998,
+          "pct": 95.6
         },
         {
           "name": "PLpgSQL",
-          "bytes": 10619,
-          "pct": 0.8
+          "bytes": 30010,
+          "pct": 2
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 20836,
+          "pct": 1.4
         },
         {
           "name": "CSS",
-          "bytes": 10530,
-          "pct": 0.8
+          "bytes": 15399,
+          "pct": 1
         }
       ],
       "activity": [
@@ -963,30 +978,30 @@
         0,
         0,
         0,
+        4,
+        6,
+        4,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        10,
-        2,
-        2,
         1,
         0,
-        39,
-        63,
+        99,
+        12,
+        2,
+        18,
+        3,
+        0,
+        0,
+        3,
+        6,
         11,
         1,
-        20,
+        0,
+        2,
+        0,
+        0,
+        1,
+        42,
+        1,
         0,
         0
       ],
@@ -1058,21 +1073,21 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         40,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -1105,64 +1120,50 @@
       "repoUrl": "https://github.com/Nanda-Regine/TrueAccApp",
       "isPrivate": true,
       "description": null,
-      "live": "https://trueaccess.co.za",
+      "live": "https://true-access-app.vercel.app",
       "logo": null,
-      "commits": 115,
+      "commits": 148,
       "firstCommit": "2025-10-16",
-      "lastCommit": "2026-07-27",
+      "lastCommit": "2026-10-24",
       "createdAt": "2025-10-16",
-      "sizeKb": 13107,
+      "sizeKb": 13849,
       "topics": [],
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 675127,
-          "pct": 46.2
+          "bytes": 1121022,
+          "pct": 56.2
         },
         {
           "name": "JavaScript",
-          "bytes": 379369,
-          "pct": 25.9
+          "bytes": 381045,
+          "pct": 19.1
         },
         {
           "name": "CSS",
           "bytes": 185979,
-          "pct": 12.7
+          "pct": 9.3
         },
         {
           "name": "HTML",
-          "bytes": 177759,
-          "pct": 12.2
+          "bytes": 178991,
+          "pct": 9
         },
         {
           "name": "PLpgSQL",
-          "bytes": 39109,
-          "pct": 2.7
+          "bytes": 122493,
+          "pct": 6.1
         },
         {
           "name": "Shell",
           "bytes": 5539,
-          "pct": 0.4
+          "pct": 0.3
         }
       ],
       "activity": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        13,
-        1,
-        0,
-        0,
-        11,
-        13,
+        3,
         8,
+        21,
         0,
         0,
         0,
@@ -1195,7 +1196,21 @@
         0,
         4,
         20,
+        0,
         8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        14,
+        9,
+        8,
+        0,
+        0,
+        2,
         0,
         0
       ],
@@ -1210,34 +1225,34 @@
       "repoUrl": "https://github.com/Nanda-Regine/theselvesofus",
       "isPrivate": true,
       "description": "The Selves of Us, literary media platform",
-      "live": "https://theselvesofus.com",
+      "live": "https://selves-of-us.vercel.app",
       "logo": null,
-      "commits": 150,
+      "commits": 181,
       "firstCommit": "2026-06-02",
-      "lastCommit": "2026-08-07",
+      "lastCommit": "2026-11-04",
       "createdAt": "2026-06-03",
-      "sizeKb": 8867,
+      "sizeKb": 8752,
       "topics": [],
       "languages": [
         {
           "name": "TypeScript",
-          "bytes": 1639000,
-          "pct": 95.4
-        },
-        {
-          "name": "JavaScript",
-          "bytes": 35630,
-          "pct": 2.1
+          "bytes": 1757374,
+          "pct": 93.8
         },
         {
           "name": "PLpgSQL",
-          "bytes": 29460,
-          "pct": 1.7
+          "bytes": 66260,
+          "pct": 3.5
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 37084,
+          "pct": 2
         },
         {
           "name": "CSS",
           "bytes": 13321,
-          "pct": 0.8
+          "pct": 0.7
         }
       ],
       "activity": [
@@ -1269,30 +1284,30 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         18,
-        5,
-        63,
-        32,
+        4,
+        19,
+        75,
         8,
+        2,
+        0,
+        11,
+        0,
+        13,
+        0,
+        13,
+        0,
+        0,
+        1,
+        0,
+        1,
+        3,
+        0,
+        1,
         0,
         5,
-        6,
-        5,
-        8
+        7,
+        0
       ],
       "defaultBranch": "master"
     }
@@ -1301,145 +1316,406 @@
     {
       "build": "jarvisos",
       "title": "JarvisOS",
-      "date": "2026-08-11",
-      "sha": "0ff630d",
-      "subject": "fix(marketing): every services price was real, and every one was in the wrong role",
-      "type": "fix",
-      "score": 11
+      "date": "2026-11-12",
+      "sha": "2578c6e",
+      "subject": "Journal: item 7 deployed (run 43297093747), what is verified and what is not",
+      "type": "journal",
+      "score": 6
     },
     {
       "build": "jarvisos",
       "title": "JarvisOS",
-      "date": "2026-08-11",
-      "sha": "e16a39e",
-      "subject": "fix(marketing): the Aug 8 audit tail, a capture that indexed nothing, and an onboard that never ran",
-      "type": "fix",
-      "score": 10
+      "date": "2026-11-12",
+      "sha": "cebb392",
+      "subject": "Journal: staff access gate quarantined on its own branch, why, and what must happen before it is merged",
+      "type": "journal",
+      "score": 4
     },
     {
       "build": "jarvisos",
       "title": "JarvisOS",
-      "date": "2026-08-11",
-      "sha": "a69f89f",
-      "subject": "feat(marketing): the claim guard had never seen the assets, and the texture library was starved",
+      "date": "2026-11-10",
+      "sha": "7485e99",
+      "subject": "Journal: client experience finish deployed (v97), what is verified and what is not",
+      "type": "journal",
+      "score": 6
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-10",
+      "sha": "5865afe",
+      "subject": "Postmortems are grounded in measured facts: no outage evidence, no postmortem",
+      "type": null,
+      "score": 5
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-10",
+      "sha": "952f097",
+      "subject": "Engineering cockpit stops presenting Vercel as the deploy truth; vitals worker uses the live registry and says when it is not running",
+      "type": null,
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-09",
+      "sha": "265a3f6",
+      "subject": "Journal: Nov 9 batch deployed (run 42710184749, container v93), what is verified and what is not",
+      "type": "journal",
+      "score": 6
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-09",
+      "sha": "6597ae2",
+      "subject": "Per-app Supabase health alerts name the failing checks, fire once a day, and stop pointing at Vercel",
+      "type": null,
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-09",
+      "sha": "feba741",
+      "subject": "CEO morning brief: the page was blank because it read json.data while the route returned top-level fields",
+      "type": null,
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-09",
+      "sha": "61c2ab1",
+      "subject": "Journal: deploy 42696688620 live, what was seen and what is still unverified",
+      "type": "journal",
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-09",
+      "sha": "4ee7d5b",
+      "subject": "Terms, SOW and proposal get Mirembe branding and the owner's signature; the beige layout is gone",
+      "type": null,
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-08",
+      "sha": "fe4581d",
+      "subject": "Portal updates are categorised when written, by their dominant theme",
+      "type": null,
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-08",
+      "sha": "6ed18b5",
+      "subject": "Client portal: terms of engagement readable before acceptance (was 403 + forced download); opens inline, ?download=1 saves",
+      "type": null,
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-05",
+      "sha": "bc592a7",
+      "subject": "Adapter: interactive replies fall back to Groq when Gemini is down (never long outputs or tool calls)",
+      "type": "adapter",
+      "score": 7
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-05",
+      "sha": "02409fd",
+      "subject": "Adapter: long outputs run on Claude when Gemini is down and ANTHROPIC_API_KEY is set",
+      "type": "adapter",
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-05",
+      "sha": "30e730a",
+      "subject": "fix(nanda-book): record 'failed' after the last retry instead of sitting at 'generating' forever",
+      "type": "fix",
+      "score": 4
+    },
+    {
+      "build": "jarvisos",
+      "title": "JarvisOS",
+      "date": "2026-11-04",
+      "sha": "25c739a",
+      "subject": "fix(esign): signing page scrolls and its PDF iframe is allowed to render",
+      "type": "fix",
+      "score": 4
+    },
+    {
+      "build": "campus-compass",
+      "title": "VarsityOS",
+      "date": "2026-11-01",
+      "sha": "8ddfded",
+      "subject": "fix(nova): hide message time when the timestamp is invalid",
+      "type": "fix",
+      "score": 4
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-10-24",
+      "sha": "77e35f8",
+      "subject": "fix(tasks,documents): show review tasks, cancelled never open; upload list matches server (#7)",
+      "type": "fix",
+      "score": 6
+    },
+    {
+      "build": "campus-compass",
+      "title": "VarsityOS",
+      "date": "2026-10-22",
+      "sha": "4190306",
+      "subject": "ci(cloudflare): NEXT_PUBLIC_* build env from secrets + workers.dev deploy when the Workers token is set",
+      "type": "ci",
+      "score": 4
+    },
+    {
+      "build": "sanyu",
+      "title": "Sanyu Botanicals",
+      "date": "2026-10-22",
+      "sha": "b0a4d0e",
+      "subject": "feat(cron): interim sanyu-cron Worker for */10 and */15 jobs while Vercel is on Hobby",
       "type": "feat",
-      "score": 9
+      "score": 4
     },
     {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-11",
-      "sha": "8e15516",
-      "subject": "fix(marketing): the re-render would have been a silent no-op that reported success",
+      "build": "sanyu",
+      "title": "Sanyu Botanicals",
+      "date": "2026-10-22",
+      "sha": "684aeaf",
+      "subject": "fix(cron): reject cron routes when CRON_SECRET is unset",
+      "type": "fix",
+      "score": 4
+    },
+    {
+      "build": "sanyu",
+      "title": "Sanyu Botanicals",
+      "date": "2026-10-22",
+      "sha": "4024d90",
+      "subject": "fix(admin): reject Bearer routes when ADMIN_SECRET is unset",
+      "type": "fix",
+      "score": 4
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-10-06",
+      "sha": "9824393",
+      "subject": "fix(dates): compliance + licence countdowns use SAST calendar days (was off by one 00:00-02:00, React #418)",
+      "type": "fix",
+      "score": 6
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-10-06",
+      "sha": "6e7f1cb",
+      "subject": "fix(ai): Langa metered on the real plan; drop dead plan gate + phantom agents",
+      "type": "fix",
+      "score": 5
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-10-05",
+      "sha": "60bc823",
+      "subject": "fix(money): one definition of \"who owes us\" - debt recovery never chased app-created invoices",
       "type": "fix",
       "score": 8
     },
     {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-11",
-      "sha": "02aa6ee",
-      "subject": "docs: the content library is built for SA's smallest platform, and the Mirembe 13-week plan",
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-10-05",
+      "sha": "48134af",
+      "subject": "feat(invoices): record payments, VAT only when registered, race-safe numbers + stock",
+      "type": "feat",
+      "score": 4
+    },
+    {
+      "build": "campus-compass",
+      "title": "VarsityOS",
+      "date": "2026-10-04",
+      "sha": "c4ea8cc",
+      "subject": "docs: remove Groq references, AI is Claude-only",
       "type": "docs",
-      "score": 7
+      "score": 4
     },
     {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-11",
-      "sha": "b26e8f7",
-      "subject": "fix(marketing): the K53 page understated the product by 2x, and both repos disagreed on signs",
-      "type": "fix",
-      "score": 6
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-11",
-      "sha": "7acaec2",
-      "subject": "fix(magazine): the case_study diagram was letterboxing to 44% and its labels went unreadable",
-      "type": "fix",
-      "score": 6
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-09",
-      "sha": "f81d030",
-      "subject": "fix(marketing): two workers were registered, built, and unreachable",
-      "type": "fix",
-      "score": 9
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-09",
-      "sha": "22acf91",
-      "subject": "fix(email): dead mirembe.co.za survived in 10 client-facing paths, and broke delivery",
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-09-30",
+      "sha": "ef275ea",
+      "subject": "fix(shop): a comment inside a JSX conditional broke the product page build",
       "type": "fix",
       "score": 5
     },
     {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-09",
-      "sha": "138b2f4",
-      "subject": "fix(studio): soft delete for 6 collaborator tables, a team member could not undo",
-      "type": "fix",
-      "score": 4
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-08",
-      "sha": "cd3a8ca",
-      "subject": "fix(brands): four brand domains were DEAD, cards were printing URLs that do not resolve",
-      "type": "fix",
-      "score": 9
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-08",
-      "sha": "168f333",
-      "subject": "fix(marketing): two invented claims were shipping, one as structured data on the live site",
-      "type": "fix",
-      "score": 6
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-08",
-      "sha": "1deee55",
-      "subject": "feat(magazine): 9:16 title cards, from broken placeholder to premium",
-      "type": "feat",
-      "score": 4
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-07",
-      "sha": "f02e47b",
-      "subject": "fix(magazine): copy-quality heuristic was flagging good copy, 40 false positives",
-      "type": "fix",
-      "score": 7
-    },
-    {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-07",
-      "sha": "93055f4",
-      "subject": "fix(env+copy): stale shell key shadowed .env.local; lock copy detector with real fixtures",
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-09-29",
+      "sha": "30156b0",
+      "subject": "fix(seo): /poetry/erasure is a real 308; journal §26",
       "type": "fix",
       "score": 5
     },
     {
-      "build": "jarvisos",
-      "title": "JarvisOS",
-      "date": "2026-08-07",
-      "sha": "b8a597c",
-      "subject": "feat(magazine): contact-sheet critique tool, found the founder brands are swapped wholesale",
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-09-28",
+      "sha": "e0cb99c",
+      "subject": "feat(forge): the App Studio, with 100 real screens, journeys and anatomy",
       "type": "feat",
+      "score": 5
+    },
+    {
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-09-28",
+      "sha": "66fb0e9",
+      "subject": "feat(forge): the Dojo opens and the scars replay, Revolution Plan step 3",
+      "type": "feat",
+      "score": 4
+    },
+    {
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-09-28",
+      "sha": "745b66e",
+      "subject": "feat(seo): one name, one entity, llms.txt, feeds, and two indexing leaks closed",
+      "type": "feat",
+      "score": 4
+    },
+    {
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-09-28",
+      "sha": "c55d92e",
+      "subject": "feat(education): the Honours Hall, every credential shown, and only what can be shown",
+      "type": "feat",
+      "score": 4
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-09-18",
+      "sha": "df8e05b",
+      "subject": "fix(tasks): create-task modal still off-screen on mobile + broken assignee FK",
+      "type": "fix",
+      "score": 6
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-08-22",
+      "sha": "9923feb",
+      "subject": "fix: forms audit, 4 real submission bugs found and fixed",
+      "type": "fix",
+      "score": 4
+    },
+    {
+      "build": "selves-of-us",
+      "title": "The Selves of Us",
+      "date": "2026-08-18",
+      "sha": "1cddf3c",
+      "subject": "Scroll depth and dwell were never recorded: PostHog threw and killed the effect",
+      "type": null,
+      "score": 7
+    },
+    {
+      "build": "selves-of-us",
+      "title": "The Selves of Us",
+      "date": "2026-08-18",
+      "sha": "b65a2ff",
+      "subject": "Story events were never written: use a true service-role client",
+      "type": null,
+      "score": 6
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-08-17",
+      "sha": "95d6f1e",
+      "subject": "fix(critical): tenants.business_type was never persisted by the real signup flow",
+      "type": "fix",
+      "score": 8
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-08-17",
+      "sha": "ae9ac36",
+      "subject": "docs: update demo script, /demo is fixed, timeline corrected to Wednesday",
+      "type": "docs",
+      "score": 4
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-08-16",
+      "sha": "dd1db8c",
+      "subject": "feat: ship the Suppliers page, B-BBEE data was built but unreachable",
+      "type": "feat",
+      "score": 8
+    },
+    {
+      "build": "adminos",
+      "title": "AdminOS",
+      "date": "2026-08-16",
+      "sha": "46c1f60",
+      "subject": "feat: Licences & Permits page, reminders were firing at an unfillable table",
+      "type": "feat",
+      "score": 4
+    },
+    {
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-08-12",
+      "sha": "e097738",
+      "subject": "fix(testimonials): a grid of uniform tiles, because the variance was the cause",
+      "type": "fix",
+      "score": 6
+    },
+    {
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-08-12",
+      "sha": "e17fec7",
+      "subject": "fix: a negative margin is not a grid gap, and columns balance by height",
+      "type": "fix",
+      "score": 6
+    },
+    {
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-08-12",
+      "sha": "3f6e03f",
+      "subject": "fix(nav): the navigation bar has had no background since it was written",
+      "type": "fix",
+      "score": 5
+    },
+    {
+      "build": "creativelynanda",
+      "title": "CreativelyNanda",
+      "date": "2026-08-12",
+      "sha": "3aff277",
+      "subject": "fix(testimonials): contain, not cover, the wide screenshots were unreadable",
+      "type": "fix",
       "score": 4
     },
     {
@@ -1513,42 +1789,6 @@
       "subject": "fix(contracts+kb): read real columns + add schema-drift regression guard",
       "type": "fix",
       "score": 5
-    },
-    {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-07-18",
-      "sha": "30a6703",
-      "subject": "docs: BUILD_JOURNEY, Session 14 (DataTable + schema-drift sweep) + Session 15 (OS transformation)",
-      "type": "docs",
-      "score": 4
-    },
-    {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-07-18",
-      "sha": "81e446d",
-      "subject": "docs: all six domain cockpits shipped, every page is now a system",
-      "type": "docs",
-      "score": 4
-    },
-    {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-07-18",
-      "sha": "d0dea2e",
-      "subject": "fix(people): lowWellness score type is non-null (filtered), build fix",
-      "type": "fix",
-      "score": 4
-    },
-    {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-07-18",
-      "sha": "f78886b",
-      "subject": "chore(scripts): add audit_selects.mjs, exhaustive schema-drift checker",
-      "type": "chore",
-      "score": 4
     },
     {
       "build": "campus-compass",
@@ -1686,30 +1926,12 @@
       "score": 4
     },
     {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-06-14",
-      "sha": "71219d4",
-      "subject": "feat(mobile): offline read enhancements, cache warmer, network banner, smart stale times",
-      "type": "feat",
-      "score": 4
-    },
-    {
       "build": "creativelynanda",
       "title": "CreativelyNanda",
       "date": "2026-06-13",
       "sha": "49e82e4",
       "subject": "chore: data hygiene sweep, update all stale stats to June 2026 reality",
       "type": "chore",
-      "score": 4
-    },
-    {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-06-12",
-      "sha": "3420aea",
-      "subject": "fix: production audit fixes, bucket name, dead code, wrong table",
-      "type": "fix",
       "score": 4
     },
     {
@@ -1727,15 +1949,6 @@
       "date": "2026-05-24",
       "sha": "6c2ede7",
       "subject": "fix: lazy-initialize Resend client to prevent build-time crash when RESEND_API_KEY is not set",
-      "type": "fix",
-      "score": 4
-    },
-    {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-05-08",
-      "sha": "826f3ac",
-      "subject": "fix: remove stale proxy.ts, conflicts with middleware.ts in Next.js 16",
       "type": "fix",
       "score": 4
     },
@@ -1773,15 +1986,6 @@
       "sha": "0cd980d",
       "subject": "fix: production bugs, PAYFAST_SANDBOX env var, stale fallback URL, sitemap",
       "type": "fix",
-      "score": 4
-    },
-    {
-      "build": "adminos",
-      "title": "AdminOS",
-      "date": "2026-03-19",
-      "sha": "9b25395",
-      "subject": "feat(phase1): close broken loops, wellness, plan limits, language, realtime, PWA, error boundaries",
-      "type": "feat",
       "score": 4
     },
     {

@@ -45,9 +45,9 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: 'Nandawula Regine Kabali-Kagwa | Poet, Creative & Culture-Keeper · South Africa',
+  title: 'Nandawula Regine Kabali-Kagwa | Poet & AI Engineer · South Africa',
   description:
-    'Nandawula Regine Kabali-Kagwa: published poet (Inside Her Roses), performer and creative from KuGompo City, South Africa. Nine documented generations across four nations: Nseenene of Buganda, AmaTshawe, AmaHlubi and Msimanga. For software, AI engineering and consulting, visit Mirembe Muse.',
+    'Nandawula Regine Kabali-Kagwa: poet and AI engineer from KuGompo City (East London), South Africa. Author of Inside Her Roses (2021) and a performer. Keeper of three clan lines: the Nseenene of Buganda, the amaTshawe and the amaHlubi Msimanga. For software, AI engineering and consulting, visit Mirembe Muse.',
   keywords: [
     // Identity
     'Nandawula Regine Kabali-Kagwa',
@@ -147,9 +147,9 @@ export const metadata = {
     locale: 'en_ZA',
     url: 'https://creativelynanda.co.za',
     siteName: 'Creatively Nanda',
-    title: 'Nandawula Regine Kabali-Kagwa | AI Engineer & Full-Stack Developer',
+    title: 'Nandawula Regine Kabali-Kagwa | Poet & AI Engineer',
     description:
-      'AI Engineer and full-stack TypeScript developer. Builds production Claude API agents, multi-agent systems, and SaaS platforms for global and African clients. 7 live AI products. Available for remote engagements.',
+      'Poet and AI engineer from KuGompo City, South Africa. Author of Inside Her Roses; builder of production AI products and a 27-wing personal AI operating system. Business and software: Mirembe Muse.',
     images: [
       {
         url: '/og-image.png',
@@ -161,9 +161,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nandawula Regine | AI Engineer & Full-Stack Developer · South Africa',
+    title: 'Nandawula Regine | Poet & AI Engineer · South Africa',
     description:
-      'AI Engineer building production Claude agents, multi-agent systems, and SaaS platforms. 7 live AI products. Remote-available. South Africa.',
+      'Poet and AI engineer from KuGompo City, South Africa. Inside Her Roses, production AI products, and a 27-wing personal AI operating system.',
     images: ['/og-image.png'],
     creator: '@creativelynanda',
   },
