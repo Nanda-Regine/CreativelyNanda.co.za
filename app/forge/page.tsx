@@ -10,6 +10,7 @@ import { ORIGINS } from '@/lib/data/forge-origins';
 // curation gate decorative. Here it is reduced to four integers before crossing
 // into the client component. See docs/THE_FORGE.md §3.
 import corpus from '@/lib/data/forge-corpus.json';
+import { getFloors, mixOf } from "@/lib/data/studio-floor";
 import { getGithubTotals } from '@/lib/forge-data';
 
 export const metadata: Metadata = {
@@ -78,11 +79,12 @@ function readStats(): ForgeStats {
   };
 }
 
-export default function ForgePage() {
+export default async function ForgePage() {
+  const studioMix = mixOf(await getFloors(), 4);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
-      <ForgeThreshold stats={readStats()} />
+      <ForgeThreshold stats={readStats()} studioMix={studioMix} />
     </>
   );
 }

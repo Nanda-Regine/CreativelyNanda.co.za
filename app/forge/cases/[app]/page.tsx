@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { createMetadata, JsonLd, generateBreadcrumbJsonLd, SITE_URL, personRef } from '@/lib/seo';
 import { CASE_LIST, getCase } from '@/lib/data/evidence/cases';
 import { CLAIMS } from '@/lib/data/evidence/claims';
-import Stock from '@/components/ui/Stock';
+import Stock, { rhythm } from '@/components/ui/Stock';
 import DeskStack from '@/components/forge/evidence/DeskStack';
 import VideoPlayer from '@/components/forge/evidence/VideoPlayer';
 import PitchDeck from '@/components/forge/evidence/PitchDeck';
@@ -40,6 +40,10 @@ export default async function CasePage({ params: paramsPromise }: { params: Prom
   const c = getCase(params.app);
   if (!c) notFound();
 
+  // Sections rotate the house stock in turn: beige, navy, cherry. Equal thirds, none dominating.
+  let band = 0;
+  const next = () => rhythm(band++);
+
   const archClaimIds = Array.from(new Set(c.arch.flatMap((n) => n.claimIds ?? [])));
   const declared = new Set(CLAIMS.map((x) => x.id));
   const footIds = archClaimIds.filter((id) => declared.has(id));
@@ -68,7 +72,7 @@ export default async function CasePage({ params: paramsPromise }: { params: Prom
         ]}
       />
       <main>
-        <Stock paper={c.paper} texture={false} className="px-6 py-16 md:py-24">
+        <Stock paper={next()} texture={false} className="px-6 py-16 md:py-24">
           <div className="mx-auto max-w-6xl">
             <p className="text-xs uppercase tracking-[0.25em]" style={{ color: 'var(--gold-ink)' }}>
               <Link href="/forge/studio" prefetch={false} className="inline-flex min-h-[44px] items-center underline underline-offset-4">
@@ -102,54 +106,54 @@ export default async function CasePage({ params: paramsPromise }: { params: Prom
           </div>
         </Stock>
 
-        <Stock paper="bone" texture={false} className="px-6 py-16">
+        <Stock paper={next()} texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-5xl">
             <PitchDeck slides={c.slides} title={`${c.name} pitch`} app={c.app} />
           </div>
         </Stock>
 
-        <Stock paper={c.paper} texture={false} className="px-6 py-16">
+        <Stock paper={next()} texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-5xl">
             <VideoPlayer poster={c.video.posterScreen} src={c.video.src} chapters={c.video.chapters} title={`${c.name} running`} />
           </div>
         </Stock>
 
         {c.wings?.length ? (
-          <Stock paper={c.paper} texture={false} className="px-6 py-16">
+          <Stock paper={next()} texture={false} className="px-6 py-16">
             <div className="mx-auto max-w-6xl">
               <WingMap wings={c.wings} title="Walk the wings" app={c.app} />
             </div>
           </Stock>
         ) : null}
 
-        <Stock paper="bone" texture={false} className="px-6 py-16">
+        <Stock paper={next()} texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-6xl">
             <JourneyWeek stops={c.journey} title={c.journeyTitle} />
           </div>
         </Stock>
 
-        <Stock paper={c.paper} texture={false} className="px-6 py-16">
+        <Stock paper={next()} texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-6xl">
             <ArchitectureExplorer nodes={c.arch} title={`How ${c.name} is built`} app={c.app} />
             {footIds.length ? <ClaimsFootnote ids={footIds} /> : null}
           </div>
         </Stock>
 
-        <Stock paper="bone" texture={false} className="px-6 py-16">
+        <Stock paper={next()} texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-6xl">
             <DecisionCards cards={c.decisions} title="Decisions, and what they cost" />
           </div>
         </Stock>
 
         {c.app === 'adminos' ? (
-          <Stock paper="bone" texture={false} className="px-6 py-16">
+          <Stock paper={next()} texture={false} className="px-6 py-16">
             <div className="mx-auto max-w-6xl">
               <PriceLadder title="What it costs" />
             </div>
           </Stock>
         ) : null}
 
-        <Stock paper={c.paper} texture={false} className="px-6 py-16">
+        <Stock paper={next()} texture={false} className="px-6 py-16">
           <div className="mx-auto max-w-6xl">
             <ProofWall items={c.proof} title="Proof, with dates" />
           </div>

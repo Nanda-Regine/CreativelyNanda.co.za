@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { BUILD_DOSSIERS } from '@/lib/data/forge-builds';
+import { getFloors } from "@/lib/data/studio-floor";
 import { CASE_LIST } from '@/lib/data/evidence/cases';
 import { POEMS } from '@/lib/poems-data';
 import { getAllPublishedPosts, postUrl } from '@/lib/feeds';
@@ -130,6 +131,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     })),
+    // One floor per product with captured screens (App Studio).
+    ...(await getFloors()).map((f): Entry => ({ path: `/forge/studio/${f.app.key}`, changeFrequency: "monthly", priority: 0.7 })),
     // Case files went public on 14 Nov 2026.
     { path: '/forge/cases', changeFrequency: 'monthly', priority: 0.8 },
     ...CASE_LIST.map((c): Entry => ({

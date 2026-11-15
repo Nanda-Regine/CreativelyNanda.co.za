@@ -32,6 +32,9 @@ import Ground, { PhotoBleed, groundTokens } from '@/components/ui/Ground';
 import Stock from '@/components/ui/Stock';
 import { Reveal, OffsetFigure, BigFigure, PullQuote, Rule, MarginNote, VideoTile } from '@/components/ui/Editorial';
 import { FAMILY } from '@/lib/data/asset-atlas';
+import { screenSrc } from "@/components/forge/StudioPhone";
+import { screenUrl } from "@/lib/data/evidence/media";
+import type { MixItem } from "@/lib/data/studio-floor";
 import { THROUGHLINE } from '@/lib/data/forge-origins';
 
 const ROOMS: { name: string; line: string; href?: string }[] = [
@@ -56,7 +59,7 @@ export interface ForgeStats {
   repos: number;
 }
 
-export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
+export default function ForgeThreshold({ stats, studioMix = [] }: { stats: ForgeStats; studioMix?: MixItem[] }) {
   const garden = groundTokens('garden');
   const bone = groundTokens('bone');
   const parchment = groundTokens('parchment');
@@ -266,6 +269,19 @@ export default function ForgeThreshold({ stats }: { stats: ForgeStats }) {
                   <p className="text-sm font-light leading-relaxed" style={{ color: r.href ? `${midnight.ink}AD` : `${midnight.ink}59` }}>
                     {r.line}
                   </p>
+                  {r.href === "/forge/studio" && studioMix.length ? (
+                    <div aria-hidden className="mt-5 flex items-end gap-2">
+                      {studioMix.slice(0, 4).map((m) =>
+                        m.shot.kind === "phone" ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img key={m.key} src={screenSrc(m.shot, 120)} alt="" width={30} height={67} loading="lazy" decoding="async" className="h-[67px] w-[30px] rounded-[6px] object-cover object-top" style={{ boxShadow: "0 0 0 2px #15151c" }} />
+                        ) : (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img key={m.key} src={screenUrl(m.shot.id, 480)} alt="" width={96} height={44} loading="lazy" decoding="async" className="h-[44px] w-[96px] rounded-[3px] object-cover object-top" style={{ boxShadow: "0 0 0 2px #15151c" }} />
+                        )
+                      )}
+                    </div>
+                  ) : null}
                 </div>
               );
               return (
