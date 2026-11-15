@@ -1,5 +1,15 @@
 # CreativelyNanda.co.za — Build Journey
 
+## App Studio v2: the shelf of 17, the studio floor and eight case files (Nov 14 to 15 2026)
+
+**Goal:** turn /forge/studio from a gallery of two apps into a place that shows all 17 live platforms, with a public case file behind each one that has screens.
+- **Phase 1, committed (`88cf7b2`, `4bbfac4`, `1080201`):** the shelf of 17 from one roster, public case files, and live links for the six client and partner platforms, then ICSA Summit OS, ECDC Symposium and BB MotherShip.
+- **Phase 2, this commit set:** `/forge/studio/[app]` is a new route per app. The studio floor (`StudioFloor`, `lib/data/studio-floor.ts`), `MixFan` and `Reel` are new, and `DeskView` plus a slimmer `DeskFrame` show one app's screens. `AppStudio` lost about 600 lines because the floor now carries what it did. The Forge threshold, cases pages and sitemap point at it.
+- **Evidence data:** five new case files (Amanda, ECDC, Green Diaspora, ISD, Selves of Us) and more screens for AdminOS and Jarvis. `redactions.json` now has two block redactions (one Green Diaspora screen, the top bar of one Jarvis screen) applied by `build-derivatives.mjs`. A scan of the new data, components and routes found no emails, phone numbers or keys.
+- **Checked:** the pattern scan above. `tsc` is banned locally, so the 19-error baseline was not re-measured here. **Not yet checked:** the 360/768/1280 render, the console, and that the five new derivative sets are on R2 (`media.creativelynanda.co.za`). Run these on the staging deploy.
+- **Open:** Nanda's go-ahead on which screens are public for the five new case files, and uploading their derivatives to R2. `s.html`, a saved page dump, was left untracked and uncommitted.
+- **Next:** staging check, then merge `feat/evidence-wing` to `main` when she says.
+
 ## Fact check, family privacy on /roots, metadata and robots (Nov 14 2026)
 
 **Goal:** one true value for every fact the panel found in conflict, and the paternal family's names off the public site.
