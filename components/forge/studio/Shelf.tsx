@@ -20,6 +20,10 @@ import type { Relationship, RosterApp } from '@/lib/data/roster';
 export interface ShelfCardData {
   app: RosterApp;
   screens?: number;
+  /** The product has a floor at /forge/studio/<key>. */
+  floor?: boolean;
+  /** Overrides app.cover, e.g. a captured desk screen in place of a plate. */
+  cover?: RosterApp['cover'];
 }
 
 export interface ShelfBand {
@@ -41,8 +45,8 @@ const BAND_PAPER = { own: 'parchment', client: 'cherry', internal: 'navy' } as c
 const CARD_INK = '#1A1A2E';
 const CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || '';
 
-function Cover({ app }: { app: RosterApp }) {
-  const c = app.cover;
+function Cover({ app, cover }: { app: RosterApp; cover?: RosterApp['cover'] }) {
+  const c = cover ?? app.cover;
   if (c.kind === 'phone') {
     const src = `https://res.cloudinary.com/${CLOUD}/image/upload/f_auto,q_auto,w_160,c_limit/${cldScreenId({ app: app.phone!, id: c.id })}`;
     return (
@@ -81,7 +85,7 @@ function Cover({ app }: { app: RosterApp }) {
 }
 
 function Card({ data, lead, drop }: { data: ShelfCardData; lead?: boolean; drop?: boolean }) {
-  const { app, screens } = data;
+  const { app, screens, floor } = data;
   const linkCls = 'inline-flex min-h-[44px] items-center gap-1 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
   return (
     <li
@@ -90,7 +94,7 @@ function Card({ data, lead, drop }: { data: ShelfCardData; lead?: boolean; drop?
       data-roster={app.key}
     >
       <article className={`flex gap-4 ${lead ? 'md:gap-7' : ''}`} aria-labelledby={`shelf-${app.key}`}>
-        <Cover app={app} />
+        <Cover app={app} cover={data.cover} />
         <div className="min-w-0 flex-1">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em]" style={{ color: app.accentInk }}>
             {STAMP[app.relationship]}
@@ -102,9 +106,11 @@ function Card({ data, lead, drop }: { data: ShelfCardData; lead?: boolean; drop?
             {app.line}
           </p>
           <ul className="mt-2 flex flex-wrap items-center gap-x-5 text-sm" style={{ color: app.accentInk }}>
-            {screens ? (
-              <li className="inline-flex min-h-[44px] items-center">
-                {screens} real screens
+            {floor && screens ? (
+              <li>
+                <Link href={`/forge/studio/${app.key}`} prefetch={false} className={linkCls} style={{ outlineColor: app.accentInk }}>
+                  {screens} real screens
+                </Link>
               </li>
             ) : null}
             {app.caseFile ? (
