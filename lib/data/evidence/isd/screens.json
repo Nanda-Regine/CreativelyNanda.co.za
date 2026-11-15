@@ -1,0 +1,23 @@
+[
+  {
+    "id": "isd-142141",
+    "chapter": "Public site",
+    "caption": "The home page leads with the membership number and a public verify box.",
+    "alt": "ISD home page with a sample membership number card and a verify field.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "isd-142208",
+    "chapter": "Public site",
+    "caption": "Why the platform exists: it sits alongside the existing registers and adds one verified record that remembers.",
+    "alt": "ISD page comparing four existing systems with a single verified record.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "isd-142238",
+    "chapter": "Opportunities",
+    "caption": "The opportunity engine in six steps, with a sample tender card showing what a member would see.",
+    "alt": "Six step opportunity process beside a sample tender card marked as illustrative.",
+    "reviewed": "2026-11-14"
+  }
+]

@@ -29,7 +29,7 @@ const FOLDERS = {
   adminos: ['adminos-screenshots'],
   amanda: ['amanda-screenshots'],
   ecdc: ['ecdc-screenshots'],
-  'green-diaspora': ['green-diaspora-screenshots'],
+  greendiaspora: ['green-diaspora-screenshots'],
   isd: ['isd-screenshots'],
   sanyu: ['sanyu-screenshots'],
   jarvis: ['jarvis-dashboard', 'jarvis-ceo-wing', 'jarvis-finance-wing', 'jarvis-cycle-wing', 'jarvis-body-wing', 'jarvis-marketing-wing', 'jarvis-engineering-wing', 'jarvis-sanctuary-wing', 'jarvis-scholar-wing'],

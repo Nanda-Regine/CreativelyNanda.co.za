@@ -1,1 +1,24 @@
-{}
+{
+  "greendiaspora": {
+    "greendiaspora-140717": [
+      {
+        "x": 50.5,
+        "y": 65.5,
+        "w": 15,
+        "h": 23,
+        "mode": "block"
+      }
+    ]
+  },
+  "jarvis": {
+    "jarvis-161654": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 14,
+        "mode": "block"
+      }
+    ]
+  }
+}

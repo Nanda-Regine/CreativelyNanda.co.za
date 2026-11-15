@@ -1,0 +1,34 @@
+{
+  "ecdc-153856": {
+    "w": 1366,
+    "h": 626,
+    "widths": [
+      480,
+      960,
+      1366
+    ],
+    "avif": [
+      960,
+      1366
+    ],
+    "color": "#0d454a",
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoYAAoAPwFqrE8rJiQiMAgBYCAJQBOmUABqN5ZLSe3PrC4AAP68OCyHWcqr817h5MIhcJbC+aTVAIgwihhYcErCmeS78bUwrV1Mi2bLMzKIvAAA",
+    "redacted": false
+  },
+  "ecdc-153919": {
+    "w": 1366,
+    "h": 626,
+    "widths": [
+      480,
+      960,
+      1366
+    ],
+    "avif": [
+      960,
+      1366
+    ],
+    "color": "#ccd4d8",
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAwCdASoYAAoAPwFurU6rJqQiMAgBYCAJYwBUQoeic6mQuPIKsAD33+SfetjdaIclmUTY9zjnw+h0iMZ+jKmBqS0FTLj4GUWF8iSPRFv4AAAA",
+    "redacted": false
+  }
+}

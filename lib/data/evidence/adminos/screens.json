@@ -21,6 +21,41 @@
     "reviewed": "2026-11-10"
   },
   {
+    "id": "adminos-142559",
+    "chapter": "The promise",
+    "caption": "Doc reads contracts and receipts, Insight writes the morning brief, Pen drafts the post: three more of the six agents, each with its job on show.",
+    "alt": "AdminOS landing page cards for the Doc, Insight and Pen agents, each with a small preview, above a button to try all six agents in the demo.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-142628",
+    "chapter": "The promise",
+    "caption": "One page lists what sits inside the OS: staff, the business academy, operations, compliance, intelligence and community.",
+    "alt": "AdminOS landing page headed A complete business OS, with six grouped cards listing the features in employee, academy, operations, compliance, intelligence and community areas.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-142658",
+    "chapter": "The promise",
+    "caption": "The product explains what it adds to your own numbers: a health score, a ninety day cash forecast and a valuation view.",
+    "alt": "AdminOS landing page section Your numbers, contextualised, with cards for business health score, cash forecast and valuation engine.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-142749",
+    "chapter": "The promise",
+    "caption": "Add-ons are switched on in one click: a voice agent, broadcasts, a client portal and extra languages, each with its own price.",
+    "alt": "AdminOS landing page section Extend your OS with add-ons, with cards for Ring, Reach, Client Portal and Languages.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-142826",
+    "chapter": "The promise",
+    "caption": "Built by African women, for African businesses: stokvels, load-shedding resilience and B-BBEE evidence are features, not afterthoughts.",
+    "alt": "AdminOS landing page section Built by African women for African businesses, with local-context feature cards on the right.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "adminos-142929",
     "chapter": "Every morning",
     "caption": "The Command Center. One screen: what is stuck, what needs a decision, how the goals are moving.",
@@ -49,6 +84,20 @@
     "reviewed": "2026-11-10"
   },
   {
+    "id": "adminos-143908",
+    "chapter": "Get paid",
+    "caption": "Expense claims wait in an approval queue; the owner approves or rejects, and what was processed stays listed below.",
+    "alt": "AdminOS Expense Claims page with pending approval claims and approve and reject buttons above a recently processed table.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-143957",
+    "chapter": "Get paid",
+    "caption": "The Sales Cockpit surfaces leads that have gone quiet and offers a one tap way to re-engage them.",
+    "alt": "AdminOS Sales Cockpit with an advisor banner about contacts gone quiet, pipeline and contact tiles, and a going cold list.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "adminos-143822",
     "chapter": "Know the numbers",
     "caption": "A 90-day cash forecast, labelled as an estimate, with the runway in days.",
@@ -70,6 +119,13 @@
     "reviewed": "2026-11-10"
   },
   {
+    "id": "adminos-143011",
+    "chapter": "Know the numbers",
+    "caption": "Analytics: how the agents are doing, how customers feel and how debt is ageing, on one page.",
+    "alt": "AdminOS Analytics page with conversation, resolve rate and collection tiles, a request types panel, customer sentiment and debt ageing.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "adminos-144951",
     "chapter": "Stay compliant",
     "caption": "The compliance calendar. Each SARS and CIPC obligation, its due date, and the penalty for missing it.",
@@ -89,6 +145,41 @@
     "caption": "Licences and permits, with expiry tracking so a lapse never arrives as a surprise.",
     "alt": "Licences and Permits screen listing licences with expiry dates and status.",
     "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-144922",
+    "chapter": "Stay compliant",
+    "caption": "The Governance Cockpit leads with the deadline that costs money if missed, then lists what is overdue.",
+    "alt": "AdminOS Governance Cockpit with an advisor banner about tax deadlines, health and compliance tiles and an on the horizon list.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144935",
+    "chapter": "Stay compliant",
+    "caption": "Contracts: draft, sent, signed and expired in one list, with a reminder for anything waiting on a signature.",
+    "alt": "AdminOS Contracts page with status tiles, a waiting for signature notice and a table of agreements with value and status.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-145008",
+    "chapter": "Stay compliant",
+    "caption": "The compliance calendar says what is due, what it costs to miss it, and has a mark done button on each line.",
+    "alt": "AdminOS compliance calendar table with obligations, due dates, overdue and upcoming status and the penalty if missed.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-145041",
+    "chapter": "Stay compliant",
+    "caption": "The safety incident register records near misses and injuries and shows which ones still need reporting.",
+    "alt": "AdminOS Safety Incidents page with count tiles, filters and a table of dated incidents.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-145057",
+    "chapter": "Stay compliant",
+    "caption": "Employment equity reporting collects the workforce breakdown the annual submission needs.",
+    "alt": "AdminOS Employment Equity page with an explanatory note and a table of race group by male and female headcount fields.",
+    "reviewed": "2026-11-15"
   },
   {
     "id": "adminos-144021",
@@ -126,6 +217,69 @@
     "reviewed": "2026-11-10"
   },
   {
+    "id": "adminos-144040",
+    "chapter": "Run the business",
+    "caption": "Contacts keep who owes what in one list, with balance, sentiment and last contact beside each client.",
+    "alt": "AdminOS Contacts page with summary tiles and a searchable table of clients showing type, balance owed and last contacted.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144132",
+    "chapter": "Run the business",
+    "caption": "Sequences: build an automated WhatsApp follow-up as timed steps, started by hand or by a new contact.",
+    "alt": "AdminOS New Sequence builder with a name field, trigger choice and a first step with a delay and a WhatsApp message box.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144234",
+    "chapter": "Run the business",
+    "caption": "One calendar for leave, bookings, invoices due and compliance dates.",
+    "alt": "AdminOS Calendar month view with entries for deliveries, consultations and a compliance submission.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144333",
+    "chapter": "Run the business",
+    "caption": "Suppliers carry their B-BBEE level and ownership next to payment terms, so procurement and compliance read the same record.",
+    "alt": "AdminOS Suppliers list with category, B-BBEE level, ownership, payment terms and contact columns.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144706",
+    "chapter": "Run the business",
+    "caption": "Inventory flags what is below its reorder level before the shelf is empty.",
+    "alt": "AdminOS Inventory page with stock value tiles, a red low stock alerts panel and a product table below.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144742",
+    "chapter": "Run the business",
+    "caption": "Documents: drop a contract or receipt in and AI reads it, with the business goals tracked underneath.",
+    "alt": "AdminOS Documents page with an upload area, file type tiles and a goal tracker with progress bars.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144759",
+    "chapter": "Run the business",
+    "caption": "People Cockpit: leave and expense approvals waiting on the owner, and team wellbeing, on one screen.",
+    "alt": "AdminOS People Cockpit with an advisor banner about approvals, team tiles and an approvals waiting list.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144818",
+    "chapter": "Run the business",
+    "caption": "Staff: the team with leave balances and a wellbeing view per person, so care is not left to memory.",
+    "alt": "AdminOS Staff page with a team wellbeing heatmap and a card for each staff member showing leave balance and wellbeing.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-144838",
+    "chapter": "Run the business",
+    "caption": "Team Ops: who is clocked in, who is on leave and the shifts coming up.",
+    "alt": "AdminOS Team page with clock in tiles and a grid of staff member cards showing role and clocked out status.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "adminos-145338",
     "chapter": "AI drafts, the owner decides",
     "caption": "Autonomy settings. For each action the owner picks Auto, Draft or Off. Firm and money-moving actions default to Draft or Off.",
@@ -133,10 +287,31 @@
     "reviewed": "2026-11-10"
   },
   {
+    "id": "adminos-144152",
+    "chapter": "AI drafts, the owner decides",
+    "caption": "Email Studio: choose a tone, a type and a language, and Pen drafts the message for the owner to review before it goes anywhere.",
+    "alt": "AdminOS Email Studio with tone, email type and language options on the left and an empty generated email panel on the right.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "adminos-145201",
+    "chapter": "AI drafts, the owner decides",
+    "caption": "Langa, the AI mentor, opens with suggested questions on cash flow, compliance, hiring and discipline.",
+    "alt": "AdminOS Langa AI mentor chat with a greeting and four suggested questions above a message box.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "adminos-145401",
     "chapter": "Built for South Africa",
     "caption": "Load-shedding status, rand exchange rates and a phone-number validator, built in because the local context is the point.",
     "alt": "Integrations screen showing a load-shedding status, ZAR exchange rates and a phone number validator.",
     "reviewed": "2026-11-10"
+  },
+  {
+    "id": "adminos-145251",
+    "chapter": "Built for South Africa",
+    "caption": "Community: a peer feed where owners ask for help, share experience and review suppliers.",
+    "alt": "AdminOS Community page with category filters and a post from a business owner asking for help.",
+    "reviewed": "2026-11-15"
   }
 ]

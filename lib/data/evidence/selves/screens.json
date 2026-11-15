@@ -1,0 +1,65 @@
+[
+  {
+    "id": "selves-151157",
+    "chapter": "Public site",
+    "caption": "The home page opens on the platform name and its guiding line, with the story categories in the top bar.",
+    "alt": "The Selves of Us home page with the title, a quote about mirrors and a category menu.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151216",
+    "chapter": "Public site",
+    "caption": "A featured story gets the full width of the page: a large image, the headline, a pull quote and a read link.",
+    "alt": "Featured story panel with a coral reef photograph beside a dark panel with the headline and a pull quote.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151241",
+    "chapter": "Public site",
+    "caption": "Recent stories sit in a two column grid, each tagged with its category.",
+    "alt": "Recent stories grid showing two story cards, one a poem and one a people piece.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151312",
+    "chapter": "Mirrors",
+    "caption": "Mirrors is where readers write back. Short reader responses are published against the piece they answer.",
+    "alt": "Mirrors section with reader reflections shown as quote cards on a dark background.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151336",
+    "chapter": "Public site",
+    "caption": "A plain statement of why human writing matters, set in a long form reading column.",
+    "alt": "Dark section titled Why human writing still matters with a long paragraph of text.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151352",
+    "chapter": "Mirrors",
+    "caption": "The collective: most read, the weekly writing prompt and recent reader reflections, side by side.",
+    "alt": "Three panels showing most read, this week's prompt and recent anonymous reflections.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151418",
+    "chapter": "Public site",
+    "caption": "The Ubuntu pledge invites readers to read or contribute, and leads into the letters sign up.",
+    "alt": "Ubuntu pledge card with two buttons above a section titled Letters from The Selves of Us.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151524",
+    "chapter": "AI guide",
+    "caption": "Keneilwe, an AI guide that answers questions about the archive and points readers to the right piece.",
+    "alt": "Chat panel for Keneilwe showing a question about community writing and a written answer.",
+    "reviewed": "2026-11-14"
+  },
+  {
+    "id": "selves-151545",
+    "chapter": "Public site",
+    "caption": "The footer carries the platform quote, the about note, navigation and the letters sign up.",
+    "alt": "Dark footer with the platform name, a quote, links and an email sign up field.",
+    "reviewed": "2026-11-14"
+  }
+]

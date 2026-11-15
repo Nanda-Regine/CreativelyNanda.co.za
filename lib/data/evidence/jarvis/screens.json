@@ -49,6 +49,34 @@
     "reviewed": "2026-11-11"
   },
   {
+    "id": "jarvis-154652",
+    "chapter": "Growth",
+    "caption": "The Intelligence Feed reads the news and scores it for her world, with a flag when regulation changes.",
+    "alt": "Jarvis Intelligence Feed with tabs for news, opportunities, applications and demand radar, a regulatory alert banner and topic filters.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-154720",
+    "chapter": "Growth",
+    "caption": "Each story carries why it matters to the business and a suggested next move, with a save button.",
+    "alt": "Jarvis news cards showing a why it matters note and a your move suggestion under each article, with read and save buttons.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-154825",
+    "chapter": "Growth",
+    "caption": "The opportunity scanner lines up grants and programmes against the apps the studio already ships.",
+    "alt": "Jarvis opportunity scanner cards for funding calls, each with why it matters, a next move and pursue and skip buttons.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-155008",
+    "chapter": "Growth",
+    "caption": "Demand Radar watches public requests for the kind of work the studio does and keeps a response status per lead.",
+    "alt": "Jarvis Demand Radar listing public posted requests with source, budget range, a note on fit and response status buttons.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "jarvis-160415",
     "chapter": "CEO",
     "caption": "The CEO Command Centre: the empire in one header, with logged wins and a list of cross-wing alerts below.",
@@ -70,6 +98,13 @@
     "reviewed": "2026-11-11"
   },
   {
+    "id": "jarvis-160655",
+    "chapter": "CEO",
+    "caption": "The CEO wing menu: briefing, strategy, CRM, pipeline, OKRs, legal docs and a board of advisors, each a tool of its own.",
+    "alt": "Jarvis CEO operations centre grid of tools including morning brief, client CRM, pipeline board, OKRs, legal docs and board of advisors.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "jarvis-161527",
     "chapter": "Finance",
     "caption": "Wealth Architecture: a wing for money, with a win logged for compliant, up-to-date books.",
@@ -89,6 +124,27 @@
     "caption": "The VAT tracker: output and input VAT for the period, and what is claimable.",
     "alt": "Finance VAT tracker showing output VAT, input VAT and claimable amounts for November 2026.",
     "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-161654",
+    "chapter": "Finance",
+    "caption": "The Finance hub is a set of tools: payment links, ledger, receipts, payroll, tax status, VAT and a bank import.",
+    "alt": "Jarvis Finance wing tool grid with payment links, ledger, receipts, payroll, invoices, VAT tracker, tax status and bank import.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-162031",
+    "chapter": "Finance",
+    "caption": "Giving and impact has its own page, so generosity is tracked like any other line of the business.",
+    "alt": "Jarvis Giving and Impact page with empty tiles for total given, deductible giving and impact stories.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-162114",
+    "chapter": "Finance",
+    "caption": "Investor Relations tracks the allocation and payments owed to an investor, from one setup button.",
+    "alt": "Jarvis Investor Relations page with empty allocation and payment tiles and a set up investor button.",
+    "reviewed": "2026-11-15"
   },
   {
     "id": "jarvis-162255",
@@ -147,6 +203,34 @@
     "reviewed": "2026-11-11"
   },
   {
+    "id": "jarvis-162934",
+    "chapter": "Marketing",
+    "caption": "The publishing desk counts what went out today, the posting streak and what still needs posting by hand.",
+    "alt": "Jarvis marketing publishing page with posted today, posting streak, failed and due by hand tiles above a post by hand queue.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-163238",
+    "chapter": "Marketing",
+    "caption": "The Daily Desk lines up the day's posts per platform with a copy button, so nothing depends on memory.",
+    "alt": "Jarvis Daily Desk showing a progress bar of posts today and a drafted long-form article ready to copy.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-163442",
+    "chapter": "Marketing",
+    "caption": "The TikTok scheduler starts from a video format and a hook formula, then drafts the content pack with AI.",
+    "alt": "Jarvis TikTok scheduler with three brand accounts, video format cards and an AI content pack generator box.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-163545",
+    "chapter": "Marketing",
+    "caption": "Dev platforms: draft an article once and publish it to Hashnode, Dev.to or Medium from the same screen.",
+    "alt": "Jarvis Dev Platforms page with Hashnode, Dev.to and Medium tabs above an AI article generator.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "jarvis-200752",
     "chapter": "Body",
     "caption": "The Athlete: HRV-synced, cycle-aware training, with each session logged as a win.",
@@ -159,6 +243,13 @@
     "caption": "The SA Foods Database: South African traditional and local foods with their nutrition.",
     "alt": "Body wing SA Foods Database listing local foods with protein, carbohydrate and calorie figures.",
     "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-201031",
+    "chapter": "Body",
+    "caption": "The Body wing hub links training, recovery, nutrition and the cycle wing, and syncs training intensity to the cycle phase.",
+    "alt": "Jarvis Body wing tool grid with training log, recovery hub, nutrition log, supplements, pilates and a cycle wing link.",
+    "reviewed": "2026-11-15"
   },
   {
     "id": "jarvis-163959",
@@ -217,6 +308,34 @@
     "reviewed": "2026-11-11"
   },
   {
+    "id": "jarvis-164904",
+    "chapter": "Engineering",
+    "caption": "The Dojo is a guided curriculum: the stack taught from the ground up, one lesson at a time, with progress kept.",
+    "alt": "Jarvis Dojo Guided Curriculum with a progress bar and lessons on TypeScript, async functions, generics and the Next.js App Router.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-165019",
+    "chapter": "Engineering",
+    "caption": "Workshops are written from the studio's own repos, graded beginner to advanced, with a quiz after each one.",
+    "alt": "Jarvis Workshops page with beginner, intermediate and advanced tracks and a button that generates the next workshop.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-165414",
+    "chapter": "Engineering",
+    "caption": "Load testing runs a smoke test against a live app and keeps a latency trend per app.",
+    "alt": "Jarvis Load Testing page with app and scenario pickers, a run test button and a latency trend list of recent runs.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-165513",
+    "chapter": "Engineering",
+    "caption": "Multi-Repo Intelligence compares shared packages across every repo and says which version splits matter most.",
+    "alt": "Jarvis Multi-Repo Intelligence page with package and divergence counts and an AI insight on the most critical dependency risk.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "jarvis-165810",
     "chapter": "Sanctuary",
     "caption": "The Muse: the creative wing, with new writing logged as it is made.",
@@ -238,6 +357,97 @@
     "reviewed": "2026-11-11"
   },
   {
+    "id": "jarvis-165837",
+    "chapter": "Sanctuary",
+    "caption": "The Creative Sanctuary keeps the poet's rule on the page: the poet leads, the AI follows.",
+    "alt": "Jarvis Creative Sanctuary home with a level and experience bar, three creative masters and a statement that the poet leads and the AI follows.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-170158",
+    "chapter": "Sanctuary",
+    "caption": "The Writing Room keeps every piece in progress, with word counts and a status filter.",
+    "alt": "Jarvis Writing Room listing pieces in progress with total word count tiles and draft, in progress and complete filters.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-170435",
+    "chapter": "Sanctuary",
+    "caption": "Each exercise explains why it works, so the practice is understood and not just done.",
+    "alt": "Jarvis Writing Lab exercise The Five Senses Sprint with an instruction and a learn it first explanation.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-170646",
+    "chapter": "Sanctuary",
+    "caption": "The Zoom Lens exercise teaches scene control by writing the same moment wide, medium and close.",
+    "alt": "Jarvis Writing Lab exercise The Zoom Lens with its task and a lesson on changing camera distance.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-170743",
+    "chapter": "Sanctuary",
+    "caption": "Style imitation trains rhythm by copying a master's sentence shape, then writing new content into it.",
+    "alt": "Jarvis Writing Lab exercise The Style Imitation with instructions to copy a master's sentence rhythm.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-172427",
+    "chapter": "Sanctuary",
+    "caption": "Cliche Killers: rewrite stale phrases with fresh imagery while keeping the emotion.",
+    "alt": "Jarvis Writing Lab exercise Cliche Killers with a task to rewrite ten cliched phrases.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-172609",
+    "chapter": "Sanctuary",
+    "caption": "Writing Lab: ten minute exercises that teach a craft move first and then ask for the practice.",
+    "alt": "Jarvis Writing Lab exercise called The Specificity Upgrade with a learn it first lesson.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-172738",
+    "chapter": "Sanctuary",
+    "caption": "The Dialogue Lab teaches subtext, distinct voices and code-switching with a worked example under each lesson.",
+    "alt": "Jarvis Dialogue Lab with lesson tabs for subtext, distinct voices and code-switching and an example exchange.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-172946",
+    "chapter": "Sanctuary",
+    "caption": "The Poetry Room files poems by form and status, so published and unfinished work sit side by side.",
+    "alt": "Jarvis Poetry Room with poem counts, form filters and a list of poems marked published or draft.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-173141",
+    "chapter": "Sanctuary",
+    "caption": "The Poetry Dojo is a list of twelve techniques with a level of mastery tracked for each.",
+    "alt": "Jarvis Poetry Dojo grid of techniques such as imagery, the volta, compression and anaphora, with session and mastery counters.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-173237",
+    "chapter": "Sanctuary",
+    "caption": "The Word Vault: one word owned a day, with its origin and a spaced review queue.",
+    "alt": "Jarvis Word Vault with a review queue, a word lookup and a daily word with its etymology and usage.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-193425",
+    "chapter": "Sanctuary",
+    "caption": "Novel House keeps each manuscript with its chapters, word goal and a note of what it is about.",
+    "alt": "Jarvis Novel House listing manuscripts with word and chapter counts and a progress bar toward a word goal.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-194135",
+    "chapter": "Sanctuary",
+    "caption": "The Style Lab analyses any pasted prose for craft, and sits beside the poetry and writing rooms.",
+    "alt": "Jarvis Style Lab with a large box to paste prose and an analyse button, above links to the Poet's Room, Poetry Dojo and Writing Lab.",
+    "reviewed": "2026-11-15"
+  },
+  {
     "id": "jarvis-194252",
     "chapter": "Scholar",
     "caption": "The Librarian: a fragment vault of everything worth keeping, with new fragments logged as wins.",
@@ -257,5 +467,124 @@
     "caption": "The Language Studio: a Luganda lesson that teaches the grammar through a sentence about herself.",
     "alt": "Scholar language studio lesson in Luganda with the phrase and its English translation.",
     "reviewed": "2026-11-11"
+  },
+  {
+    "id": "jarvis-194442",
+    "chapter": "Scholar",
+    "caption": "The Bookworm curriculum groups reading into tracks, each with its own progress.",
+    "alt": "Jarvis Bookworm curriculum list of tracks such as CEO thinking, legal intelligence and language mastery, each with a progress bar.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-194606",
+    "chapter": "Scholar",
+    "caption": "The Librarian is the Scholar wing's front door: fragments, synthesis, languages, the book shelf and the writing profile.",
+    "alt": "Jarvis Scholar wing grid of tools including growth map, fragment vault, language studio and bookworm library.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-194751",
+    "chapter": "Scholar",
+    "caption": "A book curriculum turns reading into lessons, with a recall tool to test what stayed.",
+    "alt": "Jarvis CEO Book Curriculum page with a track of mental models and a list of books with lesson progress.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-194916",
+    "chapter": "Scholar",
+    "caption": "Intelligence Elite opens each day with one brief, a key insight and a feed behind it.",
+    "alt": "Jarvis Intelligence Elite daily brief with a skills spotlight, a key insight box and an intelligence feed.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-194958",
+    "chapter": "Scholar",
+    "caption": "The weekly brief ranks what trended across the sources and can be regenerated for the week.",
+    "alt": "Jarvis Intelligence Elite weekly brief listing ranked trending topics with article counts and a regenerate button.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-195131",
+    "chapter": "Scholar",
+    "caption": "Language Studio: five languages with a next lesson, a review queue and a role-play mission for each day.",
+    "alt": "Jarvis Language Studio with study days, vocab and due tiles, a today's practice panel and a Luganda progress row.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-195303",
+    "chapter": "Scholar",
+    "caption": "Lessons are written for the work the learner does, here French greetings for formal business.",
+    "alt": "Jarvis language lesson on formal French greetings with example phrases and a start ten exercises button.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-195344",
+    "chapter": "Scholar",
+    "caption": "The Afrikaans lesson teaches numbers through the situations they are used in, like prices and ages.",
+    "alt": "Jarvis Afrikaans lesson on numbers one to one hundred with example sentences and pronunciation hints.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-195436",
+    "chapter": "Scholar",
+    "caption": "The Mandarin lesson starts with tones, the thing that changes meaning, and explains why it matters for business.",
+    "alt": "Jarvis Mandarin lesson on four tones and neutral tone with example characters and a start exercises button.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-195529",
+    "chapter": "Scholar",
+    "caption": "The vocabulary list shows what is due for review, per language.",
+    "alt": "Jarvis vocabulary list of French words and phrases each marked due, with language filters above.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-195749",
+    "chapter": "Scholar",
+    "caption": "The Bookworm reading room sorts sixty three books into themes, each with a daily practice to apply it.",
+    "alt": "Jarvis Bookworm reading room with category filters and book cards that each carry a daily practice and a practice today button.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-195838",
+    "chapter": "Scholar",
+    "caption": "The builders and tech shelf turns each book into one action for the day, like asking threat questions of an app.",
+    "alt": "Jarvis Bookworm shelf for builders and tech with book cards and a daily practice on each.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-200033",
+    "chapter": "Scholar",
+    "caption": "The African canon shelf keeps lineage and language in the reading list, with a practice per book.",
+    "alt": "Jarvis Bookworm shelf titled African Canon with book cards and daily practices.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-200102",
+    "chapter": "Scholar",
+    "caption": "The writer's shelf pairs each craft book with a short daily writing task.",
+    "alt": "Jarvis Bookworm shelf titled The Writer's Shelf with four craft books and a daily practice under each.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-200412",
+    "chapter": "Scholar",
+    "caption": "The money mindset shelf ties each book to a small action on the business's own numbers.",
+    "alt": "Jarvis Bookworm shelf titled Money Mindset with book cards and a daily practice on each.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-200453",
+    "chapter": "Scholar",
+    "caption": "The long game shelf is strategy reading with one thing to do today for each title.",
+    "alt": "Jarvis Bookworm shelf titled Long Game with strategy books and daily practices.",
+    "reviewed": "2026-11-15"
+  },
+  {
+    "id": "jarvis-200520",
+    "chapter": "Scholar",
+    "caption": "The negotiation shelf gives word-for-word practice to rehearse before the next sales conversation.",
+    "alt": "Jarvis Bookworm shelf titled Negotiation with book cards and rehearsal practices.",
+    "reviewed": "2026-11-15"
   }
 ]
