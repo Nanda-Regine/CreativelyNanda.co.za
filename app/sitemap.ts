@@ -79,6 +79,7 @@ const POETRY: Entry[] = [
   { path: '/poetry/collection', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/poetry/wall', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/poetry/stage', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/poetry/press', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/poetry/lineage', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/poetry/poet-who-codes', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/poetry/games', changeFrequency: 'monthly', priority: 0.6 },

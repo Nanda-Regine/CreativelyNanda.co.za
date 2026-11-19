@@ -1,5 +1,15 @@
 # CreativelyNanda.co.za — Build Journey
 
+## Press system, poet side (Nov 20 2026)
+
+**Goal:** a proper press system on both sites, one kit per audience, one set of facts per repo.
+- **Merged first:** `feat/evidence-wing` went to `main` (fast-forward, `df49093`) at Nanda's request. The CI build passed in 2m37s and the live site shows the hiring block, the `hello@mirembemuse.co.za` inbox and the ISD partner line. Studio floors, case files, robots and sitemap return 200.
+- **Plan of record:** `docs/plans/press-system.md`. Two kits that link to each other: the poet's at `/poetry/press` (new), the company's at mirembemuse.co.za/press (exists). `/press` here keeps redirecting to the company kit, so no production redirect changed. A sub-path of `/press` would have been treated as Mirembe by `hrefFor`, which is why the poet's kit is under `/poetry`.
+- **Built (branch `feat/press-split`, not merged):** `/poetry/press` with two bios and a copy button each, fast facts with sources, "as seen on" (Gqeberha: The Empire, Madibaz Radio, TRU FM, live spoken word), three booking doors with the subject written, and a link to the company kit. Facts live in `lib/data/press-kit.ts`: nothing without a source, no dates or fees we do not have. Added to the sitemap.
+- **Found in Mirembe (read only, not touched):** repo `MirembeApp`, default branch `master`, working branch `feat/media-showcase-foundation` holds uncommitted journal edits from another session. It already has a press page plus a generated PDF kit, and an ecosystem page at `/architecture` whose data (`lib/data/ecosystem.ts`) is stale: StokvelOS shows as coming, the client platforms and partner network are missing.
+- **Checked:** esbuild syntax, no em dashes. **Not yet checked:** type-check (banned locally), the 360/768/1280 render, the console.
+- **Needs Nanda:** booking terms, which photos are cleared for press and their credits, one clip, the main retailer link for the book, and a go-ahead to work in Mirembe through a worktree off `master`.
+
 ## Hiring and partnership block on the Forge (Nov 20 2026)
 
 **Goal:** give a hiring manager, funder or client a clear next step at the end of /forge, backed by proof they can check.
