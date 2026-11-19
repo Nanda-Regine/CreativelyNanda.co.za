@@ -29,6 +29,7 @@ export const RosterAppSchema = z
     caseFile: z.enum(['adminos', 'jarvis', 'sanyu']).optional(),
     recording: z.string().optional(),
     dossier: z.string().optional(),
+    partner: z.object({ name: noDash.max(48), role: noDash.max(32) }).optional(),
   })
   .refine((a) => a.access !== 'owner-only' || !a.liveUrl, 'owner-only apps have no public link')
   .refine((a) => a.status === 'live' || !a.caseFile, 'bench apps have no case file');

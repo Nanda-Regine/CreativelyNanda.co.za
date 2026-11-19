@@ -392,6 +392,11 @@ export default function StudioFloor({ floor, next, reel, mediaBase }: { floor: F
             </p>
             <span aria-hidden className="mt-4 block h-px w-full max-w-md" style={{ background: GOLD }} />
             <p className="mt-6 max-w-2xl font-display text-xl italic leading-relaxed t-ink md:text-2xl">{app.line}</p>
+            {app.partner ? (
+              <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] t-ink">
+                {app.partner.role}: <span className="t-gold">{app.partner.name}</span>
+              </p>
+            ) : null}
             {app.liveUrl ? (
               <a
                 href={app.liveUrl}

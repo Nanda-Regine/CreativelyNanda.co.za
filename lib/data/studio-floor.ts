@@ -57,6 +57,7 @@ export interface FloorApp {
   accentInk: string;
   caseFile: string | null;
   dossier: string | null;
+  partner: { name: string; role: string } | null;
 }
 
 export interface Floor {
@@ -100,6 +101,7 @@ const toFloorApp = (a: RosterApp): FloorApp => ({
   accentInk: a.accentInk,
   caseFile: a.caseFile ?? null,
   dossier: a.dossier ?? null,
+  partner: a.partner ?? null,
 });
 
 function groupChapters(shots: Shot[], device: 'phone' | 'desk'): FloorChapter[] {

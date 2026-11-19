@@ -44,6 +44,8 @@ export interface RosterApp {
   recording?: string;
   /** /forge/floor/<dossier> */
   dossier?: string;
+  /** The named partner behind or beside the product, shown under the line. Only with the partner's consent. */
+  partner?: { name: string; role: string };
 }
 
 export const ROSTER: RosterApp[] = [
@@ -120,12 +122,14 @@ export const ROSTER: RosterApp[] = [
     line: 'A digital membership platform with governed data infrastructure.',
     liveUrl: 'https://www.isd-membership-platform.co.za', host: 'isd-membership-platform.co.za', access: 'login',
     paper: '#E9ECE2', accent: '#6E8B3D', accentInk: '#3C5018', cover: { kind: 'plate' },
+    partner: { name: 'Infrastructure Skills Developers', role: 'Strategic partner' },
   },
   {
     key: 'greendiaspora', name: 'Green Diaspora', relationship: 'client', status: 'live', band: 'client', order: 12,
     line: 'Event management for the Green Diaspora Forum: pledge ledger, matchmaking, check-in and impact.',
     liveUrl: 'https://greendiaspora.mirembemuse.co.za', host: 'greendiaspora.mirembemuse.co.za', access: 'login',
     paper: '#E3EEE6', accent: '#2E9B5E', accentInk: '#125A31', cover: { kind: 'plate' },
+    partner: { name: 'Uplift Institute', role: 'Built for' },
   },
   {
     key: 'amanda', name: 'Amanda Ibezim', relationship: 'client', status: 'live', band: 'client', order: 13,
