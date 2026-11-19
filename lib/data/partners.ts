@@ -42,7 +42,8 @@ export const PARTNERS: Partner[] = [
   },
 ];
 
-export const CONTACT_EMAIL = 'hello@creativelynanda.co.za';
+/** The business inbox for hiring, partnership and commissions (Nanda, 20 Nov 2026). The poet's inbox stays hello@creativelynanda.co.za. */
+export const CONTACT_EMAIL = 'hello@mirembemuse.co.za';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/nandawula-kabali-kagwa-584bb0262/';
 export const GITHUB_URL = 'https://github.com/Nanda-Regine';
 
