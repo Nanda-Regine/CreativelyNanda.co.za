@@ -1,5 +1,15 @@
 # CreativelyNanda.co.za — Build Journey
 
+## Hiring and partnership block on the Forge (Nov 20 2026)
+
+**Goal:** give a hiring manager, funder or client a clear next step at the end of /forge, backed by proof they can check.
+- **Built:** a closing parchment section on the Forge threshold, "Build with the network". Three doors with the subject line already written: *Hire* (roles and retainers), *Partner or fund* (institutions and programmes, the ISD model), *Commission* (clients and events, handed to Mirembe Muse). Below them the four partners with honest labels, then email, LinkedIn and GitHub, and "CV and references on request".
+- **Shared data:** `lib/data/partners.ts` holds the partner names, labels and contact links, so the ecosystem page on mirembemuse.co.za can reuse the same wording. Only ISD is called a strategic partner (MOU).
+- **Numbers:** the live-platform count comes from the roster (17). The commit count was left out on purpose: the Forge measures 4,249 across twelve repositories while the site says 5,000+, and two figures in one view would read as a contradiction.
+- **Analytics:** one new event, `forge_work_with` (door id only). The Mirembe Muse door reuses `mirembe_handoff`.
+- **Checked:** esbuild syntax, roster check, Forge preflight (one old warning in an untouched file), no em dashes. **Not yet checked:** type-check (banned locally), the 360/768/1280 render and the console. Run those on staging.
+- **Needs Nanda:** a public CV file if she wants one linked (none exists in `public/`; the PDF in the repo root was not published), and confirmation that hello@creativelynanda.co.za is the right inbox for hiring and partnership.
+
 ## Screens chosen, privacy pass, and the partner line (Nov 19 to 20 2026)
 
 **Goal:** decide which screens go public on the studio floors, and name the partners behind the client platforms.

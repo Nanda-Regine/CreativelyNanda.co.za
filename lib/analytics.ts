@@ -44,6 +44,7 @@ export type ForgeEvent =
   | 'forge_filter'          // a build filter was used on nights / commits
   | 'forge_live_app_click'  // someone left for one of the live products
   | 'forge_repo_click'      // someone went to a repository
+  | 'forge_work_with'       // a door in the hiring and partnership block was taken (door id only)
   // ── Poetry ──
   | 'poem_xray_open'        // X-ray was switched on for a poem
   | 'poem_xray_device'      // a device was chosen inside the X-ray

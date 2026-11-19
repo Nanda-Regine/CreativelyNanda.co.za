@@ -36,6 +36,38 @@ import { screenSrc } from "@/components/forge/StudioPhone";
 import { screenUrl } from "@/lib/data/evidence/media";
 import type { MixItem } from "@/lib/data/studio-floor";
 import { THROUGHLINE } from '@/lib/data/forge-origins';
+import { LIVE } from '@/lib/data/roster';
+import { PARTNERS, CONTACT_EMAIL, LINKEDIN_URL, GITHUB_URL, mailto } from '@/lib/data/partners';
+import { trackOutbound } from '@/lib/analytics';
+
+/** The three ways in. Each is an email with the subject already written, so the first message arrives sorted. */
+const DOORS: { id: string; kicker: string; title: string; line: string; cta: string; href: string; external?: boolean }[] = [
+  {
+    id: 'hire',
+    kicker: 'Hire',
+    title: 'Roles and retainers',
+    line: 'Remote AI engineering, or a fractional AI officer for a team that needs the systems built and kept running. Production work, in ZAR and across time zones.',
+    cta: 'Start a hiring conversation',
+    href: mailto('Hiring enquiry'),
+  },
+  {
+    id: 'partner',
+    kicker: 'Partner or fund',
+    title: 'Institutions and programmes',
+    line: 'Platforms built with the people who will run them, and local developers trained on the same project. This is the model behind the ISD partnership.',
+    cta: 'Talk partnership',
+    href: mailto('Partnership enquiry'),
+  },
+  {
+    id: 'commission',
+    kicker: 'Commission',
+    title: 'Clients and events',
+    line: 'One point of contact for the platform, the design and the live event. Business projects are run through Mirembe Muse.',
+    cta: 'Go to Mirembe Muse',
+    href: 'https://mirembemuse.co.za',
+    external: true,
+  },
+];
 
 const ROOMS: { name: string; line: string; href?: string }[] = [
   { name: 'Where It Started', line: 'Nine foundation projects. The sequence is the argument.', href: '/forge/origins' },
@@ -302,6 +334,80 @@ export default function ForgeThreshold({ stats, studioMix = [] }: { stats: Forge
             >
               Where they came from <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
+          </Reveal>
+        </div>
+      </Ground>
+
+      {/* ═══ WORK WITH THE NETWORK: hiring and partnership, on parchment ═════
+          Authority comes from proof a stranger can check, so every claim here
+          points at a live product, a measured number or a named partner. */}
+      <Ground ground="parchment" className="px-6 py-24 md:py-32" edge="slant" id="work-with">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: parchment.accent }}>
+              Hire · Partner · Commission
+            </p>
+            <h2 className="mt-4 max-w-3xl font-display font-bold italic leading-[1.02]" style={{ fontSize: 'clamp(2.2rem, 6vw, 4.5rem)' }}>
+              Build with the network.
+            </h2>
+            <p className="mt-6 max-w-2xl text-[16px] font-light leading-[1.85]" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>
+              One engineer builds the technology: {LIVE.length} live platforms, open to inspection in the rooms above.
+              Around that sits a partner network for skills, institutions, creative
+              production and events, so a project can be delivered whole.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {DOORS.map((d, i) => (
+              <Reveal key={d.id} delay={Math.min(i * 0.06, 0.3)} className="h-full">
+                <div className="flex h-full flex-col border-t pt-5" style={{ borderColor: `${parchment.ink}33` }}>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.24em]" style={{ color: parchment.accent }}>{d.kicker}</p>
+                  <h3 className="mt-3 font-display text-2xl font-bold italic leading-tight">{d.title}</h3>
+                  <p className="mt-3 flex-1 text-[15px] font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>{d.line}</p>
+                  <a
+                    href={d.href}
+                    {...(d.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    onClick={trackOutbound(d.href, d.external ? 'mirembe_handoff' : 'forge_work_with', { door: d.id, from: 'forge' })}
+                    className="mt-6 inline-flex min-h-[44px] items-center gap-1.5 self-start text-sm underline underline-offset-4"
+                    style={{ color: parchment.accent }}
+                  >
+                    {d.cta} <ArrowUpRight aria-hidden className="h-4 w-4" />
+                  </a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.1}>
+            <p className="mt-20 font-mono text-[11px] uppercase tracking-[0.32em]" style={{ color: parchment.accent }}>
+              The network
+            </p>
+            <ul className="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+              {PARTNERS.map((p) => (
+                <li key={p.key} className="border-t pt-4" style={{ borderColor: `${parchment.ink}1F` }}>
+                  <p className="font-display text-xl italic leading-snug">{p.name}</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: parchment.accent }}>{p.role}</p>
+                  <p className="mt-2 text-[15px] font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>{p.line}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={0.14}>
+            <p className="mt-16 text-[15px] font-light leading-relaxed" style={{ color: 'rgb(var(--ink-rgb) / 0.8)' }}>
+              Prefer to look first? CV and references on request.{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="underline underline-offset-4" style={{ color: parchment.accent }} onClick={trackOutbound(`mailto:${CONTACT_EMAIL}`, 'forge_work_with', { door: 'email', from: 'forge' })}>
+                {CONTACT_EMAIL}
+              </a>
+              {' · '}
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: parchment.accent }} onClick={trackOutbound(LINKEDIN_URL, 'forge_work_with', { door: 'linkedin', from: 'forge' })}>
+                LinkedIn
+              </a>
+              {' · '}
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: parchment.accent }} onClick={trackOutbound(GITHUB_URL, 'forge_repo_click', { from: 'forge_work_with' })}>
+                GitHub
+              </a>
+            </p>
           </Reveal>
         </div>
       </Ground>
