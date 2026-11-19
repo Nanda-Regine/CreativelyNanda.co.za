@@ -9,6 +9,8 @@
 - **Found in Mirembe (read only, not touched):** repo `MirembeApp`, default branch `master`, working branch `feat/media-showcase-foundation` holds uncommitted journal edits from another session. It already has a press page plus a generated PDF kit, and an ecosystem page at `/architecture` whose data (`lib/data/ecosystem.ts`) is stale: StokvelOS shows as coming, the client platforms and partner network are missing.
 - **Checked:** esbuild syntax, no em dashes. **Not yet checked:** type-check (banned locally), the 360/768/1280 render, the console.
 - **Needs Nanda:** booking terms, which photos are cleared for press and their credits, one clip, the main retailer link for the book, and a go-ahead to work in Mirembe through a worktree off `master`.
+- **Where we stopped (20 Nov 2026, end of day):** `main` = `df49093` (evidence wing, studio screens, hiring block; live). `feat/press-split` is pushed and unmerged (poet press kit, press plan, this journal). Four dropped screens are still on R2 by direct URL, her call to delete. `s.html` is untracked.
+- **Tomorrow, in order:** (1) her answers on booking terms, photos, clip, retailer link; (2) decide whether to merge `feat/press-split` to `main`; (3) Mirembe worktree off `master`: ecosystem page data refreshed to the real roster plus the partner network, press page and PDF kit brought to the same facts with the cross-link; (4) staging render check of the studio floors, hiring block and `/poetry/press` at 360/768/1280 and the console; (5) outcome numbers and partner quotes, with consent.
 
 ## Hiring and partnership block on the Forge (Nov 20 2026)
 
