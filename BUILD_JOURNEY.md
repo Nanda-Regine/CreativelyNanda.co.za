@@ -1,5 +1,16 @@
 # CreativelyNanda.co.za — Build Journey
 
+## Screens chosen, privacy pass, and the partner line (Nov 19 to 20 2026)
+
+**Goal:** decide which screens go public on the studio floors, and name the partners behind the client platforms.
+- **Nanda's call:** she asked me to choose the public screens. Rule used: show the product, never a person. Every kept screen was looked at as an image before any upload.
+- **Kept:** AdminOS 36, Jarvis 62, Sanyu 21, Green Diaspora 10, The Selves of Us 7, ISD 3, ECDC 2, Amanda 2.
+- **Left out for privacy:** AdminOS contacts, suppliers, staff, contracts and safety incidents (realistic names with phone numbers or emails, even though sample data); a Jarvis finance screen with a customer name (kept, with the top band blacked out), a Demand Radar lead naming a third party, private draft and unpublished poem titles, a Novel House manuscript naming a private person; the Green Diaspora speakers strip (named people's photos), a child's photo and a story naming a third party's health history on The Selves of Us, a face photo on Amanda's site. 17 more near-duplicate Jarvis lessons were trimmed.
+- **Partner line:** the roster has an optional `partner` field. ISD shows 'Strategic partner: Infrastructure Skills Developers' and Green Diaspora shows 'Built for: Uplift Institute' (both confirmed public by Nanda). Plan of record: `docs/plans/ecosystem-positioning.md`.
+- **Media:** 570 files (17.4 MB) for AdminOS and Jarvis uploaded to R2; all 429 kept image URLs return 200. `build-derivatives.mjs` gained `--only-new` after a full Jarvis rebuild was killed for low memory.
+- **Checked:** roster check, content check, esbuild syntax, image URLs. **Not checked:** type-check (banned locally), 360/768/1280 render, console.
+- **Open:** four dropped screens are still on R2 by direct URL (greendiaspora-140525, selves-151216, selves-151336, amanda-150851); deleting them is Nanda's call. Outcome numbers and partner quotes need consent. Staging check, then merge to main.
+
 ## App Studio v2: the shelf of 17, the studio floor and eight case files (Nov 14 to 15 2026)
 
 **Goal:** turn /forge/studio from a gallery of two apps into a place that shows all 17 live platforms, with a public case file behind each one that has screens.
