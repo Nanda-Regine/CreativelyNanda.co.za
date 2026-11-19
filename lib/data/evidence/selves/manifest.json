@@ -15,22 +15,6 @@
     "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoYAAoAPwForE6rJaQiMAgBYCAJaQAAWsfVIgSqEf1AHgAA/vDLpSur15m+dFJDghKZWGtXcj9w97b6xrh+k1Z3Ay7Wh/QBL6CgAA==",
     "redacted": false
   },
-  "selves-151216": {
-    "w": 1366,
-    "h": 626,
-    "widths": [
-      480,
-      960,
-      1366
-    ],
-    "avif": [
-      960,
-      1366
-    ],
-    "color": "#636b6f",
-    "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQAwCdASoYAAoAPwFqrE8rJiQiMAgBYCAJYwAATvwqnh7PBYI6/OgA/tgSPeb+Ef25v3Aj9Wx3omK6Fdx3OTME+W7QLR6JMCDfLeHkTBwObYcPMFT+1n43GmE2MT03OiW7HKbsEPxOuUsye9zBd8QDT2TrdKkQAAA=",
-    "redacted": false
-  },
   "selves-151241": {
     "w": 1366,
     "h": 626,
@@ -61,22 +45,6 @@
     ],
     "color": "#312e32",
     "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoYAAoAPwFurk+rJqQiMAgBYCAJaQAAW9mcPqPPQBUnjGAAAP7kBVssOpKRcokjBT9hhl8es5RJ48F1Ox325St+Z8wbTNAAAAA=",
-    "redacted": false
-  },
-  "selves-151336": {
-    "w": 1366,
-    "h": 626,
-    "widths": [
-      480,
-      960,
-      1366
-    ],
-    "avif": [
-      960,
-      1366
-    ],
-    "color": "#120f12",
-    "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAwAgCdASoYAAoAA8BgJaQAAudenga//epRMAD+9osdeAaGPNJp2y79KPuwx/bN4Xwrz6AAAAA=",
     "redacted": false
   },
   "selves-151352": {

@@ -5,6 +5,7 @@
  *   node scripts/evidence/build-derivatives.mjs --app adminos            # build
  *   node scripts/evidence/build-derivatives.mjs --app adminos --dry      # list only
  *   node scripts/evidence/build-derivatives.mjs --app adminos --review   # also write a review sheet
+ *   node scripts/evidence/build-derivatives.mjs --app jarvis --only-new  # skip screens already in manifest.json (light on memory), merge the rest
  *
  * Rules this script enforces (docs/EVIDENCE_WING.md, section 4):
  *  - ONLY screens listed in lib/data/evidence/<app>/screens.json are processed. Nothing else leaves the work folder.
@@ -121,11 +122,14 @@ function redactionFilter(rects, w, h) {
   return { graph: chain.slice(0, -1), out: last };
 }
 
+const manifestFile = path.join(ROOT, 'lib', 'data', 'evidence', app, 'manifest.json');
+const existing = flag('only-new') && fs.existsSync(manifestFile) ? JSON.parse(fs.readFileSync(manifestFile, 'utf8')) : {};
 const manifest = {};
 let n = 0;
 console.log(`${flag('dry') ? 'DRY RUN: ' : ''}${app}: ${screens.length} listed screens, ${Object.keys(redactions).length} with redactions`);
 
 for (const s of screens) {
+  if (existing[s.id]) continue;
   const src = sourceFor(s.id);
   if (!src) die(`source image for "${s.id}" not found in ${srcDirs.join(', ')}`);
   const { w, h } = probe(src);
@@ -162,8 +166,9 @@ for (const s of screens) {
 }
 
 if (!flag('dry')) {
-  const manifestFile = path.join(ROOT, 'lib', 'data', 'evidence', app, 'manifest.json');
-  fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + '\n');
+  const merged = {};
+  for (const sc of screens) merged[sc.id] = manifest[sc.id] ?? existing[sc.id];
+  fs.writeFileSync(manifestFile, JSON.stringify(merged, null, 2) + '\n');
   console.log(`\nWrote ${n} screens. Manifest: ${path.relative(ROOT, manifestFile)}`);
   console.log(`Derivatives: ${outDir}\nDev copy: ${path.relative(ROOT, devDir)} (git-ignored)`);
 

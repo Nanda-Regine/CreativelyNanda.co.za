@@ -63,22 +63,6 @@
     "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABQAwCdASoYAAoAPwForE6rJaQiMAgBYCAJZwC7ADBr/oyAAAD+7pGz/pdciZhvMDBotAjWaf33/e7P4ImL4AAA",
     "redacted": false
   },
-  "greendiaspora-140525": {
-    "w": 1366,
-    "h": 626,
-    "widths": [
-      480,
-      960,
-      1366
-    ],
-    "avif": [
-      960,
-      1366
-    ],
-    "color": "#ceddce",
-    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoYAAoAPwFqrU6rJiQiMAgBYCAJZwC7AB6u3ftwy8964AAA/uqSJ2VQneIyxj4MkzP6Kpfj8Z6Ts/sVaIzYD6Cv47seEfD4H8BzAlXE5QAAAA==",
-    "redacted": false
-  },
   "greendiaspora-140636": {
     "w": 1366,
     "h": 626,

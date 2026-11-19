@@ -91,13 +91,6 @@
     "reviewed": "2026-11-15"
   },
   {
-    "id": "adminos-143957",
-    "chapter": "Get paid",
-    "caption": "The Sales Cockpit surfaces leads that have gone quiet and offers a one tap way to re-engage them.",
-    "alt": "AdminOS Sales Cockpit with an advisor banner about contacts gone quiet, pipeline and contact tiles, and a going cold list.",
-    "reviewed": "2026-11-15"
-  },
-  {
     "id": "adminos-143822",
     "chapter": "Know the numbers",
     "caption": "A 90-day cash forecast, labelled as an estimate, with the runway in days.",
@@ -154,24 +147,10 @@
     "reviewed": "2026-11-15"
   },
   {
-    "id": "adminos-144935",
-    "chapter": "Stay compliant",
-    "caption": "Contracts: draft, sent, signed and expired in one list, with a reminder for anything waiting on a signature.",
-    "alt": "AdminOS Contracts page with status tiles, a waiting for signature notice and a table of agreements with value and status.",
-    "reviewed": "2026-11-15"
-  },
-  {
     "id": "adminos-145008",
     "chapter": "Stay compliant",
     "caption": "The compliance calendar says what is due, what it costs to miss it, and has a mark done button on each line.",
     "alt": "AdminOS compliance calendar table with obligations, due dates, overdue and upcoming status and the penalty if missed.",
-    "reviewed": "2026-11-15"
-  },
-  {
-    "id": "adminos-145041",
-    "chapter": "Stay compliant",
-    "caption": "The safety incident register records near misses and injuries and shows which ones still need reporting.",
-    "alt": "AdminOS Safety Incidents page with count tiles, filters and a table of dated incidents.",
     "reviewed": "2026-11-15"
   },
   {
@@ -217,13 +196,6 @@
     "reviewed": "2026-11-10"
   },
   {
-    "id": "adminos-144040",
-    "chapter": "Run the business",
-    "caption": "Contacts keep who owes what in one list, with balance, sentiment and last contact beside each client.",
-    "alt": "AdminOS Contacts page with summary tiles and a searchable table of clients showing type, balance owed and last contacted.",
-    "reviewed": "2026-11-15"
-  },
-  {
     "id": "adminos-144132",
     "chapter": "Run the business",
     "caption": "Sequences: build an automated WhatsApp follow-up as timed steps, started by hand or by a new contact.",
@@ -238,13 +210,6 @@
     "reviewed": "2026-11-15"
   },
   {
-    "id": "adminos-144333",
-    "chapter": "Run the business",
-    "caption": "Suppliers carry their B-BBEE level and ownership next to payment terms, so procurement and compliance read the same record.",
-    "alt": "AdminOS Suppliers list with category, B-BBEE level, ownership, payment terms and contact columns.",
-    "reviewed": "2026-11-15"
-  },
-  {
     "id": "adminos-144706",
     "chapter": "Run the business",
     "caption": "Inventory flags what is below its reorder level before the shelf is empty.",
@@ -256,27 +221,6 @@
     "chapter": "Run the business",
     "caption": "Documents: drop a contract or receipt in and AI reads it, with the business goals tracked underneath.",
     "alt": "AdminOS Documents page with an upload area, file type tiles and a goal tracker with progress bars.",
-    "reviewed": "2026-11-15"
-  },
-  {
-    "id": "adminos-144759",
-    "chapter": "Run the business",
-    "caption": "People Cockpit: leave and expense approvals waiting on the owner, and team wellbeing, on one screen.",
-    "alt": "AdminOS People Cockpit with an advisor banner about approvals, team tiles and an approvals waiting list.",
-    "reviewed": "2026-11-15"
-  },
-  {
-    "id": "adminos-144818",
-    "chapter": "Run the business",
-    "caption": "Staff: the team with leave balances and a wellbeing view per person, so care is not left to memory.",
-    "alt": "AdminOS Staff page with a team wellbeing heatmap and a card for each staff member showing leave balance and wellbeing.",
-    "reviewed": "2026-11-15"
-  },
-  {
-    "id": "adminos-144838",
-    "chapter": "Run the business",
-    "caption": "Team Ops: who is clocked in, who is on leave and the shifts coming up.",
-    "alt": "AdminOS Team page with clock in tiles and a grid of staff member cards showing role and clocked out status.",
     "reviewed": "2026-11-15"
   },
   {
@@ -306,12 +250,5 @@
     "caption": "Load-shedding status, rand exchange rates and a phone-number validator, built in because the local context is the point.",
     "alt": "Integrations screen showing a load-shedding status, ZAR exchange rates and a phone number validator.",
     "reviewed": "2026-11-10"
-  },
-  {
-    "id": "adminos-145251",
-    "chapter": "Built for South Africa",
-    "caption": "Community: a peer feed where owners ask for help, share experience and review suppliers.",
-    "alt": "AdminOS Community page with category filters and a post from a business owner asking for help.",
-    "reviewed": "2026-11-15"
   }
 ]
