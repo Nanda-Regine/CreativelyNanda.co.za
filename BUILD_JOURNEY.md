@@ -9,7 +9,9 @@
 - **Partner line:** the roster has an optional `partner` field. ISD shows 'Strategic partner: Infrastructure Skills Developers' and Green Diaspora shows 'Built for: Uplift Institute' (both confirmed public by Nanda). Plan of record: `docs/plans/ecosystem-positioning.md`.
 - **Media:** 570 files (17.4 MB) for AdminOS and Jarvis uploaded to R2; all 429 kept image URLs return 200. `build-derivatives.mjs` gained `--only-new` after a full Jarvis rebuild was killed for low memory.
 - **Checked:** roster check, content check, esbuild syntax, image URLs. **Not checked:** type-check (banned locally), 360/768/1280 render, console.
-- **Open:** four dropped screens are still on R2 by direct URL (greendiaspora-140525, selves-151216, selves-151336, amanda-150851); deleting them is Nanda's call. Outcome numbers and partner quotes need consent. Staging check, then merge to main.
+- **Pushed:** `feat/evidence-wing` went to GitHub on 20 Nov 2026 (`970986b..5ea4151`, ten commits ahead of `main` including App Studio v2). `main` was not touched, so production is unchanged.
+- **Open:** four dropped screens are still on R2 by direct URL (greendiaspora-140525, selves-151216, selves-151336, amanda-150851); deleting them is Nanda's call. Outcome numbers and partner quotes need consent. Staging check at 360/768/1280 and the console, then merge to main when she says. `s.html` (a saved page dump) is still untracked.
+- **Next:** hiring and partnership block on the Forge, ecosystem page on mirembemuse.co.za (separate repo), `/press` split, joint Joko & Co and Taek Two project for proof. All in `docs/plans/ecosystem-positioning.md`.
 
 ## App Studio v2: the shelf of 17, the studio floor and eight case files (Nov 14 to 15 2026)
 
